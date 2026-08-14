@@ -11,7 +11,7 @@ import SocialIcons from './SocialIcons';
 
 const footerLinks = [
   {
-    title: 'Aurora',
+    title: 'FFA-X',
     items: [
       {
         label: 'About Us',
@@ -88,7 +88,7 @@ const NavSection = () => {
               variant="body2"
               sx={{ maxWidth: { xs: 400, xl: 270 }, mt: 3, color: 'text.secondary' }}
             >
-              Aurora is a complete platform with a user-friendly interface. It offers tools for
+              FFA-X is a complete platform with a user-friendly interface. It offers tools for
               seamless collaboration and easy integration with your workflow.
             </Typography>
           </Grid>
@@ -119,7 +119,7 @@ const NavSection = () => {
               color: 'text.secondary',
             }}
           >
-            Aurora Ltd © 2025, all rights reserved
+            FFA-X Ltd © 2025, all rights reserved
           </Typography>
         </Box>
       </Stack>

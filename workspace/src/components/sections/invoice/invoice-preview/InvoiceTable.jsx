@@ -3,7 +3,6 @@ import {
   Box,
   Chip,
   Grid,
-  Link,
   Paper,
   Stack,
   Table,
@@ -242,9 +241,9 @@ const InvoiceTable = ({ invoice }) => {
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           Creating with{' '}
           <Typography component="span" sx={{ fontWeight: 700, color: 'text.secondary' }}>
-            Aurora{' '}
+            FFA-X{' '}
           </Typography>
-          | 2025 &copy; <Link href="https://themewagon.com/">ThemeWagon</Link>
+          | 2025 &copy; <Typography component="span">FFA-X</Typography>
         </Typography>
       </Paper>
     </>

@@ -183,7 +183,7 @@ export const kanbanBoard = {
         {
           id: 'task4',
           label: 'feature',
-          title: 'Design wireframes for the Aurora landing page revamp',
+          title: 'Design wireframes for the FFA-X landing page revamp',
           dueDate: '2024-08-12',
           assignee: [users[2], users[4]],
           completed: false,

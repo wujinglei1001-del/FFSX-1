@@ -2,7 +2,7 @@ import { initialConfig } from 'config';
 import { users } from 'data/users';
 
 export const teamMemberListOverview = {
-  teamName: 'ThemeWagon',
+  teamName: 'FFA-X',
   teamAvatar: `${initialConfig.assetsDir}/images/logo/20.svg`,
   createdOn: '24 January, 2024',
   owner: {

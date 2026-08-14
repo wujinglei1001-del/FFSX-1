@@ -181,7 +181,7 @@ export const routes = [
     children: [
       {
         path: '/',
-        element: <Showcase />,
+        element: <Navigate to={paths.ecommerce} replace />,
       },
       {
         path: paths.showcase,

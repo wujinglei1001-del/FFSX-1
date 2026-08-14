@@ -101,7 +101,7 @@ export const description = {
                   </Typography>{' '}
                   NightSky will unveil their latest nebula-inspired compositions, while Dawn will
                   ignite the stage with their sun-kissed anthems. Hits like “Galactic Serenade” and
-                  “Aurora Borealis” are bound to leave you spellbound.
+                  “Northern Lights” are bound to leave you spellbound.
                 </Typography>
               </Stack>
             }

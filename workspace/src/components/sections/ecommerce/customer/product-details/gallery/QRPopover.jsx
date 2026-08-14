@@ -63,7 +63,7 @@ const QRPopover = () => {
       >
         <Image
           src={`${assetsDir}/images/ecommerce/misc/1.webp`}
-          alt="Themewagon QR"
+          alt="FFA-X QR"
           sx={{ width: 164, display: 'block' }}
         />
       </Popover>

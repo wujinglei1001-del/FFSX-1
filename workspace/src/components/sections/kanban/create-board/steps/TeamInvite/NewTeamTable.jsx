@@ -70,7 +70,7 @@ const NewTeamTable = ({ fields, remove }) => {
                       />
                     }
                   >
-                    Invite to Aurora
+                    Invite to FFA-X
                   </Button>
                 ) : (
                   <StyledFormControl sx={{ maxWidth: { sm: 120 }, width: 1, textAlign: 'left' }}>

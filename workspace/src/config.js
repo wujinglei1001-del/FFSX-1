@@ -20,6 +20,6 @@ export const initialConfig = {
 };
 
 export const defaultJwtAuthCredentials = {
-  email: 'demo@aurora.com',
+  email: 'demo@example.com',
   password: 'password123',
 };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Link, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import PricingHeader from 'components/sections/pricing/PricingHeader';
 import PricingTableContent from 'components/sections/pricing/table/PricingTableContent';
 
@@ -24,7 +24,7 @@ const PricingTable = () => {
             fontWeight: 400,
           }}
         >
-          Try the <Link href="#!">basic version of Aurora</Link>
+          Try the <Box component="span">basic version of FFA-X</Box>
         </Typography>
       </Box>
     </div>

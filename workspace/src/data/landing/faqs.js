@@ -85,8 +85,8 @@ export const faqCategories = [
   },
   {
     id: 'aurora',
-    title: 'Aurora',
-    description: 'Simplify backend operations with Aurora’s clean, modern admin interface.',
+    title: 'FFA-X',
+    description: 'Simplify backend operations with FFA-X’s clean, modern admin interface.',
     avatar: {
       icon: 'material-symbols:other-houses-outline-rounded',
       color: 'success',
@@ -95,75 +95,75 @@ export const faqCategories = [
     items: [
       {
         id: 1,
-        question: 'What makes Aurora unique?',
+        question: 'What makes FFA-X unique?',
         answer:
-          'Aurora is designed for seamless integration with Material UI components, offering a collection of pre-styled elements that facilitate creating cohesive, visually appealing interfaces. This integration allows developers to streamline the design process, ensuring that components fit effortlessly into various layouts and use cases, saving time and enhancing visual consistency.',
+          'FFA-X is designed for seamless integration with Material UI components, offering a collection of pre-styled elements that facilitate creating cohesive, visually appealing interfaces. This integration allows developers to streamline the design process, ensuring that components fit effortlessly into various layouts and use cases, saving time and enhancing visual consistency.',
       },
       {
         id: 2,
         question: 'Can I use third-party plugins?',
         answer:
-          'Absolutely. Aurora is compatible with numerous third-party plugins, making it highly adaptable for diverse application needs. You can add analytics, SEO tools, or specialized UI components without complex setup, offering extensive flexibility to developers who want to tailor the app while maintaining performance and stability. <br/><br/>By supporting a range of integrations, Aurora empowers developers to expand functionality with ease, while ensuring a reliable and high-performance user experience. This versatility makes Aurora a valuable choice for both startups and enterprises that prioritize adaptability and customization in their applications.',
+          'Absolutely. FFA-X is compatible with numerous third-party plugins, making it highly adaptable for diverse application needs. You can add analytics, SEO tools, or specialized UI components without complex setup, offering extensive flexibility to developers who want to tailor the app while maintaining performance and stability. <br/><br/>By supporting a range of integrations, FFA-X empowers developers to expand functionality with ease, while ensuring a reliable and high-performance user experience. This versatility makes FFA-X a valuable choice for both startups and enterprises that prioritize adaptability and customization in their applications.',
       },
       {
         id: 3,
-        question: 'Is Aurora responsive?',
+        question: 'Is FFA-X responsive?',
         answer:
-          'Aurora is fully responsive, ensuring smooth functionality across all devices, from mobile to desktop. This adaptability eliminates the need for extensive adjustments, giving users a consistently great experience that aligns with modern design standards.',
+          'FFA-X is fully responsive, ensuring smooth functionality across all devices, from mobile to desktop. This adaptability eliminates the need for extensive adjustments, giving users a consistently great experience that aligns with modern design standards.',
       },
       {
         id: 4,
         question: 'What themes are available?',
         answer:
-          'Aurora includes both light and dark themes, with options for extensive customization to meet unique brand identities. Users can modify colors, fonts, and overall styles to create an interface that reflects specific aesthetic and branding requirements. Seamless theme-switching enhances accessibility, allowing users to choose their preferred appearance effortlessly, promoting engagement and retention through a tailored user experience. <br/><br/> Aurora’s themes are built with inclusivity in mind, creating accessible and welcoming interfaces that adapt to user preferences. These options allow brands to reinforce their identity through visual consistency, contributing to a memorable, cohesive user journey.',
+          'FFA-X includes both light and dark themes, with options for extensive customization to meet unique brand identities. Users can modify colors, fonts, and overall styles to create an interface that reflects specific aesthetic and branding requirements. Seamless theme-switching enhances accessibility, allowing users to choose their preferred appearance effortlessly, promoting engagement and retention through a tailored user experience. <br/><br/> FFA-X’s themes are built with inclusivity in mind, creating accessible and welcoming interfaces that adapt to user preferences. These options allow brands to reinforce their identity through visual consistency, contributing to a memorable, cohesive user journey.',
       },
       {
         id: 5,
-        question: 'Can I use Aurora with Next.js?',
+        question: 'Can I use FFA-X with Next.js?',
         answer:
-          'Yes, Aurora is designed to integrate smoothly with Next.js, supporting both server-side rendering and static site generation. By using Next.js alongside Aurora, developers can create high-performance, SEO-friendly applications that load quickly and offer enhanced user experience. The combination brings together optimized rendering with cohesive styling, making it ideal for scalable applications across varied industries.',
+          'Yes, FFA-X is designed to integrate smoothly with Next.js, supporting both server-side rendering and static site generation. By using Next.js alongside FFA-X, developers can create high-performance, SEO-friendly applications that load quickly and offer enhanced user experience. The combination brings together optimized rendering with cohesive styling, making it ideal for scalable applications across varied industries.',
       },
       {
         id: 6,
-        question: 'Do you offer customer support for Aurora?',
+        question: 'Do you offer customer support for FFA-X?',
         answer:
-          'Yes, Aurora has a dedicated support team to assist at all stages, from installation to advanced customization. This enables developers to confidently integrate Aurora, knowing that help is available to resolve any issues they may encounter.',
+          'Yes, FFA-X has a dedicated support team to assist at all stages, from installation to advanced customization. This enables developers to confidently integrate FFA-X, knowing that help is available to resolve any issues they may encounter.',
       },
       {
         id: 7,
-        question: 'Does Aurora support localization?',
+        question: 'Does FFA-X support localization?',
         answer:
-          'Yes, Aurora is fully equipped for localization, supporting i18n for multilingual applications, making it ideal for global audiences. The framework includes settings for easy language adaptation, allowing users to switch languages and catering to diverse regional needs. This enhances accessibility and enables developers to build inclusive applications that resonate with diverse audiences. Aurora’s focus on localization also reflects a commitment to global inclusivity, making it an effective choice for brands aiming to reach a worldwide user base.',
+          'Yes, FFA-X is fully equipped for localization, supporting i18n for multilingual applications, making it ideal for global audiences. The framework includes settings for easy language adaptation, allowing users to switch languages and catering to diverse regional needs. This enhances accessibility and enables developers to build inclusive applications that resonate with diverse audiences. FFA-X’s focus on localization also reflects a commitment to global inclusivity, making it an effective choice for brands aiming to reach a worldwide user base.',
       },
       {
         id: 8,
-        question: 'Is Aurora SEO-friendly?',
+        question: 'Is FFA-X SEO-friendly?',
         answer:
-          'Yes, Aurora is developed with SEO best practices in mind, ensuring optimized headers, metadata, and load times. This helps applications rank higher in search results, boosting web visibility. Aurora’s design, combined with features like server-side rendering through Next.js, makes it ideal for creating high-performance, discoverable applications, which is essential for businesses looking to improve their online presence in an increasingly competitive digital landscape.',
+          'Yes, FFA-X is developed with SEO best practices in mind, ensuring optimized headers, metadata, and load times. This helps applications rank higher in search results, boosting web visibility. FFA-X’s design, combined with features like server-side rendering through Next.js, makes it ideal for creating high-performance, discoverable applications, which is essential for businesses looking to improve their online presence in an increasingly competitive digital landscape.',
       },
       {
         id: 9,
-        question: 'What customization options does Aurora provide?',
+        question: 'What customization options does FFA-X provide?',
         answer:
-          'Aurora offers a wide range of customization options, from color schemes and typography to layout configurations. Developers can easily adjust these elements to align with brand identity, creating a unique and cohesive design. Aurora’s flexibility empowers developers to keep their UI fresh and aligned with evolving design trends, catering to the brand’s unique vision and aesthetic requirements while maintaining a high-quality user experience.',
+          'FFA-X offers a wide range of customization options, from color schemes and typography to layout configurations. Developers can easily adjust these elements to align with brand identity, creating a unique and cohesive design. FFA-X’s flexibility empowers developers to keep their UI fresh and aligned with evolving design trends, catering to the brand’s unique vision and aesthetic requirements while maintaining a high-quality user experience.',
       },
       {
         id: 10,
-        question: 'How secure is Aurora?',
+        question: 'How secure is FFA-X?',
         answer:
-          'Aurora prioritizes security by supporting best coding practices, HTTPS, and other security protocols. It integrates well with secure libraries and frameworks, ensuring that user data remains protected. <br/><br/>Aurora’s emphasis on security makes it a dependable choice for applications requiring robust data protection measures. For developers focusing on user privacy and data integrity, Aurora’s security provisions make it a valuable asset in creating trustworthy applications. Aurora’s alignment with modern security standards means that developers can confidently build applications with built-in data protection, safeguarding user information from potential threats.',
+          'FFA-X prioritizes security by supporting best coding practices, HTTPS, and other security protocols. It integrates well with secure libraries and frameworks, ensuring that user data remains protected. <br/><br/>FFA-X’s emphasis on security makes it a dependable choice for applications requiring robust data protection measures. For developers focusing on user privacy and data integrity, FFA-X’s security provisions make it a valuable asset in creating trustworthy applications. FFA-X’s alignment with modern security standards means that developers can confidently build applications with built-in data protection, safeguarding user information from potential threats.',
       },
       {
         id: 11,
-        question: 'Does Aurora support animation?',
+        question: 'Does FFA-X support animation?',
         answer:
-          'Yes, Aurora includes built-in support for animations, allowing developers to add visual enhancements that improve user engagement. Aurora’s animations are lightweight and follow modern design trends, ensuring that applications remain responsive and visually appealing without sacrificing performance. These features make Aurora an excellent option for developers seeking to integrate dynamic elements without compromising on speed or responsiveness, contributing to a lively and interactive user experience.',
+          'Yes, FFA-X includes built-in support for animations, allowing developers to add visual enhancements that improve user engagement. FFA-X’s animations are lightweight and follow modern design trends, ensuring that applications remain responsive and visually appealing without sacrificing performance. These features make FFA-X an excellent option for developers seeking to integrate dynamic elements without compromising on speed or responsiveness, contributing to a lively and interactive user experience.',
       },
       {
         id: 12,
-        question: 'Can I integrate Aurora with REST APIs?',
+        question: 'Can I integrate FFA-X with REST APIs?',
         answer:
-          'Aurora is fully compatible with REST APIs, allowing developers to incorporate dynamic data seamlessly. This compatibility enables real-time data fetching and user-specific information display, making it suitable for creating data-driven applications. By supporting REST API integration, Aurora provides developers with the tools to build rich, interactive applications that cater to personalized user experiences and dynamic content delivery.',
+          'FFA-X is fully compatible with REST APIs, allowing developers to incorporate dynamic data seamlessly. This compatibility enables real-time data fetching and user-specific information display, making it suitable for creating data-driven applications. By supporting REST API integration, FFA-X provides developers with the tools to build rich, interactive applications that cater to personalized user experiences and dynamic content delivery.',
       },
     ],
   },

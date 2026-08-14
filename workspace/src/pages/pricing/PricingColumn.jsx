@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { pricing } from 'data/pricing';
@@ -46,7 +45,7 @@ const PricingColumn = () => {
           Confused still?
         </Typography>
         <Typography sx={{ textAlign: 'center' }}>
-          Try the <Link href="#!">basic version of Aurora</Link>
+          Try the <Box component="span">basic version of FFA-X</Box>
         </Typography>
       </Box>
     </>

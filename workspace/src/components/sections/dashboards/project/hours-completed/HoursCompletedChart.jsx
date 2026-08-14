@@ -73,7 +73,7 @@ const HoursCompletedChart = ({ sx, data }, ref) => {
       },
       series: [
         {
-          name: 'Aurora',
+          name: 'FFA-X',
           type: 'line',
           data: data.aurora,
           zlevel: 1,

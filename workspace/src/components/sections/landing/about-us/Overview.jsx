@@ -81,7 +81,7 @@ const Overview = () => {
             }}
           >
             <Box sx={{ mb: 4 }}>
-              <SectionHeader title="About aurora" subtitle="What is Aurora" sx={{ mb: 1 }} />
+              <SectionHeader title="About FFA-X" subtitle="What is FFA-X" sx={{ mb: 1 }} />
 
               <RevealText delay={0.2}>
                 <Typography
@@ -92,7 +92,7 @@ const Overview = () => {
                     mx: 'auto',
                   }}
                 >
-                  Aurora, an intuitive admin dashboard designed for seamless management, is
+                  FFA-X, an intuitive admin dashboard designed for seamless management, is
                   celebrated for its user-friendly interface, powerful analytics, and a community
                   that fosters collaboration and growth.
                 </Typography>

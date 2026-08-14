@@ -100,7 +100,7 @@ const JobInformation = () => {
             <MenuItem value="" disabled>
               Select
             </MenuItem>
-            <MenuItem value="Themewagon">Themewagon</MenuItem>
+            <MenuItem value="FFA-X">FFA-X</MenuItem>
             <MenuItem value="Mailbluster">Mailbluster</MenuItem>
             <MenuItem value="Blackbox">Blackbox</MenuItem>
             <MenuItem value="Hyperninja">Hyperninja</MenuItem>

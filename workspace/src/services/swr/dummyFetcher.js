@@ -2,7 +2,7 @@ import { products } from 'data/e-commerce/products';
 import { getItemFromStore, setItemToStore } from 'lib/utils';
 
 const testUser = {
-  email: 'demo@aurora.com',
+  email: 'demo@example.com',
   id: 1,
   name: 'Demo User',
   type: 'test',

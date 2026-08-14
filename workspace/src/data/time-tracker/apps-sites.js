@@ -50,9 +50,9 @@ const appsSitesHours = [
       },
       {
         id: 6,
-        name: 'ThemeWagon',
+        name: 'FFA-X',
         logo: logo(35),
-        link: 'https://themewagon.com/themes/',
+        link: 'FFA-X',
         hours: 10510,
         progress: 70,
       },
@@ -81,9 +81,9 @@ const appsSitesHours = [
       },
       {
         id: 2,
-        name: 'ThemeWagon',
+        name: 'FFA-X',
         logo: logo(35),
-        link: 'https://themewagon.com/themes/',
+        link: 'FFA-X',
         hours: 10510,
         progress: 70,
       },

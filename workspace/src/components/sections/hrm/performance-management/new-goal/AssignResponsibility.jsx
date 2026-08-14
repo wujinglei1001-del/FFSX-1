@@ -81,13 +81,13 @@ const AssignResponsibility = () => {
           <TextField
             label="Team"
             fullWidth
-            defaultValue="Aurora"
+            defaultValue="FFA-X"
             select
             error={!!errors.assignResponsibility?.team}
             helperText={errors.assignResponsibility?.team?.message}
             {...register('assignResponsibility.team')}
           >
-            <MenuItem value="Aurora">Aurora</MenuItem>
+            <MenuItem value="FFA-X">FFA-X</MenuItem>
             <MenuItem value="Falcon">Falcon</MenuItem>
             <MenuItem value="Phoenix">Phoenix</MenuItem>
             <MenuItem value="HummingBird">HummingBird</MenuItem>

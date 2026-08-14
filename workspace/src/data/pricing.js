@@ -20,7 +20,7 @@ export const pricing = [
     features: [
       { title: 'Unlimited leads', active: true },
       { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
+      { title: 'No FFA-X’s branding', active: true },
       { title: 'Email automation', active: false },
       { title: 'Custom fields', active: false },
       { title: 'Pro templates', active: false },
@@ -32,7 +32,7 @@ export const pricing = [
         features: [
           { id: 1, title: 'Unlimited leads', active: true },
           { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          { id: 3, title: 'No FFA-X’s branding', active: true },
         ],
       },
       {
@@ -72,7 +72,7 @@ export const pricing = [
     features: [
       { title: 'Unlimited leads', active: true },
       { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
+      { title: 'No FFA-X’s branding', active: true },
       { title: 'Email automation', active: true },
       { title: 'Custom fields', active: true },
       { title: 'Pro templates', active: false },
@@ -84,7 +84,7 @@ export const pricing = [
         features: [
           { id: 1, title: 'Unlimited leads', active: true },
           { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          { id: 3, title: 'No FFA-X’s branding', active: true },
         ],
       },
       {
@@ -122,7 +122,7 @@ export const pricing = [
     features: [
       { title: 'Unlimited leads', active: true },
       { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
+      { title: 'No FFA-X’s branding', active: true },
       { title: 'Email automation', active: true },
       { title: 'Custom fields', active: true },
       { title: 'Pro templates', active: true },
@@ -134,7 +134,7 @@ export const pricing = [
         features: [
           { id: 1, title: 'Unlimited leads', active: true },
           { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          { id: 3, title: 'No FFA-X’s branding', active: true },
         ],
       },
       {
@@ -172,7 +172,7 @@ export const pricing = [
     features: [
       { title: 'Unlimited leads', active: true },
       { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
+      { title: 'No FFA-X’s branding', active: true },
       { title: 'Email automation', active: true },
       { title: 'Custom fields', active: true },
       { title: 'Pro templates', active: true },
@@ -184,7 +184,7 @@ export const pricing = [
         features: [
           { id: 1, title: 'Unlimited leads', active: true },
           { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          { id: 3, title: 'No FFA-X’s branding', active: true },
         ],
       },
       {

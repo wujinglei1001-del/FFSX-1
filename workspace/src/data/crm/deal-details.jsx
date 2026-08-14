@@ -507,7 +507,7 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'Aurora Campaign Manager',
+    sentVia: 'FFA-X Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -526,7 +526,7 @@ export const emailData = [
         <br />
         Best regards,
         <br />
-        Team Aurora.
+        Team FFA-X.
       </Typography>
     ),
     attachment: [{ src: image(1), name: 'screenshot.jpg', size: '16.2kb' }],
@@ -556,7 +556,7 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'Aurora Campaign Manager',
+    sentVia: 'FFA-X Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -585,7 +585,7 @@ export const emailData = [
         <br />
         Best regards,
         <br />
-        Team Aurora.
+        Team FFA-X.
       </Typography>
     ),
     files: [
@@ -634,7 +634,7 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'Aurora Campaign Manager',
+    sentVia: 'FFA-X Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -648,7 +648,7 @@ export const emailData = [
         <br />
         Best regards,
         <br />
-        Team Aurora.
+        Team FFA-X.
       </Typography>
     ),
     files: [],

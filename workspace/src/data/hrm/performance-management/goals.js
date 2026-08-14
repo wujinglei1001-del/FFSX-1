@@ -20,7 +20,7 @@ export const getTagChipColor = (tag) => {
 export const goals = [
   {
     id: 1,
-    title: 'Prepare and Launch the Next Version of the Aurora Platform',
+    title: 'Prepare and Launch the Next Version of the FFA-X Platform',
     description:
       'I applied to this company because of its strong reputation for innovation and quality in content creation. The company’s values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity.',
     createdBy: users[0],
@@ -29,7 +29,7 @@ export const goals = [
     dueDate: '2022-08-15',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -45,7 +45,7 @@ export const goals = [
     dueDate: '2025-04-20',
     tags: ['High', 'Delayed'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -61,7 +61,7 @@ export const goals = [
     dueDate: '2022-01-10',
     tags: ['Medium', 'Hold'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -77,7 +77,7 @@ export const goals = [
     dueDate: '2023-07-04',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -93,7 +93,7 @@ export const goals = [
     dueDate: '2023-10-14',
     tags: ['Low', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -109,7 +109,7 @@ export const goals = [
     dueDate: '2025-02-28',
     tags: ['High', 'At Risk'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -125,7 +125,7 @@ export const goals = [
     dueDate: '2023-06-05',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -141,14 +141,14 @@ export const goals = [
     dueDate: '2024-03-15',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
   },
   {
     id: 9,
-    title: 'Prepare and Launch the Next Version of the Aurora Platform',
+    title: 'Prepare and Launch the Next Version of the FFA-X Platform',
     description:
       'I applied to this company because of its strong reputation for innovation and quality in content creation. The company’s values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity.',
     createdBy: users[8],
@@ -157,14 +157,14 @@ export const goals = [
     dueDate: '2022-11-11',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
   },
   {
     id: 10,
-    title: 'Prepare and Launch the Next Version of the Aurora Platform',
+    title: 'Prepare and Launch the Next Version of the FFA-X Platform',
     description:
       'I applied to this company because of its strong reputation for innovation and quality in content creation. The company’s values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity.',
     createdBy: users[9],
@@ -173,14 +173,14 @@ export const goals = [
     dueDate: '2022-09-30',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
   },
   {
     id: 11,
-    title: 'Prepare and Launch the Next Version of the Aurora Platform',
+    title: 'Prepare and Launch the Next Version of the FFA-X Platform',
     description:
       'I applied to this company because of its strong reputation for innovation and quality in content creation. The company’s values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity.',
     createdBy: users[10],
@@ -189,14 +189,14 @@ export const goals = [
     dueDate: '2022-05-22',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
   },
   {
     id: 12,
-    title: 'Prepare and Launch the Next Version of the Aurora Platform',
+    title: 'Prepare and Launch the Next Version of the FFA-X Platform',
     description:
       'I applied to this company because of its strong reputation for innovation and quality in content creation. The company’s values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity.',
     createdBy: users[11],
@@ -205,7 +205,7 @@ export const goals = [
     dueDate: '2021-12-01',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],

@@ -1,0 +1,40 @@
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import IconifyIcon from 'components/base/IconifyIcon';
+
+const OverviewItem = ({ icon, label, value }) => {
+  return (
+    <Stack
+      sx={{
+        gap: 1,
+      }}
+    >
+      <Stack
+        direction="row"
+        sx={{
+          gap: 1,
+          alignItems: 'center',
+        }}
+      >
+        <IconifyIcon icon={icon} sx={{ fontSize: 24 }} />
+        <Typography
+          variant="subtitle1"
+          sx={{
+            fontWeight: 600,
+          }}
+        >
+          {label}
+        </Typography>
+      </Stack>
+      <Typography
+        sx={{
+          color: 'text.secondary',
+        }}
+      >
+        {value}
+      </Typography>
+    </Stack>
+  );
+};
+
+export default OverviewItem;

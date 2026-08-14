@@ -1,0 +1,21 @@
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/dist-ssr/
+
+# Local environment and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Logs and local-only files
+**/logs/
+*.log
+*.local
+*.bak
+.DS_Store
+
+# Editor metadata
+**/.idea/
+**/.vscode/
+

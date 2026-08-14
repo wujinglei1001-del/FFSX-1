@@ -1,0 +1,95 @@
+import { users } from 'data/users';
+import dayjs from 'dayjs';
+
+const GANTT_DATE_FORMAT = 'DD-MM-YYYY';
+
+const DEFAULT_COLLABORATORS = [users[0].id, users[1].id];
+
+const toDayjs = (value) => {
+  if (value instanceof Date) return dayjs(value);
+  if (typeof value === 'string') return dayjs(value, GANTT_DATE_FORMAT);
+  return dayjs();
+};
+
+const toDateRange = (task) => {
+  const start = toDayjs(task.start_date);
+  const end =
+    task.end_date != null
+      ? toDayjs(task.end_date)
+      : start.add(Math.max((task.duration ?? 1) - 1, 0), 'day');
+
+  return { start, end };
+};
+
+const formatDate = (value) => value.format(GANTT_DATE_FORMAT);
+
+export const normalizeChartTaskDates = (task) => {
+  const { start, end } = toDateRange(task);
+  console.log(start, end);
+
+  return {
+    ...task,
+    start_date: formatDate(start),
+    end_date: formatDate(end),
+  };
+};
+
+export const normalizeGanttTaskFromChart = (task) => normalizeChartTaskDates(task);
+
+const priorityToLabel = (priority) => {
+  if (priority === 2) return 'High';
+  if (priority === 3) return 'Urgent';
+  return 'Normal';
+};
+
+const labelToPriority = (label) => {
+  if (label === 'High') return 2;
+  if (label === 'Urgent') return 3;
+  return 1;
+};
+
+export const chartTaskToFormData = (task) => {
+  const normalizedTask = normalizeChartTaskDates(task);
+  const startDate = toDayjs(normalizedTask.start_date).toDate();
+  const endDate = toDayjs(normalizedTask.end_date).toDate();
+
+  return {
+    task: normalizedTask.text,
+    group: normalizedTask.group ?? normalizedTask.parent ?? 'group-1',
+    status: normalizedTask.completed ? 'Completed' : 'This week',
+    startDate,
+    endDate,
+    priority: priorityToLabel(normalizedTask.priority),
+    collaborators: DEFAULT_COLLABORATORS,
+  };
+};
+
+const isCompletedStatus = (status) => status === 'Completed' || status === 'Done';
+
+export const formDataToGanttTask = (formData, options) => ({
+  id: options?.taskId ?? `task-${Date.now()}`,
+  text: formData.task,
+  start_date: formatDate(dayjs(formData.startDate)),
+  end_date: formatDate(dayjs(formData.endDate)),
+  progress: options?.progress ?? 0,
+  parent: formData.group,
+  type: 'task',
+  group: formData.group,
+  completed: isCompletedStatus(formData.status),
+  priority: labelToPriority(formData.priority),
+});
+
+export const formDataToTimelineTask = (formData, options) => ({
+  id: options?.taskId ?? `task-${Date.now()}`,
+  text: formData.task,
+  start_date: formatDate(dayjs(formData.startDate)),
+  end_date: formatDate(dayjs(formData.endDate)),
+  progress: options?.progress ?? 0,
+  parent: formData.group,
+  type: 'task',
+  group: formData.group,
+  completed: isCompletedStatus(formData.status),
+  users: options?.users ?? [],
+});
+
+export const ganttTaskToFormData = chartTaskToFormData;

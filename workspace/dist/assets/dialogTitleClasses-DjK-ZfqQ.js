@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiDialogTitle`,t)}var r=t(`MuiDialogTitle`,[`root`]);export{n,r as t};

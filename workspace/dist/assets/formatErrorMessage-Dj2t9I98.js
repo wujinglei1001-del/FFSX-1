@@ -1,0 +1,1 @@
+function e(e,...t){let n=new URL(`https://mui.com/x/production-error`);return n.searchParams.set(`code`,e.toString()),t.forEach(e=>n.searchParams.append(`args[]`,e)),`MUI X error #${e}; visit ${n} for the full message.`}export{e as t};

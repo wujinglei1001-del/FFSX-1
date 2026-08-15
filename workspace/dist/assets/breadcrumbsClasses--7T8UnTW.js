@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiBreadcrumbs`,t)}var r=t(`MuiBreadcrumbs`,[`root`,`ol`,`li`,`separator`]);export{n,r as t};

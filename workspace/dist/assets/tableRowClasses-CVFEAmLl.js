@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiTableRow`,t)}var r=t(`MuiTableRow`,[`root`,`selected`,`hover`,`head`,`footer`]);export{r as n,n as t};

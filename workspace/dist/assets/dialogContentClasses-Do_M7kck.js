@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiDialogContent`,t)}var r=t(`MuiDialogContent`,[`root`,`dividers`]);export{n,r as t};

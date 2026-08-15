@@ -1,0 +1,1 @@
+function e(e){return e&&e.ownerDocument||document}function t(e){let t=e.activeElement;for(;t?.shadowRoot?.activeElement!=null;)t=t.shadowRoot.activeElement;return t}function n(e,t){typeof e==`function`?e(t):e&&(e.current=t)}export{t as n,e as r,n as t};

@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiRadio`,t)}var r=t(`MuiRadio`,[`root`,`checked`,`disabled`,`colorPrimary`,`colorSecondary`,`sizeSmall`]);export{r as n,n as t};

@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-D8nDyRPw.js";import{i as t}from"./useAuthApi-DZNp6Kj4.js";import{t as n}from"./ForgotPasswordForm-DJSCOlC6.js";var r=e(),i=()=>{let{trigger:e}=t();return(0,r.jsx)(n,{handleSendResetLink:async t=>await e(t).catch(e=>{throw Error(e.data.message)})})};export{i as default};

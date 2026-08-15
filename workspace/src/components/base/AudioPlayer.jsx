@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   IconButton,
@@ -13,6 +14,7 @@ import { secondsToMs } from 'lib/utils';
 import IconifyIcon from './IconifyIcon';
 
 const AudioPlayer = ({ src }) => {
+  const { t: translateUi } = useTranslation();
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -168,7 +170,9 @@ const AudioPlayer = ({ src }) => {
           />
         </IconButton>
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}>
-          <MenuItem onClick={handleDownload}>Download</MenuItem>
+          <MenuItem onClick={handleDownload}>
+            {translateUi('ui.components.base.audioplayer.download_a479c9c3')}
+          </MenuItem>
         </Menu>
       </Stack>
     </Stack>

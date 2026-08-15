@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Table,
   TableBody,
@@ -18,6 +19,7 @@ import CRMDropdownMenu from '../../common/CRMDropdownMenu';
 import CopyableText from '../../common/CopyableText';
 
 const Contact = ({ contact }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -102,14 +104,22 @@ const Contact = ({ contact }) => {
                 { px: '4px !important', textWrap: 'nowrap' },
               [`& .${tableCellClasses.root}`]: { p: 0, borderBottom: 0 },
             }}
-            aria-label="simple table"
+            aria-label={translateUi(
+              'ui.sections.crm.deal_details.associated_contact.simple_table_2786bbd9',
+            )}
           >
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 700 }}>Phone No.</TableCell>
-                <TableCell sx={{ fontWeight: 700 }}>Email Id</TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>
+                  {translateUi('ui.sections.crm.deal_details.associated_contact.phone_no_4a5c4601')}
+                </TableCell>
+                <TableCell sx={{ fontWeight: 700 }}>
+                  {translateUi('ui.sections.crm.deal_details.associated_contact.email_id_774a271f')}
+                </TableCell>
                 <TableCell align="right" sx={{ fontWeight: 700 }}>
-                  Contact Owner
+                  {translateUi(
+                    'ui.sections.crm.deal_details.associated_contact.contact_owner_e81f551a',
+                  )}
                 </TableCell>
               </TableRow>
             </TableHead>

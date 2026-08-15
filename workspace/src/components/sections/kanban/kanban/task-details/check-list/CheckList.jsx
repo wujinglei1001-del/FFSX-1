@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -9,6 +10,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CheckListItem from './CheckListItem';
 
 const CheckList = () => {
+  const { t: translateUi } = useTranslation();
   const { setValue, watch } = useFormContext();
   const subtasks = watch('subtasks');
   const completedTask = subtasks.filter((item) => item.checked).length;
@@ -25,7 +27,7 @@ const CheckList = () => {
   return (
     <Paper sx={{ p: { xs: 3, md: 5 } }}>
       <Typography variant="h5" sx={{ mb: 1 }}>
-        Check List
+        {translateUi('ui.sections.kanban.kanban.task_details.check_list_1d9ae30b')}
       </Typography>
 
       <Box sx={{ mb: 2 }}>
@@ -65,7 +67,7 @@ const CheckList = () => {
         }
         fullWidth
       >
-        Add subtask
+        {translateUi('ui.sections.kanban.kanban.task_details.add_subtask_65b9d7a6')}
       </Button>
     </Paper>
   );

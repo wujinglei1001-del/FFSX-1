@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Container, Divider, Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import paths from 'routes/paths';
@@ -9,15 +10,25 @@ import PageHeader from 'components/sections/ecommerce/customer/common/PageHeader
 import PaymentSummary from 'components/sections/ecommerce/customer/common/PaymentSummary';
 
 const Checkout = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title="Checkout"
+          title={translateUi('ui.pages.apps.ecommerce.customer.checkout_3ac8e9e5')}
           breadcrumb={[
-            { label: 'Home', url: paths.ecommerceHomepage },
-            { label: 'Cart', url: paths.cart },
-            { label: 'Checkout', active: true },
+            {
+              label: translateUi('ui.pages.apps.ecommerce.customer.home_70f8bb9a'),
+              url: paths.ecommerceHomepage,
+            },
+            {
+              label: translateUi('ui.pages.apps.ecommerce.customer.cart_44656820'),
+              url: paths.cart,
+            },
+            {
+              label: translateUi('ui.pages.apps.ecommerce.customer.checkout_3ac8e9e5'),
+              active: true,
+            },
           ]}
         />
       </Grid>

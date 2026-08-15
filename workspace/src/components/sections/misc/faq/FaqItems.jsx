@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -11,6 +12,7 @@ import Image from 'components/base/Image';
 import ScrollSpyContent from 'components/scroll-spy/ScrollSpyContent';
 
 const FaqItems = () => {
+  const { t: translateUi } = useTranslation();
   const { activeCategory, activeFaqItem, handleActiveItemChange } = useFaqContext();
 
   return (
@@ -72,16 +74,20 @@ const FaqItems = () => {
         </Box>
         <div>
           <Typography variant="h6" sx={{ mb: 1, textAlign: { xs: 'center', sm: 'left' } }}>
-            Haven’t found the answer you were looking for?
+            {translateUi(
+              'ui.sections.misc.faq.faqitems.haven_t_found_the_answer_you_were_looking_for_e8cd17e2',
+            )}
           </Typography>
           <Typography
             variant="body2"
             sx={{ mb: 3, color: 'text.secondary', textAlign: { xs: 'center', sm: 'left' } }}
           >
-            Feel free to message us, or give us a call
+            {translateUi(
+              'ui.sections.misc.faq.faqitems.feel_free_to_message_us_or_give_us_a_call_ae60fd2f',
+            )}
           </Typography>
           <Button variant="contained" sx={{ width: { xs: 1, sm: 'auto' } }}>
-            Contact us
+            {translateUi('ui.sections.misc.faq.faqitems.contact_us_4832e458')}
           </Button>
         </div>
       </Stack>

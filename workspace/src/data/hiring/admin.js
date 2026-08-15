@@ -1,9 +1,12 @@
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 export const jobOpenings = [
   {
     id: 1,
-    title: 'Customer Support Manager',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.customer_support_manager_75bb9b1a');
+    },
     field: 'Support',
     branch: 'Chicago',
     vacancy: 1,
@@ -11,15 +14,21 @@ export const jobOpenings = [
     hiringLead: 'Mason Rivers',
     tags: [
       {
-        label: 'Fulltime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.fulltime_a8ea7bb5');
+        },
         color: 'primary',
       },
       {
-        label: 'Remote',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.remote_c93f6536');
+        },
         color: 'warning',
       },
       {
-        label: 'Day Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.day_shift_70395dd5');
+        },
         color: 'info',
       },
     ],
@@ -27,7 +36,9 @@ export const jobOpenings = [
   },
   {
     id: 2,
-    title: 'Sales Executive',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.sales_executive_1d4a31e5');
+    },
     field: 'Sales',
     branch: 'UK',
     vacancy: 4,
@@ -35,15 +46,21 @@ export const jobOpenings = [
     hiringLead: 'Oliver Stone',
     tags: [
       {
-        label: 'Fulltime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.fulltime_a8ea7bb5');
+        },
         color: 'primary',
       },
       {
-        label: 'Onsite',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.onsite_26d61588');
+        },
         color: 'warning',
       },
       {
-        label: 'Night Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.night_shift_ae6f283d');
+        },
         color: 'info',
       },
     ],
@@ -51,7 +68,9 @@ export const jobOpenings = [
   },
   {
     id: 3,
-    title: 'Data Scientist',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.data_scientist_e13230c6');
+    },
     field: 'Data & Analytics',
     branch: 'Dhaka',
     vacancy: 10,
@@ -59,15 +78,21 @@ export const jobOpenings = [
     hiringLead: 'Lucas Grant',
     tags: [
       {
-        label: 'Fulltime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.fulltime_a8ea7bb5');
+        },
         color: 'primary',
       },
       {
-        label: 'Hybrid',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.hybrid_8e01f6bc');
+        },
         color: 'warning',
       },
       {
-        label: 'Day Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.day_shift_70395dd5');
+        },
         color: 'info',
       },
     ],
@@ -75,7 +100,9 @@ export const jobOpenings = [
   },
   {
     id: 4,
-    title: 'Frontend Developer',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.frontend_developer_c56054b1');
+    },
     field: 'Engineering',
     branch: 'New York',
     vacancy: 1,
@@ -83,11 +110,15 @@ export const jobOpenings = [
     hiringLead: 'Mason Rivers',
     tags: [
       {
-        label: 'Contract',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.contract_5a0ba3bb');
+        },
         color: 'primary',
       },
       {
-        label: 'Onsite',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.onsite_26d61588');
+        },
         color: 'warning',
       },
     ],
@@ -95,7 +126,9 @@ export const jobOpenings = [
   },
   {
     id: 5,
-    title: 'UI/UX Designer',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.ui_ux_designer_a3c75d30');
+    },
     field: 'Design',
     branch: 'UK',
     vacancy: 4,
@@ -103,11 +136,15 @@ export const jobOpenings = [
     hiringLead: 'Oliver Stone',
     tags: [
       {
-        label: 'Parttime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.parttime_cff88811');
+        },
         color: 'primary',
       },
       {
-        label: 'Remote',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.remote_c93f6536');
+        },
         color: 'warning',
       },
     ],
@@ -115,7 +152,9 @@ export const jobOpenings = [
   },
   {
     id: 6,
-    title: 'Financial Analyst',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.financial_analyst_eb44e1c0');
+    },
     field: 'Finance',
     branch: 'Manchester',
     vacancy: 10,
@@ -123,15 +162,21 @@ export const jobOpenings = [
     hiringLead: 'Lucas Grant',
     tags: [
       {
-        label: 'Fulltime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.fulltime_a8ea7bb5');
+        },
         color: 'primary',
       },
       {
-        label: 'Onsite',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.onsite_26d61588');
+        },
         color: 'warning',
       },
       {
-        label: 'Day Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.day_shift_70395dd5');
+        },
         color: 'info',
       },
     ],
@@ -139,7 +184,9 @@ export const jobOpenings = [
   },
   {
     id: 7,
-    title: 'Backend Developer',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.backend_developer_9d4b5f2f');
+    },
     field: 'Engineering',
     branch: 'Los Angeles',
     vacancy: 1,
@@ -147,15 +194,21 @@ export const jobOpenings = [
     hiringLead: 'Mason Rivers',
     tags: [
       {
-        label: 'Fulltime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.fulltime_a8ea7bb5');
+        },
         color: 'primary',
       },
       {
-        label: 'Onsite',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.onsite_26d61588');
+        },
         color: 'warning',
       },
       {
-        label: 'Night Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.night_shift_ae6f283d');
+        },
         color: 'info',
       },
     ],
@@ -163,7 +216,9 @@ export const jobOpenings = [
   },
   {
     id: 8,
-    title: 'Product Manager',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.product_manager_564b6173');
+    },
     field: 'Product',
     branch: 'Birmingham',
     vacancy: 4,
@@ -171,15 +226,21 @@ export const jobOpenings = [
     hiringLead: 'Oliver Stone',
     tags: [
       {
-        label: 'Parttime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.parttime_cff88811');
+        },
         color: 'primary',
       },
       {
-        label: 'Onsite',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.onsite_26d61588');
+        },
         color: 'warning',
       },
       {
-        label: 'Day Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.day_shift_70395dd5');
+        },
         color: 'info',
       },
     ],
@@ -187,7 +248,9 @@ export const jobOpenings = [
   },
   {
     id: 9,
-    title: 'HR Manager',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.hr_manager_9ff495c2');
+    },
     field: 'HR',
     branch: 'Liverpool',
     vacancy: 10,
@@ -195,15 +258,21 @@ export const jobOpenings = [
     hiringLead: 'Lucas Grant',
     tags: [
       {
-        label: 'Parttime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.parttime_cff88811');
+        },
         color: 'primary',
       },
       {
-        label: 'Remote',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.remote_c93f6536');
+        },
         color: 'warning',
       },
       {
-        label: 'Night Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.night_shift_ae6f283d');
+        },
         color: 'info',
       },
     ],
@@ -211,7 +280,9 @@ export const jobOpenings = [
   },
   {
     id: 10,
-    title: 'DevOps Engineer',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.devops_engineer_44daf5ae');
+    },
     field: 'IT',
     branch: 'San Fransisco',
     vacancy: 1,
@@ -219,11 +290,15 @@ export const jobOpenings = [
     hiringLead: 'Mason Rivers',
     tags: [
       {
-        label: 'Parttime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.parttime_cff88811');
+        },
         color: 'primary',
       },
       {
-        label: 'Hybrid',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.hybrid_8e01f6bc');
+        },
         color: 'warning',
       },
     ],
@@ -231,7 +306,9 @@ export const jobOpenings = [
   },
   {
     id: 11,
-    title: 'Sales Executive',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.sales_executive_1d4a31e5');
+    },
     field: 'Sales',
     branch: 'Edinburgh',
     vacancy: 4,
@@ -239,15 +316,21 @@ export const jobOpenings = [
     hiringLead: 'Oliver Stone',
     tags: [
       {
-        label: 'Fulltime',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.fulltime_a8ea7bb5');
+        },
         color: 'primary',
       },
       {
-        label: 'Remote',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.remote_c93f6536');
+        },
         color: 'warning',
       },
       {
-        label: 'Day Shift',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.day_shift_70395dd5');
+        },
         color: 'info',
       },
     ],
@@ -255,7 +338,9 @@ export const jobOpenings = [
   },
   {
     id: 12,
-    title: 'Data Scientist',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.data_scientist_e13230c6');
+    },
     field: 'Data & Analytics',
     branch: 'Glasgow',
     vacancy: 10,
@@ -263,11 +348,15 @@ export const jobOpenings = [
     hiringLead: 'Lucas Grant',
     tags: [
       {
-        label: 'Contract',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.contract_5a0ba3bb');
+        },
         color: 'primary',
       },
       {
-        label: 'Onsite',
+        get label() {
+          return i18n.t('ui.data.hiring.admin.onsite_26d61588');
+        },
         color: 'warning',
       },
     ],
@@ -278,7 +367,9 @@ export const jobOpenings = [
 export const pipelineData = [
   {
     id: 'list-1',
-    title: 'Applied',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.applied_a3e4a569');
+    },
     items: [
       {
         id: 'item-1',
@@ -321,7 +412,9 @@ export const pipelineData = [
   },
   {
     id: 'list-2',
-    title: 'Reviewed',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.reviewed_31ef8593');
+    },
     items: [
       {
         id: 'item-7',
@@ -351,7 +444,9 @@ export const pipelineData = [
   },
   {
     id: 'list-3',
-    title: 'Mobile Screening',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.mobile_screening_62809f11');
+    },
     items: [
       {
         id: 'item-11',
@@ -383,7 +478,9 @@ export const pipelineData = [
   },
   {
     id: 'list-4',
-    title: 'Interview',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.interview_19ad8ec7');
+    },
     items: [
       {
         id: 'item-15',
@@ -415,7 +512,9 @@ export const pipelineData = [
   },
   {
     id: 'list-5',
-    title: 'Offer',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.offer_3898b9aa');
+    },
     items: [
       {
         id: 'item-19',
@@ -449,7 +548,9 @@ export const pipelineData = [
   },
   {
     id: 'list-6',
-    title: 'Hired',
+    get title() {
+      return i18n.t('ui.data.hiring.admin.hired_115779ef');
+    },
     items: [
       {
         id: 'item-23',

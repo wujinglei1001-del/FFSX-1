@@ -1,4 +1,5 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
@@ -24,6 +25,7 @@ export const hiringTeamSchema = yup.object({
 });
 
 const HiringTeam = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -50,7 +52,7 @@ const HiringTeam = () => {
             fontWeight: 600,
           }}
         >
-          Hiring Manager
+          {translateUi('ui.sections.hiring.admin.new_opening.hiring_manager_440641fc')}
         </Typography>
         <Stack
           direction="row"
@@ -59,40 +61,56 @@ const HiringTeam = () => {
           }}
         >
           <FormControl variant="filled" fullWidth error={!!errors.hiringManager?.employee}>
-            <InputLabel id="hiring-manager-employee-label">Employee</InputLabel>
+            <InputLabel id="hiring-manager-employee-label">
+              {translateUi('ui.sections.hiring.admin.new_opening.employee_079711ea')}
+            </InputLabel>
             <Controller
               control={control}
               name="hiringManager.employee"
               render={({ field }) => (
                 <Select
                   labelId="hiring-manager-employee-label"
-                  label="Employee"
+                  label={translateUi('ui.sections.hiring.admin.new_opening.employee_079711ea')}
                   inputProps={{ 'aria-label': 'Without label' }}
                   {...field}
                 >
-                  <MenuItem value="Michael Hall">Michael Hall</MenuItem>
-                  <MenuItem value="Jack Smith">Jack Smith</MenuItem>
-                  <MenuItem value="Grace Wong">Grace Wong</MenuItem>
+                  <MenuItem value="Michael Hall">
+                    {translateUi('ui.sections.hiring.admin.new_opening.michael_hall_2948bbff')}
+                  </MenuItem>
+                  <MenuItem value="Jack Smith">
+                    {translateUi('ui.sections.hiring.admin.new_opening.jack_smith_0f48ecc5')}
+                  </MenuItem>
+                  <MenuItem value="Grace Wong">
+                    {translateUi('ui.sections.hiring.admin.new_opening.grace_wong_1324df4b')}
+                  </MenuItem>
                 </Select>
               )}
             />
             <FormHelperText>{errors.hiringManager?.employee?.message}</FormHelperText>
           </FormControl>
           <FormControl variant="filled" fullWidth error={!!errors.hiringManager?.department}>
-            <InputLabel id="hiring-manager-department-label">Department</InputLabel>
+            <InputLabel id="hiring-manager-department-label">
+              {translateUi('ui.sections.hiring.admin.new_opening.department_db40106a')}
+            </InputLabel>
             <Controller
               control={control}
               name="hiringManager.department"
               render={({ field }) => (
                 <Select
                   labelId="hiring-manager-department-label"
-                  label="Department"
+                  label={translateUi('ui.sections.hiring.admin.new_opening.department_db40106a')}
                   inputProps={{ 'aria-label': 'Without label' }}
                   {...field}
                 >
-                  <MenuItem value="Support">Support</MenuItem>
-                  <MenuItem value="Sales">Sales</MenuItem>
-                  <MenuItem value="Data & Analytics">Data & Analytics</MenuItem>
+                  <MenuItem value="Support">
+                    {translateUi('ui.sections.hiring.admin.new_opening.support_f32d5a3b')}
+                  </MenuItem>
+                  <MenuItem value="Sales">
+                    {translateUi('ui.sections.hiring.admin.new_opening.sales_d0edfb6e')}
+                  </MenuItem>
+                  <MenuItem value="Data & Analytics">
+                    {translateUi('ui.sections.hiring.admin.new_opening.data_analytics_7113d51a')}
+                  </MenuItem>
                 </Select>
               )}
             />
@@ -110,7 +128,7 @@ const HiringTeam = () => {
             fontWeight: 600,
           }}
         >
-          Team Member
+          {translateUi('ui.sections.hiring.admin.new_opening.team_member_7b9159e0')}
         </Typography>
         {teamMembers.fields.map((field, index) => (
           <Stack
@@ -134,20 +152,28 @@ const HiringTeam = () => {
                 fullWidth
                 error={!!errors.teamMember?.[index]?.employee}
               >
-                <InputLabel id="team-member-employee-label">Employee</InputLabel>
+                <InputLabel id="team-member-employee-label">
+                  {translateUi('ui.sections.hiring.admin.new_opening.employee_079711ea')}
+                </InputLabel>
                 <Controller
                   control={control}
                   name={`teamMember.${index}.employee`}
                   render={({ field }) => (
                     <Select
                       labelId="team-member-employee-label"
-                      label="Employee"
+                      label={translateUi('ui.sections.hiring.admin.new_opening.employee_079711ea')}
                       inputProps={{ 'aria-label': 'Without label' }}
                       {...field}
                     >
-                      <MenuItem value="Michael Hall">Michael Hall</MenuItem>
-                      <MenuItem value="Jack Smith">Jack Smith</MenuItem>
-                      <MenuItem value="Grace Wong">Grace Wong</MenuItem>
+                      <MenuItem value="Michael Hall">
+                        {translateUi('ui.sections.hiring.admin.new_opening.michael_hall_2948bbff')}
+                      </MenuItem>
+                      <MenuItem value="Jack Smith">
+                        {translateUi('ui.sections.hiring.admin.new_opening.jack_smith_0f48ecc5')}
+                      </MenuItem>
+                      <MenuItem value="Grace Wong">
+                        {translateUi('ui.sections.hiring.admin.new_opening.grace_wong_1324df4b')}
+                      </MenuItem>
                     </Select>
                   )}
                 />
@@ -158,20 +184,32 @@ const HiringTeam = () => {
                 fullWidth
                 error={!!errors.teamMember?.[index]?.department}
               >
-                <InputLabel id="team-member-department-label">Department</InputLabel>
+                <InputLabel id="team-member-department-label">
+                  {translateUi('ui.sections.hiring.admin.new_opening.department_db40106a')}
+                </InputLabel>
                 <Controller
                   control={control}
                   name={`teamMember.${index}.department`}
                   render={({ field }) => (
                     <Select
                       labelId="team-member-department-label"
-                      label="Department"
+                      label={translateUi(
+                        'ui.sections.hiring.admin.new_opening.department_db40106a',
+                      )}
                       inputProps={{ 'aria-label': 'Without label' }}
                       {...field}
                     >
-                      <MenuItem value="Support">Support</MenuItem>
-                      <MenuItem value="Sales">Sales</MenuItem>
-                      <MenuItem value="Data & Analytics">Data & Analytics</MenuItem>
+                      <MenuItem value="Support">
+                        {translateUi('ui.sections.hiring.admin.new_opening.support_f32d5a3b')}
+                      </MenuItem>
+                      <MenuItem value="Sales">
+                        {translateUi('ui.sections.hiring.admin.new_opening.sales_d0edfb6e')}
+                      </MenuItem>
+                      <MenuItem value="Data & Analytics">
+                        {translateUi(
+                          'ui.sections.hiring.admin.new_opening.data_analytics_7113d51a',
+                        )}
+                      </MenuItem>
                     </Select>
                   )}
                 />
@@ -189,7 +227,7 @@ const HiringTeam = () => {
           onClick={() => teamMembers.append({ employee: '', department: '' })}
           sx={{ alignSelf: 'flex-start' }}
         >
-          Add Member
+          {translateUi('ui.sections.hiring.admin.new_opening.add_member_fbe4f901')}
         </Button>
       </Stack>
     </Stack>

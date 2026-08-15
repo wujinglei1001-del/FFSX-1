@@ -19,6 +19,18 @@ export const THEME_DISPLAY_NAMES = {
   midnight: 'Midnight',
 };
 
+export const THEME_TRANSLATION_KEYS = {
+  'default-light': 'theme_presets.light',
+  'default-dark': 'theme_presets.dark',
+  luxury: 'theme_presets.luxury',
+  retro: 'theme_presets.retro',
+  arctic: 'theme_presets.arctic',
+  nature: 'theme_presets.nature',
+  ember: 'theme_presets.ember',
+  dracula: 'theme_presets.dracula',
+  midnight: 'theme_presets.midnight',
+};
+
 export const lightPalettes = {
   'default-light': lightPalette,
   luxury: luxuryPalette,

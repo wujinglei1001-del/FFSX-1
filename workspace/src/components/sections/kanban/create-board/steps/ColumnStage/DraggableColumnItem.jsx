@@ -1,4 +1,5 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import {
@@ -18,6 +19,7 @@ import NumberTextField from 'components/base/NumberTextField';
 import ColorPicker from 'components/base/color-picker/ColorPicker';
 
 const DraggableColumnItem = ({ item, index, remove }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -86,7 +88,7 @@ const DraggableColumnItem = ({ item, index, remove }) => {
                   display: 'inline',
                 }}
               >
-                Card Limit
+                {translateUi('ui.sections.kanban.create_board.steps.card_limit_41e31782')}
               </Typography>
             }
             sx={{ mr: 0, ml: 1 }}
@@ -132,7 +134,7 @@ const DraggableColumnItem = ({ item, index, remove }) => {
                 value={field.value || ''}
                 onChange={(e) => field.onChange(Number(e.target.value))}
                 disabled={!hasCardLimit}
-                label="Max. Card"
+                label={translateUi('ui.sections.kanban.create_board.steps.max_card_49ead86c')}
                 error={!!columnErrors.cardLimit}
               />
             )}

@@ -1,4 +1,5 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Box,
@@ -16,6 +17,7 @@ import {
 import Grid from '@mui/material/Grid';
 import { countries } from 'data/countries';
 import { hsCodeList } from 'data/e-commerce/product-listing';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 export const ShippingFormSchema = yup.object().shape({
@@ -33,22 +35,41 @@ export const ShippingFormSchema = yup.object().shape({
           schema.shape({
             value: yup
               .number()
-              .required('Value is required')
+              .required(
+                i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
+              )
               .positive('Value must be a positive number'),
-            unit: yup.string().required('Weight unit is required'),
+            unit: yup
+              .string()
+              .required(
+                i18n.t(
+                  'ui.sections.ecommerce.admin.product_listing.weight_unit_is_required_d015e469',
+                ),
+              ),
           }),
       }),
-    country: yup.string().required('This field is required'),
+    country: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
+      ),
     hsCode: yup
       .object()
       .shape({
-        code: yup.string().required('HS Code is required'),
+        code: yup
+          .string()
+          .required(
+            i18n.t('ui.sections.ecommerce.admin.product_listing.hs_code_is_required_68804c4d'),
+          ),
       })
-      .required('This field is required'),
+      .required(
+        i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
+      ),
   }),
 });
 
 const Shipping = () => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -82,7 +103,9 @@ const Shipping = () => {
                   render={({ field }) => <Checkbox {...field} checked={field.value} />}
                 />
               }
-              label="This is a physical product"
+              label={translateUi(
+                'ui.sections.ecommerce.admin.product_listing.this_is_a_physical_product_d7a4d3ef',
+              )}
             />
           </FormControl>
 
@@ -98,7 +121,7 @@ const Shipping = () => {
                   mb: 1,
                 }}
               >
-                Weight
+                {translateUi('ui.sections.ecommerce.admin.product_listing.weight_69c0b815')}
               </Typography>
               <Typography
                 component="p"
@@ -108,7 +131,9 @@ const Shipping = () => {
                   mb: 2,
                 }}
               >
-                Used to calculate shipping rates at checkout and label prices during fulfillment.
+                {translateUi(
+                  'ui.sections.ecommerce.admin.product_listing.used_to_calculate_shipping_rates_at_checkout_and_lab_85c41ce4',
+                )}
               </Typography>
               <Stack
                 direction="row"
@@ -117,7 +142,7 @@ const Shipping = () => {
                 }}
               >
                 <TextField
-                  label="Weight"
+                  label={translateUi('ui.sections.ecommerce.admin.product_listing.weight_69c0b815')}
                   variant="filled"
                   sx={{ width: 100 }}
                   error={!!errors.shippingDetails?.weight?.value}
@@ -127,15 +152,21 @@ const Shipping = () => {
                   })}
                 />
                 <FormControl variant="filled">
-                  <InputLabel id="weight-unit-label">Unit</InputLabel>
+                  <InputLabel id="weight-unit-label">
+                    {translateUi('ui.sections.ecommerce.admin.product_listing.unit_f6b935ab')}
+                  </InputLabel>
                   <Controller
                     name="shippingDetails.weight.unit"
                     control={control}
                     defaultValue="kg"
                     render={({ field }) => (
                       <Select labelId="weight-unit-label" sx={{ width: 80 }} {...field}>
-                        <MenuItem value="kg">kg</MenuItem>
-                        <MenuItem value="lb">lb</MenuItem>
+                        <MenuItem value="kg">
+                          {translateUi('ui.sections.ecommerce.admin.product_listing.kg_1389845b')}
+                        </MenuItem>
+                        <MenuItem value="lb">
+                          {translateUi('ui.sections.ecommerce.admin.product_listing.lb_cba41814')}
+                        </MenuItem>
                       </Select>
                     )}
                   />
@@ -170,7 +201,9 @@ const Shipping = () => {
                 }}
                 renderInput={(params) => (
                   <TextField
-                    label="Select country/ region"
+                    label={translateUi(
+                      'ui.sections.ecommerce.admin.product_listing.select_country_region_38223838',
+                    )}
                     error={!!errors.shippingDetails?.country?.message}
                     helperText={errors.shippingDetails?.country?.message}
                     {...params}
@@ -205,7 +238,9 @@ const Shipping = () => {
                 )}
                 renderInput={(params) => (
                   <TextField
-                    label="Enter a HS code"
+                    label={translateUi(
+                      'ui.sections.ecommerce.admin.product_listing.enter_a_hs_code_25713809',
+                    )}
                     error={!!errors.shippingDetails?.hsCode?.message}
                     helperText={errors.shippingDetails?.hsCode?.message}
                     {...params}

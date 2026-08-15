@@ -1,45 +1,73 @@
+import i18n from 'locales/i18n';
+
 export const analyticKPIs = [
   {
-    title: 'Total Visitors',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.total_visitors_af51227e');
+    },
     value: 5921649,
     icon: {
-      name: 'material-symbols:attribution-outline-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.analytics.dashboard.material_symbols_attribution_outline_rounded_70030498',
+        );
+      },
       color: 'primary',
     },
     link: {
       prefix: 'See in-depth',
-      text: 'Traffic sources',
+      get text() {
+        return i18n.t('ui.data.analytics.dashboard.traffic_sources_a1494150');
+      },
       url: '#!',
     },
   },
   {
-    title: 'Bounce Rate',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.bounce_rate_c7ba2e2c');
+    },
     value: '62.11%',
     icon: {
-      name: 'material-symbols:call-missed-outgoing-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.analytics.dashboard.material_symbols_call_missed_outgoing_rounded_6bcf3bc7',
+        );
+      },
       color: 'warning',
     },
     link: {
       prefix: 'See page-wise',
-      text: 'Performance',
+      get text() {
+        return i18n.t('ui.data.analytics.dashboard.performance_63c90455');
+      },
       url: '#!',
     },
   },
   {
-    title: 'Conversion',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.conversion_9151f843');
+    },
     value: '21.91%',
     icon: {
-      name: 'material-symbols:credit-score-outline-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.analytics.dashboard.material_symbols_credit_score_outline_rounded_c9513cfe',
+        );
+      },
       color: 'success',
     },
     link: {
       prefix: "See last week's",
-      text: 'Top Products',
+      get text() {
+        return i18n.t('ui.data.analytics.dashboard.top_products_2ebf4b36');
+      },
       url: '#!',
     },
   },
   {
-    title: 'Active Referrals',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.active_referrals_a13f0e04');
+    },
     value: 470,
     icon: {
       name: 'material-symbols:conversion-path',
@@ -47,7 +75,9 @@ export const analyticKPIs = [
     },
     link: {
       prefix: 'See all inbound',
-      text: 'Referral links',
+      get text() {
+        return i18n.t('ui.data.analytics.dashboard.referral_links_3bf97c2f');
+      },
       url: '#!',
     },
   },
@@ -56,22 +86,30 @@ export const analyticKPIs = [
 export const userEngagementTabs = [
   {
     key: 'newUser',
-    title: 'New Users',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.new_users_3a6d4455');
+    },
     value: '275K',
   },
   {
     key: 'avgSession',
-    title: 'Avg. Session',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.avg_session_48116edd');
+    },
     value: '3m 12s',
   },
   {
     key: 'subscribers',
-    title: 'Subscribers',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.subscribers_6f13df39');
+    },
     value: '3.72 M',
   },
   {
     key: 'pageViews',
-    title: 'Page View',
+    get title() {
+      return i18n.t('ui.data.analytics.dashboard.page_view_3a757c84');
+    },
     value: '523K',
   },
 ];
@@ -232,26 +270,50 @@ export const userByOSData = [
     name: 'Mobile',
     value: 10,
     children: [
-      { name: 'iOS', value: 8 },
-      { name: 'Android', value: 2 },
+      {
+        name: 'iOS',
+        value: 8,
+      },
+      {
+        name: 'Android',
+        value: 2,
+      },
     ],
   },
   {
     name: 'Tablet',
     value: 20,
     children: [
-      { name: 'iPadOS', value: 14 },
-      { name: 'Android', value: 6 },
+      {
+        name: 'iPadOS',
+        value: 14,
+      },
+      {
+        name: 'Android',
+        value: 6,
+      },
     ],
   },
   {
     name: 'Desktop',
     value: 70,
     children: [
-      { name: 'Windows', value: 35 },
-      { name: 'Linux', value: 21 },
-      { name: 'MacOS', value: 9.1 },
-      { name: 'ChromeOS', value: 4.9 },
+      {
+        name: 'Windows',
+        value: 35,
+      },
+      {
+        name: 'Linux',
+        value: 21,
+      },
+      {
+        name: 'MacOS',
+        value: 9.1,
+      },
+      {
+        name: 'ChromeOS',
+        value: 4.9,
+      },
     ],
   },
 ];
@@ -271,12 +333,36 @@ export const userByCohortData = [
 ];
 
 export const userLocations = [
-  { name: 'Japan', value: 44000 },
-  { name: 'Greenland', value: 41000 },
-  { name: 'India', value: 38000 },
-  { name: 'Egypt', value: 27000 },
-  { name: 'Mexico', value: 19000 },
-  { name: 'Angola', value: 13000 },
-  { name: 'Colombia', value: 11000 },
-  { name: 'Finland', value: 7000 },
+  {
+    name: 'Japan',
+    value: 44000,
+  },
+  {
+    name: 'Greenland',
+    value: 41000,
+  },
+  {
+    name: 'India',
+    value: 38000,
+  },
+  {
+    name: 'Egypt',
+    value: 27000,
+  },
+  {
+    name: 'Mexico',
+    value: 19000,
+  },
+  {
+    name: 'Angola',
+    value: 13000,
+  },
+  {
+    name: 'Colombia',
+    value: 11000,
+  },
+  {
+    name: 'Finland',
+    value: 7000,
+  },
 ];

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   Dialog,
@@ -13,6 +14,7 @@ import FileDropZone from 'components/base/FileDropZone';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const UploadFiles = () => {
+  const { t: translateUi } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleDialogOpen = () => setIsDialogOpen(true);
@@ -31,7 +33,7 @@ const UploadFiles = () => {
         }
         onClick={handleDialogOpen}
       >
-        Upload
+        {translateUi('ui.sections.file_manager.main.upload_files.upload_8bdf057f')}
       </Button>
 
       <Dialog
@@ -57,7 +59,7 @@ const UploadFiles = () => {
             alignItems: 'center',
           }}
         >
-          Upload files
+          {translateUi('ui.sections.file_manager.main.upload_files.upload_files_41aca16f')}
           <IconButton onClick={handleDialogClose}>
             <IconifyIcon
               icon="material-symbols:close-rounded"
@@ -68,7 +70,9 @@ const UploadFiles = () => {
 
         <DialogContent sx={{ pb: 0 }}>
           <DialogContentText sx={{ mb: 3 }}>
-            Securely upload, manage, and organize your files with ease.
+            {translateUi(
+              'ui.sections.file_manager.main.upload_files.securely_upload_manage_and_organize_your_files_with__7ed25fab',
+            )}
           </DialogContentText>
 
           <FileDropZone
@@ -81,10 +85,10 @@ const UploadFiles = () => {
 
         <DialogActions sx={{ p: 3 }}>
           <Button variant="soft" color="neutral" sx={{ px: 3 }} onClick={handleDiscard}>
-            Discard
+            {translateUi('ui.sections.file_manager.main.upload_files.discard_36fff63c')}
           </Button>
           <Button variant="contained" color="primary" sx={{ px: 3 }} onClick={handleDialogClose}>
-            Done
+            {translateUi('ui.sections.file_manager.main.upload_files.done_e9b450d1')}
           </Button>
         </DialogActions>
       </Dialog>

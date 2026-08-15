@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -39,6 +40,7 @@ const reportFormValuesSchema = yup.object({
 });
 
 const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const methods = useForm({
     resolver: yupResolver(reportFormValuesSchema),
@@ -128,7 +130,9 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
           >
             <Box sx={{ textAlign: 'left' }}>
               <Typography variant="caption" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-                Appraisal Type
+                {translateUi(
+                  'ui.sections.hrm.performance_management.feedback.appraisal_type_faa94102',
+                )}
               </Typography>
               <Typography variant="body2" sx={{ fontWeight: 600 }}>
                 {feedback.appraisalType}
@@ -136,7 +140,7 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
             </Box>
             <Box sx={{ textAlign: 'right' }}>
               <Typography variant="caption" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-                Submitted
+                {translateUi('ui.sections.hrm.performance_management.feedback.submitted_2e00359b')}
               </Typography>
               <Typography variant="body2" sx={{ fontWeight: 600 }}>
                 {dayjs(feedback.date).format('MMM D, YYYY')}
@@ -145,7 +149,9 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
           </Stack>
 
           <RatingCard
-            title="Average Rating"
+            title={translateUi(
+              'ui.sections.hrm.performance_management.feedback.average_rating_3843a4b5',
+            )}
             value={feedback.rating}
             paperProps={{
               background: 2,
@@ -167,19 +173,38 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
             }}
           >
             <ReportInfo
-              title="Communication"
+              title={translateUi(
+                'ui.sections.hrm.performance_management.feedback.communication_ade0d50c',
+              )}
               fieldPrefix="communication"
               ratingList={[
-                { label: 'Clarity', rating: 5 },
-                { label: 'Listening', rating: 5 },
-                { label: 'Speaking', rating: 5 },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.clarity_03543111',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.listening_dc353487',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.speaking_a771fe66',
+                  ),
+                  rating: 5,
+                },
               ]}
               formField={
                 <TextField
                   multiline
                   fullWidth
                   rows={2}
-                  placeholder="Add Comment"
+                  placeholder={translateUi(
+                    'ui.sections.hrm.performance_management.feedback.add_comment_d89450c8',
+                  )}
                   error={!!errors.communication?.comment}
                   helperText={
                     <>
@@ -188,7 +213,9 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
                         sx={{ fontSize: 16 }}
                       />
                       <Typography variant="caption">
-                        Type your comment and press Enter to add it.
+                        {translateUi(
+                          'ui.sections.hrm.performance_management.feedback.type_your_comment_and_press_enter_to_add_it_5929a481',
+                        )}
                       </Typography>
                     </>
                   }
@@ -207,20 +234,44 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
             />
 
             <ReportInfo
-              title="Teamwork"
+              title={translateUi(
+                'ui.sections.hrm.performance_management.feedback.teamwork_d1f2c905',
+              )}
               fieldPrefix="teamwork"
               ratingList={[
-                { label: 'Cooperation', rating: 5 },
-                { label: 'Supportiveness', rating: 5 },
-                { label: 'Conflict Resolution', rating: 5 },
-                { label: 'Respect for Others', rating: 5 },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.cooperation_c2057e30',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.supportiveness_a51f0c5a',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.conflict_resolution_18f5e901',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.respect_for_others_a36d3800',
+                  ),
+                  rating: 5,
+                },
               ]}
               formField={
                 <TextField
                   multiline
                   fullWidth
                   rows={2}
-                  placeholder="Add Comment"
+                  placeholder={translateUi(
+                    'ui.sections.hrm.performance_management.feedback.add_comment_d89450c8',
+                  )}
                   error={!!errors.teamwork?.comment}
                   helperText={
                     <>
@@ -229,7 +280,9 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
                         sx={{ fontSize: 16 }}
                       />
                       <Typography variant="caption">
-                        Type your comment and press Enter to add it.
+                        {translateUi(
+                          'ui.sections.hrm.performance_management.feedback.type_your_comment_and_press_enter_to_add_it_5929a481',
+                        )}
                       </Typography>
                     </>
                   }
@@ -248,19 +301,38 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
             />
 
             <ReportInfo
-              title="Problem Solving"
+              title={translateUi(
+                'ui.sections.hrm.performance_management.feedback.problem_solving_531c2fd0',
+              )}
               fieldPrefix="problemSolving"
               ratingList={[
-                { label: 'Analytical Thinking', rating: 5 },
-                { label: 'Decision Making', rating: 5 },
-                { label: 'Creativity', rating: 5 },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.analytical_thinking_b08753b9',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.decision_making_9594d42d',
+                  ),
+                  rating: 5,
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.creativity_1bcd331b',
+                  ),
+                  rating: 5,
+                },
               ]}
               formField={
                 <TextField
                   multiline
                   fullWidth
                   rows={2}
-                  placeholder="Add Comment"
+                  placeholder={translateUi(
+                    'ui.sections.hrm.performance_management.feedback.add_comment_d89450c8',
+                  )}
                   error={!!errors.problemSolving?.comment}
                   helperText={
                     <>
@@ -269,7 +341,9 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
                         sx={{ fontSize: 16 }}
                       />
                       <Typography variant="caption">
-                        Type your comment and press Enter to add it.
+                        {translateUi(
+                          'ui.sections.hrm.performance_management.feedback.type_your_comment_and_press_enter_to_add_it_5929a481',
+                        )}
                       </Typography>
                     </>
                   }
@@ -290,10 +364,14 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
             <Questions
               questions={[
                 {
-                  question: 'How does the employee handle communication challenges?',
+                  question: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.how_does_the_employee_handle_communication_challenge_4ecbe7e3',
+                  ),
                 },
                 {
-                  question: 'How does the employee demonstrated teamwork?',
+                  question: translateUi(
+                    'ui.sections.hrm.performance_management.feedback.how_does_the_employee_demonstrated_teamwork_7fd7742d',
+                  ),
                 },
               ]}
             />
@@ -310,13 +388,13 @@ const ReportFormDialog = ({ feedback, onClose, sx, ...rest }) => {
           }}
         >
           <Button color="neutral" onClick={() => onClose()}>
-            Cancel
+            {translateUi('ui.sections.hrm.performance_management.feedback.cancel_77dfd213')}
           </Button>
           <Button type="reset" variant="soft" color="neutral" onClick={() => onClose()}>
-            Save
+            {translateUi('ui.sections.hrm.performance_management.feedback.save_efc007a3')}
           </Button>
           <Button type="submit" variant="contained">
-            Submit
+            {translateUi('ui.sections.hrm.performance_management.feedback.submit_2dacf659')}
           </Button>
         </DialogActions>
       </Dialog>

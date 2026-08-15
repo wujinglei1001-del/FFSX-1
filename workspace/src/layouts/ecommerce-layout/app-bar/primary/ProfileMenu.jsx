@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -16,6 +17,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
 const ProfileMenu = () => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const { sessionUser, signout } = useAuth();
@@ -49,7 +51,7 @@ const ProfileMenu = () => {
         }}
       >
         <StatusAvatar
-          alt="Captain Haddock"
+          alt={translateUi('ui.layouts.ecommerce_layout.app_bar.primary.captain_haddock_b801c768')}
           status="online"
           src={user.avatar || undefined}
           sx={{ width: 36, height: 36 }}
@@ -111,27 +113,45 @@ const ProfileMenu = () => {
 
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>Your account</MenuItem>
-          <MenuItem onClick={handleClose}>Account settings</MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.your_account_4ab29102')}
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.account_settings_82cf8a5f')}
+          </MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>Orders</MenuItem>
-          <MenuItem onClick={handleClose}>Track order</MenuItem>
-          <MenuItem onClick={handleClose}>Wishlist</MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.orders_cded0933')}
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.track_order_51e971d9')}
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.wishlist_6ff33102')}
+          </MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>Membership</MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.membership_53bc9670')}
+          </MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>Plans & Subscription</MenuItem>
-          <MenuItem onClick={handleClose}>Payment methods</MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.plans_subscription_0e2805ec')}
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.payment_methods_dc80127f')}
+          </MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleSignout}>Log out</MenuItem>
+          <MenuItem onClick={handleSignout}>
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.log_out_6e78c91f')}
+          </MenuItem>
         </Box>
       </Menu>
     </>

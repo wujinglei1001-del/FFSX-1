@@ -1,4 +1,5 @@
 import { useMemo, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Stack, Typography, useTheme } from '@mui/material';
 import { PieChart } from 'echarts/charts';
 import { GridComponent, LegendComponent, TooltipComponent } from 'echarts/components';
@@ -10,6 +11,7 @@ import ReactEchart from 'components/base/ReactEchart';
 
 echarts.use([TooltipComponent, GridComponent, PieChart, CanvasRenderer, LegendComponent]);
 const BasicInfo = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { vars, typography } = useTheme();
   const { getThemeColor } = useSettingsContext();
@@ -70,7 +72,7 @@ const BasicInfo = ({ data }) => {
       }}
     >
       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-        Basic Info
+        {translateUi('ui.sections.member.profile.profile_tabs.basic_info_09a7b0b9')}
       </Typography>
       <Stack
         sx={{

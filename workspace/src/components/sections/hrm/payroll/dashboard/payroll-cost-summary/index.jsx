@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Paper from '@mui/material/Paper';
@@ -6,30 +7,40 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { costSummaryData } from 'data/hrm/payroll/dashboard';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
+import i18n from 'locales/i18n';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
 import SectionHeader from 'components/common/SectionHeader';
 import CostSummaryChart from './CostSummaryChart';
 
 const chartLegends = [
   {
-    label: 'Net Pay',
+    get label() {
+      return i18n.t('ui.sections.hrm.payroll.dashboard.net_pay_a75db049');
+    },
     color: 'chBlue.200',
   },
   {
-    label: 'Tax',
+    get label() {
+      return i18n.t('ui.sections.hrm.payroll.dashboard.tax_9be70f66');
+    },
     color: 'chLightBlue.200',
   },
   {
-    label: 'Extra Pay',
+    get label() {
+      return i18n.t('ui.sections.hrm.payroll.dashboard.extra_pay_cd343398');
+    },
     color: 'chLightBlue.100',
   },
   {
-    label: 'Oth. Deduction',
+    get label() {
+      return i18n.t('ui.sections.hrm.payroll.dashboard.oth_deduction_5357cc27');
+    },
     color: 'chOrange.100',
   },
 ];
 
 const PayrollCostSummary = () => {
+  const { t: translateUi } = useTranslation();
   const [data, setData] = useState(costSummaryData.previous_year);
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
@@ -37,7 +48,7 @@ const PayrollCostSummary = () => {
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, height: 1 }}>
       <SectionHeader
-        title="Payroll Cost Summary"
+        title={translateUi('ui.sections.hrm.payroll.dashboard.payroll_cost_summary_178e1fd9')}
         subTitle="Analayze payroll components at a glance"
         actionComponent={
           <DashboardSelectMenu
@@ -45,11 +56,11 @@ const PayrollCostSummary = () => {
             size="medium"
             options={[
               {
-                label: 'Previous Year',
+                label: translateUi('ui.sections.hrm.payroll.dashboard.previous_year_d338c159'),
                 value: 'previous_year',
               },
               {
-                label: 'This Year',
+                label: translateUi('ui.sections.hrm.payroll.dashboard.this_year_77528c94'),
                 value: 'this_year',
               },
             ]}
@@ -75,7 +86,7 @@ const PayrollCostSummary = () => {
             variant="caption"
             sx={{ color: 'text.secondary', fontWeight: 700, lineHeight: 1.5 }}
           >
-            Reasons:
+            {translateUi('ui.sections.hrm.payroll.dashboard.reasons_91293347')}
           </Typography>
           <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
             {chartLegends.map(({ label, color }) => (

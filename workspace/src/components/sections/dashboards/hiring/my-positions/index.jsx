@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Grid, Stack } from '@mui/material';
 import { positionsData as data } from 'data/hiring/dashboard';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -7,6 +8,7 @@ import SectionWrapper from '../common/SectionWrapper';
 import PositionCard from './PositionCard';
 
 const MyPositions = () => {
+  const { t: translateUi } = useTranslation();
   const { only } = useBreakpoints();
   const onlySm = only('sm');
   const onlyXs = only('xs');
@@ -14,7 +16,7 @@ const MyPositions = () => {
   return (
     <Stack component={SectionWrapper}>
       <SectionHeader
-        title="My Positions"
+        title={translateUi('ui.sections.dashboards.hiring.my_positions.my_positions_d9cec746')}
         subTitle="Recruitment involvement across roles"
         actionComponent={<DashboardMenu />}
       />

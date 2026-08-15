@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
@@ -9,6 +10,7 @@ import FilterDrawer from 'components/sections/member/member-list/filter-drawer';
 
 const filterDrawerWidth = 280;
 const Members = () => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upXl = up('xl');
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -40,10 +42,13 @@ const Members = () => {
         })}
       >
         <PageHeader
-          title="Member"
+          title={translateUi('ui.sections.member.views.members.member_6853c98a')}
           breadcrumb={[
-            { label: 'Home', url: '#!' },
-            { label: 'Members', active: true },
+            { label: translateUi('ui.sections.member.views.members.home_70f8bb9a'), url: '#!' },
+            {
+              label: translateUi('ui.sections.member.views.members.members_1cb449c1'),
+              active: true,
+            },
           ]}
           paperProps={{ sx: { outline: 0 } }}
           actionComponent={
@@ -52,7 +57,7 @@ const Members = () => {
               variant="contained"
               startIcon={<IconifyIcon icon="material-symbols:add-rounded" />}
             >
-              New member
+              {translateUi('ui.sections.member.views.members.new_member_2182c5f2')}
             </Button>
           }
           sx={{ alignItems: 'flex-start' }}

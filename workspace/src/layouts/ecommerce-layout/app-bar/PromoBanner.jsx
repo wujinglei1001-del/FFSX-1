@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonBase, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
@@ -14,6 +15,7 @@ const formatTime = (seconds) => {
   return { hours, minutes, secs };
 };
 const PromoBanner = () => {
+  const { t: translateUi } = useTranslation();
   const [timeLeft, setTimeLeft] = useState(1 * 60 * 60 + 24 * 60 + 48);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -65,7 +67,7 @@ const PromoBanner = () => {
             animation: { xs: 'marquee 7s linear infinite', md: 'none' },
           }}
         >
-          30% Off{' '}
+          {translateUi('ui.layouts.ecommerce_layout.app_bar.promobanner.30_off_a97fae30')}{' '}
           <Box
             component="span"
             sx={{
@@ -73,7 +75,9 @@ const PromoBanner = () => {
               fontSize: 'subtitle1.fontSize',
             }}
           >
-            on all products. Use promo code{' '}
+            {translateUi(
+              'ui.layouts.ecommerce_layout.app_bar.promobanner.on_all_products_use_promo_code_fc5eec56',
+            )}{' '}
           </Box>
           <Box
             component="span"
@@ -153,7 +157,7 @@ const PromoBanner = () => {
       </Stack>
       {!downSm && (
         <Button variant="contained" color="warning" sx={{ flexShrink: 0 }}>
-          View Deal
+          {translateUi('ui.layouts.ecommerce_layout.app_bar.promobanner.view_deal_968d4418')}
         </Button>
       )}
     </Stack>

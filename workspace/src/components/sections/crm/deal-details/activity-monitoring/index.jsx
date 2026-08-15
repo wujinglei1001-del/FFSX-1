@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ActivityTabs from '../../common/ActivityTabs';
 
 const ActivityMonitoring = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{
@@ -15,7 +17,9 @@ const ActivityMonitoring = () => {
       }}
     >
       <Typography variant="h5" sx={{ mb: 4 }}>
-        Activity Monitoring
+        {translateUi(
+          'ui.sections.crm.deal_details.activity_monitoring.activity_monitoring_ca92d7c3',
+        )}
       </Typography>
       <ActivityTabs />
     </Paper>

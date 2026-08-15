@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   List,
@@ -9,53 +10,69 @@ import {
   Typography,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const services = [
   {
     id: 1,
-    label: 'Login & Security',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.login_security_f6cf96a8');
+    },
     icon: 'material-symbols:lock-outline',
     url: '#!',
   },
   {
     id: 2,
-    label: 'Gift cards',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.gift_cards_b65882d3');
+    },
     icon: 'material-symbols:redeem-rounded',
     url: '#!',
   },
   {
     id: 3,
-    label: 'My payments',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.my_payments_5f5c638c');
+    },
     icon: 'material-symbols:payments-outline-rounded',
     url: '#!',
   },
   {
     id: 4,
-    label: 'Digital support',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.digital_support_7849a1ed');
+    },
     icon: 'material-symbols:support',
     url: '#!',
   },
   {
     id: 5,
-    label: 'My messages',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.my_messages_d04104be');
+    },
     icon: 'material-symbols:chat-outline-rounded',
     url: '#!',
   },
   {
     id: 6,
-    label: 'My lists',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.my_lists_dc1d2989');
+    },
     icon: 'material-symbols:list-rounded',
     url: '#!',
   },
   {
     id: 7,
-    label: 'Customer service',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.customer_account.customer_service_1d0c9a65');
+    },
     icon: 'material-symbols:support-agent-rounded',
     url: '#!',
   },
 ];
 const AccountAside = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ height: 1 }}>
       <Box
@@ -71,9 +88,13 @@ const AccountAside = () => {
             mb: 2,
           }}
         >
-          My services
+          {translateUi('ui.sections.ecommerce.customer.customer_account.my_services_82338454')}
         </Typography>
-        <nav aria-label="Services list">
+        <nav
+          aria-label={translateUi(
+            'ui.sections.ecommerce.customer.customer_account.services_list_2f623443',
+          )}
+        >
           <Grid container component={List} columnSpacing={2} disablePadding>
             {services.map(({ id, label, icon, url }) => (
               <Grid

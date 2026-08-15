@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button, { buttonClasses } from '@mui/material/Button';
 import Menu, { menuClasses } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
@@ -9,13 +10,17 @@ const accessOptions = [
   {
     id: 1,
     type: 'invite-only',
-    label: 'Invite Only',
+    get label() {
+      return i18n.t('ui.sections.crm.deal_details.page_header.invite_only_0512f38c');
+    },
     icon: 'material-symbols:lock-person-outline-rounded',
   },
   {
     id: 2,
     type: 'anyone',
-    label: 'Anyone',
+    get label() {
+      return i18n.t('ui.sections.crm.deal_details.page_header.anyone_9b5641a9');
+    },
     icon: 'material-symbols:globe',
   },
 ];

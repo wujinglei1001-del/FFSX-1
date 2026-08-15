@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link, Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -35,6 +36,7 @@ const socialLinks = [
   },
 ];
 const SocialIcons = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography
@@ -46,7 +48,7 @@ const SocialIcons = () => {
           color: 'text.disabled',
         }}
       >
-        Socials
+        {translateUi('ui.layouts.landing_layout.footer.socialicons.socials_33310723')}
       </Typography>
       <Stack
         direction="row"

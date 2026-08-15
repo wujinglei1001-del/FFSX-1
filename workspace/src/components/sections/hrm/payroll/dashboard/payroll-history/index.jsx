@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { payrollHistoryData } from 'data/hrm/payroll/dashboard';
@@ -6,10 +7,11 @@ import SectionHeader from 'components/common/SectionHeader';
 import PayrollHistoryCard from './PayrollHistoryCard';
 
 const PayrollHistory = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, height: 1 }}>
       <SectionHeader
-        title="Payroll History"
+        title={translateUi('ui.sections.hrm.payroll.dashboard.payroll_history_b278e655')}
         subTitle="Keep track of past payroll activity"
         actionComponent={<DashboardMenu size="medium" />}
       />

@@ -1,4 +1,5 @@
 import { initialConfig } from 'config';
+import i18n from 'locales/i18n';
 
 const logo = (index) => `${initialConfig.assetsDir}/images/brands/${index}.webp`;
 
@@ -13,7 +14,9 @@ export const jobList = [
       employees: 220,
       desc: 'Waka Waka PLC is a creative production company delivering high-quality video, animation, and advertising campaigns to brands worldwide.',
     },
-    title: 'Animation Specialist',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.animation_specialist_4894817c');
+    },
     overview: {
       location: 'Vietnam',
       employmentType: 'Part-Time',
@@ -59,7 +62,9 @@ export const jobList = [
       employees: 95,
       desc: 'BrightWave Media is a creative agency specializing in storytelling through video, design, and marketing innovation.',
     },
-    title: 'Visual Effects Artist',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.visual_effects_artist_04bd4446');
+    },
     overview: {
       location: 'Nepal',
       employmentType: 'Part-Time',
@@ -104,7 +109,9 @@ export const jobList = [
       employees: 160,
       desc: 'Victory Outfitters Ltd. is a premier outdoor gear company dedicated to providing adventurers with high-quality equipment and apparel. With a passion for exploration and a commitment to sustainability, we empower outdoor enthusiasts to conquer the wild with confidence and style.',
     },
-    title: 'Motion Graphics Designer',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.motion_graphics_designer_5c36e10c');
+    },
     overview: {
       location: 'Bangladesh',
       employmentType: 'Full-Time',
@@ -158,7 +165,9 @@ export const jobList = [
       employees: 340,
       desc: 'ShieldNet Security is a leading provider of digital security solutions, safeguarding businesses with innovative cybersecurity products and services.',
     },
-    title: 'Digital Animation Artist',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.digital_animation_artist_b863fe7f');
+    },
     overview: {
       location: 'Bangladesh',
       employmentType: 'Full-Time',
@@ -202,7 +211,9 @@ export const jobList = [
       employees: 75,
       desc: 'O-Ecopower Innovations is focused on building eco-friendly energy solutions, with a strong emphasis on innovation and sustainable design.',
     },
-    title: '3D Motion Designer',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.3d_motion_designer_625a620e');
+    },
     overview: {
       location: 'Maldives',
       employmentType: 'Full-Time',
@@ -245,7 +256,9 @@ export const jobList = [
       employees: 500,
       desc: 'G Equipment Co. is a global manufacturer of heavy equipment with a strong focus on innovation and reliability.',
     },
-    title: 'Creative Designer',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.creative_designer_6cc03576');
+    },
     overview: {
       location: 'Thailand',
       employmentType: 'Contract',
@@ -288,7 +301,9 @@ export const jobList = [
       employees: 180,
       desc: 'SwiftPay Systems provides innovative payment solutions to businesses and consumers, driving the future of secure digital transactions.',
     },
-    title: 'Multimedia Designer',
+    get title() {
+      return i18n.t('ui.data.hiring.candidate.multimedia_designer_c2df0c85');
+    },
     overview: {
       location: 'Sri Lanka',
       employmentType: 'Contract',

@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Tooltip, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -6,6 +7,7 @@ import { secondsToHms } from 'lib/utils';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 
 const TotalAmountDetails = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const totalRow = {
     id: 0,
@@ -26,7 +28,9 @@ const TotalAmountDetails = ({ data }) => {
     () => [
       {
         field: 'project',
-        headerName: 'Project',
+        headerName: translateUi(
+          'ui.sections.time_tracker.report.totalamountdetails.project_f6f4da8d',
+        ),
         headerClassName: 'project-header',
         cellClassName: 'project-cell',
         flex: 1.79,
@@ -55,7 +59,7 @@ const TotalAmountDetails = ({ data }) => {
             <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
               <Box sx={{ width: 16, height: 16 }} />
               <Typography variant="subtitle2" sx={{ fontWeight: 500, color: 'text.primary' }}>
-                Total
+                {translateUi('ui.sections.time_tracker.report.totalamountdetails.total_b25928c6')}
               </Typography>
             </Stack>
           );
@@ -63,7 +67,9 @@ const TotalAmountDetails = ({ data }) => {
       },
       {
         field: 'totalHours',
-        headerName: 'Total Hours',
+        headerName: translateUi(
+          'ui.sections.time_tracker.report.totalamountdetails.total_hours_ad51f9a7',
+        ),
         headerClassName: 'total-hours-header',
         cellClassName: 'total-hours-cell',
         flex: 1,
@@ -82,7 +88,9 @@ const TotalAmountDetails = ({ data }) => {
       },
       {
         field: 'billableHours',
-        headerName: 'Billable Hours',
+        headerName: translateUi(
+          'ui.sections.time_tracker.report.totalamountdetails.billable_hours_011d715c',
+        ),
         headerClassName: 'billable-hours-header',
         cellClassName: 'billable-hours-cell',
         flex: 1,
@@ -101,7 +109,9 @@ const TotalAmountDetails = ({ data }) => {
       },
       {
         field: 'amount',
-        headerName: 'Amount',
+        headerName: translateUi(
+          'ui.sections.time_tracker.report.totalamountdetails.amount_43dc8532',
+        ),
         headerClassName: 'amount-header',
         cellClassName: 'amount-cell',
         flex: 1.22,
@@ -129,10 +139,12 @@ const TotalAmountDetails = ({ data }) => {
   const renderTop = () => (
     <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
       <Typography variant="h6" sx={{ fontWeight: 500 }}>
-        Total Amount Details
+        {translateUi(
+          'ui.sections.time_tracker.report.totalamountdetails.total_amount_details_ed3ceb34',
+        )}
       </Typography>
       <Button variant="soft" color="neutral">
-        Export
+        {translateUi('ui.sections.time_tracker.report.totalamountdetails.export_f3e4fadb')}
       </Button>
     </Stack>
   );

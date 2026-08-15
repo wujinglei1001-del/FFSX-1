@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Badge,
   Button,
@@ -17,6 +18,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 const menuItems = ['all', 'unread', 'starred'];
 
 const FilterMenu = ({ handleFilter }) => {
+  const { t: translateUi } = useTranslation();
   const { conversations, filterBy } = useChatContext();
   const { only } = useBreakpoints();
   const [filterAnchorEl, setFilterAnchorEl] = useState(null);
@@ -30,7 +32,10 @@ const FilterMenu = ({ handleFilter }) => {
 
   return (
     <>
-      <Tooltip title="Filter conversations" placement={onlySm ? 'right' : 'top'}>
+      <Tooltip
+        title={translateUi('ui.sections.chat.sidebar.filters.filter_conversations_a70369ae')}
+        placement={onlySm ? 'right' : 'top'}
+      >
         <Badge
           badgeContent={`${conversations.length}`}
           color="primary"

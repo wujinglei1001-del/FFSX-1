@@ -1,4 +1,5 @@
 import { useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Slider, Stack } from '@mui/material';
 import NumberTextField from 'components/base/NumberTextField';
 import FilterCollapse from './FilterCollapsiblePanel';
@@ -8,16 +9,24 @@ const valuetext = (value) => {
 };
 
 const PriceFilterSection = ({ defaultOpen = false, defaultValue }) => {
+  const { t: translateUi } = useTranslation();
   const { control, setValue } = useFormContext();
 
-  const priceRange = useWatch({ control, name: 'priceRange', defaultValue });
+  const priceRange = useWatch({
+    control,
+    name: 'priceRange',
+    defaultValue,
+  });
 
   const handleSliderChange = (event, newValue) => {
     setValue('priceRange', newValue);
   };
 
   return (
-    <FilterCollapse defaultOpen={defaultOpen} title="Price">
+    <FilterCollapse
+      defaultOpen={defaultOpen}
+      title={translateUi('ui.sections.ecommerce.customer.products.price_3e8248e3')}
+    >
       <Box sx={{ px: 1.25 }}>
         <Slider
           getAriaLabel={() => 'Price range'}
@@ -39,14 +48,14 @@ const PriceFilterSection = ({ defaultOpen = false, defaultValue }) => {
         }}
       >
         <NumberTextField
-          label="Min"
+          label={translateUi('ui.sections.ecommerce.customer.products.min_7eb0cee8')}
           value={priceRange[0]}
           onChange={(e) => {
             setValue('priceRange', [Number(e.target.value), priceRange[1]]);
           }}
         />
         <NumberTextField
-          label="Max"
+          label={translateUi('ui.sections.ecommerce.customer.products.max_a95e85ae')}
           value={priceRange[1]}
           onChange={(e) => {
             setValue('priceRange', [priceRange[0], Number(e.target.value)]);

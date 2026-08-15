@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import paths from 'routes/paths';
@@ -6,14 +7,15 @@ import AddContactStepper from 'components/sections/crm/add-contact/AddContactSte
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 
 const AddContact = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title="Add New Contact"
+          title={translateUi('ui.pages.apps.crm.addcontact.add_new_contact_b36686e2')}
           breadcrumb={[
-            { label: 'Home', url: paths.crm },
-            { label: 'Contact', active: true },
+            { label: translateUi('ui.pages.apps.crm.addcontact.home_70f8bb9a'), url: paths.crm },
+            { label: translateUi('ui.pages.apps.crm.addcontact.contact_b37456c4'), active: true },
           ]}
           actionComponent={
             <Stack
@@ -30,7 +32,7 @@ const AddContact = () => {
                   <IconifyIcon icon="material-symbols:upload-rounded" height={24} width={24} />
                 }
               >
-                Import From
+                {translateUi('ui.pages.apps.crm.addcontact.import_from_41310266')}
               </Button>
             </Stack>
           }

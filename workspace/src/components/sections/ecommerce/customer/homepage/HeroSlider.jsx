@@ -1,6 +1,7 @@
 import { Box, Link, Typography, buttonBaseClasses } from '@mui/material';
 import { initialConfig } from 'config';
 import { cssVarRgba } from 'lib/utils';
+import i18n from 'locales/i18n';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
 import { blue, orange } from 'theme/colors/base';
@@ -25,9 +26,9 @@ const slides = [
             fontWeight: 400,
           }}
         >
-          Best deals on{' '}
+          {i18n.t('ui.sections.ecommerce.customer.homepage.best_deals_on_21167a7e')}{' '}
         </Box>
-        living room furnitures
+        {i18n.t('ui.sections.ecommerce.customer.homepage.living_room_furnitures_f09b5db3')}
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/1.webp`,
@@ -44,14 +45,14 @@ const slides = [
           typography: { md: 'h3', xs: 'h5' },
         }}
       >
-        Customize your bedroom{' '}
+        {i18n.t('ui.sections.ecommerce.customer.homepage.customize_your_bedroom_59abc261')}{' '}
         <Box
           component="span"
           sx={{
             fontWeight: 400,
           }}
         >
-          just the way you want
+          {i18n.t('ui.sections.ecommerce.customer.homepage.just_the_way_you_want_7af0b702')}
         </Box>
       </Typography>
     ),
@@ -75,7 +76,9 @@ const slides = [
             fontWeight: 400,
           }}
         >
-          Dining furnitures with up to{' '}
+          {i18n.t(
+            'ui.sections.ecommerce.customer.homepage.dining_furnitures_with_up_to_62caea44',
+          )}{' '}
         </Box>
         <Box
           component="span"
@@ -83,7 +86,7 @@ const slides = [
             color: blue[900],
           }}
         >
-          50% discount
+          {i18n.t('ui.sections.ecommerce.customer.homepage.50_discount_49b6cec7')}
         </Box>
       </Typography>
     ),

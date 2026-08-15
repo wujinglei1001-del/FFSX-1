@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, MenuItem, Stack } from '@mui/material';
+import i18n from 'locales/i18n';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import Image from 'components/base/Image';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -7,34 +9,47 @@ import StyledTextField from 'components/styled/StyledTextField';
 const cameraOptions = [
   {
     value: 'built_in_cam',
-    label: 'Built in HD Camera',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.camerasettings.built_in_hd_camera_0011f571');
+    },
   },
   {
     value: 'external_webcam',
-    label: 'External Webcam',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.camerasettings.external_webcam_f60cd8b8');
+    },
   },
   {
     value: 'virtual_cam',
-    label: 'Virtual Camera',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.camerasettings.virtual_camera_61a6e5d8');
+    },
   },
 ];
 
 const resolutionOptions = [
   {
     value: 'fhd',
-    label: 'FHD (1080p)',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.camerasettings.fhd_1080p_385fd99a');
+    },
   },
   {
     value: 'hd',
-    label: 'HD (720p)',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.camerasettings.hd_720p_cabe6911');
+    },
   },
   {
     value: 'sd',
-    label: 'SD (480p)',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.camerasettings.sd_480p_1b41d768');
+    },
   },
 ];
 
 const CameraSettings = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -55,7 +70,7 @@ const CameraSettings = () => {
         <StyledTextField
           select
           value={camera}
-          label="Camera"
+          label={translateUi('ui.sections.account.audio_video.camerasettings.camera_4da9c9af')}
           fullWidth
           onChange={({ target: { value } }) => setCamera(value)}
           slotProps={{
@@ -79,7 +94,9 @@ const CameraSettings = () => {
         <StyledTextField
           select
           value={sendResolution}
-          label="Send resolution (Max)"
+          label={translateUi(
+            'ui.sections.account.audio_video.camerasettings.send_resolution_max_29c43a7b',
+          )}
           fullWidth
           onChange={({ target: { value } }) => setSendResolution(value)}
           slotProps={{
@@ -103,7 +120,9 @@ const CameraSettings = () => {
         <StyledTextField
           select
           value={receiveResolution}
-          label="Receive resolution (Max)"
+          label={translateUi(
+            'ui.sections.account.audio_video.camerasettings.receive_resolution_max_bc0c0dbb',
+          )}
           fullWidth
           onChange={({ target: { value } }) => setReceiveResolution(value)}
           slotProps={{

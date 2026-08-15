@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   Dialog,
@@ -20,6 +21,7 @@ import SimpleBar from 'components/base/SimpleBar';
 import LanguageListItem from './LanguageListItem';
 
 const LanguageDialog = (props) => {
+  const { t: translateUi } = useTranslation();
   const { open, handleDialogClose, sx } = props;
   const { setValue, control } = useFormContext();
   const checkedLanguages = useWatch({ control, name: 'languages' });
@@ -80,7 +82,7 @@ const LanguageDialog = (props) => {
           alignItems: 'center',
         }}
       >
-        Language
+        {translateUi('ui.sections.account.language_region.languagedialog.language_89b86ab0')}
         <IconButton onClick={handleDiscard}>
           <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20 }} />
         </IconButton>
@@ -90,11 +92,15 @@ const LanguageDialog = (props) => {
           variant="body2"
           sx={{ color: 'text.secondary', mb: 2, textWrap: 'pretty' }}
         >
-          Choose your preferred language for display text, handwriting, speech, and search filters.
+          {translateUi(
+            'ui.sections.account.language_region.languagedialog.choose_your_preferred_language_for_display_text_hand_01f04398',
+          )}
         </DialogContentText>
         <Stack sx={{ gap: 1 }}>
           <TextField
-            label="Search"
+            label={translateUi(
+              'ui.sections.account.language_region.languagedialog.search_bce06414',
+            )}
             size="small"
             autoComplete="off"
             onChange={handleSearch}
@@ -134,10 +140,10 @@ const LanguageDialog = (props) => {
         }}
       >
         <Button variant="soft" color="neutral" onClick={handleDiscard}>
-          Discard
+          {translateUi('ui.sections.account.language_region.languagedialog.discard_36fff63c')}
         </Button>
         <Button variant="contained" color="primary" onClick={handleConfirm}>
-          Confirm
+          {translateUi('ui.sections.account.language_region.languagedialog.confirm_04a21221')}
         </Button>
       </DialogActions>
     </Dialog>

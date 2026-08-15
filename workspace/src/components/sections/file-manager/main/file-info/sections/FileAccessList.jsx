@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
@@ -8,6 +9,7 @@ import StatusAvatar from 'components/base/StatusAvatar';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const SharedUser = ({ share }) => {
+  const { t: translateUi } = useTranslation();
   const [permission, setPermission] = useState(share.permission);
 
   const handlePermissionChange = (event) => setPermission(event.target.value);
@@ -53,9 +55,15 @@ const SharedUser = ({ share }) => {
           onChange={handlePermissionChange}
           sx={{ maxWidth: 104 }}
         >
-          <MenuItem value="owner">Owner</MenuItem>
-          <MenuItem value="viewer">Can View</MenuItem>
-          <MenuItem value="editor">Can Edit</MenuItem>
+          <MenuItem value="owner">
+            {translateUi('ui.sections.file_manager.main.file_info.owner_89ff3122')}
+          </MenuItem>
+          <MenuItem value="viewer">
+            {translateUi('ui.sections.file_manager.main.file_info.can_view_35f3475b')}
+          </MenuItem>
+          <MenuItem value="editor">
+            {translateUi('ui.sections.file_manager.main.file_info.can_edit_88fd881d')}
+          </MenuItem>
         </StyledTextField>
       </Stack>
     </Stack>
@@ -63,6 +71,7 @@ const SharedUser = ({ share }) => {
 };
 
 const FileAccessList = ({ file }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ p: { xs: 3, md: 5 } }}>
       <Stack
@@ -77,9 +86,11 @@ const FileAccessList = ({ file }) => {
             justifyContent: 'space-between',
           }}
         >
-          <Typography variant="h6">Who has access</Typography>
+          <Typography variant="h6">
+            {translateUi('ui.sections.file_manager.main.file_info.who_has_access_b82540c6')}
+          </Typography>
           <Button size="small" color="neutral">
-            Manage Access
+            {translateUi('ui.sections.file_manager.main.file_info.manage_access_4921ed7e')}
           </Button>
         </Stack>
         <Stack

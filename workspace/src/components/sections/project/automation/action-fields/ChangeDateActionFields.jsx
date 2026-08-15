@@ -1,9 +1,11 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { FormControlLabel, Radio, RadioGroup, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import DatePickerWithShortcuts from '../shared/DatePickerWithShortcuts';
 
 const ChangeDateActionFields = ({ index }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -43,7 +45,9 @@ const ChangeDateActionFields = ({ index }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  Day(s) after trigger
+                  {translateUi(
+                    'ui.sections.project.automation.action_fields.day_s_after_trigger_dac987f2',
+                  )}
                 </Typography>
               </Stack>
 
@@ -72,7 +76,9 @@ const ChangeDateActionFields = ({ index }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  Week(s) after trigger
+                  {translateUi(
+                    'ui.sections.project.automation.action_fields.week_s_after_trigger_dee59302',
+                  )}
                 </Typography>
               </Stack>
 
@@ -90,7 +96,9 @@ const ChangeDateActionFields = ({ index }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  Set custom date
+                  {translateUi(
+                    'ui.sections.project.automation.action_fields.set_custom_date_90458e7d',
+                  )}
                 </Typography>
               </Stack>
             </Stack>
@@ -99,7 +107,9 @@ const ChangeDateActionFields = ({ index }) => {
       />
       <DatePickerWithShortcuts
         name={`actions.${index}.params.customDate`}
-        placeholder="Change start/end date"
+        placeholder={translateUi(
+          'ui.sections.project.automation.action_fields.change_start_end_date_a2003dc1',
+        )}
         disabled={dateMode !== 'custom'}
       />
     </Stack>

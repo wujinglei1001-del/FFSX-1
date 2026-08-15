@@ -20,9 +20,9 @@ i18n
       hiIN: { translation: translationHi },
       arSA: { translation: translationAr },
     },
-    lng: 'enUS',
+    lng: 'zhCN',
     ns: ['translation'],
-    fallbackLng: 'en',
+    fallbackLng: 'enUS',
     debug: false,
   });
 

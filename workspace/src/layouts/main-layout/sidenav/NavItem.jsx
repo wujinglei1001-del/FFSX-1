@@ -17,6 +17,7 @@ import { useNavContext } from '../NavProvider';
 import NavItemPopper from './NavItemPopper';
 
 const NavItem = ({ item, level }) => {
+  const { t: translateUi } = useTranslation();
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopperMenu, setOpenPopperMenu] = useState(false);
@@ -237,7 +238,7 @@ const NavItem = ({ item, level }) => {
               {item.new && (!sidenavCollapsed || level > 0 || isStackedSideNav) && (
                 <Chip
                   size="xsmall"
-                  label="new"
+                  label={translateUi('ui.layouts.main_layout.sidenav.navitem.new_c2a6b03f')}
                   color="warning"
                   sx={{ textTransform: 'capitalize', ml: 1 }}
                 />

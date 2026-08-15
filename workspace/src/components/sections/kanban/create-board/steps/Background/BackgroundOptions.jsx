@@ -1,9 +1,11 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import BackgroundOptionItem from './BackgroundOptionItem';
 import CustomOption from './CustomOption';
 
 const BackgroundOptions = ({ type, actionButton, name }) => {
+  const { t: translateUi } = useTranslation();
   const { setValue, watch, control } = useFormContext();
   const backgroundOptions = watch('backgroundOptions');
 
@@ -24,7 +26,7 @@ const BackgroundOptions = ({ type, actionButton, name }) => {
     if (customBgIndex === -1) {
       append({
         id: fields.length + 1,
-        label: 'custom',
+        label: translateUi('ui.sections.kanban.create_board.steps.custom_f9ac14b6'),
         background,
         type,
       });

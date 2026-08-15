@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -14,6 +15,7 @@ import { users } from 'data/users';
 import useNumberFormat from 'hooks/useNumberFormat';
 
 const ChannelInfo = () => {
+  const { t: translateUi } = useTranslation();
   const { numberFormat } = useNumberFormat();
   const [following, setFollowing] = useState(false);
 
@@ -21,7 +23,11 @@ const ChannelInfo = () => {
     <List disablePadding sx={{ mb: 3, width: 'fit-content' }}>
       <ListItem sx={{ alignItems: 'center', gap: 1, p: 0 }}>
         <ListItemAvatar sx={{ minWidth: 48 }}>
-          <Avatar src={users[0].avatar} alt="avatar" sx={{ width: 48, height: 48 }} />
+          <Avatar
+            src={users[0].avatar}
+            alt={translateUi('ui.sections.content.details.video.avatar_9c3bb49f')}
+            sx={{ width: 48, height: 48 }}
+          />
         </ListItemAvatar>
 
         <ListItemText
@@ -46,14 +52,14 @@ const ChannelInfo = () => {
                   notation: 'compact',
                   compactDisplay: 'short',
                 })}{' '}
-                Stories
+                {translateUi('ui.sections.content.details.video.stories_67b5fefd')}
               </Typography>
               <Typography
                 variant="caption"
                 component="p"
                 sx={{ fontWeight: 'medium', color: 'text.secondary', whiteSpace: 'nowrap' }}
               >
-                100 Followers
+                {translateUi('ui.sections.content.details.video.100_followers_9daf27de')}
               </Typography>
             </Stack>
           }

@@ -1,4 +1,5 @@
 import { Paper, Stack } from '@mui/material';
+import i18n from 'locales/i18n';
 import CandidateInfo from 'components/sections/hiring/admin/candidate-details/CandidateInfo';
 import ProfileHeader from 'components/sections/hiring/admin/candidate-details/ProfileHeader';
 import CandidateDetailsMain from 'components/sections/hiring/admin/candidate-details/main';
@@ -16,17 +17,23 @@ const candidateInfo = {
   },
   experiences: [
     {
-      title: 'Director of Human Resources',
+      get title() {
+        return i18n.t('ui.pages.apps.hiring.admin.director_of_human_resources_2a51820a');
+      },
       company: 'Daffodil International University',
       duration: 'Dec, 2023 - Mar, 2024',
     },
     {
-      title: 'Jr. UX/UI Designer',
+      get title() {
+        return i18n.t('ui.pages.apps.hiring.admin.jr_ux_ui_designer_a3daf78a');
+      },
       company: 'Mindscape Communications',
       duration: 'Dec, 2023 - Mar, 2024',
     },
     {
-      title: 'Intern',
+      get title() {
+        return i18n.t('ui.pages.apps.hiring.admin.intern_f841f984');
+      },
       company: 'Rangs Properties Limited',
       duration: 'Dec, 2023 - Mar, 2024',
     },

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Container } from '@mui/material';
 import { eventInfo } from 'data/events';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -12,6 +13,7 @@ import TicketPurchaseToolbar from 'components/sections/events/event-detail/Ticke
 import EventInfo from 'components/sections/events/event-detail/main/EventInfo';
 
 const EventDetail = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -24,7 +26,7 @@ const EventDetail = () => {
       <Container maxWidth={false} sx={{ maxWidth: 1280, p: { xs: 3, md: 5 } }}>
         <Image
           src={`${assetsDir}/images/events/details/1.webp`}
-          alt="Event Banner"
+          alt={translateUi('ui.pages.events.eventdetail.event_banner_92379cd5')}
           sx={{
             width: 1,
             height: 300,

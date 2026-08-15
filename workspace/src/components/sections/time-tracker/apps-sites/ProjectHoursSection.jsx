@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Grid, Stack, Typography } from '@mui/material';
 import { secondsToHms } from 'lib/utils';
 import SiteDataCard from './SiteDataCard';
 
 const ProjectHoursSection = ({ project }) => {
+  const { t: translateUi } = useTranslation();
   const totalTime = project.sites.reduce((acc, site) => acc + site.hours, 0);
 
   return (
@@ -25,12 +27,14 @@ const ProjectHoursSection = ({ project }) => {
           </Typography>
         </Box>
         <Typography sx={{ color: 'text.secondary', fontWeight: 500 }}>
-          Total Time:{' '}
+          {translateUi(
+            'ui.sections.time_tracker.apps_sites.projecthourssection.total_time_46e23190',
+          )}{' '}
           <Box component="span" sx={{ fontWeight: 700 }}>
             {secondsToHms(totalTime, true)}
           </Box>{' '}
           <Box component="span" sx={{ fontSize: 'body2.fontSize' }}>
-            hrs
+            {translateUi('ui.sections.time_tracker.apps_sites.projecthourssection.hrs_a23c4292')}
           </Box>
         </Typography>
       </Stack>

@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
@@ -19,6 +20,7 @@ import useAddMemberForm from './useAddMemberForm';
 const members = appraisalList.map((appraisal) => appraisal.member);
 const mainEvaluators = appraisalList.map((appraisal) => appraisal.mainEvaluator);
 const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     handleSubmit,
@@ -64,15 +66,18 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
           alignItems: 'center',
         }}
       >
-        Add Member in Appraisal List
+        {translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.add_member_in_appraisal_list_244eeecd',
+        )}
         <Button shape="circle" color="neutral" onClick={handleClose}>
           <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20, color: 'neutral.dark' }} />
         </Button>
       </DialogTitle>
       <DialogContent>
         <DialogContentText variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-          Choose a member, assign their department and evaluators, and configure appraisal settings
-          for this cycle.
+          {translateUi(
+            'ui.sections.hrm.performance_management.appraisal_list.choose_a_member_assign_their_department_and_evaluato_ffcfdceb',
+          )}
         </DialogContentText>
         <Grid container rowSpacing={2} columnSpacing={1}>
           <Grid size={6}>
@@ -91,7 +96,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
                     return (
                       <TextField
                         {...params}
-                        label="Member"
+                        label={translateUi(
+                          'ui.sections.hrm.performance_management.appraisal_list.member_6853c98a',
+                        )}
                         slotProps={{
                           ...params.slotProps,
                           input: {
@@ -120,7 +127,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
                     return (
                       <TextField
                         {...params}
-                        label="Department"
+                        label={translateUi(
+                          'ui.sections.hrm.performance_management.appraisal_list.department_db40106a',
+                        )}
                         slotProps={{
                           ...params.slotProps,
                           input: {
@@ -155,7 +164,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
                       return (
                         <TextField
                           {...params}
-                          label="Template"
+                          label={translateUi(
+                            'ui.sections.hrm.performance_management.appraisal_list.template_3ec1ae06',
+                          )}
                           slotProps={{
                             ...params.slotProps,
                             input: {
@@ -189,7 +200,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
                       return (
                         <TextField
                           {...params}
-                          label="Template"
+                          label={translateUi(
+                            'ui.sections.hrm.performance_management.appraisal_list.template_3ec1ae06',
+                          )}
                           slotProps={{
                             ...params.slotProps,
                             input: {
@@ -212,7 +225,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
               control={control}
               render={({ field }) => (
                 <DatePicker
-                  label="Start Date"
+                  label={translateUi(
+                    'ui.sections.hrm.performance_management.appraisal_list.start_date_9d7ab1a5',
+                  )}
                   format="DD/MM/YYYY"
                   value={field.value ? dayjs(field.value) : null}
                   onChange={(date) => {
@@ -236,7 +251,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
               control={control}
               render={({ field }) => (
                 <DatePicker
-                  label="Due Date"
+                  label={translateUi(
+                    'ui.sections.hrm.performance_management.appraisal_list.due_date_a1b308ec',
+                  )}
                   format="DD/MM/YYYY"
                   shouldDisableDate={(date) => date.isBefore(dayjs(startDate))}
                   value={field.value ? dayjs(field.value) : null}
@@ -271,7 +288,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
                     return (
                       <TextField
                         {...params}
-                        label="Main Evaluator"
+                        label={translateUi(
+                          'ui.sections.hrm.performance_management.appraisal_list.main_evaluator_40a00873',
+                        )}
                         slotProps={{
                           ...params.slotProps,
                           input: {
@@ -302,7 +321,9 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
                     return (
                       <TextField
                         {...params}
-                        label="Other Evaluator"
+                        label={translateUi(
+                          'ui.sections.hrm.performance_management.appraisal_list.other_evaluator_f053f13c',
+                        )}
                         slotProps={{
                           ...params.slotProps,
                           input: {
@@ -326,10 +347,10 @@ const AddMemberDialog = ({ sx, onClose, handleClose, ...rest }) => {
         }}
       >
         <Button variant="soft" color="neutral" onClick={handleClose}>
-          Discard
+          {translateUi('ui.sections.hrm.performance_management.appraisal_list.discard_36fff63c')}
         </Button>
         <Button type="submit" variant="contained" color="primary">
-          Confirm
+          {translateUi('ui.sections.hrm.performance_management.appraisal_list.confirm_04a21221')}
         </Button>
       </DialogActions>
     </Dialog>

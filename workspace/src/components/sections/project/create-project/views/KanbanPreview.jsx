@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Card, Stack, Typography, useTheme } from '@mui/material';
 import { tasksPerGroup } from '../common/helpers';
 import { TaskCardContent } from './kanban/SortableTaskCard';
@@ -16,6 +17,7 @@ const getGlobalTaskIndex = (columnIndex, taskIndex, hasGroupingEnabled, groups) 
 };
 
 const KanbanPreview = ({ tasks, groups, avatarItems, hasGroupingEnabled, groupedTasks }) => {
+  const { t: translateUi } = useTranslation();
   const theme = useTheme();
 
   const getGroupColor = useCallback(
@@ -36,7 +38,9 @@ const KanbanPreview = ({ tasks, groups, avatarItems, hasGroupingEnabled, grouped
           color: 'text.secondary',
         }}
       >
-        Add tasks to see them in the kanban board.
+        {translateUi(
+          'ui.sections.project.create_project.views.add_tasks_to_see_them_in_the_kanban_board_3ea2bc24',
+        )}
       </Typography>
     );
   }

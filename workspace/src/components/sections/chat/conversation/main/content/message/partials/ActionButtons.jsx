@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Grow, Popover, Stack, Tooltip } from '@mui/material';
 import { useChatContext } from 'providers/ChatProvider';
 import { DELETE_MESSAGE, SET_EMOJI_REACTION } from 'reducers/ChatReducer';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 const reactions = ['❤️', '😄', '😮', '😢', '😡', '👍'];
 
 const ActionButtons = ({ message, show }) => {
+  const { t: translateUi } = useTranslation();
   const { chatDispatch, currentUser } = useChatContext();
   const [reactionAnchorEl, setReactionAnchorEl] = useState(null);
 
@@ -40,7 +42,7 @@ const ActionButtons = ({ message, show }) => {
         }}
       >
         <>
-          <Tooltip title="Emoji">
+          <Tooltip title={translateUi('ui.sections.chat.conversation.main.emoji_5090a9e7')}>
             <Button
               variant="text"
               color="neutral"
@@ -94,13 +96,13 @@ const ActionButtons = ({ message, show }) => {
           </Popover>
         </>
 
-        <Tooltip title="Reply">
+        <Tooltip title={translateUi('ui.sections.chat.conversation.main.reply_6c2bb735')}>
           <Button variant="text" color="neutral" shape="circle" size="small">
             <IconifyIcon icon="material-symbols:reply-rounded" sx={{ fontSize: 18 }} />
           </Button>
         </Tooltip>
 
-        <Tooltip title="Delete">
+        <Tooltip title={translateUi('ui.sections.chat.conversation.main.delete_f6fdbe48')}>
           <Button
             variant="text"
             color="neutral"

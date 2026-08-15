@@ -2,6 +2,7 @@ import { useFormContext } from 'react-hook-form';
 import Button, { buttonClasses } from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useKanbanContext } from 'providers/KanbanProvider';
 import { TASK_DETAILS_CLOSE } from 'reducers/KanbanReducer';
@@ -10,27 +11,39 @@ import IconifyIcon from 'components/base/IconifyIcon';
 const buttons = [
   {
     icon: 'material-symbols:drive-file-move-outline-rounded',
-    title: 'Transfer',
+    get title() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.transfer_cbb4cc49');
+    },
   },
   {
     icon: 'material-symbols:file-copy-outline-rounded',
-    title: 'Copy',
+    get title() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.copy_af74f7c5');
+    },
   },
   {
     icon: 'material-symbols:share-outline',
-    title: 'Share',
+    get title() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.share_09ca55ca');
+    },
   },
   {
     icon: 'material-symbols:move-up-rounded',
-    title: 'Move Up',
+    get title() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.move_up_c6370ade');
+    },
   },
   {
     icon: 'material-symbols:delete-outline-rounded',
-    title: 'Delete',
+    get title() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.delete_f6fdbe48');
+    },
   },
   {
     icon: 'material-symbols:download-rounded',
-    title: 'Download',
+    get title() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.download_a479c9c3');
+    },
   },
 ];
 

@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
@@ -8,6 +9,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 
 const GoalDetailsForm = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     register,
@@ -24,12 +26,14 @@ const GoalDetailsForm = () => {
           fontWeight: 700,
         }}
       >
-        Goal Details
+        {translateUi('ui.sections.hrm.performance_management.new_goal.goal_details_e3b10c39')}
       </Typography>
       <Grid container spacing={1}>
         <Grid size={12}>
           <TextField
-            label="Goal Name"
+            label={translateUi(
+              'ui.sections.hrm.performance_management.new_goal.goal_name_19caf143',
+            )}
             fullWidth
             error={!!errors.goalDetails?.name}
             helperText={errors.goalDetails?.name?.message}
@@ -38,7 +42,9 @@ const GoalDetailsForm = () => {
         </Grid>
         <Grid size={12}>
           <TextField
-            label="Short Description"
+            label={translateUi(
+              'ui.sections.hrm.performance_management.new_goal.short_description_e090d537',
+            )}
             multiline
             rows={3}
             fullWidth
@@ -55,7 +61,9 @@ const GoalDetailsForm = () => {
             name="goalDetails.startDate"
             render={({ field: { value, onChange, ...rest } }) => (
               <DatePicker
-                label="Start Date"
+                label={translateUi(
+                  'ui.sections.hrm.performance_management.new_goal.start_date_9d7ab1a5',
+                )}
                 value={dayjs(value)}
                 onChange={(date) => onChange(date)}
                 slotProps={{
@@ -79,7 +87,9 @@ const GoalDetailsForm = () => {
             name="goalDetails.dueDate"
             render={({ field: { value, onChange, ...rest } }) => (
               <DatePicker
-                label="Due Date"
+                label={translateUi(
+                  'ui.sections.hrm.performance_management.new_goal.due_date_a1b308ec',
+                )}
                 value={dayjs(value)}
                 onChange={(date) => onChange(date)}
                 slotProps={{
@@ -99,7 +109,7 @@ const GoalDetailsForm = () => {
         </Grid>
         <Grid size={6}>
           <TextField
-            label="Status"
+            label={translateUi('ui.sections.hrm.performance_management.new_goal.status_bae7d5be')}
             fullWidth
             defaultValue="High"
             select
@@ -107,18 +117,32 @@ const GoalDetailsForm = () => {
             helperText={errors.goalDetails?.status?.message}
             {...register('goalDetails.status')}
           >
-            <MenuItem value="High">High</MenuItem>
-            <MenuItem value="Medium">Medium</MenuItem>
-            <MenuItem value="Low">Low</MenuItem>
-            <MenuItem value="In Progress">In Progress</MenuItem>
-            <MenuItem value="Delayed">Delayed</MenuItem>
-            <MenuItem value="Hold">Hold</MenuItem>
-            <MenuItem value="At Risk">At Risk</MenuItem>
+            <MenuItem value="High">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.high_b1a5954a')}
+            </MenuItem>
+            <MenuItem value="Medium">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.medium_d404968e')}
+            </MenuItem>
+            <MenuItem value="Low">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.low_a124947c')}
+            </MenuItem>
+            <MenuItem value="In Progress">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.in_progress_f61eadaf')}
+            </MenuItem>
+            <MenuItem value="Delayed">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.delayed_cc6e7b6a')}
+            </MenuItem>
+            <MenuItem value="Hold">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.hold_3bd32832')}
+            </MenuItem>
+            <MenuItem value="At Risk">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.at_risk_b7a67661')}
+            </MenuItem>
           </TextField>
         </Grid>
         <Grid size={6}>
           <TextField
-            label="Priority"
+            label={translateUi('ui.sections.hrm.performance_management.new_goal.priority_886cbff9')}
             fullWidth
             defaultValue="High"
             select
@@ -126,9 +150,15 @@ const GoalDetailsForm = () => {
             helperText={errors.goalDetails?.priority?.message}
             {...register('goalDetails.priority')}
           >
-            <MenuItem value="High">High</MenuItem>
-            <MenuItem value="Medium">Medium</MenuItem>
-            <MenuItem value="Low">Low</MenuItem>
+            <MenuItem value="High">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.high_b1a5954a')}
+            </MenuItem>
+            <MenuItem value="Medium">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.medium_d404968e')}
+            </MenuItem>
+            <MenuItem value="Low">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.low_a124947c')}
+            </MenuItem>
           </TextField>
         </Grid>
       </Grid>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Chip } from '@mui/material';
 import Box from '@mui/material/Box';
 import ButtonGroup from '@mui/material/ButtonGroup';
@@ -11,6 +12,7 @@ import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Deal = ({ deal }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { currentBreakpoint } = useBreakpoints();
 
@@ -48,7 +50,7 @@ const Deal = ({ deal }) => {
           >
             <Typography variant="body2">
               <Box component="span" sx={{ fontWeight: 600 }}>
-                Budget:
+                {translateUi('ui.sections.crm.lead_details.deal.budget_102a5880')}
               </Box>{' '}
               {currencyFormat(deal.budget, {
                 style: 'currency',
@@ -65,10 +67,15 @@ const Deal = ({ deal }) => {
               }}
             >
               <Box component="span" sx={{ fontWeight: 600 }}>
-                Closing Date:
+                {translateUi('ui.sections.crm.lead_details.deal.closing_date_77dd8360')}
               </Box>{' '}
               {deal.closingDate === 'closed' ? (
-                <Chip component="span" label="Closed" color="neutral" variant="soft" />
+                <Chip
+                  component="span"
+                  label={translateUi('ui.sections.crm.lead_details.deal.closed_88d86b77')}
+                  color="neutral"
+                  variant="soft"
+                />
               ) : (
                 dayjs(deal.closingDate).format('DD MMM, YYYY')
               )}

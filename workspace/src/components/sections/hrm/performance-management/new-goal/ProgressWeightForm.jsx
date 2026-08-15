@@ -1,4 +1,5 @@
 import { Controller, useFieldArray, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import Button from '@mui/material/Button';
@@ -13,6 +14,7 @@ import CompletionSlider from './CompletionSlider';
 import WeightNumberField from './WeightNumberField';
 
 const ProgressWeightForm = () => {
+  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
 
   const { fields, append, remove, replace, move } = useFieldArray({
@@ -53,7 +55,7 @@ const ProgressWeightForm = () => {
           fontWeight: 700,
         }}
       >
-        Progress & Weight
+        {translateUi('ui.sections.hrm.performance_management.new_goal.progress_weight_666aa222')}
       </Typography>
       <Stack
         sx={{
@@ -80,7 +82,7 @@ const ProgressWeightForm = () => {
                 fontWeight: 500,
               }}
             >
-              Completion
+              {translateUi('ui.sections.hrm.performance_management.new_goal.completion_2ff25568')}
             </Typography>
             <CompletionSlider />
           </Stack>
@@ -97,7 +99,7 @@ const ProgressWeightForm = () => {
                 fontWeight: 500,
               }}
             >
-              Weight
+              {translateUi('ui.sections.hrm.performance_management.new_goal.weight_69c0b815')}
             </Typography>
             <WeightNumberField />
           </Stack>
@@ -124,7 +126,9 @@ const ProgressWeightForm = () => {
                     {...rest}
                   />
                 }
-                label="Add sub-goals. They will be evenly distributed across the total goal percentage."
+                label={translateUi(
+                  'ui.sections.hrm.performance_management.new_goal.add_sub_goals_they_will_be_evenly_distributed_across_b07d1faf',
+                )}
               />
             )}
           />
@@ -150,7 +154,9 @@ const ProgressWeightForm = () => {
                   onClick={() => append({ goal: 'New Subgoal' })}
                   sx={{ alignSelf: 'flex-start' }}
                 >
-                  Add new Sub-goal
+                  {translateUi(
+                    'ui.sections.hrm.performance_management.new_goal.add_new_sub_goal_17f111fe',
+                  )}
                 </Button>
               </Stack>
             </SortableDnd>

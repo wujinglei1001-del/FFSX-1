@@ -1,4 +1,5 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, MenuItem, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import {
@@ -14,6 +15,7 @@ import DatePickerWithShortcuts from './shared/DatePickerWithShortcuts';
 const SET_OPERATORS = ['is_set', 'is_not_set'];
 
 const SecondaryConditionFields = ({ index, type }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -116,7 +118,9 @@ const SecondaryConditionFields = ({ index, type }) => {
           <AssigneeConditionFields
             index={index}
             hideSearch
-            placeholder="Select a user"
+            placeholder={translateUi(
+              'ui.sections.project.automation.secondaryconditionfields.select_a_user_188d2103',
+            )}
             textFieldLabel=""
           />
         );
@@ -125,7 +129,9 @@ const SecondaryConditionFields = ({ index, type }) => {
           <LabelConditionFields
             index={index}
             hideSearch
-            placeholder="Any Label"
+            placeholder={translateUi(
+              'ui.sections.project.automation.secondaryconditionfields.any_label_f5883937',
+            )}
             textFieldLabel=""
           />
         );
@@ -135,7 +141,9 @@ const SecondaryConditionFields = ({ index, type }) => {
           <Box sx={{ width: 1 }}>
             <DatePickerWithShortcuts
               name={`conditions.${index}.targetDate`}
-              placeholder="Select a date"
+              placeholder={translateUi(
+                'ui.sections.project.automation.secondaryconditionfields.select_a_date_642b09c1',
+              )}
             />
           </Box>
         );

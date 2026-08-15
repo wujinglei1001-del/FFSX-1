@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Badge,
   Box,
@@ -15,6 +16,7 @@ import { useSnackbar } from 'notistack';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const VideoCapture = () => {
+  const { t: translateUi } = useTranslation();
   const videoRef = useRef(null);
   const recordedVideoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -126,7 +128,9 @@ const VideoCapture = () => {
 
   return (
     <>
-      <Tooltip title="Record Video">
+      <Tooltip
+        title={translateUi('ui.sections.social.tab_panels.posts_panel.record_video_dcda9f74')}
+      >
         <Button shape="square" color="neutral" onClick={handleOpenCamera}>
           <Badge
             badgeContent={
@@ -169,7 +173,9 @@ const VideoCapture = () => {
               alignItems: 'center',
             }}
           >
-            <DialogTitle sx={{ p: 0 }}>Record a Video</DialogTitle>
+            <DialogTitle sx={{ p: 0 }}>
+              {translateUi('ui.sections.social.tab_panels.posts_panel.record_a_video_9e29f16d')}
+            </DialogTitle>
 
             <IconButton size="small" onClick={handleCloseCamera}>
               <IconifyIcon icon="material-symbols:close" />
@@ -188,12 +194,12 @@ const VideoCapture = () => {
             {state.isRecording ? (
               <Button variant="contained" color="error" onClick={handleStopRecording}>
                 <IconifyIcon icon="material-symbols:stop-circle-outline" fontSize={20} />
-                Stop Recording
+                {translateUi('ui.sections.social.tab_panels.posts_panel.stop_recording_77327e69')}
               </Button>
             ) : (
               <Button variant="contained" color="primary" onClick={handleStartRecording}>
                 <IconifyIcon icon="material-symbols:play-circle-outline" fontSize={20} />
-                Start Recording
+                {translateUi('ui.sections.social.tab_panels.posts_panel.start_recording_c4fb9f2e')}
               </Button>
             )}
           </Stack>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Chip, Link, Stack, Typography } from '@mui/material';
 import { podcastPlaylist } from 'data/content/podcast';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -5,6 +6,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 const item = podcastPlaylist[0].episodeLists[0];
 
 const PodcastDetails = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
@@ -14,7 +16,9 @@ const PodcastDetails = () => {
       </Typography>
       {item.team.length > 0 && (
         <>
-          <Typography sx={{ color: 'text.secondary', mb: 1, fontWeight: 'bold' }}>Team</Typography>
+          <Typography sx={{ color: 'text.secondary', mb: 1, fontWeight: 'bold' }}>
+            {translateUi('ui.sections.content.details.podcast.team_21888726')}
+          </Typography>
           <Stack sx={{ mb: 3 }}>
             {item.team.map((member) => (
               <Typography variant="body2" sx={{ color: 'text.secondary' }} key={member.name}>
@@ -27,7 +31,7 @@ const PodcastDetails = () => {
       {item.socials.length > 0 && (
         <>
           <Typography sx={{ color: 'text.secondary', fontWeight: 'medium', mb: 0.5 }}>
-            Follow us
+            {translateUi('ui.sections.content.details.podcast.follow_us_d2444325')}
           </Typography>
           <Stack sx={{ gap: 1, mb: { xs: 3, md: 5 } }}>
             {item.socials.map((social) => (
@@ -54,7 +58,7 @@ const PodcastDetails = () => {
       {item.tags.length > 0 && (
         <>
           <Typography variant="h6" sx={{ color: 'text.secondary', fontWeight: 600, mb: 2 }}>
-            Tags
+            {translateUi('ui.sections.content.details.podcast.tags_848eed0f')}
           </Typography>
           <Stack direction="row" sx={{ alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
             {item.tags.map((tag) => (

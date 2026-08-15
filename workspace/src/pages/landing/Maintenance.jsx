@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/15-dark.webp';
 import illustration from 'assets/images/illustrations/15.webp';
@@ -5,6 +6,7 @@ import paths from 'routes/paths';
 import Image from 'components/base/Image';
 
 const LandingMaintenance = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -26,15 +28,17 @@ const LandingMaintenance = () => {
 
       <div>
         <Typography variant="h4" sx={{ mb: 1 }}>
-          Site is temporarily unavailable now.
+          {translateUi('ui.pages.landing.maintenance.site_is_temporarily_unavailable_now_1bc01cfe')}
         </Typography>
 
         <Typography variant="subtitle1" sx={{ mb: 3, color: 'text.secondary' }}>
-          We're working hard to enhance this page!
+          {translateUi(
+            'ui.pages.landing.maintenance.we_re_working_hard_to_enhance_this_page_2d7edba9',
+          )}
         </Typography>
 
         <Button variant="contained" href={paths.landingHomepage}>
-          Go Back Home
+          {translateUi('ui.pages.landing.maintenance.go_back_home_2de04546')}
         </Button>
       </div>
     </Stack>

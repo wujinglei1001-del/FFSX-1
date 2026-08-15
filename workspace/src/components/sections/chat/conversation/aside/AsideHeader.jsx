@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack, Tooltip } from '@mui/material';
 import { useChatContext } from 'providers/ChatProvider';
 import { TOGGLE_STARRED_CONVERSATION } from 'reducers/ChatReducer';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const AsideHeader = ({ handleClose }) => {
+  const { t: translateUi } = useTranslation();
   const { currentConversation, chatDispatch } = useChatContext();
 
   const handleToggleStarred = () => {
@@ -34,7 +36,7 @@ const AsideHeader = ({ handleClose }) => {
             }
             onClick={handleToggleStarred}
           >
-            Starred
+            {translateUi('ui.sections.chat.conversation.aside.starred_e61561a8')}
           </Button>
           <Button
             variant="soft"
@@ -46,11 +48,11 @@ const AsideHeader = ({ handleClose }) => {
               />
             }
           >
-            Mute
+            {translateUi('ui.sections.chat.conversation.aside.mute_0f097348')}
           </Button>
         </Stack>
 
-        <Tooltip title="Close">
+        <Tooltip title={translateUi('ui.sections.chat.conversation.aside.close_bbfa773e')}>
           <Button shape="circle" variant="soft" color="neutral" onClick={handleClose}>
             <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
           </Button>

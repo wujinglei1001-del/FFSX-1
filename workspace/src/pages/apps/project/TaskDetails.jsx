@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Grid, Stack, Tab, Tabs } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import TaskActivity from 'components/sections/project/task-details/TaskActivity';
@@ -8,6 +9,7 @@ import TaskDetailsSection from 'components/sections/project/task-details/TaskDet
 import TaskHeader from 'components/sections/project/task-details/TaskHeader';
 
 const TaskDetails = ({ onClose }) => {
+  const { t: translateUi } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
   const { up: upBreakpoint } = useBreakpoints();
   const upLg = upBreakpoint('lg');
@@ -22,9 +24,9 @@ const TaskDetails = ({ onClose }) => {
             onChange={(_event, value) => setActiveTab(value)}
             sx={{ px: 2, borderBottom: '1px solid', borderColor: 'divider' }}
           >
-            <Tab label="Details" />
-            <Tab label="Comments" />
-            <Tab label="Activity Log" />
+            <Tab label={translateUi('ui.pages.apps.project.taskdetails.details_dc3decbb')} />
+            <Tab label={translateUi('ui.pages.apps.project.taskdetails.comments_fce06e20')} />
+            <Tab label={translateUi('ui.pages.apps.project.taskdetails.activity_log_a3abad3d')} />
           </Tabs>
         )}
       </Box>

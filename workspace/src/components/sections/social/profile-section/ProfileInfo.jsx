@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Avatar, { avatarClasses } from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Divider from '@mui/material/Divider';
@@ -10,6 +11,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import ProfileActions from './ProfileActions';
 
 const ProfileInfo = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <Stack
@@ -23,7 +25,11 @@ const ProfileInfo = () => {
           alignItems: { xs: 'center', sm: 'flex-end' },
         }}
       >
-        <Avatar src={profileData.avatar} alt="profile-avatar" sx={{ width: 144, height: 144 }} />
+        <Avatar
+          src={profileData.avatar}
+          alt={translateUi('common.accessibility.profile_avatar')}
+          sx={{ width: 144, height: 144 }}
+        />
         <ProfileActions />
       </Stack>
       <Stack sx={{ gap: 2, mb: 4 }}>
@@ -69,7 +75,7 @@ const ProfileInfo = () => {
               component="span"
               sx={{ color: 'text.secondary', fontWeight: 400, ml: 0.5 }}
             >
-              Following
+              {translateUi('ui.sections.social.profile_section.profileinfo.following_90eeb100')}
             </Typography>
           </Typography>
           <Typography variant="body2" sx={{ fontWeight: 700 }}>
@@ -79,7 +85,7 @@ const ProfileInfo = () => {
               component="span"
               sx={{ color: 'text.secondary', fontWeight: 400, ml: 0.5 }}
             >
-              Followers
+              {translateUi('ui.sections.social.profile_section.profileinfo.followers_78eaabf4')}
             </Typography>
           </Typography>
         </Stack>
@@ -106,7 +112,10 @@ const ProfileInfo = () => {
 
               return user.name + ', ';
             })}{' '}
-            and {profileData.followingUsers.slice(2).length} others are following
+            {translateUi('common.and')} {profileData.followingUsers.slice(2).length}
+            {translateUi(
+              'ui.sections.social.profile_section.profileinfo.others_are_following_8eeddec3',
+            )}
           </Typography>
         </Stack>
       </Stack>

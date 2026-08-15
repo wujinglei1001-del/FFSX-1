@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
@@ -13,6 +14,7 @@ import {
   listItemTextClasses,
 } from '@mui/material';
 import { initialConfig } from 'config';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import * as yup from 'yup';
@@ -27,18 +29,43 @@ const QrCode = {
 };
 
 const regSecurityKeySchema = yup.object().shape({
-  currentSecurityKey: yup.string().required('Current security key is required'),
+  currentSecurityKey: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.account.privacy_protection.alternateloginmethod.current_security_key_is_required_d9e1f845',
+      ),
+    ),
   newSecurityKey: yup
     .string()
-    .required('New security key is required')
-    .min(4, 'Security key PIN must be at least 4 characters.'),
+    .required(
+      i18n.t(
+        'ui.sections.account.privacy_protection.alternateloginmethod.new_security_key_is_required_898d86fa',
+      ),
+    )
+    .min(
+      4,
+      i18n.t(
+        'ui.sections.account.privacy_protection.alternateloginmethod.security_key_pin_must_be_at_least_4_characters_df8de31b',
+      ),
+    ),
   confirmSecurityKey: yup
     .string()
-    .oneOf([yup.ref('newSecurityKey')], 'Security keys must match')
-    .required('Confirm security key is required'),
+    .oneOf(
+      [yup.ref('newSecurityKey')],
+      i18n.t(
+        'ui.sections.account.privacy_protection.alternateloginmethod.security_keys_must_match_e7faff85',
+      ),
+    )
+    .required(
+      i18n.t(
+        'ui.sections.account.privacy_protection.alternateloginmethod.confirm_security_key_is_required_cb02b150',
+      ),
+    ),
 });
 
 const AlternateLoginMethod = () => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const methods = useForm({
     resolver: yupResolver(regSecurityKeySchema),
@@ -62,9 +89,17 @@ const AlternateLoginMethod = () => {
     <FormProvider {...methods}>
       <Stack direction="row" sx={{ gap: 1, alignItems: 'flex-start' }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Use an authenticator app
+          {translateUi(
+            'ui.sections.account.privacy_protection.alternateloginmethod.use_an_authenticator_app_6053d439',
+          )}
         </Typography>
-        <Chip label="Recommended" color="success" variant="soft" />
+        <Chip
+          label={translateUi(
+            'ui.sections.account.privacy_protection.alternateloginmethod.recommended_9ef93755',
+          )}
+          color="success"
+          variant="soft"
+        />
       </Stack>
       <List
         sx={{
@@ -80,7 +115,14 @@ const AlternateLoginMethod = () => {
           <ListItemText
             primary={
               <>
-                Download an authenticator app such as <Link href="#!">Microsoft Authenticator</Link>
+                {translateUi(
+                  'ui.sections.account.privacy_protection.alternateloginmethod.download_an_authenticator_app_such_as_4d69fc1b',
+                )}
+                <Link href="#!">
+                  {translateUi(
+                    'ui.sections.account.privacy_protection.alternateloginmethod.microsoft_authenticator_440b31d5',
+                  )}
+                </Link>
               </>
             }
             slotProps={{ primary: { variant: 'body2' } }}
@@ -89,9 +131,18 @@ const AlternateLoginMethod = () => {
         <ListItem>
           <ListItemText>
             <Stack sx={{ gap: 1 }}>
-              <Typography variant="body2">Scan this QR Code or copy the key</Typography>
+              <Typography variant="body2">
+                {translateUi(
+                  'ui.sections.account.privacy_protection.alternateloginmethod.scan_this_qr_code_or_copy_the_key_c074463f',
+                )}
+              </Typography>
               <Stack direction="row" sx={{ gap: { xs: 3, sm: 5 }, alignItems: 'center', ml: -2.5 }}>
-                <Image src={QrCode.img} width={90} height={90} alt="qr-code" />
+                <Image
+                  src={QrCode.img}
+                  width={90}
+                  height={90}
+                  alt={translateUi('common.accessibility.qr_code')}
+                />
                 <Typography
                   variant={upSm ? 'h6' : 'subtitle1'}
                   sx={{ color: 'text.primary', fontWeight: 700 }}
@@ -117,10 +168,14 @@ const AlternateLoginMethod = () => {
         }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 1 }}>
-          Use security key
+          {translateUi(
+            'ui.sections.account.privacy_protection.alternateloginmethod.use_security_key_280a35a3',
+          )}
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-          Use a physical security key to gain access to your account instantly.
+          {translateUi(
+            'ui.sections.account.privacy_protection.alternateloginmethod.use_a_physical_security_key_to_gain_access_to_your_a_2bd0d948',
+          )}
         </Typography>
         <Button
           variant="soft"
@@ -128,11 +183,15 @@ const AlternateLoginMethod = () => {
           endIcon={<IconifyIcon icon="material-symbols:chevron-right" sx={{ fontSize: 20 }} />}
           onClick={() => setOpen(true)}
         >
-          Register security key
+          {translateUi(
+            'ui.sections.account.privacy_protection.alternateloginmethod.register_security_key_1b22f17f',
+          )}
         </Button>
       </Stack>
       <AccountFormDialog
-        title="Security Key Setup"
+        title={translateUi(
+          'ui.sections.account.privacy_protection.alternateloginmethod.security_key_setup_140cf49d',
+        )}
         subtitle={
           <>
             <Typography
@@ -140,12 +199,14 @@ const AlternateLoginMethod = () => {
               variant="body2"
               sx={{ display: 'inline-block', mb: 2, textWrap: 'pretty' }}
             >
-              This will allow abcd.com to see the make and model of your security key. abcd.com
-              needs to create a secure credential on your key so you can sign in without typing your
-              username.
+              {translateUi(
+                'ui.sections.account.privacy_protection.alternateloginmethod.this_will_allow_abcd_com_to_see_the_make_and_model_o_ae1a8fa3',
+              )}
             </Typography>
             <Typography component="span" variant="body2" sx={{ textWrap: 'pretty' }}>
-              Enter your security key PIN to proceed securely.
+              {translateUi(
+                'ui.sections.account.privacy_protection.alternateloginmethod.enter_your_security_key_pin_to_proceed_securely_ec4552da',
+              )}
             </Typography>
           </>
         }
@@ -158,22 +219,34 @@ const AlternateLoginMethod = () => {
       >
         <Stack sx={{ gap: 1, px: 0.125, pb: 0.125 }}>
           <PasswordTextField
-            placeholder="Current security key PIN"
-            label="Current security key PIN"
+            placeholder={translateUi(
+              'ui.sections.account.privacy_protection.alternateloginmethod.current_security_key_pin_23d003bf',
+            )}
+            label={translateUi(
+              'ui.sections.account.privacy_protection.alternateloginmethod.current_security_key_pin_23d003bf',
+            )}
             error={!!errors.currentSecurityKey}
             helperText={errors.currentSecurityKey?.message}
             {...register('currentSecurityKey')}
           />
           <PasswordTextField
-            placeholder="New security key PIN"
-            label="New security key PIN"
+            placeholder={translateUi(
+              'ui.sections.account.privacy_protection.alternateloginmethod.new_security_key_pin_f94b743b',
+            )}
+            label={translateUi(
+              'ui.sections.account.privacy_protection.alternateloginmethod.new_security_key_pin_f94b743b',
+            )}
             error={!!errors.newSecurityKey}
             helperText={errors.newSecurityKey?.message}
             {...register('newSecurityKey')}
           />
           <PasswordTextField
-            placeholder="Confirm security key PIN"
-            label="Confirm security key PIN"
+            placeholder={translateUi(
+              'ui.sections.account.privacy_protection.alternateloginmethod.confirm_security_key_pin_2fa5a729',
+            )}
+            label={translateUi(
+              'ui.sections.account.privacy_protection.alternateloginmethod.confirm_security_key_pin_2fa5a729',
+            )}
             error={!!errors.confirmSecurityKey}
             helperText={errors.confirmSecurityKey?.message}
             {...register('confirmSecurityKey')}

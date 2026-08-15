@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
@@ -15,6 +16,7 @@ import {
   Typography,
   stepLabelClasses,
 } from '@mui/material';
+import i18n from 'locales/i18n';
 import { enqueueSnackbar } from 'notistack';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -25,15 +27,21 @@ import ShippingAddress, { shippingAddressFormSchema } from './steps/ShippingAddr
 
 const steps = [
   {
-    label: 'Customer information',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.checkout.customer_information_49a89ca9');
+    },
     content: <CustomerInfo />,
   },
   {
-    label: 'Shipping address',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.checkout.shipping_address_b3854a10');
+    },
     content: <ShippingAddress />,
   },
   {
-    label: 'Delivery options',
+    get label() {
+      return i18n.t('ui.sections.ecommerce.customer.checkout.delivery_options_d273874e');
+    },
     content: <DeliveryOptions />,
   },
 ];
@@ -46,6 +54,7 @@ const checkoutFormSchema = [
 ];
 
 const CheckoutStepper = () => {
+  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState([]);
@@ -115,10 +124,24 @@ const CheckoutStepper = () => {
         return (
           <RenderStepData
             stepData={[
-              { label: 'Email address', value: data.customer.email },
-              { label: 'First name', value: data.customer.firstName },
-              { label: 'Last name', value: data.customer.lastName },
-              { label: 'Phone Number', value: data.customer.phoneNumber },
+              {
+                label: translateUi(
+                  'ui.sections.ecommerce.customer.checkout.email_address_c94d3175',
+                ),
+                value: data.customer.email,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.first_name_7e568a90'),
+                value: data.customer.firstName,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.last_name_adec36a8'),
+                value: data.customer.lastName,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.phone_number_ab25d61b'),
+                value: data.customer.phoneNumber,
+              },
             ]}
           />
         );
@@ -127,17 +150,43 @@ const CheckoutStepper = () => {
         return (
           <RenderStepData
             stepData={[
-              { label: 'Street address', value: data.shippingAddress.street },
-              { label: 'Town/City', value: data.shippingAddress.townCity },
-              { label: 'Postcode', value: data.shippingAddress.postcode },
-              { label: 'Country', value: data.shippingAddress.country },
-              { label: 'State', value: data.shippingAddress.state },
+              {
+                label: translateUi(
+                  'ui.sections.ecommerce.customer.checkout.street_address_497a500a',
+                ),
+                value: data.shippingAddress.street,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.town_city_51d6d30f'),
+                value: data.shippingAddress.townCity,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.postcode_ef4d9e99'),
+                value: data.shippingAddress.postcode,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.country_d523ebbd'),
+                value: data.shippingAddress.country,
+              },
+              {
+                label: translateUi('ui.sections.ecommerce.customer.checkout.state_a7250206'),
+                value: data.shippingAddress.state,
+              },
             ]}
           />
         );
       case 2:
         return (
-          <RenderStepData stepData={[{ label: 'Delivery Option', value: data.deliveryOption }]} />
+          <RenderStepData
+            stepData={[
+              {
+                label: translateUi(
+                  'ui.sections.ecommerce.customer.checkout.delivery_option_87c269d5',
+                ),
+                value: data.deliveryOption,
+              },
+            ]}
+          />
         );
       default:
         return null;
@@ -183,7 +232,7 @@ const CheckoutStepper = () => {
                     </Typography>
                     {activeStep !== index && completedSteps[index] && (
                       <Button variant="text" size="small" onClick={() => handleStepEdit(index)}>
-                        Edit
+                        {translateUi('ui.sections.ecommerce.customer.checkout.edit_5301648d')}
                       </Button>
                     )}
                   </Stack>
@@ -196,7 +245,9 @@ const CheckoutStepper = () => {
                       mt: 1,
                     }}
                   >
-                    Please fill out all the required fields to continue
+                    {translateUi(
+                      'ui.sections.ecommerce.customer.checkout.please_fill_out_all_the_required_fields_to_continue_d5cd4c4a',
+                    )}
                   </Typography>
 
                   {step.content}
@@ -207,8 +258,16 @@ const CheckoutStepper = () => {
                       color: 'text.disabled',
                     }}
                   >
-                    <Link href={paths.defaultJwtLogin}>Login</Link> or{' '}
-                    <Link href={paths.defaultJwtSignup}>Signup</Link> to save your information
+                    <Link href={paths.defaultJwtLogin}>
+                      {translateUi('ui.sections.ecommerce.customer.checkout.login_4e5a2893')}
+                    </Link>{' '}
+                    {translateUi('common.or')}{' '}
+                    <Link href={paths.defaultJwtSignup}>
+                      {translateUi('ui.sections.ecommerce.customer.checkout.signup_894bc414')}
+                    </Link>
+                    {translateUi(
+                      'ui.sections.ecommerce.customer.checkout.to_save_your_information_6c71dfbe',
+                    )}
                   </Typography>
                   {!isLastStep && (
                     <Box
@@ -229,7 +288,7 @@ const CheckoutStepper = () => {
                         }
                         onClick={handleProceed}
                       >
-                        Continue
+                        {translateUi('ui.sections.ecommerce.customer.checkout.continue_2e026239')}
                       </Button>
                     </Box>
                   )}

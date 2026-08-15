@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-D8nDyRPw.js";import{t}from"./Box-DAUfMJQR.js";var n=e(),r=({children:e,sx:r})=>(0,n.jsx)(t,{sx:{mx:`-10px`,...r},children:e});export{r as t};

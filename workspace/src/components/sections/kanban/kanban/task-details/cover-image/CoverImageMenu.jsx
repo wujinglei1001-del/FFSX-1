@@ -1,16 +1,24 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem, listClasses, menuClasses } from '@mui/material';
+import i18n from 'locales/i18n';
 import EllipsisHorizontalIcon from 'components/icons/EllipsisHorizontalIcon';
 
 const defaultItems = [
   {
-    label: 'Sync',
+    get label() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.sync_905f6309');
+    },
   },
   {
-    label: 'Export',
+    get label() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.export_f3e4fadb');
+    },
   },
   {
-    label: 'Remove',
+    get label() {
+      return i18n.t('ui.sections.kanban.kanban.task_details.remove_e963907d');
+    },
     sx: { color: 'error.main' },
   },
 ];
@@ -23,6 +31,7 @@ const CoverImageMenu = ({
   handleRemoveFile,
   sx,
 }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -51,7 +60,7 @@ const CoverImageMenu = ({
         color="neutral"
         size={size}
         variant={variant}
-        aria-label="more"
+        aria-label={translateUi('ui.sections.kanban.kanban.task_details.more_e7c95b4c')}
         id="action-button"
         aria-controls={open ? 'actions-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}

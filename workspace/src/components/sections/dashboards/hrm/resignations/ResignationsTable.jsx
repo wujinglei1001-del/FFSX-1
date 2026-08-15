@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -23,6 +24,7 @@ const getJSSResponseColor = (value, vars) => {
 };
 
 const ResignationsTable = ({ tableData }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat, numberFormat } = useNumberFormat();
   const { up } = useBreakpoints();
   const { vars } = useTheme();
@@ -32,14 +34,14 @@ const ResignationsTable = ({ tableData }) => {
     () => [
       {
         field: 'id',
-        headerName: 'ID no.',
+        headerName: translateUi('ui.sections.dashboards.hrm.resignations.id_no_0df58af4'),
         headerClassName: 'resignation-id-header',
         cellClassName: 'resignation-id-cell',
         width: 100,
       },
       {
         field: 'profile',
-        headerName: 'Name',
+        headerName: translateUi('ui.sections.dashboards.hrm.resignations.name_709a2322'),
         headerClassName: 'profile-header',
         cellClassName: 'profile-cell',
         minWidth: 220,
@@ -66,7 +68,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'reason',
-        headerName: 'Reason',
+        headerName: translateUi('ui.sections.dashboards.hrm.resignations.reason_f219cc06'),
         headerClassName: 'reason-header',
         cellClassName: 'reason-cell',
         minWidth: 180,
@@ -82,7 +84,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'jssResponse',
-        headerName: 'JSS Response',
+        headerName: translateUi('ui.sections.dashboards.hrm.resignations.jss_response_00a9ccca'),
         headerClassName: 'jss-response-header',
         cellClassName: 'jss-response-cell',
         minWidth: 120,
@@ -139,7 +141,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'lastSalary',
-        headerName: 'Last Salary',
+        headerName: translateUi('ui.sections.dashboards.hrm.resignations.last_salary_ac841bd7'),
         headerClassName: 'last-salary-header',
         cellClassName: 'last-salary-cell',
         minWidth: 170,
@@ -154,7 +156,9 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'activity',
-        headerName: 'Activity tracking',
+        headerName: translateUi(
+          'ui.sections.dashboards.hrm.resignations.activity_tracking_fb69b086',
+        ),
         headerClassName: 'activity-header',
         cellClassName: 'activity-cell',
         minWidth: 200,

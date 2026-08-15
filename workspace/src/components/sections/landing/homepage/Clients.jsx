@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import { Box, Container, Grid } from '@mui/material';
 import { initialConfig } from 'config';
@@ -21,12 +22,15 @@ const logos = [
 ];
 
 const Clients = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ py: { xs: 5, sm: 8 }, px: { xs: 3, md: 5 } }}>
       <Container maxWidth={false} sx={{ maxWidth: 1080, px: { xs: 0 } }}>
         <SectionHeader
-          title="Clients"
-          subtitle="Trusted by the most innovative teams"
+          title={translateUi('ui.sections.landing.homepage.clients.clients_28e22fe3')}
+          subtitle={translateUi(
+            'ui.sections.landing.homepage.clients.trusted_by_the_most_innovative_teams_156640eb',
+          )}
           sx={{ mb: 5 }}
         />
 

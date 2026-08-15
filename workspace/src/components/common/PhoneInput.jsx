@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { filledInputClasses } from '@mui/material/FilledInput';
 import { formLabelClasses } from '@mui/material/FormLabel';
 import { inputAdornmentClasses } from '@mui/material/InputAdornment';
@@ -9,6 +10,7 @@ import { MuiTelInput } from 'mui-tel-input';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PhoneInput = ({ variant, FlagIconButtonProps, ...props }) => {
+  const { t: translateUi } = useTranslation();
   const TelInputComponent = variant === 'custom' ? StyledTelInput : BaseTelInput;
 
   return (
@@ -23,7 +25,7 @@ const PhoneInput = ({ variant, FlagIconButtonProps, ...props }) => {
       unknownFlagElement={
         <IconifyIcon
           icon="material-symbols:flag-2-outline-rounded"
-          aria-label="unknown-flag"
+          aria-label={translateUi('common.accessibility.unknown_flag')}
           sx={{ aspectRatio: '4 / 3' }}
         />
       }

@@ -1,5 +1,7 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Container, Grid, Typography } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashedLine from '../common/DashedLine';
@@ -24,27 +26,38 @@ const createGradientBg = (direction) => ({
 const stats = [
   {
     id: 1,
-    label: 'Design',
-    content: '105+ Project Delivered',
+    get label() {
+      return i18n.t('ui.sections.landing.about_us.overview.design_59b03536');
+    },
+    get content() {
+      return i18n.t('ui.sections.landing.about_us.overview.105_project_delivered_316d6e15');
+    },
     color: 'primary',
     icon: 'material-symbols:format-shapes-outline-rounded',
   },
   {
     id: 2,
-    label: 'Development',
-    content: '200+ Applications Built',
+    get label() {
+      return i18n.t('ui.sections.landing.about_us.overview.development_4c17aadf');
+    },
+    get content() {
+      return i18n.t('ui.sections.landing.about_us.overview.200_applications_built_95da1471');
+    },
     color: 'info',
     icon: 'material-symbols:code-rounded',
   },
   {
     id: 3,
-    label: 'Growth Marketing',
+    get label() {
+      return i18n.t('ui.sections.landing.about_us.overview.growth_marketing_0f4734aa');
+    },
     content: '300%',
     color: 'success',
     icon: 'material-symbols:show-chart-rounded',
   },
 ];
 const Overview = () => {
+  const { t: translateUi } = useTranslation();
   const { currentBreakpoint } = useBreakpoints();
   const isSm = currentBreakpoint === 'sm';
   return (
@@ -81,7 +94,13 @@ const Overview = () => {
             }}
           >
             <Box sx={{ mb: 4 }}>
-              <SectionHeader title="About aurora" subtitle="What is Aurora" sx={{ mb: 1 }} />
+              <SectionHeader
+                title={translateUi('ui.sections.landing.about_us.overview.about_aurora_f444f811')}
+                subtitle={translateUi(
+                  'ui.sections.landing.about_us.overview.what_is_aurora_f0bccb9a',
+                )}
+                sx={{ mb: 1 }}
+              />
 
               <RevealText delay={0.2}>
                 <Typography
@@ -92,9 +111,9 @@ const Overview = () => {
                     mx: 'auto',
                   }}
                 >
-                  Aurora, an intuitive admin dashboard designed for seamless management, is
-                  celebrated for its user-friendly interface, powerful analytics, and a community
-                  that fosters collaboration and growth.
+                  {translateUi(
+                    'ui.sections.landing.about_us.overview.aurora_an_intuitive_admin_dashboard_designed_for_sea_fb082f96',
+                  )}
                 </Typography>
               </RevealText>
             </Box>
@@ -184,7 +203,7 @@ const Overview = () => {
               {isSm && (
                 <Grid size={6} sx={{ alignSelf: 'center' }}>
                   <Button variant="soft" color="neutral" size="medium">
-                    Our Works
+                    {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
                   </Button>
                 </Grid>
               )}
@@ -192,7 +211,7 @@ const Overview = () => {
 
             {!isSm && (
               <Button variant="soft" color="neutral" size="medium">
-                Our Works
+                {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
               </Button>
             )}
           </Box>

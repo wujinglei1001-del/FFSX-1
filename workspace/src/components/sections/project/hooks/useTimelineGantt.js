@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from '@mui/material';
 import gantt from 'dhtmlx-gantt';
+import { useSettingsContext } from 'providers/SettingsProvider';
 import {
   bindTaskCompleteCheckbox,
   configureTimelineGanttChart,
@@ -22,6 +23,9 @@ export const useTimelineGantt = (initialTasks, options) => {
   const onTaskClickRef = useRef(options?.onTaskClick);
   onTaskClickRef.current = options?.onTaskClick;
   const theme = useTheme();
+  const {
+    config: { locale },
+  } = useSettingsContext();
   const [tasks, setTasks] = useState(initialTasks);
   const [originalTasks, setOriginalTasks] = useState(initialTasks);
   const [isChartReady, setIsChartReady] = useState(false);
@@ -40,6 +44,7 @@ export const useTimelineGantt = (initialTasks, options) => {
     const container = ganttContainer.current;
     const ganttChart = gantt;
 
+    ganttChart.i18n.setLocale(locale === 'zh-CN' ? 'cn' : 'en');
     configureTimelineGanttChart(ganttChart, theme, expandedGridWidth);
     initGanttOnContainer(container);
     const cleanupTodayMarker = initTodayMarker(ganttChart);
@@ -71,7 +76,7 @@ export const useTimelineGantt = (initialTasks, options) => {
       isGanttReady.current = false;
       setIsChartReady(false);
     };
-  }, [theme.direction]);
+  }, [theme.direction, locale]);
 
   useEffect(() => {
     if (!isGanttReady.current) return;

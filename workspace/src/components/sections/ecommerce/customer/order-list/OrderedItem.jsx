@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -24,6 +25,7 @@ export const statusColorMap = {
 };
 
 const OrderedItem = ({ product }) => {
+  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const downSm = down('sm');
   const { currencyFormat } = useNumberFormat();
@@ -95,7 +97,8 @@ const OrderedItem = ({ product }) => {
                 mb: 2,
               }}
             >
-              Order {orderId}
+              {translateUi('ui.sections.ecommerce.customer.order_list.order_1d75774c')}
+              {orderId}
             </Typography>
 
             <Typography
@@ -105,7 +108,7 @@ const OrderedItem = ({ product }) => {
                 color: 'text.secondary',
               }}
             >
-              Sold by{' '}
+              {translateUi('ui.sections.ecommerce.customer.order_list.sold_by_12c71f0a')}{' '}
               <Box
                 component="span"
                 sx={{
@@ -138,7 +141,9 @@ const OrderedItem = ({ product }) => {
                     mb: 1,
                   }}
                 >
-                  Estimated date of delivery
+                  {translateUi(
+                    'ui.sections.ecommerce.customer.order_list.estimated_date_of_delivery_005ac3bf',
+                  )}
                 </Typography>
                 <Typography
                   variant="caption"
@@ -239,7 +244,7 @@ const OrderedItem = ({ product }) => {
                     />
                   }
                 >
-                  Details
+                  {translateUi('ui.sections.ecommerce.customer.order_list.details_dc3decbb')}
                 </Button>
 
                 <Button
@@ -255,7 +260,7 @@ const OrderedItem = ({ product }) => {
                     />
                   }
                 >
-                  Track
+                  {translateUi('ui.sections.ecommerce.customer.order_list.track_b1c5a7af')}
                 </Button>
               </Stack>
 
@@ -271,7 +276,7 @@ const OrderedItem = ({ product }) => {
                   />
                 }
               >
-                Chat with seller
+                {translateUi('ui.sections.ecommerce.customer.order_list.chat_with_seller_aa0c7379')}
               </Button>
             </Stack>
 
@@ -281,7 +286,7 @@ const OrderedItem = ({ product }) => {
               size="small"
               sx={{ whiteSpace: 'nowrap', flexShrink: 0 }}
             >
-              Cancel order
+              {translateUi('ui.sections.ecommerce.customer.order_list.cancel_order_5ae39c4a')}
             </Button>
           </Stack>
         </Stack>

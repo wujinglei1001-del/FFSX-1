@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Button, DialogActions, buttonClasses } from '@mui/material';
 import { usePickerActionsContext } from '@mui/x-date-pickers';
 
 const ActionBar = () => {
+  const { t: translateUi } = useTranslation();
   const { cancelValueChanges, acceptValueChanges } = usePickerActionsContext();
 
   return (
@@ -13,9 +15,11 @@ const ActionBar = () => {
       })}
     >
       <Button color="neutral" onClick={cancelValueChanges}>
-        Cancel
+        {translateUi('ui.components.pickers.actionbar.cancel_77dfd213')}
       </Button>
-      <Button onClick={acceptValueChanges}>Confirm</Button>
+      <Button onClick={acceptValueChanges}>
+        {translateUi('ui.components.pickers.actionbar.confirm_04a21221')}
+      </Button>
     </DialogActions>
   );
 };

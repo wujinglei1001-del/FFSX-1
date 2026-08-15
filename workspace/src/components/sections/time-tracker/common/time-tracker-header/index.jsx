@@ -1,4 +1,5 @@
 import { Activity } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Grid, InputAdornment, Paper, Stack, Typography } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -15,6 +16,7 @@ export default function TimeTrackerHeader({
   disableSearchbar = false,
   ...rest
 }) {
+  const { t: translateUi } = useTranslation();
   const { down, only } = useBreakpoints();
   const [downLg, onlyXs] = [down('lg'), only('xs')];
   return (
@@ -49,7 +51,9 @@ export default function TimeTrackerHeader({
                 <StyledTextField
                   id="settings-search-box"
                   type="search"
-                  placeholder="Search"
+                  placeholder={translateUi(
+                    'ui.sections.time_tracker.common.time_tracker_header.search_bce06414',
+                  )}
                   fullWidth
                   slotProps={{
                     input: {

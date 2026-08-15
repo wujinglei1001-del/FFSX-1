@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconButton, Stack } from '@mui/material';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
@@ -9,6 +10,7 @@ import NavItem from './NavItem';
 import PromoCard from './PromoCard';
 
 const Sidenav = ({ menus }) => {
+  const { t: translateUi } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDrawer = (newOpen) => () => {
@@ -22,7 +24,10 @@ const Sidenav = ({ menus }) => {
       <Stack direction="row" sx={{ px: 2, justifyContent: 'space-between', alignItems: 'center' }}>
         <Logo />
 
-        <IconButton aria-label="close" onClick={toggleDrawer(false)}>
+        <IconButton
+          aria-label={translateUi('ui.layouts.landing_layout.app_bar.nav.close_da38860c')}
+          onClick={toggleDrawer(false)}
+        >
           <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
         </IconButton>
       </Stack>

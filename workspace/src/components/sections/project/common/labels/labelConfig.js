@@ -1,3 +1,5 @@
+import i18n from 'locales/i18n';
+
 export const THEME_TO_CH_COLOR = {
   primary: 'chBlue',
   warning: 'chOrange',
@@ -7,10 +9,38 @@ export const THEME_TO_CH_COLOR = {
 };
 
 export const defaultLabelOptions = [
-  { label: 'Admin', chColor: 'chBlue', themeColor: 'primary', checked: true },
-  { label: 'Modification', chColor: 'chOrange', themeColor: 'warning', checked: true },
-  { label: 'Bug', chColor: 'chRed', themeColor: 'error', checked: true },
-  { label: 'Solvable', chColor: 'chGreen', themeColor: 'success', checked: false },
+  {
+    get label() {
+      return i18n.t('ui.sections.project.common.labels.admin_4e7afebc');
+    },
+    chColor: 'chBlue',
+    themeColor: 'primary',
+    checked: true,
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.project.common.labels.modification_e3ea079d');
+    },
+    chColor: 'chOrange',
+    themeColor: 'warning',
+    checked: true,
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.project.common.labels.bug_271befc0');
+    },
+    chColor: 'chRed',
+    themeColor: 'error',
+    checked: true,
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.project.common.labels.solvable_3102f401');
+    },
+    chColor: 'chGreen',
+    themeColor: 'success',
+    checked: false,
+  },
 ];
 
 export const taskLabelToOption = (taskLabel) => ({

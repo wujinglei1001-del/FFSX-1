@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import SearchTextField from 'components/common/SearchTextField';
 
 const SearchCustomer = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={{
@@ -16,9 +18,15 @@ const SearchCustomer = () => {
           mb: 2,
         }}
       >
-        Search or create a customer
+        {translateUi(
+          'ui.sections.ecommerce.admin.create_order.search_or_create_a_customer_f0fef194',
+        )}
       </Typography>
-      <SearchTextField fullWidth variant="filled" label="Search with name" />
+      <SearchTextField
+        fullWidth
+        variant="filled"
+        label={translateUi('ui.sections.ecommerce.admin.create_order.search_with_name_cf41aa9b')}
+      />
     </Box>
   );
 };

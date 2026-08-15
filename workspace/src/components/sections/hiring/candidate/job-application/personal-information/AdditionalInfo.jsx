@@ -1,10 +1,13 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
-import { currencyFormat } from 'lib/utils';
+import useNumberFormat from 'hooks/useNumberFormat';
 import ApplicationFormSection from '../common/ApplicationFormSection';
 
 const AdditionalInfo = () => {
+  const { t: translateUi } = useTranslation();
+  const { currencyFormat } = useNumberFormat();
   const {
     register,
     control,
@@ -21,11 +24,11 @@ const AdditionalInfo = () => {
             render={({ field }) => (
               <TextField
                 variant="filled"
-                label="Desired Salary"
+                label={translateUi(
+                  'ui.sections.hiring.candidate.job_application.desired_salary_f683579b',
+                )}
                 fullWidth
-                value={
-                  field.value && currencyFormat(field.value, 'en-US', { maximumFractionDigits: 0 })
-                }
+                value={field.value && currencyFormat(field.value, { maximumFractionDigits: 0 })}
                 error={!!errors.personalInfo?.additionalInfo?.desiredSalary}
                 onChange={(e) => {
                   const rawValue = e.target.value.replace(/[^0-9.]/g, '');
@@ -37,7 +40,7 @@ const AdditionalInfo = () => {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label="Referred by"
+            label={translateUi('ui.sections.hiring.candidate.job_application.referred_by_433a5789')}
             fullWidth
             error={!!errors.personalInfo?.additionalInfo?.refferedBy}
             helperText={errors.personalInfo?.additionalInfo?.refferedBy?.message}
@@ -46,7 +49,9 @@ const AdditionalInfo = () => {
         </Grid>
         <Grid size={12}>
           <TextField
-            label="Website/portfolio"
+            label={translateUi(
+              'ui.sections.hiring.candidate.job_application.website_portfolio_264ae133',
+            )}
             fullWidth
             error={!!errors.personalInfo?.additionalInfo?.website}
             helperText={errors.personalInfo?.additionalInfo?.website?.message}

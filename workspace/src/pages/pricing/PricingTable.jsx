@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Link, Typography } from '@mui/material';
 import PricingHeader from 'components/sections/pricing/PricingHeader';
 import PricingTableContent from 'components/sections/pricing/table/PricingTableContent';
 
 const PricingTable = () => {
+  const { t: translateUi } = useTranslation();
   const [isYearly, setIsYearly] = useState(false);
 
   const handleButtonChange = (value) => {
@@ -16,7 +18,7 @@ const PricingTable = () => {
       <PricingTableContent isYearly={isYearly} />
       <Box sx={{ my: 5, textAlign: 'center' }}>
         <Typography variant="h6" sx={{ mb: 1 }}>
-          Confused still?
+          {translateUi('ui.pages.pricing.pricingtable.confused_still_882d7b8d')}
         </Typography>
         <Typography
           variant="subtitle1"
@@ -24,7 +26,10 @@ const PricingTable = () => {
             fontWeight: 400,
           }}
         >
-          Try the <Link href="#!">basic version of Aurora</Link>
+          {translateUi('ui.pages.pricing.pricingtable.try_the_113c4f19')}
+          <Link href="#!">
+            {translateUi('ui.pages.pricing.pricingtable.basic_version_of_aurora_41f5188b')}
+          </Link>
         </Typography>
       </Box>
     </div>

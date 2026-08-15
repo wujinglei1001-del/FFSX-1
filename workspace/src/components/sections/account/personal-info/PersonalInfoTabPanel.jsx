@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Divider, Stack } from '@mui/material';
 import AvatarDropBox from 'components/base/AvatarDropBox';
 import AccountTabPanelSection from '../common/AccountTabPanelSection';
@@ -9,6 +10,7 @@ import Phone from './Phone';
 import UserName from './UserName';
 
 const PersonalInfoTabPanel = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <Stack
@@ -26,8 +28,12 @@ const PersonalInfoTabPanel = () => {
       </Stack>
       <Stack divider={<Divider />} sx={{ gap: 5 }}>
         <AccountTabPanelSection
-          title="Name"
-          subtitle="Edit your name here if you wish to make any changes. You can also edit your user name which will be showed publicly."
+          title={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.name_709a2322',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.edit_your_name_here_if_you_wish_to_make_any_changes__f7c10ef6',
+          )}
           icon="material-symbols:badge-outline"
         >
           <Stack sx={{ gap: 1 }}>
@@ -37,32 +43,48 @@ const PersonalInfoTabPanel = () => {
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Birthday"
-          subtitle="Adjust your date of birth to ensure it’s accurate in your account. Visibility of your birthday can also be controlled here."
+          title={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.birthday_a6b9d69f',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.adjust_your_date_of_birth_to_ensure_it_s_accurate_in_66b20085',
+          )}
           icon="material-symbols:cake-outline"
         >
           <Birthday />
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Address"
-          subtitle="You can edit your address and control who can see it."
+          title={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.address_d70f93df',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.you_can_edit_your_address_and_control_who_can_see_it_5c6d74f7',
+          )}
           icon="material-symbols:location-on-outline"
         >
           <Address />
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Phone"
-          subtitle="Add a personal or official phone number to stay connected with ease and ensure account recovery options are available."
+          title={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.phone_77064d52',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.add_a_personal_or_official_phone_number_to_stay_conn_c49faa95',
+          )}
           icon="material-symbols:call-outline"
         >
           <Phone />
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Email Address"
-          subtitle="Edit your primary email address for notifications and add an alternate email address for extra security and communication flexibility."
+          title={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.email_address_09ba557f',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.personal_info.personalinfotabpanel.edit_your_primary_email_address_for_notifications_an_2e14e99b',
+          )}
           icon="material-symbols:mail-outline"
         >
           <Email />

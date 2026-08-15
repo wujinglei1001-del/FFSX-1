@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Paper, Stack, Typography } from '@mui/material';
 import { orderDetailsList } from 'data/e-commerce/orders';
 import dayjs from 'dayjs';
@@ -8,6 +9,7 @@ import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import { useOrderDetails } from './OrderDetailsProvider';
 
 const OrderHead = ({ breadcrumb }) => {
+  const { t: translateUi } = useTranslation();
   const { order, setSetselectedOrder } = useOrderDetails();
   const [canGoToNext, setCanGoToNext] = useState(true);
   const [canGoToPrev, setCanGoToPrev] = useState(false);
@@ -56,7 +58,8 @@ const OrderHead = ({ breadcrumb }) => {
               downLg && { fontSize: 'h5.fontSize' },
             ]}
           >
-            Order <Box component="span">{order?.id}</Box>
+            {translateUi('ui.sections.ecommerce.admin.order.order_1d75774c')}
+            <Box component="span">{order?.id}</Box>
           </Typography>
 
           <Stack
@@ -108,14 +111,14 @@ const OrderHead = ({ breadcrumb }) => {
               color="neutral"
               sx={{ flexShrink: 0, flexGrow: { xs: 1, sm: 'unset' } }}
             >
-              Edit order
+              {translateUi('ui.sections.ecommerce.admin.order.edit_order_3f121475')}
             </Button>
             <Button
               variant="soft"
               color="neutral"
               sx={{ flexShrink: 0, flexGrow: { xs: 1, sm: 'unset' } }}
             >
-              Print order
+              {translateUi('ui.sections.ecommerce.admin.order.print_order_c2b53443')}
             </Button>
           </Stack>
 
@@ -133,7 +136,8 @@ const OrderHead = ({ breadcrumb }) => {
                 whiteSpace: 'nowrap',
               }}
             >
-              Placed on <strong>{dayjs(order?.createdAt).format('Do MMM, YY')}</strong>
+              {translateUi('ui.sections.ecommerce.admin.order.placed_on_0eee11a9')}
+              <strong>{dayjs(order?.createdAt).format('Do MMM, YY')}</strong>
             </Box>{' '}
             <br />
             <Box
@@ -142,11 +146,14 @@ const OrderHead = ({ breadcrumb }) => {
                 whiteSpace: 'nowrap',
               }}
             >
-              at <strong>{dayjs(order?.createdAt).format('h:mm a')},</strong>{' '}
+              {translateUi('common.at')}{' '}
+              <strong>{dayjs(order?.createdAt).format('h:mm a')},</strong>{' '}
               <strong>
-                {order?.items.length} item{Number(order?.items.length) > 1 && 's'}
+                {order?.items.length}
+                {translateUi('ui.sections.ecommerce.admin.order.item_3a7d9767')}
+                {Number(order?.items.length) > 1 && 's'}
               </strong>{' '}
-              in total
+              {translateUi('ui.sections.ecommerce.admin.order.in_total_0a431bac')}
             </Box>
           </Typography>
         </Stack>

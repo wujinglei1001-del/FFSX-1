@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Paper,
   ToggleButton,
@@ -8,6 +9,7 @@ import {
 import { productColorVariants } from 'data/e-commerce/products';
 
 const Colors = ({ selectedVariantKey, handleSelectedVariantKey, sx }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, ...sx }}>
       <Typography
@@ -16,13 +18,15 @@ const Colors = ({ selectedVariantKey, handleSelectedVariantKey, sx }) => {
           mb: 3,
         }}
       >
-        Available in
+        {translateUi('ui.sections.ecommerce.customer.product_details.available_in_32051b38')}
       </Typography>
       <ToggleButtonGroup
         value={selectedVariantKey}
         exclusive
         onChange={(_, value) => handleSelectedVariantKey(value)}
-        aria-label="product color selection"
+        aria-label={translateUi(
+          'ui.sections.ecommerce.customer.product_details.product_color_selection_fdfa94fc',
+        )}
         sx={{
           gap: { xs: 2, sm: 3 },
           bgcolor: 'transparent',

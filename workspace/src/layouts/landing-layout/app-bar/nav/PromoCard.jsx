@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Paper, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -8,6 +9,7 @@ import { cssVarRgba } from 'lib/utils';
 import Image from 'components/base/Image';
 
 const PromoCard = () => {
+  const { t: translateUi } = useTranslation();
   const { isDark } = useThemeMode();
 
   return (
@@ -42,7 +44,9 @@ const PromoCard = () => {
             mb: 1,
           }}
         >
-          Try our app for a simpler, organized workflow.{' '}
+          {translateUi(
+            'ui.layouts.landing_layout.app_bar.nav.try_our_app_for_a_simpler_organized_workflow_0acaf354',
+          )}{' '}
         </Typography>
 
         <Image
@@ -57,7 +61,7 @@ const PromoCard = () => {
         />
 
         <Button variant="contained" color="success">
-          Book a Demo
+          {translateUi('ui.layouts.landing_layout.app_bar.nav.book_a_demo_5de232f9')}
         </Button>
       </Stack>
     </Paper>

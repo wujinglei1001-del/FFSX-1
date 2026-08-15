@@ -1,8 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
 import Editor from 'components/base/Editor';
 
 const EventNotes = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -19,7 +21,7 @@ const EventNotes = () => {
           color: 'text.secondary',
         }}
       >
-        Add Notes
+        {translateUi('ui.sections.dashboards.project.events.add_notes_21f30167')}
       </Typography>
       <Controller
         control={control}

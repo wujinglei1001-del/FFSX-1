@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { orderDetailsList } from 'data/e-commerce/orders';
@@ -19,6 +20,7 @@ const index = () => {
 };
 
 const Order = () => {
+  const { t: translateUi } = useTranslation();
   const { order, setSetselectedOrder } = useOrderDetails();
 
   useEffect(() => {
@@ -41,8 +43,11 @@ const Order = () => {
         <Stack>
           <OrderHead
             breadcrumb={[
-              { label: 'Order list', url: paths.orderList },
-              { label: 'Order', active: true },
+              {
+                label: translateUi('ui.pages.apps.ecommerce.admin.order_list_86e684a4'),
+                url: paths.orderList,
+              },
+              { label: translateUi('ui.pages.apps.ecommerce.admin.order_1d75774c'), active: true },
             ]}
           />
 

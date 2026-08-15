@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -10,6 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import { teamMemberListData, teamMemberListOverview } from 'data/project/team-member-list';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DataGridSelectionBar from 'components/common/DataGridSelectionBar';
 import TeamMemberListTable from 'components/sections/project/team-member-list/TeamMemberListTable';
@@ -35,11 +37,12 @@ const InviteMemberButton = ({ placement }) => (
       alignSelf: placement === 'sidebar' ? 'flex-start' : undefined,
     }}
   >
-    Invite member
+    {i18n.t('ui.pages.apps.project.teammemberlist.invite_member_645d4af8')}
   </Button>
 );
 
 const TeamMemberList = () => {
+  const { t: translateUi } = useTranslation();
   const [selectionModel, setSelectionModel] = useState(emptySelection);
   const [bulkRole, setBulkRole] = useState('Moderator');
 
@@ -121,9 +124,15 @@ const TeamMemberList = () => {
               onChange={(event) => setBulkRole(event.target.value)}
               sx={{ minWidth: 140 }}
             >
-              <MenuItem value="Admin">Admin</MenuItem>
-              <MenuItem value="Moderator">Moderator</MenuItem>
-              <MenuItem value="Member">Member</MenuItem>
+              <MenuItem value="Admin">
+                {translateUi('ui.pages.apps.project.teammemberlist.admin_4e7afebc')}
+              </MenuItem>
+              <MenuItem value="Moderator">
+                {translateUi('ui.pages.apps.project.teammemberlist.moderator_ad3b15c3')}
+              </MenuItem>
+              <MenuItem value="Member">
+                {translateUi('ui.pages.apps.project.teammemberlist.member_6853c98a')}
+              </MenuItem>
             </StyledTextField>
 
             <IconButton

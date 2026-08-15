@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Stack, TextField } from '@mui/material';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useAccounts } from 'providers/AccountsProvider';
 import * as yup from 'yup';
@@ -11,10 +13,13 @@ import InfoCard from '../common/InfoCard';
 import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const userNameSchema = yup.object().shape({
-  userName: yup.string().required('User name is required'),
+  userName: yup
+    .string()
+    .required(i18n.t('ui.sections.account.personal_info.username.user_name_is_required_74f9a9b6')),
 });
 
 const UserName = () => {
+  const { t: translateUi } = useTranslation();
   const { personalInfo } = useAccounts();
   const [open, setOpen] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -49,7 +54,10 @@ const UserName = () => {
     <FormProvider {...methods}>
       <InfoCard setOpen={setOpen}>
         <Stack sx={{ gap: { xs: 2, sm: 1 }, justifyContent: 'center' }}>
-          <InfoCardAttribute label="User Name" value={currentUserName} />
+          <InfoCardAttribute
+            label={translateUi('ui.sections.account.personal_info.username.user_name_a951840b')}
+            value={currentUserName}
+          />
         </Stack>
         <IconifyIcon
           icon="material-symbols-light:edit-outline"
@@ -57,8 +65,10 @@ const UserName = () => {
         />
       </InfoCard>
       <AccountFormDialog
-        title="User Name"
-        subtitle="Update your username. This change will apply to your account and be visible to others in your interactions."
+        title={translateUi('ui.sections.account.personal_info.username.user_name_a951840b')}
+        subtitle={translateUi(
+          'ui.sections.account.personal_info.username.update_your_username_this_change_will_apply_to_your__db443b46',
+        )}
         open={open}
         onSubmit={onSubmit}
         handleDialogClose={() => setOpen(false)}
@@ -69,8 +79,10 @@ const UserName = () => {
       >
         <Stack sx={{ gap: 1, p: 0.125 }}>
           <TextField
-            placeholder="User Name"
-            label="User Name"
+            placeholder={translateUi(
+              'ui.sections.account.personal_info.username.user_name_a951840b',
+            )}
+            label={translateUi('ui.sections.account.personal_info.username.user_name_a951840b')}
             error={!!errors.userName}
             helperText={errors.userName?.message}
             fullWidth

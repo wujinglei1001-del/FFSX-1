@@ -1,0 +1,1 @@
+import{a as e}from"./i18nInstance-truXiXW9.js";import{i as t}from"./useAuthApi-D8SiBv2D.js";import{t as n}from"./ForgotPasswordForm-BgDJMPAK.js";var r=e(),i=()=>{let{trigger:e}=t();return(0,r.jsx)(n,{handleSendResetLink:async t=>await e(t).catch(e=>{throw Error(e.data.message)})})};export{i as default};

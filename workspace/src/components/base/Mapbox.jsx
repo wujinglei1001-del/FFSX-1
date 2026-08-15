@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
+import { useTranslation } from 'react-i18next';
 import { Alert, Box, Button, ButtonGroup, buttonGroupClasses } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
 import mapboxgl from 'mapbox-gl';
@@ -9,6 +10,7 @@ import IconifyIcon from './IconifyIcon';
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN || '';
 
 const Mapbox = ({ sx, options, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const { mode } = useThemeMode();
@@ -75,14 +77,15 @@ const Mapbox = ({ sx, options, ...rest }) => {
               width: 1,
             }}
           >
-            Mapbox access token is missing. Please add VITE_MAPBOX_ACCESS_TOKEN to your environment
-            variables.
+            {translateUi(
+              'ui.components.base.mapbox.mapbox_access_token_is_missing_please_add_vite_mapbo_f6c2db71',
+            )}
           </Alert>
         </Box>
       )}
       <ButtonGroup
         orientation="vertical"
-        aria-label="Mapbox control button"
+        aria-label={translateUi('ui.components.base.mapbox.mapbox_control_button_2c1f041c')}
         variant="contained"
         sx={{
           position: 'absolute',

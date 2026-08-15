@@ -1,0 +1,1 @@
+import{d as e,o as t}from"./i18nInstance-truXiXW9.js";import{A as n,j as r}from"./usePickerPrivateContext-hVS-0YxG.js";var i=e(t(),1),a=()=>n().defaultDates,o=e=>{let t=r(),n=i.useRef(void 0);return n.current===void 0&&(n.current=t.date(void 0,e)),n.current};export{o as n,a as t};

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -18,6 +19,7 @@ import NotificationListItemAvatar from './NotificationListItemAvatar';
 dayjs.extend(relativeTime);
 
 const NotificationList = ({ title, notifications, sx, variant = 'default', onItemClick }) => {
+  const { t: translateUi } = useTranslation();
   if (notifications.length > 0) {
     return (
       <List
@@ -175,7 +177,7 @@ const NotificationList = ({ title, notifications, sx, variant = 'default', onIte
                       e.preventDefault();
                     }}
                   >
-                    Accept
+                    {translateUi('ui.sections.notification.notificationlist.accept_bb54db51')}
                   </Button>
                   <Button
                     variant="soft"
@@ -185,7 +187,7 @@ const NotificationList = ({ title, notifications, sx, variant = 'default', onIte
                       e.preventDefault();
                     }}
                   >
-                    Delete
+                    {translateUi('ui.sections.notification.notificationlist.delete_f6fdbe48')}
                   </Button>
                 </Stack>
               )}

@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import { navItems } from 'data/showcase';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { GradientButton } from '../../common';
 
 const HeaderNav = ({ registerNavItemRef }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
 
@@ -34,7 +36,7 @@ const HeaderNav = ({ registerNavItemRef }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Purchase
+        {translateUi('ui.sections.showcase.layout.header.purchase_160f06d4')}
       </GradientButton>
     </Stack>
   );

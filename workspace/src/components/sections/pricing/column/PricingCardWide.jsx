@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -16,6 +17,7 @@ import { useThemeMode } from 'hooks/useThemeMode';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PricingCardWide = ({ data, isYearly }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { isDark } = useThemeMode();
 
@@ -44,7 +46,7 @@ const PricingCardWide = ({ data, isYearly }) => {
           component="img"
           image={isDark ? data.image.dark : data.image.light}
           height={64}
-          alt="card_image"
+          alt={translateUi('common.accessibility.card_image')}
           sx={{
             mb: 4,
             mx: 'auto',
@@ -61,7 +63,7 @@ const PricingCardWide = ({ data, isYearly }) => {
 
             {!data.price ? (
               <Typography variant="h3" sx={{ ml: 2 }}>
-                Free
+                {translateUi('ui.sections.pricing.column.pricingcardwide.free_75f52718')}
               </Typography>
             ) : (
               <>

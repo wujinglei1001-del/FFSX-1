@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Divider, Stack, Tooltip, buttonBaseClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ChatAttachments from './ChatAttachments';
@@ -6,6 +7,7 @@ import ChatCameraCapture from './ChatCameraCapture';
 import ChatEmojiPicker from './ChatEmojiPicker';
 
 const ChatControls = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction="row"
@@ -17,7 +19,7 @@ const ChatControls = () => {
     >
       <ChatEmojiPicker />
       <ChatAttachments />
-      <Tooltip title="Mention">
+      <Tooltip title={translateUi('ui.sections.chat.conversation.main.mention_51258021')}>
         <Button shape="square" color="neutral">
           <IconifyIcon icon="material-symbols:alternate-email-rounded" fontSize={20} />
         </Button>

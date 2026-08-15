@@ -1,4 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import zhCnLocale from '@fullcalendar/core/locales/zh-cn';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import ReactFullCalendar from '@fullcalendar/react';
@@ -9,6 +11,7 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isBetween from 'dayjs/plugin/isBetween';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import { useSettingsContext } from 'providers/SettingsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ScheduleDialog from './ScheduleDialog';
 
@@ -16,6 +19,10 @@ dayjs.extend(isBetween);
 dayjs.extend(customParseFormat);
 
 const EventsCalendar = ({ events, setEvents, onOpenDrawer }) => {
+  const { t: translateUi } = useTranslation();
+  const {
+    config: { locale },
+  } = useSettingsContext();
   const theme = useTheme();
   const calendarRef = useRef(null);
   const { up } = useBreakpoints();
@@ -128,7 +135,7 @@ const EventsCalendar = ({ events, setEvents, onOpenDrawer }) => {
                 setDialogOpen(true);
               }}
             >
-              Add Schedule
+              {translateUi('ui.sections.dashboards.project.events.add_schedule_6c158ab2')}
             </Button>
           </Stack>
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
@@ -181,6 +188,7 @@ const EventsCalendar = ({ events, setEvents, onOpenDrawer }) => {
             ref={calendarRef}
             events={getEvents}
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            locale={locale === 'zh-CN' ? zhCnLocale : 'en'}
             headerToolbar={false}
             selectable
             selectLongPressDelay={0}

@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Box,
@@ -13,24 +14,42 @@ import {
   Typography,
   inputBaseClasses,
 } from '@mui/material';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import StyledTextField from 'components/styled/StyledTextField';
 import RevealText from '../common/RevealText';
 import SectionHeader from '../common/SectionHeader';
 
 const contactFormSchema = yup.object({
-  firstName: yup.string().required('First name is required.'),
-  lastName: yup.string().required('Last name is required.'),
-  email: yup.string().email('Email must be a valid email.').required('Email is required.'),
-  phone: yup.string().required('Phone number is required.'),
-  company: yup.string().required('Company is required.'),
-  purpose: yup.string().required('Purpose is required.'),
+  firstName: yup
+    .string()
+    .required(i18n.t('ui.sections.landing.contact.contactform.first_name_is_required_fd5f7f4c')),
+  lastName: yup
+    .string()
+    .required(i18n.t('ui.sections.landing.contact.contactform.last_name_is_required_a077f216')),
+  email: yup
+    .string()
+    .email(i18n.t('ui.sections.landing.contact.contactform.email_must_be_a_valid_email_8ab7d26c'))
+    .required(i18n.t('ui.sections.landing.contact.contactform.email_is_required_c79fce0e')),
+  phone: yup
+    .string()
+    .required(i18n.t('ui.sections.landing.contact.contactform.phone_number_is_required_ad2bfd0b')),
+  company: yup
+    .string()
+    .required(i18n.t('ui.sections.landing.contact.contactform.company_is_required_8e6ec6c8')),
+  purpose: yup
+    .string()
+    .required(i18n.t('ui.sections.landing.contact.contactform.purpose_is_required_a435eb58')),
   policyChecked: yup
     .boolean()
-    .oneOf([true], 'You must accept the privacy policy.')
-    .required('Policy is required.'),
+    .oneOf(
+      [true],
+      i18n.t('ui.sections.landing.contact.contactform.you_must_accept_the_privacy_policy_c63e10f6'),
+    )
+    .required(i18n.t('ui.sections.landing.contact.contactform.policy_is_required_9de372ac')),
 });
 const ContactForm = () => {
+  const { t: translateUi } = useTranslation();
   const methods = useForm({
     resolver: yupResolver(contactFormSchema),
     defaultValues: {
@@ -54,13 +73,19 @@ const ContactForm = () => {
   return (
     <Stack>
       <Box sx={{ textAlign: 'center', mb: 4 }}>
-        <SectionHeader title="CONTACT" subtitle="Get in touch" sx={{ mb: 2 }} />
+        <SectionHeader
+          title={translateUi('common_labels.contact')}
+          subtitle={translateUi('ui.sections.landing.contact.contactform.get_in_touch_c49bb4c2')}
+          sx={{ mb: 2 }}
+        />
 
         <RevealText>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Reach out to us anytime! We're here to help with your inquiries{' '}
+            {translateUi(
+              'ui.sections.landing.contact.contactform.reach_out_to_us_anytime_we_re_here_to_help_with_your_8a8aaf2b',
+            )}{' '}
             <Box component="span" sx={{ whiteSpace: 'nowrap' }}>
-              and support
+              {translateUi('ui.sections.landing.contact.contactform.and_support_cf452fff')}
             </Box>
             .
           </Typography>
@@ -75,7 +100,7 @@ const ContactForm = () => {
               mb: 2,
             }}
           >
-            Personal Information
+            {translateUi('ui.sections.landing.contact.contactform.personal_information_ad12e422')}
           </Typography>
 
           <Grid container spacing={1} sx={{ mb: 3 }}>
@@ -85,7 +110,9 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder="First Name"
+                placeholder={translateUi(
+                  'ui.sections.landing.contact.contactform.first_name_b6ea992a',
+                )}
                 {...register('firstName')}
                 error={!!errors.firstName}
                 helperText={errors.firstName?.message}
@@ -107,7 +134,9 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder="Last Name"
+                placeholder={translateUi(
+                  'ui.sections.landing.contact.contactform.last_name_863cb39f',
+                )}
                 {...register('lastName')}
                 error={!!errors.lastName}
                 helperText={errors.lastName?.message}
@@ -129,7 +158,7 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder="Email"
+                placeholder={translateUi('ui.sections.landing.contact.contactform.email_84add5b2')}
                 {...register('email')}
                 error={!!errors.email}
                 helperText={errors.email?.message}
@@ -151,7 +180,7 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder="Phone"
+                placeholder={translateUi('ui.sections.landing.contact.contactform.phone_77064d52')}
                 {...register('phone')}
                 error={!!errors.phone}
                 helperText={errors.phone?.message}
@@ -172,7 +201,9 @@ const ContactForm = () => {
                 type="text"
                 fullWidth
                 size="large"
-                placeholder="Company"
+                placeholder={translateUi(
+                  'ui.sections.landing.contact.contactform.company_7a199499',
+                )}
                 variant="filled"
                 {...register('company')}
                 error={!!errors.company}
@@ -198,7 +229,7 @@ const ContactForm = () => {
               mb: 2,
             }}
           >
-            Purposes
+            {translateUi('ui.sections.landing.contact.contactform.purposes_9f4de44b')}
           </Typography>
 
           <Box sx={{ mb: 3 }}>
@@ -206,7 +237,7 @@ const ContactForm = () => {
               type="text"
               fullWidth
               size="large"
-              placeholder="Message"
+              placeholder={translateUi('ui.sections.landing.contact.contactform.message_68f4145f')}
               variant="filled"
               {...register('purpose')}
               error={!!errors.purpose}
@@ -229,9 +260,13 @@ const ContactForm = () => {
                 control={<Switch {...register('policyChecked')} />}
                 label={
                   <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                    By selecting this, you agree to our{' '}
+                    {translateUi(
+                      'ui.sections.landing.contact.contactform.by_selecting_this_you_agree_to_our_0b7dbb8e',
+                    )}{' '}
                     <Link href="#!" sx={{ fontWeight: 500 }}>
-                      privacy policy.
+                      {translateUi(
+                        'ui.sections.landing.contact.contactform.privacy_policy_bfdb392a',
+                      )}
                     </Link>
                   </Typography>
                 }
@@ -246,7 +281,7 @@ const ContactForm = () => {
           </Box>
 
           <Button type="submit" variant="soft" color="primary" sx={{ width: 220 }}>
-            Send message
+            {translateUi('ui.sections.landing.contact.contactform.send_message_c70a890d')}
           </Button>
         </Stack>
       </FormProvider>

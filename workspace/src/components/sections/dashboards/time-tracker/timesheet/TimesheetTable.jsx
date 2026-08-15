@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
@@ -49,6 +50,7 @@ const filterData = (project, filterBy) => {
   return addTimes(durations);
 };
 const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const timerange = getTimeRange(filterBy.timeframe);
   const { up } = useBreakpoints();
@@ -68,7 +70,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
     () => [
       {
         field: 'project',
-        headerName: 'Project',
+        headerName: translateUi('ui.sections.dashboards.time_tracker.timesheet.project_f6f4da8d'),
         headerClassName: 'project-header',
         cellClassName: 'project-cell',
         minWidth: 260,
@@ -86,7 +88,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
       })),
       {
         field: 'totalTimes',
-        headerName: 'Total',
+        headerName: translateUi('ui.sections.dashboards.time_tracker.timesheet.total_b25928c6'),
         headerClassName: 'total-times-header',
         cellClassName: 'total-times-cell',
         flex: 1,

@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import i18n from 'locales/i18n';
 import { useDealsContext } from 'providers/DealsProvider';
 import { SET_CREATE_DEAL_DIALOG } from 'reducers/DealsReducer';
 import paths from 'routes/paths';
@@ -11,7 +13,9 @@ import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 
 const breadcrumbItems = [
   {
-    label: 'Home',
+    get label() {
+      return i18n.t('ui.sections.crm.deals.page_header.home_70f8bb9a');
+    },
     url: '/',
   },
   {
@@ -19,13 +23,16 @@ const breadcrumbItems = [
     url: paths.crm,
   },
   {
-    label: 'Deals',
+    get label() {
+      return i18n.t('ui.sections.crm.deals.page_header.deals_2c874671');
+    },
     url: '#!',
     active: true,
   },
 ];
 
 const DealsHeader = () => {
+  const { t: translateUi } = useTranslation();
   const { dealsDispatch } = useDealsContext();
   const handleSearch = (e) => {
     console.log(e.target.value);
@@ -38,9 +45,11 @@ const DealsHeader = () => {
         direction="row"
         sx={{ gap: 1, alignItems: 'center', flexWrap: { xs: 'wrap', sm: 'nowrap' } }}
       >
-        <Typography variant="h4">Deals</Typography>
+        <Typography variant="h4">
+          {translateUi('ui.sections.crm.deals.page_header.deals_2c874671')}
+        </Typography>
         <SearchTextField
-          placeholder="Search Tasks"
+          placeholder={translateUi('ui.sections.crm.deals.page_header.search_tasks_344b6c0a')}
           onChange={handleSearch}
           fullWidth
           sx={{
@@ -52,7 +61,7 @@ const DealsHeader = () => {
           iconSx={{ color: 'text.secondary' }}
         />
         <Button variant="soft" color="neutral" sx={{ flexShrink: 0, ml: { xs: 'auto', sm: 0 } }}>
-          Import
+          {translateUi('ui.sections.crm.deals.page_header.import_d6fbc9d2')}
         </Button>
         <Button
           size="medium"
@@ -66,7 +75,7 @@ const DealsHeader = () => {
           onClick={() => dealsDispatch({ type: SET_CREATE_DEAL_DIALOG, payload: { isOpen: true } })}
           sx={{ flexShrink: 0 }}
         >
-          New Deal
+          {translateUi('ui.sections.crm.deals.page_header.new_deal_adff16d2')}
         </Button>
       </Stack>
     </Box>

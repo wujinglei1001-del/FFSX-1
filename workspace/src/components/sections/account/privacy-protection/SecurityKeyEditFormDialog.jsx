@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
@@ -13,24 +14,50 @@ import {
   Typography,
   dialogClasses,
 } from '@mui/material';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
 
 const securityKeySchema = yup.object().shape({
-  currentSecurityKey: yup.string().required('Current security key PIN is required'),
+  currentSecurityKey: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.account.privacy_protection.securitykeyeditformdialog.current_security_key_pin_is_required_a7c49f2e',
+      ),
+    ),
   newSecurityKey: yup
     .string()
-    .required('New security key PIN is required')
-    .min(4, 'Security key PIN must be at least 4 characters.'),
+    .required(
+      i18n.t(
+        'ui.sections.account.privacy_protection.securitykeyeditformdialog.new_security_key_pin_is_required_2300f1c6',
+      ),
+    )
+    .min(
+      4,
+      i18n.t(
+        'ui.sections.account.privacy_protection.securitykeyeditformdialog.security_key_pin_must_be_at_least_4_characters_df8de31b',
+      ),
+    ),
   confirmSecurityKey: yup
     .string()
-    .oneOf([yup.ref('newSecurityKey')], 'Security key PINs must match')
-    .required('Please confirm your security key PIN'),
+    .oneOf(
+      [yup.ref('newSecurityKey')],
+      i18n.t(
+        'ui.sections.account.privacy_protection.securitykeyeditformdialog.security_key_pins_must_match_ec677026',
+      ),
+    )
+    .required(
+      i18n.t(
+        'ui.sections.account.privacy_protection.securitykeyeditformdialog.please_confirm_your_security_key_pin_0065b5a4',
+      ),
+    ),
 });
 
 const SecurityKeyEditFormDialog = (props) => {
+  const { t: translateUi } = useTranslation();
   const { open, handleDialogClose, sx } = props;
   const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
   const methods = useForm({
@@ -76,7 +103,9 @@ const SecurityKeyEditFormDialog = (props) => {
             alignItems: 'center',
           }}
         >
-          Edit Security Key
+          {translateUi(
+            'ui.sections.account.privacy_protection.securitykeyeditformdialog.edit_security_key_aa479e59',
+          )}
           <IconButton onClick={handleDialogClose}>
             <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20 }} />
           </IconButton>
@@ -87,27 +116,40 @@ const SecurityKeyEditFormDialog = (props) => {
             variant="body2"
             sx={{ color: 'text.secondary', mb: 2 }}
           >
-            Enter your security key PIN for this device to proceed securely. You also have the
-            option to remove this connection.
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.enter_your_security_key_pin_for_this_device_to_proce_601fde47',
+            )}
           </DialogContentText>
           <Stack sx={{ gap: 1, pb: 0.125 }}>
             <PasswordTextField
-              placeholder="Current security key PIN"
-              label="Current security key PIN"
+              placeholder={translateUi(
+                'ui.sections.account.privacy_protection.securitykeyeditformdialog.current_security_key_pin_23d003bf',
+              )}
+              label={translateUi(
+                'ui.sections.account.privacy_protection.securitykeyeditformdialog.current_security_key_pin_23d003bf',
+              )}
               error={!!errors.currentSecurityKey}
               helperText={errors.currentSecurityKey?.message}
               {...register('currentSecurityKey')}
             />
             <PasswordTextField
-              placeholder="New security key PIN"
-              label="New security key PIN"
+              placeholder={translateUi(
+                'ui.sections.account.privacy_protection.securitykeyeditformdialog.new_security_key_pin_f94b743b',
+              )}
+              label={translateUi(
+                'ui.sections.account.privacy_protection.securitykeyeditformdialog.new_security_key_pin_f94b743b',
+              )}
               error={!!errors.newSecurityKey}
               helperText={errors.newSecurityKey?.message}
               {...register('newSecurityKey')}
             />
             <PasswordTextField
-              placeholder="Confirm security key PIN"
-              label="Confirm security key PIN"
+              placeholder={translateUi(
+                'ui.sections.account.privacy_protection.securitykeyeditformdialog.confirm_security_key_pin_2fa5a729',
+              )}
+              label={translateUi(
+                'ui.sections.account.privacy_protection.securitykeyeditformdialog.confirm_security_key_pin_2fa5a729',
+              )}
               error={!!errors.confirmSecurityKey}
               helperText={errors.confirmSecurityKey?.message}
               {...register('confirmSecurityKey')}
@@ -120,7 +162,9 @@ const SecurityKeyEditFormDialog = (props) => {
           }}
         >
           <Button color="error" size="small" onClick={() => setConfirmDialogOpen(true)}>
-            Remove
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.remove_e963907d',
+            )}
           </Button>
           <Button
             variant="soft"
@@ -131,10 +175,14 @@ const SecurityKeyEditFormDialog = (props) => {
             }}
             sx={{ ml: 'auto !important' }}
           >
-            Discard
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.discard_36fff63c',
+            )}
           </Button>
           <Button type="submit" variant="contained" color="primary">
-            Confirm
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.confirm_04a21221',
+            )}
           </Button>
         </DialogActions>
       </Dialog>
@@ -159,7 +207,9 @@ const SecurityKeyEditFormDialog = (props) => {
             alignItems: 'center',
           }}
         >
-          Are you sure?
+          {translateUi(
+            'ui.sections.account.privacy_protection.securitykeyeditformdialog.are_you_sure_410bf23a',
+          )}
           <IconButton onClick={() => setConfirmDialogOpen(false)}>
             <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20 }} />
           </IconButton>
@@ -170,8 +220,9 @@ const SecurityKeyEditFormDialog = (props) => {
             variant="body2"
             sx={{ color: 'text.secondary' }}
           >
-            You won’t be able to use this security key anymore. You can set up a new connection
-            anytime.
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.you_won_t_be_able_to_use_this_security_key_anymore_y_74267ee8',
+            )}
           </DialogContentText>
         </DialogContent>
         <DialogActions
@@ -180,7 +231,9 @@ const SecurityKeyEditFormDialog = (props) => {
           }}
         >
           <Button variant="soft" color="neutral" onClick={() => setConfirmDialogOpen(false)}>
-            Cancel
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.cancel_77dfd213',
+            )}
           </Button>
           <Button
             type="submit"
@@ -192,7 +245,9 @@ const SecurityKeyEditFormDialog = (props) => {
               handleDialogClose();
             }}
           >
-            Remove
+            {translateUi(
+              'ui.sections.account.privacy_protection.securitykeyeditformdialog.remove_e963907d',
+            )}
           </Button>
         </DialogActions>
       </Dialog>

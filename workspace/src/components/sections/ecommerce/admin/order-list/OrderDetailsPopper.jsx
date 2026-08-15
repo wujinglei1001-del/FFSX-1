@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Grow,
@@ -16,6 +17,7 @@ import { orderListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
 
 const OrderDetailsPopper = ({ params }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isHoveringPopper, setIsHoveringPopper] = useState(false);
@@ -137,7 +139,8 @@ const OrderDetailsPopper = ({ params }) => {
                                 textAlign: 'right',
                               }}
                             >
-                              {item.quantity} pcs
+                              {item.quantity}
+                              {translateUi('ui.sections.ecommerce.admin.order_list.pcs_853268f8')}
                             </Typography>
                             <Typography
                               variant="caption"
@@ -160,7 +163,9 @@ const OrderDetailsPopper = ({ params }) => {
                       fontStyle: 'italic',
                     }}
                   >
-                    No items in this order
+                    {translateUi(
+                      'ui.sections.ecommerce.admin.order_list.no_items_in_this_order_580b4ba9',
+                    )}
                   </Typography>
                 )}
               </List>
@@ -173,7 +178,7 @@ const OrderDetailsPopper = ({ params }) => {
                 }}
               >
                 <Typography variant="caption" sx={{ fontWeight: 700 }}>
-                  Total
+                  {translateUi('ui.sections.ecommerce.admin.order_list.total_b25928c6')}
                 </Typography>
                 <Typography variant="caption" sx={{ fontWeight: 700 }}>
                   {currencyFormat(orderTotal)}

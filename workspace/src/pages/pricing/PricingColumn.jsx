@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
@@ -10,6 +11,7 @@ import PricingCard from 'components/sections/pricing/column/PricingCard';
 import PricingCardWide from 'components/sections/pricing/column/PricingCardWide';
 
 const PricingColumn = () => {
+  const { t: translateUi } = useTranslation();
   const [isYearly, setIsYearly] = useState(false);
   const { between } = useBreakpoints();
 
@@ -43,10 +45,13 @@ const PricingColumn = () => {
 
       <Box sx={{ my: 5 }}>
         <Typography variant="h6" sx={{ mb: 1, textAlign: 'center' }}>
-          Confused still?
+          {translateUi('ui.pages.pricing.pricingcolumn.confused_still_882d7b8d')}
         </Typography>
         <Typography sx={{ textAlign: 'center' }}>
-          Try the <Link href="#!">basic version of Aurora</Link>
+          {translateUi('ui.pages.pricing.pricingcolumn.try_the_113c4f19')}
+          <Link href="#!">
+            {translateUi('ui.pages.pricing.pricingcolumn.basic_version_of_aurora_41f5188b')}
+          </Link>
         </Typography>
       </Box>
     </>

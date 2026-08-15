@@ -1,5 +1,6 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 const blogs = (index) => `${initialConfig.assetsDir}/images/content/search/blogs/${index}.webp`;
 const podcasts = (index) =>
@@ -12,9 +13,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Animal',
     requiredTime: '12 min read',
-    title: 'How Conservation Efforts Are Saving Endangered Animal Species Worldwide',
-    description:
-      'Across the globe, thousands of species face the threat of extinction. Conservationists are working tirelessly to protect habitats, restore ecosystems, and combat poaching.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.how_conservation_efforts_are_saving_endangered_anima_e7651703',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.across_the_globe_thousands_of_species_face_the_threa_2ba8cbab',
+      );
+    },
     author: 'Dr. Olivia Carter',
     date: '2024-12-31',
     thumbnail: blogs(1),
@@ -28,9 +36,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Animal Behavior',
     requiredTime: '12 min read',
-    title: '10 Fascinating Animal Behaviors That Will Amaze You again',
-    description:
-      'Why do dolphins surf waves for fun? How do ants create complex underground cities? The animal kingdom is full of surprising and intelligent behaviors that help species survive.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.10_fascinating_animal_behaviors_that_will_amaze_you__a1286196',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.why_do_dolphins_surf_waves_for_fun_how_do_ants_creat_3541d231',
+      );
+    },
     author: 'Sophia Bennett',
     date: '2024-12-31',
     thumbnail: blogs(2),
@@ -44,9 +59,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Ocean Life',
     requiredTime: '12 min read',
-    title: 'Secrets of the Deep: Amazing Marine Animals of the Ocean',
-    description:
-      'Beneath the ocean’s surface lies a world teeming with incredible life. From glowing jellyfish to deep-sea giants, marine animals have adapted in extraordinary ways. Some can survive crushing pressures, while others use bioluminescence to hunt.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.secrets_of_the_deep_amazing_marine_animals_of_the_oc_d1470f17',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.beneath_the_ocean_s_surface_lies_a_world_teeming_wit_bbce5b0c',
+      );
+    },
     author: 'Emma Lewis',
     date: '2024-12-28',
     thumbnail: blogs(3),
@@ -60,9 +82,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Wildlife',
     requiredTime: '12 min read',
-    title: 'The World’s Most Powerful Animals and Their Hunting Techniques',
-    description:
-      'Lions, tigers, cheetahs, and leopards—these apex predators rule their habitats with unmatched power and agility. But their survival depends on more than just strength.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.the_world_s_most_powerful_animals_and_their_hunting__22958ae4',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.lions_tigers_cheetahs_and_leopards_these_apex_predat_b5fd0d76',
+      );
+    },
     author: 'Ethan Cole',
     date: '2024-12-28',
     thumbnail: blogs(4),
@@ -76,9 +105,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Nature',
     requiredTime: '12 min read',
-    title: 'How Humans and Animals Can Coexist in a Changing World',
-    description:
-      'As cities expand and natural habitats shrink, encounters between humans and wildlife are becoming more common. Can we live alongside wild animals without conflict?',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.how_humans_and_animals_can_coexist_in_a_changing_wor_e93fe309',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.as_cities_expand_and_natural_habitats_shrink_encount_abe0c9eb',
+      );
+    },
     author: 'Dr. Mia Carter',
     date: '2024-12-23',
     thumbnail: blogs(5),
@@ -92,9 +128,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Animal',
     requiredTime: '12 min read',
-    title: 'How Birds Migrate Thousands of Miles Without Getting Lost',
-    description:
-      'Every year, birds travel thousands of miles across continents, braving harsh weather and predators. But how do they navigate with such precision?',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.how_birds_migrate_thousands_of_miles_without_getting_7d19e809',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.every_year_birds_travel_thousands_of_miles_across_co_3751f83c',
+      );
+    },
     author: 'Dr. Lisa Morgan',
     date: '2024-12-12',
     thumbnail: blogs(6),
@@ -108,9 +151,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Wildlife',
     requiredTime: '12 min read',
-    title: 'Meet the Rare and Mysterious Animals of the Amazon Rainforest',
-    description:
-      'The Amazon rainforest is home to some of the most unique and elusive animals on Earth. From the pink river dolphin to the jaguar, each creature plays a vital role in this rich ecosystem.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.meet_the_rare_and_mysterious_animals_of_the_amazon_r_68b0249c',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.the_amazon_rainforest_is_home_to_some_of_the_most_un_68959b44',
+      );
+    },
     author: 'Natalie Brooks',
     date: '2024-11-27',
     thumbnail: blogs(7),
@@ -124,9 +174,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Nature',
     requiredTime: '12 min read',
-    title: "10 Astonishingly Bizarre Animals You've Probably Never Heard Of",
-    description:
-      'Nature is full of surprises! While everyone knows lions and elephants, have you ever heard of the axolotl or the star-nosed mole? These strange yet fascinating creatures have developed incredible adaptations to survive.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.10_astonishingly_bizarre_animals_you_ve_probably_nev_653133ef',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.nature_is_full_of_surprises_while_everyone_knows_lio_d4a1d342',
+      );
+    },
     author: 'Rachel Adams',
     date: '2024-11-21',
     thumbnail: blogs(8),
@@ -140,9 +197,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Photography',
     requiredTime: '12 min read',
-    title: 'How to Capture Stunning Wildlife and Animal movement  Photos Like a Pro',
-    description:
-      'Nature is full of surprises! While everyone knows lions and elephants, have you ever heard of the axolotl or the star-nosed mole? These strange yet fascinating creatures have developed incredible adaptations to survive.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.how_to_capture_stunning_wildlife_and_animal_movement_92c40e72',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.nature_is_full_of_surprises_while_everyone_knows_lio_d4a1d342',
+      );
+    },
     author: 'Kevin Blake',
     date: '2024-11-11',
     thumbnail: blogs(9),
@@ -156,9 +220,16 @@ export const searchItems = [
     type: 'blogs',
     category: 'Folklore',
     requiredTime: '12 min read',
-    title: 'Legends of the Wild: Animals in Myths, Folklore, and Cultures',
-    description:
-      'Throughout history, animals have played powerful roles in myths and legends. From the wise owl of Athena to the mighty dragons of Asia, different cultures have woven fascinating stories around creatures, real and mythical.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.legends_of_the_wild_animals_in_myths_folklore_and_cu_7c5f66fd',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.throughout_history_animals_have_played_powerful_role_f82969c6',
+      );
+    },
     author: 'Olivia Grant',
     date: '2024-11-21',
     thumbnail: blogs(10),
@@ -173,9 +244,16 @@ export const searchItems = [
     category: 'SCIENCE',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Voices for Wildlife: Stories of Conservation and Hope',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.voices_for_wildlife_stories_of_conservation_and_hope_972e610d',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Daniel Rivers',
     date: '2024-8-1',
     thumbnail: podcasts(1),
@@ -190,9 +268,16 @@ export const searchItems = [
     category: 'SCIENCE',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Voices for Wildlife: Stories of Conservation and Hope',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.voices_for_wildlife_stories_of_conservation_and_hope_972e610d',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Dr. Marcus Hale',
     date: '2024-8-1',
     thumbnail: podcasts(2),
@@ -208,9 +293,16 @@ export const searchItems = [
     category: 'SCIENCE',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Beneath the Waves: Stories of Marine Life and Conservation',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.beneath_the_waves_stories_of_marine_life_and_conserv_c9b1c142',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Captain Noah Reed',
     date: '2024-8-1',
     thumbnail: podcasts(3),
@@ -225,9 +317,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Predator Chronicles: The Untamed World of Big Cats',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.predator_chronicles_the_untamed_world_of_big_cats_3dd8cad3',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Alex Stone',
     date: '2024-8-1',
     thumbnail: podcasts(4),
@@ -242,9 +341,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Feathered Journeys: Stories of Migration and Survival',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.feathered_journeys_stories_of_migration_and_survival_5f28cf7e',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'James Holloway',
     date: '2024-8-1',
     thumbnail: podcasts(5),
@@ -259,9 +365,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Into the Wild: The Sounds and Stories of the Rainforest',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.into_the_wild_the_sounds_and_stories_of_the_rainfore_9322494b',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Dr. Ben Harper',
     date: '2024-8-1',
     thumbnail: podcasts(6),
@@ -276,9 +389,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Nature’s Oddities: Exploring the World’s Most Unique Animals',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.nature_s_oddities_exploring_the_world_s_most_unique__44426533',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Tom Weston',
     date: '2024-8-1',
     thumbnail: podcasts(7),
@@ -293,9 +413,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Wild Perspectives: The Stories Behind Iconic Animal Footage',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.wild_perspectives_the_stories_behind_iconic_animal_f_56a6d229',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Anna Roberts',
     date: '2024-8-1',
     thumbnail: podcasts(8),
@@ -310,9 +437,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Living with Wildlife: Finding Harmony with Nature',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.living_with_wildlife_finding_harmony_with_nature_81bbd466',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'Nathan Reed',
     date: '2024-8-1',
     thumbnail: podcasts(9),
@@ -327,9 +461,16 @@ export const searchItems = [
     category: 'Science',
     requiredTime: '10 min',
     episode: 'Episode 1111',
-    title: 'Animal Legends: Mythical Creatures and Their Origins',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.animal_legends_mythical_creatures_and_their_origins_626034d6',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: podcasts(10),
@@ -343,9 +484,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'Inside Wildlife Rescues: Saving Animals from Extinction',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.inside_wildlife_rescues_saving_animals_from_extincti_299beaaa',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(1),
@@ -359,9 +507,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'Why Animals Behave the Way They Do: Nature’s Survival Tactics',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.why_animals_behave_the_way_they_do_nature_s_survival_d1f76d27',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(2),
@@ -375,9 +530,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'Exploring the Ocean’s Most Mysterious and Rare Creatures',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.exploring_the_ocean_s_most_mysterious_and_rare_creat_09c533be',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(3),
@@ -391,9 +553,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '1000 eps',
-    title: 'Big Cats in Action: How Lions, Tigers, and Leopards Rule the Wild',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.big_cats_in_action_how_lions_tigers_and_leopards_rul_13f6b2ef',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(4),
@@ -408,9 +577,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '1000 eps',
-    title: 'The Science Behind Bird Flight and Incredible Aerial Feats',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.the_science_behind_bird_flight_and_incredible_aerial_6474e388',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(5),
@@ -425,9 +601,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'Jungle Giants: The Largest and Smallest Animals of the Rainforest',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.jungle_giants_the_largest_and_smallest_animals_of_th_318ff734',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(6),
@@ -441,9 +624,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'Jungle Giants: The Largest and Smallest Animals of the Rainforest',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.jungle_giants_the_largest_and_smallest_animals_of_th_318ff734',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(7),
@@ -457,9 +647,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'Strangest Creatures on Earth and Their Amazing Adaptations',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.strangest_creatures_on_earth_and_their_amazing_adapt_140916a2',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(8),
@@ -473,9 +670,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'The Challenge of Wildlife Conservation in Urban Environments',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.the_challenge_of_wildlife_conservation_in_urban_envi_231c0f50',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(9),
@@ -489,9 +693,16 @@ export const searchItems = [
     type: 'videos',
     category: 'Nature',
     requiredTime: '10:23:34',
-    title: 'How Animals Shaped Legends, Myths, and Ancient Beliefs',
-    description:
-      'Pulvinar faucibus pretium nascetur harum orci? Tempore ac, consequatur hymenaeos minus, perspiciatis blandit nascetur, magni lorem! Ultricies orci, eligendi, necessitatibus eaque urna? Aspernatur quo adipisci ut urna quis, magni wisi luctus vehicula.',
+    get title() {
+      return i18n.t(
+        'ui.data.content.search.how_animals_shaped_legends_myths_and_ancient_beliefs_e129124e',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.content.search.pulvinar_faucibus_pretium_nascetur_harum_orci_tempor_4f934c5c',
+      );
+    },
     author: 'David Sinclair',
     date: '2024-8-1',
     thumbnail: videos(10),
@@ -506,292 +717,408 @@ export const topics = [
   {
     id: 1,
     key: 'animal',
-    label: 'Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_7389b3b7');
+    },
   },
   {
     id: 2,
     key: 'animal-kingdom',
-    label: 'Animal Kingdom',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_kingdom_42febea3');
+    },
   },
   {
     id: 3,
     key: 'wild-animal',
-    label: 'Wild Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.wild_animal_4f317f8a');
+    },
   },
   {
     id: 4,
     key: 'wild-animal',
-    label: 'Wild Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.wild_animal_4f317f8a');
+    },
   },
   {
     id: 5,
     key: 'animal-name',
-    label: 'Animal Name',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_name_92619192');
+    },
   },
   {
     id: 6,
     key: 'animalism',
-    label: 'Animalism',
+    get label() {
+      return i18n.t('ui.data.content.search.animalism_06e2e860');
+    },
   },
   {
     id: 7,
     key: 'animal-control',
-    label: 'Animal Control',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_control_7c52df4d');
+    },
   },
   {
     id: 8,
     key: 'animal-care',
-    label: 'Animal Care',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_care_f8f230df');
+    },
   },
   {
     id: 9,
     key: 'animal-lover',
-    label: 'Animal Lover',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_lover_87ced3be');
+    },
   },
   {
     id: 10,
     key: 'animal-sounds',
-    label: 'Animal Sounds',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_sounds_b540e8b5');
+    },
   },
   {
     id: 11,
     key: 'animal-tale',
-    label: 'Animal Tale',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_tale_673d3082');
+    },
   },
   {
     id: 12,
     key: 'animal-tale',
-    label: 'Animal Tale',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_tale_673d3082');
+    },
   },
   {
     id: 13,
     key: 'wild-animal',
-    label: 'Wild Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.wild_animal_4f317f8a');
+    },
   },
   {
     id: 14,
     key: 'animal-kingdom',
-    label: 'Animal Kingdom',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_kingdom_42febea3');
+    },
   },
   {
     id: 15,
     key: 'animalverse-social',
-    label: 'Animalverse Social',
+    get label() {
+      return i18n.t('ui.data.content.search.animalverse_social_3d49df3e');
+    },
   },
   {
     id: 16,
     key: 'animal-tale',
-    label: 'Animal Tale',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_tale_673d3082');
+    },
   },
   {
     id: 17,
     key: 'animal-photography',
-    label: 'Animal Photography',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_photography_0a20d85e');
+    },
   },
   {
     id: 18,
     key: 'animal-farm',
-    label: 'Animal Farm',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_farm_856c6875');
+    },
   },
   {
     id: 19,
     key: 'animal-farm',
-    label: 'Animal Farm',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_farm_856c6875');
+    },
   },
   {
     id: 20,
     key: 'animal-communications',
-    label: 'Animal Communications',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_communications_4f15a7d0');
+    },
   },
   {
     id: 21,
     key: 'animal',
-    label: 'Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_7389b3b7');
+    },
   },
   {
     id: 22,
     key: 'animal-control',
-    label: 'Animal Control',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_control_7c52df4d');
+    },
   },
   {
     id: 23,
     key: 'animal-control',
-    label: 'Animal Control',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_control_7c52df4d');
+    },
   },
   {
     id: 24,
     key: 'animal-control',
-    label: 'Animal Control',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_control_7c52df4d');
+    },
   },
   {
     id: 25,
     key: 'wild-animal',
-    label: 'Wild Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.wild_animal_4f317f8a');
+    },
   },
   {
     id: 26,
     key: 'animal-training',
-    label: 'Animal Training',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_training_2c64213a');
+    },
   },
   {
     id: 27,
     key: 'animali',
-    label: 'Animali',
+    get label() {
+      return i18n.t('ui.data.content.search.animali_fe994476');
+    },
   },
   {
     id: 28,
     key: 'animal-house',
-    label: 'Animal House',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_house_f0762dfd');
+    },
   },
   {
     id: 29,
     key: 'animal',
-    label: 'Animal',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_7389b3b7');
+    },
   },
   {
     id: 30,
     key: 'animal-videos',
-    label: 'Animal Videos',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_videos_cf3e16a3');
+    },
   },
   {
     id: 31,
     key: 'animal-tech',
-    label: 'Animal Tech',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_tech_53b3fa35');
+    },
   },
   {
     id: 32,
     key: 'animal-abuse',
-    label: 'Animal Abuse',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_abuse_65b404cb');
+    },
   },
   {
     id: 33,
     key: 'animali',
-    label: 'Animali',
+    get label() {
+      return i18n.t('ui.data.content.search.animali_fe994476');
+    },
   },
   {
     id: 34,
     key: 'animal-adoption',
-    label: 'Animal Adoption',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_adoption_7fe60c01');
+    },
   },
   {
     id: 35,
     key: 'animal-tech',
-    label: 'Animal Tech',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_tech_53b3fa35');
+    },
   },
   {
     id: 36,
     key: 'animal-videos',
-    label: 'Animal Videos',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_videos_cf3e16a3');
+    },
   },
   {
     id: 37,
     key: 'animal-kingdom',
-    label: 'Animal Kingdom',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_kingdom_42febea3');
+    },
   },
   {
     id: 38,
     key: 'animal-training',
-    label: 'Animal Training',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_training_2c64213a');
+    },
   },
   {
     id: 39,
     key: 'animal-photography',
-    label: 'Animal Photography',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_photography_0a20d85e');
+    },
   },
   {
     id: 40,
     key: 'animal-name',
-    label: 'Animal Name',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_name_92619192');
+    },
   },
   {
     id: 41,
     key: 'animal-training',
-    label: 'Animal Training',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_training_2c64213a');
+    },
   },
   {
     id: 42,
     key: 'animal-rescue',
-    label: 'Animal Rescue',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_rescue_ffd8d6dd');
+    },
   },
   {
     id: 43,
     key: 'animal-rescue',
-    label: 'Animal Rescue',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_rescue_ffd8d6dd');
+    },
   },
   {
     id: 44,
     key: 'animalism',
-    label: 'Animalism',
+    get label() {
+      return i18n.t('ui.data.content.search.animalism_06e2e860');
+    },
   },
   {
     id: 45,
     key: 'animal-abuse',
-    label: 'Animal Abuse',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_abuse_65b404cb');
+    },
   },
   {
     id: 46,
     key: 'animal-lover',
-    label: 'Animal Lover',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_lover_87ced3be');
+    },
   },
   {
     id: 47,
     key: 'animal-house',
-    label: 'Animal House',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_house_f0762dfd');
+    },
   },
   {
     id: 48,
     key: 'animal-sounds',
-    label: 'Animal Sounds',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_sounds_b540e8b5');
+    },
   },
   {
     id: 49,
     key: 'animal-communications',
-    label: 'Animal Communications',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_communications_4f15a7d0');
+    },
   },
   {
     id: 50,
     key: 'animal-house',
-    label: 'Animal House',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_house_f0762dfd');
+    },
   },
   {
     id: 51,
     key: 'animal-videos',
-    label: 'Animal Videos',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_videos_cf3e16a3');
+    },
   },
   {
     id: 52,
     key: 'animal-photography',
-    label: 'Animal Photography',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_photography_0a20d85e');
+    },
   },
   {
     id: 53,
     key: 'animali',
-    label: 'Animali',
+    get label() {
+      return i18n.t('ui.data.content.search.animali_fe994476');
+    },
   },
   {
     id: 54,
     key: 'animali',
-    label: 'Animali',
+    get label() {
+      return i18n.t('ui.data.content.search.animali_fe994476');
+    },
   },
   {
     id: 55,
     key: 'animal-training',
-    label: 'Animal Training',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_training_2c64213a');
+    },
   },
   {
     id: 56,
     key: 'animal-abuse',
-    label: 'Animal Abuse',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_abuse_65b404cb');
+    },
   },
   {
     id: 57,
     key: 'animal-adoption',
-    label: 'Animal Adoption',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_adoption_7fe60c01');
+    },
   },
   {
     id: 58,
     key: 'animal-cartoon',
-    label: 'Animal Cartoon',
+    get label() {
+      return i18n.t('ui.data.content.search.animal_cartoon_1cec7dfc');
+    },
   },
 ];
 

@@ -1,13 +1,40 @@
 export const backupSyncSettings = [
-  { name: 'Photos', enabled: true },
-  { name: 'Email', enabled: false },
-  { name: 'Contacts', enabled: true },
-  { name: 'Videos', enabled: true },
-  { name: 'Chats', enabled: true },
-  { name: 'Calendar', enabled: false },
-  { name: 'Notes', enabled: false },
-  { name: 'Passwords', enabled: true },
-  { name: 'Map', enabled: false },
+  {
+    name: 'Photos',
+    enabled: true,
+  },
+  {
+    name: 'Email',
+    enabled: false,
+  },
+  {
+    name: 'Contacts',
+    enabled: true,
+  },
+  {
+    name: 'Videos',
+    enabled: true,
+  },
+  {
+    name: 'Chats',
+    enabled: true,
+  },
+  {
+    name: 'Calendar',
+    enabled: false,
+  },
+  {
+    name: 'Notes',
+    enabled: false,
+  },
+  {
+    name: 'Passwords',
+    enabled: true,
+  },
+  {
+    name: 'Map',
+    enabled: false,
+  },
 ];
 
 export const storageData = {

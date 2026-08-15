@@ -1,6 +1,7 @@
 import Button, { buttonClasses } from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import FilterMenu from './FilterMenu';
@@ -8,19 +9,25 @@ import FilterMenu from './FilterMenu';
 const filterData = [
   {
     id: 1,
-    label: 'Member',
+    get label() {
+      return i18n.t('ui.sections.dashboards.time_tracker.timesheet.member_6853c98a');
+    },
     field: 'member',
     items: [users[1], users[2], users[3], users[4]],
   },
   {
     id: 2,
-    label: 'Team',
+    get label() {
+      return i18n.t('ui.sections.dashboards.time_tracker.timesheet.team_21888726');
+    },
     field: 'team',
     items: ['Team A', 'Team B', 'Team C'],
   },
   {
     id: 3,
-    label: 'Time Frame',
+    get label() {
+      return i18n.t('ui.sections.dashboards.time_tracker.timesheet.time_frame_887ad0fa');
+    },
     field: 'timeframe',
     items: ['last 7 days', 'last 2 weeks', 'last 30 days'],
   },

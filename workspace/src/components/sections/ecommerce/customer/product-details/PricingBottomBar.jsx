@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -6,6 +7,7 @@ import { useEcommerce } from 'providers/EcommerceProvider';
 import Image from 'components/base/Image';
 
 const PricingBottomBar = () => {
+  const { t: translateUi } = useTranslation();
   const { product, addItemToCart } = useEcommerce();
   const { currencyFormat } = useNumberFormat();
   const { up } = useBreakpoints();
@@ -99,14 +101,14 @@ const PricingBottomBar = () => {
                 }
               }}
             >
-              Add to Cart
+              {translateUi('ui.sections.ecommerce.customer.product_details.add_to_cart_e9cdcea9')}
             </Button>
             <Button
               color="primary"
               variant="contained"
               sx={{ flex: 1, flexShrink: 0, whiteSpace: 'nowrap', maxWidth: 275 }}
             >
-              Buy now
+              {translateUi('ui.sections.ecommerce.customer.product_details.buy_now_c38860a3')}
             </Button>
           </Stack>
         </Grid>

@@ -1,6 +1,7 @@
 import { Box, Paper, Stack, Switch, Typography } from '@mui/material';
 import { GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid';
 import { secondsToHms } from 'lib/utils';
+import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import SelectTime from './SelectTime';
 import TimeTrackCell from './TimeTrackCell';
@@ -139,7 +140,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'project',
-    headerName: 'Project',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.project_f6f4da8d');
+    },
     headerClassName: 'project-header',
     cellClassName: 'project-cell',
     minWidth: tab === 'daily' ? 350 : 270,
@@ -158,7 +161,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'client',
-    headerName: 'Client',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.client_1bdd79b1');
+    },
     headerClassName: 'client-header',
     cellClassName: 'client-cell',
     minWidth: 160,
@@ -171,7 +176,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'billable',
-    headerName: 'Billable',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.billable_ff5d36b9');
+    },
     headerClassName: 'billable-header',
     cellClassName: 'billable-cell',
     minWidth: tab === 'daily' ? 150 : 85,
@@ -188,7 +195,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'activity',
-    headerName: 'Activity',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.activity_81c0d915');
+    },
     headerClassName: 'activity-header',
     cellClassName: 'activity-cell',
     minWidth: 100,
@@ -197,7 +206,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'idle',
-    headerName: 'Idle',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.idle_cc1ebdd0');
+    },
     headerClassName: 'idle-header',
     cellClassName: 'idle-cell',
     minWidth: 100,
@@ -206,7 +217,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'manual',
-    headerName: 'Manual',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.manual_4e836fdc');
+    },
     headerClassName: 'manual-header',
     cellClassName: 'manual-cell',
     minWidth: 100,
@@ -215,7 +228,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'time',
-    headerName: 'Time',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.time_6c82e6dd');
+    },
     headerClassName: 'time-header',
     cellClassName: 'time-cell',
     headerAlign: 'right',
@@ -234,7 +249,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'duration',
-    headerName: 'Duration',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.duration_1370004d');
+    },
     headerClassName: 'duration-header',
     cellClassName: 'duration-cell',
     headerAlign: 'right',
@@ -251,7 +268,11 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   },
   {
     field: 'time-track',
-    headerName: 'Time Track',
+    get headerName() {
+      return i18n.t(
+        'ui.sections.time_tracker.time_sheets.gettimesheetscolumns.time_track_24469bdf',
+      );
+    },
     headerClassName: 'time-track-header',
     cellClassName: 'time-track-cell',
     headerAlign: 'right',
@@ -271,7 +292,9 @@ export const getTimeSheetsColumns = ({ tab, now, timersRef, handleToggleTimer })
   ...weeklyColumns(now),
   {
     field: 'total',
-    headerName: 'Total',
+    get headerName() {
+      return i18n.t('ui.sections.time_tracker.time_sheets.gettimesheetscolumns.total_b25928c6');
+    },
     headerClassName: 'total-header',
     cellClassName: 'total-cell',
     headerAlign: 'right',

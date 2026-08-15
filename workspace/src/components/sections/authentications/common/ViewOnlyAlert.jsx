@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Collapse, Link, Typography, alertClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ViewOnlyAlert = ({ docLink, sx }) => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(true);
 
   return (
@@ -21,13 +23,21 @@ const ViewOnlyAlert = ({ docLink, sx }) => {
           setOpen(false);
         }}
       >
-        <Typography sx={{ fontWeight: 700, mb: 1 }}>This is a View-Only page</Typography>
+        <Typography sx={{ fontWeight: 700, mb: 1 }}>
+          {translateUi(
+            'ui.sections.authentications.common.viewonlyalert.this_is_a_view_only_page_bd3fb96e',
+          )}
+        </Typography>
         <Typography variant="body2">
-          Please follow the
+          {translateUi(
+            'ui.sections.authentications.common.viewonlyalert.please_follow_the_4bc8b248',
+          )}
           <Link href={docLink} sx={{ mx: 0.5 }}>
-            documentation
+            {translateUi('ui.sections.authentications.common.viewonlyalert.documentation_ba2a1650')}
           </Link>
-          to implement it in your projects after getting full access to the purchased theme.
+          {translateUi(
+            'ui.sections.authentications.common.viewonlyalert.to_implement_it_in_your_projects_after_getting_full__b7cd607f',
+          )}
         </Typography>
       </Alert>
     </Collapse>

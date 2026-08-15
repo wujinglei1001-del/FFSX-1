@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -9,6 +10,7 @@ import FullCalendar from 'components/base/FullCalendar';
 import useCalendarHandlers from 'components/sections/calendar/useCalendarHandlers';
 
 const CalendarMain = () => {
+  const { t: translateUi } = useTranslation();
   const calendarRef = useRef(null);
   const containerRef = useRef(null);
   const { calendarDispatch, view } = useCalendarContext();
@@ -104,7 +106,7 @@ const CalendarMain = () => {
             variant="subtitle1"
             sx={{ fontSize: { xs: 'unset', sm: 'subtitle1.fontSize' } }}
           >
-            <strong>Week </strong>
+            <strong>{translateUi('ui.sections.calendar.calendarmain.week_f82be68a')}</strong>
             {arg.num}
           </Typography>
         )}

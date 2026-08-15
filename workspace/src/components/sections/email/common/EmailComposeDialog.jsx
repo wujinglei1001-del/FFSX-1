@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Autocomplete,
@@ -12,12 +13,18 @@ import {
   dialogClasses,
 } from '@mui/material';
 import { defaultEmails } from 'data/email';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EmailComposeEditor from './EmailComposeEditor';
 
 const emailComposeSchema = yup.object().shape({
-  to: yup.string().email('Must be a valid email!').required('This field is required!'),
+  to: yup
+    .string()
+    .email(i18n.t('ui.sections.email.common.emailcomposedialog.must_be_a_valid_email_0fef9aff'))
+    .required(
+      i18n.t('ui.sections.email.common.emailcomposedialog.this_field_is_required_e1aa8ae7'),
+    ),
   cc: yup.array().of(yup.string().email().required()).optional(),
   bcc: yup.array().of(yup.string().email().required()).optional(),
   subject: yup.string().optional(),
@@ -25,6 +32,7 @@ const emailComposeSchema = yup.object().shape({
 });
 
 const EmailComposeDialog = ({ open, handleClose }) => {
+  const { t: translateUi } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
 
   const {
@@ -83,7 +91,7 @@ const EmailComposeDialog = ({ open, handleClose }) => {
       <DialogContent sx={{ p: 3 }}>
         <Stack direction="row" sx={{ mb: 3 }}>
           <Typography variant="h6" sx={{ fontWeight: 400 }}>
-            New message
+            {translateUi('ui.sections.email.common.emailcomposedialog.new_message_1ed2e7b5')}
           </Typography>
           <IconButton
             size="small"
@@ -123,7 +131,13 @@ const EmailComposeDialog = ({ open, handleClose }) => {
                 field.onChange(newValue);
               }}
               value={field.value || ''}
-              renderInput={(params) => <TextField {...params} error={!!errors.to} label="To" />}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  error={!!errors.to}
+                  label={translateUi('ui.sections.email.common.emailcomposedialog.to_ae79ea1e')}
+                />
+              )}
               sx={{ mb: 2 }}
             />
           )}
@@ -166,7 +180,7 @@ const EmailComposeDialog = ({ open, handleClose }) => {
         />
         <TextField
           id="subject"
-          label="Subject"
+          label={translateUi('ui.sections.email.common.emailcomposedialog.subject_8d183dbd')}
           variant="filled"
           fullWidth
           sx={{ mt: 2, mb: 1 }}

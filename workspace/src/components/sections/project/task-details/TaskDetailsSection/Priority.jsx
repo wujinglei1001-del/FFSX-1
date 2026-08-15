@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Chip, Paper, Stack, Typography } from '@mui/material';
 import { priorityOptions, taskDetailsData } from 'data/project/task-details';
 
 const Priority = () => {
+  const { t: translateUi } = useTranslation();
   const [selected, setSelected] = useState(taskDetailsData.priority);
 
   return (
@@ -14,7 +16,7 @@ const Priority = () => {
           mb: 1.5,
         }}
       >
-        Priority
+        {translateUi('ui.sections.project.task_details.taskdetailssection.priority_886cbff9')}
       </Typography>
       <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
         {priorityOptions.map(({ value, label, dotColor }) => (

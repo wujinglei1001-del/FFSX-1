@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack, Tooltip } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useAudio } from '../../AudioProvider';
 
 const PlayerControls = () => {
+  const { t: translateUi } = useTranslation();
   const {
     isPlaying,
     isRepeating,
@@ -31,7 +33,11 @@ const PlayerControls = () => {
         </Button>
       </Tooltip>
 
-      <Tooltip title="Skip Backward 30s" placement="top" arrow>
+      <Tooltip
+        title={translateUi('ui.sections.content.details.podcast.skip_backward_30s_1dadad20')}
+        placement="top"
+        arrow
+      >
         <Button shape="circle" color="neutral" size="small" onClick={() => skipBackward(30)}>
           <IconifyIcon icon="material-symbols:replay-30-rounded" sx={{ fontSize: 18 }} />
         </Button>
@@ -54,7 +60,11 @@ const PlayerControls = () => {
         </Button>
       </Tooltip>
 
-      <Tooltip title="Skip Forward 30s" placement="top" arrow>
+      <Tooltip
+        title={translateUi('ui.sections.content.details.podcast.skip_forward_30s_468724f3')}
+        placement="top"
+        arrow
+      >
         <Button shape="circle" color="neutral" size="small" onClick={() => skipForward(30)}>
           <IconifyIcon icon="material-symbols:forward-30-rounded" sx={{ fontSize: 18 }} />
         </Button>

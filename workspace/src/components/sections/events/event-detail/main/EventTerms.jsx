@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, List, ListItem, ListItemText, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -5,6 +6,7 @@ import Image from 'components/base/Image';
 import ScrollSpyContent from 'components/scroll-spy/ScrollSpyContent';
 
 const EventTerms = ({ eventTermsConditions }) => {
+  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
 
   return (
@@ -18,7 +20,7 @@ const EventTerms = ({ eventTermsConditions }) => {
             })}
           >
             <Typography variant="h6" sx={{ my: 3 }}>
-              Event Terms & Conditions
+              {translateUi('ui.sections.events.event_detail.main.event_terms_conditions_7e3d43c9')}
             </Typography>
           </ScrollSpyContent>
           <List disablePadding>

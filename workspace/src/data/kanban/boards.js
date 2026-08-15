@@ -1,11 +1,14 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 const image = (index) => `${initialConfig.assetsDir}/images/kanban/boards/${index}.webp`;
 
 export const recentProjects = {
   id: 'recentProjects',
-  title: 'Recent Projects',
+  get title() {
+    return i18n.t('ui.data.kanban.boards.recent_projects_901c6d74');
+  },
   boards: [
     {
       id: 1,
@@ -64,7 +67,9 @@ export const recentProjects = {
 
 export const userProjects = {
   id: 'yourProjects',
-  title: 'Your Projects',
+  get title() {
+    return i18n.t('ui.data.kanban.boards.your_projects_8544bb50');
+  },
   boards: [
     {
       id: 1,
@@ -106,7 +111,9 @@ export const userProjects = {
 
 export const sharedProjects = {
   id: 'sharedProjects',
-  title: 'Shared Projects',
+  get title() {
+    return i18n.t('ui.data.kanban.boards.shared_projects_3ea93b00');
+  },
   boards: [
     {
       id: 1,

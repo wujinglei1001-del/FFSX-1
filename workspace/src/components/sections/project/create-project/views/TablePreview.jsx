@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   AvatarGroup,
@@ -24,6 +25,7 @@ const TablePreview = ({
   hasGroupingEnabled,
   groupedTasks,
 }) => {
+  const { t: translateUi } = useTranslation();
   const { vars } = useTheme();
 
   const groupedTableData = useMemo(() => {
@@ -40,7 +42,7 @@ const TablePreview = ({
           task,
           assignees: avatarItems,
           status: statusLabel,
-          label: 'Issue',
+          label: translateUi('ui.sections.project.create_project.views.issue_73781a12'),
           priority: 'High',
           startDate: start.toDate(),
           endDate: end.toDate(),
@@ -64,7 +66,7 @@ const TablePreview = ({
           task,
           assignees: avatarItems,
           status: statusLabel,
-          label: 'Issue',
+          label: translateUi('ui.sections.project.create_project.views.issue_73781a12'),
           priority: 'High',
           startDate: start.toDate(),
           endDate: end.toDate(),
@@ -82,7 +84,7 @@ const TablePreview = ({
     return [
       {
         field: 'task',
-        headerName: 'Column',
+        headerName: translateUi('ui.sections.project.create_project.views.column_65ba00e9'),
         minWidth: 220,
         flex: 1,
         sortable: false,
@@ -101,7 +103,7 @@ const TablePreview = ({
       },
       {
         field: 'assignees',
-        headerName: 'Assignee',
+        headerName: translateUi('ui.sections.project.create_project.views.assignee_049e3ce5'),
         minWidth: 120,
         sortable: false,
         renderCell: (params) => (
@@ -129,7 +131,7 @@ const TablePreview = ({
       },
       {
         field: 'status',
-        headerName: 'Status',
+        headerName: translateUi('ui.sections.project.create_project.views.status_bae7d5be'),
         minWidth: 90,
         sortable: false,
         renderCell: (params) => (
@@ -138,7 +140,7 @@ const TablePreview = ({
       },
       {
         field: 'label',
-        headerName: 'Label',
+        headerName: translateUi('ui.sections.project.create_project.views.label_74341e3c'),
         minWidth: 90,
         sortable: false,
         renderCell: (params) => (
@@ -147,7 +149,7 @@ const TablePreview = ({
       },
       {
         field: 'priority',
-        headerName: 'Priority',
+        headerName: translateUi('ui.sections.project.create_project.views.priority_886cbff9'),
         minWidth: 90,
         sortable: false,
         renderCell: (params) => (
@@ -161,7 +163,7 @@ const TablePreview = ({
       },
       {
         field: 'startDate',
-        headerName: 'Start Date',
+        headerName: translateUi('ui.sections.project.create_project.views.start_date_9d7ab1a5'),
         minWidth: 140,
         sortable: false,
         valueGetter: (value) => new Date(value),
@@ -180,7 +182,7 @@ const TablePreview = ({
       },
       {
         field: 'endDate',
-        headerName: 'End Date',
+        headerName: translateUi('ui.sections.project.create_project.views.end_date_84b14781'),
         minWidth: 140,
         sortable: false,
         valueGetter: (value) => new Date(value),
@@ -208,7 +210,9 @@ const TablePreview = ({
           color: 'text.secondary',
         }}
       >
-        Add tasks to see them in the table.
+        {translateUi(
+          'ui.sections.project.create_project.views.add_tasks_to_see_them_in_the_table_80e786e6',
+        )}
       </Typography>
     );
   }

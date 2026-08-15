@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconifyIcon from 'components/base/IconifyIcon';
 import AddNewListDialog from './AddNewListDialog';
 
 const AddNewList = () => {
+  const { t: translateUi } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
@@ -23,7 +25,7 @@ const AddNewList = () => {
             }
             fullWidth
           >
-            Add new List
+            {translateUi('ui.sections.kanban.kanban.list_container.add_new_list_071d93cd')}
           </Button>
         </Box>
       </Box>

@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Pagination, Stack, buttonClasses } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -14,6 +15,7 @@ const CustomTablePaginationAction = ({
   showAllHref,
   showFullPagination,
 }) => {
+  const { t: translateUi } = useTranslation();
   const isShowingAll = useMemo(() => rowsPerPage === count, [rowsPerPage, count]);
   const { up } = useBreakpoints();
 
@@ -75,7 +77,9 @@ const CustomTablePaginationAction = ({
             }}
           >
             <Box component="span" sx={{ display: { xs: 'none', sm: 'inline-block' } }}>
-              Previous
+              {translateUi(
+                'ui.components.pagination.customtablepaginationaction.previous_50f94286',
+              )}
             </Box>
           </Button>
           <Button
@@ -99,7 +103,7 @@ const CustomTablePaginationAction = ({
             }}
           >
             <Box component="span" sx={{ display: { xs: 'none', sm: 'inline-block' } }}>
-              Next
+              {translateUi('ui.components.pagination.customtablepaginationaction.next_bc981983')}
             </Box>
           </Button>
         </>

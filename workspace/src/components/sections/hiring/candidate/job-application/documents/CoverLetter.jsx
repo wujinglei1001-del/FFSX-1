@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import ApplicationFormSection from '../common/ApplicationFormSection';
 
 const CoverLetter = () => {
+  const { t: translateUi } = useTranslation();
   const {
     formState: { errors },
     setValue,
@@ -71,8 +73,9 @@ const CoverLetter = () => {
               fontWeight: 500,
             }}
           >
-            Documents must be uploaded in PDF, DOC, or DOCX format, and should not exceed 5MB in
-            size.
+            {translateUi(
+              'ui.sections.hiring.candidate.job_application.documents_must_be_uploaded_in_pdf_doc_or_docx_format_2cb7664a',
+            )}
           </Typography>
         </Stack>
       </Stack>

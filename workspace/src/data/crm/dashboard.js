@@ -1,15 +1,21 @@
+import i18n from 'locales/i18n';
+
 export const dealsData = [
   {
     icon: 'material-symbols:handshake-outline-rounded',
     count: 310,
-    label: 'Deals created',
+    get label() {
+      return i18n.t('ui.data.crm.dashboard.deals_created_3cb4261e');
+    },
     percentage: 4.3,
     trend: 'up',
   },
   {
     icon: 'material-symbols:payments-outline-rounded',
     count: 26,
-    label: 'Deals closed',
+    get label() {
+      return i18n.t('ui.data.crm.dashboard.deals_closed_c1a87cf8');
+    },
     percentage: 1.9,
     trend: 'down',
   },
@@ -17,47 +23,87 @@ export const dealsData = [
 
 export const kpisData = [
   {
-    title: 'Active Users',
+    get title() {
+      return i18n.t('ui.data.crm.dashboard.active_users_8f7c7500');
+    },
     value: 3050,
-    subtitle: 'Avg. daily logins',
+    get subtitle() {
+      return i18n.t('ui.data.crm.dashboard.avg_daily_logins_e464dc24');
+    },
     icon: {
-      name: 'material-symbols-light:location-away-outline-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.crm.dashboard.material_symbols_light_location_away_outline_rounded_aadffeea',
+        );
+      },
       color: 'primary.main',
     },
   },
   {
-    title: 'New Contacts',
+    get title() {
+      return i18n.t('ui.data.crm.dashboard.new_contacts_e1c7fc70');
+    },
     value: 105,
-    subtitle: 'Accounts opened',
+    get subtitle() {
+      return i18n.t('ui.data.crm.dashboard.accounts_opened_3af1dd3f');
+    },
     icon: {
-      name: 'material-symbols-light:verified-outline-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.crm.dashboard.material_symbols_light_verified_outline_rounded_3d167d67',
+        );
+      },
       color: 'warning.main',
     },
   },
   {
-    title: 'Renewal Rate',
+    get title() {
+      return i18n.t('ui.data.crm.dashboard.renewal_rate_cf60f3f1');
+    },
     value: '37%',
-    subtitle: 'Premium accounts',
+    get subtitle() {
+      return i18n.t('ui.data.crm.dashboard.premium_accounts_d8b5bd31');
+    },
     icon: {
-      name: 'material-symbols-light:published-with-changes-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.crm.dashboard.material_symbols_light_published_with_changes_rounde_029f7940',
+        );
+      },
       color: 'success.main',
     },
   },
   {
-    title: 'Inventory',
+    get title() {
+      return i18n.t('ui.data.crm.dashboard.inventory_300d29fd');
+    },
     value: 13200,
-    subtitle: 'Units in stock',
+    get subtitle() {
+      return i18n.t('ui.data.crm.dashboard.units_in_stock_52688732');
+    },
     icon: {
-      name: 'material-symbols-light:warehouse-outline-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.crm.dashboard.material_symbols_light_warehouse_outline_rounded_967f71ef',
+        );
+      },
       color: 'secondary.main',
     },
   },
   {
-    title: 'Delivered',
+    get title() {
+      return i18n.t('ui.data.crm.dashboard.delivered_eea956cd');
+    },
     value: 1920,
-    subtitle: 'Unit products',
+    get subtitle() {
+      return i18n.t('ui.data.crm.dashboard.unit_products_bb83cbc0');
+    },
     icon: {
-      name: 'material-symbols-light:local-shipping-outline-rounded',
+      get name() {
+        return i18n.t(
+          'ui.data.crm.dashboard.material_symbols_light_local_shipping_outline_rounde_c6bac67d',
+        );
+      },
       color: 'info.main',
     },
   },
@@ -70,10 +116,22 @@ export const crmGeneratedRevenueData = {
 };
 
 export const leadSoursesData = [
-  { value: 1048, name: 'Organic' },
-  { value: 735, name: 'Marketing' },
-  { value: 580, name: 'Social media' },
-  { value: 484, name: 'Blog posts' },
+  {
+    value: 1048,
+    name: 'Organic',
+  },
+  {
+    value: 735,
+    name: 'Marketing',
+  },
+  {
+    value: 580,
+    name: 'Social media',
+  },
+  {
+    value: 484,
+    name: 'Blog posts',
+  },
 ];
 
 export const acquisitionCostData = {

@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Checkbox, FormControlLabel, Link, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import dayjs from 'dayjs';
@@ -8,6 +9,7 @@ import StyledTextField from 'components/styled/StyledTextField';
 const totalInputLength = 6;
 
 const TwoFAForm = () => {
+  const { t: translateUi } = useTranslation();
   const [otp, setOtp] = useState('');
   const inputRefs = useRef([]);
   const [otpSent, setOtpSent] = useState(false);
@@ -85,10 +87,12 @@ const TwoFAForm = () => {
               mb: 2,
             }}
           >
-            Enter the OTP
+            {translateUi('ui.sections.authentications.default.twofaform.enter_the_otp_b8ed3cef')}
           </Typography>
           <Typography variant="body1">
-            A 6-digit one time password (OTP) has been sent to your number{' '}
+            {translateUi(
+              'ui.sections.authentications.default.twofaform.a_6_digit_one_time_password_otp_has_been_sent_to_you_e0dd0fcb',
+            )}{' '}
             <Typography
               component="span"
               sx={{
@@ -105,7 +109,9 @@ const TwoFAForm = () => {
               fontWeight: 'medium',
             }}
           >
-            Didn&apos;t receive the code?{' '}
+            {translateUi(
+              'ui.sections.authentications.default.twofaform.didn_t_receive_the_code_112c0023',
+            )}{' '}
             <Link
               variant="caption"
               component="button"
@@ -117,7 +123,13 @@ const TwoFAForm = () => {
                 ml: 0.5,
               }}
             >
-              Send again {otpSent && <>in {dayjs(time * 1000).format('m:ss')} s</>}
+              {translateUi('ui.sections.authentications.default.twofaform.send_again_9fafcfcc')}
+              {otpSent && (
+                <>
+                  {translateUi('common.in')} {dayjs(time * 1000).format('m:ss')}{' '}
+                  {translateUi('common.seconds_short')}
+                </>
+              )}
             </Link>
           </Typography>
         </Grid>
@@ -188,7 +200,9 @@ const TwoFAForm = () => {
                         color: 'text.secondary',
                       }}
                     >
-                      Remember this device
+                      {translateUi(
+                        'ui.sections.authentications.default.twofaform.remember_this_device_e495443b',
+                      )}
                     </Typography>
                   }
                 />
@@ -206,12 +220,14 @@ const TwoFAForm = () => {
                   variant="contained"
                   disabled={otp.length < totalInputLength}
                 >
-                  Verify
+                  {translateUi('ui.sections.authentications.default.twofaform.verify_dda6ac27')}
                 </Button>
               </Grid>
               <Grid sx={{ textAlign: 'center' }} size={12}>
                 <Link href="#!" variant="subtitle2">
-                  Try alternate methods
+                  {translateUi(
+                    'ui.sections.authentications.default.twofaform.try_alternate_methods_46b02e75',
+                  )}
                 </Link>
               </Grid>
             </Grid>
@@ -219,7 +235,7 @@ const TwoFAForm = () => {
         </Grid>
       </Grid>
       <Link href="#!" variant="subtitle2">
-        Trouble signing in?
+        {translateUi('ui.sections.authentications.default.twofaform.trouble_signing_in_363e4476')}
       </Link>
     </Stack>
   );

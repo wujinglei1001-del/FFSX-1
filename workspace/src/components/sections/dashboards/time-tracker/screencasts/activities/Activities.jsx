@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Grid, Stack, Typography } from '@mui/material';
 import useLightbox from 'hooks/useLightbox';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -6,6 +7,7 @@ import Lightbox from 'components/base/Lightbox';
 import Screenshot from './Screenshot';
 
 const Activities = ({ screencast, isLast }) => {
+  const { t: translateUi } = useTranslation();
   const { currentBreakpoint } = useBreakpoints();
   const { openLightbox, ...lightboxProps } = useLightbox();
   const { name, avatar, screenshots } = screencast;
@@ -44,7 +46,7 @@ const Activities = ({ screencast, isLast }) => {
             />
           }
         >
-          View all
+          {translateUi('ui.sections.dashboards.time_tracker.screencasts.view_all_931e1a4b')}
         </Button>
       </Stack>
 

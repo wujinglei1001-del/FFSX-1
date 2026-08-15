@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import {
   Box,
@@ -25,6 +26,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
 const ProfileMenu = ({ type = 'default' }) => {
+  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const { up } = useBreakpoints();
@@ -165,18 +167,18 @@ const ProfileMenu = ({ type = 'default' }) => {
         <Divider />
         <Box sx={{ py: 1 }}>
           <ProfileMenuItem icon="material-symbols:accessible-forward-rounded" onClick={handleClose}>
-            Accessibility
+            {translateUi('ui.layouts.main_layout.common.profilemenu.accessibility_d660049b')}
           </ProfileMenuItem>
 
           <ProfileMenuItem icon="material-symbols:settings-outline-rounded" onClick={handleClose}>
-            Preferences
+            {translateUi('ui.layouts.main_layout.common.profilemenu.preferences_9dfd349e')}
           </ProfileMenuItem>
 
           <ProfileMenuItem
             onClick={handleThemeToggle}
             icon="material-symbols:dark-mode-outline-rounded"
           >
-            Dark mode
+            {translateUi('ui.layouts.main_layout.common.profilemenu.dark_mode_9cf83d1f')}
             <Switch
               checked={themePreset === 'default-dark'}
               onChange={handleThemeToggle}
@@ -191,25 +193,25 @@ const ProfileMenu = ({ type = 'default' }) => {
             onClick={handleClose}
             href="#!"
           >
-            Account Settings
+            {translateUi('ui.layouts.main_layout.common.profilemenu.account_settings_e3270761')}
           </ProfileMenuItem>
           <ProfileMenuItem
             icon="material-symbols:question-mark-rounded"
             onClick={handleClose}
             href="#!"
           >
-            Help Center
+            {translateUi('ui.layouts.main_layout.common.profilemenu.help_center_11015825')}
           </ProfileMenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
           {sessionUser ? (
             <ProfileMenuItem onClick={handleSignout} icon="material-symbols:logout-rounded">
-              Sign Out
+              {translateUi('ui.layouts.main_layout.common.profilemenu.sign_out_61fd08ff')}
             </ProfileMenuItem>
           ) : (
             <ProfileMenuItem href={authPaths.login} icon="material-symbols:login-rounded">
-              Sign In
+              {translateUi('ui.layouts.main_layout.common.profilemenu.sign_in_f8492cc1')}
             </ProfileMenuItem>
           )}
         </Box>

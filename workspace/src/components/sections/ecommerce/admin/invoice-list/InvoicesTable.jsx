@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Chip, Link, Stack, Typography } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import { invoiceListAdmin } from 'data/e-commerce/orders';
@@ -20,6 +21,7 @@ const getPaymentStatusBadgeColor = (val) => {
 
 const defaultPageSize = 8;
 const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const columns = useMemo(
     () => [
@@ -29,7 +31,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'invoiceId',
-        headerName: 'Invoice',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.invoice_f9f38818'),
         headerClassName: 'invoice-id-header',
         cellClassName: 'invoice-id-cell',
         sortable: false,
@@ -46,7 +48,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'customer',
-        headerName: 'Customer',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.customer_0e85749a'),
         headerClassName: 'customer-header',
         cellClassName: 'customer-cell',
         minWidth: 288,
@@ -85,7 +87,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'customer.email',
-        headerName: 'Email',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.email_84add5b2'),
         headerClassName: 'email-header',
         cellClassName: 'email-cell',
         hideable: true,
@@ -93,7 +95,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'id',
-        headerName: 'Order',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.order_1d75774c'),
         headerClassName: 'order-id-header',
         cellClassName: 'order-id-cell',
         sortable: false,
@@ -109,7 +111,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'date',
-        headerName: 'Date',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.date_eb9a4bc1'),
         headerClassName: 'date-header',
         cellClassName: 'date-cell',
         minWidth: 208,
@@ -117,7 +119,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'total',
-        headerName: 'Amount',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.amount_43dc8532'),
         headerClassName: 'total-header',
         cellClassName: 'total-cell',
         minWidth: 108,
@@ -135,7 +137,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'paymentStatus',
-        headerName: 'Status',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.status_bae7d5be'),
         headerClassName: 'status-header',
         cellClassName: 'status-cell',
         minWidth: 152,
@@ -153,7 +155,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'action',
-        headerName: 'Action',
+        headerName: translateUi('ui.sections.ecommerce.admin.invoice_list.action_97c89a4d'),
         headerClassName: 'action-header',
         cellClassName: 'action-cell',
         filterable: false,

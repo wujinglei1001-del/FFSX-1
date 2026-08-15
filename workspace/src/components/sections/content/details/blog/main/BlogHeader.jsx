@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Chip, Grid, Link, Stack, Typography } from '@mui/material';
 import { users } from 'data/users';
 import dayjs from 'dayjs';
@@ -9,6 +10,7 @@ import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 import ContentComments from '../../common/comments';
 
 const BlogHeader = () => {
+  const { t: translateUi } = useTranslation();
   const [isLiked, setIsLiked] = useState(false);
   const { numberFormat } = useNumberFormat();
 
@@ -19,11 +21,16 @@ const BlogHeader = () => {
   return (
     <Box sx={{ mb: { xs: 3, md: 5 } }}>
       <Typography variant="h4" sx={{ mb: 1 }}>
-        Architecture Through the Ages: From Ancient Masterpieces to Modern Icons
+        {translateUi(
+          'ui.sections.content.details.blog.architecture_through_the_ages_from_ancient_masterpie_d7e24f5c',
+        )}
       </Typography>
 
       <Stack direction="row" sx={{ gap: 2, alignItems: 'center', mb: 3 }}>
-        <Chip size="small" label="Science" />
+        <Chip
+          size="small"
+          label={translateUi('ui.sections.content.details.blog.science_d2d06637')}
+        />
 
         <Typography
           variant="caption"
@@ -32,7 +39,7 @@ const BlogHeader = () => {
             fontWeight: 500,
           }}
         >
-          12 min read
+          {translateUi('ui.sections.content.details.blog.12_min_read_3efdc80b')}
         </Typography>
 
         <Typography
@@ -48,7 +55,11 @@ const BlogHeader = () => {
       <Grid container spacing={2}>
         <Grid size={{ xs: 12, sm: 'auto' }}>
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
-            <Avatar src={users[12].avatar} alt="avatar" sx={{ width: 32, height: 32 }} />
+            <Avatar
+              src={users[12].avatar}
+              alt={translateUi('ui.sections.content.details.blog.avatar_9c3bb49f')}
+              sx={{ width: 32, height: 32 }}
+            />
             <Typography
               component={Link}
               variant="subtitle1"
@@ -57,7 +68,7 @@ const BlogHeader = () => {
                 color: 'text.primary',
               }}
             >
-              Tsamina Mina
+              {translateUi('ui.sections.content.details.blog.tsamina_mina_f6bd64fe')}
             </Typography>
           </Stack>
         </Grid>

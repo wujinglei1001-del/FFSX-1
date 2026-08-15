@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { IconButton, Typography } from '@mui/material';
 import { useEmailContext } from 'providers/EmailProvider';
@@ -5,6 +6,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CardHeaderAction from 'components/common/CardHeaderAction';
 
 const EmailListPagination = () => {
+  const { t: translateUi } = useTranslation();
   const { resizableWidth } = useEmailContext();
   const { id } = useParams();
 
@@ -19,7 +21,7 @@ const EmailListPagination = () => {
       >
         24{' '}
         <Typography variant="caption" sx={{ mx: 0.5 }}>
-          out of
+          {translateUi('ui.sections.email.email_list.email_list_header.out_of_5ee0bb55')}
         </Typography>{' '}
         3,234
       </Typography>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Card,
@@ -11,6 +12,7 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EventCard = ({ event, sx }) => {
+  const { t: translateUi } = useTranslation();
   const { title, image, priceRange, date, time, location } = event;
 
   return (
@@ -84,7 +86,10 @@ const EventCard = ({ event, sx }) => {
                   {location}
                 </Typography>
               </div>
-              <IconButton edge="start" aria-label="favourite">
+              <IconButton
+                edge="start"
+                aria-label={translateUi('ui.sections.events.event_detail.main.favourite_824168b6')}
+              >
                 <IconifyIcon
                   icon="material-symbols:favorite-outline-rounded"
                   width={20}

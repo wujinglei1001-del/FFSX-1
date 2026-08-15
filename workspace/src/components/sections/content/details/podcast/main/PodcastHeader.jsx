@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -24,6 +25,7 @@ import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 const podcast = podcastPlaylist[0];
 
 const PodcastHeader = () => {
+  const { t: translateUi } = useTranslation();
   const { numberFormat } = useNumberFormat();
   const [following, setFollowing] = useState(false);
 
@@ -53,7 +55,8 @@ const PodcastHeader = () => {
             <Chip size="small" label={podcast.category} />
 
             <Typography variant="caption" sx={{ fontWeight: 'medium' }}>
-              {podcast.totalEpisodes} eps
+              {podcast.totalEpisodes}
+              {translateUi('ui.sections.content.details.podcast.eps_85962fc8')}
             </Typography>
 
             <Typography variant="caption" sx={{ fontWeight: 'medium' }}>
@@ -66,7 +69,11 @@ const PodcastHeader = () => {
           <List disablePadding sx={{ mb: 2, width: 1 }}>
             <ListItem sx={{ alignItems: 'center', gap: 1, p: 0 }}>
               <ListItemAvatar sx={{ minWidth: 48 }}>
-                <Avatar src={users[0].avatar} alt="avatar" sx={{ width: 48, height: 48 }} />
+                <Avatar
+                  src={users[0].avatar}
+                  alt={translateUi('ui.sections.content.details.podcast.avatar_9c3bb49f')}
+                  sx={{ width: 48, height: 48 }}
+                />
               </ListItemAvatar>
 
               <ListItemText
@@ -91,14 +98,14 @@ const PodcastHeader = () => {
                         notation: 'compact',
                         compactDisplay: 'short',
                       })}{' '}
-                      Stories
+                      {translateUi('ui.sections.content.details.podcast.stories_67b5fefd')}
                     </Typography>
                     <Typography
                       variant="caption"
                       component="p"
                       sx={{ fontWeight: 'medium', color: 'text.secondary', whiteSpace: 'nowrap' }}
                     >
-                      100 Followers
+                      {translateUi('ui.sections.content.details.podcast.100_followers_9daf27de')}
                     </Typography>
                   </Stack>
                 }
@@ -128,7 +135,7 @@ const PodcastHeader = () => {
                   icon={`material-symbols:thumb-up-outline-rounded`}
                   sx={{ fontSize: 20, mr: 0.5 }}
                 />
-                14.2k
+                {translateUi('ui.sections.content.details.podcast.14_2k_b3e2da1d')}
               </Button>
               <Button variant="text" color="neutral">
                 <IconifyIcon

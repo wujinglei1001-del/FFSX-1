@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, List, Stack, Typography, listItemTextClasses } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useEcommerce } from 'providers/EcommerceProvider';
@@ -6,6 +7,7 @@ import Image from 'components/base/Image';
 import ProductVariantListItem from 'components/sections/ecommerce/admin/common/ProductVariantListItem';
 
 const CartSummary = () => {
+  const { t: translateUi } = useTranslation();
   const { cartItems } = useEcommerce();
   const { currencyFormat } = useNumberFormat();
 
@@ -24,10 +26,10 @@ const CartSummary = () => {
             fontWeight: 700,
           }}
         >
-          Summary
+          {translateUi('ui.sections.ecommerce.customer.checkout.summary_12b71c3e')}
         </Typography>
         <Button variant="soft" color="neutral" href={paths.cart}>
-          Edit cart
+          {translateUi('ui.sections.ecommerce.customer.checkout.edit_cart_083b4f44')}
         </Button>
       </Stack>
       <Stack sx={{ gap: 4 }}>
@@ -112,7 +114,7 @@ const CartSummary = () => {
                     />
                   ))}
                   <ProductVariantListItem
-                    label="Quantity"
+                    label={translateUi('ui.sections.ecommerce.customer.checkout.quantity_44f6af69')}
                     value={cartItem.quantity}
                     sx={{
                       mb: 1,

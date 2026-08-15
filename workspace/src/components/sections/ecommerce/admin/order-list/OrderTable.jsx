@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Chip, Link, Stack } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import { orderListAdmin } from 'data/e-commerce/orders';
@@ -41,6 +42,7 @@ const getShippingMethodBadgeColor = (val) => {
 const defaultPageSize = 8;
 
 const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
 
   const columns = useMemo(
@@ -51,7 +53,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'id',
-        headerName: 'Order',
+        headerName: translateUi('ui.sections.ecommerce.admin.order_list.order_1d75774c'),
         headerClassName: 'order-id-header',
         cellClassName: 'order-id-cell',
         sortable: false,
@@ -63,14 +65,14 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'date',
-        headerName: 'Date',
+        headerName: translateUi('ui.sections.ecommerce.admin.order_list.date_eb9a4bc1'),
         headerClassName: 'product-header',
         cellClassName: 'product-cell',
         width: 240,
       },
       {
         field: 'customer',
-        headerName: 'Customer',
+        headerName: translateUi('ui.sections.ecommerce.admin.order_list.customer_0e85749a'),
         headerClassName: 'product-header',
         cellClassName: 'product-cell',
         minWidth: 280,
@@ -99,7 +101,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'paymentStatus',
-        headerName: 'Payment status',
+        headerName: translateUi('ui.sections.ecommerce.admin.order_list.payment_status_9dfea404'),
         headerClassName: 'payment-status-header',
         cellClassName: 'payment-status-cell',
         minWidth: 152,
@@ -116,7 +118,9 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'fulfillmentStatus',
-        headerName: 'Fulfillment status',
+        headerName: translateUi(
+          'ui.sections.ecommerce.admin.order_list.fulfillment_status_9426c9df',
+        ),
         headerClassName: 'fulfillment-header',
         cellClassName: 'fulfillment-cell',
         minWidth: 192,
@@ -133,7 +137,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'shippingMethod',
-        headerName: 'Shipping method',
+        headerName: translateUi('ui.sections.ecommerce.admin.order_list.shipping_method_9d1aafa8'),
         headerClassName: 'shipping-method-header',
         cellClassName: 'shipping-method-cell',
         minWidth: 152,
@@ -151,7 +155,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'total',
-        headerName: 'Total',
+        headerName: translateUi('ui.sections.ecommerce.admin.order_list.total_b25928c6'),
         headerClassName: 'total-header',
         cellClassName: 'total-cell',
         minWidth: 148,

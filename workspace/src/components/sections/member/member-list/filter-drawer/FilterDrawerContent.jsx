@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -20,6 +21,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const FilterDrawerContent = ({ handleClose }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box
       component="aside"
@@ -29,7 +31,9 @@ const FilterDrawerContent = ({ handleClose }) => {
       }}
     >
       <Stack direction="row" sx={{ justifyContent: 'space-between', mb: 2 }}>
-        <Typography variant="h6">Filter</Typography>
+        <Typography variant="h6">
+          {translateUi('ui.sections.member.member_list.filter_drawer.filter_d7decf1a')}
+        </Typography>
         <Button shape="circle" color="neutral" onClick={handleClose}>
           <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
         </Button>
@@ -40,69 +44,168 @@ const FilterDrawerContent = ({ handleClose }) => {
         }}
       >
         <FilterSelectField
-          label="Department"
+          label={translateUi('ui.sections.member.member_list.filter_drawer.department_db40106a')}
           options={[
-            { label: 'All', value: 'all' },
-            { label: 'Design', value: 'design' },
-            { label: 'Engineering', value: 'engineering' },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.all_6a720856'),
+              value: 'all',
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.design_59b03536'),
+              value: 'design',
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.engineering_4143d048',
+              ),
+              value: 'engineering',
+            },
             { label: 'HR', value: 'hr' },
-            { label: 'Marketing', value: 'marketing' },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.marketing_e0c534a0'),
+              value: 'marketing',
+            },
           ]}
         />
         <FilterSelectField
-          label="Team"
+          label={translateUi('ui.sections.member.member_list.filter_drawer.team_21888726')}
           options={[
-            { label: 'All', value: 0 },
-            { label: 'One Go', value: 1 },
-            { label: 'CodeCrafters', value: 2 },
-            { label: 'Kernel Kings', value: 3 },
-            { label: 'Brainy Bytes', value: 4 },
-            { label: 'Pixel Thinkers', value: 5 },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.all_6a720856'),
+              value: 0,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.one_go_39f8d804'),
+              value: 1,
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.codecrafters_365929bd',
+              ),
+              value: 2,
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.kernel_kings_73f4eed6',
+              ),
+              value: 3,
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.brainy_bytes_0a14ff24',
+              ),
+              value: 4,
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.pixel_thinkers_99f07eb7',
+              ),
+              value: 5,
+            },
           ]}
         />
 
         <FilterFieldset
-          label="Employment"
+          label={translateUi('ui.sections.member.member_list.filter_drawer.employment_a6f12fd7')}
           options={[
-            { label: 'Full-Time', value: false },
-            { label: 'Part-Time', value: false },
-            { label: 'Intern', value: false },
-            { label: 'Contractor', value: false },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.full_time_5fbd8fde'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.part_time_c5a1ba67'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.intern_f841f984'),
+              value: false,
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.contractor_76bb2328',
+              ),
+              value: false,
+            },
           ]}
         />
 
         <FilterFieldset
-          label="Status"
+          label={translateUi('ui.sections.member.member_list.filter_drawer.status_bae7d5be')}
           options={[
-            { label: 'Active', value: false },
-            { label: 'Probation', value: false },
-            { label: 'Contract', value: false },
-            { label: 'Intern', value: false },
-            { label: 'Resigned', value: false },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.active_a733b809'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.probation_70168673'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.contract_5a0ba3bb'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.intern_f841f984'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.resigned_6eac413a'),
+              value: false,
+            },
           ]}
         />
 
         <FilterFieldset
-          label="Gender"
+          label={translateUi('ui.sections.member.member_list.filter_drawer.gender_8a754c61')}
           options={[
-            { label: 'Male', value: false },
-            { label: 'Female', value: false },
-            { label: 'Other', value: false },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.male_3f3a489c'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.female_b7c17e97'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.other_6e6a6f20'),
+              value: false,
+            },
           ]}
         />
 
         <FilterFieldset
-          label="Religion"
+          label={translateUi('ui.sections.member.member_list.filter_drawer.religion_b04d58c6')}
           options={[
-            { label: 'Islam', value: false },
-            { label: 'Hinduism', value: false },
-            { label: 'Christianity', value: false },
-            { label: 'Buddhism', value: false },
-            { label: 'Other', value: false },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.islam_4f910da1'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.hinduism_df9d0c63'),
+              value: false,
+            },
+            {
+              label: translateUi(
+                'ui.sections.member.member_list.filter_drawer.christianity_59d48ff3',
+              ),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.buddhism_6eb15e6b'),
+              value: false,
+            },
+            {
+              label: translateUi('ui.sections.member.member_list.filter_drawer.other_6e6a6f20'),
+              value: false,
+            },
           ]}
         />
 
-        <FilterRangeField label="Pay Range" range={[10, 100]} valueText={(value) => `$${value}`} />
+        <FilterRangeField
+          label={translateUi('ui.sections.member.member_list.filter_drawer.pay_range_50224a7c')}
+          range={[10, 100]}
+          valueText={(value) => `$${value}`}
+        />
       </Stack>
     </Box>
   );

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -19,6 +20,7 @@ import RevealText from '../common/RevealText';
 import SectionHeader from '../common/SectionHeader';
 
 const FAQContact = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const { isDark } = useThemeMode();
   return (
     <Box
@@ -65,16 +67,18 @@ const FAQContact = ({ sx }) => {
           >
             <Grid size={1}>
               <SectionHeader
-                title="CONTACT"
-                subtitle="Still have questions?"
+                title={translateUi('common_labels.contact')}
+                subtitle={translateUi(
+                  'ui.sections.landing.faq.faqcontact.still_have_questions_c0780dac',
+                )}
                 sx={{ textAlign: 'left', mb: 2 }}
               />
 
               <RevealText delay={0.2}>
                 <Typography variant="body2" sx={{ maxWidth: 440, color: 'text.secondary' }}>
-                  Still have questions? Don’t hesitate to ask! Our dedicated team is ready to assist
-                  you with any concerns, ensuring you have the clarity and support needed to proceed
-                  with confidence.
+                  {translateUi(
+                    'ui.sections.landing.faq.faqcontact.still_have_questions_don_t_hesitate_to_ask_our_dedic_c665f79d',
+                  )}
                 </Typography>
               </RevealText>
             </Grid>
@@ -97,7 +101,9 @@ const FAQContact = ({ sx }) => {
                   </ListItemIcon>
                   <ListItemText disableTypography>
                     <Link href="#!" color="textSecondary" variant="body2">
-                      hello@randommail.com
+                      {translateUi(
+                        'ui.sections.landing.faq.faqcontact.hello_randommail_com_dd2ead67',
+                      )}
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -110,7 +116,9 @@ const FAQContact = ({ sx }) => {
                   </ListItemIcon>
                   <ListItemText disableTypography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      123 Sunnyvale Park, Springfield, IL, USA
+                      {translateUi(
+                        'ui.sections.landing.faq.faqcontact.123_sunnyvale_park_springfield_il_usa_87af5cdd',
+                      )}
                     </Typography>
                   </ListItemText>
                 </ListItem>
@@ -120,22 +128,46 @@ const FAQContact = ({ sx }) => {
 
           <RevealItems component={Grid} y={0} container size={1} columns={12} spacing={2}>
             <Grid size={6}>
-              <TextField variant="filled" label="First Name" sx={{ width: 1 }} />
+              <TextField
+                variant="filled"
+                label={translateUi('ui.sections.landing.faq.faqcontact.first_name_b6ea992a')}
+                sx={{ width: 1 }}
+              />
             </Grid>
             <Grid size={6}>
-              <TextField variant="filled" label="Last Name" sx={{ width: 1 }} />
+              <TextField
+                variant="filled"
+                label={translateUi('ui.sections.landing.faq.faqcontact.last_name_863cb39f')}
+                sx={{ width: 1 }}
+              />
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-              <TextField variant="filled" label="Email" sx={{ width: 1 }} />
+              <TextField
+                variant="filled"
+                label={translateUi('ui.sections.landing.faq.faqcontact.email_84add5b2')}
+                sx={{ width: 1 }}
+              />
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-              <TextField variant="filled" label="Phone" sx={{ width: 1 }} />
+              <TextField
+                variant="filled"
+                label={translateUi('ui.sections.landing.faq.faqcontact.phone_77064d52')}
+                sx={{ width: 1 }}
+              />
             </Grid>
             <Grid size={12}>
-              <TextField multiline rows={2} variant="filled" label="Message" sx={{ width: 1 }} />
+              <TextField
+                multiline
+                rows={2}
+                variant="filled"
+                label={translateUi('ui.sections.landing.faq.faqcontact.message_68f4145f')}
+                sx={{ width: 1 }}
+              />
             </Grid>
             <Grid size={12} sx={{ textAlign: 'right' }}>
-              <Button variant="soft">Send message</Button>
+              <Button variant="soft">
+                {translateUi('ui.sections.landing.faq.faqcontact.send_message_c70a890d')}
+              </Button>
             </Grid>
           </RevealItems>
         </Grid>

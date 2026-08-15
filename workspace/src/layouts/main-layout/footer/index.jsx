@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Divider, Link, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 const Footer = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <Divider />
@@ -38,14 +40,14 @@ const Footer = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            Thank you for creating with
+            {translateUi('ui.layouts.main_layout.footer.thank_you_for_creating_with_2cdf75fb')}
             <Box
               component="strong"
               sx={{
                 mx: 0.5,
               }}
             >
-              Aurora{' '}
+              {translateUi('ui.layouts.main_layout.footer.aurora_eeee9b76')}{' '}
             </Box>
           </Box>
 
@@ -69,7 +71,7 @@ const Footer = () => {
               target="_blank"
               sx={{ textDecoration: 'none', mx: 0.5 }}
             >
-              ThemeWagon
+              {translateUi('ui.layouts.main_layout.footer.themewagon_42a442ab')}
             </Link>
           </Box>
         </Typography>

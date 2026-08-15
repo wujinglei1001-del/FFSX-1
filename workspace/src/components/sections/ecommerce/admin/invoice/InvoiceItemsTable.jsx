@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Table,
@@ -19,6 +20,7 @@ const getTotalPrice = (price, vat, quantity) => {
 };
 
 const InvoiceItemsTable = ({ invoice }) => {
+  const { t: translateUi } = useTranslation();
   const { items, payment } = invoice.order;
   const { currencyFormat } = useNumberFormat();
   const subTotal = useMemo(() => {
@@ -38,13 +40,13 @@ const InvoiceItemsTable = ({ invoice }) => {
           mb: 3,
         }}
       >
-        Order items
+        {translateUi('ui.sections.ecommerce.admin.invoice.order_items_537cae23')}
       </Typography>
       <TableContainer>
         <Table
           sx={{ minWidth: 800 }}
           stickyHeader
-          aria-label="spanning table"
+          aria-label={translateUi('ui.sections.ecommerce.admin.invoice.spanning_table_8063695e')}
           className="disable-edge-padding"
         >
           <TableHead>
@@ -56,13 +58,27 @@ const InvoiceItemsTable = ({ invoice }) => {
               }}
             >
               <TableCell>#</TableCell>
-              <TableCell>Product name</TableCell>
-              <TableCell sx={{ maxWidth: 130 }}>Shop SKU</TableCell>
-              <TableCell>Seller SKU</TableCell>
-              <TableCell>Variant</TableCell>
-              <TableCell align="right">Sub Total</TableCell>
-              <TableCell align="right">Vat</TableCell>
-              <TableCell align="right">Total Price</TableCell>
+              <TableCell>
+                {translateUi('ui.sections.ecommerce.admin.invoice.product_name_63c0fe8e')}
+              </TableCell>
+              <TableCell sx={{ maxWidth: 130 }}>
+                {translateUi('ui.sections.ecommerce.admin.invoice.shop_sku_3272795a')}
+              </TableCell>
+              <TableCell>
+                {translateUi('ui.sections.ecommerce.admin.invoice.seller_sku_57f1cb11')}
+              </TableCell>
+              <TableCell>
+                {translateUi('ui.sections.ecommerce.admin.invoice.variant_cc91b1ea')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.ecommerce.admin.invoice.sub_total_04a1404b')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.ecommerce.admin.invoice.vat_50946852')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.ecommerce.admin.invoice.total_price_a2a7c604')}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -109,14 +125,14 @@ const InvoiceItemsTable = ({ invoice }) => {
               }}
             >
               <TableCell colSpan={7} align="right">
-                Subtotal
+                {translateUi('ui.sections.ecommerce.admin.invoice.subtotal_97f7359e')}
               </TableCell>
               <TableCell align="right">{currencyFormat(subTotal)}</TableCell>
             </TableRow>
 
             <TableRow>
               <TableCell colSpan={7} align="right">
-                Shipping cost
+                {translateUi('ui.sections.ecommerce.admin.invoice.shipping_cost_3ff0465a')}
               </TableCell>
               <TableCell align="right">{currencyFormat(payment.shippingCost)}</TableCell>
             </TableRow>
@@ -127,7 +143,7 @@ const InvoiceItemsTable = ({ invoice }) => {
                 align="right"
                 sx={{ color: (theme) => `${theme.vars.palette.text.primary} !important` }}
               >
-                Total
+                {translateUi('ui.sections.ecommerce.admin.invoice.total_b25928c6')}
               </TableCell>
               <TableCell align="right">
                 <Box

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import SearchTextField from 'components/common/SearchTextField';
 
 const TopSection = ({ handleSearch, handleToggleFilterPanel, sx, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upSm = up('sm');
   return (
@@ -30,10 +32,10 @@ const TopSection = ({ handleSearch, handleToggleFilterPanel, sx, ...rest }) => {
         }}
       >
         <Typography variant="h5" sx={{ typography: { xs: 'h6', md: 'h5' } }}>
-          Earnings and Deductions
+          {translateUi('ui.sections.hrm.payroll.earnings.earnings_and_deductions_27e57c2b')}
         </Typography>
         <Button variant="soft" color="neutral" sx={{ ml: 'auto' }}>
-          Import
+          {translateUi('ui.sections.hrm.payroll.earnings.import_d6fbc9d2')}
         </Button>
       </Stack>
       <Stack
@@ -44,7 +46,7 @@ const TopSection = ({ handleSearch, handleToggleFilterPanel, sx, ...rest }) => {
         }}
       >
         <SearchTextField
-          placeholder="Search Employee"
+          placeholder={translateUi('ui.sections.hrm.payroll.earnings.search_employee_61bbf97d')}
           fullWidth
           onChange={handleSearch}
           sx={{ maxWidth: 250 }}
@@ -60,7 +62,11 @@ const TopSection = ({ handleSearch, handleToggleFilterPanel, sx, ...rest }) => {
             icon="material-symbols:filter-alt-outline"
             sx={{ fontSize: 20, flexShrink: 0 }}
           />
-          {upSm && <Box component="span">Filter</Box>}
+          {upSm && (
+            <Box component="span">
+              {translateUi('ui.sections.hrm.payroll.earnings.filter_d7decf1a')}
+            </Box>
+          )}
         </Button>
       </Stack>
     </Stack>

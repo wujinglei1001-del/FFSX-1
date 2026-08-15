@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import { inputBaseClasses } from '@mui/material/InputBase';
 import Stack from '@mui/material/Stack';
@@ -11,6 +12,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const CreateOrderPaymentSummary = ({ items }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const [discountType, setDiscountType] = useState('%');
   const shippingCost = 4;
@@ -28,9 +30,13 @@ const CreateOrderPaymentSummary = ({ items }) => {
         p: 3,
       }}
     >
-      <PriceSummaryRow label="Subtotal" value={total} sx={{ mb: 2 }} />
+      <PriceSummaryRow
+        label={translateUi('ui.sections.ecommerce.admin.create_order.subtotal_97f7359e')}
+        value={total}
+        sx={{ mb: 2 }}
+      />
       <PriceSummaryEditableRow
-        label="Add Shipping cost"
+        label={translateUi('ui.sections.ecommerce.admin.create_order.add_shipping_cost_e4ac790e')}
         action={
           <StyledTextField
             value={currencyFormat(shippingCost)}
@@ -46,7 +52,7 @@ const CreateOrderPaymentSummary = ({ items }) => {
         sx={{ mb: 3, gap: 1, alignItems: 'flex-start' }}
       />
       <PriceSummaryEditableRow
-        label="Add Discount"
+        label={translateUi('ui.sections.ecommerce.admin.create_order.add_discount_0db532c6')}
         action={
           <Stack
             direction="row"
@@ -103,7 +109,7 @@ const CreateOrderPaymentSummary = ({ items }) => {
         }}
       >
         <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
-          Total
+          {translateUi('ui.sections.ecommerce.admin.create_order.total_b25928c6')}
         </Typography>
         <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
           {discountType === '%'

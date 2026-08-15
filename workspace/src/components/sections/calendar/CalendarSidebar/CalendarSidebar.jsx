@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Drawer, Stack, Typography, drawerClasses } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -5,6 +6,7 @@ import SimpleBar from 'components/base/SimpleBar';
 import CalendarSidebarPanel from 'components/sections/calendar/CalendarSidebar/CalendarSidebarPanel';
 
 const CalendarSidebar = ({ isDrawerOpen, toggleDrawer }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upXl = up('xl');
 
@@ -66,7 +68,9 @@ const CalendarSidebar = ({ isDrawerOpen, toggleDrawer }) => {
                   fontWeight: 700,
                 }}
               >
-                Calendar Options
+                {translateUi(
+                  'ui.sections.calendar.calendarsidebar.calendarsidebar.calendar_options_bf08ed73',
+                )}
               </Typography>
               <Button shape="circle" variant="soft" color="neutral" onClick={toggleDrawer}>
                 <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />

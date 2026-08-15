@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
@@ -13,13 +14,14 @@ import FileUploadArea from './FileUploadArea';
 dayjs.extend(advancedFormat);
 
 const Attachments = () => {
+  const { t: translateUi } = useTranslation();
   const { watch } = useFormContext();
   const attachments = watch('attachments');
 
   return (
     <Paper sx={{ p: { xs: 3, md: 5 } }}>
       <Typography variant="h5" sx={{ mb: 3 }}>
-        Attachments
+        {translateUi('ui.sections.kanban.kanban.task_details.attachments_6771ade6')}
       </Typography>
       <Box sx={{ mb: 3 }}>
         {attachments.map((item) => (
@@ -29,7 +31,8 @@ const Attachments = () => {
             secondaryContent={
               <>
                 <Typography variant="body2">
-                  Added by <Link href="#!">{item.addedBy}</Link>
+                  {translateUi('ui.sections.kanban.kanban.task_details.added_by_75a4b633')}
+                  <Link href="#!">{item.addedBy}</Link>
                 </Typography>
                 <Stack sx={{ gap: 0.5, alignItems: 'center' }}>
                   <IconifyIcon

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Container, Stack, Step, StepLabel, Stepper, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import CompanyInfoForm, {
   companyInfoSchema,
@@ -23,13 +25,16 @@ const steps = [
           fontWeight: 700,
         }}
       >
-        Personal Info
-        <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-          rmation
-        </Box>
+        {i18n.t('ui.sections.crm.add_contact.addcontactstepper.personal_info_87a403cb')}
       </Typography>
     ),
-    content: <PersonalInfoForm label="Personal Information" />,
+    content: (
+      <PersonalInfoForm
+        label={i18n.t(
+          'ui.sections.crm.add_contact.addcontactstepper.personal_information_ad12e422',
+        )}
+      />
+    ),
   },
   {
     id: 2,
@@ -41,13 +46,14 @@ const steps = [
           '& br': { display: { xs: 'none', sm: 'inline' } },
         }}
       >
-        Company Info
-        <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-          rmation
-        </Box>
+        {i18n.t('ui.sections.crm.add_contact.addcontactstepper.company_info_439ae199')}
       </Typography>
     ),
-    content: <CompanyInfoForm label="Company Information" />,
+    content: (
+      <CompanyInfoForm
+        label={i18n.t('ui.sections.crm.add_contact.addcontactstepper.company_information_2042c7a2')}
+      />
+    ),
   },
   {
     id: 3,
@@ -59,19 +65,21 @@ const steps = [
           '& br': { display: { xs: 'none', sm: 'inline' } },
         }}
       >
-        Lead Info
-        <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
-          rmation
-        </Box>
+        {i18n.t('ui.sections.crm.add_contact.addcontactstepper.lead_info_235321a7')}
       </Typography>
     ),
-    content: <LeadInfoForm label="Lead Information" />,
+    content: (
+      <LeadInfoForm
+        label={i18n.t('ui.sections.crm.add_contact.addcontactstepper.lead_information_9334d1f3')}
+      />
+    ),
   },
 ];
 
 const validationSchemas = [personalInfoSchema, companyInfoSchema, leadInfoSchema];
 
 const AddContactStepper = () => {
+  const { t: translateUi } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState({});
   const { enqueueSnackbar } = useSnackbar();
@@ -144,17 +152,19 @@ const AddContactStepper = () => {
           >
             {activeStep > 0 && (
               <Button variant="soft" color="neutral" onClick={handleBack} sx={{ px: 4 }}>
-                Back
+                {translateUi('ui.sections.crm.add_contact.addcontactstepper.back_b52b36b7')}
               </Button>
             )}
 
             {activeStep === steps.length - 1 ? (
               <Button type="submit" variant="soft" sx={{ px: 4 }}>
-                Save
+                {translateUi('ui.sections.crm.add_contact.addcontactstepper.save_efc007a3')}
               </Button>
             ) : (
               <Button type="submit" variant="soft">
-                Save & Continue
+                {translateUi(
+                  'ui.sections.crm.add_contact.addcontactstepper.save_continue_98329f93',
+                )}
               </Button>
             )}
           </Stack>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Timeline,
   TimelineConnector,
@@ -16,6 +17,7 @@ import Editor, { editorDefaultToolbar } from 'components/base/Editor';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const OrderTimeline = () => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const [activities, setActivities] = useState([]);
   const rteRef = useRef(null);
@@ -50,7 +52,7 @@ const OrderTimeline = () => {
             mb: 4,
           }}
         >
-          Timeline
+          {translateUi('ui.sections.ecommerce.admin.order.timeline_018514a3')}
         </Typography>
 
         <Timeline
@@ -112,7 +114,7 @@ const OrderTimeline = () => {
                       onClick={handlePost}
                       disabled={rteRef.current?.editor?.isEmpty}
                     >
-                      Post
+                      {translateUi('ui.sections.ecommerce.admin.order.post_7858ac3f')}
                     </Button>
                   </Stack>
                 )}

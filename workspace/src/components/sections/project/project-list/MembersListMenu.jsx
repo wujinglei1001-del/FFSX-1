@@ -1,4 +1,5 @@
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -18,6 +19,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import MemberProfilePopper from 'components/common/MemberProfilePopper';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -75,9 +77,15 @@ const MemberListItem = memo(
                 },
               })}
             >
-              <MenuItem value="Member">Member</MenuItem>
-              <MenuItem value="Admin">Admin</MenuItem>
-              <MenuItem value="Guest">Guest</MenuItem>
+              <MenuItem value="Member">
+                {i18n.t('ui.sections.project.project_list.memberslistmenu.member_6853c98a')}
+              </MenuItem>
+              <MenuItem value="Admin">
+                {i18n.t('ui.sections.project.project_list.memberslistmenu.admin_4e7afebc')}
+              </MenuItem>
+              <MenuItem value="Guest">
+                {i18n.t('ui.sections.project.project_list.memberslistmenu.guest_face83ee')}
+              </MenuItem>
             </StyledTextField>
 
             <Button
@@ -140,6 +148,7 @@ const MemberListItem = memo(
 MemberListItem.displayName = 'MemberListItem';
 
 const MembersListMenu = ({ open, onClose, anchorEl, members }) => {
+  const { t: translateUi } = useTranslation();
   const theme = useTheme();
   const showProfileOnHover = useMediaQuery(theme.breakpoints.up('md'), { noSsr: true });
   const hideProfileTimeoutRef = useRef(undefined);
@@ -278,9 +287,15 @@ const MembersListMenu = ({ open, onClose, anchorEl, members }) => {
           }}
         >
           <Typography component="span" variant="h6">
-            Member&apos;s List
+            {translateUi('ui.sections.project.project_list.memberslistmenu.member_s_list_12cf39d1')}
           </Typography>
-          <IconButton onClick={onClose} aria-label="Close members list" size="small">
+          <IconButton
+            onClick={onClose}
+            aria-label={translateUi(
+              'ui.sections.project.project_list.memberslistmenu.close_members_list_7e3082ae',
+            )}
+            size="small"
+          >
             <IconifyIcon icon="material-symbols:close-rounded" color="text.primary" fontSize={20} />
           </IconButton>
         </Stack>
@@ -298,7 +313,9 @@ const MembersListMenu = ({ open, onClose, anchorEl, members }) => {
               variant="body2"
               sx={{ color: 'text.secondary', px: 3, py: 2, textAlign: 'center' }}
             >
-              No members yet
+              {translateUi(
+                'ui.sections.project.project_list.memberslistmenu.no_members_yet_8de84cb2',
+              )}
             </Typography>
           ) : (
             <List dense disablePadding>
@@ -336,14 +353,16 @@ const MembersListMenu = ({ open, onClose, anchorEl, members }) => {
             startIcon={<IconifyIcon icon="material-symbols:add" fontSize={20} />}
             sx={{ mr: 'auto' }}
           >
-            Invite more
+            {translateUi('ui.sections.project.project_list.memberslistmenu.invite_more_37b0a833')}
           </Button>
 
           <Stack direction="row" sx={{ gap: 2 }}>
             <Button color="neutral" onClick={onClose}>
-              Cancel
+              {translateUi('ui.sections.project.project_list.memberslistmenu.cancel_77dfd213')}
             </Button>
-            <Button onClick={onClose}>Confirm</Button>
+            <Button onClick={onClose}>
+              {translateUi('ui.sections.project.project_list.memberslistmenu.confirm_04a21221')}
+            </Button>
           </Stack>
         </Stack>
       </Menu>

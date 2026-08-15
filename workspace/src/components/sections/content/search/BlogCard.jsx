@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Card,
@@ -16,6 +17,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import BookmarkButton from '../common/BookmarkButton';
 
 const BlogCard = ({ item, sxProps, link }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Card
       component={Link}
@@ -53,7 +55,7 @@ const BlogCard = ({ item, sxProps, link }) => {
             transition: 'transform 0.4s ease, filter 0.4s ease',
           }}
           image={item.thumbnail}
-          alt="blogs image"
+          alt={translateUi('ui.sections.content.search.blogcard.blogs_image_97680fbd')}
         />
       </Box>
 

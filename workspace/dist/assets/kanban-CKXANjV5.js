@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-D8nDyRPw.js";import{t}from"./KanbanProvider-CeXht9Xv.js";var n=e(),r=({children:e})=>(0,n.jsx)(t,{children:e});export{r as default};

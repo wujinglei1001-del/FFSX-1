@@ -1,5 +1,6 @@
 import { initialConfig } from 'config';
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 import { users } from './users';
 
 const image = (index) => `${initialConfig.assetsDir}/images/file-manager/${index}.webp`;
@@ -16,7 +17,10 @@ export const fileStructure = [
         type: 'folder',
         children: [
           { name: 'Main.zip', type: 'file' },
-          { name: 'Aurora_New.docs', type: 'file' },
+          {
+            name: 'Aurora_New.docs',
+            type: 'file',
+          },
         ],
       },
       {
@@ -31,9 +35,17 @@ export const fileStructure = [
       {
         name: 'Aurora_Design',
         type: 'folder',
-        children: [{ name: 'Main_File.zip', type: 'file' }],
+        children: [
+          {
+            name: 'Main_File.zip',
+            type: 'file',
+          },
+        ],
       },
-      { name: 'Project_Management.html', type: 'file' },
+      {
+        name: 'Project_Management.html',
+        type: 'file',
+      },
     ],
   },
   {
@@ -70,32 +82,44 @@ export const fileStructure = [
 
 export const fileStorageData = [
   {
-    title: 'Photos',
+    get title() {
+      return i18n.t('ui.data.file_manager.photos_c8b2e864');
+    },
     files: 580,
     size: 6.6,
   },
   {
-    title: 'Videos',
+    get title() {
+      return i18n.t('ui.data.file_manager.videos_56b71e89');
+    },
     files: 32,
     size: 3.2,
   },
   {
-    title: 'Document',
+    get title() {
+      return i18n.t('ui.data.file_manager.document_e214b8a2');
+    },
     files: 312,
     size: 3.7,
   },
   {
-    title: 'Email',
+    get title() {
+      return i18n.t('ui.data.file_manager.email_84add5b2');
+    },
     files: 356,
     size: 1.8,
   },
   {
-    title: 'Chats',
+    get title() {
+      return i18n.t('ui.data.file_manager.chats_6c9e84c6');
+    },
     files: 39,
     size: 0.5,
   },
   {
-    title: 'Others',
+    get title() {
+      return i18n.t('ui.data.file_manager.others_8d7bf5bf');
+    },
     files: 948,
     size: 2.1,
   },
@@ -425,7 +449,11 @@ export const files = [
   },
   {
     id: 13,
-    name: 'Elegant Living Room Design with Green Screen TV',
+    get name() {
+      return i18n.t(
+        'ui.data.file_manager.elegant_living_room_design_with_green_screen_tv_21361c34',
+      );
+    },
     type: 'file',
     extension: 'mp4',
     src: video('elegant-living-room-design'),

@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Box, TextField, Typography, inputBaseClasses } from '@mui/material';
 
 const AdditionalDetails = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={{
@@ -14,13 +16,13 @@ const AdditionalDetails = () => {
           mb: 2,
         }}
       >
-        Additional details
+        {translateUi('ui.sections.ecommerce.admin.create_order.additional_details_ab6ed1e3')}
       </Typography>
       <TextField
         fullWidth
         id="productWarnings"
         type="text"
-        label="Product warnings"
+        label={translateUi('ui.sections.ecommerce.admin.create_order.product_warnings_e012acf9')}
         variant="filled"
         multiline
         rows={2}
@@ -30,7 +32,7 @@ const AdditionalDetails = () => {
         fullWidth
         id="checkoutAlerts"
         type="text"
-        label="Checkout alerts"
+        label={translateUi('ui.sections.ecommerce.admin.create_order.checkout_alerts_de6db6ec')}
         variant="filled"
       />
     </Box>

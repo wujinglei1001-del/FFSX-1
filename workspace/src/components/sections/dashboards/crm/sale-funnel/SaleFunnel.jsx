@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { saleFunnelData, saleFunnelTableData } from 'data/crm/dashboard';
@@ -7,10 +8,11 @@ import SaleFunnelChart from './SaleFunnelChart';
 import SaleFunnelTable from './SaleFunnelTable';
 
 const SaleFunnel = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ height: 1, p: { xs: 3, md: 5 } }}>
       <SectionHeader
-        title="Sale Funnel"
+        title={translateUi('ui.sections.dashboards.crm.sale_funnel.sale_funnel_7cb4b0ba')}
         subTitle="Amount of revenue in one month"
         actionComponent={<DashboardMenu />}
         sx={{ mb: 3 }}

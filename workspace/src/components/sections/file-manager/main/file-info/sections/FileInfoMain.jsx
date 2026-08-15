@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -13,6 +14,7 @@ import FileInfoMedia from './FileInfoMedia';
 import FileProperties from './FileProperties';
 
 const FileInfoMain = () => {
+  const { t: translateUi } = useTranslation();
   const { selectedFiles } = useFileManager();
 
   return (
@@ -35,7 +37,9 @@ const FileInfoMain = () => {
             variant="subtitle1"
             sx={{ fontWeight: 700, textAlign: 'center', color: 'text.secondary' }}
           >
-            Select an item to view more information
+            {translateUi(
+              'ui.sections.file_manager.main.file_info.select_an_item_to_view_more_information_8a99acea',
+            )}
           </Typography>
         </Paper>
       )}
@@ -59,7 +63,8 @@ const FileInfoMain = () => {
             variant="subtitle1"
             sx={{ fontWeight: 700, textAlign: 'center', color: 'text.secondary' }}
           >
-            {selectedFiles.length} Items Selected
+            {selectedFiles.length}
+            {translateUi('ui.sections.file_manager.main.file_info.items_selected_b8a8d8b5')}
           </Typography>
         </Paper>
       )}

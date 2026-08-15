@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dialog, DialogContent, IconButton, Stack, Typography, dialogClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CreateLabelDialog from './CreateLabelDialog';
@@ -13,6 +14,7 @@ const AddLabelDialog = ({
   onAvailableLabelsChange,
   onSelectedLabelsChange,
 }) => {
+  const { t: translateUi } = useTranslation();
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
 
   const selectedLabelNames = selectedLabels.map((taskLabel) => taskLabel.label);
@@ -63,16 +65,24 @@ const AddLabelDialog = ({
               mb: 2,
             }}
           >
-            <IconButton onClick={handleClose} size="small" aria-label="Back">
+            <IconButton
+              onClick={handleClose}
+              size="small"
+              aria-label={translateUi('ui.sections.project.common.labels.back_b52b36b7')}
+            >
               <IconifyIcon
                 icon="material-symbols:arrow-back"
                 sx={{ fontSize: 20, color: 'text.primary' }}
               />
             </IconButton>
             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-              Add label
+              {translateUi('ui.sections.project.common.labels.add_label_80767416')}
             </Typography>
-            <IconButton onClick={handleClose} size="small" aria-label="Close">
+            <IconButton
+              onClick={handleClose}
+              size="small"
+              aria-label={translateUi('ui.sections.project.common.labels.close_bbfa773e')}
+            >
               <IconifyIcon
                 icon="material-symbols:close"
                 sx={{ fontSize: 20, color: 'text.primary' }}

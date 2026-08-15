@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 const AssignResponsibility = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     register,
@@ -32,7 +34,9 @@ const AssignResponsibility = () => {
             flexGrow: 1,
           }}
         >
-          Assign Responsibility
+          {translateUi(
+            'ui.sections.hrm.performance_management.new_goal.assign_responsibility_f0a071fd',
+          )}
         </Typography>
         <Controller
           control={control}
@@ -40,7 +44,9 @@ const AssignResponsibility = () => {
           render={({ field }) => (
             <RadioGroup row sx={{ gap: 3 }} {...field}>
               <FormControlLabel
-                label="Single"
+                label={translateUi(
+                  'ui.sections.hrm.performance_management.new_goal.single_dd118689',
+                )}
                 value="single"
                 control={<Radio />}
                 sx={{
@@ -48,7 +54,7 @@ const AssignResponsibility = () => {
                 }}
               />
               <FormControlLabel
-                label="Bulk"
+                label={translateUi('ui.sections.hrm.performance_management.new_goal.bulk_d82f3b97')}
                 value="bulk"
                 control={<Radio />}
                 sx={{
@@ -62,7 +68,9 @@ const AssignResponsibility = () => {
       <Grid container columnSpacing={1} rowSpacing={2}>
         <Grid size={6}>
           <TextField
-            label="Department"
+            label={translateUi(
+              'ui.sections.hrm.performance_management.new_goal.department_db40106a',
+            )}
             fullWidth
             defaultValue="Engineering"
             select
@@ -70,16 +78,24 @@ const AssignResponsibility = () => {
             helperText={errors.assignResponsibility?.department?.message}
             {...register('assignResponsibility.department')}
           >
-            <MenuItem value="Engineering">Engineering</MenuItem>
-            <MenuItem value="Design">Design</MenuItem>
-            <MenuItem value="Support">Support</MenuItem>
-            <MenuItem value="Marketing">Marketing</MenuItem>
+            <MenuItem value="Engineering">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.engineering_4143d048')}
+            </MenuItem>
+            <MenuItem value="Design">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.design_59b03536')}
+            </MenuItem>
+            <MenuItem value="Support">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.support_f32d5a3b')}
+            </MenuItem>
+            <MenuItem value="Marketing">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.marketing_e0c534a0')}
+            </MenuItem>
             <MenuItem value="HRM">HRM</MenuItem>
           </TextField>
         </Grid>
         <Grid size={6}>
           <TextField
-            label="Team"
+            label={translateUi('ui.sections.hrm.performance_management.new_goal.team_21888726')}
             fullWidth
             defaultValue="Aurora"
             select
@@ -87,15 +103,25 @@ const AssignResponsibility = () => {
             helperText={errors.assignResponsibility?.team?.message}
             {...register('assignResponsibility.team')}
           >
-            <MenuItem value="Aurora">Aurora</MenuItem>
-            <MenuItem value="Falcon">Falcon</MenuItem>
-            <MenuItem value="Phoenix">Phoenix</MenuItem>
-            <MenuItem value="HummingBird">HummingBird</MenuItem>
+            <MenuItem value="Aurora">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.aurora_eeee9b76')}
+            </MenuItem>
+            <MenuItem value="Falcon">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.falcon_63f5c347')}
+            </MenuItem>
+            <MenuItem value="Phoenix">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.phoenix_3e978fbf')}
+            </MenuItem>
+            <MenuItem value="HummingBird">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.hummingbird_e80efe6a')}
+            </MenuItem>
           </TextField>
         </Grid>
         <Grid size={6}>
           <TextField
-            label="Employee job titles"
+            label={translateUi(
+              'ui.sections.hrm.performance_management.new_goal.employee_job_titles_ce2b7e2b',
+            )}
             fullWidth
             defaultValue="Frontend Developer"
             select
@@ -103,14 +129,24 @@ const AssignResponsibility = () => {
             helperText={errors.assignResponsibility?.jobTitle?.message}
             {...register('assignResponsibility.jobTitle')}
           >
-            <MenuItem value="Frontend Developer">Frontend Developer</MenuItem>
-            <MenuItem value="QA Engineer">QA Engineer</MenuItem>
-            <MenuItem value="Data Analyst">Data Analyst</MenuItem>
+            <MenuItem value="Frontend Developer">
+              {translateUi(
+                'ui.sections.hrm.performance_management.new_goal.frontend_developer_c56054b1',
+              )}
+            </MenuItem>
+            <MenuItem value="QA Engineer">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.qa_engineer_0d309ac1')}
+            </MenuItem>
+            <MenuItem value="Data Analyst">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.data_analyst_c5923c83')}
+            </MenuItem>
           </TextField>
         </Grid>
         <Grid size={6}>
           <TextField
-            label="Additional Employee"
+            label={translateUi(
+              'ui.sections.hrm.performance_management.new_goal.additional_employee_2dc9e16c',
+            )}
             fullWidth
             error={!!errors.assignResponsibility?.additionalEmployee}
             helperText={errors.assignResponsibility?.additionalEmployee?.message}

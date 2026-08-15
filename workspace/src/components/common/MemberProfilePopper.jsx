@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -19,6 +20,7 @@ import StyledTextField from 'components/styled/StyledTextField';
 export const MEMBER_PROFILE_WIDTH = 375;
 
 const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave }) => {
+  const { t: translateUi } = useTranslation();
   const [quickMessage, setQuickMessage] = useState('');
 
   if (!user || !anchorEl) return null;
@@ -101,7 +103,7 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
               </Stack>
 
               <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                Software Engineer
+                {translateUi('ui.components.common.memberprofilepopper.software_engineer_84f982e5')}
               </Typography>
 
               <Stack direction="row" sx={{ gap: 2, mt: 1 }}>
@@ -111,12 +113,12 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
                     variant="subtitle2"
                     sx={{ fontWeight: 500, mr: 0.5, color: 'text.primary' }}
                   >
-                    ID:
+                    {translateUi('ui.components.common.memberprofilepopper.id_d789a1e9')}
                   </Typography>
                   {user.id ?? '—'}
                 </Typography>
                 <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                  Full Time
+                  {translateUi('ui.components.common.memberprofilepopper.full_time_c8a83b01')}
                 </Typography>
               </Stack>
             </Box>
@@ -137,7 +139,9 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center', mb: 3 }}>
             <StyledTextField
               hiddenLabel
-              placeholder="Send a quick message"
+              placeholder={translateUi(
+                'ui.components.common.memberprofilepopper.send_a_quick_message_764e9d7c',
+              )}
               value={quickMessage}
               onChange={(event) => setQuickMessage(event.target.value)}
               variant="filled"
@@ -155,7 +159,9 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
               sx={{ flexShrink: 0 }}
               shape="square"
               onClick={() => setQuickMessage('')}
-              aria-label="Send quick message"
+              aria-label={translateUi(
+                'ui.components.common.memberprofilepopper.send_quick_message_90cced8b',
+              )}
             >
               <IconifyIcon icon="material-symbols:send-outline-rounded" fontSize={20} />
             </Button>
@@ -191,8 +197,11 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
             <Stack direction="row" sx={{ gap: 1.5, alignItems: 'flex-start' }}>
               <IconifyIcon icon="material-symbols:location-on-outline-rounded" />
               <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                New York
-                <br />( Current time: 10:45 PM )
+                {translateUi('ui.components.common.memberprofilepopper.new_york_3dddf7fe')}
+                <br />
+                {translateUi(
+                  'ui.components.common.memberprofilepopper.current_time_10_45_pm_8bf83319',
+                )}
               </Typography>
             </Stack>
           </Stack>
@@ -207,7 +216,7 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
               />
             }
           >
-            View details
+            {translateUi('ui.components.common.memberprofilepopper.view_details_badd3851')}
           </Button>
         </Paper>
       </Fade>

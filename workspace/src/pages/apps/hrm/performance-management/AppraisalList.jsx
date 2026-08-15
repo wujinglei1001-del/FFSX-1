@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { typographyClasses } from '@mui/material/Typography';
@@ -9,6 +10,7 @@ import ListTable from 'components/sections/hrm/performance-management/appraisal-
 import AddMember from 'components/sections/hrm/performance-management/appraisal-list/add-member';
 
 const AppraisalList = () => {
+  const { t: translateUi } = useTranslation();
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const apiRef = useGridApiRef();
 
@@ -34,10 +36,16 @@ const AppraisalList = () => {
   return (
     <Paper sx={{ height: 1 }}>
       <PageHeader
-        title="Appraisal List"
+        title={translateUi('ui.pages.apps.hrm.performance_management.appraisal_list_f7d5e630')}
         breadcrumb={[
-          { label: 'Home', url: '#!' },
-          { label: 'Appraisal List', active: true },
+          {
+            label: translateUi('ui.pages.apps.hrm.performance_management.home_70f8bb9a'),
+            url: '#!',
+          },
+          {
+            label: translateUi('ui.pages.apps.hrm.performance_management.appraisal_list_f7d5e630'),
+            active: true,
+          },
         ]}
         actionComponent={
           <SearchFilterActionBar

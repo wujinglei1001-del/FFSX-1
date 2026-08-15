@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack, Tooltip, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import FMDropdownMenu from '../common/FMDropdownMenu';
 
 const FileSelectionBar = ({ handleToggleInfo }) => {
+  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
   const { up } = useBreakpoints();
   const { allFiles, selectedFiles, fileManagerDispatch, filter } = useFileManager();
@@ -86,17 +88,29 @@ const FileSelectionBar = ({ handleToggleInfo }) => {
           >
             {upSm && (
               <>
-                <Tooltip title="Download">
+                <Tooltip
+                  title={translateUi(
+                    'ui.sections.file_manager.main.fileselectionbar.download_a479c9c3',
+                  )}
+                >
                   <Button variant="soft" shape="square" color="neutral">
                     <IconifyIcon icon="material-symbols:download-rounded" fontSize={20} />
                   </Button>
                 </Tooltip>
-                <Tooltip title="Share">
+                <Tooltip
+                  title={translateUi(
+                    'ui.sections.file_manager.main.fileselectionbar.share_09ca55ca',
+                  )}
+                >
                   <Button variant="soft" shape="square" color="neutral">
                     <IconifyIcon icon="material-symbols:share-outline" fontSize={20} />
                   </Button>
                 </Tooltip>
-                <Tooltip title="Delete">
+                <Tooltip
+                  title={translateUi(
+                    'ui.sections.file_manager.main.fileselectionbar.delete_f6fdbe48',
+                  )}
+                >
                   <Button variant="soft" shape="square" color="neutral">
                     <IconifyIcon icon="material-symbols:delete-outline-rounded" fontSize={20} />
                   </Button>
@@ -107,7 +121,9 @@ const FileSelectionBar = ({ handleToggleInfo }) => {
           </Stack>
         )}
       </Stack>
-      <Tooltip title="View details">
+      <Tooltip
+        title={translateUi('ui.sections.file_manager.main.fileselectionbar.view_details_badd3851')}
+      >
         <Button variant="soft" shape="square" color="neutral" onClick={handleToggleInfo}>
           <IconifyIcon icon="material-symbols:info-outline-rounded" fontSize={20} />
         </Button>

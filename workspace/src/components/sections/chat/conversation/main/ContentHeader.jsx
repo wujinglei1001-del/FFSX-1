@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   List,
@@ -16,6 +17,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import RecipientAvatar from 'components/sections/chat/common/RecipientAvatar';
 
 const ContentHeader = ({ sx, handleDrawerToggle }) => {
+  const { t: translateUi } = useTranslation();
   const { handleChatSidebar, currentConversation } = useChatContext();
   const { down } = useBreakpoints();
 
@@ -39,7 +41,9 @@ const ContentHeader = ({ sx, handleDrawerToggle }) => {
           }}
         >
           {downSm && (
-            <Tooltip title="Conversation list">
+            <Tooltip
+              title={translateUi('ui.sections.chat.conversation.main.conversation_list_c0f0a0f2')}
+            >
               <Button
                 shape="circle"
                 variant="soft"
@@ -98,12 +102,16 @@ const ContentHeader = ({ sx, handleDrawerToggle }) => {
             gap: 1,
           }}
         >
-          <Tooltip title="Start a voice call">
+          <Tooltip
+            title={translateUi('ui.sections.chat.conversation.main.start_a_voice_call_198b4625')}
+          >
             <Button variant="soft" color="neutral" shape="circle">
               <IconifyIcon icon="material-symbols:call-outline" fontSize={20} />
             </Button>
           </Tooltip>
-          <Tooltip title="Start a video call">
+          <Tooltip
+            title={translateUi('ui.sections.chat.conversation.main.start_a_video_call_57516ade')}
+          >
             <Button variant="soft" color="neutral" shape="circle">
               <IconifyIcon icon="material-symbols:videocam-outline-rounded" fontSize={20} />
             </Button>

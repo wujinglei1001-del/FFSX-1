@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import data from '@emoji-mart/data/sets/15/apple.json';
 import Picker from '@emoji-mart/react';
 import { Button, Popover, Tooltip, useTheme } from '@mui/material';
 import IconifyIcon from './IconifyIcon';
 
 const EmojiPicker = ({ handleEmojiSelect, actionButtonEle, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const [emojiAnchorEl, setEmojiAnchorEl] = useState(null);
   const { direction } = useTheme();
 
@@ -21,7 +23,7 @@ const EmojiPicker = ({ handleEmojiSelect, actionButtonEle, ...rest }) => {
         {actionButtonEle ? (
           actionButtonEle
         ) : (
-          <Tooltip title="Emoji">
+          <Tooltip title={translateUi('ui.components.base.emojipicker.emoji_5090a9e7')}>
             <Button variant="contained" shape="square" color="primary">
               <IconifyIcon icon="material-symbols:mood-outline-rounded" fontSize={20} />
             </Button>

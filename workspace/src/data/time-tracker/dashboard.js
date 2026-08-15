@@ -1,12 +1,15 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 
 const image = (index) => `${initialConfig.assetsDir}/images/time-tracker/${index}.webp`;
 
 export const kpis = [
   {
-    title: 'Total Hours',
+    get title() {
+      return i18n.t('ui.data.time_tracker.dashboard.total_hours_ad51f9a7');
+    },
     value: '123:23:01',
     changePercent: 0.73,
     trend: 'decrease',
@@ -14,7 +17,9 @@ export const kpis = [
     hours: [6, 8, 5, 7, 6, 4, 5],
   },
   {
-    title: 'Weekly Activity',
+    get title() {
+      return i18n.t('ui.data.time_tracker.dashboard.weekly_activity_a4854b04');
+    },
     value: '66.05%',
     changePercent: 2.54,
     trend: 'increase',
@@ -22,7 +27,9 @@ export const kpis = [
     activities: [60, 75, 45, 85, 35, 75, 65],
   },
   {
-    title: 'Earned this Week',
+    get title() {
+      return i18n.t('ui.data.time_tracker.dashboard.earned_this_week_f3caa026');
+    },
     value: '$350',
     changePercent: 1.53,
     trend: 'increase',
@@ -30,7 +37,9 @@ export const kpis = [
     earnings: [140, 80, 180, 120, 150, 50, 120],
   },
   {
-    title: 'Projects Worked',
+    get title() {
+      return i18n.t('ui.data.time_tracker.dashboard.projects_worked_96a5e656');
+    },
     value: '15',
     changePercent: 0.33,
     trend: 'decrease',
@@ -559,13 +568,48 @@ export const timesheet = [
 ];
 
 export const projects = [
-  { id: 1, label: 'Smart Workflow System' },
-  { id: 2, label: 'ByteVista – Data Analytics Suite' },
-  { id: 3, label: 'Cloud Integration Hub' },
-  { id: 4, label: 'Cloud Networking UI' },
-  { id: 5, label: 'DevOps Management' },
-  { id: 6, label: 'NexaFlow – Smart Workflow System' },
-  { id: 7, label: 'AI-Powered Chatbot' },
+  {
+    id: 1,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.smart_workflow_system_7acc314d');
+    },
+  },
+  {
+    id: 2,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.bytevista_data_analytics_suite_28daf220');
+    },
+  },
+  {
+    id: 3,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.cloud_integration_hub_320e471c');
+    },
+  },
+  {
+    id: 4,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.cloud_networking_ui_a1b1ba03');
+    },
+  },
+  {
+    id: 5,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.devops_management_dbdde157');
+    },
+  },
+  {
+    id: 6,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.nexaflow_smart_workflow_system_fabf5038');
+    },
+  },
+  {
+    id: 7,
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.ai_powered_chatbot_d99d81c7');
+    },
+  },
 ];
 
 export const tasks = [
@@ -574,7 +618,11 @@ export const tasks = [
     resourceId: 1,
     from: dayjs().hour(9).minute(0).second(0).valueOf(),
     to: dayjs().hour(12).minute(0).second(0).valueOf(),
-    label: 'Fix misalignment in buttons on all screen sizes',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.fix_misalignment_in_buttons_on_all_screen_sizes_1bfacf41',
+      );
+    },
     assignees: [users[1], users[2], users[5]],
     category: 'development',
   },
@@ -583,7 +631,11 @@ export const tasks = [
     resourceId: 1,
     from: dayjs().hour(12).minute(40).second(0).valueOf(),
     to: dayjs().hour(15).minute(20).second(0).valueOf(),
-    label: 'Redesign navbar for better user experience',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.redesign_navbar_for_better_user_experience_cba7d8f9',
+      );
+    },
     assignees: [users[0], users[3]],
     category: 'design',
   },
@@ -592,7 +644,9 @@ export const tasks = [
     resourceId: 1,
     from: dayjs().hour(15).minute(30).second(0).valueOf(),
     to: dayjs().hour(19).minute(0).second(0).valueOf(),
-    label: 'Develop Initial Prototype 01',
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.develop_initial_prototype_01_1c54b740');
+    },
     assignees: [users[4], users[5]],
     category: 'research',
   },
@@ -601,7 +655,9 @@ export const tasks = [
     resourceId: 2,
     from: dayjs().hour(12).minute(20).second(0).valueOf(),
     to: dayjs().hour(15).minute(10).second(0).valueOf(),
-    label: 'Develop Initial Prototype 02',
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.develop_initial_prototype_02_c59c2e2c');
+    },
     assignees: [users[6], users[7]],
     category: 'support',
   },
@@ -610,7 +666,11 @@ export const tasks = [
     resourceId: 2,
     from: dayjs().hour(16).minute(30).second(0).valueOf(),
     to: dayjs().hour(20).minute(0).second(0).valueOf(),
-    label: 'Implement a dark mode toggle with smooth UI',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.implement_a_dark_mode_toggle_with_smooth_ui_0dec2bc5',
+      );
+    },
     assignees: [users[1], users[5], users[8], users[9]],
     category: 'testing',
   },
@@ -619,7 +679,11 @@ export const tasks = [
     resourceId: 3,
     from: dayjs().hour(9).minute(0).second(0).valueOf(),
     to: dayjs().hour(12).minute(20).second(0).valueOf(),
-    label: 'Fix misalignment in buttons on all screen sizes',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.fix_misalignment_in_buttons_on_all_screen_sizes_1bfacf41',
+      );
+    },
     assignees: [users[2], users[7], users[8]],
     category: 'research',
   },
@@ -628,7 +692,11 @@ export const tasks = [
     resourceId: 3,
     from: dayjs().hour(13).minute(20).second(0).valueOf(),
     to: dayjs().hour(17).minute(0).second(0).valueOf(),
-    label: 'Update typography for improved readability',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.update_typography_for_improved_readability_7963cdf2',
+      );
+    },
     assignees: [users[5], users[9]],
     category: 'development',
   },
@@ -637,7 +705,11 @@ export const tasks = [
     resourceId: 4,
     from: dayjs().hour(9).minute(0).second(0).valueOf(),
     to: dayjs().hour(11).minute(40).second(0).valueOf(),
-    label: 'Refactor CSS classes to improve maintainability',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.refactor_css_classes_to_improve_maintainability_d97a11f0',
+      );
+    },
     assignees: [users[8], users[10]],
     category: 'design',
   },
@@ -646,7 +718,11 @@ export const tasks = [
     resourceId: 4,
     from: dayjs().hour(13).minute(50).second(0).valueOf(),
     to: dayjs().hour(19).minute(0).second(0).valueOf(),
-    label: 'Add smooth page transitions for better UX',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.add_smooth_page_transitions_for_better_ux_ab0c4109',
+      );
+    },
     assignees: [users[4], users[8], users[11], users[13], users[15]],
     category: 'testing',
   },
@@ -655,7 +731,11 @@ export const tasks = [
     resourceId: 5,
     from: dayjs().hour(9).minute(0).second(0).valueOf(),
     to: dayjs().hour(12).minute(50).second(0).valueOf(),
-    label: 'Implement lazy loading for offscreen images',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.implement_lazy_loading_for_offscreen_images_61391422',
+      );
+    },
     assignees: [users[5], users[14]],
     category: 'support',
   },
@@ -664,7 +744,11 @@ export const tasks = [
     resourceId: 5,
     from: dayjs().hour(14).minute(20).second(0).valueOf(),
     to: dayjs().hour(18).minute(50).second(0).valueOf(),
-    label: 'Improve error messages for better clarity',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.improve_error_messages_for_better_clarity_a5bedc97',
+      );
+    },
     assignees: [users[12], users[15]],
     category: 'research',
   },
@@ -673,7 +757,11 @@ export const tasks = [
     resourceId: 6,
     from: dayjs().hour(12).minute(0).second(0).valueOf(),
     to: dayjs().hour(16).minute(0).second(0).valueOf(),
-    label: 'Redesign card layout for better visual appeal',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.redesign_card_layout_for_better_visual_appeal_fc7d3a6b',
+      );
+    },
     assignees: [users[7], users[10], users[11]],
     category: 'research',
   },
@@ -682,7 +770,11 @@ export const tasks = [
     resourceId: 6,
     from: dayjs().hour(17).minute(30).second(0).valueOf(),
     to: dayjs().hour(21).minute(30).second(0).valueOf(),
-    label: 'Add animations for a more interactive UI',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.add_animations_for_a_more_interactive_ui_e73db980',
+      );
+    },
     assignees: [users[13], users[15]],
     category: 'support',
   },
@@ -691,7 +783,11 @@ export const tasks = [
     resourceId: 7,
     from: dayjs().hour(9).minute(0).second(0).valueOf(),
     to: dayjs().hour(12).minute(20).second(0).valueOf(),
-    label: 'Fix modal close button not working properly',
+    get label() {
+      return i18n.t(
+        'ui.data.time_tracker.dashboard.fix_modal_close_button_not_working_properly_d8c03c73',
+      );
+    },
     assignees: [users[9], users[12], users[15]],
     category: 'design',
   },
@@ -700,7 +796,9 @@ export const tasks = [
     resourceId: 7,
     from: dayjs().hour(13).minute(10).second(0).valueOf(),
     to: dayjs().hour(16).minute(40).second(0).valueOf(),
-    label: 'Develop Initial Prototype 03',
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.develop_initial_prototype_03_862555c8');
+    },
     assignees: [users[10], users[14]],
     category: 'testing',
   },
@@ -709,7 +807,9 @@ export const tasks = [
     resourceId: 7,
     from: dayjs().hour(17).minute(10).second(0).valueOf(),
     to: dayjs().hour(19).minute(40).second(0).valueOf(),
-    label: 'Develop Initial Prototype 04',
+    get label() {
+      return i18n.t('ui.data.time_tracker.dashboard.develop_initial_prototype_04_da98541c');
+    },
     assignees: [users[9], users[12]],
     category: 'development',
   },

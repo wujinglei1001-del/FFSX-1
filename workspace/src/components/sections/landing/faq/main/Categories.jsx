@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, ButtonBase, Grid, Tab, Tabs, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
@@ -9,6 +10,7 @@ const Categories = ({
   tabsRef,
   gridRef,
 }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <Tabs
@@ -17,8 +19,14 @@ const Categories = ({
         onChange={handleTabChange}
         sx={{ mb: 3, mx: 'auto', width: 'fit-content' }}
       >
-        <Tab value="popular" label="Popular Categories" />
-        <Tab value="all" label="All Categories" />
+        <Tab
+          value="popular"
+          label={translateUi('ui.sections.landing.faq.main.popular_categories_70c17499')}
+        />
+        <Tab
+          value="all"
+          label={translateUi('ui.sections.landing.faq.main.all_categories_1fd266c2')}
+        />
       </Tabs>
       <Grid container columns={{ xs: 2, md: 4 }} spacing={1} ref={gridRef}>
         {displayedCategories.map((category) => (

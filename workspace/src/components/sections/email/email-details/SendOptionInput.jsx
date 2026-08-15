@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Avatar,
@@ -17,6 +18,7 @@ import StyledSelect from 'components/styled/StyledSelect';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const SendOptionInput = ({ setSendType, sendType }) => {
+  const { t: translateUi } = useTranslation();
   const {
     emailState: { email },
   } = useEmailContext();
@@ -60,11 +62,11 @@ const SendOptionInput = ({ setSendType, sendType }) => {
         >
           <MenuItem value="Reply">
             <IconifyIcon icon="material-symbols:reply-rounded" sx={{ fontSize: 20, mr: 1 }} />
-            Reply
+            {translateUi('ui.sections.email.email_details.sendoptioninput.reply_6c2bb735')}
           </MenuItem>
           <MenuItem value="Forward">
             <IconifyIcon icon="material-symbols:forward-rounded" sx={{ fontSize: 20, mr: 1 }} />
-            Forward
+            {translateUi('ui.sections.email.email_details.sendoptioninput.forward_ba4e7226')}
           </MenuItem>
         </StyledSelect>
       </StyledFormControl>
@@ -88,7 +90,12 @@ const SendOptionInput = ({ setSendType, sendType }) => {
                 sx={{ [`&.${buttonBaseClasses.root}`]: { mt: 0 } }}
                 avatar={
                   option === email?.user.email ? (
-                    <Avatar alt="Natacha" src={email?.user.avatar} />
+                    <Avatar
+                      alt={translateUi(
+                        'ui.sections.email.email_details.sendoptioninput.natacha_a235cf0c',
+                      )}
+                      src={email?.user.avatar}
+                    />
                   ) : undefined
                 }
                 color="neutral"
@@ -116,7 +123,9 @@ const SendOptionInput = ({ setSendType, sendType }) => {
               },
             }}
             variant="filled"
-            placeholder="Type..."
+            placeholder={translateUi(
+              'ui.sections.email.email_details.sendoptioninput.type_4b997f01',
+            )}
           />
         )}
       />

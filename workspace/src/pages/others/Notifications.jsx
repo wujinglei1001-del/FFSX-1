@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import { Breadcrumbs, Button, Link, Stack, Typography } from '@mui/material';
@@ -10,6 +11,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import NotificationTabPanel from 'components/sections/notification/NotificationTabPanel';
 
 const Notifications = () => {
+  const { t: translateUi } = useTranslation();
   const [currentTab, setCurrentTab] = useState('all');
 
   const { up } = useBreakpoints();
@@ -26,8 +28,11 @@ const Notifications = () => {
         p: { xs: 3, md: 5 },
       }}
     >
-      <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
-        <Link href="#!">Pages</Link>
+      <Breadcrumbs
+        aria-label={translateUi('ui.pages.others.notifications.breadcrumb_6e5ce570')}
+        sx={{ mb: 2 }}
+      >
+        <Link href="#!">{translateUi('ui.pages.others.notifications.pages_600584c2')}</Link>
         <Typography
           variant="body2"
           sx={{
@@ -35,7 +40,7 @@ const Notifications = () => {
             color: 'text.primary',
           }}
         >
-          Notifications
+          {translateUi('ui.pages.others.notifications.notifications_753a22b2')}
         </Typography>
       </Breadcrumbs>
       <Typography
@@ -44,11 +49,14 @@ const Notifications = () => {
           mb: 3,
         }}
       >
-        Notifications
+        {translateUi('ui.pages.others.notifications.notifications_753a22b2')}
       </Typography>
       <TabContext value={currentTab}>
         <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <TabList
+            onChange={handleChange}
+            aria-label={translateUi('ui.pages.others.notifications.lab_api_tabs_example_85ee26b7')}
+          >
             <Tab
               label={upSm ? 'All notifications' : undefined}
               value="all"
@@ -77,7 +85,7 @@ const Notifications = () => {
             color="neutral"
             startIcon={<IconifyIcon icon="material-symbols:check-rounded" />}
           >
-            Mark all as read
+            {translateUi('ui.pages.others.notifications.mark_all_as_read_1b83163b')}
           </Button>
         </Stack>
         <NotificationTabPanel value="all" notificationsData={notifications} />

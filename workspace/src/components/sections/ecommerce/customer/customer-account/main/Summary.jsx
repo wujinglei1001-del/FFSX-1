@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   List,
   ListItem,
@@ -12,25 +13,26 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Summary = ({ stats }) => {
+  const { t: translateUi } = useTranslation();
   const listItems = useMemo(() => {
     return [
       {
         id: 1,
-        label: 'Wishlist',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.wishlist_6ff33102'),
         icon: 'material-symbols:favorite-outline-rounded',
         url: '#!',
         value: stats.wishlist,
       },
       {
         id: 2,
-        label: 'Favourites',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.favourites_e6ccc0fd'),
         icon: 'material-symbols:store-outline-rounded',
         url: '#!',
         value: stats.favourites,
       },
       {
         id: 3,
-        label: 'Vouchers',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.vouchers_ffaa62ec'),
         icon: 'material-symbols:sell-outline',
         url: '#!',
         value: stats.vouchers,
@@ -45,7 +47,7 @@ const Summary = ({ stats }) => {
           mb: 2,
         }}
       >
-        Summary
+        {translateUi('ui.sections.ecommerce.customer.customer_account.summary_12b71c3e')}
       </Typography>
       <List
         disablePadding

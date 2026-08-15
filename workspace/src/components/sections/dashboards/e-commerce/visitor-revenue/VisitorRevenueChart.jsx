@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import { BarChart } from 'echarts/charts';
@@ -13,6 +14,7 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, BarChart, CanvasRenderer]);
 
 const VisitorRevenueChart = ({ data, sx }) => {
+  const { t: translateUi } = useTranslation();
   const { vars } = useTheme();
   const { getThemeColor } = useSettingsContext();
 
@@ -56,7 +58,9 @@ const VisitorRevenueChart = ({ data, sx }) => {
 
       series: [
         {
-          name: 'Current year',
+          name: translateUi(
+            'ui.sections.dashboards.e_commerce.visitor_revenue.current_year_b3c92f9d',
+          ),
           type: 'bar',
           data: data.currentYear,
           barWidth: '4px',

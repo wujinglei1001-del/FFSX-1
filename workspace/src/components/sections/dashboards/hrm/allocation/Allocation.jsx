@@ -1,10 +1,12 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { months } from 'data/common/months';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
+import i18n from 'locales/i18n';
 import SectionHeader from 'components/common/SectionHeader';
 import StyledTextField from 'components/styled/StyledTextField';
 import AllocationChart from './AllocationChart';
@@ -12,12 +14,28 @@ import AllocationTable from './AllocationTable';
 import ChartLegend from './ChartLegend';
 
 const chartLegends = [
-  { label: 'Tangible Assets', color: 'chBlue.200' },
-  { label: 'Gross Salary', color: 'chGreen.200' },
-  { label: 'Direct Revenue', color: 'chOrange.200' },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.hrm.allocation.tangible_assets_e823dc95');
+    },
+    color: 'chBlue.200',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.hrm.allocation.gross_salary_b90af6eb');
+    },
+    color: 'chGreen.200',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.hrm.allocation.direct_revenue_fd8fde42');
+    },
+    color: 'chOrange.200',
+  },
 ];
 
 const Allocation = ({ allocation }) => {
+  const { t: translateUi } = useTranslation();
   const [selectedMonth, setSelectedMonth] = useState(months[0]);
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
@@ -26,7 +44,7 @@ const Allocation = ({ allocation }) => {
     <Paper sx={{ p: { xs: 3, md: 5 } }}>
       <SectionHeader
         direction={{ xs: 'column', sm: 'row' }}
-        title="Allocation per Dept"
+        title={translateUi('ui.sections.dashboards.hrm.allocation.allocation_per_dept_53835b0e')}
         subTitle="Inter-department comparisons"
         sx={{ gap: { xs: 3, sm: 2 }, mb: { xs: 5, sm: 4 } }}
         actionComponent={

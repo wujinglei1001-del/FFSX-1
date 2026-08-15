@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { closestCenter } from '@dnd-kit/core';
 import { Button, Stack } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -30,6 +31,7 @@ const initializeSectionFields = (type, title) => ({
 });
 
 const EventSections = () => {
+  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
 
   const {
@@ -87,7 +89,7 @@ const EventSections = () => {
         variant="soft"
         startIcon={<IconifyIcon icon="material-symbols:add-rounded" />}
       >
-        Add another section
+        {translateUi('ui.sections.events.create_event.main.add_another_section_533be66b')}
       </Button>
     </div>
   );

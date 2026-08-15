@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Button, Container, Divider, Paper, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const OrderPaymentSummary = () => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { currencyFormat } = useNumberFormat();
   const { payment } = order;
@@ -50,7 +52,8 @@ const OrderPaymentSummary = () => {
           </Stack>
 
           <Button variant="soft" color="neutral">
-            Mark as {payment.status === 'Paid' ? 'unpaid' : 'paid'}
+            {translateUi('ui.sections.ecommerce.admin.order.mark_as_226d8fd6')}
+            {payment.status === 'Paid' ? 'unpaid' : 'paid'}
           </Button>
         </Stack>
 
@@ -63,9 +66,18 @@ const OrderPaymentSummary = () => {
             p: 3,
           }}
         >
-          <PriceSummaryRow label="Subtotal" value={payment.subtotal} />
-          <PriceSummaryRow label="Shipping cost" value={payment.shippingCost} />
-          <PriceSummaryRow label="Discount" value={payment.discount} />
+          <PriceSummaryRow
+            label={translateUi('ui.sections.ecommerce.admin.order.subtotal_97f7359e')}
+            value={payment.subtotal}
+          />
+          <PriceSummaryRow
+            label={translateUi('ui.sections.ecommerce.admin.order.shipping_cost_3ff0465a')}
+            value={payment.shippingCost}
+          />
+          <PriceSummaryRow
+            label={translateUi('ui.sections.ecommerce.admin.order.discount_b524936d')}
+            value={payment.discount}
+          />
 
           <Stack
             direction="row"
@@ -75,7 +87,7 @@ const OrderPaymentSummary = () => {
             }}
           >
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
-              Total
+              {translateUi('ui.sections.ecommerce.admin.order.total_b25928c6')}
             </Typography>
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold' }}>
               {currencyFormat(payment.total)}

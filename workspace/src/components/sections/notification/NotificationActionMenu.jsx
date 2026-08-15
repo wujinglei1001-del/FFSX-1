@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -6,6 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const NotificationActionMenu = () => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const { direction } = useTheme();
@@ -36,9 +38,13 @@ const NotificationActionMenu = () => {
         anchorOrigin={{ horizontal: direction === 'rtl' ? 'left' : 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose} sx={{ color: 'error.main' }}>
-          Remove Notification
+          {translateUi(
+            'ui.sections.notification.notificationactionmenu.remove_notification_a873bf39',
+          )}
         </MenuItem>
-        <MenuItem onClick={handleClose}>Report issue</MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.notification.notificationactionmenu.report_issue_6e2c7123')}
+        </MenuItem>
       </Menu>
     </div>
   );

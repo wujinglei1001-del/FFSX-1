@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
@@ -14,20 +15,27 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const criteriaRatings = [
   {
-    title: 'Professionalism',
+    get title() {
+      return i18n.t('ui.sections.hiring.admin.candidate_details.professionalism_3a609283');
+    },
     items: ['Punctual', 'Courteous', 'Communicator', 'Articulate'],
   },
   {
-    title: 'Qualities',
+    get title() {
+      return i18n.t('ui.sections.hiring.admin.candidate_details.qualities_8a9b6130');
+    },
     items: ['Emotional Intelligence', 'Honesty', 'Positivity', 'Curiosity', 'Self-Motivated'],
   },
   {
-    title: 'Activities',
+    get title() {
+      return i18n.t('ui.sections.hiring.admin.candidate_details.activities_e58f7f88');
+    },
     items: ['Event Management', 'Speaker', 'Event Planning'],
   },
 ];
@@ -43,9 +51,12 @@ const validationSchema = yup.object({
       }, {}),
     )
     .required(),
-  comment: yup.string().required('Comment is required'),
+  comment: yup
+    .string()
+    .required(i18n.t('ui.sections.hiring.admin.candidate_details.comment_is_required_bc41da4a')),
 });
 const FillScorecard = () => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const {
     control,
@@ -75,7 +86,7 @@ const FillScorecard = () => {
   return (
     <div>
       <Button variant="contained" onClick={handleOpen} sx={{ whiteSpace: 'nowrap' }}>
-        Fill Scorecard
+        {translateUi('ui.sections.hiring.admin.candidate_details.fill_scorecard_30782edf')}
       </Button>
       <Dialog
         open={open}
@@ -95,9 +106,13 @@ const FillScorecard = () => {
           }}
         >
           <div>
-            <Typography variant="h6">Fill Scoreboard</Typography>
+            <Typography variant="h6">
+              {translateUi('ui.sections.hiring.admin.candidate_details.fill_scoreboard_b90374aa')}
+            </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Please share your ratings and feedback for the candidate.
+              {translateUi(
+                'ui.sections.hiring.admin.candidate_details.please_share_your_ratings_and_feedback_for_the_candi_cbf2c447',
+              )}
             </Typography>
           </div>
 
@@ -207,7 +222,9 @@ const FillScorecard = () => {
                   mb: 2,
                 }}
               >
-                Final Assessment
+                {translateUi(
+                  'ui.sections.hiring.admin.candidate_details.final_assessment_b88c2c33',
+                )}
               </Typography>
 
               <Controller
@@ -217,7 +234,9 @@ const FillScorecard = () => {
                   <TextField
                     {...field}
                     fullWidth
-                    label="Add Comment"
+                    label={translateUi(
+                      'ui.sections.hiring.admin.candidate_details.add_comment_d89450c8',
+                    )}
                     multiline
                     rows={2}
                     error={!!errors.comment}
@@ -229,7 +248,9 @@ const FillScorecard = () => {
               {!errors.comment && (
                 <FormHelperText sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mt: 0.5 }}>
                   <IconifyIcon icon="material-symbols:info-outline-rounded" />
-                  Comment must be at least 10 characters long.
+                  {translateUi(
+                    'ui.sections.hiring.admin.candidate_details.comment_must_be_at_least_10_characters_long_2bdbf9ea',
+                  )}
                 </FormHelperText>
               )}
             </div>
@@ -238,10 +259,10 @@ const FillScorecard = () => {
 
         <DialogActions sx={{ p: 5, pt: 2 }}>
           <Button variant="text" color="neutral" onClick={handleClose}>
-            Cancel
+            {translateUi('ui.sections.hiring.admin.candidate_details.cancel_77dfd213')}
           </Button>
           <Button variant="contained" type="submit" disabled={!isValid}>
-            Submit
+            {translateUi('ui.sections.hiring.admin.candidate_details.submit_2dacf659')}
           </Button>
         </DialogActions>
       </Dialog>

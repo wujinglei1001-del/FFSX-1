@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -16,6 +17,7 @@ import { useOrderDetails } from '../OrderDetailsProvider';
 import OrderItem from './OrderItem';
 
 const OrderItems = () => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
 
   const itemStatusList = useMemo(() => {
@@ -108,7 +110,8 @@ const OrderItems = () => {
           </Stack>
 
           <Button variant="soft" color="neutral">
-            Mark as {order?.status === 'fulfilled' ? 'unfulfilled' : 'fulfilled'}
+            {translateUi('ui.sections.ecommerce.admin.order.mark_as_226d8fd6')}
+            {order?.status === 'fulfilled' ? 'unfulfilled' : 'fulfilled'}
           </Button>
         </Stack>
 

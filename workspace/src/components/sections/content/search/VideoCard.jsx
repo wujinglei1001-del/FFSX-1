@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -19,6 +20,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import BookmarkButton from '../common/BookmarkButton';
 
 const VideoCard = ({ item, sxProps }) => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -85,7 +87,7 @@ const VideoCard = ({ item, sxProps }) => {
             opacity: isHovered ? 0 : 1,
             transition: 'opacity 0.3s ease',
           }}
-          alt="content thumbnail"
+          alt={translateUi('ui.sections.content.search.videocard.content_thumbnail_e6c4d576')}
         />
 
         <Box
@@ -186,7 +188,11 @@ const VideoCard = ({ item, sxProps }) => {
         >
           <Grid size={7}>
             <Stack direction="row" sx={{ gap: { xs: 1, sm: 2 }, alignItems: 'center' }}>
-              <Avatar src={item.uploadedBy.avatar} alt="avatar" sx={{ width: 32, height: 32 }} />
+              <Avatar
+                src={item.uploadedBy.avatar}
+                alt={translateUi('ui.sections.content.search.videocard.avatar_9c3bb49f')}
+                sx={{ width: 32, height: 32 }}
+              />
               <Typography
                 variant="subtitle2"
                 sx={{

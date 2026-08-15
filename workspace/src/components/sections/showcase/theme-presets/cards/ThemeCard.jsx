@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Paper, Stack, Typography } from '@mui/material';
-import { THEME_DISPLAY_NAMES } from 'theme/palettes';
+import { THEME_TRANSLATION_KEYS } from 'theme/palettes';
 
 const ThemeCard = ({ themePreset }) => {
+  const { t: translateUi } = useTranslation();
+
   return (
     <Paper
       background={1}
@@ -20,7 +23,9 @@ const ThemeCard = ({ themePreset }) => {
         boxShadow: (theme) => `0 0 0 1px ${theme.vars.palette.grey[950]}`,
       }}
     >
-      <Typography variant="h1">{THEME_DISPLAY_NAMES[themePreset]}</Typography>
+      <Typography variant="h1">
+        {translateUi(THEME_TRANSLATION_KEYS[themePreset], { defaultValue: themePreset })}
+      </Typography>
       <Stack
         direction="row"
         sx={{

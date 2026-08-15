@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { enUS, zhCN } from 'date-fns/locale';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import { useSettingsContext } from 'providers/SettingsProvider';
 import IconifyIcon from './IconifyIcon';
 
 const DateRangePicker = ({
@@ -11,6 +14,10 @@ const DateRangePicker = ({
   sx,
   ...rest
 }) => {
+  const { t: translateUi } = useTranslation();
+  const {
+    config: { locale },
+  } = useSettingsContext();
   const [startDate, setStartDate] = useState(defaultStartDate);
   const [endDate, setEndDate] = useState(defaultEndDate);
   const { up } = useBreakpoints();
@@ -30,11 +37,17 @@ const DateRangePicker = ({
         startDate={startDate || undefined}
         endDate={endDate || undefined}
         onChange={handleChange}
+        locale={locale === 'zh-CN' ? zhCN : enUS}
         popperPlacement={upSm ? 'bottom-start' : undefined}
         showPopperArrow={false}
         selectsRange
         wrapperClassName={rest.isClearable && (startDate || endDate) ? 'clearable' : ''}
-        customInput={<TextField label="Select Date Range" fullWidth />}
+        customInput={
+          <TextField
+            label={translateUi('ui.components.base.daterangepicker.select_date_range_de6472b8')}
+            fullWidth
+          />
+        }
         renderCustomHeader={({
           date,
           decreaseMonth,
@@ -56,7 +69,7 @@ const DateRangePicker = ({
             </Button>
 
             <Typography variant="button">
-              {date.toLocaleString('default', { month: 'long' })} {date.getFullYear()}
+              {date.toLocaleString(locale, { month: 'long', year: 'numeric' })}
             </Typography>
 
             <Button

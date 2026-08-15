@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Collapse } from '@mui/material';
 import ReplyThread from './ReplyThread';
 import ContentBlock from './common/content-block/ContentBlock';
@@ -36,6 +37,7 @@ const CommentThread = ({ comments }) => {
 };
 
 const CommentItem = ({ comment, isLast }) => {
+  const { t: translateUi } = useTranslation();
   const [showReplyInput, setShowReplyInput] = useState(false);
   const toggleReply = () => setShowReplyInput((prev) => !prev);
 
@@ -56,7 +58,12 @@ const CommentItem = ({ comment, isLast }) => {
           {!isLast && <ThreadConnector offsetLeft={16} />}
           {comment.replies.length > 0 && <ThreadConnector offsetLeft={64} />}
           {showReplyInput && <ThreadConnector offsetLeft={64} elbow />}
-          <ThreadInput placeholder="Reply to this comment..." toggleThreadInput={toggleReply} />
+          <ThreadInput
+            placeholder={translateUi(
+              'ui.sections.social.tab_panels.posts_panel.reply_to_this_comment_3ffe3c14',
+            )}
+            toggleThreadInput={toggleReply}
+          />
         </Box>
       </Collapse>
 

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -55,6 +56,7 @@ const Item = ({ label, sx, active, onClick }) => {
 };
 
 const NavColorPanel = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { navColor },
     configDispatch,
@@ -73,7 +75,7 @@ const NavColorPanel = () => {
   return (
     <Stack direction="row" sx={{ gap: 1 }}>
       <Item
-        label="Default"
+        label={translateUi('ui.components.settings_panel.navcolorpanel.default_808d7dca')}
         sx={{
           bgcolor: 'background.default',
           border: 2,
@@ -83,7 +85,7 @@ const NavColorPanel = () => {
         onClick={() => handleClick('default')}
       />
       <Item
-        label="Vibrant"
+        label={translateUi('ui.components.settings_panel.navcolorpanel.vibrant_0ebbd495')}
         sx={{
           background: 'linear-gradient(163.93deg, #7DB1F5 3.83%, #62C29F 132.96%)',
         }}

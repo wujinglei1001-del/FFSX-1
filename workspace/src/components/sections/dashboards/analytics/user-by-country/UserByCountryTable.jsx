@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Chip, Stack, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -52,6 +53,7 @@ const createRowSortComparator = (baseComparator) => {
 };
 
 const UserByCountryTable = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat, numberFormat } = useNumberFormat();
 
   const summaryData = useMemo(() => calculateSummaryData(data), []);
@@ -82,7 +84,9 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'country',
-        headerName: 'Country',
+        headerName: translateUi(
+          'ui.sections.dashboards.analytics.user_by_country.country_d523ebbd',
+        ),
         headerClassName: 'country-header',
         cellClassName: 'country-cell',
         minWidth: 160,
@@ -101,7 +105,9 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'totalUsers',
-        headerName: 'Total User',
+        headerName: translateUi(
+          'ui.sections.dashboards.analytics.user_by_country.total_user_f04e376a',
+        ),
         headerClassName: 'total-users-header',
         cellClassName: 'total-users-cell',
         width: 140,
@@ -116,7 +122,9 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'growthRate',
-        headerName: 'vs. Last week',
+        headerName: translateUi(
+          'ui.sections.dashboards.analytics.user_by_country.vs_last_week_129e3bff',
+        ),
         headerClassName: 'growth-rate-header',
         cellClassName: 'growth-rate-cell',
         minWidth: 136,
@@ -145,7 +153,9 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'newUsers',
-        headerName: 'New User',
+        headerName: translateUi(
+          'ui.sections.dashboards.analytics.user_by_country.new_user_b85e445f',
+        ),
         headerClassName: 'new-users-header',
         cellClassName: 'new-users-cell',
         minWidth: 120,
@@ -160,7 +170,9 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'engagedSessions',
-        headerName: 'Engaged Sessions',
+        headerName: translateUi(
+          'ui.sections.dashboards.analytics.user_by_country.engaged_sessions_1a9a38c3',
+        ),
         headerClassName: 'engaged-sessions-header',
         cellClassName: 'engaged-sessions-cell',
         minWidth: 184,

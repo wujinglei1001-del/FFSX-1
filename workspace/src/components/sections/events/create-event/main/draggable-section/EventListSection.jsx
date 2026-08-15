@@ -1,9 +1,11 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Button, IconButton, Stack, TextField } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EventFileDropHandler from 'components/sections/events/create-event/EventFileDropHandler';
 
 const EventListSection = ({ sectionIndex }) => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -40,7 +42,7 @@ const EventListSection = ({ sectionIndex }) => {
               />
               <TextField
                 fullWidth
-                label="Value"
+                label={translateUi('ui.sections.events.create_event.main.value_8dce170d')}
                 variant="filled"
                 id={item.itemId}
                 {...register(`sections.${sectionIndex}.listItems.${index}.value`)}
@@ -65,7 +67,7 @@ const EventListSection = ({ sectionIndex }) => {
             px: '5px',
           }}
         >
-          Add
+          {translateUi('ui.sections.events.create_event.main.add_61cc55aa')}
         </Button>
       </Stack>
       <Stack sx={{ gap: 2 }}>

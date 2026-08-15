@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Link, Stack, Typography } from '@mui/material';
 import { footerNavItems } from 'data/showcase';
 import RevealText from '../../common/RevealText';
 
 const ShowcaseFooter = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction={{ xs: 'column', sm: 'row' }}
@@ -21,13 +23,13 @@ const ShowcaseFooter = () => {
             fontWeight: 400,
           }}
         >
-          Brought to you by{' '}
+          {translateUi('ui.sections.showcase.layout.footer.brought_to_you_by_6a89f6ec')}{' '}
           <Link
             href="https://themewagon.com/"
             target="_blank"
             sx={{ color: 'inherit', fontWeight: 700 }}
           >
-            ThemeWagon
+            {translateUi('ui.sections.showcase.layout.footer.themewagon_42a442ab')}
           </Link>{' '}
           💚
         </Typography>

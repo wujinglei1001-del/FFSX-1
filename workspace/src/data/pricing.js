@@ -6,6 +6,7 @@ import saverDark from 'assets/images/illustrations/24-dark.webp';
 import saver from 'assets/images/illustrations/24.webp';
 import industryDark from 'assets/images/illustrations/25-dark.webp';
 import industry from 'assets/images/illustrations/25.webp';
+import i18n from 'locales/i18n';
 
 export const pricing = [
   {
@@ -18,46 +19,149 @@ export const pricing = [
     tableTitle: 'Starter',
     price: null,
     features: [
-      { title: 'Unlimited leads', active: true },
-      { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
-      { title: 'Email automation', active: false },
-      { title: 'Custom fields', active: false },
-      { title: 'Pro templates', active: false },
-      { title: 'Export leads and reports', active: false },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+        },
+        active: false,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+        },
+        active: false,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+        },
+        active: false,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+        },
+        active: false,
+      },
     ],
     tableFeatures: [
       {
         category: 'Core Features',
         features: [
-          { id: 1, title: 'Unlimited leads', active: true },
-          { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+            },
+            active: true,
+          },
         ],
       },
       {
         category: 'Advanced Features',
         features: [
-          { id: 1, title: 'Email automation', active: false },
-          { id: 2, title: 'Custom fields', active: false },
-          { id: 3, title: 'Pro templates', active: false },
-          { id: 4, title: 'Export leads and reports', active: false },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+            },
+            active: false,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+            },
+            active: false,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+            },
+            active: false,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+            },
+            active: false,
+          },
         ],
       },
       {
         category: 'Pro Features',
         features: [
-          { id: 1, title: 'Advanced reporting', active: false },
-          { id: 2, title: 'Priority customer support', active: false },
-          { id: 3, title: 'Custom branding', active: false },
-          { id: 4, title: 'Dedicated account manager', active: false },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.advanced_reporting_aad563ea');
+            },
+            active: false,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.priority_customer_support_60383815');
+            },
+            active: false,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_branding_438ee422');
+            },
+            active: false,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.dedicated_account_manager_21926cc0');
+            },
+            active: false,
+          },
         ],
       },
     ],
   },
   {
     id: 2,
-    label: 'Best value',
+    get label() {
+      return i18n.t('ui.data.pricing.best_value_8173c2a9');
+    },
     image: {
       light: pro,
       dark: proDark,
@@ -70,39 +174,140 @@ export const pricing = [
     },
     recommended: true,
     features: [
-      { title: 'Unlimited leads', active: true },
-      { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
-      { title: 'Email automation', active: true },
-      { title: 'Custom fields', active: true },
-      { title: 'Pro templates', active: false },
-      { title: 'Export leads and reports', active: false },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+        },
+        active: false,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+        },
+        active: false,
+      },
     ],
     tableFeatures: [
       {
         category: 'Core Features',
         features: [
-          { id: 1, title: 'Unlimited leads', active: true },
-          { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+            },
+            active: true,
+          },
         ],
       },
       {
         category: 'Advanced Features',
         features: [
-          { id: 1, title: 'Email automation', active: true },
-          { id: 2, title: 'Custom fields', active: false },
-          { id: 3, title: 'Pro templates', active: false },
-          { id: 4, title: 'Export leads and reports', active: false },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+            },
+            active: false,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+            },
+            active: false,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+            },
+            active: false,
+          },
         ],
       },
       {
         category: 'Pro Features',
         features: [
-          { id: 1, title: 'Advanced reporting', active: true },
-          { id: 2, title: 'Priority customer support', active: true },
-          { id: 3, title: 'Custom branding', active: true },
-          { id: 4, title: 'Dedicated account manager', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.advanced_reporting_aad563ea');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.priority_customer_support_60383815');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_branding_438ee422');
+            },
+            active: true,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.dedicated_account_manager_21926cc0');
+            },
+            active: true,
+          },
         ],
       },
     ],
@@ -120,39 +325,140 @@ export const pricing = [
       yearly: 249.99,
     },
     features: [
-      { title: 'Unlimited leads', active: true },
-      { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
-      { title: 'Email automation', active: true },
-      { title: 'Custom fields', active: true },
-      { title: 'Pro templates', active: true },
-      { title: 'Export leads and reports', active: true },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+        },
+        active: true,
+      },
     ],
     tableFeatures: [
       {
         category: 'Core Features',
         features: [
-          { id: 1, title: 'Unlimited leads', active: true },
-          { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+            },
+            active: true,
+          },
         ],
       },
       {
         category: 'Advanced Features',
         features: [
-          { id: 1, title: 'Email automation', active: true },
-          { id: 2, title: 'Custom fields', active: true },
-          { id: 3, title: 'Pro templates', active: true },
-          { id: 4, title: 'Export leads and reports', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+            },
+            active: true,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+            },
+            active: true,
+          },
         ],
       },
       {
         category: 'Pro Features',
         features: [
-          { id: 1, title: 'Advanced reporting', active: false },
-          { id: 2, title: 'Priority customer support', active: false },
-          { id: 3, title: 'Custom branding', active: false },
-          { id: 4, title: 'Dedicated account manager', active: false },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.advanced_reporting_aad563ea');
+            },
+            active: false,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.priority_customer_support_60383815');
+            },
+            active: false,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_branding_438ee422');
+            },
+            active: false,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.dedicated_account_manager_21926cc0');
+            },
+            active: false,
+          },
         ],
       },
     ],
@@ -170,39 +476,140 @@ export const pricing = [
       yearly: 449.99,
     },
     features: [
-      { title: 'Unlimited leads', active: true },
-      { title: 'Unlimited emails', active: true },
-      { title: 'No Aurora’s branding', active: true },
-      { title: 'Email automation', active: true },
-      { title: 'Custom fields', active: true },
-      { title: 'Pro templates', active: true },
-      { title: 'Export leads and reports', active: true },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+        },
+        active: true,
+      },
+      {
+        get title() {
+          return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+        },
+        active: true,
+      },
     ],
     tableFeatures: [
       {
         category: 'Core Features',
         features: [
-          { id: 1, title: 'Unlimited leads', active: true },
-          { id: 2, title: 'Unlimited emails', active: true },
-          { id: 3, title: 'No Aurora’s branding', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_leads_922252e7');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.unlimited_emails_5a234119');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+            },
+            active: true,
+          },
         ],
       },
       {
         category: 'Advanced Features',
         features: [
-          { id: 1, title: 'Email automation', active: true },
-          { id: 2, title: 'Custom fields', active: true },
-          { id: 3, title: 'Pro templates', active: true },
-          { id: 4, title: 'Export leads and reports', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.email_automation_d5ae589e');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_fields_d1f86d52');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.pro_templates_377c3fa8');
+            },
+            active: true,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.export_leads_and_reports_f5b51ca5');
+            },
+            active: true,
+          },
         ],
       },
       {
         category: 'Pro Features',
         features: [
-          { id: 1, title: 'Advanced reporting', active: true },
-          { id: 2, title: 'Priority customer support', active: true },
-          { id: 3, title: 'Custom branding', active: true },
-          { id: 4, title: 'Dedicated account manager', active: true },
+          {
+            id: 1,
+            get title() {
+              return i18n.t('ui.data.pricing.advanced_reporting_aad563ea');
+            },
+            active: true,
+          },
+          {
+            id: 2,
+            get title() {
+              return i18n.t('ui.data.pricing.priority_customer_support_60383815');
+            },
+            active: true,
+          },
+          {
+            id: 3,
+            get title() {
+              return i18n.t('ui.data.pricing.custom_branding_438ee422');
+            },
+            active: true,
+          },
+          {
+            id: 4,
+            get title() {
+              return i18n.t('ui.data.pricing.dedicated_account_manager_21926cc0');
+            },
+            active: true,
+          },
         ],
       },
     ],

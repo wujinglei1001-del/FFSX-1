@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 
 const fmt = (date) => date.format('DD-MM-YYYY');
 
@@ -18,7 +19,9 @@ export const generateGanttTasks = () => {
   return [
     {
       id: 'group-1',
-      text: 'Planning Phase',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.planning_phase_448907fb');
+      },
       start_date: fmt(planningStart),
       end_date: fmt(planningEnd),
       progress: 0.4,
@@ -29,7 +32,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-1-1',
-      text: 'Requirements Analysis',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.requirements_analysis_cd6e9ecb');
+      },
       start_date: fmt(planningStart),
       end_date: fmt(planningStart.add(13, 'day')),
       progress: 0.8,
@@ -41,7 +46,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-1-2',
-      text: 'Project Scope Definition',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.project_scope_definition_c525317f');
+      },
       start_date: fmt(planningStart.add(7, 'day')),
       end_date: fmt(planningStart.add(20, 'day')),
       progress: 0.6,
@@ -53,7 +60,11 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-1-3',
-      text: 'Resource Planning Resource Planning Resource Planning',
+      get text() {
+        return i18n.t(
+          'ui.data.project.gantt_data.resource_planning_resource_planning_resource_plannin_5f1a5c44',
+        );
+      },
       start_date: fmt(planningStart.add(15, 'day')),
       end_date: fmt(planningEnd),
       progress: 0.3,
@@ -65,7 +76,9 @@ export const generateGanttTasks = () => {
 
     {
       id: 'group-2',
-      text: 'Development Phase',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.development_phase_310b35b6');
+      },
       start_date: fmt(developmentStart),
       end_date: fmt(developmentEnd),
       progress: 0.1,
@@ -76,7 +89,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-2-1',
-      text: 'Frontend Development',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.frontend_development_d9f38c98');
+      },
       start_date: fmt(developmentStart),
       end_date: fmt(developmentStart.add(20, 'day')),
       progress: 0.1,
@@ -88,7 +103,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-2-2',
-      text: 'Backend Development',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.backend_development_2554cd31');
+      },
       start_date: fmt(developmentStart.add(7, 'day')),
       end_date: fmt(developmentEnd),
       progress: 0.15,
@@ -99,7 +116,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-2-3',
-      text: 'API Integration',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.api_integration_eec15045');
+      },
       start_date: fmt(developmentStart.add(14, 'day')),
       end_date: fmt(developmentEnd),
       progress: 0.9,
@@ -111,7 +130,9 @@ export const generateGanttTasks = () => {
 
     {
       id: 'group-3',
-      text: 'Testing & Deployment',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.testing_deployment_5f280215');
+      },
       start_date: fmt(testingStart),
       end_date: fmt(testingEnd),
       progress: 0.9,
@@ -122,7 +143,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-3-1',
-      text: 'Unit Testing',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.unit_testing_438d2345');
+      },
       start_date: fmt(testingStart),
       end_date: fmt(testingStart.add(6, 'day')),
       progress: 0.1,
@@ -133,7 +156,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-3-2',
-      text: 'Integration Testing',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.integration_testing_ed8e7536');
+      },
       start_date: fmt(testingStart.add(3, 'day')),
       end_date: fmt(testingStart.add(10, 'day')),
       progress: 0.55,
@@ -144,7 +169,9 @@ export const generateGanttTasks = () => {
     },
     {
       id: 'task-3-3',
-      text: 'Production Deployment',
+      get text() {
+        return i18n.t('ui.data.project.gantt_data.production_deployment_c5c5063b');
+      },
       start_date: fmt(testingStart.add(7, 'day')),
       end_date: fmt(testingEnd),
       progress: 0.82,
@@ -161,37 +188,49 @@ export const ganttTasks = generateGanttTasks();
 export const ganttResources = [
   {
     id: 'resource-1',
-    text: 'Project Manager',
+    get text() {
+      return i18n.t('ui.data.project.gantt_data.project_manager_92e918a7');
+    },
     type: 'resource',
     color: '#4CAF50',
   },
   {
     id: 'resource-2',
-    text: 'UI/UX Designer',
+    get text() {
+      return i18n.t('ui.data.project.gantt_data.ui_ux_designer_a3c75d30');
+    },
     type: 'resource',
     color: '#FF9800',
   },
   {
     id: 'resource-3',
-    text: 'Frontend Developer',
+    get text() {
+      return i18n.t('ui.data.project.gantt_data.frontend_developer_c56054b1');
+    },
     type: 'resource',
     color: '#9C27B0',
   },
   {
     id: 'resource-4',
-    text: 'Backend Developer',
+    get text() {
+      return i18n.t('ui.data.project.gantt_data.backend_developer_9d4b5f2f');
+    },
     type: 'resource',
     color: '#F44336',
   },
   {
     id: 'resource-5',
-    text: 'QA Engineer',
+    get text() {
+      return i18n.t('ui.data.project.gantt_data.qa_engineer_0d309ac1');
+    },
     type: 'resource',
     color: '#607D8B',
   },
   {
     id: 'resource-6',
-    text: 'DevOps Engineer',
+    get text() {
+      return i18n.t('ui.data.project.gantt_data.devops_engineer_44daf5ae');
+    },
     type: 'resource',
     color: '#795548',
   },

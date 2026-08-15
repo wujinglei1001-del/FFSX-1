@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
 const AllocationTable = ({ tableData }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <TableContainer
       component={Paper}
@@ -16,7 +18,9 @@ const AllocationTable = ({ tableData }) => {
         overflow: 'hidden',
       }}
     >
-      <Table aria-label="simple table">
+      <Table
+        aria-label={translateUi('ui.sections.dashboards.hrm.allocation.simple_table_2786bbd9')}
+      >
         <TableHead>
           <TableRow
             sx={(theme) => ({
@@ -28,9 +32,11 @@ const AllocationTable = ({ tableData }) => {
               },
             })}
           >
-            <TableCell component="th">Dept</TableCell>
+            <TableCell component="th">
+              {translateUi('ui.sections.dashboards.hrm.allocation.dept_48a7b68e')}
+            </TableCell>
             <TableCell component="th" align="right">
-              Headcount
+              {translateUi('ui.sections.dashboards.hrm.allocation.headcount_69f0dd6e')}
             </TableCell>
           </TableRow>
         </TableHead>

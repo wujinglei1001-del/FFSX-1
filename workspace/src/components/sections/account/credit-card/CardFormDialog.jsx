@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   Dialog,
@@ -18,6 +19,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const CardFormDialog = (props) => {
+  const { t: translateUi } = useTranslation();
   const { open, handleDialogClose, card, onSubmit } = props;
   const {
     control,
@@ -65,7 +67,7 @@ const CardFormDialog = (props) => {
           </Stack>
         ) : (
           <Typography variant="body1" sx={{ fontWeight: 700 }}>
-            Add information
+            {translateUi('ui.sections.account.credit_card.cardformdialog.add_information_6f689eea')}
           </Typography>
         )}
 
@@ -76,14 +78,16 @@ const CardFormDialog = (props) => {
       <DialogContent sx={{ pb: 0 }}>
         <Stack sx={{ gap: 1, p: 0.125 }}>
           <TextField
-            label="Card number"
+            label={translateUi(
+              'ui.sections.account.credit_card.cardformdialog.card_number_6747e707',
+            )}
             fullWidth
             error={!!errors.cardNumber}
             helperText={errors.cardNumber?.message}
             {...register('cardNumber')}
           />
           <TextField
-            label="Full name"
+            label={translateUi('ui.sections.account.credit_card.cardformdialog.full_name_eeb69208')}
             fullWidth
             error={!!errors.cardHolder}
             helperText={errors.cardHolder?.message}
@@ -95,7 +99,9 @@ const CardFormDialog = (props) => {
               name="expireDate"
               render={({ field }) => (
                 <DatePicker
-                  label="Expiry date"
+                  label={translateUi(
+                    'ui.sections.account.credit_card.cardformdialog.expiry_date_6b440cd5',
+                  )}
                   disablePast
                   format="DD/MM/YYYY"
                   value={field.value ? dayjs(field.value, 'DD/MM/YYYY') : null}
@@ -136,10 +142,10 @@ const CardFormDialog = (props) => {
             handleDialogClose();
           }}
         >
-          Discard
+          {translateUi('ui.sections.account.credit_card.cardformdialog.discard_36fff63c')}
         </Button>
         <Button type="submit" variant="contained" color="primary">
-          Confirm
+          {translateUi('ui.sections.account.credit_card.cardformdialog.confirm_04a21221')}
         </Button>
       </DialogActions>
     </Dialog>

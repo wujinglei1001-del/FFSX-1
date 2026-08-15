@@ -1,5 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { Box, ListItem, ListItemButton, ListItemIcon, ListItemText, Stack } from '@mui/material';
-import { THEME_DISPLAY_NAMES } from 'theme/palettes';
+import { THEME_TRANSLATION_KEYS } from 'theme/palettes';
 import { ThemeRadio, themeListRowSx } from './ThemeRadio';
 
 const ThemeListItem = ({
@@ -10,6 +11,7 @@ const ThemeListItem = ({
   variant = 'default',
   isNested = false,
 }) => {
+  const { t: translateUi } = useTranslation();
   const colors = [palette.primary?.main, palette.background?.menu];
 
   return (
@@ -24,7 +26,9 @@ const ThemeListItem = ({
           <ThemeRadio checked={isSelected} />
         </ListItemIcon>
 
-        <ListItemText primary={THEME_DISPLAY_NAMES[preset] || preset} />
+        <ListItemText
+          primary={translateUi(THEME_TRANSLATION_KEYS[preset], { defaultValue: preset })}
+        />
 
         <Stack
           direction="row"

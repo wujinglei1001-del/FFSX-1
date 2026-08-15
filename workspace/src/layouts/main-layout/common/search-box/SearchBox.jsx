@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -41,6 +42,7 @@ const SearchBox = ({ sx }) => {
 };
 
 export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -67,7 +69,7 @@ export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
           {...rest}
         >
           <Box sx={{ mb: 0.25 }} component="span">
-            Search
+            {translateUi('ui.layouts.main_layout.common.search_box.search_bce06414')}
           </Box>
         </Button>
       ) : (

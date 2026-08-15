@@ -1,9 +1,12 @@
+import i18n from 'locales/i18n';
 import paths from './paths';
 
 const sitemap = [
   {
     id: 'homepage',
-    subheader: 'Homepage',
+    get subheader() {
+      return i18n.t('ui.routes.sitemap.homepage_ac066591');
+    },
     key: 'homepage',
     icon: 'material-symbols:data-exploration-outline-rounded',
     items: [
@@ -75,7 +78,9 @@ const sitemap = [
   },
   {
     id: 'apps',
-    subheader: 'Apps',
+    get subheader() {
+      return i18n.t('ui.routes.sitemap.apps_d9a36850');
+    },
     key: 'apps',
     icon: 'material-symbols:widgets-outline-rounded',
     items: [
@@ -793,7 +798,9 @@ const sitemap = [
   },
   {
     id: 'pages',
-    subheader: 'Pages',
+    get subheader() {
+      return i18n.t('ui.routes.sitemap.pages_600584c2');
+    },
     key: 'pages',
     icon: 'material-symbols:view-quilt-outline',
     items: [
@@ -935,7 +942,9 @@ const sitemap = [
   },
   {
     id: 'misc',
-    subheader: 'Misc',
+    get subheader() {
+      return i18n.t('ui.routes.sitemap.misc_0a893ece');
+    },
     key: 'misc',
     icon: 'material-symbols:dashboard-customize-outline-rounded',
     items: [

@@ -1,10 +1,12 @@
 import { Fragment, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Drawer, Stack, Toolbar, Typography } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SimpleBar from 'components/base/SimpleBar';
 
 const FilterDrawerWrapper = ({ title = 'Filter', children, onApply, onClear }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upLg = up('lg');
   const [open, setOpen] = useState(false);
@@ -21,7 +23,11 @@ const FilterDrawerWrapper = ({ title = 'Filter', children, onApply, onClear }) =
         onClick={toggleDrawer(true)}
       >
         <IconifyIcon icon="material-symbols:filter-alt-outline" fontSize={20} />
-        {upLg && <Box component="span">Filter</Box>}
+        {upLg && (
+          <Box component="span">
+            {translateUi('ui.sections.time_tracker.common.filterdrawerwrapper.filter_d7decf1a')}
+          </Box>
+        )}
       </Button>
 
       <Drawer
@@ -51,7 +57,7 @@ const FilterDrawerWrapper = ({ title = 'Filter', children, onApply, onClear }) =
         <Toolbar sx={{ p: { xs: 0 }, display: 'block' }}>
           <Stack direction="row" sx={{ gap: 1, py: 3, px: 5, mt: 'auto' }}>
             <Button color="neutral" onClick={onClear}>
-              Clear
+              {translateUi('ui.sections.time_tracker.common.filterdrawerwrapper.clear_719ea396')}
             </Button>
             <Button
               variant="contained"
@@ -61,7 +67,7 @@ const FilterDrawerWrapper = ({ title = 'Filter', children, onApply, onClear }) =
                 toggleDrawer(false)();
               }}
             >
-              Apply
+              {translateUi('ui.sections.time_tracker.common.filterdrawerwrapper.apply_cfea419c')}
             </Button>
           </Stack>
         </Toolbar>

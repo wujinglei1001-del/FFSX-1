@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Popover, Slider, Stack, Tooltip } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useAudio } from '../../AudioProvider';
 
 const PlayerOptions = ({ isExpanded, togglePlayer, sx }) => {
+  const { t: translateUi } = useTranslation();
   const { volume, isMuted, toggleMute, changeVolume, playbackRate, changePlaybackRate } =
     useAudio();
   const [volumeAnchor, setVolumeAnchor] = useState(null);
@@ -111,7 +113,11 @@ const PlayerOptions = ({ isExpanded, togglePlayer, sx }) => {
           </Stack>
         </Box>
       </Popover>
-      <Tooltip title="Playback Speed" placement="top" arrow>
+      <Tooltip
+        title={translateUi('ui.sections.content.details.podcast.playback_speed_3c0668cc')}
+        placement="top"
+        arrow
+      >
         <Button shape="circle" color="neutral" size="small" onClick={handlePlaybackClick}>
           <IconifyIcon icon="material-symbols:speed-outline-rounded" sx={{ fontSize: 18 }} />
         </Button>

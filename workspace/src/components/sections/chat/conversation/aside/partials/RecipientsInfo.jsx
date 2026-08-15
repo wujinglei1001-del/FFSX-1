@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -20,6 +21,7 @@ import RecipientAvatar from 'components/sections/chat/common/RecipientAvatar';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const RecipientsInfo = () => {
+  const { t: translateUi } = useTranslation();
   const { currentConversation, chatDispatch } = useChatContext();
   const inputRef = useRef(null);
   const [isEmailCopied, setIsEmailCopied] = useState(false);
@@ -138,7 +140,9 @@ const RecipientsInfo = () => {
             )}
 
             {!isEditingName && editedName && (
-              <Tooltip title="Edit name">
+              <Tooltip
+                title={translateUi('ui.sections.chat.conversation.aside.edit_name_d3aafd85')}
+              >
                 <Button variant="text" shape="circle" color="neutral" onClick={handleEditClick}>
                   <IconifyIcon icon="material-symbols:edit-outline" fontSize={18} />
                 </Button>

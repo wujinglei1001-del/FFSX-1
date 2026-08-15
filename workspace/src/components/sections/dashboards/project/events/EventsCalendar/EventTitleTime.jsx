@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   FormControl,
@@ -15,6 +16,7 @@ import dayjs from 'dayjs';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const EventTitleTime = () => {
+  const { t: translateUi } = useTranslation();
   const { vars } = useTheme();
   const {
     control,
@@ -25,7 +27,7 @@ const EventTitleTime = () => {
   return (
     <Stack sx={{ gap: 2, alignItems: 'flex-start' }}>
       <StyledTextField
-        label="Title"
+        label={translateUi('ui.sections.dashboards.project.events.title_768e0c1c')}
         fullWidth
         {...register('title')}
         error={!!errors.title}
@@ -53,7 +55,7 @@ const EventTitleTime = () => {
                     }}
                   />
                 }
-                label="All day event"
+                label={translateUi('ui.sections.dashboards.project.events.all_day_event_b4f02de8')}
                 sx={{ gap: 1.5, mx: 0, mb: 1 }}
               />
             )}
@@ -65,7 +67,11 @@ const EventTitleTime = () => {
               control={control}
               name="category"
               render={({ field }) => (
-                <StyledTextField select label="Category" {...field}>
+                <StyledTextField
+                  select
+                  label={translateUi('ui.sections.dashboards.project.events.category_a3c686e7')}
+                  {...field}
+                >
                   {eventCategories.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
                       <Stack direction="row" sx={{ gap: 1.5, alignItems: 'center' }}>
@@ -102,7 +108,7 @@ const EventTitleTime = () => {
               lineHeight: 1.2,
             }}
           >
-            Starts at
+            {translateUi('ui.sections.dashboards.project.events.starts_at_5ea99def')}
           </Typography>
           <Stack sx={{ gap: 1 }}>
             <Controller
@@ -167,7 +173,7 @@ const EventTitleTime = () => {
               lineHeight: 1.2,
             }}
           >
-            Ends at
+            {translateUi('ui.sections.dashboards.project.events.ends_at_29d50c0b')}
           </Typography>
           <Stack sx={{ gap: 1 }}>
             <Controller

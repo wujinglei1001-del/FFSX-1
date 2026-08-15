@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
@@ -8,12 +9,15 @@ import StyledTextField from 'components/styled/StyledTextField';
 import Note from './Note';
 
 const NotesTabPanel = ({ notes }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Container maxWidth={false} sx={{ maxWidth: 800, px: { xs: 0 } }}>
       <StyledTextField
         multiline
         rows={4}
-        placeholder="Write & press enter"
+        placeholder={translateUi(
+          'ui.sections.crm.common.activity_tab_panels.write_press_enter_de179dff',
+        )}
         fullWidth
         sx={{
           mb: 1,
@@ -34,7 +38,9 @@ const NotesTabPanel = ({ notes }) => {
         </Stack>
       </SimpleBar>
 
-      <Button sx={{ mt: 3 }}>Load more notes</Button>
+      <Button sx={{ mt: 3 }}>
+        {translateUi('ui.sections.crm.common.activity_tab_panels.load_more_notes_ac0471fd')}
+      </Button>
     </Container>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
 import useLightbox from 'hooks/useLightbox';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -8,6 +9,7 @@ import SectionHeader from '../common/SectionHeader';
 import { StripedBackground } from '../common/StripedBackground';
 
 const Gallery = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const { openLightbox, ...lightboxProps } = useLightbox();
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -30,7 +32,11 @@ const Gallery = ({ data }) => {
           },
         }}
       >
-        <SectionHeader title="Gallery" subtitle="Project showcase" sx={{ mb: 3 }} />
+        <SectionHeader
+          title={translateUi('ui.sections.landing.homepage.gallery.gallery_9c30a348')}
+          subtitle={translateUi('ui.sections.landing.homepage.gallery.project_showcase_ed0898bf')}
+          sx={{ mb: 3 }}
+        />
 
         <Container maxWidth={false} sx={{ maxWidth: 1448, px: { xs: 0 }, textAlign: 'center' }}>
           <Grid
@@ -80,7 +86,7 @@ const Gallery = ({ data }) => {
           </Grid>
 
           <Button variant="soft" color="neutral">
-            Load more
+            {translateUi('ui.sections.landing.homepage.gallery.load_more_dfe60ca9')}
           </Button>
         </Container>
       </Box>

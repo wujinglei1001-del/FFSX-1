@@ -2,11 +2,17 @@ import { useState } from 'react';
 import { TabContext, TabPanel } from '@mui/lab';
 import { Box } from '@mui/material';
 import { contentList } from 'data/content/homepage';
+import i18n from 'locales/i18n';
 import CategoryTabList from './CategoryTabList';
 import ContentCard from './ContentCard';
 
 const getUniqueCategories = () => [
-  { key: 'all', label: 'All' },
+  {
+    key: 'all',
+    get label() {
+      return i18n.t('ui.sections.content.homepage.contentmain.all_6a720856');
+    },
+  },
   ...Array.from(
     new Map(contentList.map(({ key, category }) => [key, category])),
     ([key, label]) => ({ key, label }),

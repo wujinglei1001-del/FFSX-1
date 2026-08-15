@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -13,6 +14,7 @@ import CRMDropdownMenu from '../../CRMDropdownMenu';
 import EmailFile from './EmailFile';
 
 const EmailAccordion = ({ email }) => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const { up } = useBreakpoints();
@@ -76,7 +78,9 @@ const EmailAccordion = ({ email }) => {
                   }}
                 >
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                    Sent via{' '}
+                    {translateUi(
+                      'ui.sections.crm.common.activity_tab_panels.sent_via_e9230d21',
+                    )}{' '}
                   </Typography>
                   <Typography variant="subtitle2">{email.sentVia}</Typography>
                 </Stack>

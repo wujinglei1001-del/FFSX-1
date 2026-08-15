@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   blogData,
   faqData,
@@ -24,6 +25,7 @@ import Features from 'components/sections/landing/homepage/features';
 import Showcase from 'components/sections/landing/homepage/showcase';
 
 const LandingHomepage = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <Hero />
@@ -43,7 +45,7 @@ const LandingHomepage = () => {
       <FAQContact
         sx={{
           '&:after': {
-            content: 'none',
+            content: translateUi('ui.pages.landing.homepage.none_71f8e797'),
           },
         }}
       />

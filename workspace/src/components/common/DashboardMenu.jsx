@@ -1,16 +1,24 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem, listClasses, menuClasses } from '@mui/material';
+import i18n from 'locales/i18n';
 import EllipsisHorizontalIcon from 'components/icons/EllipsisHorizontalIcon';
 
 const defaultItems = [
   {
-    label: 'Sync',
+    get label() {
+      return i18n.t('ui.components.common.dashboardmenu.sync_905f6309');
+    },
   },
   {
-    label: 'Export',
+    get label() {
+      return i18n.t('ui.components.common.dashboardmenu.export_f3e4fadb');
+    },
   },
   {
-    label: 'Remove',
+    get label() {
+      return i18n.t('ui.components.common.dashboardmenu.remove_e963907d');
+    },
     sx: { color: 'error.main' },
   },
 ];
@@ -29,6 +37,7 @@ const DashboardMenu = ({
   sx,
   ...rest
 }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -57,7 +66,7 @@ const DashboardMenu = ({
         size={size}
         variant={variant}
         disabled={disabled}
-        aria-label="more"
+        aria-label={translateUi('ui.components.common.dashboardmenu.more_e7c95b4c')}
         id="action-button"
         aria-controls={open ? 'actions-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}

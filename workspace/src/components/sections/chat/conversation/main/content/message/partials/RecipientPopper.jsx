@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Button, Grow, Paper, Popper, Stack, Typography } from '@mui/material';
 import { generateUniqueId } from 'lib/utils';
@@ -8,6 +9,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import RecipientAvatar from 'components/sections/chat/common/RecipientAvatar';
 
 const RecipientPopper = ({ data, handleClose, anchorEl, messageType }) => {
+  const { t: translateUi } = useTranslation();
   const { chatDispatch, conversations } = useChatContext();
   const navigate = useNavigate();
 
@@ -100,7 +102,7 @@ const RecipientPopper = ({ data, handleClose, anchorEl, messageType }) => {
                 />
               }
             >
-              Message
+              {translateUi('ui.sections.chat.conversation.main.message_68f4145f')}
             </Button>
           </Paper>
         </Grow>

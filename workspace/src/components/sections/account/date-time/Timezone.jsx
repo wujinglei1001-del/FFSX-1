@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Autocomplete,
@@ -10,6 +11,7 @@ import {
   TextField,
 } from '@mui/material';
 import { closestCities, timezones } from 'data/account/date-time';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -19,11 +21,16 @@ import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const timezoneSchema = yup.object().shape({
   autoSetTimeZone: yup.boolean().required(),
-  timezone: yup.string().required('Timezone is required'),
-  closestCity: yup.string().required('Closest city is required'),
+  timezone: yup
+    .string()
+    .required(i18n.t('ui.sections.account.date_time.timezone.timezone_is_required_7456f503')),
+  closestCity: yup
+    .string()
+    .required(i18n.t('ui.sections.account.date_time.timezone.closest_city_is_required_c6936218')),
 });
 
 const Timezone = () => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
   const methods = useForm({
@@ -55,7 +62,9 @@ const Timezone = () => {
           render={({ field }) => (
             <FormControlLabel
               control={<Switch checked={field.value} {...field} />}
-              label="Auto-Set Time Zone Based on Location"
+              label={translateUi(
+                'ui.sections.account.date_time.timezone.auto_set_time_zone_based_on_location_f050c539',
+              )}
               sx={{ gap: 2, ml: 0 }}
             />
           )}
@@ -63,8 +72,14 @@ const Timezone = () => {
       </FormControl>
       <InfoCard setOpen={setOpen}>
         <Stack sx={{ gap: 1 }}>
-          <InfoCardAttribute label="Time zone" value={timezone} />
-          <InfoCardAttribute label="Closest city" value={closestCity} />
+          <InfoCardAttribute
+            label={translateUi('ui.sections.account.date_time.timezone.time_zone_eea79afd')}
+            value={timezone}
+          />
+          <InfoCardAttribute
+            label={translateUi('ui.sections.account.date_time.timezone.closest_city_55634d9b')}
+            value={closestCity}
+          />
         </Stack>
         <IconifyIcon
           icon="material-symbols-light:edit-outline"
@@ -72,8 +87,10 @@ const Timezone = () => {
         />
       </InfoCard>
       <AccountFormDialog
-        title="Set Regional Settings"
-        subtitle="Set your time zone and regional preferences to match your closest city."
+        title={translateUi('ui.sections.account.date_time.timezone.set_regional_settings_c64ae2ee')}
+        subtitle={translateUi(
+          'ui.sections.account.date_time.timezone.set_your_time_zone_and_regional_preferences_to_match_b433378e',
+        )}
         open={open}
         onSubmit={onSubmit}
         handleDialogClose={() => setOpen(false)}
@@ -97,8 +114,10 @@ const Timezone = () => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Time Zone"
-                    placeholder="Select time zone"
+                    label={translateUi('ui.sections.account.date_time.timezone.time_zone_a30e720c')}
+                    placeholder={translateUi(
+                      'ui.sections.account.date_time.timezone.select_time_zone_4e1b484e',
+                    )}
                     error={!!errors.timezone}
                     helperText={errors.timezone?.message}
                   />
@@ -121,8 +140,12 @@ const Timezone = () => {
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Closest city"
-                    placeholder="Select city"
+                    label={translateUi(
+                      'ui.sections.account.date_time.timezone.closest_city_55634d9b',
+                    )}
+                    placeholder={translateUi(
+                      'ui.sections.account.date_time.timezone.select_city_42303635',
+                    )}
                     error={!!errors.closestCity}
                     helperText={errors.closestCity?.message}
                   />

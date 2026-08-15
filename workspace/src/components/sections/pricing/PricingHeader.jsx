@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
@@ -7,10 +8,11 @@ import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 
 const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMode }) => {
+  const { t: translateUi } = useTranslation();
   const renderPricingSwitch = (
     <Stack direction="row" sx={{ gap: 1, alignSelf: { xs: 'flex-start', lg: 'flex-end' } }}>
       <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-        Monthly pricing
+        {translateUi('ui.sections.pricing.pricingheader.monthly_pricing_7749a476')}
       </Typography>
       <Switch checked={isYearly} onChange={handleSwitchChange} />
       <Typography
@@ -19,7 +21,7 @@ const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMo
           color: 'text.secondary',
         }}
       >
-        Annual pricing
+        {translateUi('ui.sections.pricing.pricingheader.annual_pricing_1a5ea46f')}
       </Typography>
     </Stack>
   );
@@ -33,7 +35,7 @@ const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMo
         color={isYearly ? 'primary' : 'neutral'}
         onClick={() => onButtonChange?.(true)}
       >
-        Yearly
+        {translateUi('ui.sections.pricing.pricingheader.yearly_7622eb5a')}
       </Button>{' '}
       <Button
         fullWidth
@@ -42,7 +44,7 @@ const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMo
         color={!isYearly ? 'primary' : 'neutral'}
         onClick={() => onButtonChange?.(false)}
       >
-        Monthly
+        {translateUi('ui.sections.pricing.pricingheader.monthly_d31edb7b')}
       </Button>
     </Stack>
   );
@@ -64,8 +66,14 @@ const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMo
           direction={{ xs: 'column', sm: 'row' }}
           sx={{ gap: 2, mb: 3, alignItems: { xs: 'flex-start', sm: 'center' } }}
         >
-          <Typography variant="h4">Pricing Options</Typography>
-          <Chip label="Free for 30 days" variant="soft" color="warning" />
+          <Typography variant="h4">
+            {translateUi('ui.sections.pricing.pricingheader.pricing_options_11f37114')}
+          </Typography>
+          <Chip
+            label={translateUi('ui.sections.pricing.pricingheader.free_for_30_days_e546f0e2')}
+            variant="soft"
+            color="warning"
+          />
         </Stack>
         <Typography
           variant="body1"
@@ -74,11 +82,14 @@ const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMo
             mb: 1,
           }}
         >
-          Get the power, control, and customization you need to manage your team’s and
-          organization’s projects.
+          {translateUi(
+            'ui.sections.pricing.pricingheader.get_the_power_control_and_customization_you_need_to__0319e14f',
+          )}
         </Typography>
 
-        <Link href="#!">Have questions? Chat with us</Link>
+        <Link href="#!">
+          {translateUi('ui.sections.pricing.pricingheader.have_questions_chat_with_us_1eb18566')}
+        </Link>
       </Box>
       {displayMode === 'column' ? renderPricingSwitch : renderPricingButtons}
     </Stack>

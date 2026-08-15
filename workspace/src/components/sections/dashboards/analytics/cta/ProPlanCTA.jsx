@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack, Typography } from '@mui/material';
 import paths from 'routes/paths';
 
 const ProPlanCTA = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{
@@ -22,7 +24,7 @@ const ProPlanCTA = () => {
         }}
       >
         <Typography variant="h3" sx={{ typography: { xs: 'h4', sm: 'h3' }, flexShrink: { sm: 0 } }}>
-          Try our pro plan
+          {translateUi('ui.sections.dashboards.analytics.cta.try_our_pro_plan_42f3de98')}
         </Typography>
 
         <Typography
@@ -31,7 +33,9 @@ const ProPlanCTA = () => {
             fontWeight: { xs: 400, sm: 400 },
           }}
         >
-          First month free, $12.50/month after.
+          {translateUi(
+            'ui.sections.dashboards.analytics.cta.first_month_free_12_50_month_after_4adee577',
+          )}
         </Typography>
       </Stack>
       <Button
@@ -41,7 +45,7 @@ const ProPlanCTA = () => {
         size="large"
         sx={{ flexShrink: 0, alignSelf: 'center' }}
       >
-        See Plans
+        {translateUi('ui.sections.dashboards.analytics.cta.see_plans_0cd0ae19')}
       </Button>
     </Paper>
   );

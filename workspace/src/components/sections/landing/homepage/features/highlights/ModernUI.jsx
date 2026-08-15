@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import FormControl from '@mui/material/FormControl';
@@ -10,6 +11,7 @@ import { StripedBackground } from '../../../common/StripedBackground';
 import { BentoCardHeader } from './BentoCard';
 
 const ModernUI = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       component={StripedBackground}
@@ -20,8 +22,12 @@ const ModernUI = () => {
       }}
     >
       <BentoCardHeader
-        title="Modern and beautiful UI"
-        subtitle="Create stunning websites"
+        title={translateUi(
+          'ui.sections.landing.homepage.features.modern_and_beautiful_ui_8b1d37e1',
+        )}
+        subtitle={translateUi(
+          'ui.sections.landing.homepage.features.create_stunning_websites_e592584c',
+        )}
         sx={{ pt: { xs: 2, md: 3 }, px: { xs: 2, md: 3 } }}
       />
       <Box
@@ -52,7 +58,7 @@ const ModernUI = () => {
               }}
             >
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Birthday
+                {translateUi('ui.sections.landing.homepage.features.birthday_a6b9d69f')}
               </Typography>
               <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 14 }} />
             </Stack>
@@ -64,7 +70,9 @@ const ModernUI = () => {
                 lineClamp: 2,
               }}
             >
-              Provide your birthday to ensure you get the right content and features for your age .
+              {translateUi(
+                'ui.sections.landing.homepage.features.provide_your_birthday_to_ensure_you_get_the_right_co_c12c2030',
+              )}
             </Typography>
           </Stack>
           <Stack
@@ -79,16 +87,40 @@ const ModernUI = () => {
               }}
             >
               <FormControl size="small" fullWidth>
-                <InputLabel id="date-label">Date</InputLabel>
-                <Select labelId="date-label" id="date" label="Date" disabled value="" />
+                <InputLabel id="date-label">
+                  {translateUi('ui.sections.landing.homepage.features.date_eb9a4bc1')}
+                </InputLabel>
+                <Select
+                  labelId="date-label"
+                  id="date"
+                  label={translateUi('ui.sections.landing.homepage.features.date_eb9a4bc1')}
+                  disabled
+                  value=""
+                />
               </FormControl>
               <FormControl size="small" fullWidth>
-                <InputLabel id="month-label">Month</InputLabel>
-                <Select labelId="month-label" id="month" label="Month" disabled value="" />
+                <InputLabel id="month-label">
+                  {translateUi('ui.sections.landing.homepage.features.month_082bc378')}
+                </InputLabel>
+                <Select
+                  labelId="month-label"
+                  id="month"
+                  label={translateUi('ui.sections.landing.homepage.features.month_082bc378')}
+                  disabled
+                  value=""
+                />
               </FormControl>
               <FormControl size="small" fullWidth>
-                <InputLabel id="year-label">Year</InputLabel>
-                <Select labelId="year-label" id="year" label="Date" disabled value="" />
+                <InputLabel id="year-label">
+                  {translateUi('ui.sections.landing.homepage.features.year_879e3232')}
+                </InputLabel>
+                <Select
+                  labelId="year-label"
+                  id="year"
+                  label={translateUi('ui.sections.landing.homepage.features.date_eb9a4bc1')}
+                  disabled
+                  value=""
+                />
               </FormControl>
             </Stack>
             <Stack
@@ -99,9 +131,11 @@ const ModernUI = () => {
               }}
             >
               <Button variant="soft" color="neutral">
-                Discard
+                {translateUi('ui.sections.landing.homepage.features.discard_36fff63c')}
               </Button>
-              <Button variant="contained">Confirm</Button>
+              <Button variant="contained">
+                {translateUi('ui.sections.landing.homepage.features.confirm_04a21221')}
+              </Button>
             </Stack>
           </Stack>
         </Stack>

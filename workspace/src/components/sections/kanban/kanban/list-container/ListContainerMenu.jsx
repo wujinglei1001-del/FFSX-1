@@ -4,20 +4,27 @@ import ListItemIcon, { listItemIconClasses } from '@mui/material/ListItemIcon';
 import Menu, { menuClasses } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 export const menuItems = [
   {
     icon: 'material-symbols:edit-outline-rounded',
-    text: 'Rename section',
+    get text() {
+      return i18n.t('ui.sections.kanban.kanban.list_container.rename_section_45e65cd4');
+    },
   },
   {
     icon: 'material-symbols:content-copy-outline-rounded',
-    text: 'Copy list',
+    get text() {
+      return i18n.t('ui.sections.kanban.kanban.list_container.copy_list_105c19e2');
+    },
   },
   {
     icon: 'material-symbols:delete-outline-rounded',
-    text: 'Delete this list',
+    get text() {
+      return i18n.t('ui.sections.kanban.kanban.list_container.delete_this_list_0a2fe7ad');
+    },
   },
 ];
 

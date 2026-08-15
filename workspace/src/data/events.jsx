@@ -1,10 +1,13 @@
 import { List, ListItem, ListItemText, Stack, Typography } from '@mui/material';
 import { initialConfig } from 'config';
+import i18n from 'locales/i18n';
 
 const image = (name) => `${initialConfig.assetsDir}/images/events/${name}.webp`;
 
 export const eventInfo = {
-  title: '“Louder Together” A Musical Night with Nemesis and Cryptic Fate',
+  get title() {
+    return i18n.t('ui.data.events.louder_together_a_musical_night_with_nemesis_and_cry_246d59a3');
+  },
   date: 'Saturday, 29 May, 2024',
   startTime: '5:00pm',
   endTime: '10:00pm',
@@ -17,15 +20,13 @@ export const description = {
   content: (
     <>
       <Typography variant="body1" sx={{ fontWeight: 700, mb: 3, color: 'text.secondary' }}>
-        🌟 Louder Together: NightSky & Dawn 🌟
+        {i18n.t('ui.data.events.louder_together_nightsky_dawn_c3bff783')}
       </Typography>
       <Typography variant="body1">
-        Get ready for an otherworldly musical journey as the celestial forces align! 🎶 On a
-        star-studded night, the bands NightSky and Dawn will collide in an unforgettable concert
-        experience that transcends time and space.
+        {i18n.t('ui.data.events.get_ready_for_an_otherworldly_musical_journey_as_the_504a333a')}
       </Typography>
       <Typography variant="body1" sx={{ fontWeight: 700, my: 3 }}>
-        What to Expect:
+        {i18n.t('ui.data.events.what_to_expect_e42fb505')}
       </Typography>
       <List dense disablePadding sx={{ mt: 3 }}>
         <ListItem disablePadding disableGutters sx={{ mb: 2 }}>
@@ -58,10 +59,11 @@ export const description = {
                       mr: 0.5,
                     }}
                   >
-                    Harmonious Convergence:
+                    {i18n.t('ui.data.events.harmonious_convergence_a5570ccc')}
                   </Typography>
-                  NightSky’s ethereal melodies will blend seamlessly with Dawn’s uplifting rhythms.
-                  Imagine the Milky Way itself swaying to their cosmic tunes.
+                  {i18n.t(
+                    'ui.data.events.nightsky_s_ethereal_melodies_will_blend_seamlessly_w_35de14bf',
+                  )}
                 </Typography>
               </Stack>
             }
@@ -97,11 +99,11 @@ export const description = {
                       mr: 0.5,
                     }}
                   >
-                    Stellar Setlists:
+                    {i18n.t('ui.data.events.stellar_setlists_505e7518')}
                   </Typography>{' '}
-                  NightSky will unveil their latest nebula-inspired compositions, while Dawn will
-                  ignite the stage with their sun-kissed anthems. Hits like “Galactic Serenade” and
-                  “Aurora Borealis” are bound to leave you spellbound.
+                  {i18n.t(
+                    'ui.data.events.nightsky_will_unveil_their_latest_nebula_inspired_co_78b9c72a',
+                  )}
                 </Typography>
               </Stack>
             }
@@ -137,10 +139,11 @@ export const description = {
                       mr: 0.5,
                     }}
                   >
-                    Interstellar Visuals:
+                    {i18n.t('ui.data.events.interstellar_visuals_be97e291')}
                   </Typography>{' '}
-                  Brace yourself for mesmerizing visuals projected onto a holographic dome. Nebulas,
-                  shooting stars, and celestial ballets will dance in harmony with the music.
+                  {i18n.t(
+                    'ui.data.events.brace_yourself_for_mesmerizing_visuals_projected_ont_4accd1b2',
+                  )}
                 </Typography>
               </Stack>
             }
@@ -176,11 +179,11 @@ export const description = {
                       mr: 0.5,
                     }}
                   >
-                    Cosmic Attire:
+                    {i18n.t('ui.data.events.cosmic_attire_19855456')}
                   </Typography>{' '}
-                  Attendees are encouraged to dress in celestial-themed attire. Think shimmering
-                  sequins, metallic hues, and galaxy prints. After all, you’re not just attending a
-                  concert—you’re embarking on a cosmic voyage.
+                  {i18n.t(
+                    'ui.data.events.attendees_are_encouraged_to_dress_in_celestial_theme_07e7503d',
+                  )}
                 </Typography>
               </Stack>
             }
@@ -189,13 +192,10 @@ export const description = {
       </List>
 
       <Typography variant="body1" sx={{ fontWeight: 700, my: 3 }}>
-        Why “Louder Together”?
+        {i18n.t('ui.data.events.why_louder_together_9e4ae18f')}
       </Typography>
       <Typography variant="body1">
-        Because when NightSky and Dawn collide, the universe itself resonates. Their harmonies echo
-        across light-years, uniting stardust souls in a symphony of cosmic proportions. Remember,
-        the night belongs to the dreamers, the stargazers, and those who seek magic beyond the
-        horizon. NightSky. Dawn. Louder Together. 🌌✨
+        {i18n.t('ui.data.events.because_when_nightsky_and_dawn_collide_the_universe__afaa248d')}
       </Typography>
     </>
   ),
@@ -205,15 +205,21 @@ export const description = {
 export const schedule = {
   info: [
     {
-      label: 'Gate Open',
+      get label() {
+        return i18n.t('ui.data.events.gate_open_1eaf673c');
+      },
       time: '4:30pm',
     },
     {
-      label: 'Event Start',
+      get label() {
+        return i18n.t('ui.data.events.event_start_31159653');
+      },
       time: '05:30pm',
     },
     {
-      label: 'Event End',
+      get label() {
+        return i18n.t('ui.data.events.event_end_d3976d39');
+      },
       time: '09:30pm',
     },
   ],
@@ -237,41 +243,56 @@ export const performerList = {
 export const organizerEvents = [
   {
     id: 1,
-    title: 'Galactic Ice Cream Festival',
+    get title() {
+      return i18n.t('ui.data.events.galactic_ice_cream_festival_b22c6bb1');
+    },
     image: image('1'),
     priceRange: '$50 - $300',
-    description: 'Experience an unforgettable evening with live performances from top artists.',
+    get description() {
+      return i18n.t('ui.data.events.experience_an_unforgettable_evening_with_live_perfor_6aa2fb8c');
+    },
     date: 'Monday, 2 Dec, 2024',
     time: '5:00pm - 10:00pm',
     location: 'Arizona, USA',
   },
   {
     id: 2,
-    title: 'Neon Lantern Parade',
+    get title() {
+      return i18n.t('ui.data.events.neon_lantern_parade_df1cea5e');
+    },
     image: image('2'),
     priceRange: '$20 - $250',
-    description: 'Join us to explore your creativity with hands-on art activities for all levels.',
+    get description() {
+      return i18n.t('ui.data.events.join_us_to_explore_your_creativity_with_hands_on_art_800e2fc0');
+    },
     date: 'Thursday, 16 Dec, 2024',
     time: '6:00pm - 10:00pm',
     location: 'New York, USA',
   },
   {
     id: 3,
-    title: 'Mystery Puzzle Race',
+    get title() {
+      return i18n.t('ui.data.events.mystery_puzzle_race_4ca7f6cf');
+    },
     image: image('3'),
     priceRange: '$10 - $200',
-    description:
-      'Discover the latest advancements in technology and network with industry leaders.',
+    get description() {
+      return i18n.t('ui.data.events.discover_the_latest_advancements_in_technology_and_n_01b68315');
+    },
     date: 'Monday, 20 Dec, 2024',
     time: '5:00pm - 12:00pm',
     location: 'Dothan, USA',
   },
   {
     id: 4,
-    title: 'Robot Talent Show',
+    get title() {
+      return i18n.t('ui.data.events.robot_talent_show_76b2dd09');
+    },
     image: image('details/3'),
     priceRange: '$10 - $150',
-    description: 'Savor a variety of gourmet dishes prepared by renowned chefs.',
+    get description() {
+      return i18n.t('ui.data.events.savor_a_variety_of_gourmet_dishes_prepared_by_renown_11396b6d');
+    },
     date: 'Sunday, 13 October, 2024',
     time: '5:00pm - 10:00pm',
     location: 'LA, USA',
@@ -283,101 +304,160 @@ export const organizerInfo = {
   followers: 2400,
   phone: '+362-124-62326',
   email: 'eventorganizer@email.com',
-  description:
-    "Rockers' Heaven is your go-to for unforgettable events. We specialize in music festivals, concerts, and corporate gatherings, ensuring every detail is perfect. Let us create experiences that resonate and leave lasting memories. 🎸✨",
+  get description() {
+    return i18n.t('ui.data.events.rockers_heaven_is_your_go_to_for_unforgettable_event_dcb5b889');
+  },
 };
 
 export const eventTermsConditions = {
   terms: [
     {
       id: 1,
-      description: 'No printed copy will be allowed at the venue entry.',
+      get description() {
+        return i18n.t('ui.data.events.no_printed_copy_will_be_allowed_at_the_venue_entry_40f92ea1');
+      },
     },
     {
       id: 2,
-      description: 'Each ticket is valid for only one person.',
+      get description() {
+        return i18n.t('ui.data.events.each_ticket_is_valid_for_only_one_person_5b43cc2f');
+      },
     },
     {
       id: 3,
-      description: 'You must provide a valid ticket to gain access to the event.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.you_must_provide_a_valid_ticket_to_gain_access_to_th_1520a421',
+        );
+      },
     },
     {
       id: 4,
-      description:
-        'At entry, ticket holders need to show valid photo identification. One must carry photo identification on the event day.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.at_entry_ticket_holders_need_to_show_valid_photo_ide_22adb405',
+        );
+      },
     },
     {
       id: 5,
-      description:
-        'A token of verification will be provided at the entry. Without it, the audience will not be allowed to enter, and it will be considered unacceptable for entry if damaged or missing.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.a_token_of_verification_will_be_provided_at_the_entr_f7b5022e',
+        );
+      },
     },
     {
       id: 6,
-      description:
-        'Any kind of alcohol, drugs, tobacco products, and intoxicants are strictly prohibited inside the venue. Violation of this rule can invoke necessary actions by the authority.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.any_kind_of_alcohol_drugs_tobacco_products_and_intox_dd9e9ac4',
+        );
+      },
     },
     {
       id: 7,
-      description:
-        'If any individual seems like a security threat or creates any disturbance, the organizers reserve the right to refuse entry or remove them from the event premises.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.if_any_individual_seems_like_a_security_threat_or_cr_db590d76',
+        );
+      },
     },
     {
       id: 8,
-      description:
-        'The organizers reserve the right to conduct security searches and confiscate any item that may cause danger or disturbance to other audience members and if deemed a security threat.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.the_organizers_reserve_the_right_to_conduct_security_76984840',
+        );
+      },
     },
     {
       id: 9,
-      description:
-        'CCTV and film cameras will be operational at the venue. Attending the event signifies agreement to filming and recording without any objections.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.cctv_and_film_cameras_will_be_operational_at_the_ven_3c46532d',
+        );
+      },
     },
     {
       id: 10,
-      description:
-        'The organizers will not take responsibility for the loss or theft of any personal belongings.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.the_organizers_will_not_take_responsibility_for_the__d75e3720',
+        );
+      },
     },
     {
       id: 11,
-      description:
-        'Electrical devices such as mobile phone chargers, Bluetooth speakers, power banks, and electronic cigarettes are strictly prohibited.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.electrical_devices_such_as_mobile_phone_chargers_blu_69bf912f',
+        );
+      },
     },
     {
       id: 12,
-      description:
-        'No bags will be allowed inside the venue. Women are specifically requested not to bring purses larger than 10 inches by 6 inches.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.no_bags_will_be_allowed_inside_the_venue_women_are_s_f6adf2bf',
+        );
+      },
     },
     {
       id: 13,
-      description: 'No sharp, pointed, or weaponry objects are allowed at the venue.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.no_sharp_pointed_or_weaponry_objects_are_allowed_at__5d3c9576',
+        );
+      },
     },
     {
       id: 14,
-      description:
-        'No outside food or drinks will be allowed. Food and drinks will be available at the venue.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.no_outside_food_or_drinks_will_be_allowed_food_and_d_fbdf6bea',
+        );
+      },
     },
     {
       id: 15,
-      description:
-        'Each ticket holder will be assigned a designated zone. Shifting zones is prohibited, and necessary actions will be taken for violations.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.each_ticket_holder_will_be_assigned_a_designated_zon_577eaba5',
+        );
+      },
     },
     {
       id: 16,
-      description: 'Tickets cannot be refunded unless the event is canceled.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.tickets_cannot_be_refunded_unless_the_event_is_cance_07a810a6',
+        );
+      },
     },
     {
       id: 17,
-      description:
-        'It is your responsibility to ascertain whether an event has been canceled or rescheduled, and to check the date and time of any rescheduled event.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.it_is_your_responsibility_to_ascertain_whether_an_ev_c77bb283',
+        );
+      },
     },
     {
       id: 18,
-      description:
-        'Organizers reserve the right to make amendments regarding the event and ticket holders without prior notice.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.organizers_reserve_the_right_to_make_amendments_rega_9ca9875d',
+        );
+      },
     },
     {
       id: 19,
-      description:
-        'There will be no parking facility from the organizers. If available from the venue authority, you may redeem the service on your own accord.',
+      get description() {
+        return i18n.t(
+          'ui.data.events.there_will_be_no_parking_facility_from_the_organizer_13dfd2c0',
+        );
+      },
     },
   ],
   images: [

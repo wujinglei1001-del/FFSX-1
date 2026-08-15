@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -21,6 +22,7 @@ const index = () => {
 };
 
 const FAQ = () => {
+  const { t: translateUi } = useTranslation();
   const { handleDrawerOpen } = useFaqContext();
   const { topbarHeight } = useNavContext();
 
@@ -51,7 +53,7 @@ const FAQ = () => {
           sx={{ py: 1.5 }}
           fullWidth
         >
-          List of categories
+          {translateUi('ui.pages.misc.faq.list_of_categories_5618c608')}
         </Button>
       </Paper>
       <FaqDrawer />

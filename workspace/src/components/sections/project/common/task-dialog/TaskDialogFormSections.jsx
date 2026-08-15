@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CreateLabelDialog from 'components/sections/project/common/labels/CreateLabelDialog';
 import LabelPicker from 'components/sections/project/common/labels/LabelPicker';
@@ -44,7 +45,7 @@ const BasicDetailsSection = ({ control, errors }) => (
             {...field}
             variant="filled"
             fullWidth
-            label="Task"
+            label={i18n.t('ui.sections.project.common.task_dialog.task_7bb0ddf9')}
             error={!!errors.task}
             helperText={errors.task?.message}
           />
@@ -59,7 +60,7 @@ const BasicDetailsSection = ({ control, errors }) => (
             {...field}
             fullWidth
             select
-            label="Group"
+            label={i18n.t('ui.sections.project.common.task_dialog.group_171a0606')}
             error={!!errors.group}
             helperText={errors.group?.message}
           >
@@ -81,7 +82,7 @@ const BasicDetailsSection = ({ control, errors }) => (
               {...field}
               fullWidth
               select
-              label="Status"
+              label={i18n.t('ui.sections.project.common.task_dialog.status_bae7d5be')}
               margin="normal"
               sx={{ mb: 0.5 }}
               error={!!errors.status}
@@ -96,7 +97,7 @@ const BasicDetailsSection = ({ control, errors }) => (
           )}
         />
         <Button variant="text" size="small" color="primary" sx={{ alignSelf: 'flex-start' }}>
-          Edit status
+          {i18n.t('ui.sections.project.common.task_dialog.edit_status_5ce5926a')}
         </Button>
       </div>
     </Stack>
@@ -146,7 +147,7 @@ const LabelsSection = () => {
 const PrioritySection = ({ control }) => (
   <DialogContent sx={{ p: { xs: 3 } }}>
     <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
-      Priority
+      {i18n.t('ui.sections.project.common.task_dialog.priority_886cbff9')}
     </Typography>
     <Controller
       name="priority"
@@ -204,7 +205,7 @@ const CollaboratorsSection = ({
 }) => (
   <DialogContent sx={{ p: { xs: 3 } }}>
     <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
-      Collaborators
+      {i18n.t('ui.sections.project.common.task_dialog.collaborators_6eb695e5')}
     </Typography>
 
     <StyledTextField
@@ -212,7 +213,7 @@ const CollaboratorsSection = ({
       onChange={(event) => onCollaboratorSearchChange(event.target.value)}
       fullWidth
       variant="filled"
-      placeholder="Search with a keyword"
+      placeholder={i18n.t('ui.sections.project.common.task_dialog.search_with_a_keyword_1695163b')}
       slotProps={{
         input: {
           startAdornment: (
@@ -378,7 +379,7 @@ const DurationSection = ({
 }) => (
   <DialogContent sx={{ p: { xs: 3 } }}>
     <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
-      Duration
+      {i18n.t('ui.sections.project.common.task_dialog.duration_1370004d')}
     </Typography>
     <Box
       sx={{
@@ -389,7 +390,7 @@ const DurationSection = ({
     >
       <DateField
         name="startDate"
-        label="Start Date"
+        label={i18n.t('ui.sections.project.common.task_dialog.start_date_9d7ab1a5')}
         control={control}
         errors={errors}
         open={startDateOpen}
@@ -397,7 +398,7 @@ const DurationSection = ({
       />
       <DateField
         name="endDate"
-        label="End Date"
+        label={i18n.t('ui.sections.project.common.task_dialog.end_date_84b14781')}
         control={control}
         errors={errors}
         open={endDateOpen}

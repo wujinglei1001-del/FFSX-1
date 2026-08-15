@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Tooltip, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -7,6 +8,7 @@ import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const CalendarTop = () => {
+  const { t: translateUi } = useTranslation();
   const { calendarApi, updateView, calendarDispatch } = useCalendarContext();
   const { down } = useBreakpoints();
   const downMd = down('md');
@@ -63,7 +65,7 @@ const CalendarTop = () => {
             onClick={() => updateView('calendar', 'today')}
             sx={{ flexGrow: 1 }}
           >
-            Today
+            {translateUi('ui.sections.calendar.calendartop.today_24345a14')}
           </Button>
         </Stack>
 
@@ -75,7 +77,11 @@ const CalendarTop = () => {
             justifyContent: { xs: 'space-between', xl: 'flex-end' },
           }}
         >
-          <Tooltip title="Create Schedule" arrow disableHoverListener={!downMd}>
+          <Tooltip
+            title={translateUi('ui.sections.calendar.calendartop.create_schedule_17178120')}
+            arrow
+            disableHoverListener={!downMd}
+          >
             <Button
               href={paths.scheduler}
               variant="soft"
@@ -106,7 +112,7 @@ const CalendarTop = () => {
             }
             onClick={handleAddEventClick}
           >
-            Add Event/Task
+            {translateUi('ui.sections.calendar.calendartop.add_event_task_c2d88a35')}
           </Button>
         </Stack>
       </Stack>

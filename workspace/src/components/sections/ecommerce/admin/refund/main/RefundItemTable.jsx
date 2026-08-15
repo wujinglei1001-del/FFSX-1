@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   InputAdornment,
   Paper,
@@ -20,6 +21,7 @@ const createData = (name, orderAmount, priorRefund, maxRefund) => {
 };
 
 const RefundItemTable = ({ product, index }) => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const {
     register,
@@ -74,7 +76,11 @@ const RefundItemTable = ({ product, index }) => {
       }}
     >
       <TableContainer>
-        <Table sx={{ minWidth: 720 }} aria-label="refund table" className="disable-edge-padding">
+        <Table
+          sx={{ minWidth: 720 }}
+          aria-label={translateUi('ui.sections.ecommerce.admin.refund.refund_table_5093fed2')}
+          className="disable-edge-padding"
+        >
           <TableHead>
             <TableRow
               sx={{
@@ -84,10 +90,18 @@ const RefundItemTable = ({ product, index }) => {
               }}
             >
               <TableCell />
-              <TableCell>Order amount</TableCell>
-              <TableCell>Prior refund</TableCell>
-              <TableCell>Amount to refund</TableCell>
-              <TableCell align="right">Refund full amount</TableCell>
+              <TableCell>
+                {translateUi('ui.sections.ecommerce.admin.refund.order_amount_da498614')}
+              </TableCell>
+              <TableCell>
+                {translateUi('ui.sections.ecommerce.admin.refund.prior_refund_89a09c0a')}
+              </TableCell>
+              <TableCell>
+                {translateUi('ui.sections.ecommerce.admin.refund.amount_to_refund_32408d68')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.ecommerce.admin.refund.refund_full_amount_8b09a1a5')}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -120,7 +134,8 @@ const RefundItemTable = ({ product, index }) => {
                       fontWeight: 400,
                     }}
                   >
-                    Max {currencyFormat(row.maxRefund)}
+                    {translateUi('ui.sections.ecommerce.admin.refund.max_a95e85ae')}
+                    {currencyFormat(row.maxRefund)}
                   </Typography>
                 </TableCell>
               </TableRow>
@@ -133,7 +148,7 @@ const RefundItemTable = ({ product, index }) => {
                     fontWeight: 700,
                   }}
                 >
-                  Total
+                  {translateUi('ui.sections.ecommerce.admin.refund.total_b25928c6')}
                 </Typography>
               </TableCell>
               <TableCell>

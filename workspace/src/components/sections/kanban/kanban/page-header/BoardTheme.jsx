@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
@@ -8,6 +9,7 @@ import { useKanbanContext } from 'providers/KanbanProvider';
 import BoardThemeOptionsDialog from './BoardThemeOptionsDialog';
 
 const BoardTheme = () => {
+  const { t: translateUi } = useTranslation();
   const { kanbanBoard } = useKanbanContext();
   const { backgroundOption } = kanbanBoard;
   const { up } = useBreakpoints();
@@ -27,7 +29,10 @@ const BoardTheme = () => {
         }}
         onClick={() => setIsDialogOpen(true)}
       >
-        <Tooltip title="Theme" disableHoverListener={upXl ? true : false}>
+        <Tooltip
+          title={translateUi('ui.sections.kanban.kanban.page_header.theme_a797e309')}
+          disableHoverListener={upXl ? true : false}
+        >
           <Box
             sx={[
               {
@@ -51,7 +56,7 @@ const BoardTheme = () => {
           variant="subtitle2"
           sx={{ fontWeight: 600, display: { xs: 'none', xl: 'flex' } }}
         >
-          Theme
+          {translateUi('ui.sections.kanban.kanban.page_header.theme_a797e309')}
         </Typography>
       </Stack>
 

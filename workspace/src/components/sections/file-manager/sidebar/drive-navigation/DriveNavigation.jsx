@@ -1,4 +1,5 @@
 import { memo, useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -148,6 +149,7 @@ const FileList = memo(({ items, level = 0, openFolders, onToggleFolder }) => (
 ));
 
 const DriveNavigation = ({ handleDrawer }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const [openFolders, setOpenFolders] = useState({
     [fileStructure.find((item) => item.type === 'folder')?.name || '']: true,
@@ -174,7 +176,7 @@ const DriveNavigation = ({ handleDrawer }) => {
             fontWeight: 700,
           }}
         >
-          My Files
+          {translateUi('ui.sections.file_manager.sidebar.drive_navigation.my_files_067c6840')}
         </Typography>
 
         {!upMd && (

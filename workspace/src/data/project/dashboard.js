@@ -1,8 +1,11 @@
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 export const taskMetrics = [
   {
-    title: 'Running',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.running_73989d9c');
+    },
     count: 7,
     change: {
       amount: 2,
@@ -15,7 +18,9 @@ export const taskMetrics = [
     },
   },
   {
-    title: 'Completed',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.completed_1798b3ba');
+    },
     count: 24,
     change: {
       amount: 5,
@@ -28,7 +33,9 @@ export const taskMetrics = [
     },
   },
   {
-    title: 'Due Soon',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.due_soon_6975cc6c');
+    },
     count: 23,
     deadlineRange: '03 Mar',
     icon: {
@@ -47,11 +54,15 @@ export const deadlineMetrics = [
 export const upcomingMeetings = [
   {
     id: 1,
-    title: 'Catching up on regular updates',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.catching_up_on_regular_updates_0fbe24e0');
+    },
     date: '11 March, 2023',
     time: '3:30 PM',
     status: {
-      label: 'Now',
+      get label() {
+        return i18n.t('ui.data.project.dashboard.now_e3b82040');
+      },
       active: true,
     },
     joinMeetLink: '#!',
@@ -59,31 +70,45 @@ export const upcomingMeetings = [
   },
   {
     id: 2,
-    title: 'Meeting with project lead',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.meeting_with_project_lead_9fbcec00');
+    },
     date: '13 March, 2023',
     time: '9:30 PM',
     status: {
-      label: '2 days',
+      get label() {
+        return i18n.t('ui.data.project.dashboard.2_days_4d2463e1');
+      },
     },
     attendants: [users[2], users[3]],
   },
   {
     id: 3,
-    title: 'Discussion with the developers on planning',
+    get title() {
+      return i18n.t(
+        'ui.data.project.dashboard.discussion_with_the_developers_on_planning_b7fcec91',
+      );
+    },
     date: '16 March, 2023',
     time: '7:30 PM',
     status: {
-      label: '3 days',
+      get label() {
+        return i18n.t('ui.data.project.dashboard.3_days_09ad9df4');
+      },
     },
     attendants: [users[5], users[7], users[8], users[9]],
   },
   {
     id: 4,
-    title: 'Quick idea sharing session.',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.quick_idea_sharing_session_db16a025');
+    },
     date: '17 March, 2023',
     time: '12:00 PM',
     status: {
-      label: '4 days',
+      get label() {
+        return i18n.t('ui.data.project.dashboard.4_days_8948b448');
+      },
     },
     attendants: [users[3], users[1], users[10]],
   },
@@ -96,33 +121,43 @@ const currentMonth = currentDate.getMonth();
 export const projectTimelineData = [
   {
     id: 1,
-    label: 'Design new app',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.design_new_app_284fd187');
+    },
     status: 'ongoing',
     tasks: [
       {
         id: 1,
-        label: 'Research User Needs',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.research_user_needs_a1c76a4c');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 1).getTime(),
         endDate: new Date(currentYear, currentMonth, 10).getTime(),
       },
       {
         id: 2,
-        label: 'Create Wireframe Layouts',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.create_wireframe_layouts_bf5d068e');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 11).getTime(),
         endDate: new Date(currentYear, currentMonth, 20).getTime(),
       },
       {
         id: 15,
-        label: 'Post-Deployment Monitoring',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.post_deployment_monitoring_a7241d9e');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 22).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 10).getTime(),
       },
       {
         id: 16,
-        label: 'Final System Optimizations',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.final_system_optimizations_e9546755');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth + 1, 11).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 26).getTime(),
@@ -131,33 +166,43 @@ export const projectTimelineData = [
   },
   {
     id: 2,
-    label: 'New dashboard',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.new_dashboard_892bc5fe');
+    },
     status: 'ongoing',
     tasks: [
       {
         id: 3,
-        label: 'Finish designing',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.finish_designing_30534b46');
+        },
         amountDone: 90,
         startDate: new Date(currentYear, currentMonth, 1).getTime(),
         endDate: new Date(currentYear, currentMonth, 5).getTime(),
       },
       {
         id: 4,
-        label: 'System Deployment',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.system_deployment_d298894c');
+        },
         amountDone: 90,
         startDate: new Date(currentYear, currentMonth, 6).getTime(),
         endDate: new Date(currentYear, currentMonth, 24).getTime(),
       },
       {
         id: 13,
-        label: 'User Testing and Feedback',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.user_testing_and_feedback_a2f5de63');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 25).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 15).getTime(),
       },
       {
         id: 14,
-        label: 'Design Finalization',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.design_finalization_15435ce6');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth + 1, 16).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 27).getTime(),
@@ -166,33 +211,43 @@ export const projectTimelineData = [
   },
   {
     id: 3,
-    label: 'Falcon Development',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.falcon_development_e35dc874');
+    },
     status: 'due',
     tasks: [
       {
         id: 5,
-        label: 'Analyze Competitor Apps',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.analyze_competitor_apps_61c7dc2d');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 1).getTime(),
         endDate: new Date(currentYear, currentMonth, 9).getTime(),
       },
       {
         id: 6,
-        label: 'Design Database Schema',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.design_database_schema_103a0393');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 10).getTime(),
         endDate: new Date(currentYear, currentMonth, 27).getTime(),
       },
       {
         id: 17,
-        label: 'Setup Development Environment',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.setup_development_environment_f2f0a502');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 28).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 10).getTime(),
       },
       {
         id: 18,
-        label: 'Begin Core Development',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.begin_core_development_8ec48cbc');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth + 1, 11).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 28).getTime(),
@@ -201,33 +256,43 @@ export const projectTimelineData = [
   },
   {
     id: 4,
-    label: 'Phoenix Travel App ',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.phoenix_travel_app_9aee7a6c');
+    },
     status: 'complete',
     tasks: [
       {
         id: 7,
-        label: 'Develop Backend Services',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.develop_backend_services_510009a4');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 1).getTime(),
         endDate: new Date(currentYear, currentMonth, 3).getTime(),
       },
       {
         id: 8,
-        label: 'Gather User Requirements',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.gather_user_requirements_376c5fe2');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 4).getTime(),
         endDate: new Date(currentYear, currentMonth, 31).getTime(),
       },
       {
         id: 19,
-        label: 'App Integration Testing',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.app_integration_testing_3e2f5c01');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth + 1, 3).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 12).getTime(),
       },
       {
         id: 20,
-        label: 'Final Debugging and Deployment',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.final_debugging_and_deployment_3a50ab67');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth + 1, 14).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 28).getTime(),
@@ -236,19 +301,27 @@ export const projectTimelineData = [
   },
   {
     id: 5,
-    label: 'Design Finance App',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.design_finance_app_3b868179');
+    },
     status: 'complete',
     tasks: [
       {
         id: 9,
-        label: 'Implement Authentication and Authorization',
+        get label() {
+          return i18n.t(
+            'ui.data.project.dashboard.implement_authentication_and_authorization_11d4f550',
+          );
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 1).getTime(),
         endDate: new Date(currentYear, currentMonth, 24).getTime(),
       },
       {
         id: 22,
-        label: 'Security Audits and Final Review',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.security_audits_and_final_review_ec6a6b82');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 26).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 24).getTime(),
@@ -257,40 +330,52 @@ export const projectTimelineData = [
   },
   {
     id: 6,
-    label: 'Update Figma File ',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.update_figma_file_92b34fba');
+    },
     status: 'complete',
     tasks: [
       {
         id: 10,
-        label: 'Develop Initial Prototype',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.develop_initial_prototype_8c3c98d9');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 1).getTime(),
         endDate: new Date(currentYear, currentMonth, 5).getTime(),
       },
       {
         id: 11,
-        label: 'Identify Elements to be Updated',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.identify_elements_to_be_updated_8ff28ac5');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 6).getTime(),
         endDate: new Date(currentYear, currentMonth, 12).getTime(),
       },
       {
         id: 12,
-        label: 'Create Detailed Project Plan',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.create_detailed_project_plan_0273ec3f');
+        },
         amountDone: 100,
         startDate: new Date(currentYear, currentMonth, 13).getTime(),
         endDate: new Date(currentYear, currentMonth, 27).getTime(),
       },
       {
         id: 23,
-        label: 'UI/UX Refinements and Updates',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.ui_ux_refinements_and_updates_ed7ba151');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth, 28).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 15).getTime(),
       },
       {
         id: 24,
-        label: 'Final Prototype Approval',
+        get label() {
+          return i18n.t('ui.data.project.dashboard.final_prototype_approval_cd2d8333');
+        },
         amountDone: 0,
         startDate: new Date(currentYear, currentMonth + 1, 16).getTime(),
         endDate: new Date(currentYear, currentMonth + 1, 28).getTime(),
@@ -361,7 +446,9 @@ export const projectsInfos = [
 export const events = [
   {
     id: 1,
-    title: 'Redesign module',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.redesign_module_96db2e81');
+    },
     allDayEvent: true,
     category: 'important',
     startDate: '2024-11-19',
@@ -377,7 +464,11 @@ export const events = [
   },
   {
     id: 2,
-    title: 'Monthly team meeting for Falcon React Project',
+    get title() {
+      return i18n.t(
+        'ui.data.project.dashboard.monthly_team_meeting_for_falcon_react_project_2ec87ab6',
+      );
+    },
     allDayEvent: false,
     category: 'upcoming',
     startDate: '2024-11-30',
@@ -390,7 +481,9 @@ export const events = [
   },
   {
     id: 3,
-    title: 'GTA VI trailer release watch party',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.gta_vi_trailer_release_watch_party_43c397b9');
+    },
     allDayEvent: false,
     category: 'my_events',
     startDate: '2024-12-05',
@@ -404,7 +497,9 @@ export const events = [
   },
   {
     id: 4,
-    title: 'Celebration for GTA VI trailer release',
+    get title() {
+      return i18n.t('ui.data.project.dashboard.celebration_for_gta_vi_trailer_release_12211acb');
+    },
     allDayEvent: false,
     category: 'upcoming',
     startDate: '2024-12-08',
@@ -419,7 +514,25 @@ export const events = [
 ];
 
 export const eventCategories = [
-  { value: 'my_events', label: 'My Events', color: 'primary' },
-  { value: 'upcoming', label: 'Upcoming', color: 'success' },
-  { value: 'important', label: 'Important', color: 'warning' },
+  {
+    value: 'my_events',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.my_events_6b1e7803');
+    },
+    color: 'primary',
+  },
+  {
+    value: 'upcoming',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.upcoming_523baab9');
+    },
+    color: 'success',
+  },
+  {
+    value: 'important',
+    get label() {
+      return i18n.t('ui.data.project.dashboard.important_4b6d6a30');
+    },
+    color: 'warning',
+  },
 ];

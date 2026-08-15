@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -11,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import useNumberFormat from 'hooks/useNumberFormat';
 
 const PayrollTotals = ({ totals }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
 
   const totalAutoPay = totals.reduce((acc, cur) => acc + cur.autoPay, 0);
@@ -28,10 +30,10 @@ const PayrollTotals = ({ totals }) => {
         }}
       >
         <Typography variant="h5" sx={{ fontWeight: 500 }}>
-          Payroll Totals
+          {translateUi('ui.sections.hrm.payroll.payroll_review.payroll_totals_61c086ba')}
         </Typography>
         <Button variant="soft" color="neutral">
-          Export
+          {translateUi('ui.sections.hrm.payroll.payroll_review.export_f3e4fadb')}
         </Button>
       </Stack>
       <TableContainer
@@ -59,10 +61,18 @@ const PayrollTotals = ({ totals }) => {
                 [`& th:last-of-type`]: { pr: 0 },
               }}
             >
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Auto Pay</TableCell>
-              <TableCell align="right">Manual Pay</TableCell>
-              <TableCell align="right">Total</TableCell>
+              <TableCell>
+                {translateUi('ui.sections.hrm.payroll.payroll_review.name_709a2322')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.hrm.payroll.payroll_review.auto_pay_8d8125b2')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.hrm.payroll.payroll_review.manual_pay_3971df66')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.hrm.payroll.payroll_review.total_b25928c6')}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -90,7 +100,7 @@ const PayrollTotals = ({ totals }) => {
               }}
             >
               <TableCell variant="head" sx={{ fontWeight: 700 }}>
-                Total
+                {translateUi('ui.sections.hrm.payroll.payroll_review.total_b25928c6')}
               </TableCell>
               <TableCell align="right">{currencyFormat(totalAutoPay)}</TableCell>
               <TableCell align="right">{currencyFormat(totalManualPay)}</TableCell>

@@ -1,18 +1,25 @@
 import { MenuItem, TextField } from '@mui/material';
+import i18n from 'locales/i18n';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const defaultOptions = [
   {
     value: 1,
-    label: 'Last month',
+    get label() {
+      return i18n.t('ui.components.common.dashboardselectmenu.last_month_9cce45bf');
+    },
   },
   {
     value: 6,
-    label: 'Last 6 months',
+    get label() {
+      return i18n.t('ui.components.common.dashboardselectmenu.last_6_months_14d5436c');
+    },
   },
   {
     value: 12,
-    label: 'Last 12 months',
+    get label() {
+      return i18n.t('ui.components.common.dashboardselectmenu.last_12_months_0245d916');
+    },
   },
 ];
 

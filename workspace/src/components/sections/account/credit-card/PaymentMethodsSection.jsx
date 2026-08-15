@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Stack } from '@mui/material';
 import { cards } from 'data/account/credit-cards';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import * as yup from 'yup';
@@ -13,16 +15,39 @@ import CreditCard from './CreditCard';
 const cardFormSchema = yup.object().shape({
   cardNumber: yup
     .string()
-    .matches(/^\d{4} \d{4} \d{4} \d{4}$/, 'Invalid card number')
-    .required('Card number is required'),
-  cardHolder: yup.string().required('Name is required'),
-  expireDate: yup.string().required('Expire date is required'),
+    .matches(
+      /^\d{4} \d{4} \d{4} \d{4}$/,
+      i18n.t('ui.sections.account.credit_card.paymentmethodssection.invalid_card_number_323440fc'),
+    )
+    .required(
+      i18n.t(
+        'ui.sections.account.credit_card.paymentmethodssection.card_number_is_required_0487f323',
+      ),
+    ),
+  cardHolder: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.account.credit_card.paymentmethodssection.name_is_required_222c72b1'),
+    ),
+  expireDate: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.account.credit_card.paymentmethodssection.expire_date_is_required_dfd08e57',
+      ),
+    ),
   cvc: yup
     .string()
-    .matches(/^\d{3,4}$/, 'Invalid CVC')
-    .required('CVC is required'),
+    .matches(
+      /^\d{3,4}$/,
+      i18n.t('ui.sections.account.credit_card.paymentmethodssection.invalid_cvc_c7b65a0b'),
+    )
+    .required(
+      i18n.t('ui.sections.account.credit_card.paymentmethodssection.cvc_is_required_1d03e786'),
+    ),
 });
 const PaymentMethodsSection = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -107,7 +132,9 @@ const PaymentMethodsSection = () => {
         startIcon={<IconifyIcon icon="material-symbols:add" sx={{ fontSize: 20 }} />}
         onClick={() => handleOpenDialog(null)}
       >
-        Add new payment method
+        {translateUi(
+          'ui.sections.account.credit_card.paymentmethodssection.add_new_payment_method_6556a97d',
+        )}
       </Button>
       <FormProvider {...methods}>
         <CardFormDialog

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { toDoListsData } from 'data/member/dashboard';
@@ -7,10 +8,11 @@ import SectionWrapper from 'components/sections/dashboards/hiring/common/Section
 import ToDoListItem from './ToDoListItem';
 
 const ToDoLists = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <SectionWrapper>
       <SectionHeader
-        title="To Do Lists"
+        title={translateUi('ui.sections.dashboards.employee.to_do_lists.to_do_lists_f5a3892d')}
         subTitle="Check out your task list right here."
         actionComponent={<DashboardMenu />}
       />

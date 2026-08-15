@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Avatar, { avatarClasses } from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
@@ -11,6 +12,7 @@ import isToday from 'dayjs/plugin/isToday';
 dayjs.extend(isToday);
 
 const Meeting = ({ date, meeting, isToday }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction="row"
@@ -58,21 +60,22 @@ const Meeting = ({ date, meeting, isToday }) => {
             }}
           >
             <Typography variant="subtitle1">
-              Meeting at{' '}
+              {translateUi('ui.sections.crm.common.activity_tab_panels.meeting_at_bd56a7fb')}{' '}
               <Box component="span" sx={{ fontWeight: 500 }}>
                 {dayjs(meeting.scheduledDate).format('h:mm a')}
               </Box>{' '}
-              with{' '}
+              {translateUi('common.with')}{' '}
               <Box component="span" sx={{ fontWeight: 500 }}>
                 {meeting.participant}
               </Box>
             </Typography>
             <Typography variant="caption" sx={{ color: 'text.secondary', lineHeight: '18px' }}>
-              Scheduled by{' '}
+              {translateUi('ui.sections.crm.common.activity_tab_panels.scheduled_by_d8d0d1b3')}{' '}
               <Box component="span" sx={{ fontWeight: 700 }}>
                 {meeting.scheduledBy}
               </Box>{' '}
-              at {dayjs(meeting.scheduledDate).format('DD MMM, YYYY h:mm a')}
+              {translateUi('common.at')}{' '}
+              {dayjs(meeting.scheduledDate).format('DD MMM, YYYY h:mm a')}
             </Typography>
           </Stack>
           <AvatarGroup
@@ -91,7 +94,7 @@ const Meeting = ({ date, meeting, isToday }) => {
         </Stack>
         {isToday && (
           <Button variant="soft" href="#!" sx={{ alignSelf: 'flex-start' }}>
-            Join now
+            {translateUi('ui.sections.crm.common.activity_tab_panels.join_now_e1312e12')}
           </Button>
         )}
       </Stack>

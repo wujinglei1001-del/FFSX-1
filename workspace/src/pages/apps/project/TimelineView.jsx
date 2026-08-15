@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Paper } from '@mui/material';
 import { timelineTasks } from 'data/project/timeline-data';
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
@@ -18,6 +19,7 @@ import { useChartTaskDialog } from 'components/sections/project/hooks/useChartTa
 import { useTimelineGantt } from 'components/sections/project/hooks/useTimelineGantt';
 
 const TimelineView = () => {
+  const { t: translateUi } = useTranslation();
   const [view, setView] = useState('dayGridMonth');
   const taskClickBridge = useRef(() => {});
 
@@ -89,7 +91,7 @@ const TimelineView = () => {
   return (
     <Box>
       <ProjectHeader
-        title="My Timeline View"
+        title={translateUi('ui.pages.apps.project.timelineview.my_timeline_view_251527bf')}
         subtitle=""
         onTaskSubmit={handleTaskSubmit}
         topActions={<ProjectTopRightActions onShare={handleShare} />}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -25,6 +26,7 @@ const FileProperty = ({ property, value }) => {
 };
 
 const FileProperties = ({ file }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ p: { xs: 3, md: 5 } }}>
       <Stack
@@ -32,7 +34,9 @@ const FileProperties = ({ file }) => {
           gap: 3,
         }}
       >
-        <Typography variant="h6">Properties</Typography>
+        <Typography variant="h6">
+          {translateUi('ui.sections.file_manager.main.file_info.properties_bc6c88db')}
+        </Typography>
         <Stack
           sx={{
             gap: 2,

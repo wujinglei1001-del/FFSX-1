@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import i18n from 'locales/i18n';
 import paths from 'routes/paths';
 import Logo from 'components/common/Logo';
 import NavList from './NavList';
@@ -11,66 +13,95 @@ import SocialIcons from './SocialIcons';
 
 const footerLinks = [
   {
-    title: 'Aurora',
+    get title() {
+      return i18n.t('ui.layouts.landing_layout.footer.navsection.aurora_eeee9b76');
+    },
     items: [
       {
-        label: 'About Us',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.about_us_c887b9d3');
+        },
         href: paths.landingAbout,
       },
       {
-        label: 'Careers',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.careers_68d70e59');
+        },
         href: '#!',
       },
       {
-        label: 'Blog',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.blog_0b9d2b23');
+        },
         href: '#!',
       },
     ],
   },
   {
-    title: 'Support',
+    get title() {
+      return i18n.t('ui.layouts.landing_layout.footer.navsection.support_f32d5a3b');
+    },
     items: [
       {
-        label: 'Help Center',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.help_center_11015825');
+        },
         href: '#!',
       },
       {
-        label: 'Contact Us',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.contact_us_9ad0ccff');
+        },
         href: paths.landingContact,
       },
       {
-        label: 'Pricing',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.pricing_a0d9bbad');
+        },
         href: '#!',
       },
       {
-        label: 'FAQs',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.faqs_ab9dcd4a');
+        },
         href: paths.landingFaq,
       },
     ],
   },
   {
-    title: 'Legal',
+    get title() {
+      return i18n.t('ui.layouts.landing_layout.footer.navsection.legal_902c91d9');
+    },
     items: [
       {
-        label: 'Privacy',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.privacy_cf01481f');
+        },
         href: '#!',
       },
       {
-        label: 'Cookie',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.cookie_e4f81994');
+        },
         href: '#!',
       },
       {
-        label: 'Terms',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.terms_a55a275a');
+        },
         href: '#!',
       },
       {
-        label: 'Security',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.footer.navsection.security_f25ce1b8');
+        },
         href: '#!',
       },
     ],
   },
 ];
 const NavSection = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Container maxWidth={false} sx={{ maxWidth: 1448, px: { xs: 3, md: 5 } }}>
       <Stack divider={<Divider flexItem />}>
@@ -88,8 +119,9 @@ const NavSection = () => {
               variant="body2"
               sx={{ maxWidth: { xs: 400, xl: 270 }, mt: 3, color: 'text.secondary' }}
             >
-              Aurora is a complete platform with a user-friendly interface. It offers tools for
-              seamless collaboration and easy integration with your workflow.
+              {translateUi(
+                'ui.layouts.landing_layout.footer.navsection.aurora_is_a_complete_platform_with_a_user_friendly_i_988b2cd0',
+              )}
             </Typography>
           </Grid>
 
@@ -119,7 +151,9 @@ const NavSection = () => {
               color: 'text.secondary',
             }}
           >
-            Aurora Ltd © 2025, all rights reserved
+            {translateUi(
+              'ui.layouts.landing_layout.footer.navsection.aurora_ltd_2025_all_rights_reserved_8fc42a94',
+            )}
           </Typography>
         </Box>
       </Stack>

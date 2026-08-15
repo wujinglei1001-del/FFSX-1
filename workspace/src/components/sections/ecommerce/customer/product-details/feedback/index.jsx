@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ProductRatings from './ProductRatings';
 import ProductReviews from './ProductReviews';
 
 const ProductFeedback = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Stack
@@ -14,7 +16,9 @@ const ProductFeedback = () => {
           mb: 5,
         }}
       >
-        <Typography variant="h6">Ratings & Reviews</Typography>
+        <Typography variant="h6">
+          {translateUi('ui.sections.ecommerce.customer.product_details.ratings_reviews_79cced2f')}
+        </Typography>
         <Button
           variant="soft"
           color="neutral"
@@ -25,7 +29,9 @@ const ProductFeedback = () => {
             sx={{ fontSize: '20px !important' }}
           />
           <Box component="span" sx={{ display: { xs: 'none', sm: 'block' } }}>
-            Rate This Product
+            {translateUi(
+              'ui.sections.ecommerce.customer.product_details.rate_this_product_976b1d08',
+            )}
           </Box>
         </Button>
       </Stack>

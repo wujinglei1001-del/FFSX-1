@@ -1,8 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { FormControl, Stack, Switch } from '@mui/material';
 import NotificationOptions from './NotificationOptions';
 
 const NotificationReceivingMethod = () => {
+  const { t: translateUi } = useTranslation();
   const { control, watch, setValue, resetField } = useFormContext();
 
   const pushEnabled = watch('push.checked');
@@ -46,7 +48,9 @@ const NotificationReceivingMethod = () => {
         <NotificationOptions
           checked={pushEnabled}
           notificationMethod="push"
-          label="Push"
+          label={translateUi(
+            'ui.sections.account.notification_alerts.notificationreceivingmethod.push_8f7f57b5',
+          )}
           icon="material-symbols:ad-units-outline"
         />
       </Stack>
@@ -81,7 +85,9 @@ const NotificationReceivingMethod = () => {
         <NotificationOptions
           checked={emailEnabled}
           notificationMethod="email"
-          label="Email"
+          label={translateUi(
+            'ui.sections.account.notification_alerts.notificationreceivingmethod.email_84add5b2',
+          )}
           icon="material-symbols:mail-outline"
         />
       </Stack>

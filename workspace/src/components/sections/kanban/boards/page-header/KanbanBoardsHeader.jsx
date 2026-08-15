@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack, Tooltip, buttonClasses } from '@mui/material';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -8,17 +10,22 @@ import SortMenu from './SortMenu';
 const buttons = [
   {
     id: 1,
-    text: 'Export / Import',
+    get text() {
+      return i18n.t('ui.sections.kanban.boards.page_header.export_import_ad3b8923');
+    },
     icon: 'material-symbols:swap-vertical-circle-outline-rounded',
   },
   {
     id: 2,
-    text: 'Filter',
+    get text() {
+      return i18n.t('ui.sections.kanban.boards.page_header.filter_d7decf1a');
+    },
     icon: 'material-symbols:filter-alt-outline',
   },
 ];
 
 const KanbanBoardsHeader = () => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
 
   const upLg = up('lg');
@@ -42,7 +49,7 @@ const KanbanBoardsHeader = () => {
         href={paths.createBoard}
         sx={{ flexShrink: 0 }}
       >
-        New Board
+        {translateUi('ui.sections.kanban.boards.page_header.new_board_2afa67ce')}
       </Button>
 
       {buttons.map((item, index) => (
@@ -70,7 +77,7 @@ const KanbanBoardsHeader = () => {
       <SortMenu />
 
       <SearchTextField
-        placeholder="Search"
+        placeholder={translateUi('ui.sections.kanban.boards.page_header.search_bce06414')}
         sx={{
           width: 1,
           minWidth: 130,

@@ -1,9 +1,11 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Button, Tooltip } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { VisuallyHiddenInput } from 'components/styled/VisuallyHiddenInput';
 
 const AddMedia = () => {
+  const { t: translateUi } = useTranslation();
   const { setValue, watch } = useFormContext();
 
   const currentAttachments = watch('attachments') || [];
@@ -22,7 +24,7 @@ const AddMedia = () => {
   };
 
   return (
-    <Tooltip title="Attachments">
+    <Tooltip title={translateUi('ui.sections.social.tab_panels.posts_panel.attachments_6771ade6')}>
       <Button shape="square" color="neutral" component="label">
         <IconifyIcon icon="material-symbols:image-outline-rounded" fontSize={20} />
         <VisuallyHiddenInput

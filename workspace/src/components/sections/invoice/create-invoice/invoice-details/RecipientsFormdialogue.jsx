@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -23,6 +24,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import SearchTextField from 'components/common/SearchTextField';
 
 const RecipientsFormDialogue = (props) => {
+  const { t: translateUi } = useTranslation();
   const {
     title,
     subtitle,
@@ -153,7 +155,7 @@ const RecipientsFormDialogue = (props) => {
       <DialogActions sx={{ p: 3, pt: 1, justifyContent: 'flex-start', flexDirection: 'column' }}>
         {handleRemove && (
           <Button color="error" onClick={handleRemove}>
-            Remove
+            {translateUi('ui.sections.invoice.create_invoice.invoice_details.remove_e963907d')}
           </Button>
         )}
         <Button
@@ -162,7 +164,9 @@ const RecipientsFormDialogue = (props) => {
           sx={{ width: 1, mb: 3 }}
           startIcon={<IconifyIcon icon="material-symbols:add" />}
         >
-          Create new customer
+          {translateUi(
+            'ui.sections.invoice.create_invoice.invoice_details.create_new_customer_47d0d0a1',
+          )}
         </Button>
         <Stack direction="row" sx={{ gap: 1, justifyContent: 'flex-end', width: 1 }}>
           <Button
@@ -177,10 +181,10 @@ const RecipientsFormDialogue = (props) => {
             }}
             sx={{ ml: 'auto !important' }}
           >
-            Discard
+            {translateUi('ui.sections.invoice.create_invoice.invoice_details.discard_36fff63c')}
           </Button>
           <Button type="button" variant="contained" color="primary" onClick={handleSubmit}>
-            Confirm
+            {translateUi('ui.sections.invoice.create_invoice.invoice_details.confirm_04a21221')}
           </Button>
         </Stack>
       </DialogActions>

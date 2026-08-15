@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -27,6 +28,7 @@ const statusColorMap = {
 };
 
 const OrderItem = ({ item }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [currentStatus, setCurrentStatus] = useState(item.status);
   const { currencyFormat } = useNumberFormat();
@@ -86,7 +88,7 @@ const OrderItem = ({ item }) => {
             mb: 3,
           }}
         >
-          Sold by{' '}
+          {translateUi('ui.sections.ecommerce.admin.order.sold_by_12c71f0a')}{' '}
           <Box
             component="span"
             sx={{
@@ -183,9 +185,12 @@ const OrderItem = ({ item }) => {
         </List>
 
         <List dense disablePadding sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-          <OrderAttributeListItem label="Shipping address" value={item.shippingAddress} />
           <OrderAttributeListItem
-            label="Billing address"
+            label={translateUi('ui.sections.ecommerce.admin.order.shipping_address_b3854a10')}
+            value={item.shippingAddress}
+          />
+          <OrderAttributeListItem
+            label={translateUi('ui.sections.ecommerce.admin.order.billing_address_7f3f6883')}
             value={
               item.billingAddressSameAsShipping ? 'Same as shipping address' : item.billlingAddress
             }

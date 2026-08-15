@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Paper, Stack } from '@mui/material';
 import { visitorRevenueChartData } from 'data/e-commerce/dashboard';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -6,6 +7,7 @@ import EcomStatSection from 'components/sections/common/EcomStatSection';
 import VisitorRevenueChart from './VisitorRevenueChart';
 
 const VisitorRevenue = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, flex: 1, height: 1 }}>
       <Stack
@@ -16,7 +18,9 @@ const VisitorRevenue = () => {
         }}
       >
         <SectionHeader
-          title="Visitor Value"
+          title={translateUi(
+            'ui.sections.dashboards.e_commerce.visitor_revenue.visitor_value_90c28192',
+          )}
           subTitle="Avg. income per site visit"
           actionComponent={<DashboardMenu />}
           sx={{ mb: 0 }}

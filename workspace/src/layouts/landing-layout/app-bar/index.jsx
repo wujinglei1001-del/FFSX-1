@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -8,6 +9,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ThemeToggler from 'layouts/main-layout/common/ThemeToggler';
 import SearchBox, { SearchBoxButton } from 'layouts/main-layout/common/search-box/SearchBox';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
 import Logo from 'components/common/Logo';
@@ -16,46 +18,64 @@ import Topnav from './nav/Topnav';
 
 const menus = [
   {
-    label: 'Home',
+    get label() {
+      return i18n.t('ui.layouts.landing_layout.app_bar.home_70f8bb9a');
+    },
     href: paths.landingHomepage,
   },
   {
-    label: 'About Us',
+    get label() {
+      return i18n.t('ui.layouts.landing_layout.app_bar.about_us_c887b9d3');
+    },
     href: paths.landingAbout,
   },
   {
-    label: 'Contact',
+    get label() {
+      return i18n.t('ui.layouts.landing_layout.app_bar.contact_b37456c4');
+    },
     href: paths.landingContact,
   },
   {
-    label: 'Pages',
+    get label() {
+      return i18n.t('ui.layouts.landing_layout.app_bar.pages_600584c2');
+    },
     submenus: [
       {
-        label: 'Homepage',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.homepage_ac066591');
+        },
         href: paths.landingHomepage,
         icon: 'material-symbols:home-outline-rounded',
         secondaryText: 'Explore our main landing page and key highlights',
       },
       {
-        label: 'About Us',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.about_us_c887b9d3');
+        },
         href: paths.landingAbout,
         icon: 'material-symbols:info-outline-rounded',
         secondaryText: 'Learn more about our mission, vision, and team',
       },
       {
-        label: 'Contact',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.contact_b37456c4');
+        },
         href: paths.landingContact,
         icon: 'material-symbols:phone-in-talk-outline-rounded',
         secondaryText: 'Reach out to us for inquiries and support',
       },
       {
-        label: 'FAQs',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.faqs_ab9dcd4a');
+        },
         href: paths.landingFaq,
         icon: 'material-symbols:format-list-bulleted-rounded',
         secondaryText: 'Find answers to the most common questions',
       },
       {
-        label: 'Pricing',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.pricing_a0d9bbad');
+        },
         href: '#!',
         icon: 'material-symbols:attach-money-rounded',
         secondaryText: 'Discover our plans and choose what fits you best',
@@ -67,13 +87,17 @@ const menus = [
         secondaryText: 'The page you’re looking for could not be found',
       },
       {
-        label: 'Maintenance',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.maintenance_94de303b');
+        },
         href: paths.landingMaintenance,
         icon: 'material-symbols:service-toolbox-outline-rounded',
         secondaryText: 'We’re performing updates to serve you better',
       },
       {
-        label: 'Coming Soon',
+        get label() {
+          return i18n.t('ui.layouts.landing_layout.app_bar.coming_soon_04d2fd85');
+        },
         href: paths.landingComingSoon,
         icon: 'material-symbols:timer-outline-rounded',
         secondaryText: 'Stay tuned for exciting features on the way',
@@ -83,6 +107,7 @@ const menus = [
 ];
 gsap.registerPlugin(ScrollTrigger);
 const LandingAppBar = (props) => {
+  const { t: translateUi } = useTranslation();
   const appBarRef = useRef(null);
   const popoverAnchorRef = useRef(null);
   const { up } = useBreakpoints();
@@ -162,7 +187,7 @@ const LandingAppBar = (props) => {
           {upLg && <Topnav menus={menus} anchorRef={popoverAnchorRef} />}
           <ThemeToggler />
           <Button variant="contained" href="#!" sx={{ minWidth: 120 }}>
-            Log In
+            {translateUi('ui.layouts.landing_layout.app_bar.log_in_d527bf3d')}
           </Button>
           {!upLg && <Sidenav menus={menus} />}
         </Stack>

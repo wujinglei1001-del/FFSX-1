@@ -1,4 +1,5 @@
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, MenuItem, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -8,6 +9,7 @@ import { CONDITION_FILTER_OPTIONS, isConditionFilterType } from './common/consta
 import { getUnusedOptions } from './common/helpers';
 
 const WhenThisHappensForm = ({ entityType = 'Tasks' }) => {
+  const { t: translateUi } = useTranslation();
   const { control, getValues } = useFormContext();
 
   const { fields, append, remove, update } = useFieldArray({
@@ -56,10 +58,12 @@ const WhenThisHappensForm = ({ entityType = 'Tasks' }) => {
       >
         <Stack direction="row" sx={{ gap: 1, alignItems: 'center', flexShrink: 0 }}>
           <Typography variant="h6" sx={{ fontWeight: 600 }}>
-            When this happens
+            {translateUi(
+              'ui.sections.project.automation.whenthishappensform.when_this_happens_4a660b0b',
+            )}
           </Typography>
           <Typography variant="h6" sx={{ color: 'text.disabled' }}>
-            with
+            {translateUi('common.with')}
           </Typography>
         </Stack>
         <StyledTextField
@@ -67,8 +71,12 @@ const WhenThisHappensForm = ({ entityType = 'Tasks' }) => {
           defaultValue={entityType}
           sx={{ width: { xs: 1, lg: 'auto' }, minWidth: { lg: 120 } }}
         >
-          <MenuItem value="Tasks">Tasks</MenuItem>
-          <MenuItem value="Subtasks">Subtasks</MenuItem>
+          <MenuItem value="Tasks">
+            {translateUi('ui.sections.project.automation.whenthishappensform.tasks_090ec5f5')}
+          </MenuItem>
+          <MenuItem value="Subtasks">
+            {translateUi('ui.sections.project.automation.whenthishappensform.subtasks_173312c6')}
+          </MenuItem>
         </StyledTextField>
       </Stack>
       <Stack sx={{ gap: 2, position: 'relative' }}>

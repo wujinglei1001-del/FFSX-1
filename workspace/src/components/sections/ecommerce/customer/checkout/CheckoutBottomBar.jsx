@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useEcommerce } from 'providers/EcommerceProvider';
 
 const CheckoutBottomBar = () => {
+  const { t: translateUi } = useTranslation();
   const { cartItems, cartTotal } = useEcommerce();
   const { up } = useBreakpoints();
   const { currencyFormat } = useNumberFormat();
@@ -26,7 +28,10 @@ const CheckoutBottomBar = () => {
               flex: 1,
             }}
           >
-            {cartItems.length} item{cartItems.length > 1 ? 's' : ''} selected
+            {cartItems.length}
+            {translateUi('ui.sections.ecommerce.customer.checkout.item_3a7d9767')}
+            {cartItems.length > 1 ? 's' : ''}
+            {translateUi('ui.sections.ecommerce.customer.checkout.selected_835f3b50')}
           </Typography>
         )}
         <Stack
@@ -53,7 +58,7 @@ const CheckoutBottomBar = () => {
                 display: { xs: 'none', md: 'block' },
               }}
             >
-              Total
+              {translateUi('ui.sections.ecommerce.customer.checkout.total_b25928c6')}
             </Typography>
             <Typography sx={{ typography: 'h4', fontWeight: { xs: 700 } }}>
               {currencyFormat(cartTotal)}

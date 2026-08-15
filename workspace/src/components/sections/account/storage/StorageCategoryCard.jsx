@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
@@ -6,6 +7,7 @@ import { convertSize } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const StorageCategoryCard = ({ storageCategory }) => {
+  const { t: translateUi } = useTranslation();
   const { icon, fileCount, name, spaceUsedinKb, color } = storageCategory;
 
   return (
@@ -28,14 +30,17 @@ const StorageCategoryCard = ({ storageCategory }) => {
         divider={<Divider orientation="vertical" flexItem />}
       >
         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-          {fileCount} Files
+          {fileCount}
+          {translateUi('ui.sections.account.storage.storagecategorycard.files_6ce6c512')}
         </Typography>
         <Typography variant="caption" sx={{ fontWeight: 500 }}>
           {convertSize(spaceUsedinKb)} GB
         </Typography>
       </Stack>
 
-      <Button fullWidth>View</Button>
+      <Button fullWidth>
+        {translateUi('ui.sections.account.storage.storagecategorycard.view_69bd4ef9')}
+      </Button>
     </Stack>
   );
 };

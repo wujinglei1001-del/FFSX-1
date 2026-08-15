@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Tab, Tabs, tabClasses, tabsClasses } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
 
 const TimeToggleTab = () => {
+  const { t: translateUi } = useTranslation();
   const [time, setTime] = useState('10 min');
   const handleChange = (_event, newTime) => {
     setTime(newTime);
@@ -34,9 +36,24 @@ const TimeToggleTab = () => {
         },
       })}
     >
-      <Tab value="10 min" label="10 min" disableRipple sx={{ px: 2 }} />
-      <Tab value="30 min" label="30 min" disableRipple sx={{ px: 2 }} />
-      <Tab value="all" label="All" disableRipple sx={{ px: 2 }} />
+      <Tab
+        value="10 min"
+        label={translateUi('ui.sections.dashboards.time_tracker.screencasts.10_min_4605ee77')}
+        disableRipple
+        sx={{ px: 2 }}
+      />
+      <Tab
+        value="30 min"
+        label={translateUi('ui.sections.dashboards.time_tracker.screencasts.30_min_d3ddf7a3')}
+        disableRipple
+        sx={{ px: 2 }}
+      />
+      <Tab
+        value="all"
+        label={translateUi('ui.sections.dashboards.time_tracker.screencasts.all_6a720856')}
+        disableRipple
+        sx={{ px: 2 }}
+      />
     </Tabs>
   );
 };

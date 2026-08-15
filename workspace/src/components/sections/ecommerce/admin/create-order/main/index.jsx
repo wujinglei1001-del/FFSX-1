@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Container, Divider, Paper, Stack, Typography } from '@mui/material';
 import { orderDetailsList } from 'data/e-commerce/orders';
 import SearchTextField from 'components/common/SearchTextField';
@@ -6,6 +7,7 @@ import CreateOrderItem from './CreateOrderItem';
 import CreateOrderPaymentSummary from './CreateOrderPaymentSummary';
 
 const CreateOrderContainer = () => {
+  const { t: translateUi } = useTranslation();
   const [createOrderItems, setCreateOrderItems] = useState(orderDetailsList[0].items);
 
   return (
@@ -20,9 +22,17 @@ const CreateOrderContainer = () => {
                 mb: 2,
               }}
             >
-              Search to add an item
+              {translateUi(
+                'ui.sections.ecommerce.admin.create_order.search_to_add_an_item_cf69c0f4',
+              )}
             </Typography>
-            <SearchTextField fullWidth variant="filled" label="Search for an item..." />
+            <SearchTextField
+              fullWidth
+              variant="filled"
+              label={translateUi(
+                'ui.sections.ecommerce.admin.create_order.search_for_an_item_bf769ef7',
+              )}
+            />
           </div>
 
           <Stack sx={{ gap: 3 }} divider={<Divider flexItem orientation="horizontal" />}>
@@ -34,7 +44,7 @@ const CreateOrderContainer = () => {
           <CreateOrderPaymentSummary items={createOrderItems} />
 
           <Button variant="contained" sx={{ alignSelf: 'flex-end' }}>
-            Email invoice
+            {translateUi('ui.sections.ecommerce.admin.create_order.email_invoice_ac811cb2')}
           </Button>
         </Stack>
       </Container>

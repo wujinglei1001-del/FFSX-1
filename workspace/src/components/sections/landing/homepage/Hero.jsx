@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -20,6 +21,7 @@ import { StripedBackground } from '../common/StripedBackground';
 
 gsap.registerPlugin(SplitText);
 const Hero = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -187,14 +189,14 @@ const Hero = () => {
                   mb: 2,
                 }}
               >
-                Ultimate web app to{' '}
+                {translateUi('ui.sections.landing.homepage.hero.ultimate_web_app_to_29a1fcff')}{' '}
                 <Box
                   component="span"
                   sx={{
                     whiteSpace: { sm: 'nowrap' },
                   }}
                 >
-                  enhances{' '}
+                  {translateUi('ui.sections.landing.homepage.hero.enhances_69ee45bb')}{' '}
                   <Box
                     component="span"
                     sx={{
@@ -245,7 +247,9 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                Try our app for a simpler, organized workflow.
+                {translateUi(
+                  'ui.sections.landing.homepage.hero.try_our_app_for_a_simpler_organized_workflow_0acaf354',
+                )}
               </Typography>
 
               <Typography
@@ -256,8 +260,9 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                Our web app offers a seamless experience, allowing you to manage projects
-                effortlessly while collaborating with your team in real-time.
+                {translateUi(
+                  'ui.sections.landing.homepage.hero.our_web_app_offers_a_seamless_experience_allowing_yo_c11cee63',
+                )}
               </Typography>
 
               <Stack
@@ -266,9 +271,11 @@ const Hero = () => {
                   gap: 1,
                 }}
               >
-                <Button variant="contained">Start today</Button>
+                <Button variant="contained">
+                  {translateUi('ui.sections.landing.homepage.hero.start_today_d83f167a')}
+                </Button>
                 <Button variant="soft" color="neutral" href={paths.landingContact}>
-                  Contact us
+                  {translateUi('ui.sections.landing.homepage.hero.contact_us_4832e458')}
                 </Button>
               </Stack>
             </RevealItems>

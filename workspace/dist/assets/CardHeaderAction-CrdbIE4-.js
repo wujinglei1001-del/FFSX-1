@@ -1,0 +1,1 @@
+import{a as e}from"./i18nInstance-truXiXW9.js";import{t}from"./Box-CBygiLu4.js";var n=e(),r=({children:e,sx:r})=>(0,n.jsx)(t,{sx:{mx:`-10px`,...r},children:e});export{r as t};

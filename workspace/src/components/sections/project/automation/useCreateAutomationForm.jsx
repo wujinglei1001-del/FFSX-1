@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import { validateActionParams } from './common/actionUtils';
 import { getConditionFieldVariant } from './common/conditionRegistry';
@@ -36,9 +37,25 @@ const needsConditionalFilterValue = (condition) => {
 };
 
 const conditionSchema = yup.object({
-  type: yup.string().required('Condition type is required'),
-  field: yup.string().required('Field is required'),
-  operator: yup.string().required('Operator is required'),
+  type: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.condition_type_is_required_dd2d9b7d',
+      ),
+    ),
+  field: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.project.automation.usecreateautomationform.field_is_required_79829e87'),
+    ),
+  operator: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.operator_is_required_1adba31d',
+      ),
+    ),
   value: yup
     .mixed()
     .test('not-empty', 'Value is required', function (value) {
@@ -67,7 +84,9 @@ const conditionSchema = yup.object({
       if (Array.isArray(value)) return value.length > 0;
       return false;
     })
-    .required('Value is required'),
+    .required(
+      i18n.t('ui.sections.project.automation.usecreateautomationform.value_is_required_30b22827'),
+    ),
   fromValue: yup.string().test('required-if-from-to', 'From is required', function (value) {
     const condition = this.parent;
     if (!needsFromToValues(condition)) return true;
@@ -103,10 +122,20 @@ const conditionSchema = yup.object({
 });
 
 const actionSchema = yup.object({
-  type: yup.string().required('Action type is required'),
+  type: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.action_type_is_required_ed3d5e7e',
+      ),
+    ),
   params: yup
     .object()
-    .required('Action params are required')
+    .required(
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.action_params_are_required_22697301',
+      ),
+    )
     .test('validate-params', 'Action params are invalid', function (params) {
       const action = this.parent;
       return validateActionParams(action, params ?? {}, {
@@ -120,13 +149,31 @@ export const automationFormSchema = yup.object({
   conditions: yup
     .array()
     .of(conditionSchema)
-    .min(1, 'At least one condition is required')
-    .required('Conditions are required'),
+    .min(
+      1,
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.at_least_one_condition_is_required_f01f149e',
+      ),
+    )
+    .required(
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.conditions_are_required_332e8742',
+      ),
+    ),
   actions: yup
     .array()
     .of(actionSchema)
-    .min(1, 'At least one action is required')
-    .required('Actions are required'),
+    .min(
+      1,
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.at_least_one_action_is_required_f1087452',
+      ),
+    )
+    .required(
+      i18n.t(
+        'ui.sections.project.automation.usecreateautomationform.actions_are_required_a6ddd06a',
+      ),
+    ),
 });
 
 const useCreateAutomationForm = () => {

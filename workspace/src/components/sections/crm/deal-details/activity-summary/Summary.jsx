@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Summary = ({ summary }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -13,7 +15,7 @@ const Summary = ({ summary }) => {
       }}
     >
       <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-        Summary
+        {translateUi('ui.sections.crm.deal_details.activity_summary.summary_12b71c3e')}
       </Typography>
       <Stack
         direction="row"

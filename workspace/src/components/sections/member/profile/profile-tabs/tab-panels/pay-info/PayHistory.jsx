@@ -1,16 +1,20 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, MenuItem, Stack, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
-import { currencyFormat } from 'lib/utils';
+import useNumberFormat from 'hooks/useNumberFormat';
+import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 import StyledTextField from 'components/styled/StyledTextField';
 
-const columnDefs = [
+const createColumnDefs = (currencyFormat) => [
   {
     field: 'payDate',
-    headerName: 'Pay Date',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.pay_date_02292742');
+    },
     headerClassName: 'pay-date-header',
     cellClassName: 'pay-date-cell',
     flex: 1.33,
@@ -23,7 +27,9 @@ const columnDefs = [
   },
   {
     field: 'hours',
-    headerName: 'Hours',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.hours_9e25a34e');
+    },
     headerClassName: 'hours-header',
     cellClassName: 'hours-cell',
     flex: 1,
@@ -31,27 +37,31 @@ const columnDefs = [
   },
   {
     field: 'grossPay',
-    headerName: 'Gross Pay',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.gross_pay_b2ea2a0a');
+    },
     headerClassName: 'gross-pay-header',
     cellClassName: 'gross-pay-cell',
     flex: 1.25,
     minWidth: 100,
-    renderCell: (params) =>
-      currencyFormat(params.row.grossPay, 'en-US', { maximumFractionDigits: 0 }),
+    renderCell: (params) => currencyFormat(params.row.grossPay, { maximumFractionDigits: 0 }),
   },
   {
     field: 'totalDeduction',
-    headerName: 'Total Deduction',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.total_deduction_89ad2516');
+    },
     headerClassName: 'total-deduction-header',
     cellClassName: 'total-deduction-cell',
     flex: 1.25,
     minWidth: 100,
-    renderCell: (params) =>
-      currencyFormat(params.row.totalDeduction, 'en-US', { maximumFractionDigits: 0 }),
+    renderCell: (params) => currencyFormat(params.row.totalDeduction, { maximumFractionDigits: 0 }),
   },
   {
     field: 'netPay',
-    headerName: 'Net Pay',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.net_pay_a75db049');
+    },
     headerClassName: 'net-pay-header',
     cellClassName: 'net-pay-cell',
     flex: 1.2,
@@ -60,7 +70,7 @@ const columnDefs = [
     align: 'right',
     renderCell: (params) => (
       <Typography variant="body2" sx={{ fontWeight: 500, color: 'text.primary' }}>
-        {currencyFormat(params.row.grossPay - params.row.totalDeduction, 'en-US', {
+        {currencyFormat(params.row.grossPay - params.row.totalDeduction, {
           maximumFractionDigits: 0,
         })}
       </Typography>
@@ -81,7 +91,9 @@ const columnDefs = [
   },
 ];
 const PayHistory = ({ data }) => {
-  const columns = useMemo(() => columnDefs, [currencyFormat, dayjs]);
+  const { t: translateUi } = useTranslation();
+  const { currencyFormat } = useNumberFormat();
+  const columns = useMemo(() => createColumnDefs(currencyFormat), [currencyFormat]);
   return (
     <Stack
       sx={{
@@ -91,7 +103,7 @@ const PayHistory = ({ data }) => {
     >
       <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-          History
+          {translateUi('ui.sections.member.profile.profile_tabs.history_90ccd649')}
         </Typography>
 
         <TopAction />
@@ -128,6 +140,7 @@ const PayHistory = ({ data }) => {
   );
 };
 const TopAction = () => {
+  const { t: translateUi } = useTranslation();
   const [sortBy, setSortBy] = useState('6-months');
   return (
     <StyledTextField
@@ -137,10 +150,18 @@ const TopAction = () => {
       onChange={(event) => setSortBy(event.target.value)}
       sx={{ maxWidth: 234 }}
     >
-      <MenuItem value="week">Sort by - Last week</MenuItem>
-      <MenuItem value="month">Sort by - Last month</MenuItem>
-      <MenuItem value="3-months">Sort by - Last 3 months</MenuItem>
-      <MenuItem value="6-months">Sort by - Last 6 months</MenuItem>
+      <MenuItem value="week">
+        {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_week_cbce2b89')}
+      </MenuItem>
+      <MenuItem value="month">
+        {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_month_d24d3a53')}
+      </MenuItem>
+      <MenuItem value="3-months">
+        {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_3_months_35e11bcc')}
+      </MenuItem>
+      <MenuItem value="6-months">
+        {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_6_months_ce59b2be')}
+      </MenuItem>
     </StyledTextField>
   );
 };

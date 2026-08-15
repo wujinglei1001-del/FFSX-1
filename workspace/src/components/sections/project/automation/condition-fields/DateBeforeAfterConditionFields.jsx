@@ -1,4 +1,5 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { MenuItem, Stack } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import {
@@ -9,6 +10,7 @@ import {
 import DatePickerWithShortcuts from '../shared/DatePickerWithShortcuts';
 
 const DateBeforeAfterConditionFields = ({ index }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -103,8 +105,12 @@ const DateBeforeAfterConditionFields = ({ index }) => {
       ) : (
         <DatePickerWithShortcuts
           name={`conditions.${index}.targetDate`}
-          label="Select a Date"
-          placeholder="Select a Date"
+          label={translateUi(
+            'ui.sections.project.automation.condition_fields.select_a_date_71eb2ed4',
+          )}
+          placeholder={translateUi(
+            'ui.sections.project.automation.condition_fields.select_a_date_71eb2ed4',
+          )}
         />
       )}
     </Stack>

@@ -1,4 +1,5 @@
 import { initialConfig } from 'config';
+import i18n from 'locales/i18n';
 
 const logo = (index) => `${initialConfig.assetsDir}/images/logo/${index}.svg`;
 
@@ -39,7 +40,9 @@ export const educationHistory = [
     id: 1,
     institutionName: 'Harvard University',
     institutionLogo: logo(25),
-    subject: 'Human Interaction Design',
+    get subject() {
+      return i18n.t('ui.data.account.work_education_history.human_interaction_design_81c6e16f');
+    },
     location: 'Sylhet, Bangladesh',
     startDate: '2014-01-01',
     endDate: '2019-12-01',

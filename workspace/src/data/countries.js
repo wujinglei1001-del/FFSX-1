@@ -1,632 +1,1804 @@
+import i18n from 'locales/i18n';
+
 export const countries = [
-  { code: 'AD', label: 'Andorra', phone: '376', flag: 'flag:ad-4x3' },
+  {
+    code: 'AD',
+    get label() {
+      return i18n.t('ui.data.countries.andorra_9d3bd1fb');
+    },
+    phone: '376',
+    flag: 'flag:ad-4x3',
+  },
   {
     code: 'AE',
-    label: 'United Arab Emirates',
+    get label() {
+      return i18n.t('ui.data.countries.united_arab_emirates_d115b8d5');
+    },
     phone: '971',
     flag: 'flag:ae-4x3',
   },
   {
     code: 'AF',
-    label: 'Afghanistan',
+    get label() {
+      return i18n.t('ui.data.countries.afghanistan_c6915368');
+    },
     phone: '93',
     flag: 'flag:af-4x3',
   },
   {
     code: 'AG',
-    label: 'Antigua and Barbuda',
+    get label() {
+      return i18n.t('ui.data.countries.antigua_and_barbuda_530670dc');
+    },
     phone: '268',
     flag: 'flag:ag-4x3',
   },
-  { code: 'AI', label: 'Anguilla', phone: '264', flag: 'flag:ai-4x3' },
-  { code: 'AL', label: 'Albania', phone: '355', flag: 'flag:al-4x3' },
-  { code: 'AM', label: 'Armenia', phone: '374', flag: 'flag:am-4x3' },
-  { code: 'AO', label: 'Angola', phone: '244', flag: 'flag:ao-4x3' },
+  {
+    code: 'AI',
+    get label() {
+      return i18n.t('ui.data.countries.anguilla_5722849f');
+    },
+    phone: '264',
+    flag: 'flag:ai-4x3',
+  },
+  {
+    code: 'AL',
+    get label() {
+      return i18n.t('ui.data.countries.albania_79b9d273');
+    },
+    phone: '355',
+    flag: 'flag:al-4x3',
+  },
+  {
+    code: 'AM',
+    get label() {
+      return i18n.t('ui.data.countries.armenia_5f4599da');
+    },
+    phone: '374',
+    flag: 'flag:am-4x3',
+  },
+  {
+    code: 'AO',
+    get label() {
+      return i18n.t('ui.data.countries.angola_a42522a0');
+    },
+    phone: '244',
+    flag: 'flag:ao-4x3',
+  },
   {
     code: 'AQ',
-    label: 'Antarctica',
+    get label() {
+      return i18n.t('ui.data.countries.antarctica_00f33fc5');
+    },
     phone: '672',
     flag: 'flag:aq-4x3',
   },
-  { code: 'AR', label: 'Argentina', phone: '54', flag: 'flag:ar-4x3' },
+  {
+    code: 'AR',
+    get label() {
+      return i18n.t('ui.data.countries.argentina_354bf989');
+    },
+    phone: '54',
+    flag: 'flag:ar-4x3',
+  },
   {
     code: 'AS',
-    label: 'American Samoa',
+    get label() {
+      return i18n.t('ui.data.countries.american_samoa_ca0b36fe');
+    },
     phone: '684',
     flag: 'flag:as-4x3',
   },
-  { code: 'AT', label: 'Austria', phone: '43', flag: 'flag:at-4x3' },
-  { code: 'AU', label: 'Australia', phone: '61', flag: 'flag:au-4x3' },
-  { code: 'AW', label: 'Aruba', phone: '297', flag: 'flag:aw-4x3' },
+  {
+    code: 'AT',
+    get label() {
+      return i18n.t('ui.data.countries.austria_593905b3');
+    },
+    phone: '43',
+    flag: 'flag:at-4x3',
+  },
+  {
+    code: 'AU',
+    get label() {
+      return i18n.t('ui.data.countries.australia_ceafb51e');
+    },
+    phone: '61',
+    flag: 'flag:au-4x3',
+  },
+  {
+    code: 'AW',
+    get label() {
+      return i18n.t('ui.data.countries.aruba_f3a82610');
+    },
+    phone: '297',
+    flag: 'flag:aw-4x3',
+  },
   {
     code: 'AX',
-    label: 'Alland Islands',
+    get label() {
+      return i18n.t('ui.data.countries.alland_islands_6b0df701');
+    },
     phone: '358',
     flag: 'flag:ax-4x3',
   },
   {
     code: 'AZ',
-    label: 'Azerbaijan',
+    get label() {
+      return i18n.t('ui.data.countries.azerbaijan_213598a7');
+    },
     phone: '994',
     flag: 'flag:az-4x3',
   },
   {
     code: 'BA',
-    label: 'Bosnia and Herzegovina',
+    get label() {
+      return i18n.t('ui.data.countries.bosnia_and_herzegovina_62ac59b7');
+    },
     phone: '387',
     flag: 'flag:ba-4x3',
   },
-  { code: 'BB', label: 'Barbados', phone: '246', flag: 'flag:bb-4x3' },
+  {
+    code: 'BB',
+    get label() {
+      return i18n.t('ui.data.countries.barbados_93409af2');
+    },
+    phone: '246',
+    flag: 'flag:bb-4x3',
+  },
   {
     code: 'BD',
-    label: 'Bangladesh',
+    get label() {
+      return i18n.t('ui.data.countries.bangladesh_fa6c3752');
+    },
     phone: '880',
     flag: 'flag:bd-4x3',
   },
-  { code: 'BE', label: 'Belgium', phone: '32', flag: 'flag:be-4x3' },
+  {
+    code: 'BE',
+    get label() {
+      return i18n.t('ui.data.countries.belgium_5cb4c9d8');
+    },
+    phone: '32',
+    flag: 'flag:be-4x3',
+  },
   {
     code: 'BF',
-    label: 'Burkina Faso',
+    get label() {
+      return i18n.t('ui.data.countries.burkina_faso_e71b56d9');
+    },
     phone: '226',
     flag: 'flag:bf-4x3',
   },
-  { code: 'BG', label: 'Bulgaria', phone: '359', flag: 'flag:bg-4x3' },
-  { code: 'BH', label: 'Bahrain', phone: '973', flag: 'flag:bh-4x3' },
-  { code: 'BI', label: 'Burundi', phone: '257', flag: 'flag:bi-4x3' },
-  { code: 'BJ', label: 'Benin', phone: '229', flag: 'flag:bj-4x3' },
+  {
+    code: 'BG',
+    get label() {
+      return i18n.t('ui.data.countries.bulgaria_5c777263');
+    },
+    phone: '359',
+    flag: 'flag:bg-4x3',
+  },
+  {
+    code: 'BH',
+    get label() {
+      return i18n.t('ui.data.countries.bahrain_3ae11c72');
+    },
+    phone: '973',
+    flag: 'flag:bh-4x3',
+  },
+  {
+    code: 'BI',
+    get label() {
+      return i18n.t('ui.data.countries.burundi_4617585b');
+    },
+    phone: '257',
+    flag: 'flag:bi-4x3',
+  },
+  {
+    code: 'BJ',
+    get label() {
+      return i18n.t('ui.data.countries.benin_373616e3');
+    },
+    phone: '229',
+    flag: 'flag:bj-4x3',
+  },
   {
     code: 'BL',
-    label: 'Saint Barthelemy',
+    get label() {
+      return i18n.t('ui.data.countries.saint_barthelemy_ebdfc8c7');
+    },
     phone: '590',
     flag: 'flag:bl-4x3',
   },
-  { code: 'BM', label: 'Bermuda', phone: '441', flag: 'flag:bm-4x3' },
+  {
+    code: 'BM',
+    get label() {
+      return i18n.t('ui.data.countries.bermuda_027ed37f');
+    },
+    phone: '441',
+    flag: 'flag:bm-4x3',
+  },
   {
     code: 'BN',
-    label: 'Brunei Darussalam',
+    get label() {
+      return i18n.t('ui.data.countries.brunei_darussalam_d1a7130e');
+    },
     phone: '673',
     flag: 'flag:bn-4x3',
   },
-  { code: 'BO', label: 'Bolivia', phone: '591', flag: 'flag:bo-4x3' },
-  { code: 'BR', label: 'Brazil', phone: '55', flag: 'flag:br-4x3' },
-  { code: 'BS', label: 'Bahamas', phone: '242', flag: 'flag:bs-4x3' },
-  { code: 'BT', label: 'Bhutan', phone: '975', flag: 'flag:bt-4x3' },
+  {
+    code: 'BO',
+    get label() {
+      return i18n.t('ui.data.countries.bolivia_a001af75');
+    },
+    phone: '591',
+    flag: 'flag:bo-4x3',
+  },
+  {
+    code: 'BR',
+    get label() {
+      return i18n.t('ui.data.countries.brazil_37497aa5');
+    },
+    phone: '55',
+    flag: 'flag:br-4x3',
+  },
+  {
+    code: 'BS',
+    get label() {
+      return i18n.t('ui.data.countries.bahamas_1f797564');
+    },
+    phone: '242',
+    flag: 'flag:bs-4x3',
+  },
+  {
+    code: 'BT',
+    get label() {
+      return i18n.t('ui.data.countries.bhutan_bb2254a8');
+    },
+    phone: '975',
+    flag: 'flag:bt-4x3',
+  },
   {
     code: 'BV',
-    label: 'Bouvet Island',
+    get label() {
+      return i18n.t('ui.data.countries.bouvet_island_290125ef');
+    },
     phone: '47',
     flag: 'flag:bv-4x3',
   },
-  { code: 'BW', label: 'Botswana', phone: '267', flag: 'flag:bw-4x3' },
-  { code: 'BY', label: 'Belarus', phone: '375', flag: 'flag:by-4x3' },
-  { code: 'BZ', label: 'Belize', phone: '501', flag: 'flag:bz-4x3' },
-  { code: 'CA', label: 'Canada', phone: '1', flag: 'flag:ca-4x3' },
+  {
+    code: 'BW',
+    get label() {
+      return i18n.t('ui.data.countries.botswana_180c89bf');
+    },
+    phone: '267',
+    flag: 'flag:bw-4x3',
+  },
+  {
+    code: 'BY',
+    get label() {
+      return i18n.t('ui.data.countries.belarus_027a12c2');
+    },
+    phone: '375',
+    flag: 'flag:by-4x3',
+  },
+  {
+    code: 'BZ',
+    get label() {
+      return i18n.t('ui.data.countries.belize_42ab0c94');
+    },
+    phone: '501',
+    flag: 'flag:bz-4x3',
+  },
+  {
+    code: 'CA',
+    get label() {
+      return i18n.t('ui.data.countries.canada_cd6a7b87');
+    },
+    phone: '1',
+    flag: 'flag:ca-4x3',
+  },
   {
     code: 'CD',
-    label: 'Congo, Democratic Republic of the',
+    get label() {
+      return i18n.t('ui.data.countries.congo_democratic_republic_of_the_f1d5742d');
+    },
     phone: '243',
     flag: 'flag:cd-4x3',
   },
   {
     code: 'CF',
-    label: 'Central African Republic',
+    get label() {
+      return i18n.t('ui.data.countries.central_african_republic_dba86789');
+    },
     phone: '236',
     flag: 'flag:cf-4x3',
   },
   {
     code: 'CH',
-    label: 'Switzerland',
+    get label() {
+      return i18n.t('ui.data.countries.switzerland_77dcd849');
+    },
     phone: '41',
     flag: 'flag:ch-4x3',
   },
   {
     code: 'CI',
-    label: "Cote d'Ivoire",
+    get label() {
+      return i18n.t('ui.data.countries.cote_d_ivoire_58f76ad9');
+    },
     phone: '225',
     flag: 'flag:ci-4x3',
   },
   {
     code: 'CK',
-    label: 'Cook Islands',
+    get label() {
+      return i18n.t('ui.data.countries.cook_islands_4bacfe25');
+    },
     phone: '682',
     flag: 'flag:ck-4x3',
   },
-  { code: 'CL', label: 'Chile', phone: '56', flag: 'flag:cl-4x3' },
-  { code: 'CM', label: 'Cameroon', phone: '237', flag: 'flag:cm-4x3' },
-  { code: 'CN', label: 'China', phone: '86', flag: 'flag:cn-4x3' },
-  { code: 'CO', label: 'Colombia', phone: '57', flag: 'flag:co-4x3' },
+  {
+    code: 'CL',
+    get label() {
+      return i18n.t('ui.data.countries.chile_349507e4');
+    },
+    phone: '56',
+    flag: 'flag:cl-4x3',
+  },
+  {
+    code: 'CM',
+    get label() {
+      return i18n.t('ui.data.countries.cameroon_73a7ddd5');
+    },
+    phone: '237',
+    flag: 'flag:cm-4x3',
+  },
+  {
+    code: 'CN',
+    get label() {
+      return i18n.t('ui.data.countries.china_d2eaf2aa');
+    },
+    phone: '86',
+    flag: 'flag:cn-4x3',
+  },
+  {
+    code: 'CO',
+    get label() {
+      return i18n.t('ui.data.countries.colombia_2f737399');
+    },
+    phone: '57',
+    flag: 'flag:co-4x3',
+  },
   {
     code: 'CR',
-    label: 'Costa Rica',
+    get label() {
+      return i18n.t('ui.data.countries.costa_rica_1bf429f9');
+    },
     phone: '506',
     flag: 'flag:cr-4x3',
   },
-  { code: 'CU', label: 'Cuba', phone: '53', flag: 'flag:cu-4x3' },
+  {
+    code: 'CU',
+    get label() {
+      return i18n.t('ui.data.countries.cuba_c484b137');
+    },
+    phone: '53',
+    flag: 'flag:cu-4x3',
+  },
   {
     code: 'CV',
-    label: 'Cape Verde',
+    get label() {
+      return i18n.t('ui.data.countries.cape_verde_8e40809e');
+    },
     phone: '238',
     flag: 'flag:cv-4x3',
   },
-  { code: 'CW', label: 'Curacao', phone: '599', flag: 'flag:cw-4x3' },
-  { code: 'CY', label: 'Cyprus', phone: '357', flag: 'flag:cy-4x3' },
+  {
+    code: 'CW',
+    get label() {
+      return i18n.t('ui.data.countries.curacao_de58331a');
+    },
+    phone: '599',
+    flag: 'flag:cw-4x3',
+  },
+  {
+    code: 'CY',
+    get label() {
+      return i18n.t('ui.data.countries.cyprus_852addab');
+    },
+    phone: '357',
+    flag: 'flag:cy-4x3',
+  },
   {
     code: 'CZ',
-    label: 'Czech Republic',
+    get label() {
+      return i18n.t('ui.data.countries.czech_republic_1fef4290');
+    },
     phone: '420',
     flag: 'flag:cz-4x3',
   },
-  { code: 'DE', label: 'Germany', phone: '49', flag: 'flag:de-4x3' },
-  { code: 'DJ', label: 'Djibouti', phone: '253', flag: 'flag:dj-4x3' },
-  { code: 'DK', label: 'Denmark', phone: '45', flag: 'flag:dk-4x3' },
-  { code: 'DM', label: 'Dominica', phone: '767', flag: 'flag:dm-4x3' },
+  {
+    code: 'DE',
+    get label() {
+      return i18n.t('ui.data.countries.germany_17d53e0e');
+    },
+    phone: '49',
+    flag: 'flag:de-4x3',
+  },
+  {
+    code: 'DJ',
+    get label() {
+      return i18n.t('ui.data.countries.djibouti_60a8b0c6');
+    },
+    phone: '253',
+    flag: 'flag:dj-4x3',
+  },
+  {
+    code: 'DK',
+    get label() {
+      return i18n.t('ui.data.countries.denmark_89da124e');
+    },
+    phone: '45',
+    flag: 'flag:dk-4x3',
+  },
+  {
+    code: 'DM',
+    get label() {
+      return i18n.t('ui.data.countries.dominica_bc1cd4f0');
+    },
+    phone: '767',
+    flag: 'flag:dm-4x3',
+  },
   {
     code: 'DO',
-    label: 'Dominican Republic',
+    get label() {
+      return i18n.t('ui.data.countries.dominican_republic_8a4bf12e');
+    },
     phone: '809',
     flag: 'flag:do-4x3',
   },
-  { code: 'DZ', label: 'Algeria', phone: '213', flag: 'flag:dz-4x3' },
-  { code: 'EC', label: 'Ecuador', phone: '593', flag: 'flag:ec-4x3' },
-  { code: 'EE', label: 'Estonia', phone: '372', flag: 'flag:ee-4x3' },
-  { code: 'EG', label: 'Egypt', phone: '20', flag: 'flag:eg-4x3' },
+  {
+    code: 'DZ',
+    get label() {
+      return i18n.t('ui.data.countries.algeria_bd6acc86');
+    },
+    phone: '213',
+    flag: 'flag:dz-4x3',
+  },
+  {
+    code: 'EC',
+    get label() {
+      return i18n.t('ui.data.countries.ecuador_09f199d2');
+    },
+    phone: '593',
+    flag: 'flag:ec-4x3',
+  },
+  {
+    code: 'EE',
+    get label() {
+      return i18n.t('ui.data.countries.estonia_f0a96da3');
+    },
+    phone: '372',
+    flag: 'flag:ee-4x3',
+  },
+  {
+    code: 'EG',
+    get label() {
+      return i18n.t('ui.data.countries.egypt_1c39abf6');
+    },
+    phone: '20',
+    flag: 'flag:eg-4x3',
+  },
   {
     code: 'EH',
-    label: 'Western Sahara',
+    get label() {
+      return i18n.t('ui.data.countries.western_sahara_fab1a523');
+    },
     phone: '212',
     flag: 'flag:eh-4x3',
   },
-  { code: 'ER', label: 'Eritrea', phone: '291', flag: 'flag:er-4x3' },
-  { code: 'ES', label: 'Spain', phone: '34', flag: 'flag:es-4x3' },
-  { code: 'ET', label: 'Ethiopia', phone: '251', flag: 'flag:et-4x3' },
-  { code: 'FJ', label: 'Fiji', phone: '679', flag: 'flag:fj-4x3' },
+  {
+    code: 'ER',
+    get label() {
+      return i18n.t('ui.data.countries.eritrea_18740af5');
+    },
+    phone: '291',
+    flag: 'flag:er-4x3',
+  },
+  {
+    code: 'ES',
+    get label() {
+      return i18n.t('ui.data.countries.spain_20a8df9b');
+    },
+    phone: '34',
+    flag: 'flag:es-4x3',
+  },
+  {
+    code: 'ET',
+    get label() {
+      return i18n.t('ui.data.countries.ethiopia_3d91f763');
+    },
+    phone: '251',
+    flag: 'flag:et-4x3',
+  },
+  {
+    code: 'FJ',
+    get label() {
+      return i18n.t('ui.data.countries.fiji_bbb7ef7f');
+    },
+    phone: '679',
+    flag: 'flag:fj-4x3',
+  },
   {
     code: 'FK',
-    label: 'Falkland Islands (Malvinas)',
+    get label() {
+      return i18n.t('ui.data.countries.falkland_islands_malvinas_e80be4bb');
+    },
     phone: '500',
     flag: 'flag:fk-4x3',
   },
   {
     code: 'FM',
-    label: 'Micronesia, Federated States of',
+    get label() {
+      return i18n.t('ui.data.countries.micronesia_federated_states_of_5990a835');
+    },
     phone: '691',
     flag: 'flag:fm-4x3',
   },
   {
     code: 'FO',
-    label: 'Faroe Islands',
+    get label() {
+      return i18n.t('ui.data.countries.faroe_islands_1082f891');
+    },
     phone: '298',
     flag: 'flag:fo-4x3',
   },
-  { code: 'FR', label: 'France', phone: '33', flag: 'flag:fr-4x3' },
-  { code: 'GA', label: 'Gabon', phone: '241', flag: 'flag:ga-4x3' },
+  {
+    code: 'FR',
+    get label() {
+      return i18n.t('ui.data.countries.france_e3772ac4');
+    },
+    phone: '33',
+    flag: 'flag:fr-4x3',
+  },
+  {
+    code: 'GA',
+    get label() {
+      return i18n.t('ui.data.countries.gabon_a06dcd71');
+    },
+    phone: '241',
+    flag: 'flag:ga-4x3',
+  },
   {
     code: 'GB',
-    label: 'United Kingdom',
+    get label() {
+      return i18n.t('ui.data.countries.united_kingdom_9769121f');
+    },
     phone: '44',
     flag: 'flag:gb-4x3',
   },
-  { code: 'GD', label: 'Grenada', phone: '473', flag: 'flag:gd-4x3' },
-  { code: 'GE', label: 'Georgia', phone: '995', flag: 'flag:ge-4x3' },
+  {
+    code: 'GD',
+    get label() {
+      return i18n.t('ui.data.countries.grenada_dbf2a2da');
+    },
+    phone: '473',
+    flag: 'flag:gd-4x3',
+  },
+  {
+    code: 'GE',
+    get label() {
+      return i18n.t('ui.data.countries.georgia_9113c6c0');
+    },
+    phone: '995',
+    flag: 'flag:ge-4x3',
+  },
   {
     code: 'GF',
-    label: 'French Guiana',
+    get label() {
+      return i18n.t('ui.data.countries.french_guiana_07090aa7');
+    },
     phone: '594',
     flag: 'flag:gf-4x3',
   },
-  { code: 'GH', label: 'Ghana', phone: '233', flag: 'flag:gh-4x3' },
-  { code: 'GI', label: 'Gibraltar', phone: '350', flag: 'flag:gi-4x3' },
-  { code: 'GL', label: 'Greenland', phone: '299', flag: 'flag:gl-4x3' },
-  { code: 'GM', label: 'Gambia', phone: '220', flag: 'flag:gm-4x3' },
-  { code: 'GN', label: 'Guinea', phone: '224', flag: 'flag:gn-4x3' },
+  {
+    code: 'GH',
+    get label() {
+      return i18n.t('ui.data.countries.ghana_317dbac9');
+    },
+    phone: '233',
+    flag: 'flag:gh-4x3',
+  },
+  {
+    code: 'GI',
+    get label() {
+      return i18n.t('ui.data.countries.gibraltar_e5133589');
+    },
+    phone: '350',
+    flag: 'flag:gi-4x3',
+  },
+  {
+    code: 'GL',
+    get label() {
+      return i18n.t('ui.data.countries.greenland_1ba0cfa5');
+    },
+    phone: '299',
+    flag: 'flag:gl-4x3',
+  },
+  {
+    code: 'GM',
+    get label() {
+      return i18n.t('ui.data.countries.gambia_7c39974f');
+    },
+    phone: '220',
+    flag: 'flag:gm-4x3',
+  },
+  {
+    code: 'GN',
+    get label() {
+      return i18n.t('ui.data.countries.guinea_b47b54fd');
+    },
+    phone: '224',
+    flag: 'flag:gn-4x3',
+  },
   {
     code: 'GQ',
-    label: 'Equatorial Guinea',
+    get label() {
+      return i18n.t('ui.data.countries.equatorial_guinea_80eaf308');
+    },
     phone: '240',
     flag: 'flag:gq-4x3',
   },
-  { code: 'GR', label: 'Greece', phone: '30', flag: 'flag:gr-4x3' },
-  { code: 'GT', label: 'Guatemala', phone: '502', flag: 'flag:gt-4x3' },
-  { code: 'GU', label: 'Guam', phone: '671', flag: 'flag:gu-4x3' },
+  {
+    code: 'GR',
+    get label() {
+      return i18n.t('ui.data.countries.greece_4902a456');
+    },
+    phone: '30',
+    flag: 'flag:gr-4x3',
+  },
+  {
+    code: 'GT',
+    get label() {
+      return i18n.t('ui.data.countries.guatemala_11760e1a');
+    },
+    phone: '502',
+    flag: 'flag:gt-4x3',
+  },
+  {
+    code: 'GU',
+    get label() {
+      return i18n.t('ui.data.countries.guam_f8aa3a93');
+    },
+    phone: '671',
+    flag: 'flag:gu-4x3',
+  },
   {
     code: 'GW',
-    label: 'Guinea-Bissau',
+    get label() {
+      return i18n.t('ui.data.countries.guinea_bissau_b07cb9a2');
+    },
     phone: '245',
     flag: 'flag:gw-4x3',
   },
-  { code: 'GY', label: 'Guyana', phone: '592', flag: 'flag:gy-4x3' },
-  { code: 'HK', label: 'Hong Kong', phone: '852', flag: 'flag:hk-4x3' },
-  { code: 'HN', label: 'Honduras', phone: '504', flag: 'flag:hn-4x3' },
-  { code: 'HR', label: 'Croatia', phone: '385', flag: 'flag:hr-4x3' },
-  { code: 'HT', label: 'Haiti', phone: '509', flag: 'flag:ht-4x3' },
-  { code: 'HU', label: 'Hungary', phone: '36', flag: 'flag:hu-4x3' },
-  { code: 'ID', label: 'Indonesia', phone: '62', flag: 'flag:id-4x3' },
-  { code: 'IE', label: 'Ireland', phone: '353', flag: 'flag:ie-4x3' },
-  { code: 'IL', label: 'Israel', phone: '972', flag: 'flag:il-4x3' },
-  { code: 'IN', label: 'India', phone: '91', flag: 'flag:in-4x3' },
-  { code: 'IQ', label: 'Iraq', phone: '964', flag: 'flag:iq-4x3' },
+  {
+    code: 'GY',
+    get label() {
+      return i18n.t('ui.data.countries.guyana_bc88a240');
+    },
+    phone: '592',
+    flag: 'flag:gy-4x3',
+  },
+  {
+    code: 'HK',
+    get label() {
+      return i18n.t('ui.data.countries.hong_kong_2f488ffc');
+    },
+    phone: '852',
+    flag: 'flag:hk-4x3',
+  },
+  {
+    code: 'HN',
+    get label() {
+      return i18n.t('ui.data.countries.honduras_5aa58871');
+    },
+    phone: '504',
+    flag: 'flag:hn-4x3',
+  },
+  {
+    code: 'HR',
+    get label() {
+      return i18n.t('ui.data.countries.croatia_d7e0453b');
+    },
+    phone: '385',
+    flag: 'flag:hr-4x3',
+  },
+  {
+    code: 'HT',
+    get label() {
+      return i18n.t('ui.data.countries.haiti_a4842f02');
+    },
+    phone: '509',
+    flag: 'flag:ht-4x3',
+  },
+  {
+    code: 'HU',
+    get label() {
+      return i18n.t('ui.data.countries.hungary_f14e46ce');
+    },
+    phone: '36',
+    flag: 'flag:hu-4x3',
+  },
+  {
+    code: 'ID',
+    get label() {
+      return i18n.t('ui.data.countries.indonesia_35536a41');
+    },
+    phone: '62',
+    flag: 'flag:id-4x3',
+  },
+  {
+    code: 'IE',
+    get label() {
+      return i18n.t('ui.data.countries.ireland_eb2131ec');
+    },
+    phone: '353',
+    flag: 'flag:ie-4x3',
+  },
+  {
+    code: 'IL',
+    get label() {
+      return i18n.t('ui.data.countries.israel_4c197dfd');
+    },
+    phone: '972',
+    flag: 'flag:il-4x3',
+  },
+  {
+    code: 'IN',
+    get label() {
+      return i18n.t('ui.data.countries.india_967ce367');
+    },
+    phone: '91',
+    flag: 'flag:in-4x3',
+  },
+  {
+    code: 'IQ',
+    get label() {
+      return i18n.t('ui.data.countries.iraq_1aed9ecc');
+    },
+    phone: '964',
+    flag: 'flag:iq-4x3',
+  },
   {
     code: 'IR',
-    label: 'Iran, Islamic Republic of',
+    get label() {
+      return i18n.t('ui.data.countries.iran_islamic_republic_of_43fc3513');
+    },
     phone: '98',
     flag: 'flag:ir-4x3',
   },
-  { code: 'IS', label: 'Iceland', phone: '354', flag: 'flag:is-4x3' },
-  { code: 'IT', label: 'Italy', phone: '39', flag: 'flag:it-4x3' },
-  { code: 'JM', label: 'Jamaica', phone: '876', flag: 'flag:jm-4x3' },
-  { code: 'JO', label: 'Jordan', phone: '962', flag: 'flag:jo-4x3' },
-  { code: 'JP', label: 'Japan', phone: '81', flag: 'flag:jp-4x3' },
-  { code: 'KE', label: 'Kenya', phone: '254', flag: 'flag:ke-4x3' },
+  {
+    code: 'IS',
+    get label() {
+      return i18n.t('ui.data.countries.iceland_b3c92eec');
+    },
+    phone: '354',
+    flag: 'flag:is-4x3',
+  },
+  {
+    code: 'IT',
+    get label() {
+      return i18n.t('ui.data.countries.italy_ad79ef0f');
+    },
+    phone: '39',
+    flag: 'flag:it-4x3',
+  },
+  {
+    code: 'JM',
+    get label() {
+      return i18n.t('ui.data.countries.jamaica_5eedd6a1');
+    },
+    phone: '876',
+    flag: 'flag:jm-4x3',
+  },
+  {
+    code: 'JO',
+    get label() {
+      return i18n.t('ui.data.countries.jordan_674027e1');
+    },
+    phone: '962',
+    flag: 'flag:jo-4x3',
+  },
+  {
+    code: 'JP',
+    get label() {
+      return i18n.t('ui.data.countries.japan_fcf29f6c');
+    },
+    phone: '81',
+    flag: 'flag:jp-4x3',
+  },
+  {
+    code: 'KE',
+    get label() {
+      return i18n.t('ui.data.countries.kenya_a84f56f2');
+    },
+    phone: '254',
+    flag: 'flag:ke-4x3',
+  },
   {
     code: 'KG',
-    label: 'Kyrgyzstan',
+    get label() {
+      return i18n.t('ui.data.countries.kyrgyzstan_c78791a3');
+    },
     phone: '996',
     flag: 'flag:kg-4x3',
   },
-  { code: 'KH', label: 'Cambodia', phone: '855', flag: 'flag:kh-4x3' },
-  { code: 'KI', label: 'Kiribati', phone: '686', flag: 'flag:ki-4x3' },
-  { code: 'KM', label: 'Comoros', phone: '269', flag: 'flag:km-4x3' },
+  {
+    code: 'KH',
+    get label() {
+      return i18n.t('ui.data.countries.cambodia_314ccd96');
+    },
+    phone: '855',
+    flag: 'flag:kh-4x3',
+  },
+  {
+    code: 'KI',
+    get label() {
+      return i18n.t('ui.data.countries.kiribati_3f57adf2');
+    },
+    phone: '686',
+    flag: 'flag:ki-4x3',
+  },
+  {
+    code: 'KM',
+    get label() {
+      return i18n.t('ui.data.countries.comoros_e5bb59a2');
+    },
+    phone: '269',
+    flag: 'flag:km-4x3',
+  },
   {
     code: 'KN',
-    label: 'Saint Kitts and Nevis',
+    get label() {
+      return i18n.t('ui.data.countries.saint_kitts_and_nevis_3ad2dd82');
+    },
     phone: '869',
     flag: 'flag:kn-4x3',
   },
   {
     code: 'KP',
-    label: "Korea, Democratic People's Republic of",
+    get label() {
+      return i18n.t('ui.data.countries.korea_democratic_people_s_republic_of_20a8386c');
+    },
     phone: '850',
     flag: 'flag:kp-4x3',
   },
   {
     code: 'KR',
-    label: 'Korea, Republic of',
+    get label() {
+      return i18n.t('ui.data.countries.korea_republic_of_b9451052');
+    },
     phone: '82',
     flag: 'flag:kr-4x3',
   },
-  { code: 'KW', label: 'Kuwait', phone: '965', flag: 'flag:kw-4x3' },
+  {
+    code: 'KW',
+    get label() {
+      return i18n.t('ui.data.countries.kuwait_93295b0c');
+    },
+    phone: '965',
+    flag: 'flag:kw-4x3',
+  },
   {
     code: 'KY',
-    label: 'Cayman Islands',
+    get label() {
+      return i18n.t('ui.data.countries.cayman_islands_e9e21c35');
+    },
     phone: '345',
     flag: 'flag:ky-4x3',
   },
-  { code: 'KZ', label: 'Kazakhstan', phone: '7', flag: 'flag:kz-4x3' },
+  {
+    code: 'KZ',
+    get label() {
+      return i18n.t('ui.data.countries.kazakhstan_2f36b6bb');
+    },
+    phone: '7',
+    flag: 'flag:kz-4x3',
+  },
   {
     code: 'LA',
-    label: "Lao People's Democratic Republic",
+    get label() {
+      return i18n.t('ui.data.countries.lao_people_s_democratic_republic_21e86862');
+    },
     phone: '856',
     flag: 'flag:la-4x3',
   },
-  { code: 'LB', label: 'Lebanon', phone: '961', flag: 'flag:lb-4x3' },
+  {
+    code: 'LB',
+    get label() {
+      return i18n.t('ui.data.countries.lebanon_5caa7f81');
+    },
+    phone: '961',
+    flag: 'flag:lb-4x3',
+  },
   {
     code: 'LC',
-    label: 'Saint Lucia',
+    get label() {
+      return i18n.t('ui.data.countries.saint_lucia_673b1cf8');
+    },
     phone: '758',
     flag: 'flag:lc-4x3',
   },
   {
     code: 'LI',
-    label: 'Liechtenstein',
+    get label() {
+      return i18n.t('ui.data.countries.liechtenstein_b0ddce0f');
+    },
     phone: '423',
     flag: 'flag:li-4x3',
   },
-  { code: 'LK', label: 'Sri Lanka', phone: '94', flag: 'flag:lk-4x3' },
-  { code: 'LR', label: 'Liberia', phone: '231', flag: 'flag:lr-4x3' },
-  { code: 'LS', label: 'Lesotho', phone: '266', flag: 'flag:ls-4x3' },
-  { code: 'LT', label: 'Lithuania', phone: '370', flag: 'flag:lt-4x3' },
+  {
+    code: 'LK',
+    get label() {
+      return i18n.t('ui.data.countries.sri_lanka_197042c4');
+    },
+    phone: '94',
+    flag: 'flag:lk-4x3',
+  },
+  {
+    code: 'LR',
+    get label() {
+      return i18n.t('ui.data.countries.liberia_1ed5dd9d');
+    },
+    phone: '231',
+    flag: 'flag:lr-4x3',
+  },
+  {
+    code: 'LS',
+    get label() {
+      return i18n.t('ui.data.countries.lesotho_93b12bf5');
+    },
+    phone: '266',
+    flag: 'flag:ls-4x3',
+  },
+  {
+    code: 'LT',
+    get label() {
+      return i18n.t('ui.data.countries.lithuania_74a788ce');
+    },
+    phone: '370',
+    flag: 'flag:lt-4x3',
+  },
   {
     code: 'LU',
-    label: 'Luxembourg',
+    get label() {
+      return i18n.t('ui.data.countries.luxembourg_5076721c');
+    },
     phone: '352',
     flag: 'flag:lu-4x3',
   },
-  { code: 'LV', label: 'Latvia', phone: '371', flag: 'flag:lv-4x3' },
-  { code: 'LY', label: 'Libya', phone: '218', flag: 'flag:ly-4x3' },
-  { code: 'MC', label: 'Monaco', phone: '377', flag: 'flag:mc-4x3' },
+  {
+    code: 'LV',
+    get label() {
+      return i18n.t('ui.data.countries.latvia_c5f5bb3b');
+    },
+    phone: '371',
+    flag: 'flag:lv-4x3',
+  },
+  {
+    code: 'LY',
+    get label() {
+      return i18n.t('ui.data.countries.libya_55949d4c');
+    },
+    phone: '218',
+    flag: 'flag:ly-4x3',
+  },
+  {
+    code: 'MC',
+    get label() {
+      return i18n.t('ui.data.countries.monaco_35ab1c3d');
+    },
+    phone: '377',
+    flag: 'flag:mc-4x3',
+  },
   {
     code: 'MD',
-    label: 'Moldova, Republic of',
+    get label() {
+      return i18n.t('ui.data.countries.moldova_republic_of_9434de2a');
+    },
     phone: '373',
     flag: 'flag:md-4x3',
   },
   {
     code: 'ME',
-    label: 'Montenegro',
+    get label() {
+      return i18n.t('ui.data.countries.montenegro_479fb34b');
+    },
     phone: '382',
     flag: 'flag:me-4x3',
   },
   {
     code: 'MG',
-    label: 'Madagascar',
+    get label() {
+      return i18n.t('ui.data.countries.madagascar_f92bcb6a');
+    },
     phone: '261',
     flag: 'flag:mg-4x3',
   },
   {
     code: 'MH',
-    label: 'Marshall Islands',
+    get label() {
+      return i18n.t('ui.data.countries.marshall_islands_bb130626');
+    },
     phone: '692',
     flag: 'flag:mh-4x3',
   },
   {
     code: 'MK',
-    label: 'Macedonia, the Former Yugoslav Republic of',
+    get label() {
+      return i18n.t('ui.data.countries.macedonia_the_former_yugoslav_republic_of_76ba5dd8');
+    },
     phone: '389',
     flag: 'flag:mk-4x3',
   },
-  { code: 'ML', label: 'Mali', phone: '223', flag: 'flag:ml-4x3' },
-  { code: 'MM', label: 'Myanmar', phone: '95', flag: 'flag:mm-4x3' },
-  { code: 'MN', label: 'Mongolia', phone: '976', flag: 'flag:mn-4x3' },
-  { code: 'MO', label: 'Macao', phone: '853', flag: 'flag:mo-4x3' },
+  {
+    code: 'ML',
+    get label() {
+      return i18n.t('ui.data.countries.mali_daa6a489');
+    },
+    phone: '223',
+    flag: 'flag:ml-4x3',
+  },
+  {
+    code: 'MM',
+    get label() {
+      return i18n.t('ui.data.countries.myanmar_928b7c48');
+    },
+    phone: '95',
+    flag: 'flag:mm-4x3',
+  },
+  {
+    code: 'MN',
+    get label() {
+      return i18n.t('ui.data.countries.mongolia_f54da380');
+    },
+    phone: '976',
+    flag: 'flag:mn-4x3',
+  },
+  {
+    code: 'MO',
+    get label() {
+      return i18n.t('ui.data.countries.macao_918c53a2');
+    },
+    phone: '853',
+    flag: 'flag:mo-4x3',
+  },
   {
     code: 'MP',
-    label: 'Northern Mariana Islands',
+    get label() {
+      return i18n.t('ui.data.countries.northern_mariana_islands_28a117f1');
+    },
     phone: '670',
     flag: 'flag:mp-4x3',
   },
   {
     code: 'MQ',
-    label: 'Martinique',
+    get label() {
+      return i18n.t('ui.data.countries.martinique_66f1a98a');
+    },
     phone: '596',
     flag: 'flag:mq-4x3',
   },
   {
     code: 'MR',
-    label: 'Mauritania',
+    get label() {
+      return i18n.t('ui.data.countries.mauritania_85fa355b');
+    },
     phone: '222',
     flag: 'flag:mr-4x3',
   },
   {
     code: 'MS',
-    label: 'Montserrat',
+    get label() {
+      return i18n.t('ui.data.countries.montserrat_35f00515');
+    },
     phone: '664',
     flag: 'flag:ms-4x3',
   },
-  { code: 'MT', label: 'Malta', phone: '356', flag: 'flag:mt-4x3' },
-  { code: 'MU', label: 'Mauritius', phone: '230', flag: 'flag:mu-4x3' },
-  { code: 'MV', label: 'Maldives', phone: '960', flag: 'flag:mv-4x3' },
-  { code: 'MW', label: 'Malawi', phone: '265', flag: 'flag:mw-4x3' },
-  { code: 'MX', label: 'Mexico', phone: '52', flag: 'flag:mx-4x3' },
-  { code: 'MY', label: 'Malaysia', phone: '60', flag: 'flag:my-4x3' },
+  {
+    code: 'MT',
+    get label() {
+      return i18n.t('ui.data.countries.malta_1a591a3e');
+    },
+    phone: '356',
+    flag: 'flag:mt-4x3',
+  },
+  {
+    code: 'MU',
+    get label() {
+      return i18n.t('ui.data.countries.mauritius_26160d23');
+    },
+    phone: '230',
+    flag: 'flag:mu-4x3',
+  },
+  {
+    code: 'MV',
+    get label() {
+      return i18n.t('ui.data.countries.maldives_213cb204');
+    },
+    phone: '960',
+    flag: 'flag:mv-4x3',
+  },
+  {
+    code: 'MW',
+    get label() {
+      return i18n.t('ui.data.countries.malawi_0ce65b26');
+    },
+    phone: '265',
+    flag: 'flag:mw-4x3',
+  },
+  {
+    code: 'MX',
+    get label() {
+      return i18n.t('ui.data.countries.mexico_41937b20');
+    },
+    phone: '52',
+    flag: 'flag:mx-4x3',
+  },
+  {
+    code: 'MY',
+    get label() {
+      return i18n.t('ui.data.countries.malaysia_ff3ea3be');
+    },
+    phone: '60',
+    flag: 'flag:my-4x3',
+  },
   {
     code: 'MZ',
-    label: 'Mozambique',
+    get label() {
+      return i18n.t('ui.data.countries.mozambique_a40a9be0');
+    },
     phone: '258',
     flag: 'flag:mz-4x3',
   },
   {
     code: 'NC',
-    label: 'New Caledonia',
+    get label() {
+      return i18n.t('ui.data.countries.new_caledonia_b9967e88');
+    },
     phone: '687',
     flag: 'flag:nc-4x3',
   },
-  { code: 'NE', label: 'Niger', phone: '227', flag: 'flag:ne-4x3' },
-  { code: 'NG', label: 'Nigeria', phone: '234', flag: 'flag:ng-4x3' },
-  { code: 'NI', label: 'Nicaragua', phone: '505', flag: 'flag:ni-4x3' },
+  {
+    code: 'NE',
+    get label() {
+      return i18n.t('ui.data.countries.niger_6687e189');
+    },
+    phone: '227',
+    flag: 'flag:ne-4x3',
+  },
+  {
+    code: 'NG',
+    get label() {
+      return i18n.t('ui.data.countries.nigeria_9742d008');
+    },
+    phone: '234',
+    flag: 'flag:ng-4x3',
+  },
+  {
+    code: 'NI',
+    get label() {
+      return i18n.t('ui.data.countries.nicaragua_4812648c');
+    },
+    phone: '505',
+    flag: 'flag:ni-4x3',
+  },
   {
     code: 'NL',
-    label: 'Netherlands',
+    get label() {
+      return i18n.t('ui.data.countries.netherlands_fb61c8a8');
+    },
     phone: '31',
     flag: 'flag:nl-4x3',
   },
-  { code: 'NP', label: 'Nepal', phone: '977', flag: 'flag:np-4x3' },
-  { code: 'NR', label: 'Nauru', phone: '674', flag: 'flag:nr-4x3' },
-  { code: 'NU', label: 'Niue', phone: '683', flag: 'flag:nu-4x3' },
+  {
+    code: 'NP',
+    get label() {
+      return i18n.t('ui.data.countries.nepal_0e1d589f');
+    },
+    phone: '977',
+    flag: 'flag:np-4x3',
+  },
+  {
+    code: 'NR',
+    get label() {
+      return i18n.t('ui.data.countries.nauru_f648c72a');
+    },
+    phone: '674',
+    flag: 'flag:nr-4x3',
+  },
+  {
+    code: 'NU',
+    get label() {
+      return i18n.t('ui.data.countries.niue_c635e301');
+    },
+    phone: '683',
+    flag: 'flag:nu-4x3',
+  },
   {
     code: 'NZ',
-    label: 'New Zealand',
+    get label() {
+      return i18n.t('ui.data.countries.new_zealand_a2238e91');
+    },
     phone: '64',
     flag: 'flag:nz-4x3',
   },
-  { code: 'OM', label: 'Oman', phone: '968', flag: 'flag:om-4x3' },
-  { code: 'PA', label: 'Panama', phone: '507', flag: 'flag:pa-4x3' },
-  { code: 'PE', label: 'Peru', phone: '51', flag: 'flag:pe-4x3' },
+  {
+    code: 'OM',
+    get label() {
+      return i18n.t('ui.data.countries.oman_c14c36df');
+    },
+    phone: '968',
+    flag: 'flag:om-4x3',
+  },
+  {
+    code: 'PA',
+    get label() {
+      return i18n.t('ui.data.countries.panama_1e36b31e');
+    },
+    phone: '507',
+    flag: 'flag:pa-4x3',
+  },
+  {
+    code: 'PE',
+    get label() {
+      return i18n.t('ui.data.countries.peru_36c57243');
+    },
+    phone: '51',
+    flag: 'flag:pe-4x3',
+  },
   {
     code: 'PF',
-    label: 'French Polynesia',
+    get label() {
+      return i18n.t('ui.data.countries.french_polynesia_40f39cdc');
+    },
     phone: '689',
     flag: 'flag:pf-4x3',
   },
   {
     code: 'PG',
-    label: 'Papua New Guinea',
+    get label() {
+      return i18n.t('ui.data.countries.papua_new_guinea_fbaa3c3e');
+    },
     phone: '675',
     flag: 'flag:pg-4x3',
   },
   {
     code: 'PH',
-    label: 'Philippines',
+    get label() {
+      return i18n.t('ui.data.countries.philippines_8067364d');
+    },
     phone: '63',
     flag: 'flag:ph-4x3',
   },
-  { code: 'PK', label: 'Pakistan', phone: '92', flag: 'flag:pk-4x3' },
-  { code: 'PL', label: 'Poland', phone: '48', flag: 'flag:pl-4x3' },
+  {
+    code: 'PK',
+    get label() {
+      return i18n.t('ui.data.countries.pakistan_82d220df');
+    },
+    phone: '92',
+    flag: 'flag:pk-4x3',
+  },
+  {
+    code: 'PL',
+    get label() {
+      return i18n.t('ui.data.countries.poland_5ff03b72');
+    },
+    phone: '48',
+    flag: 'flag:pl-4x3',
+  },
   {
     code: 'PM',
-    label: 'Saint Pierre and Miquelon',
+    get label() {
+      return i18n.t('ui.data.countries.saint_pierre_and_miquelon_70e53283');
+    },
     phone: '508',
     flag: 'flag:pm-4x3',
   },
-  { code: 'PN', label: 'Pitcairn', phone: '870', flag: 'flag:pn-4x3' },
+  {
+    code: 'PN',
+    get label() {
+      return i18n.t('ui.data.countries.pitcairn_379dc279');
+    },
+    phone: '870',
+    flag: 'flag:pn-4x3',
+  },
   {
     code: 'PS',
-    label: 'Palestine, State of',
+    get label() {
+      return i18n.t('ui.data.countries.palestine_state_of_1d41e339');
+    },
     phone: '970',
     flag: 'flag:ps-4x3',
   },
-  { code: 'PT', label: 'Portugal', phone: '351', flag: 'flag:pt-4x3' },
-  { code: 'PW', label: 'Palau', phone: '680', flag: 'flag:pw-4x3' },
-  { code: 'PY', label: 'Paraguay', phone: '595', flag: 'flag:py-4x3' },
-  { code: 'QA', label: 'Qatar', phone: '974', flag: 'flag:qa-4x3' },
-  { code: 'RE', label: 'Reunion', phone: '262', flag: 'flag:re-4x3' },
-  { code: 'RO', label: 'Romania', phone: '40', flag: 'flag:ro-4x3' },
-  { code: 'RS', label: 'Serbia', phone: '381', flag: 'flag:rs-4x3' },
-  { code: 'RW', label: 'Rwanda', phone: '250', flag: 'flag:rw-4x3' },
+  {
+    code: 'PT',
+    get label() {
+      return i18n.t('ui.data.countries.portugal_a495190b');
+    },
+    phone: '351',
+    flag: 'flag:pt-4x3',
+  },
+  {
+    code: 'PW',
+    get label() {
+      return i18n.t('ui.data.countries.palau_e5e0b68a');
+    },
+    phone: '680',
+    flag: 'flag:pw-4x3',
+  },
+  {
+    code: 'PY',
+    get label() {
+      return i18n.t('ui.data.countries.paraguay_71a45296');
+    },
+    phone: '595',
+    flag: 'flag:py-4x3',
+  },
+  {
+    code: 'QA',
+    get label() {
+      return i18n.t('ui.data.countries.qatar_83ef3e6c');
+    },
+    phone: '974',
+    flag: 'flag:qa-4x3',
+  },
+  {
+    code: 'RE',
+    get label() {
+      return i18n.t('ui.data.countries.reunion_9c734a6e');
+    },
+    phone: '262',
+    flag: 'flag:re-4x3',
+  },
+  {
+    code: 'RO',
+    get label() {
+      return i18n.t('ui.data.countries.romania_d6b897fd');
+    },
+    phone: '40',
+    flag: 'flag:ro-4x3',
+  },
+  {
+    code: 'RS',
+    get label() {
+      return i18n.t('ui.data.countries.serbia_6d31bf00');
+    },
+    phone: '381',
+    flag: 'flag:rs-4x3',
+  },
+  {
+    code: 'RW',
+    get label() {
+      return i18n.t('ui.data.countries.rwanda_7266a1da');
+    },
+    phone: '250',
+    flag: 'flag:rw-4x3',
+  },
   {
     code: 'SA',
-    label: 'Saudi Arabia',
+    get label() {
+      return i18n.t('ui.data.countries.saudi_arabia_6f49c311');
+    },
     phone: '966',
     flag: 'flag:sa-4x3',
   },
   {
     code: 'SB',
-    label: 'Solomon Islands',
+    get label() {
+      return i18n.t('ui.data.countries.solomon_islands_ecae78ab');
+    },
     phone: '677',
     flag: 'flag:sb-4x3',
   },
   {
     code: 'SC',
-    label: 'Seychelles',
+    get label() {
+      return i18n.t('ui.data.countries.seychelles_3d2d7b1c');
+    },
     phone: '248',
     flag: 'flag:sc-4x3',
   },
-  { code: 'SD', label: 'Sudan', phone: '249', flag: 'flag:sd-4x3' },
-  { code: 'SE', label: 'Sweden', phone: '46', flag: 'flag:se-4x3' },
-  { code: 'SG', label: 'Singapore', phone: '65', flag: 'flag:sg-4x3' },
+  {
+    code: 'SD',
+    get label() {
+      return i18n.t('ui.data.countries.sudan_1193ba31');
+    },
+    phone: '249',
+    flag: 'flag:sd-4x3',
+  },
+  {
+    code: 'SE',
+    get label() {
+      return i18n.t('ui.data.countries.sweden_72ddd2b6');
+    },
+    phone: '46',
+    flag: 'flag:se-4x3',
+  },
+  {
+    code: 'SG',
+    get label() {
+      return i18n.t('ui.data.countries.singapore_20c0b7bd');
+    },
+    phone: '65',
+    flag: 'flag:sg-4x3',
+  },
   {
     code: 'SH',
-    label: 'Saint Helena',
+    get label() {
+      return i18n.t('ui.data.countries.saint_helena_03bdca14');
+    },
     phone: '290',
     flag: 'flag:sh-4x3',
   },
-  { code: 'SI', label: 'Slovenia', phone: '386', flag: 'flag:si-4x3' },
-  { code: 'SK', label: 'Slovakia', phone: '421', flag: 'flag:sk-4x3' },
+  {
+    code: 'SI',
+    get label() {
+      return i18n.t('ui.data.countries.slovenia_d1aa0503');
+    },
+    phone: '386',
+    flag: 'flag:si-4x3',
+  },
+  {
+    code: 'SK',
+    get label() {
+      return i18n.t('ui.data.countries.slovakia_b6c149c3');
+    },
+    phone: '421',
+    flag: 'flag:sk-4x3',
+  },
   {
     code: 'SL',
-    label: 'Sierra Leone',
+    get label() {
+      return i18n.t('ui.data.countries.sierra_leone_50df2d65');
+    },
     phone: '232',
     flag: 'flag:sl-4x3',
   },
   {
     code: 'SM',
-    label: 'San Marino',
+    get label() {
+      return i18n.t('ui.data.countries.san_marino_87fd3bef');
+    },
     phone: '378',
     flag: 'flag:sm-4x3',
   },
-  { code: 'SN', label: 'Senegal', phone: '221', flag: 'flag:sn-4x3' },
-  { code: 'SO', label: 'Somalia', phone: '252', flag: 'flag:so-4x3' },
-  { code: 'SR', label: 'Suriname', phone: '597', flag: 'flag:sr-4x3' },
+  {
+    code: 'SN',
+    get label() {
+      return i18n.t('ui.data.countries.senegal_d8973b8e');
+    },
+    phone: '221',
+    flag: 'flag:sn-4x3',
+  },
+  {
+    code: 'SO',
+    get label() {
+      return i18n.t('ui.data.countries.somalia_4dfdf195');
+    },
+    phone: '252',
+    flag: 'flag:so-4x3',
+  },
+  {
+    code: 'SR',
+    get label() {
+      return i18n.t('ui.data.countries.suriname_b17fc6f0');
+    },
+    phone: '597',
+    flag: 'flag:sr-4x3',
+  },
   {
     code: 'SS',
-    label: 'South Sudan',
+    get label() {
+      return i18n.t('ui.data.countries.south_sudan_6981f402');
+    },
     phone: '211',
     flag: 'flag:ss-4x3',
   },
   {
     code: 'ST',
-    label: 'Sao Tome and Principe',
+    get label() {
+      return i18n.t('ui.data.countries.sao_tome_and_principe_6ddcb9e4');
+    },
     phone: '239',
     flag: 'flag:st-4x3',
   },
   {
     code: 'SV',
-    label: 'El Salvador',
+    get label() {
+      return i18n.t('ui.data.countries.el_salvador_259a6e93');
+    },
     phone: '503',
     flag: 'flag:sv-4x3',
   },
   {
     code: 'SX',
-    label: 'Sint Maarten (Dutch part)',
+    get label() {
+      return i18n.t('ui.data.countries.sint_maarten_dutch_part_9b3d87b4');
+    },
     phone: '721',
     flag: 'flag:sx-4x3',
   },
   {
     code: 'SY',
-    label: 'Syrian Arab Republic',
+    get label() {
+      return i18n.t('ui.data.countries.syrian_arab_republic_48a9fd5e');
+    },
     phone: '963',
     flag: 'flag:sy-4x3',
   },
   {
     code: 'TC',
-    label: 'Turks and Caicos Islands',
+    get label() {
+      return i18n.t('ui.data.countries.turks_and_caicos_islands_611bc125');
+    },
     phone: '649',
     flag: 'flag:tc-4x3',
   },
-  { code: 'TD', label: 'Chad', phone: '235', flag: 'flag:td-4x3' },
-  { code: 'TG', label: 'Togo', phone: '228', flag: 'flag:tg-4x3' },
-  { code: 'TH', label: 'Thailand', phone: '66', flag: 'flag:th-4x3' },
+  {
+    code: 'TD',
+    get label() {
+      return i18n.t('ui.data.countries.chad_6c6b1b2b');
+    },
+    phone: '235',
+    flag: 'flag:td-4x3',
+  },
+  {
+    code: 'TG',
+    get label() {
+      return i18n.t('ui.data.countries.togo_30949d5f');
+    },
+    phone: '228',
+    flag: 'flag:tg-4x3',
+  },
+  {
+    code: 'TH',
+    get label() {
+      return i18n.t('ui.data.countries.thailand_a2b7c120');
+    },
+    phone: '66',
+    flag: 'flag:th-4x3',
+  },
   {
     code: 'TJ',
-    label: 'Tajikistan',
+    get label() {
+      return i18n.t('ui.data.countries.tajikistan_279c771a');
+    },
     phone: '992',
     flag: 'flag:tj-4x3',
   },
-  { code: 'TK', label: 'Tokelau', phone: '690', flag: 'flag:tk-4x3' },
+  {
+    code: 'TK',
+    get label() {
+      return i18n.t('ui.data.countries.tokelau_a08c1ca2');
+    },
+    phone: '690',
+    flag: 'flag:tk-4x3',
+  },
   {
     code: 'TM',
-    label: 'Turkmenistan',
+    get label() {
+      return i18n.t('ui.data.countries.turkmenistan_1f8dc1a6');
+    },
     phone: '993',
     flag: 'flag:tm-4x3',
   },
-  { code: 'TN', label: 'Tunisia', phone: '216', flag: 'flag:tn-4x3' },
-  { code: 'TO', label: 'Tonga', phone: '676', flag: 'flag:to-4x3' },
-  { code: 'TR', label: 'Turkey', phone: '90', flag: 'flag:tr-4x3' },
+  {
+    code: 'TN',
+    get label() {
+      return i18n.t('ui.data.countries.tunisia_edf404d0');
+    },
+    phone: '216',
+    flag: 'flag:tn-4x3',
+  },
+  {
+    code: 'TO',
+    get label() {
+      return i18n.t('ui.data.countries.tonga_e8a1234b');
+    },
+    phone: '676',
+    flag: 'flag:to-4x3',
+  },
+  {
+    code: 'TR',
+    get label() {
+      return i18n.t('ui.data.countries.turkey_d7153e67');
+    },
+    phone: '90',
+    flag: 'flag:tr-4x3',
+  },
   {
     code: 'TT',
-    label: 'Trinidad and Tobago',
+    get label() {
+      return i18n.t('ui.data.countries.trinidad_and_tobago_4d206a81');
+    },
     phone: '868',
     flag: 'flag:tt-4x3',
   },
-  { code: 'TV', label: 'Tuvalu', phone: '688', flag: 'flag:tv-4x3' },
-  { code: 'TW', label: 'Taiwan', phone: '886', flag: 'flag:tw-4x3' },
+  {
+    code: 'TV',
+    get label() {
+      return i18n.t('ui.data.countries.tuvalu_9a2248f7');
+    },
+    phone: '688',
+    flag: 'flag:tv-4x3',
+  },
+  {
+    code: 'TW',
+    get label() {
+      return i18n.t('ui.data.countries.taiwan_094d515b');
+    },
+    phone: '886',
+    flag: 'flag:tw-4x3',
+  },
   {
     code: 'TZ',
-    label: 'United Republic of Tanzania',
+    get label() {
+      return i18n.t('ui.data.countries.united_republic_of_tanzania_ddb017c6');
+    },
     phone: '255',
     flag: 'flag:tz-4x3',
   },
-  { code: 'UA', label: 'Ukraine', phone: '380', flag: 'flag:ua-4x3' },
-  { code: 'UG', label: 'Uganda', phone: '256', flag: 'flag:ug-4x3' },
-  { code: 'US', label: 'United States', phone: '1', flag: 'flag:us-4x3' },
-  { code: 'UY', label: 'Uruguay', phone: '598', flag: 'flag:uy-4x3' },
+  {
+    code: 'UA',
+    get label() {
+      return i18n.t('ui.data.countries.ukraine_c951ec00');
+    },
+    phone: '380',
+    flag: 'flag:ua-4x3',
+  },
+  {
+    code: 'UG',
+    get label() {
+      return i18n.t('ui.data.countries.uganda_e92904bc');
+    },
+    phone: '256',
+    flag: 'flag:ug-4x3',
+  },
+  {
+    code: 'US',
+    get label() {
+      return i18n.t('ui.data.countries.united_states_768685ca');
+    },
+    phone: '1',
+    flag: 'flag:us-4x3',
+  },
+  {
+    code: 'UY',
+    get label() {
+      return i18n.t('ui.data.countries.uruguay_66b98924');
+    },
+    phone: '598',
+    flag: 'flag:uy-4x3',
+  },
   {
     code: 'UZ',
-    label: 'Uzbekistan',
+    get label() {
+      return i18n.t('ui.data.countries.uzbekistan_db800e86');
+    },
     phone: '998',
     flag: 'flag:uz-4x3',
   },
   {
     code: 'VA',
-    label: 'Holy See (Vatican City State)',
+    get label() {
+      return i18n.t('ui.data.countries.holy_see_vatican_city_state_0ee775d8');
+    },
     phone: '379',
     flag: 'flag:va-4x3',
   },
   {
     code: 'VC',
-    label: 'Saint Vincent and the Grenadines',
+    get label() {
+      return i18n.t('ui.data.countries.saint_vincent_and_the_grenadines_3fa9b2dd');
+    },
     phone: '784',
     flag: 'flag:vc-4x3',
   },
-  { code: 'VE', label: 'Venezuela', phone: '58', flag: 'flag:ve-4x3' },
+  {
+    code: 'VE',
+    get label() {
+      return i18n.t('ui.data.countries.venezuela_9d4ac43d');
+    },
+    phone: '58',
+    flag: 'flag:ve-4x3',
+  },
   {
     code: 'VG',
-    label: 'British Virgin Islands',
+    get label() {
+      return i18n.t('ui.data.countries.british_virgin_islands_1fc1b5b2');
+    },
     phone: '284',
     flag: 'flag:vg-4x3',
   },
   {
     code: 'VI',
-    label: 'US Virgin Islands',
+    get label() {
+      return i18n.t('ui.data.countries.us_virgin_islands_452f8936');
+    },
     phone: '340',
     flag: 'flag:vi-4x3',
   },
-  { code: 'VN', label: 'Vietnam', phone: '84', flag: 'flag:vn-4x3' },
-  { code: 'VU', label: 'Vanuatu', phone: '678', flag: 'flag:vu-4x3' },
+  {
+    code: 'VN',
+    get label() {
+      return i18n.t('ui.data.countries.vietnam_681101d8');
+    },
+    phone: '84',
+    flag: 'flag:vn-4x3',
+  },
+  {
+    code: 'VU',
+    get label() {
+      return i18n.t('ui.data.countries.vanuatu_d16ad2dc');
+    },
+    phone: '678',
+    flag: 'flag:vu-4x3',
+  },
   {
     code: 'WF',
-    label: 'Wallis and Futuna',
+    get label() {
+      return i18n.t('ui.data.countries.wallis_and_futuna_a187509a');
+    },
     phone: '681',
     flag: 'flag:wf-4x3',
   },
-  { code: 'WS', label: 'Samoa', phone: '685', flag: 'flag:ws-4x3' },
-  { code: 'XK', label: 'Kosovo', phone: '383', flag: 'flag:xk-4x3' },
-  { code: 'YE', label: 'Yemen', phone: '967', flag: 'flag:ye-4x3' },
+  {
+    code: 'WS',
+    get label() {
+      return i18n.t('ui.data.countries.samoa_f5680604');
+    },
+    phone: '685',
+    flag: 'flag:ws-4x3',
+  },
+  {
+    code: 'XK',
+    get label() {
+      return i18n.t('ui.data.countries.kosovo_95cb6272');
+    },
+    phone: '383',
+    flag: 'flag:xk-4x3',
+  },
+  {
+    code: 'YE',
+    get label() {
+      return i18n.t('ui.data.countries.yemen_ac33d641');
+    },
+    phone: '967',
+    flag: 'flag:ye-4x3',
+  },
   {
     code: 'ZA',
-    label: 'South Africa',
+    get label() {
+      return i18n.t('ui.data.countries.south_africa_35fda17f');
+    },
     phone: '27',
     flag: 'flag:za-4x3',
   },
-  { code: 'ZM', label: 'Zambia', phone: '260', flag: 'flag:zm-4x3' },
-  { code: 'ZW', label: 'Zimbabwe', phone: '263', flag: 'flag:zw-4x3' },
+  {
+    code: 'ZM',
+    get label() {
+      return i18n.t('ui.data.countries.zambia_dcf25ed5');
+    },
+    phone: '260',
+    flag: 'flag:zm-4x3',
+  },
+  {
+    code: 'ZW',
+    get label() {
+      return i18n.t('ui.data.countries.zimbabwe_5922f5ce');
+    },
+    phone: '263',
+    flag: 'flag:zw-4x3',
+  },
 ];

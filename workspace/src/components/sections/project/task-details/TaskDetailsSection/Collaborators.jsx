@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Checkbox, InputAdornment, Paper, Stack, Typography } from '@mui/material';
 import { taskDetailsData } from 'data/project/task-details';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const Collaborators = () => {
+  const { t: translateUi } = useTranslation();
   const [collaborators, setCollaborators] = useState(() => taskDetailsData.collaborators);
 
   const handleToggle = (id) => {
@@ -30,10 +32,12 @@ const Collaborators = () => {
           mb: 1.5,
         }}
       >
-        Collaborators
+        {translateUi('ui.sections.project.task_details.taskdetailssection.collaborators_6eb695e5')}
       </Typography>
       <StyledTextField
-        placeholder="Search with a keyword"
+        placeholder={translateUi(
+          'ui.sections.project.task_details.taskdetailssection.search_with_a_keyword_1695163b',
+        )}
         fullWidth
         slotProps={{
           input: {

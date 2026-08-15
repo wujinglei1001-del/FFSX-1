@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Avatar, Box, Chip, Link, Stack, Typography } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 import { getStatusChipColor } from '..';
@@ -13,7 +14,9 @@ export const columnDefs = [
   },
   {
     field: 'member',
-    headerName: 'Member',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.member_6853c98a');
+    },
     headerClassName: 'member-header',
     cellClassName: 'member-cell',
     flex: 2.1,
@@ -35,7 +38,9 @@ export const columnDefs = [
   },
   {
     field: 'idNo',
-    headerName: 'ID No',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.id_no_2cee330c');
+    },
     headerClassName: 'id-no-header',
     cellClassName: 'id-no-cell',
     flex: 1,
@@ -43,7 +48,9 @@ export const columnDefs = [
   },
   {
     field: 'jobTitle',
-    headerName: 'Job title',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.job_title_0e1d5b56');
+    },
     headerClassName: 'job-title-header',
     cellClassName: 'job-title-cell',
     flex: 1.9,
@@ -56,7 +63,9 @@ export const columnDefs = [
   },
   {
     field: 'team',
-    headerName: 'Team',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.team_21888726');
+    },
     headerClassName: 'team-header',
     cellClassName: 'team-cell',
     flex: 1.8,
@@ -64,7 +73,9 @@ export const columnDefs = [
   },
   {
     field: 'email',
-    headerName: 'Email',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.email_84add5b2');
+    },
     headerClassName: 'email-header',
     cellClassName: 'email-cell',
     flex: 2,
@@ -77,7 +88,9 @@ export const columnDefs = [
   },
   {
     field: 'phoneNo',
-    headerName: 'Phone No',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.phone_no_8578b945');
+    },
     headerClassName: 'phone-no-header',
     cellClassName: 'phone-no-cell',
     flex: 1.8,
@@ -85,7 +98,9 @@ export const columnDefs = [
   },
   {
     field: 'city',
-    headerName: 'City',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.city_4271627f');
+    },
     headerClassName: 'city-header',
     cellClassName: 'city-cell',
     flex: 1.4,
@@ -93,7 +108,9 @@ export const columnDefs = [
   },
   {
     field: 'status',
-    headerName: 'Status',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.status_bae7d5be');
+    },
     headerClassName: 'status-header',
     cellClassName: 'status-cell',
     flex: 1.2,
@@ -108,7 +125,9 @@ export const columnDefs = [
   },
   {
     field: 'hiredDate',
-    headerName: 'City',
+    get headerName() {
+      return i18n.t('ui.sections.member.member_list.list_view.city_4271627f');
+    },
     headerClassName: 'hired-date-header',
     cellClassName: 'hired-Date-cell',
     flex: 1,

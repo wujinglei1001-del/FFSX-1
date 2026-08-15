@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -25,6 +26,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import SearchTextField from './SearchTextField';
 
 const SearchResult = ({ handleClose }) => {
+  const { t: translateUi } = useTranslation();
   const { breadcrumbs, contacts, files, tags } = searchResult;
   return (
     <>
@@ -39,7 +41,7 @@ const SearchResult = ({ handleClose }) => {
               fontWeight: 'medium',
             }}
           >
-            Advanced search
+            {translateUi('ui.layouts.main_layout.common.search_box.advanced_search_6db75ea6')}
           </Link>
         </Box>
         <Divider />
@@ -59,7 +61,7 @@ const SearchResult = ({ handleClose }) => {
                 color: 'text.disabled',
               }}
             >
-              Recent
+              {translateUi('ui.layouts.main_layout.common.search_box.recent_76eec760')}
             </Typography>
 
             <Link
@@ -70,7 +72,7 @@ const SearchResult = ({ handleClose }) => {
                 fontWeight: 'medium',
               }}
             >
-              Clear history
+              {translateUi('ui.layouts.main_layout.common.search_box.clear_history_53b5158b')}
             </Link>
           </Stack>
 
@@ -96,7 +98,9 @@ const SearchResult = ({ handleClose }) => {
                 }}
               >
                 <Breadcrumbs
-                  aria-label="breadcrumb"
+                  aria-label={translateUi(
+                    'ui.layouts.main_layout.common.search_box.breadcrumb_6e5ce570',
+                  )}
                   maxItems={2}
                   sx={{
                     py: 0.5,
@@ -150,7 +154,9 @@ const SearchResult = ({ handleClose }) => {
           </List>
         </Box>
         <Divider />
-        <ResultItemSection title="Files">
+        <ResultItemSection
+          title={translateUi('ui.layouts.main_layout.common.search_box.files_6ce6c512')}
+        >
           <List sx={{ pt: 0, pb: 2 }}>
             {files.map((file) => (
               <ListItem
@@ -167,7 +173,13 @@ const SearchResult = ({ handleClose }) => {
                   },
                 }}
                 secondaryAction={
-                  <IconButton edge="end" aria-label="download" sx={{ mr: 1 }}>
+                  <IconButton
+                    edge="end"
+                    aria-label={translateUi(
+                      'ui.layouts.main_layout.common.search_box.download_817248fb',
+                    )}
+                    sx={{ mr: 1 }}
+                  >
                     <IconifyIcon
                       icon="material-symbols-light:download-rounded"
                       color="primary.main"
@@ -227,7 +239,9 @@ const SearchResult = ({ handleClose }) => {
           </List>
         </ResultItemSection>
 
-        <ResultItemSection title="Contacts">
+        <ResultItemSection
+          title={translateUi('ui.layouts.main_layout.common.search_box.contacts_b0dd615c')}
+        >
           <Box sx={{ px: 3, mb: 2 }}>
             <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
               {contacts.map((contact) => (
@@ -257,14 +271,16 @@ const SearchResult = ({ handleClose }) => {
                   alignItems: 'center',
                 }}
               >
-                See All Contacts{' '}
+                {translateUi('ui.layouts.main_layout.common.search_box.see_all_contacts_c124a660')}{' '}
                 <IconifyIcon icon="material-symbols:chevron-right-rounded" sx={{ fontSize: 16 }} />
               </Link>
             </Stack>
           </Box>
         </ResultItemSection>
 
-        <ResultItemSection title="Popular tags">
+        <ResultItemSection
+          title={translateUi('ui.layouts.main_layout.common.search_box.popular_tags_f5af20fd')}
+        >
           <Box sx={{ px: 3, mb: 2 }}>
             <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
               {tags.map((tag) => (
@@ -294,8 +310,16 @@ const SearchResult = ({ handleClose }) => {
               color: 'text.disabled',
             }}
           >
-            Not the results you expected? <Link href="#!">Give feedback</Link> or{' '}
-            <Link href="#!">learn more</Link>
+            {translateUi(
+              'ui.layouts.main_layout.common.search_box.not_the_results_you_expected_53de23f0',
+            )}
+            <Link href="#!">
+              {translateUi('ui.layouts.main_layout.common.search_box.give_feedback_086158f0')}
+            </Link>{' '}
+            {translateUi('common.or')}{' '}
+            <Link href="#!">
+              {translateUi('ui.layouts.main_layout.common.search_box.learn_more_515effb7')}
+            </Link>
           </Typography>
         </Box>
       </SimpleBar>

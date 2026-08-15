@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Paper, Typography } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import { taskDetailsData } from 'data/project/task-details';
 import dayjs from 'dayjs';
 
 const DateSection = () => {
+  const { t: translateUi } = useTranslation();
   const [startDate, setStartDate] = useState(
     taskDetailsData.startDate ? dayjs(taskDetailsData.startDate) : null,
   );
@@ -41,7 +43,7 @@ const DateSection = () => {
             mb: 1.5,
           }}
         >
-          Start date
+          {translateUi('ui.sections.project.task_details.taskdetailssection.start_date_ff99f5b5')}
         </Typography>
         <DatePicker
           format="DD/MM/YY"
@@ -58,7 +60,7 @@ const DateSection = () => {
             mb: 1.5,
           }}
         >
-          Due date
+          {translateUi('ui.sections.project.task_details.taskdetailssection.due_date_4c1aeebc')}
         </Typography>
         <DatePicker
           format="DD/MM/YY"

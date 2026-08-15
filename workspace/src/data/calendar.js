@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 
 const currentDay = dayjs && dayjs().format('DD');
 const currentMonth = dayjs && dayjs().format('MM');
@@ -13,60 +14,90 @@ const getTime = (time, dayOffset = 0) =>
 export const eventList = [
   {
     id: '1',
-    title: 'Project Deadline',
+    get title() {
+      return i18n.t('ui.data.calendar.project_deadline_112c9073');
+    },
     category: 'workshop',
     start: `${currentYear}-${currentMonth}-02 00:00:00`,
     end: `${currentYear}-${currentMonth}-04 12:59:00`,
     allDay: true,
-    description: 'Important deadline for project completion. Ensure all tasks are finalized.',
+    get description() {
+      return i18n.t(
+        'ui.data.calendar.important_deadline_for_project_completion_ensure_all_485f90e3',
+      );
+    },
     eventType: 'hybrid',
     location: '',
     url: '',
   },
   {
     id: '2',
-    title: 'Team Meeting',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
     category: 'meeting',
     start: `${currentYear}-${currentMonth}-${currentDay} 10:05:00`,
     end: `${currentYear}-${currentMonth}-${currentDay} 11:55:00`,
     allDay: false,
-    description: 'Weekly team sync-up to discuss progress and blockers.',
+    get description() {
+      return i18n.t(
+        'ui.data.calendar.weekly_team_sync_up_to_discuss_progress_and_blockers_dcae5638',
+      );
+    },
     eventType: 'hybrid',
     location: '',
     url: '',
   },
   {
     id: '3',
-    title: 'Client Call',
+    get title() {
+      return i18n.t('ui.data.calendar.client_call_8966f6c1');
+    },
     category: 'party',
     start: `${currentYear}-${currentMonth}-01 11:05:00`,
     end: `${currentYear}-${currentMonth}-01 11:55:00`,
     allDay: false,
-    description: 'Discussion with the client regarding project updates and feedback.',
+    get description() {
+      return i18n.t(
+        'ui.data.calendar.discussion_with_the_client_regarding_project_updates_c241f5b7',
+      );
+    },
     eventType: 'hybrid',
     location: '',
     url: '',
   },
   {
     id: '4',
-    title: 'Company Event',
+    get title() {
+      return i18n.t('ui.data.calendar.company_event_c0bc98fb');
+    },
     category: 'webinar',
     start: `${currentYear}-${currentMonth}-15 00:00:00`,
     end: `${currentYear}-${currentMonth}-16 12:59:00`,
     allDay: true,
-    description: 'Company-wide event to celebrate milestones and achievements.',
+    get description() {
+      return i18n.t(
+        'ui.data.calendar.company_wide_event_to_celebrate_milestones_and_achie_9b18dbc0',
+      );
+    },
     eventType: 'hybrid',
     location: '',
     url: '',
   },
   {
     id: '5',
-    title: 'Weekly Sync-up',
+    get title() {
+      return i18n.t('ui.data.calendar.weekly_sync_up_c40317f9');
+    },
     category: 'webinar',
     start: `${currentYear}-${currentMonth}-16 00:00:00`,
     end: `${currentYear}-${currentMonth}-17 12:59:00`,
     allDay: true,
-    description: 'Regular check-in to align on team priorities and tasks for the week.',
+    get description() {
+      return i18n.t(
+        'ui.data.calendar.regular_check_in_to_align_on_team_priorities_and_tas_a544e249',
+      );
+    },
     eventType: 'hybrid',
     location: '',
     url: '',
@@ -76,51 +107,71 @@ export const eventList = [
 export const taskList = [
   {
     id: '6',
-    title: 'Kickoff',
+    get title() {
+      return i18n.t('ui.data.calendar.kickoff_03e7cbdc');
+    },
     start: `${currentYear}-${currentMonth}-${currentDay} 10:55:00`,
     end: `${currentYear}-${currentMonth}-${currentDay}`,
     allDay: false,
-    description: 'Discuss project goals and timelines.',
+    get description() {
+      return i18n.t('ui.data.calendar.discuss_project_goals_and_timelines_776da1ef');
+    },
     selectedList: 'work',
     repeated: 'weekly',
   },
   {
     id: '7',
-    title: 'Code Review',
+    get title() {
+      return i18n.t('ui.data.calendar.code_review_33157d99');
+    },
     start: `${currentYear}-${currentMonth}-${currentDay} 15:05:00`,
     end: `${currentYear}-${currentMonth}-${currentDay}`,
     allDay: false,
-    description: 'Review PRs and discuss improvements.',
+    get description() {
+      return i18n.t('ui.data.calendar.review_prs_and_discuss_improvements_00afb2ff');
+    },
     selectedList: 'development',
     repeated: 'weekly',
   },
   {
     id: '8',
-    title: 'Appointment',
+    get title() {
+      return i18n.t('ui.data.calendar.appointment_2d05c593');
+    },
     start: `${currentYear}-${currentMonth}-07 09:05:00`,
     end: `${currentYear}-${currentMonth}-07`,
     allDay: false,
-    description: 'Annual health checkup.',
+    get description() {
+      return i18n.t('ui.data.calendar.annual_health_checkup_2c707058');
+    },
     selectedList: 'personal',
     repeated: 'weekly',
   },
   {
     id: '9',
-    title: 'Team Lunch',
+    get title() {
+      return i18n.t('ui.data.calendar.team_lunch_a44d5941');
+    },
     start: `${currentYear}-${currentMonth}-10 13:05:00`,
     end: `${currentYear}-${currentMonth}-10`,
     allDay: false,
-    description: 'Casual team bonding over lunch.',
+    get description() {
+      return i18n.t('ui.data.calendar.casual_team_bonding_over_lunch_0df2ae23');
+    },
     selectedList: 'work',
     repeated: 'weekly',
   },
   {
     id: '10',
-    title: 'Reports',
+    get title() {
+      return i18n.t('ui.data.calendar.reports_88bc3fe3');
+    },
     start: `${currentYear}-${currentMonth}-12 16:05:00`,
     end: `${currentYear}-${currentMonth}-12`,
     allDay: false,
-    description: 'Submit weekly progress report to management.',
+    get description() {
+      return i18n.t('ui.data.calendar.submit_weekly_progress_report_to_management_2392915a');
+    },
     selectedList: 'work',
     repeated: 'weekly',
   },
@@ -129,8 +180,12 @@ export const taskList = [
 export const appointments = [
   {
     id: '1',
-    title: 'Boot Camp',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.boot_camp_257feb49');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('00:05:00', -1),
     end: getTime('00:50:00', -1),
     location: 'Gym',
@@ -140,8 +195,12 @@ export const appointments = [
   },
   {
     id: '2',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('01:05:00'),
     end: getTime('03:30:00'),
     location: '',
@@ -151,8 +210,12 @@ export const appointments = [
   },
   {
     id: '3',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('02:05:00', 1),
     end: getTime('03:55:00', 1),
     location: '',
@@ -162,8 +225,12 @@ export const appointments = [
   },
   {
     id: '4',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('04:05:00', 3),
     end: getTime('04:55:00', 3),
     location: '',
@@ -173,8 +240,12 @@ export const appointments = [
   },
   {
     id: '5',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('06:05:00', -1),
     end: getTime('07:25:00', -1),
     location: '',
@@ -184,8 +255,12 @@ export const appointments = [
   },
   {
     id: '6',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('17:05:00', -1),
     end: getTime('18:55:00', -1),
     location: '',
@@ -195,8 +270,12 @@ export const appointments = [
   },
   {
     id: '7',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('01:05:00', 1),
     end: getTime('01:55:00', 1),
     location: '',
@@ -206,8 +285,12 @@ export const appointments = [
   },
   {
     id: '8',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('06:05:00', 2),
     end: getTime('07:55:00', 2),
     location: '',
@@ -217,8 +300,12 @@ export const appointments = [
   },
   {
     id: '9',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('', 2),
     end: getTime('', 2),
     location: '',
@@ -228,8 +315,12 @@ export const appointments = [
   },
   {
     id: '10',
-    title: 'Team Meeting',
-    description: 'Boot camp',
+    get title() {
+      return i18n.t('ui.data.calendar.team_meeting_02acb0c2');
+    },
+    get description() {
+      return i18n.t('ui.data.calendar.boot_camp_11ee00aa');
+    },
     start: getTime('', -2),
     end: getTime('', -2),
     location: '',
@@ -240,11 +331,41 @@ export const appointments = [
 ];
 
 export const eventCategories = [
-  { label: 'Meeting', value: 'meeting', color: 'primary' },
-  { label: 'Conference', value: 'conference', color: 'secondary' },
-  { label: 'Workshop', value: 'workshop', color: 'error' },
-  { label: 'Webinar', value: 'webinar', color: 'info' },
-  { label: 'Party', value: 'party', color: 'success' },
+  {
+    get label() {
+      return i18n.t('ui.data.calendar.meeting_17dc9a83');
+    },
+    value: 'meeting',
+    color: 'primary',
+  },
+  {
+    get label() {
+      return i18n.t('ui.data.calendar.conference_8a1e29b3');
+    },
+    value: 'conference',
+    color: 'secondary',
+  },
+  {
+    get label() {
+      return i18n.t('ui.data.calendar.workshop_13b8fe38');
+    },
+    value: 'workshop',
+    color: 'error',
+  },
+  {
+    get label() {
+      return i18n.t('ui.data.calendar.webinar_2b6cc2bc');
+    },
+    value: 'webinar',
+    color: 'info',
+  },
+  {
+    get label() {
+      return i18n.t('ui.data.calendar.party_60b18fc8');
+    },
+    value: 'party',
+    color: 'success',
+  },
 ];
 
 export const categoryColorMap = {

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Chip, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
@@ -5,10 +6,11 @@ import SectionHeader from 'components/common/SectionHeader';
 import SessionByOSChart from './SessionByOSChart';
 
 const SessionByOS = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ height: 1, display: 'flex', flexDirection: 'column' }}>
       <SectionHeader
-        title="Session by OS"
+        title={translateUi('ui.sections.dashboards.analytics.session_by_os.session_by_os_d1e44018')}
         subTitle={
           <Stack
             direction="row"
@@ -34,7 +36,9 @@ const SessionByOS = ({ data }) => {
                 color: 'text.secondary',
               }}
             >
-              more than last week (on average)
+              {translateUi(
+                'ui.sections.dashboards.analytics.session_by_os.more_than_last_week_on_average_e61b2dae',
+              )}
             </Typography>
           </Stack>
         }
@@ -44,15 +48,17 @@ const SessionByOS = ({ data }) => {
             options={[
               {
                 value: 'windows',
-                label: 'Windows',
+                label: translateUi(
+                  'ui.sections.dashboards.analytics.session_by_os.windows_26d9c28d',
+                ),
               },
               {
                 value: 'linux',
-                label: 'Linux',
+                label: translateUi('ui.sections.dashboards.analytics.session_by_os.linux_83ad8510'),
               },
               {
                 value: 'mac',
-                label: 'MacOS',
+                label: translateUi('ui.sections.dashboards.analytics.session_by_os.macos_49cf4e4e'),
               },
             ]}
           />

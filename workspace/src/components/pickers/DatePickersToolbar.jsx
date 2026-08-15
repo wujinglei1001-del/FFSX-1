@@ -1,14 +1,16 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Typography, typographyClasses } from '@mui/material';
 import { DatePickerToolbar } from '@mui/x-date-pickers';
 import { usePickerContext } from '@mui/x-date-pickers/hooks';
 import { pickersToolbarClasses } from '@mui/x-date-pickers/internals';
 
 const DatePickersToolbar = ({ className, ...other }) => {
+  const { t: translateUi } = useTranslation();
   const { value } = usePickerContext();
   return (
     <Box sx={(theme) => ({ p: theme.spacing(3, 3, 0, 3), width: 1 })} className={className}>
       <Typography variant="caption" sx={{ fontWeight: 700, display: 'block', mb: 2 }}>
-        Select Date
+        {translateUi('ui.components.pickers.datepickerstoolbar.select_date_49398473')}
       </Typography>
       <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 700 }}>
         {value?.year()}

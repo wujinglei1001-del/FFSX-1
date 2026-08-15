@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { initialConfig } from 'config';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -68,6 +69,7 @@ const members = [
   },
 ];
 const Team = ({ diamond = false, sx }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
   return (
@@ -78,7 +80,12 @@ const Team = ({ diamond = false, sx }) => {
             gap: 3,
           }}
         >
-          <SectionHeader subtitle="Our brilliant teammates" title="TEAM" />
+          <SectionHeader
+            subtitle={translateUi(
+              'ui.sections.landing.about_us.team.our_brilliant_teammates_faa76982',
+            )}
+            title={translateUi('common_labels.team')}
+          />
 
           {diamond ? (
             upMd ? (

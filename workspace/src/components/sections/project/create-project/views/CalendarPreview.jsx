@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Box, IconButton, MenuItem, Stack, Typography, useTheme } from '@mui/material';
 import dayjs from 'dayjs';
@@ -8,6 +9,7 @@ import StyledSelect from 'components/styled/StyledSelect';
 import { taskToCalendarEvents } from './calendar/getCalendarEvents';
 
 const CalendarPreview = ({ tasks, groups, hasGroupingEnabled, groupedTasks }) => {
+  const { t: translateUi } = useTranslation();
   const theme = useTheme();
   const calendarRef = useRef(null);
   const containerRef = useRef(null);
@@ -65,7 +67,9 @@ const CalendarPreview = ({ tasks, groups, hasGroupingEnabled, groupedTasks }) =>
           color: 'text.secondary',
         }}
       >
-        Add tasks to see them on the calendar.
+        {translateUi(
+          'ui.sections.project.create_project.views.add_tasks_to_see_them_on_the_calendar_a5639030',
+        )}
       </Typography>
     );
   }
@@ -91,7 +95,7 @@ const CalendarPreview = ({ tasks, groups, hasGroupingEnabled, groupedTasks }) =>
           <IconButton
             size="small"
             onClick={handlePrev}
-            aria-label="Previous"
+            aria-label={translateUi('ui.sections.project.create_project.views.previous_50f94286')}
             sx={{ color: 'text.secondary' }}
           >
             <IconifyIcon icon="material-symbols:chevron-left-rounded" />
@@ -113,7 +117,7 @@ const CalendarPreview = ({ tasks, groups, hasGroupingEnabled, groupedTasks }) =>
           <IconButton
             size="small"
             onClick={handleNext}
-            aria-label="Next"
+            aria-label={translateUi('ui.sections.project.create_project.views.next_bc981983')}
             sx={{ color: 'text.secondary' }}
           >
             <IconifyIcon icon="material-symbols:chevron-right-rounded" />
@@ -131,7 +135,9 @@ const CalendarPreview = ({ tasks, groups, hasGroupingEnabled, groupedTasks }) =>
           }}
           renderValue={() => 'Month view'}
         >
-          <MenuItem value="dayGridMonth">Month view</MenuItem>
+          <MenuItem value="dayGridMonth">
+            {translateUi('ui.sections.project.create_project.views.month_view_c8772b56')}
+          </MenuItem>
         </StyledSelect>
       </Box>
       <Box

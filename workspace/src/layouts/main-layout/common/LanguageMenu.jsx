@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Button, ListItemIcon, ListItemText, MenuItem, Typography } from '@mui/material';
+import { Button, ListItemIcon, ListItemText, MenuItem } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import { languages } from 'locales/languages';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -70,15 +70,6 @@ const LanguageMenu = ({ type = 'default' }) => {
                 primary: { sx: { fontSize: 14 } },
               }}
             />
-            <Typography
-              variant="subtitle2"
-              sx={{
-                color: 'text.secondary',
-                fontWeight: 'normal',
-              }}
-            >
-              {language.currencySymbol}
-            </Typography>
           </MenuItem>
         ))}
       </Menu>

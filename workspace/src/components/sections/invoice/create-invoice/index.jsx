@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import InvoiceImageDropzone from './InvoiceImageDropzone';
@@ -7,6 +8,7 @@ import InvoiceFooter from './items-details/InvoiceFooter';
 import ItemDetailsTableForm from './items-details/ItemDetailsForm';
 
 const CreateInvoiceContainer = () => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
 
   return (
@@ -27,7 +29,9 @@ const CreateInvoiceContainer = () => {
             order: { sm: 1 },
           }}
         >
-          <Typography variant="subtitle2">Amount</Typography>
+          <Typography variant="subtitle2">
+            {translateUi('ui.sections.invoice.create_invoice.amount_43dc8532')}
+          </Typography>
           <Typography variant="h4">{currencyFormat(1827.9)}</Typography>
         </Box>
         <InvoiceImageDropzone />

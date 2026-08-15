@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import { Tab, Tabs, tabClasses, tabsClasses } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
@@ -5,6 +6,7 @@ import { cssVarRgba } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ThemeModeToggleTab = () => {
+  const { t: translateUi } = useTranslation();
   const { mode, setThemeMode } = useThemeMode();
   const [, setSearchParams] = useSearchParams();
 
@@ -43,7 +45,7 @@ const ThemeModeToggleTab = () => {
     >
       <Tab
         value="light"
-        label="Light"
+        label={translateUi('ui.components.settings_panel.thememodetoggletab.light_a36ef8ab')}
         icon={<IconifyIcon icon="material-symbols:light-mode-outline-rounded" fontSize={18} />}
         iconPosition="start"
         disableRipple
@@ -51,7 +53,7 @@ const ThemeModeToggleTab = () => {
       />
       <Tab
         value="dark"
-        label="Dark"
+        label={translateUi('ui.components.settings_panel.thememodetoggletab.dark_ae1ef014')}
         icon={<IconifyIcon icon="material-symbols-light:dark-mode-outline-rounded" fontSize={20} />}
         iconPosition="start"
         disableRipple
@@ -59,7 +61,7 @@ const ThemeModeToggleTab = () => {
       />
       <Tab
         value="system"
-        label="System"
+        label={translateUi('ui.components.settings_panel.thememodetoggletab.system_bc0792d8')}
         icon={<IconifyIcon icon="material-symbols:monitor-outline-rounded" fontSize={18} />}
         iconPosition="start"
         disableRipple

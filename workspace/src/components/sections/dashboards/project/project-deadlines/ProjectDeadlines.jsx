@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Chip, Paper, Stack, Typography } from '@mui/material';
 import { getPercentage } from 'lib/utils';
 import SectionHeader from 'components/common/SectionHeader';
@@ -18,6 +19,7 @@ export const getCompletionColor = (completed) => {
 };
 
 const ProjectDeadlines = ({ deadlineMetrics }) => {
+  const { t: translateUi } = useTranslation();
   const scrollableContainerRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +41,9 @@ const ProjectDeadlines = ({ deadlineMetrics }) => {
       }}
     >
       <SectionHeader
-        title="Project deadlines"
+        title={translateUi(
+          'ui.sections.dashboards.project.project_deadlines.project_deadlines_da336a4c',
+        )}
         subTitle="Status of completion for all tasks"
         sx={{ mb: 0 }}
       />
@@ -82,7 +86,14 @@ const ProjectDeadlines = ({ deadlineMetrics }) => {
                 />
                 <div>
                   <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1.25 }}>
-                    Complete {completed} deadline: {count}
+                    {translateUi(
+                      'ui.sections.dashboards.project.project_deadlines.complete_1f5a1abf',
+                    )}
+                    {completed}
+                    {translateUi(
+                      'ui.sections.dashboards.project.project_deadlines.deadline_7dd663e0',
+                    )}
+                    {count}
                   </Typography>
                   {prevCompleteCount === 0 ? (
                     <Typography
@@ -92,7 +103,9 @@ const ProjectDeadlines = ({ deadlineMetrics }) => {
                         fontWeight: 400,
                       }}
                     >
-                      No previous data available
+                      {translateUi(
+                        'ui.sections.dashboards.project.project_deadlines.no_previous_data_available_be7f69f7',
+                      )}
                     </Typography>
                   ) : (
                     <Stack
@@ -110,7 +123,13 @@ const ProjectDeadlines = ({ deadlineMetrics }) => {
                           fontWeight: 400,
                         }}
                       >
-                        than previous {prevCompleteCount} projects
+                        {translateUi(
+                          'ui.sections.dashboards.project.project_deadlines.than_previous_054e9485',
+                        )}
+                        {prevCompleteCount}
+                        {translateUi(
+                          'ui.sections.dashboards.project.project_deadlines.projects_b37b5674',
+                        )}
                       </Typography>
                     </Stack>
                   )}

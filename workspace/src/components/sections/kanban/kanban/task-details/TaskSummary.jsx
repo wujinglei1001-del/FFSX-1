@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -37,6 +38,7 @@ const options = [
   },
 ];
 const TaskSummary = () => {
+  const { t: translateUi } = useTranslation();
   const { listItems, taskDetails } = useKanbanContext();
   const { control, setValue, watch } = useFormContext();
   const [isEditing, setIsEditing] = useState(false);
@@ -94,7 +96,7 @@ const TaskSummary = () => {
         <Grid container spacing={2} sx={{ mt: 2 }}>
           <Grid size={{ xs: 12, md: 6 }}>
             <Typography variant="subtitle1" sx={{ color: 'text.secondary', fontWeight: 700 }}>
-              Assignee
+              {translateUi('ui.sections.kanban.kanban.task_details.assignee_049e3ce5')}
             </Typography>
             <Stack direction="row" sx={{ gap: 1, mt: 1, alignItems: 'center' }}>
               <BoardMembers members={[...users].slice(0, 6)} />
@@ -133,7 +135,7 @@ const TaskSummary = () => {
                       color: 'text.secondary',
                     }}
                   >
-                    Due Date
+                    {translateUi('ui.sections.kanban.kanban.task_details.due_date_a1b308ec')}
                   </Typography>
                   <DatePicker
                     format="DD MMM, YYYY"

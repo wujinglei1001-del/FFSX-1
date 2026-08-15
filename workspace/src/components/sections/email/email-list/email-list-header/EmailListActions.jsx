@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { ButtonBase, Checkbox, Divider, IconButton, Stack, Tooltip } from '@mui/material';
 import { useBulkSelect } from 'providers/BulkSelectProvider';
@@ -14,6 +15,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import EmailListActionMenu from './EmailListActionMenu';
 
 const EmailListActions = () => {
+  const { t: translateUi } = useTranslation();
   const { handleToggleAll, isIndeterminate, isAllSelected, selectedIds } = useBulkSelect();
   const {
     emailState: { emails },
@@ -49,7 +51,9 @@ const EmailListActions = () => {
 
   return (
     <Stack direction="row">
-      <Tooltip title="Select">
+      <Tooltip
+        title={translateUi('ui.sections.email.email_list.email_list_header.select_85982229')}
+      >
         <Checkbox
           sx={{ p: '7px' }}
           onChange={(e) => handleToggleAll(e.target.checked)}
@@ -136,7 +140,9 @@ const EmailListActions = () => {
           />
         </IconButton>
       </Tooltip>
-      <Tooltip title="Archive">
+      <Tooltip
+        title={translateUi('ui.sections.email.email_list.email_list_header.archive_2621c6fd')}
+      >
         <IconButton
           size="small"
           component={ButtonBase}
@@ -153,7 +159,9 @@ const EmailListActions = () => {
           />
         </IconButton>
       </Tooltip>
-      <Tooltip title="Delete">
+      <Tooltip
+        title={translateUi('ui.sections.email.email_list.email_list_header.delete_f6fdbe48')}
+      >
         <IconButton
           size="small"
           component={ButtonBase}

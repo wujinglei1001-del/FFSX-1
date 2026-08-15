@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -16,6 +17,7 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYearly, sx }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { down } = useBreakpoints();
   const { isDark } = useThemeMode();
@@ -34,7 +36,7 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
     >
       {recommended && !downSm && (
         <Chip
-          label="Best Value"
+          label={translateUi('ui.sections.pricing.table.pricingplancard.best_value_ca89f1f7')}
           size={downMd ? 'small' : 'large'}
           color="warning"
           sx={{
@@ -47,7 +49,7 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
       <CardMedia
         component="img"
         image={isDark ? image.dark : image.light}
-        alt="card_image"
+        alt={translateUi('common.accessibility.card_image')}
         sx={{
           mb: 4,
           mx: 'auto',
@@ -91,13 +93,13 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
                 gap: 1,
               }}
             >
-              Free
+              {translateUi('ui.sections.pricing.table.pricingplancard.free_75f52718')}
               <Typography
                 component="span"
                 variant="caption"
                 sx={{ opacity: 0, display: { xs: 'inline', sm: 'none' } }}
               >
-                / m
+                {translateUi('ui.sections.pricing.table.pricingplancard.m_988ae11e')}
               </Typography>
             </Stack>
           )}

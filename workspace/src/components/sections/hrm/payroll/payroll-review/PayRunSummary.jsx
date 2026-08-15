@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -6,10 +7,11 @@ import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PayRunSummary = ({ summary }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography variant="h5" sx={{ mb: 4 }}>
-        Pay Run Summary
+        {translateUi('ui.sections.hrm.payroll.payroll_review.pay_run_summary_d105e61d')}
       </Typography>
       <Paper background={1} sx={{ outline: 0, p: { xs: 2, sm: 3 }, borderRadius: 6 }}>
         <Stack
@@ -51,7 +53,7 @@ const PayRunSummary = ({ summary }) => {
                 {summary.payrollCost}
               </Typography>
               <Typography variant="body2" sx={{ fontWeight: 700, color: 'text.secondary' }}>
-                Payroll cost
+                {translateUi('ui.sections.hrm.payroll.payroll_review.payroll_cost_d5cd1706')}
               </Typography>
             </Stack>
           </Stack>

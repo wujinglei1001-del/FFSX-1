@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack } from '@mui/material';
 import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import OrderListContainer from 'components/sections/ecommerce/admin/order-list';
 
 const OrderList = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -11,18 +13,21 @@ const OrderList = () => {
       }}
     >
       <PageHeader
-        title="Order list"
+        title={translateUi('ui.pages.apps.ecommerce.admin.order_list_86e684a4')}
         breadcrumb={[
-          { label: 'Home', url: paths.ecommerceHomepage },
-          { label: 'Order list', active: true },
+          {
+            label: translateUi('ui.pages.apps.ecommerce.admin.home_70f8bb9a'),
+            url: paths.ecommerceHomepage,
+          },
+          { label: translateUi('ui.pages.apps.ecommerce.admin.order_list_86e684a4'), active: true },
         ]}
         actionComponent={
           <Stack direction="row" sx={{ gap: 1 }}>
             <Button variant="soft" color="neutral">
-              Export
+              {translateUi('ui.pages.apps.ecommerce.admin.export_f3e4fadb')}
             </Button>
             <Button variant="soft" color="neutral">
-              Import
+              {translateUi('ui.pages.apps.ecommerce.admin.import_d6fbc9d2')}
             </Button>
           </Stack>
         }

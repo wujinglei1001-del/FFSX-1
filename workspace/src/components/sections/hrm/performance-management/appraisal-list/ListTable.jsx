@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import Avatar, { avatarClasses } from '@mui/material/Avatar';
 import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
@@ -16,6 +17,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 
 const ListTable = ({ apiRef, filterButtonEl }) => {
+  const { t: translateUi } = useTranslation();
   const columns = useMemo(
     () => [
       {
@@ -24,7 +26,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'member',
-        headerName: 'Member',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.member_6853c98a',
+        ),
         headerClassName: 'member-header',
         cellClassName: 'member-cell',
         valueGetter: ({ name }) => name,
@@ -68,7 +72,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'appraisalCycle',
-        headerName: 'Appraisal Cycle',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.appraisal_cycle_176cc519',
+        ),
         headerClassName: 'appraisal-cycle-header',
         cellClassName: 'appraisal-cycle-cell',
         valueGetter: ({ appraisalDate }) => appraisalDate,
@@ -89,7 +95,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'fromDate',
-        headerName: 'From',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.from_3f66052a',
+        ),
         headerClassName: 'from-header',
         cellClassName: 'from-cell',
         valueGetter: ({ fromDate }) => fromDate,
@@ -110,7 +118,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'toDate',
-        headerName: 'To',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.to_ae79ea1e',
+        ),
         headerClassName: 'to-header',
         cellClassName: 'to-cell',
         valueGetter: ({ toDate }) => toDate,
@@ -131,7 +141,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'mainEvaluator',
-        headerName: 'Main Evaluator',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.main_evaluator_40a00873',
+        ),
         headerClassName: 'main-evaluator-header',
         cellClassName: 'main-evaluator-cell',
         renderCell: (params) => {
@@ -160,7 +172,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'otherEvaluators',
-        headerName: 'Other Evaluators',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.other_evaluators_d43c05c9',
+        ),
         align: 'right',
         headerAlign: 'right',
         headerClassName: 'other-evaluators-header',
@@ -199,7 +213,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'reviewProgress',
-        headerName: 'Review Progress',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.review_progress_ee6b435d',
+        ),
         align: 'right',
         headerAlign: 'right',
         headerClassName: 'review-progress-header',
@@ -230,7 +246,9 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
       },
       {
         field: 'ratings',
-        headerName: 'Ratings',
+        headerName: translateUi(
+          'ui.sections.hrm.performance_management.appraisal_list.ratings_14021e13',
+        ),
         align: 'right',
         headerAlign: 'right',
         headerClassName: 'ratings-header',

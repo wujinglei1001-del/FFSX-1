@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Chip, Link, Stack, Typography } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
@@ -29,6 +30,7 @@ const InvoiceListTable = ({
   selectionModel,
   onSelectionChange,
 }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const columns = useMemo(
     () => [
@@ -38,7 +40,9 @@ const InvoiceListTable = ({
       },
       {
         field: 'id',
-        headerName: 'Invoice',
+        headerName: translateUi(
+          'ui.sections.invoice.invoice_list.invoicelisttable.invoice_f9f38818',
+        ),
         headerClassName: 'invoice-id-header',
         cellClassName: 'invoice-id-cell',
         sortable: false,
@@ -59,7 +63,9 @@ const InvoiceListTable = ({
       },
       {
         field: 'client',
-        headerName: 'Client',
+        headerName: translateUi(
+          'ui.sections.invoice.invoice_list.invoicelisttable.client_1bdd79b1',
+        ),
         headerClassName: 'client-header',
         cellClassName: 'client-cell',
         minWidth: 240,
@@ -85,7 +91,9 @@ const InvoiceListTable = ({
       },
       {
         field: 'issueDate',
-        headerName: 'Issue Date',
+        headerName: translateUi(
+          'ui.sections.invoice.invoice_list.invoicelisttable.issue_date_72072fe9',
+        ),
         headerClassName: 'issue-date-header',
         cellClassName: 'issue-date-cell',
         valueGetter: ({ date }) => date,
@@ -106,7 +114,9 @@ const InvoiceListTable = ({
       },
       {
         field: 'status',
-        headerName: 'Status',
+        headerName: translateUi(
+          'ui.sections.invoice.invoice_list.invoicelisttable.status_bae7d5be',
+        ),
         headerClassName: 'status-header',
         cellClassName: 'status-cell',
         filterable: true,
@@ -127,8 +137,10 @@ const InvoiceListTable = ({
                 color={params.row.status === 'late' ? 'error' : undefined}
                 sx={{ fontWeight: 400 }}
               >
-                {params.row.status === 'paid' ? 'Paid' : 'Due'} on{' '}
-                {dayjs(params.row.paymentDate).format('MMM DD, YYYY')}
+                {params.row.status === 'paid'
+                  ? translateUi('common.paid')
+                  : translateUi('common.due')}{' '}
+                {translateUi('common.on')} {dayjs(params.row.paymentDate).format('MMM DD, YYYY')}
               </Typography>
             </Stack>
           );
@@ -136,7 +148,9 @@ const InvoiceListTable = ({
       },
       {
         field: 'requiredAmount',
-        headerName: 'Amount',
+        headerName: translateUi(
+          'ui.sections.invoice.invoice_list.invoicelisttable.amount_43dc8532',
+        ),
         headerClassName: 'required-amount-header',
         cellClassName: 'required-amount-cell',
         filterable: false,
@@ -153,7 +167,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'paidAmount',
-        headerName: 'Paid',
+        headerName: translateUi('ui.sections.invoice.invoice_list.invoicelisttable.paid_dc9d4584'),
         headerClassName: 'paid-amount-header',
         cellClassName: 'paid-amount-cell',
         filterable: false,
@@ -170,7 +184,9 @@ const InvoiceListTable = ({
       },
       {
         field: 'remainingBalance',
-        headerName: 'Balance',
+        headerName: translateUi(
+          'ui.sections.invoice.invoice_list.invoicelisttable.balance_90eef613',
+        ),
         headerClassName: 'remaining-balance-header',
         cellClassName: 'remaining-balance-cell',
         filterable: false,

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -5,6 +6,7 @@ import Image from 'components/base/Image';
 import InfoCard from '../common/InfoCard';
 
 const Education = ({ education, handleOpenDialog }) => {
+  const { t: translateUi } = useTranslation();
   const { institutionLogo, institutionName, subject, location, startDate, endDate } = education;
 
   return (
@@ -27,7 +29,8 @@ const Education = ({ education, handleOpenDialog }) => {
               maxWidth: 235,
             }}
           >
-            Studied <strong>{subject}</strong> at <strong>{institutionName}</strong>
+            {translateUi('ui.sections.account.work_education.education.studied_0a158c60')}
+            <strong>{subject}</strong> {translateUi('common.at')} <strong>{institutionName}</strong>
           </Typography>
           <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 400, color: 'text.secondary' }}>
             {location}

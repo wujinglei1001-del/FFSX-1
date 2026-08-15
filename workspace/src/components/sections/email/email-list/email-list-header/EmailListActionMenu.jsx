@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconButton, Menu, MenuItem, listClasses } from '@mui/material';
 import { useBulkSelect } from 'providers/BulkSelectProvider';
 import { useEmailContext } from 'providers/EmailProvider';
@@ -6,6 +7,7 @@ import { UPDATE_MESSAGE_STATUS } from 'reducers/EmailReducer';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EmailListActionMenu = () => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const { selectedIds } = useBulkSelect();
   const { emailDispatch } = useEmailContext();
@@ -63,7 +65,7 @@ const EmailListActionMenu = () => {
             toggleReadStatus('mark_as_read');
           }}
         >
-          Mark as read
+          {translateUi('ui.sections.email.email_list.email_list_header.mark_as_read_c1ee860b')}
         </MenuItem>
         <MenuItem
           onClick={() => {
@@ -71,10 +73,14 @@ const EmailListActionMenu = () => {
             toggleReadStatus('mark_as_unread');
           }}
         >
-          Mark as unread
+          {translateUi('ui.sections.email.email_list.email_list_header.mark_as_unread_5eeffe7d')}
         </MenuItem>
-        <MenuItem onClick={handleClose}>Print</MenuItem>
-        <MenuItem onClick={handleClose}>Block</MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.email.email_list.email_list_header.print_5b221e9c')}
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.email.email_list.email_list_header.block_82dd2cdf')}
+        </MenuItem>
       </Menu>
     </>
   );

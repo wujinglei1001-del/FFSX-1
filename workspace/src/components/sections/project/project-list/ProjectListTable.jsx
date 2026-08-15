@@ -12,6 +12,7 @@ import {
 import { DataGrid } from '@mui/x-data-grid';
 import { gridClasses } from '@mui/x-data-grid/constants';
 import { projectListData } from 'data/project/project-list';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -33,7 +34,9 @@ const getStatusBadgeColor = (status) => {
 const columns = [
   {
     field: 'name',
-    headerName: 'Name of project',
+    get headerName() {
+      return i18n.t('ui.sections.project.project_list.projectlisttable.name_of_project_4dc4c350');
+    },
     minWidth: 280,
     flex: 1,
     headerAlign: 'left',
@@ -80,7 +83,9 @@ const columns = [
   },
   {
     field: 'tasks',
-    headerName: 'Tasks',
+    get headerName() {
+      return i18n.t('ui.sections.project.project_list.projectlisttable.tasks_090ec5f5');
+    },
     width: 100,
     align: 'left',
     headerAlign: 'left',
@@ -115,7 +120,9 @@ const columns = [
   },
   {
     field: 'comments',
-    headerName: 'Comments',
+    get headerName() {
+      return i18n.t('ui.sections.project.project_list.projectlisttable.comments_fce06e20');
+    },
     width: 140,
     align: 'left',
     headerAlign: 'left',
@@ -139,7 +146,9 @@ const columns = [
   },
   {
     field: 'status',
-    headerName: 'Status',
+    get headerName() {
+      return i18n.t('ui.sections.project.project_list.projectlisttable.status_bae7d5be');
+    },
     width: 110,
     align: 'left',
     headerAlign: 'left',
@@ -157,7 +166,9 @@ const columns = [
   },
   {
     field: 'collaborators',
-    headerName: 'Collaborators',
+    get headerName() {
+      return i18n.t('ui.sections.project.project_list.projectlisttable.collaborators_6eb695e5');
+    },
     width: 180,
     align: 'left',
     headerAlign: 'left',
@@ -186,7 +197,9 @@ const columns = [
   },
   {
     field: 'lastOpened',
-    headerName: 'Last opened',
+    get headerName() {
+      return i18n.t('ui.sections.project.project_list.projectlisttable.last_opened_6674c9e5');
+    },
     width: 150,
     align: 'left',
     headerAlign: 'left',

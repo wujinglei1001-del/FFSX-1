@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -17,6 +18,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const ScreenshotItem = ({ screenshot, index, openLightbox }) => {
+  const { t: translateUi } = useTranslation();
   const [isHovered, setisHovered] = useState(false);
   return (
     <ScreenshotItemWrapper>
@@ -59,7 +61,9 @@ const ScreenshotItem = ({ screenshot, index, openLightbox }) => {
               onClick={() => openLightbox(index)}
               sx={{ placeSelf: 'center' }}
             >
-              View Image
+              {translateUi(
+                'ui.sections.time_tracker.screenshots.screenshotitem.view_image_e4960218',
+              )}
             </Button>
           </HoverEffectBox>
         </Grow>

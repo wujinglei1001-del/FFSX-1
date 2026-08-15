@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Checkbox,
   FormControl,
@@ -12,6 +13,7 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
+  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
 
   return (
@@ -26,8 +28,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
             variant="subtitle2"
             sx={{ mt: 1, fontWeight: 400, color: 'text.secondary', lineHeight: 1.6 }}
           >
-            Select how you receive notifications and stay updated on posts, feedback, deals, and
-            account activity.
+            {translateUi(
+              'ui.sections.account.notification_alerts.notificationoptions.select_how_you_receive_notifications_and_stay_update_cf71eaff',
+            )}
           </Typography>
           <Stack sx={{ gap: 3, py: 3, alignItems: 'flex-start' }}>
             <FormGroup>
@@ -37,7 +40,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                 render={({ field }) => (
                   <FormControlLabel
                     control={<Checkbox checked={field.value} {...field} />}
-                    label="New Notifications"
+                    label={translateUi(
+                      'ui.sections.account.notification_alerts.notificationoptions.new_notifications_7e609e00',
+                    )}
                     disabled={!checked}
                   />
                 )}
@@ -48,7 +53,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                 render={({ field }) => (
                   <FormControlLabel
                     control={<Checkbox checked={field.value} {...field} />}
-                    label="Direct Notifications"
+                    label={translateUi(
+                      'ui.sections.account.notification_alerts.notificationoptions.direct_notifications_4a9d746a',
+                    )}
                     disabled={!checked}
                   />
                 )}
@@ -59,7 +66,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                 render={({ field }) => (
                   <FormControlLabel
                     control={<Checkbox checked={field.value} {...field} />}
-                    label="Posts emailed to you"
+                    label={translateUi(
+                      'ui.sections.account.notification_alerts.notificationoptions.posts_emailed_to_you_8d82dd26',
+                    )}
                     disabled={!checked}
                   />
                 )}
@@ -67,7 +76,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
             </FormGroup>
             <FormControl sx={{ gap: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Top posts & stories
+                {translateUi(
+                  'ui.sections.account.notification_alerts.notificationoptions.top_posts_stories_75ee081a',
+                )}
               </Typography>
               <Controller
                 name={`${notificationMethod}.options.notificationFrequency`}
@@ -82,28 +93,36 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                     <FormControlLabel
                       value="Daily"
                       control={<Radio />}
-                      label="Daily"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.daily_728298d3',
+                      )}
                       disabled={!checked}
                       sx={{ mr: 0 }}
                     />
                     <FormControlLabel
                       value="Weekly"
                       control={<Radio />}
-                      label="Weekly"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.weekly_158f3da5',
+                      )}
                       disabled={!checked}
                       sx={{ mr: 0 }}
                     />
                     <FormControlLabel
                       value="Periodically"
                       control={<Radio />}
-                      label="Periodically"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.periodically_805463c1',
+                      )}
                       disabled={!checked}
                       sx={{ mr: 0 }}
                     />
                     <FormControlLabel
                       value="Off"
                       control={<Radio />}
-                      label="Off"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.off_e3de5ab0',
+                      )}
                       disabled={!checked}
                       sx={{ mr: 0 }}
                     />
@@ -113,7 +132,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
             </FormControl>
             <FormControl sx={{ gap: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Feedback
+                {translateUi(
+                  'ui.sections.account.notification_alerts.notificationoptions.feedback_c8d7677e',
+                )}
               </Typography>
               <FormGroup row aria-labelledby="feedback-checkbox-label" sx={{ gap: 1 }}>
                 <Controller
@@ -121,7 +142,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                   control={control}
                   render={({ field }) => (
                     <FormControlLabel
-                      label="Get notified about your reviews, answers to questions and more"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.get_notified_about_your_reviews_answers_to_questions_cc3d632d',
+                      )}
                       control={<Checkbox checked={field.value} {...field} />}
                       disabled={!checked}
                     />
@@ -131,7 +154,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
             </FormControl>
             <FormControl sx={{ gap: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Deals & Recommendations
+                {translateUi(
+                  'ui.sections.account.notification_alerts.notificationoptions.deals_recommendations_ea20a772',
+                )}
               </Typography>
               <FormGroup aria-labelledby="deals-checkbox-label" sx={{ gap: 1 }}>
                 <Controller
@@ -140,7 +165,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                   render={({ field }) => (
                     <FormControlLabel
                       control={<Checkbox checked={field.value} {...field} />}
-                      label="The latest on deals, offers and savings events"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.the_latest_on_deals_offers_and_savings_events_8e7fb248',
+                      )}
                       disabled={!checked}
                     />
                   )}
@@ -151,7 +178,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                   render={({ field }) => (
                     <FormControlLabel
                       control={<Checkbox checked={field.value} {...field} />}
-                      label="Personalized based on shopping activity"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.personalized_based_on_shopping_activity_88d9d629',
+                      )}
                       disabled={!checked}
                     />
                   )}
@@ -162,7 +191,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                   render={({ field }) => (
                     <FormControlLabel
                       control={<Checkbox checked={field.value} {...field} />}
-                      label="Updates on new programs, product launches & releases"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.updates_on_new_programs_product_launches_releases_e29f4e96',
+                      )}
                       disabled={!checked}
                     />
                   )}
@@ -171,7 +202,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
             </FormControl>
             <FormControl sx={{ gap: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                Accounts & Shipping
+                {translateUi(
+                  'ui.sections.account.notification_alerts.notificationoptions.accounts_shipping_74046336',
+                )}
               </Typography>
               <FormGroup aria-labelledby="accounts-shipping-checkbox-label" sx={{ gap: 1 }}>
                 <Controller
@@ -180,7 +213,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                   render={({ field }) => (
                     <FormControlLabel
                       control={<Checkbox checked={field.value} {...field} />}
-                      label="Get notified about account security, payment and orders"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.get_notified_about_account_security_payment_and_orde_5a08dc8c',
+                      )}
                       disabled={!checked}
                     />
                   )}
@@ -191,7 +226,9 @@ const NotificationOptions = ({ checked, notificationMethod, label, icon }) => {
                   render={({ field }) => (
                     <FormControlLabel
                       control={<Checkbox checked={field.value} {...field} />}
-                      label="Find out when packages ship and arrive"
+                      label={translateUi(
+                        'ui.sections.account.notification_alerts.notificationoptions.find_out_when_packages_ship_and_arrive_42265c66',
+                      )}
                       disabled={!checked}
                     />
                   )}

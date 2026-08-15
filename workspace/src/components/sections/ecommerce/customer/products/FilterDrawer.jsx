@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Drawer, Stack, Typography, drawerClasses } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import FilterPanel from './filter-panel';
 
 const FilterDrawer = ({ open, handleClose, drawerWidth, filterOptions }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
   return (
@@ -75,7 +77,7 @@ const FilterDrawer = ({ open, handleClose, drawerWidth, filterOptions }) => {
                   fontWeight: 700,
                 }}
               >
-                Filters
+                {translateUi('ui.sections.ecommerce.customer.products.filters_96e57821')}
               </Typography>
               <Button shape="circle" variant="soft" color="neutral" onClick={handleClose}>
                 <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />

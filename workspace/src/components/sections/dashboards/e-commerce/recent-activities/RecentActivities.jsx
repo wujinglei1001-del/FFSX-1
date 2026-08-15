@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Timeline,
   TimelineConnector,
@@ -14,11 +15,14 @@ import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
 import SectionHeader from 'components/common/SectionHeader';
 
 const RecentActivities = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, height: { xs: 1, xl: 'auto' } }}>
       <Stack sx={{ height: 1 }}>
         <SectionHeader
-          title="Recent activities"
+          title={translateUi(
+            'ui.sections.dashboards.e_commerce.recent_activities.recent_activities_0bcc4f30',
+          )}
           subTitle="Details on shopping composition"
           actionComponent={<DashboardSelectMenu defaultValue={1} />}
         />

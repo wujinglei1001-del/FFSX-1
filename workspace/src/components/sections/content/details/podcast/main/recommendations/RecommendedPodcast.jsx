@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Chip, Grow, Link, Stack, Typography } from '@mui/material';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -6,6 +7,7 @@ import Image from 'components/base/Image';
 import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 
 const RecommendedPodcast = ({ item, sxProps }) => {
+  const { t: translateUi } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -82,7 +84,7 @@ const RecommendedPodcast = ({ item, sxProps }) => {
               display: 'block',
             }}
             src={item.image}
-            alt="blogs image"
+            alt={translateUi('ui.sections.content.details.podcast.blogs_image_97680fbd')}
           />
 
           <Grow in={isHovered} timeout={300}>

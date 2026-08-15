@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Box, Button, Stack } from '@mui/material';
 import { convertFileToAttachment, generateUniqueId } from 'lib/utils';
@@ -12,6 +13,7 @@ import TextInput from './TextInput';
 import ChatControls from './controls/ChatControls';
 
 const ContentFooter = ({ recipients }) => {
+  const { t: translateUi } = useTranslation();
   const { chatDispatch, conversations, currentConversation } = useChatContext();
   const navigate = useNavigate();
   const methods = useForm();
@@ -140,7 +142,7 @@ const ContentFooter = ({ recipients }) => {
                 />
               }
             >
-              Send
+              {translateUi('ui.sections.chat.conversation.main.send_9bc2575c')}
             </Button>
           </Stack>
         </Stack>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Stack, SvgIcon } from '@mui/material';
 import { figmaPreviewLink } from 'data/showcase';
 import paths from 'routes/paths';
@@ -6,6 +7,7 @@ import GradientButton from '../common/GradientButton';
 import TechStack from './TechStack';
 
 const HeroContent = ({ textRef, techStackRef, buttonsRef }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -72,11 +74,11 @@ const HeroContent = ({ textRef, techStackRef, buttonsRef }) => {
           rel="noopener noreferrer"
           icon={<FigmaIcon />}
         >
-          Preview Figma
+          {translateUi('ui.sections.showcase.hero.herocontent.preview_figma_1c48706e')}
         </GradientButton>
 
         <GradientButton href={paths.ecommerce} target="_blank" rel="noopener noreferrer">
-          Live Preview
+          {translateUi('ui.sections.showcase.hero.herocontent.live_preview_a62da901')}
         </GradientButton>
       </Stack>
     </Stack>

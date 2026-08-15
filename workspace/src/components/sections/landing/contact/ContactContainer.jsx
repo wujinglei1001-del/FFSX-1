@@ -1,4 +1,5 @@
 import { Avatar, Container, Grid, Link, Paper, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Mapbox from 'components/base/Mapbox';
 import RevealItems from '../common/RevealItems';
@@ -8,7 +9,9 @@ const contactCardItems = [
   {
     id: 1,
     icon: 'mdi:phone-in-talk-outline',
-    title: 'Phone Number',
+    get title() {
+      return i18n.t('ui.sections.landing.contact.contactcontainer.phone_number_ab25d61b');
+    },
     isLink: true,
     href: 'tel:55512345678901',
     content: '(555) 123-4567-8901',
@@ -16,16 +19,26 @@ const contactCardItems = [
   {
     id: 2,
     icon: 'mdi:email-outline',
-    title: 'Email Address',
+    get title() {
+      return i18n.t('ui.sections.landing.contact.contactcontainer.email_address_09ba557f');
+    },
     isLink: true,
     href: 'mailto:hello@randommail.com',
-    content: 'hello@randommail.com',
+    get content() {
+      return i18n.t('ui.sections.landing.contact.contactcontainer.hello_randommail_com_dd2ead67');
+    },
   },
   {
     id: 3,
     icon: 'mdi:location-on-outline',
-    title: 'Location',
-    content: '123 Sunnyvale Park, Springfield, IL, USA',
+    get title() {
+      return i18n.t('ui.sections.landing.contact.contactcontainer.location_d219c681');
+    },
+    get content() {
+      return i18n.t(
+        'ui.sections.landing.contact.contactcontainer.123_sunnyvale_park_springfield_il_usa_87af5cdd',
+      );
+    },
   },
 ];
 const ContactContainer = () => {

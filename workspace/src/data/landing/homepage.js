@@ -1,5 +1,6 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 const blog = (index) => `${initialConfig.assetsDir}/images/landing/blog/${index}.webp`;
 const gallery = (index) => `${initialConfig.assetsDir}/images/landing/gallery/${index}.webp`;
@@ -9,69 +10,162 @@ const showcase = (index) => `${initialConfig.assetsDir}/images/landing/showcase/
 
 export const showcaseData = [
   {
-    title: 'Skyline Innovations',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.skyline_innovations_3311fec6');
+    },
     img: showcase(1),
-    subtitle: 'Modern architecture reimagined for tomorrow’s cities.',
+    get subtitle() {
+      return i18n.t(
+        'ui.data.landing.homepage.modern_architecture_reimagined_for_tomorrow_s_cities_36a0a5cc',
+      );
+    },
     desc: 'A forward-thinking project blending minimal design with functional elegance. This work emphasizes clean geometry and sustainable building practices to create inspiring spaces.',
   },
   {
-    title: 'Quantum Leap Initiative',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.quantum_leap_initiative_8f785a2e');
+    },
     img: showcase(2),
-    subtitle: 'Pioneering solutions for modern infrastructure.',
+    get subtitle() {
+      return i18n.t(
+        'ui.data.landing.homepage.pioneering_solutions_for_modern_infrastructure_755c8834',
+      );
+    },
     desc: 'A daring take on structural innovation merges advanced technology with classic design. This initiative demonstrates how contemporary construction can meet the urban challenges of the future.',
   },
   {
-    title: 'EcoVision Project',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.ecovision_project_246e5682');
+    },
     img: showcase(3),
-    subtitle: 'Where sustainability meets architectural beauty.',
+    get subtitle() {
+      return i18n.t(
+        'ui.data.landing.homepage.where_sustainability_meets_architectural_beauty_5b603c3a',
+      );
+    },
     desc: 'A project focused on eco-friendly materials and green architecture. Built with efficiency in mind, EcoVision highlights how smart design can minimize impact while maximizing aesthetic value.',
   },
 ];
 
 export const featuresData = [
   {
-    title: 'Real-time collaboration.',
-    description: 'An intuitive drag-and-drop interface for easy content management.',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.real_time_collaboration_f67c2564');
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.landing.homepage.an_intuitive_drag_and_drop_interface_for_easy_conten_aa2d7910',
+      );
+    },
   },
   {
-    title: 'Guided tutorials.',
-    description: 'A notification system that alerts users about important updates and messages.',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.guided_tutorials_491dfe8b');
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.landing.homepage.a_notification_system_that_alerts_users_about_import_62fde3d0',
+      );
+    },
   },
   {
-    title: 'User data protection.',
-    description: 'A feedback system that allows users to share their thoughts and suggestions.',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.user_data_protection_c93265dc');
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.landing.homepage.a_feedback_system_that_allows_users_to_share_their_t_2214fed2',
+      );
+    },
   },
   {
-    title: 'Third-party integration.',
-    description:
-      'A responsive design that ensures optimal performance on both mobile and desktop devices.',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.third_party_integration_503f5364');
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.landing.homepage.a_responsive_design_that_ensures_optimal_performance_137ba95d',
+      );
+    },
   },
   {
-    title: 'Adaptive profiles.',
-    description:
-      'A sleek dashboard that provides real-time analytics and insights. Users can customize their views.',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.adaptive_profiles_0a3e5574');
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.landing.homepage.a_sleek_dashboard_that_provides_real_time_analytics__10e23476',
+      );
+    },
   },
   {
-    title: 'Personalized themes.',
-    description: 'A robust search feature that helps users find content quickly and efficiently.',
+    get title() {
+      return i18n.t('ui.data.landing.homepage.personalized_themes_4aef3556');
+    },
+    get description() {
+      return i18n.t(
+        'ui.data.landing.homepage.a_robust_search_feature_that_helps_users_find_conten_825f9a4a',
+      );
+    },
   },
 ];
 
 export const galleryData = [
-  { img: gallery(1), name: 'The Zenith UI/UX' },
-  { img: gallery(2), name: 'The Atlas Interface' },
-  { img: gallery(3), name: 'The Serpentine Design' },
-  { img: gallery(4), name: 'Heritage Blueprint' },
-  { img: gallery(5), name: 'The Vaulted Architecture' },
-  { img: gallery(6), name: 'Quantum Framework' },
-  { img: gallery(7), name: 'The Urban Experience' },
+  {
+    img: gallery(1),
+    name: 'The Zenith UI/UX',
+  },
+  {
+    img: gallery(2),
+    name: 'The Atlas Interface',
+  },
+  {
+    img: gallery(3),
+    name: 'The Serpentine Design',
+  },
+  {
+    img: gallery(4),
+    name: 'Heritage Blueprint',
+  },
+  {
+    img: gallery(5),
+    name: 'The Vaulted Architecture',
+  },
+  {
+    img: gallery(6),
+    name: 'Quantum Framework',
+  },
+  {
+    img: gallery(7),
+    name: 'The Urban Experience',
+  },
 ];
 
 export const statsData = [
-  { value: '4,000+', label: 'Users and still counting' },
-  { value: '$25,000', label: 'In revenue and still generating' },
-  { value: '3%', label: 'Flat platform fee' },
-  { value: '5,152', label: 'Transactions this year' },
+  {
+    value: '4,000+',
+    get label() {
+      return i18n.t('ui.data.landing.homepage.users_and_still_counting_199d6e55');
+    },
+  },
+  {
+    value: '$25,000',
+    get label() {
+      return i18n.t('ui.data.landing.homepage.in_revenue_and_still_generating_31121901');
+    },
+  },
+  {
+    value: '3%',
+    get label() {
+      return i18n.t('ui.data.landing.homepage.flat_platform_fee_fa865c44');
+    },
+  },
+  {
+    value: '5,152',
+    get label() {
+      return i18n.t('ui.data.landing.homepage.transactions_this_year_e570c66c');
+    },
+  },
 ];
 
 export const testimonialData = [
@@ -121,7 +215,11 @@ export const blogData = [
   {
     id: 1,
     img: blog(1),
-    title: 'Enhancing Your Conversion Rates Through Front-End Development',
+    get title() {
+      return i18n.t(
+        'ui.data.landing.homepage.enhancing_your_conversion_rates_through_front_end_de_c23eb589',
+      );
+    },
     tag: 'Nature',
     date: '2024-12-31',
     timeRead: '12 min read',
@@ -131,7 +229,11 @@ export const blogData = [
   {
     id: 2,
     img: blog(2),
-    title: 'Boosting Your Conversion Rates with Front-End Development',
+    get title() {
+      return i18n.t(
+        'ui.data.landing.homepage.boosting_your_conversion_rates_with_front_end_develo_590d771c',
+      );
+    },
     tag: 'Nature',
     date: '2024-12-31',
     timeRead: '12 min read',
@@ -141,7 +243,11 @@ export const blogData = [
   {
     id: 3,
     img: blog(3),
-    title: 'Improving Conversion Rates via Front-End Development',
+    get title() {
+      return i18n.t(
+        'ui.data.landing.homepage.improving_conversion_rates_via_front_end_development_1bc84e2d',
+      );
+    },
     tag: 'Nature',
     date: '2024-12-31',
     timeRead: '12 min read',

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -5,6 +6,7 @@ import SearchTextField from 'components/common/SearchTextField';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 
 const FaqPageHeader = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ px: { xs: 3, md: 5 }, py: 5 }}>
       <Stack
@@ -18,7 +20,7 @@ const FaqPageHeader = () => {
         <div>
           <PageBreadcrumb
             items={[
-              { label: 'Misc', url: '#!' },
+              { label: translateUi('ui.sections.misc.faq.faqpageheader.misc_0a893ece'), url: '#!' },
               { label: 'Faq', active: true },
             ]}
             sx={{ mb: 2 }}
@@ -27,7 +29,7 @@ const FaqPageHeader = () => {
         </div>
 
         <SearchTextField
-          placeholder="Search by keyword"
+          placeholder={translateUi('ui.sections.misc.faq.faqpageheader.search_by_keyword_7fb0b859')}
           sx={{ maxWidth: { sm: 400 }, width: 1 }}
           iconSx={{ color: 'text.secondary' }}
         />

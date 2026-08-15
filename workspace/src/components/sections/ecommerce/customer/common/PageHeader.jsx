@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonBase, Paper, Stack, Typography } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -6,6 +7,7 @@ import Image from 'components/base/Image';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 
 const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -82,16 +84,16 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                 }}
               >
                 <Box component="span" sx={{ fontWeight: 400 }}>
-                  Plants on Sale for
+                  {translateUi('ui.sections.ecommerce.customer.common.plants_on_sale_for_02aa35a6')}
                 </Box>{' '}
                 <Box component="span" sx={{ whiteSpace: 'nowrap' }}>
-                  Mother’s Day
+                  {translateUi('ui.sections.ecommerce.customer.common.mother_s_day_e897f130')}
                 </Box>
               </Typography>
 
               <Image
                 src={`${assetsDir}/images/ecommerce/promo/1.webp`}
-                alt="Plant on Sale"
+                alt={translateUi('ui.sections.ecommerce.customer.common.plant_on_sale_c80b2351')}
                 sx={{
                   position: 'relative',
                   display: 'block',
@@ -129,7 +131,9 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                   alignItems: { xl: 'center' },
                 }}
               >
-                <Typography variant="h6">Already a member? </Typography>
+                <Typography variant="h6">
+                  {translateUi('ui.sections.ecommerce.customer.common.already_a_member_052100c2')}
+                </Typography>
                 <Typography
                   component="p"
                   variant="subtitle1"
@@ -137,7 +141,12 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  Log in for a <strong>faster checkout process</strong>
+                  {translateUi('ui.sections.ecommerce.customer.common.log_in_for_a_2b16e1b9')}
+                  <strong>
+                    {translateUi(
+                      'ui.sections.ecommerce.customer.common.faster_checkout_process_04ae74e5',
+                    )}
+                  </strong>
                 </Typography>
               </Stack>
               <Stack
@@ -153,7 +162,7 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                   sx={{ whiteSpace: 'nowrap' }}
                   href={paths.defaultJwtLogin}
                 >
-                  Login to checkout
+                  {translateUi('ui.sections.ecommerce.customer.common.login_to_checkout_70d9af3b')}
                 </Button>
                 <Button
                   variant="text"
@@ -161,7 +170,9 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                   sx={{ whiteSpace: 'nowrap' }}
                   href={paths.defaultJwtSignup}
                 >
-                  Create a new account
+                  {translateUi(
+                    'ui.sections.ecommerce.customer.common.create_a_new_account_19e93057',
+                  )}
                 </Button>
               </Stack>
             </Stack>

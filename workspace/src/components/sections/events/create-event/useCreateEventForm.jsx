@@ -1,45 +1,103 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 export const CreateEventFormSchema = yup.object({
-  name: yup.string().required('This field is required'),
-  address: yup.string().required('This field is required'),
+  name: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded'),
+    ),
+  address: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded'),
+    ),
   eventDateRange: yup
     .array()
     .of(yup.date().nullable())
     .length(2, 'Both start and end dates are required')
-    .required('Please select a date range')
+    .required(
+      i18n.t(
+        'ui.sections.events.create_event.usecreateeventform.please_select_a_date_range_f46eb05a',
+      ),
+    )
     .test('both-dates-present', 'Both start and end dates are required', (value) => {
       return Array.isArray(value) && value[0] !== null && value[1] !== null;
     }),
 
-  startTime1: yup.string().required('This field is required'),
-  endTime1: yup.string().required('This field is required'),
-  startTime2: yup.string().required('This field is required'),
-  endTime2: yup.string().required('This field is required'),
+  startTime1: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded'),
+    ),
+  endTime1: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded'),
+    ),
+  startTime2: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded'),
+    ),
+  endTime2: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded'),
+    ),
 
   eventImages: yup
     .array()
     .of(
       yup
         .object({
-          id: yup.string().required('This field is required'),
-          file: yup.mixed().required('File is required'),
+          id: yup
+            .string()
+            .required(
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+              ),
+            ),
+          file: yup
+            .mixed()
+            .required(
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.file_is_required_7ef4e9c0',
+              ),
+            ),
         })
         .required(),
     )
-    .min(1, 'Upload at least 1 media file')
+    .min(
+      1,
+      i18n.t(
+        'ui.sections.events.create_event.usecreateeventform.upload_at_least_1_media_file_87db6674',
+      ),
+    )
     .required(),
   sections: yup.array().of(
     yup.object({
-      title: yup.string().required('This field is required'),
+      title: yup
+        .string()
+        .required(
+          i18n.t(
+            'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+          ),
+        ),
       contentType: yup.string().oneOf(['paragraph', 'list', 'info']).required(),
       listItems: yup
         .array()
         .of(
           yup.object({
-            value: yup.string().required('This field is required'),
+            value: yup
+              .string()
+              .required(
+                i18n.t(
+                  'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+                ),
+              ),
             itemId: yup.string().required(),
           }),
         )
@@ -49,8 +107,20 @@ export const CreateEventFormSchema = yup.object({
         .array()
         .of(
           yup.object({
-            option: yup.string().required('This field is required'),
-            value: yup.string().required('This field is required'),
+            option: yup
+              .string()
+              .required(
+                i18n.t(
+                  'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+                ),
+              ),
+            value: yup
+              .string()
+              .required(
+                i18n.t(
+                  'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+                ),
+              ),
             itemId: yup.string().required(),
           }),
         )
@@ -80,27 +150,64 @@ export const CreateEventFormSchema = yup.object({
       .array()
       .of(
         yup.object({
-          name: yup.string().required('This field is required'),
+          name: yup
+            .string()
+            .required(
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+              ),
+            ),
           price: yup
             .number()
             .positive('This field is required')
             .nullable()
-            .required('This field is required'),
+            .required(
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+              ),
+            ),
           noOfTickets: yup
             .number()
-            .required('This field is required')
+            .required(
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+              ),
+            )
             .positive('This field is required')
             .nullable()
-            .required('This field is required'),
+            .required(
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+              ),
+            ),
           facilities: yup
             .array()
-            .of(yup.string().required('This field is required'))
-            .min(1, 'This field is required'),
+            .of(
+              yup
+                .string()
+                .required(
+                  i18n.t(
+                    'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+                  ),
+                ),
+            )
+            .min(
+              1,
+              i18n.t(
+                'ui.sections.events.create_event.usecreateeventform.this_field_is_required_dedbaded',
+              ),
+            ),
         }),
       )
       .when('isTicketFree', {
         is: false,
-        then: (schema) => schema.min(1, 'Ticket option is required'),
+        then: (schema) =>
+          schema.min(
+            1,
+            i18n.t(
+              'ui.sections.events.create_event.usecreateeventform.ticket_option_is_required_e6dbcc32',
+            ),
+          ),
         otherwise: (schema) => schema.notRequired().nullable(),
       }),
   }),

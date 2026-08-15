@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, MenuItem, Stack, Typography } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useCalendarContext } from 'providers/CalendarProvider';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const CalendarHeader = ({ toggleDrawer }) => {
+  const { t: translateUi } = useTranslation();
   const { calendarApi, view, calendarDispatch, updateView } = useCalendarContext();
   const { down } = useBreakpoints();
   const downSm = down('sm');
@@ -106,9 +108,15 @@ const CalendarHeader = ({ toggleDrawer }) => {
         value={view}
         onChange={(e) => handleChangeView(e.target.value)}
       >
-        <MenuItem value="dayGridMonth">Month View</MenuItem>
-        <MenuItem value="timeGridWeek">Week View</MenuItem>
-        <MenuItem value="timeGridDay">Day View</MenuItem>
+        <MenuItem value="dayGridMonth">
+          {translateUi('ui.sections.calendar.calendarheader.month_view_74068d20')}
+        </MenuItem>
+        <MenuItem value="timeGridWeek">
+          {translateUi('ui.sections.calendar.calendarheader.week_view_6e5b7047')}
+        </MenuItem>
+        <MenuItem value="timeGridDay">
+          {translateUi('ui.sections.calendar.calendarheader.day_view_a0233b62')}
+        </MenuItem>
       </StyledTextField>
     </Box>
   );

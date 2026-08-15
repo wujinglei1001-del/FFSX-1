@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Badge,
   Box,
@@ -17,6 +18,7 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ChatCameraCapture = () => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const videoRef = useRef(null);
   const { enqueueSnackbar } = useSnackbar();
@@ -106,7 +108,7 @@ const ChatCameraCapture = () => {
 
   return (
     <>
-      <Tooltip title="Camera">
+      <Tooltip title={translateUi('ui.sections.chat.conversation.main.camera_4da9c9af')}>
         <Button shape="square" color="neutral" onClick={handleOpenCamera}>
           <Badge
             badgeContent={
@@ -138,7 +140,9 @@ const ChatCameraCapture = () => {
             direction="row"
             sx={{ width: 1, justifyContent: 'space-between', alignItems: 'center' }}
           >
-            <DialogTitle sx={{ p: 0 }}>Take a photo</DialogTitle>
+            <DialogTitle sx={{ p: 0 }}>
+              {translateUi('ui.sections.chat.conversation.main.take_a_photo_2298471c')}
+            </DialogTitle>
 
             <IconButton size="small" onClick={handleCloseCamera}>
               <IconifyIcon icon="material-symbols:close" />
@@ -153,7 +157,7 @@ const ChatCameraCapture = () => {
             sx={{ width: 1, borderRadius: 2, transform: 'scaleX(-1)' }}
           />
 
-          <Tooltip title="Capture">
+          <Tooltip title={translateUi('ui.sections.chat.conversation.main.capture_772a4bcb')}>
             <Fab
               size={upSm ? 'large' : 'small'}
               color="primary"

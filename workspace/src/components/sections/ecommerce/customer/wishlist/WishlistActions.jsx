@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const WishlistActions = () => {
+  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const downSm = down('sm');
 
@@ -21,7 +23,7 @@ const WishlistActions = () => {
         color="neutral"
         startIcon={<IconifyIcon icon="material-symbols:add-rounded" fontSize="20px !important" />}
       >
-        Invite people
+        {translateUi('ui.sections.ecommerce.customer.wishlist.invite_people_e1eb97af')}
       </Button>
 
       <Button
@@ -37,7 +39,7 @@ const WishlistActions = () => {
         </Stack>
       </Button>
       <Button variant="soft" color="neutral">
-        More
+        {translateUi('ui.sections.ecommerce.customer.wishlist.more_4bab2d8f')}
       </Button>
     </Stack>
   );

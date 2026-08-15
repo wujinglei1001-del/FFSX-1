@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { appraisalList } from 'data/hrm/performance-management';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 export const userSchema = yup.object({
@@ -19,18 +20,47 @@ const appraisalMemberSchema = userSchema.shape({
 export const addMemberFormSchema = yup.object({
   member: appraisalMemberSchema.required(),
 
-  department: yup.string().required('Department is required'),
+  department: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.hrm.performance_management.appraisal_list.department_is_required_0c4a29d6',
+      ),
+    ),
 
-  template: yup.string().required('Template is required'),
+  template: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.hrm.performance_management.appraisal_list.template_is_required_0391b447'),
+    ),
 
-  appraisalName: yup.string().required('Appraisal name is required'),
+  appraisalName: yup
+    .string()
+    .required(
+      i18n.t(
+        'ui.sections.hrm.performance_management.appraisal_list.appraisal_name_is_required_07a18773',
+      ),
+    ),
 
-  startDate: yup.date().required('Start date is required'),
+  startDate: yup
+    .date()
+    .required(
+      i18n.t(
+        'ui.sections.hrm.performance_management.appraisal_list.start_date_is_required_438387af',
+      ),
+    ),
 
   endDate: yup
     .date()
-    .required('End date is required')
-    .min(yup.ref('startDate'), 'End date cannot be before start date'),
+    .required(
+      i18n.t('ui.sections.hrm.performance_management.appraisal_list.end_date_is_required_0f750cd5'),
+    )
+    .min(
+      yup.ref('startDate'),
+      i18n.t(
+        'ui.sections.hrm.performance_management.appraisal_list.end_date_cannot_be_before_start_date_36b168e1',
+      ),
+    ),
 
   mainEvaluator: userSchema.required(),
 

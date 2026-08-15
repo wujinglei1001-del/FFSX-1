@@ -1,4 +1,5 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import Button from '@mui/material/Button';
@@ -15,6 +16,7 @@ import SortableDnd from 'components/base/SortableDnd';
 import ApplicationFormSection from '../common/ApplicationFormSection';
 
 const EducationInfo = () => {
+  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { fields, move, remove, append } = useFieldArray({
     control,
@@ -52,7 +54,7 @@ const EducationInfo = () => {
             }}
             sx={{ alignSelf: 'flex-start' }}
           >
-            Add More
+            {translateUi('ui.sections.hiring.candidate.job_application.add_more_dcb8fa93')}
           </Button>
         </Stack>
       </SortableDnd>
@@ -61,6 +63,7 @@ const EducationInfo = () => {
 };
 export default EducationInfo;
 const EducationFormItem = ({ index, field, remove }) => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -90,7 +93,9 @@ const EducationFormItem = ({ index, field, remove }) => {
       <Grid container spacing={1}>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label="Institution Name"
+            label={translateUi(
+              'ui.sections.hiring.candidate.job_application.institution_name_b6544303',
+            )}
             fullWidth
             error={!!errors.personalInfo?.education?.[index]?.institutionName}
             helperText={errors.personalInfo?.education?.[index]?.institutionName?.message}
@@ -99,7 +104,9 @@ const EducationFormItem = ({ index, field, remove }) => {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label="Degree/Field of Study"
+            label={translateUi(
+              'ui.sections.hiring.candidate.job_application.degree_field_of_study_8dcf3120',
+            )}
             fullWidth
             error={!!errors.personalInfo?.education?.[index]?.degree}
             helperText={errors.personalInfo?.education?.[index]?.degree?.message}
@@ -108,7 +115,7 @@ const EducationFormItem = ({ index, field, remove }) => {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label="Location"
+            label={translateUi('ui.sections.hiring.candidate.job_application.location_d219c681')}
             fullWidth
             error={!!errors.personalInfo?.education?.[index]?.location}
             helperText={errors.personalInfo?.education?.[index]?.location?.message}
@@ -135,7 +142,9 @@ const EducationFormItem = ({ index, field, remove }) => {
                   isClearable
                   customInput={
                     <TextField
-                      label="Time period"
+                      label={translateUi(
+                        'ui.sections.hiring.candidate.job_application.time_period_749975a9',
+                      )}
                       fullWidth
                       slotProps={{
                         input: {

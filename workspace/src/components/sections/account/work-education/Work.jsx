@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -5,6 +6,7 @@ import Image from 'components/base/Image';
 import InfoCard from '../common/InfoCard';
 
 const Work = ({ work, handleOpenDialog }) => {
+  const { t: translateUi } = useTranslation();
   const { companyLogo, companyName, designation, location, startDate, endDate, currentlyWorking } =
     work;
 
@@ -22,7 +24,7 @@ const Work = ({ work, handleOpenDialog }) => {
           <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 700, color: 'text.primary' }}>
             {designation}{' '}
             <Typography component="span" variant="subtitle2" sx={{ fontWeight: 400 }}>
-              at
+              {translateUi('common.at')}
             </Typography>{' '}
             {companyName}
           </Typography>
@@ -31,7 +33,7 @@ const Work = ({ work, handleOpenDialog }) => {
           </Typography>
           <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
             {dayjs(startDate).format('MMM, YYYY')} -{' '}
-            {currentlyWorking ? 'Present' : dayjs(endDate).format('MMM, YYYY')}
+            {currentlyWorking ? translateUi('common.present') : dayjs(endDate).format('MMM, YYYY')}
           </Typography>
         </Box>
       </Stack>

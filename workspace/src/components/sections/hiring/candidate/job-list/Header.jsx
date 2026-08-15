@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -11,6 +12,7 @@ import StyledTextField from 'components/styled/StyledTextField';
 import ActiveSearchFilter from './ActiveSearchFilter';
 
 const Header = ({ toggleDrawer }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const [search, setSearch] = useState('');
 
@@ -37,11 +39,19 @@ const Header = ({ toggleDrawer }) => {
         >
           <PageBreadcrumb
             items={[
-              { label: 'Home', url: '#!' },
-              { label: 'Job List', active: true },
+              {
+                label: translateUi('ui.sections.hiring.candidate.job_list.home_70f8bb9a'),
+                url: '#!',
+              },
+              {
+                label: translateUi('ui.sections.hiring.candidate.job_list.job_list_e9d5f772'),
+                active: true,
+              },
             ]}
           />
-          <Typography variant="h4">Job List</Typography>
+          <Typography variant="h4">
+            {translateUi('ui.sections.hiring.candidate.job_list.job_list_e9d5f772')}
+          </Typography>
         </Stack>
         <Stack
           direction="row"
@@ -52,7 +62,7 @@ const Header = ({ toggleDrawer }) => {
           }}
         >
           <StyledTextField
-            placeholder="Search"
+            placeholder={translateUi('ui.sections.hiring.candidate.job_list.search_bce06414')}
             value={search}
             fullWidth
             onChange={(e) => setSearch(e.target.value)}
@@ -76,7 +86,11 @@ const Header = ({ toggleDrawer }) => {
             onClick={toggleDrawer(true)}
           >
             <IconifyIcon icon="material-symbols:filter-alt-outline" fontSize={20} />
-            {upLg && <Box component="span">Filter</Box>}
+            {upLg && (
+              <Box component="span">
+                {translateUi('ui.sections.hiring.candidate.job_list.filter_d7decf1a')}
+              </Box>
+            )}
           </Button>
         </Stack>
       </Stack>

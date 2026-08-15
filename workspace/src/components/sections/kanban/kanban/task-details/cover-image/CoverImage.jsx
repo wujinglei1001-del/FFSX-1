@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -11,6 +12,7 @@ import Image from 'components/base/Image';
 import CoverImageMenu from './CoverImageMenu';
 
 const CoverImage = () => {
+  const { t: translateUi } = useTranslation();
   const { setValue, watch } = useFormContext();
   const [preview, setPreview] = useState(null);
 
@@ -68,7 +70,7 @@ const CoverImage = () => {
             }}
           />
           <Typography variant="subtitle2" sx={{ mt: 1, color: 'primary.main', fontWeight: 500 }}>
-            Add Cover Image
+            {translateUi('ui.sections.kanban.kanban.task_details.add_cover_image_3f919377')}
           </Typography>
         </Stack>
       )}

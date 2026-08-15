@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -12,6 +13,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const FraudAnalysis = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { customer } = order;
 
@@ -36,11 +38,11 @@ const FraudAnalysis = ({ sx }) => {
             fontWeight: 700,
           }}
         >
-          Fraud analysis
+          {translateUi('ui.sections.ecommerce.admin.order.fraud_analysis_de767619')}
         </Typography>
 
         <Button variant="text" size="small" sx={{ flexShrink: 0, minWidth: 0 }}>
-          View
+          {translateUi('ui.sections.ecommerce.admin.order.view_69bd4ef9')}
         </Button>
       </Stack>
       <List dense disablePadding>

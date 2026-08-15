@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -22,6 +23,7 @@ import SharePrivacy from './SharePrivacy';
 import ShareRecipientSelector from './ShareRecipientSelector';
 
 const SharePostDialog = ({ shares }) => {
+  const { t: translateUi } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
   const [selectedShareOption, setSelectedShareOption] = useState('feed');
@@ -66,7 +68,7 @@ const SharePostDialog = ({ shares }) => {
             alignItems: 'center',
           }}
         >
-          Share this post
+          {translateUi('ui.sections.social.tab_panels.posts_panel.share_this_post_6f829a82')}
           <IconButton onClick={handleDialogClose}>
             <IconifyIcon
               icon="material-symbols:close"
@@ -85,19 +87,23 @@ const SharePostDialog = ({ shares }) => {
                 sx={{ [`& .${formControlLabelClasses.label}`]: { fontWeight: 500 }, mb: 1 }}
                 value="feed"
                 control={<Radio />}
-                label="To your feed"
+                label={translateUi(
+                  'ui.sections.social.tab_panels.posts_panel.to_your_feed_ffa2df91',
+                )}
               />
               <FormControlLabel
                 sx={{ [`& .${formControlLabelClasses.label}`]: { fontWeight: 500 }, mb: 1 }}
                 value="email"
                 control={<Radio />}
-                label="Via email"
+                label={translateUi('ui.sections.social.tab_panels.posts_panel.via_email_60a36e90')}
               />
               <FormControlLabel
                 sx={{ [`& .${formControlLabelClasses.label}`]: { fontWeight: 500 }, mb: 1 }}
                 value="message"
                 control={<Radio />}
-                label="Via message"
+                label={translateUi(
+                  'ui.sections.social.tab_panels.posts_panel.via_message_1c4bde70',
+                )}
               />
             </RadioGroup>
           </FormControl>
@@ -112,7 +118,9 @@ const SharePostDialog = ({ shares }) => {
 
           <TextField
             fullWidth
-            label="Add a message (optional)"
+            label={translateUi(
+              'ui.sections.social.tab_panels.posts_panel.add_a_message_optional_4a3ec5b3',
+            )}
             multiline
             rows={2}
             variant="filled"
@@ -126,10 +134,10 @@ const SharePostDialog = ({ shares }) => {
           }}
         >
           <Button variant="soft" color="neutral" onClick={handleDialogClose}>
-            Cancel
+            {translateUi('ui.sections.social.tab_panels.posts_panel.cancel_77dfd213')}
           </Button>
           <Button variant="contained" color="primary" onClick={handleShare}>
-            Share
+            {translateUi('ui.sections.social.tab_panels.posts_panel.share_09ca55ca')}
           </Button>
         </DialogActions>
       </Dialog>

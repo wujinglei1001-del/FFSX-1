@@ -1,8 +1,10 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Paper, Typography } from '@mui/material';
 import FileDropZone from 'components/base/FileDropZone';
 
 const EventImageDropzone = () => {
+  const { t: translateUi } = useTranslation();
   const {
     setValue,
     watch,
@@ -27,7 +29,7 @@ const EventImageDropzone = () => {
   return (
     <Paper background={1} sx={{ p: 3, borderRadius: 6, outline: 0 }}>
       <Typography variant="subtitle1" sx={{ mb: 3, fontWeight: 700 }}>
-        Event cover photo
+        {translateUi('ui.sections.events.create_event.main.event_cover_photo_62b80545')}
       </Typography>
       <FileDropZone
         accept={{

@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import MenuItem from '@mui/material/MenuItem';
 import { timesheet } from 'data/time-tracker/dashboard';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ProjectSelect = () => {
+  const { t: translateUi } = useTranslation();
   const [project, setProject] = useState('');
   return (
     <StyledTextField
@@ -29,7 +31,9 @@ const ProjectSelect = () => {
       sx={{ width: 1, maxWidth: { xs: 1, md: 500 } }}
     >
       <MenuItem value="work-type" disabled sx={{ display: 'none' }}>
-        What are you working on ?
+        {translateUi(
+          'ui.sections.dashboards.time_tracker.page_header.what_are_you_working_on_cdfc7b83',
+        )}
       </MenuItem>
 
       {timesheet.map((item) => (

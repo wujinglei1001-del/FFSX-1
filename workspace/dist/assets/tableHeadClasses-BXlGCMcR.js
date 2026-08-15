@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-k5yBtt5A.js";function n(t){return e(`MuiTableHead`,t)}var r=t(`MuiTableHead`,[`root`]);export{r as n,n as t};

@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const NewsLetter = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography
@@ -13,7 +15,7 @@ const NewsLetter = () => {
           color: 'text.disabled',
         }}
       >
-        Newsletter
+        {translateUi('ui.layouts.landing_layout.footer.newsletter.newsletter_6ed05e72')}
       </Typography>
       <Stack
         direction="row"
@@ -22,9 +24,13 @@ const NewsLetter = () => {
           width: 1,
         }}
       >
-        <StyledTextField placeholder="Email" fullWidth sx={{ flexGrow: 1 }} />
+        <StyledTextField
+          placeholder={translateUi('ui.layouts.landing_layout.footer.newsletter.email_84add5b2')}
+          fullWidth
+          sx={{ flexGrow: 1 }}
+        />
         <Button variant="soft" color="neutral" sx={{ minWidth: 110 }}>
-          Subscribe
+          {translateUi('ui.layouts.landing_layout.footer.newsletter.subscribe_d6981f74')}
         </Button>
       </Stack>
     </div>

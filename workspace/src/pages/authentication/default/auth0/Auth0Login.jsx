@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Box, Button, Link, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ViewOnlyAlert from 'components/sections/authentications/common/ViewOnlyAlert';
 
 const Auth0Login = () => {
+  const { t: translateUi } = useTranslation();
   const { loginWithRedirect } = useAuth0();
 
   const [loginLoading, setLoginLoading] = useState(false);
@@ -65,10 +67,12 @@ const Auth0Login = () => {
               mb: 2,
             }}
           >
-            Log in
+            {translateUi('ui.pages.authentication.default.auth0.log_in_f7c400ed')}
           </Typography>
           <Typography variant="body1">
-            Click redirect button to continue logging in with Auth0
+            {translateUi(
+              'ui.pages.authentication.default.auth0.click_redirect_button_to_continue_logging_in_with_au_c8268009',
+            )}
           </Typography>
         </Box>
 
@@ -88,7 +92,9 @@ const Auth0Login = () => {
                 onClick={handleSignupRedirect}
                 sx={{ textWrap: 'nowrap' }}
               >
-                Redirect to Auth0 Sign Up
+                {translateUi(
+                  'ui.pages.authentication.default.auth0.redirect_to_auth0_sign_up_5de80eb5',
+                )}
               </Button>
             </Grid>
             <Grid
@@ -105,14 +111,16 @@ const Auth0Login = () => {
                 onClick={handleLoginRedirect}
                 sx={{ textWrap: 'nowrap' }}
               >
-                Redirect to Auth0 Log In
+                {translateUi(
+                  'ui.pages.authentication.default.auth0.redirect_to_auth0_log_in_6307d662',
+                )}
               </Button>
             </Grid>
           </Grid>
         </Box>
       </Box>
       <Link href="#!" variant="subtitle2">
-        Trouble signing in?
+        {translateUi('ui.pages.authentication.default.auth0.trouble_signing_in_363e4476')}
       </Link>
     </Stack>
   );

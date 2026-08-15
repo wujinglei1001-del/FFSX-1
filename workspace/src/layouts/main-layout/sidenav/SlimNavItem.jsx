@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router';
 import {
   Badge,
@@ -20,6 +21,7 @@ import { useNavContext } from '../NavProvider';
 import NavItemPopper from './NavItemPopper';
 
 const SlimNavItem = ({ item, level }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopperMenu, setOpenPopperMenu] = useState(false);
   const { pathname } = useLocation();
@@ -164,7 +166,7 @@ const SlimNavItem = ({ item, level }) => {
           {item.new && (
             <Chip
               size="xsmall"
-              label="new"
+              label={translateUi('ui.layouts.main_layout.sidenav.slimnavitem.new_c2a6b03f')}
               color="warning"
               sx={{ textTransform: 'capitalize', ml: 1 }}
             />

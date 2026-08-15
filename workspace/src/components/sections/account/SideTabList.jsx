@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TabList } from '@mui/lab';
 import { Stack, Typography, tabsClasses } from '@mui/material';
 import { accountTabs } from 'data/account/account-tabs';
@@ -8,6 +9,7 @@ import SearchTextField from 'components/common/SearchTextField';
 import AccountTab from './common/AccountTab';
 
 const SideTabList = ({ setShowTabList, handleChange, sx }) => {
+  const { t: translateUi } = useTranslation();
   const { down, currentBreakpoint } = useBreakpoints();
 
   const downMd = down('md');
@@ -37,11 +39,11 @@ const SideTabList = ({ setShowTabList, handleChange, sx }) => {
           icon="material-symbols:settings-outline"
           sx={{ fontSize: { xs: 20, lg: 24 } }}
         />
-        Account Settings
+        {translateUi('ui.sections.account.sidetablist.account_settings_e3270761')}
       </Typography>
       <Stack sx={{ gap: 2, width: 1 }}>
         <SearchTextField
-          placeholder="Find a setting"
+          placeholder={translateUi('ui.sections.account.sidetablist.find_a_setting_fff44d9a')}
           fullWidth
           size="large"
           sx={{ maxWidth: { xs: 1, sm: 0.5, md: 1 } }}

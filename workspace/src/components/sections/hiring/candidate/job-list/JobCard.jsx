@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -11,6 +12,7 @@ import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const JobCard = ({ job }) => {
+  const { t: translateUi } = useTranslation();
   const [bookmarked, setBookmarked] = useState(false);
 
   return (
@@ -101,7 +103,8 @@ const JobCard = ({ job }) => {
                 fontWeight: 500,
               }}
             >
-              Posted {dayjs(job.overview.postedDate).format('DD MMM, YYYY')}
+              {translateUi('ui.sections.hiring.candidate.job_list.posted_301777ff')}
+              {dayjs(job.overview.postedDate).format('DD MMM, YYYY')}
             </Typography>
           </Stack>
         </Grid>

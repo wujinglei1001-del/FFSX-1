@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Popover, Stack, badgeClasses, paperClasses } from '@mui/material';
 import { notifications as notificationsData } from 'data/notifications';
 import dayjs from 'dayjs';
@@ -10,6 +11,7 @@ import NotificationList from 'components/sections/notification/NotificationList'
 import OutlinedBadge from 'components/styled/OutlinedBadge';
 
 const NotificationMenu = ({ type = 'default' }) => {
+  const { t: translateUi } = useTranslation();
   const [notifications, setNotifications] = useState({
     today: [],
     older: [],
@@ -105,13 +107,13 @@ const NotificationMenu = ({ type = 'default' }) => {
         <Box sx={{ pt: 2, flex: 1, overflow: 'hidden' }}>
           <SimpleBar disableHorizontal>
             <NotificationList
-              title="Today"
+              title={translateUi('ui.layouts.main_layout.common.notificationmenu.today_24345a14')}
               notifications={notifications.today}
               variant="small"
               onItemClick={handleClose}
             />
             <NotificationList
-              title="Older"
+              title={translateUi('ui.layouts.main_layout.common.notificationmenu.older_63f34dd2')}
               notifications={notifications.older}
               variant="small"
               onItemClick={handleClose}
@@ -133,7 +135,9 @@ const NotificationMenu = ({ type = 'default' }) => {
             variant="text"
             color="primary"
           >
-            Load more notifications
+            {translateUi(
+              'ui.layouts.main_layout.common.notificationmenu.load_more_notifications_160c9a66',
+            )}
           </Button>
         </Stack>
       </Popover>

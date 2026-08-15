@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Grid, Grow, Link, Stack, Typography } from '@mui/material';
 import { podcastPlaylist } from 'data/content/podcast';
 import paths from 'routes/paths';
@@ -7,12 +8,13 @@ import Image from 'components/base/Image';
 import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 
 const PodcastsFromCreator = () => {
+  const { t: translateUi } = useTranslation();
   const [hoveredPodcast, setHoveredPodcast] = useState(null);
 
   return (
     <Stack sx={{ mb: { xs: 3, md: 5 } }}>
       <Typography variant="h6" sx={{ mb: 4 }}>
-        More from Creator
+        {translateUi('ui.sections.content.details.podcast.more_from_creator_bc8d539f')}
       </Typography>
       <Grid container spacing={2}>
         {podcastPlaylist.slice(1, 11).map((item) => (
@@ -89,7 +91,7 @@ const PodcastsFromCreator = () => {
                       borderRadius: 3,
                     }}
                     src={item.image}
-                    alt="blogs image"
+                    alt={translateUi('ui.sections.content.details.podcast.blogs_image_97680fbd')}
                   />
 
                   <Grow in={hoveredPodcast === item.id} timeout={300}>
@@ -140,7 +142,8 @@ const PodcastsFromCreator = () => {
                       color: 'text.secondary',
                     }}
                   >
-                    {item.totalEpisodes} eps
+                    {item.totalEpisodes}
+                    {translateUi('ui.sections.content.details.podcast.eps_85962fc8')}
                   </Typography>
                   <BookmarkButton size="small" />
                 </Stack>
@@ -158,7 +161,7 @@ const PodcastsFromCreator = () => {
               justifyContent: 'flex-start',
             }}
           >
-            Load more
+            {translateUi('ui.sections.content.details.podcast.load_more_dfe60ca9')}
           </Button>
         </Stack>
       )}

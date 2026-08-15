@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Autocomplete, TextField, autocompleteClasses } from '@mui/material';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
@@ -6,6 +7,7 @@ import { categories } from 'data/e-commerce/product-listing';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const CategorySelect = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -29,7 +31,9 @@ const CategorySelect = () => {
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Select category"
+              label={translateUi(
+                'ui.sections.ecommerce.admin.product_listing.select_category_a2a5cafe',
+              )}
               variant="filled"
               error={!!errors.vitalInfo?.category}
               helperText={errors.vitalInfo?.category?.message}

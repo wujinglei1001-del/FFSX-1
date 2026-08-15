@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { gridClasses } from '@mui/x-data-grid/constants';
 import { cssVarRgba } from 'lib/utils';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 
@@ -52,7 +53,9 @@ const DataGrid = {
       },
       columnsManagement: {
         searchInputProps: {
-          placeholder: 'Search columns...',
+          get placeholder() {
+            return i18n.t('ui.theme.components.datagrid.search_columns_805ab8bc');
+          },
         },
         disableResetButton: true,
         disableShowHideToggle: true,
@@ -143,7 +146,9 @@ const DataGrid = {
       alignItems: 'center',
       justifyContent: 'space-between',
       '&::before': {
-        content: '"Filter"',
+        get content() {
+          return i18n.t('ui.theme.components.datagrid.filter_996e43f3');
+        },
         color: theme.vars.palette.text.primary,
         fontWeight: 600,
         fontSize: theme.typography.subtitle1.fontSize,

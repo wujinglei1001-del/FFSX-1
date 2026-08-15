@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   Dialog,
@@ -12,6 +13,7 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const AccountFormDialog = (props) => {
+  const { t: translateUi } = useTranslation();
   const {
     open,
     handleDialogClose,
@@ -76,7 +78,7 @@ const AccountFormDialog = (props) => {
       >
         {handleRemove && (
           <Button color="error" onClick={handleRemove}>
-            Remove
+            {translateUi('ui.sections.account.common.accountformdialog.remove_e963907d')}
           </Button>
         )}
         <Button
@@ -93,10 +95,10 @@ const AccountFormDialog = (props) => {
           }}
           sx={{ ml: 'auto !important' }}
         >
-          Discard
+          {translateUi('ui.sections.account.common.accountformdialog.discard_36fff63c')}
         </Button>
         <Button type="submit" variant="contained" color="primary">
-          Confirm
+          {translateUi('ui.sections.account.common.accountformdialog.confirm_04a21221')}
         </Button>
       </DialogActions>
     </Dialog>

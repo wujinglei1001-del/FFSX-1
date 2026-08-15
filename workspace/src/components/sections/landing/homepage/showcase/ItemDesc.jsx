@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -5,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ShowcaseItemDesc = ({ title, subtitle, desc, sx }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -47,7 +49,7 @@ const ShowcaseItemDesc = ({ title, subtitle, desc, sx }) => {
       </Box>
       <Box sx={{ pb: 5, pl: 3 }}>
         <Button endIcon={<IconifyIcon flipOnRTL icon="material-symbols:chevron-right-rounded" />}>
-          View more
+          {translateUi('ui.sections.landing.homepage.showcase.view_more_e3c5fa89')}
         </Button>
       </Box>
     </Stack>

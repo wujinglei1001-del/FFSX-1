@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import ProjectHeader from 'components/sections/project/common/ProjectHeader';
@@ -10,6 +11,7 @@ import {
 import TableViewMain from 'components/sections/project/table-view';
 
 const TableView = () => {
+  const { t: translateUi } = useTranslation();
   const [view, setView] = useState('dayGridMonth');
   const [taskDialogOpen, setTaskDialogOpen] = useState(false);
 
@@ -45,7 +47,7 @@ const TableView = () => {
     <Grid container>
       <Grid size={12}>
         <ProjectHeader
-          title="Name of the Project"
+          title={translateUi('ui.pages.apps.project.tableview.name_of_the_project_29b9c982')}
           subtitle=""
           onTaskSubmit={handleTaskSubmit}
           topActions={<ProjectTopRightActions onShare={handleShare} />}

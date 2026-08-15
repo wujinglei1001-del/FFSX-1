@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Paper, Stack, Typography } from '@mui/material';
 
 const TeamsStats = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -23,7 +25,7 @@ const TeamsStats = ({ data }) => {
             }}
           >
             <Stat
-              label="Assigned Team"
+              label={translateUi('ui.sections.member.profile.profile_tabs.assigned_team_774b2ec0')}
               value={stat.team}
               sx={{
                 flexShrink: 0,
@@ -40,10 +42,28 @@ const TeamsStats = ({ data }) => {
                 minWidth: 0,
               }}
             >
-              <Stat label="Completed" value={stat.stats.completed} sx={{ textAlign: 'right' }} />
-              <Stat label="Active" value={stat.stats.active} sx={{ textAlign: 'right' }} />
-              <Stat label="Archived" value={stat.stats.archived} sx={{ textAlign: 'right' }} />
-              <Stat label="Total Project" value={stat.stats.total} sx={{ textAlign: 'right' }} />
+              <Stat
+                label={translateUi('ui.sections.member.profile.profile_tabs.completed_1798b3ba')}
+                value={stat.stats.completed}
+                sx={{ textAlign: 'right' }}
+              />
+              <Stat
+                label={translateUi('ui.sections.member.profile.profile_tabs.active_a733b809')}
+                value={stat.stats.active}
+                sx={{ textAlign: 'right' }}
+              />
+              <Stat
+                label={translateUi('ui.sections.member.profile.profile_tabs.archived_eddc813f')}
+                value={stat.stats.archived}
+                sx={{ textAlign: 'right' }}
+              />
+              <Stat
+                label={translateUi(
+                  'ui.sections.member.profile.profile_tabs.total_project_d9bd2510',
+                )}
+                value={stat.stats.total}
+                sx={{ textAlign: 'right' }}
+              />
             </Stack>
           </Stack>
         </Paper>

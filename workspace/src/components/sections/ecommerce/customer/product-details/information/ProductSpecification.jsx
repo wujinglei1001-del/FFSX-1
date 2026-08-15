@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { List, ListItem, ListItemText, Stack, Typography } from '@mui/material';
 import { kebabCase } from 'lib/utils';
 
 const ProductSpecification = ({ specifications }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography
@@ -10,7 +12,7 @@ const ProductSpecification = ({ specifications }) => {
           mb: 3,
         }}
       >
-        Specification
+        {translateUi('ui.sections.ecommerce.customer.product_details.specification_1ccf5d25')}
       </Typography>
       <List dense disablePadding>
         {specifications.map(({ label, value }) => (

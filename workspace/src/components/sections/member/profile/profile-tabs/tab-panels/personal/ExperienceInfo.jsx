@@ -1,11 +1,13 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 const ExperienceInfo = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-        Experiences
+        {translateUi('ui.sections.member.profile.profile_tabs.experiences_52271258')}
       </Typography>
       <Stack
         sx={{
@@ -20,6 +22,7 @@ const ExperienceInfo = ({ data }) => {
   );
 };
 const ExperienceEntry = ({ entry }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction="row"
@@ -38,7 +41,7 @@ const ExperienceEntry = ({ entry }) => {
             {entry.designation}{' '}
           </Box>
           <Box component="span" sx={{ fontWeight: 400 }}>
-            at{' '}
+            {translateUi('common.at')}{' '}
           </Box>
           <Box component="strong" sx={{ fontWeight: 700 }}>
             {entry.company}

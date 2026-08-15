@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -18,10 +19,11 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import BookmarkButton from '../../../common/BookmarkButton';
 
 const BlogsFromCreator = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography variant="h6" sx={{ mb: 4 }}>
-        More from Creator
+        {translateUi('ui.sections.content.details.blog.more_from_creator_bc8d539f')}
       </Typography>
 
       <Grid container spacing={2} sx={{ mb: 2 }}>
@@ -62,7 +64,7 @@ const BlogsFromCreator = () => {
                     borderRadius: 3,
                   }}
                   image={item.thumbnail}
-                  alt="blogs image"
+                  alt={translateUi('ui.sections.content.details.blog.blogs_image_97680fbd')}
                 />
               </Box>
               <CardContent sx={{ flexGrow: 1, px: { xs: 0, xl: 2 }, py: '14px !important' }}>
@@ -122,7 +124,7 @@ const BlogsFromCreator = () => {
 
       <Stack direction="row" sx={{ justifyContent: 'flex-end' }}>
         <Button size="small" sx={{ alignItems: 'center' }}>
-          View more
+          {translateUi('ui.sections.content.details.blog.view_more_e3c5fa89')}
           <IconifyIcon
             flipOnRTL
             icon="material-symbols:chevron-right-rounded"

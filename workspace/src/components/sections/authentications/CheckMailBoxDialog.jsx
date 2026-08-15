@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Alert,
   Box,
@@ -18,6 +19,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const CheckMailBoxDialog = ({ open, handleClose, email, time, handleSendAgain }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Dialog
       open={open}
@@ -32,7 +34,7 @@ const CheckMailBoxDialog = ({ open, handleClose, email, time, handleSendAgain })
     >
       <DialogContent sx={{ textAlign: 'center', p: 5 }}>
         <IconButton
-          aria-label="close"
+          aria-label={translateUi('ui.sections.authentications.checkmailboxdialog.close_da38860c')}
           onClick={handleClose}
           sx={{
             position: 'absolute',
@@ -55,9 +57,11 @@ const CheckMailBoxDialog = ({ open, handleClose, email, time, handleSendAgain })
                   fontWeight: 700,
                 }}
               >
-                Note:
+                {translateUi('ui.sections.authentications.checkmailboxdialog.note_83423c19')}
               </Box>{' '}
-              This is a demo feature.
+              {translateUi(
+                'ui.sections.authentications.checkmailboxdialog.this_is_a_demo_feature_3c8f25c2',
+              )}
             </Typography>
           </Alert>
         )}
@@ -75,9 +79,15 @@ const CheckMailBoxDialog = ({ open, handleClose, email, time, handleSendAgain })
             height={240}
           />
         </Stack>
-        <DialogTitle sx={{ typography: 'h5', fontWeight: 500 }}>Check your mailbox!</DialogTitle>
+        <DialogTitle sx={{ typography: 'h5', fontWeight: 500 }}>
+          {translateUi(
+            'ui.sections.authentications.checkmailboxdialog.check_your_mailbox_3f907a2d',
+          )}
+        </DialogTitle>
         <DialogContentText sx={{ typography: 'body1', color: 'text.primary' }}>
-          An email containing a password reset link has been sent to your email address{' '}
+          {translateUi(
+            'ui.sections.authentications.checkmailboxdialog.an_email_containing_a_password_reset_link_has_been_s_8563af72',
+          )}{' '}
           <Box component="span" sx={{ fontWeight: 500 }}>
             {email}
           </Box>
@@ -91,9 +101,11 @@ const CheckMailBoxDialog = ({ open, handleClose, email, time, handleSendAgain })
             color: 'text.secondary',
           }}
         >
-          Didn’t receive the code?{' '}
+          {translateUi(
+            'ui.sections.authentications.checkmailboxdialog.didn_t_receive_the_code_cfd8b982',
+          )}{' '}
           <Link href="#!" onClick={handleSendAgain} sx={[time > 0 && { pointerEvents: 'none' }]}>
-            Send again
+            {translateUi('ui.sections.authentications.checkmailboxdialog.send_again_9fafcfcc')}
             {time > 0 ? ` in ${time} s` : ''}
           </Link>
         </Typography>

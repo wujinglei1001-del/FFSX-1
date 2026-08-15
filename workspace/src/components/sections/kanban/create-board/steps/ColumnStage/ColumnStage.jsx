@@ -1,5 +1,7 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack } from '@mui/material';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SortableDnd from 'components/base/SortableDnd';
@@ -8,14 +10,20 @@ import DraggableColumnItem from 'components/sections/kanban/create-board/steps/C
 export const columnInfoSchema = yup.object().shape({
   columns: yup.array().of(
     yup.object().shape({
-      columnType: yup.string().required('Task type is required'),
+      columnType: yup
+        .string()
+        .required(i18n.t('ui.sections.kanban.create_board.steps.task_type_is_required_9beed0bf')),
       hasCardLimit: yup.boolean(),
-      cardLimit: yup.number().min(1, 'min 1*').max(20, 'max 20*'),
+      cardLimit: yup
+        .number()
+        .min(1, i18n.t('ui.sections.kanban.create_board.steps.min_1_c7689138'))
+        .max(20, i18n.t('ui.sections.kanban.create_board.steps.max_20_393194b3')),
     }),
   ),
 });
 
 const ColumnStage = () => {
+  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { fields, append, remove, move } = useFieldArray({
     name: 'columns',
@@ -56,7 +64,7 @@ const ColumnStage = () => {
           })
         }
       >
-        Add New Column
+        {translateUi('ui.sections.kanban.create_board.steps.add_new_column_f1790322')}
       </Button>
     </Box>
   );

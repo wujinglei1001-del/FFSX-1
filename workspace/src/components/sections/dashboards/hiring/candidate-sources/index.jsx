@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Grid from '@mui/material/Grid';
@@ -13,15 +14,40 @@ import SectionWrapper from '../common/SectionWrapper';
 import CandidateSourcesChart from './CandidateSourcesChart';
 
 const legends = [
-  { name: 'Boards', color: 'chBlue.200', value: 19444 },
-  { name: 'Referrals', color: 'chBlue.100', value: 13889 },
-  { name: 'Agency', color: 'chOrange.200', value: 11111 },
-  { name: 'Socials', color: 'chGreen.100', value: 25000 },
-  { name: 'Website', color: 'chLightBlue.100', value: 16667 },
-  { name: 'Others', color: 'chRed.100', value: 13889 },
+  {
+    name: 'Boards',
+    color: 'chBlue.200',
+    value: 19444,
+  },
+  {
+    name: 'Referrals',
+    color: 'chBlue.100',
+    value: 13889,
+  },
+  {
+    name: 'Agency',
+    color: 'chOrange.200',
+    value: 11111,
+  },
+  {
+    name: 'Socials',
+    color: 'chGreen.100',
+    value: 25000,
+  },
+  {
+    name: 'Website',
+    color: 'chLightBlue.100',
+    value: 16667,
+  },
+  {
+    name: 'Others',
+    color: 'chRed.100',
+    value: 13889,
+  },
 ];
 
 const CandidateSources = () => {
+  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
   const { numberFormat } = useNumberFormat();
@@ -29,7 +55,9 @@ const CandidateSources = () => {
   return (
     <SectionWrapper background={1}>
       <SectionHeader
-        title="Candidate Sources"
+        title={translateUi(
+          'ui.sections.dashboards.hiring.candidate_sources.candidate_sources_dd30da8f',
+        )}
         subTitle="Applications by source last month"
         actionComponent={<DashboardMenu size="medium" />}
       />
@@ -70,7 +98,7 @@ const CandidateSources = () => {
                 color: 'text.disabled',
               }}
             >
-              Candidates
+              {translateUi('ui.sections.dashboards.hiring.candidate_sources.candidates_b5bf8067')}
             </Typography>
           </Stack>
         </Box>

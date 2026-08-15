@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Chip, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 
 const EcomStatSection = ({ amount, increment, chart }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
 
   return (
@@ -36,7 +38,7 @@ const EcomStatSection = ({ amount, increment, chart }) => {
             display: 'inline',
           }}
         >
-          vs last month
+          {translateUi('ui.sections.common.ecomstatsection.vs_last_month_9bde8e49')}
         </Typography>
       </Box>
       {chart}

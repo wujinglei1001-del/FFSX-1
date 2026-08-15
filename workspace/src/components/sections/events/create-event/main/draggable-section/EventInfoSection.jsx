@@ -1,11 +1,13 @@
 import { Fragment } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, IconButton, Stack, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EventFileDropHandler from 'components/sections/events/create-event/EventFileDropHandler';
 
 const EventInfoSection = ({ sectionIndex }) => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -43,7 +45,7 @@ const EventInfoSection = ({ sectionIndex }) => {
               </Grid>
               <Grid size={5}>
                 <TextField
-                  label="Value"
+                  label={translateUi('ui.sections.events.create_event.main.value_8dce170d')}
                   variant="filled"
                   error={!!errors?.sections?.[sectionIndex]?.infoItems?.[index]?.value}
                   helperText={errors.sections?.[sectionIndex]?.infoItems?.[index]?.value?.message}
@@ -69,7 +71,7 @@ const EventInfoSection = ({ sectionIndex }) => {
             px: '5px',
           }}
         >
-          Add
+          {translateUi('ui.sections.events.create_event.main.add_61cc55aa')}
         </Button>
       </Box>
 

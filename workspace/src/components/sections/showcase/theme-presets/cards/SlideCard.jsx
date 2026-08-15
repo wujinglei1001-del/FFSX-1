@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Paper, Slider, Stack, TextField } from '@mui/material';
 
 const MIN = 0;
 const MAX = 2500;
 
 const SlideCard = () => {
+  const { t: translateUi } = useTranslation();
   const [value, setValue] = useState([MIN, 1300]);
 
   const handleChange = (_, newValue) => {
@@ -37,7 +39,7 @@ const SlideCard = () => {
       >
         <TextField
           variant="filled"
-          label="Min"
+          label={translateUi('ui.sections.showcase.theme_presets.cards.min_7eb0cee8')}
           type="number"
           value={value[0]}
           onChange={(e) => setValue([Math.min(Number(e.target.value), value[1]), value[1]])}
@@ -52,7 +54,7 @@ const SlideCard = () => {
 
         <TextField
           variant="filled"
-          label="Max"
+          label={translateUi('ui.sections.showcase.theme_presets.cards.max_a95e85ae')}
           type="number"
           value={value[1]}
           onChange={(e) => setValue([value[0], Math.max(Number(e.target.value), value[0])])}

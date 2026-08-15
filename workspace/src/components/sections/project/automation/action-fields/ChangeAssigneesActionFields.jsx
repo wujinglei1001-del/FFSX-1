@@ -1,4 +1,5 @@
 import { Stack, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import AssigneeConditionFields from '../condition-fields/AssigneeConditionFields';
 
 const ChangeAssigneesActionFields = ({ index }) => (
@@ -10,12 +11,12 @@ const ChangeAssigneesActionFields = ({ index }) => (
           color: 'text.secondary',
         }}
       >
-        Remove assignees
+        {i18n.t('ui.sections.project.automation.action_fields.remove_assignees_956d9ac6')}
       </Typography>
       <AssigneeConditionFields
         name={`actions.${index}.params.removeAssignees`}
         textFieldLabel=""
-        placeholder="Select a user"
+        placeholder={i18n.t('ui.sections.project.automation.action_fields.select_a_user_188d2103')}
         hideSearch
       />
     </Stack>
@@ -27,12 +28,12 @@ const ChangeAssigneesActionFields = ({ index }) => (
           color: 'text.secondary',
         }}
       >
-        Add assignees
+        {i18n.t('ui.sections.project.automation.action_fields.add_assignees_20945e3f')}
       </Typography>
       <AssigneeConditionFields
         name={`actions.${index}.params.addAssignees`}
         textFieldLabel=""
-        placeholder="Select a user"
+        placeholder={i18n.t('ui.sections.project.automation.action_fields.select_a_user_188d2103')}
         hideSearch
       />
     </Stack>

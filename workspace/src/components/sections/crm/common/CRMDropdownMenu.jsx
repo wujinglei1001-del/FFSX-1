@@ -1,16 +1,23 @@
 import { listClasses } from '@mui/material/List';
 import Menu, { menuClasses } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import i18n from 'locales/i18n';
 
 const defaultItems = [
   {
-    label: 'Edit',
+    get label() {
+      return i18n.t('ui.sections.crm.common.crmdropdownmenu.edit_5301648d');
+    },
   },
   {
-    label: 'Assign',
+    get label() {
+      return i18n.t('ui.sections.crm.common.crmdropdownmenu.assign_24449284');
+    },
   },
   {
-    label: 'Archive',
+    get label() {
+      return i18n.t('ui.sections.crm.common.crmdropdownmenu.archive_2621c6fd');
+    },
     sx: { color: 'error.main' },
   },
 ];

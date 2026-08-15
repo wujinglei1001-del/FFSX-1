@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router/dom';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { registerIcons } from 'lib/iconify/iconify-register';
+import AppLocalizationProvider from 'providers/AppLocalizationProvider';
 import BreakpointsProvider from 'providers/BreakpointsProvider';
 import NotistackProvider from 'providers/NotistackProvider';
 import SettingsPanelProvider from 'providers/SettingsPanelProvider';
@@ -22,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <SettingsProvider>
         <VisionModeProvider>
           <ThemeProvider>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <AppLocalizationProvider>
               <NotistackProvider>
                 <BreakpointsProvider>
                   <SettingsPanelProvider>
@@ -30,7 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   </SettingsPanelProvider>
                 </BreakpointsProvider>
               </NotistackProvider>
-            </LocalizationProvider>
+            </AppLocalizationProvider>
           </ThemeProvider>
         </VisionModeProvider>
       </SettingsProvider>

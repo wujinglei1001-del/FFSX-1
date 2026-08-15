@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   FormControl,
   InputAdornment,
@@ -11,27 +12,64 @@ import Grid from '@mui/material/Grid';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en-gb';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 import NumberTextField from 'components/base/NumberTextField';
 
 export const EventTicketFormSchema = yup.object({
   ticketType: yup.string(),
-  firstName: yup.string().required('This field is required'),
-  lastName: yup.string().required('This field is required'),
-  email: yup.string().required('Email is required').email('Email must be a valid email'),
+  firstName: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.event_detail.eventticketform.this_field_is_required_dedbaded'),
+    ),
+  lastName: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.event_detail.eventticketform.this_field_is_required_dedbaded'),
+    ),
+  email: yup
+    .string()
+    .required(i18n.t('ui.sections.events.event_detail.eventticketform.email_is_required_4da1d591'))
+    .email(
+      i18n.t(
+        'ui.sections.events.event_detail.eventticketform.email_must_be_a_valid_email_612a8b2a',
+      ),
+    ),
   emailConfirmation: yup
     .string()
-    .oneOf([yup.ref('email'), undefined], 'Emails must match')
-    .required('Please confirm your email'),
-  phoneNumber: yup.string().required('This field is required'),
-  dateOfBirth: yup.string().required('This field is required'),
+    .oneOf(
+      [yup.ref('email'), undefined],
+      i18n.t('ui.sections.events.event_detail.eventticketform.emails_must_match_8be86a3d'),
+    )
+    .required(
+      i18n.t('ui.sections.events.event_detail.eventticketform.please_confirm_your_email_4d0734c4'),
+    ),
+  phoneNumber: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.event_detail.eventticketform.this_field_is_required_dedbaded'),
+    ),
+  dateOfBirth: yup
+    .string()
+    .required(
+      i18n.t('ui.sections.events.event_detail.eventticketform.this_field_is_required_dedbaded'),
+    ),
   quantity: yup
     .number()
-    .required('This field is required')
-    .min(1, 'Quantity must be greater than 0'),
+    .required(
+      i18n.t('ui.sections.events.event_detail.eventticketform.this_field_is_required_dedbaded'),
+    )
+    .min(
+      1,
+      i18n.t(
+        'ui.sections.events.event_detail.eventticketform.quantity_must_be_greater_than_0_ef165e2f',
+      ),
+    ),
 });
 const EventTicketForm = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -59,7 +97,7 @@ const EventTicketForm = ({ sx }) => {
           fullWidth
           id="firstName"
           type="text"
-          label="First name"
+          label={translateUi('ui.sections.events.event_detail.eventticketform.first_name_7e568a90')}
           variant="filled"
           error={!!errors.firstName}
           helperText={errors.firstName?.message}
@@ -76,7 +114,7 @@ const EventTicketForm = ({ sx }) => {
           fullWidth
           id="lastName"
           type="text"
-          label="Last name"
+          label={translateUi('ui.sections.events.event_detail.eventticketform.last_name_adec36a8')}
           variant="filled"
           error={!!errors.lastName}
           helperText={errors.lastName?.message}
@@ -88,7 +126,7 @@ const EventTicketForm = ({ sx }) => {
           fullWidth
           id="email"
           type="email"
-          label="Email"
+          label={translateUi('ui.sections.events.event_detail.eventticketform.email_84add5b2')}
           variant="filled"
           error={!!errors.email}
           helperText={errors.email?.message}
@@ -100,7 +138,9 @@ const EventTicketForm = ({ sx }) => {
           fullWidth
           id="emailConfirmation"
           type="email"
-          label="Re-enter Email"
+          label={translateUi(
+            'ui.sections.events.event_detail.eventticketform.re_enter_email_8e2c00a1',
+          )}
           variant="filled"
           error={!!errors.emailConfirmation}
           helperText={errors.emailConfirmation?.message}
@@ -120,7 +160,10 @@ const EventTicketForm = ({ sx }) => {
                     <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
                       <IconifyIcon icon="twemoji:flag-bangladesh" sx={{ fontSize: 24 }} />
                       <Typography variant="caption" sx={{ display: 'block' }}>
-                        Code <br />
+                        {translateUi(
+                          'ui.sections.events.event_detail.eventticketform.code_adac6937',
+                        )}
+                        <br />
                         <Typography variant="body2">+88</Typography>
                       </Typography>
                     </Stack>
@@ -134,7 +177,9 @@ const EventTicketForm = ({ sx }) => {
             fullWidth
             id="phoneNumber"
             type="tel"
-            label="Phone number"
+            label={translateUi(
+              'ui.sections.events.event_detail.eventticketform.phone_number_8961d3bf',
+            )}
             variant="filled"
             error={!!errors.phoneNumber}
             helperText={errors.phoneNumber?.message}
@@ -151,7 +196,9 @@ const EventTicketForm = ({ sx }) => {
             render={({ field }) => {
               return (
                 <DatePicker
-                  label="Date of birth"
+                  label={translateUi(
+                    'ui.sections.events.event_detail.eventticketform.date_of_birth_9518425f',
+                  )}
                   disableFuture
                   format="DD/MM/YYYY"
                   value={field.value ? dayjs(field.value, 'DD/MM/YYYY') : null}
@@ -177,7 +224,7 @@ const EventTicketForm = ({ sx }) => {
           fullWidth
           id="quantity"
           type="number"
-          label="Quantity"
+          label={translateUi('ui.sections.events.event_detail.eventticketform.quantity_44f6af69')}
           variant="filled"
           error={!!errors.quantity}
           {...register(`quantity`, {

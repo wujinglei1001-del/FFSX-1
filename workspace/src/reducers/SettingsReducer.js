@@ -16,6 +16,7 @@ export const SET_THEME_PRESET = 'SET_THEME_PRESET';
 export const SET_PRIMARY_COLOR = 'SET_PRIMARY_COLOR';
 export const SET_FONT_FAMILY = 'SET_FONT_FAMILY';
 export const SET_FONT_SIZE = 'SET_FONT_SIZE';
+export const SET_CURRENCY = 'SET_CURRENCY';
 
 export const settingsReducer = (state, action) => {
   let updatedState = {};
@@ -133,6 +134,10 @@ export const settingsReducer = (state, action) => {
       updatedState = { fontSize: action.payload };
       break;
     }
+    case SET_CURRENCY: {
+      updatedState = { currency: action.payload };
+      break;
+    }
     case RESET:
       updatedState = {
         ...initialConfig,
@@ -160,6 +165,7 @@ export const settingsReducer = (state, action) => {
         'locale',
         'fontFamily',
         'fontSize',
+        'currency',
       ].includes(key)
     ) {
       setItemToStore(key, String(updatedState[key]));

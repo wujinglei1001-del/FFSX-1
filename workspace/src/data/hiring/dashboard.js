@@ -1,39 +1,52 @@
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 // Stats
 export const statData = [
   {
-    title: 'Active Job',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.active_job_277c9b2c');
+    },
     subTitle: 'previous month',
     value: '2080',
     icon: 'material-symbols:work-outline',
   },
   {
-    title: 'Applied',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.applied_a3e4a569');
+    },
     subTitle: 'previous month',
     value: 1000100,
     icon: 'material-symbols:person-outline-rounded',
   },
   {
-    title: 'Reviewed',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.reviewed_31ef8593');
+    },
     subTitle: 'previous month',
     value: 900200,
     icon: 'material-symbols:preview-outline',
   },
   {
-    title: 'Interviewed',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.interviewed_9d7031dc');
+    },
     subTitle: 'previous month',
     value: 800400,
     icon: 'material-symbols:group-outline',
   },
   {
-    title: 'Offered',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.offered_a1bf1adc');
+    },
     subTitle: 'previous month',
     value: 3500,
     icon: 'material-symbols:docs-outline-rounded',
   },
   {
-    title: 'Hired',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.hired_115779ef');
+    },
     subTitle: 'previous month',
     value: 1400,
     icon: 'material-symbols:thumb-up-outline',
@@ -42,50 +55,103 @@ export const statData = [
 
 // Candidate Sources
 export const candidateSourcesData = [
-  { name: 'Boards', value: 19444 },
-  { name: 'Referrals', value: 13889 },
-  { name: 'Agency', value: 11111 },
-  { name: 'Socials', value: 25000 },
-  { name: 'Website', value: 16667 },
-  { name: 'Others', value: 13889 },
+  {
+    name: 'Boards',
+    value: 19444,
+  },
+  {
+    name: 'Referrals',
+    value: 13889,
+  },
+  {
+    name: 'Agency',
+    value: 11111,
+  },
+  {
+    name: 'Socials',
+    value: 25000,
+  },
+  {
+    name: 'Website',
+    value: 16667,
+  },
+  {
+    name: 'Others',
+    value: 13889,
+  },
 ];
 
 // My Positions
 export const positionsData = [
   {
-    title: 'Customer Support Manager',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.customer_support_manager_75bb9b1a');
+    },
     field: 'Support',
     location: 'New York',
     users: [users[4], users[1], users[15], users[12], users[0], users[13]],
-    status: { text: 'Active', color: 'success' },
+    status: {
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.active_a733b809');
+      },
+      color: 'success',
+    },
   },
   {
-    title: 'Software Engineer',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.software_engineer_84f982e5');
+    },
     field: 'Engineering',
     location: 'San Francisco',
     users: [users[4], users[8], users[5], users[7]],
-    status: { text: 'Active', color: 'success' },
+    status: {
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.active_a733b809');
+      },
+      color: 'success',
+    },
   },
   {
-    title: 'UI/UX Designer',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.ui_ux_designer_a3c75d30');
+    },
     field: 'Design',
     location: 'London',
     users: [users[2], users[1], users[3], users[12], users[0], users[13]],
-    status: { text: 'Active', color: 'success' },
+    status: {
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.active_a733b809');
+      },
+      color: 'success',
+    },
   },
   {
-    title: 'Product Manager',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.product_manager_564b6173');
+    },
     field: 'Product',
     location: 'Chicago',
     users: [users[15], users[5], users[13]],
-    status: { text: 'Closed', color: 'neutral' },
+    status: {
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.closed_88d86b77');
+      },
+      color: 'neutral',
+    },
   },
   {
-    title: 'Digital Marketing Executive',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.digital_marketing_executive_ef223438');
+    },
     field: 'Support',
     location: 'New York',
     users: [users[2], users[1], users[3], users[12], users[0], users[13]],
-    status: { text: 'Active', color: 'success' },
+    status: {
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.active_a733b809');
+      },
+      color: 'success',
+    },
   },
 ];
 
@@ -102,46 +168,62 @@ export const newHiresData = [
 export const meetingsData = [
   {
     type: 'Panel Interview',
-    title: 'Technical Interview with Martin Parr',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.technical_interview_with_martin_parr_7618f997');
+    },
     time: '02:00 pm',
     duration: '45 min',
     status: {
       icon: 'material-symbols:autorenew-rounded',
       color: 'primary',
-      text: 'On going',
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.on_going_e284b4ea');
+      },
     },
   },
   {
     type: 'One-on-One',
-    title: 'HR Screening with Emily Tran',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.hr_screening_with_emily_tran_142b6ae3');
+    },
     time: '12:00 pm',
     duration: '45 min',
     status: {
       icon: 'material-symbols:check-rounded',
       color: 'success',
-      text: 'Done',
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.done_e9b450d1');
+      },
     },
   },
   {
     type: 'Panel Interview',
-    title: 'Final Round Interview with Jake Oliver',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.final_round_interview_with_jake_oliver_26da8882');
+    },
     time: '10:00 pm',
     duration: '1 hr',
     status: {
       icon: 'material-symbols:close-rounded',
       color: 'error',
-      text: 'Cancelled',
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.cancelled_a1bf92ef');
+      },
     },
   },
   {
     type: 'Panel Interview',
-    title: 'Technical Interview with Sarah Williams',
+    get title() {
+      return i18n.t('ui.data.hiring.dashboard.technical_interview_with_sarah_williams_54fbcbec');
+    },
     time: '09:00 am',
     duration: '45 min',
     status: {
       icon: 'material-symbols:check-rounded',
       color: 'success',
-      text: 'Done',
+      get text() {
+        return i18n.t('ui.data.hiring.dashboard.done_e9b450d1');
+      },
     },
   },
 ];
@@ -157,7 +239,9 @@ export const pipelineData = [
   {
     id: 1,
     jobPosition: {
-      title: 'Software Engineer',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.software_engineer_84f982e5');
+      },
       field: 'Engineering',
     },
     vacancy: 1,
@@ -173,7 +257,9 @@ export const pipelineData = [
   {
     id: 2,
     jobPosition: {
-      title: 'Digital Marketing Executive',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.digital_marketing_executive_ef223438');
+      },
       field: 'Marketing',
     },
     vacancy: 2,
@@ -189,7 +275,9 @@ export const pipelineData = [
   {
     id: 3,
     jobPosition: {
-      title: 'QA Engineering',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.qa_engineering_ac4389c5');
+      },
       field: 'Engineering',
     },
     vacancy: 3,
@@ -205,7 +293,9 @@ export const pipelineData = [
   {
     id: 4,
     jobPosition: {
-      title: 'Finance Associate',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.finance_associate_8d9793ee');
+      },
       field: 'Finance',
     },
     vacancy: 5,
@@ -221,7 +311,9 @@ export const pipelineData = [
   {
     id: 5,
     jobPosition: {
-      title: 'UI/UX Designer',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.ui_ux_designer_a3c75d30');
+      },
       field: 'Designer',
     },
     vacancy: 1,
@@ -237,7 +329,9 @@ export const pipelineData = [
   {
     id: 6,
     jobPosition: {
-      title: 'Customer Support Specialist',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.customer_support_specialist_15624923');
+      },
       field: 'Customer Support',
     },
     vacancy: 2,
@@ -253,7 +347,9 @@ export const pipelineData = [
   {
     id: 7,
     jobPosition: {
-      title: 'Sales Executive',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.sales_executive_1d4a31e5');
+      },
       field: 'Sales',
     },
     vacancy: 1,
@@ -269,7 +365,9 @@ export const pipelineData = [
   {
     id: 8,
     jobPosition: {
-      title: 'HR Coordinator',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.hr_coordinator_1fc1cd43');
+      },
       field: 'Human Resources',
     },
     vacancy: 2,
@@ -285,7 +383,9 @@ export const pipelineData = [
   {
     id: 9,
     jobPosition: {
-      title: 'Product Manager',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.product_manager_564b6173');
+      },
       field: 'Product',
     },
     vacancy: 1,
@@ -301,7 +401,9 @@ export const pipelineData = [
   {
     id: 10,
     jobPosition: {
-      title: 'Data Analyst',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.data_analyst_c5923c83');
+      },
       field: 'Data Science',
     },
     vacancy: 2,
@@ -317,7 +419,9 @@ export const pipelineData = [
   {
     id: 11,
     jobPosition: {
-      title: 'Content Writer',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.content_writer_b718c88f');
+      },
       field: 'Marketing',
     },
     vacancy: 3,
@@ -333,7 +437,9 @@ export const pipelineData = [
   {
     id: 12,
     jobPosition: {
-      title: 'DevOps Engineer',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.devops_engineer_44daf5ae');
+      },
       field: 'Engineering',
     },
     vacancy: 2,
@@ -349,7 +455,9 @@ export const pipelineData = [
   {
     id: 13,
     jobPosition: {
-      title: 'Legal Advisor',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.legal_advisor_7e6e8464');
+      },
       field: 'Legal',
     },
     vacancy: 1,
@@ -365,7 +473,9 @@ export const pipelineData = [
   {
     id: 14,
     jobPosition: {
-      title: 'Operations Manager',
+      get title() {
+        return i18n.t('ui.data.hiring.dashboard.operations_manager_72cfe578');
+      },
       field: 'Operations',
     },
     vacancy: 2,

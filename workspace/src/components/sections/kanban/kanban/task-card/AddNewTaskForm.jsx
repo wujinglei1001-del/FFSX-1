@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { formLabelClasses } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,6 +10,7 @@ import { ADD_NEW_TASK } from 'reducers/KanbanReducer';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const AddNewTaskForm = ({ listId, position, handleFormClose }) => {
+  const { t: translateUi } = useTranslation();
   const [newTask, setNewTask] = useState({ title: '', listId });
   const { kanbanDispatch } = useKanbanContext();
 
@@ -39,7 +41,9 @@ const AddNewTaskForm = ({ listId, position, handleFormClose }) => {
     >
       <TextField
         id="add-new-card"
-        label="Enter a title or paste a link"
+        label={translateUi(
+          'ui.sections.kanban.kanban.task_card.enter_a_title_or_paste_a_link_6b40d3e3',
+        )}
         variant="filled"
         size="small"
         rows={2}
@@ -57,7 +61,7 @@ const AddNewTaskForm = ({ listId, position, handleFormClose }) => {
 
       <Stack direction="row" sx={{ gap: 1 }}>
         <Button variant="soft" type="submit" fullWidth>
-          Add card
+          {translateUi('ui.sections.kanban.kanban.task_card.add_card_91edf1fe')}
         </Button>
         <Button
           variant="text"

@@ -1,8 +1,10 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
 import AssignResponsibility from './AssignResponsibility';
@@ -13,40 +15,101 @@ const Form = styled('form')``;
 
 export const createNewGoalFormSchema = yup.object().shape({
   goalDetails: yup.object({
-    name: yup.string().required('Goal name is required'),
-    description: yup.string().required('Description is required'),
-    startDate: yup.string().required('Start date is required'),
-    dueDate: yup.string().required('Due date is required'),
-    status: yup.mixed().required('Status is required'),
-    priority: yup.string().required('Priority is required'),
+    name: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.goal_name_is_required_336f880b'),
+      ),
+    description: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.description_is_required_b8177e6b'),
+      ),
+    startDate: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.start_date_is_required_438387af'),
+      ),
+    dueDate: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.due_date_is_required_e0a2406f'),
+      ),
+    status: yup
+      .mixed()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.status_is_required_d88cae16'),
+      ),
+    priority: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.priority_is_required_d0f01e4d'),
+      ),
   }),
   progressWeight: yup.object({
-    completion: yup.number().required('Completion is required'),
-    weight: yup.number().required('Weight is required'),
+    completion: yup
+      .number()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.completion_is_required_21cc08fb'),
+      ),
+    weight: yup
+      .number()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.weight_is_required_8c27877e'),
+      ),
     addSubGoal: yup.boolean().required(''),
     subGoals: yup
       .array()
       .of(
         yup.object({
-          goal: yup.string().required('Sub goal is required'),
+          goal: yup
+            .string()
+            .required(
+              i18n.t(
+                'ui.sections.hrm.performance_management.new_goal.sub_goal_is_required_28f5b30b',
+              ),
+            ),
         }),
       )
       .when('addSubGoal', {
         is: true,
-        then: (schema) => schema.min(1, 'Sub goal is required'),
+        then: (schema) =>
+          schema.min(
+            1,
+            i18n.t('ui.sections.hrm.performance_management.new_goal.sub_goal_is_required_28f5b30b'),
+          ),
         otherwise: (schema) => schema.notRequired().nullable(),
       }),
   }),
   assignResponsibility: yup.object({
-    mode: yup.mixed().required('Mode is required'),
-    department: yup.string().required('Department is required'),
-    team: yup.string().required('Team is required'),
-    jobTitle: yup.string().required('Employee Job title is required'),
+    mode: yup
+      .mixed()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.mode_is_required_58d0a7b0'),
+      ),
+    department: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.department_is_required_0c4a29d6'),
+      ),
+    team: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.hrm.performance_management.new_goal.team_is_required_dd76bf76'),
+      ),
+    jobTitle: yup
+      .string()
+      .required(
+        i18n.t(
+          'ui.sections.hrm.performance_management.new_goal.employee_job_title_is_required_2ca67c7c',
+        ),
+      ),
     additionalEmployee: yup.string(),
   }),
 });
 
 const CreateNewGoalForm = () => {
+  const { t: translateUi } = useTranslation();
   const methods = useForm({
     resolver: yupResolver(createNewGoalFormSchema),
     defaultValues: {
@@ -100,10 +163,10 @@ const CreateNewGoalForm = () => {
           }}
         >
           <Button variant="soft" color="neutral">
-            Cancel
+            {translateUi('ui.sections.hrm.performance_management.new_goal.cancel_77dfd213')}
           </Button>
           <Button type="submit" variant="contained">
-            Save
+            {translateUi('ui.sections.hrm.performance_management.new_goal.save_efc007a3')}
           </Button>
         </Stack>
       </Form>

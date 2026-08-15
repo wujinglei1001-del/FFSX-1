@@ -1,4 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -32,6 +33,7 @@ const actionMenuIcon = (
 );
 
 const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
+  const { t: translateUi } = useTranslation();
   const [roleByKey, setRoleByKey] = useState(() => {
     const map = {};
     data.forEach((member) => {
@@ -58,7 +60,9 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'name',
-        headerName: 'Name',
+        headerName: translateUi(
+          'ui.sections.project.team_member_list.teammemberlisttable.name_709a2322',
+        ),
         flex: 3,
         minWidth: columnMinWidths.name,
         disableColumnMenu: true,
@@ -92,7 +96,9 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'designation',
-        headerName: 'Designation',
+        headerName: translateUi(
+          'ui.sections.project.team_member_list.teammemberlisttable.designation_b2797c75',
+        ),
         flex: 1,
         minWidth: columnMinWidths.designation,
         disableColumnMenu: true,
@@ -109,7 +115,9 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'lastActive',
-        headerName: 'Last Active',
+        headerName: translateUi(
+          'ui.sections.project.team_member_list.teammemberlisttable.last_active_0eb2b938',
+        ),
         flex: 1,
         minWidth: columnMinWidths.lastActive,
         disableColumnMenu: true,
@@ -128,7 +136,9 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'role',
-        headerName: 'Role',
+        headerName: translateUi(
+          'ui.sections.project.team_member_list.teammemberlisttable.role_c3f104d1',
+        ),
         flex: 1,
         minWidth: columnMinWidths.role,
         cellClassName: 'role-cell',
@@ -150,9 +160,21 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
               onClick={(event) => event.stopPropagation()}
               sx={{ width: 1, minWidth: 0 }}
             >
-              <MenuItem value="Admin">Admin</MenuItem>
-              <MenuItem value="Moderator">Moderator</MenuItem>
-              <MenuItem value="Member">Member</MenuItem>
+              <MenuItem value="Admin">
+                {translateUi(
+                  'ui.sections.project.team_member_list.teammemberlisttable.admin_4e7afebc',
+                )}
+              </MenuItem>
+              <MenuItem value="Moderator">
+                {translateUi(
+                  'ui.sections.project.team_member_list.teammemberlisttable.moderator_ad3b15c3',
+                )}
+              </MenuItem>
+              <MenuItem value="Member">
+                {translateUi(
+                  'ui.sections.project.team_member_list.teammemberlisttable.member_6853c98a',
+                )}
+              </MenuItem>
             </StyledTextField>
           );
         },

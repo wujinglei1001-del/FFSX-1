@@ -1,5 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 import { Paper, Stack } from '@mui/material';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import FileDropZone from 'components/base/FileDropZone';
 
@@ -9,12 +10,23 @@ export const mediaFilesFormSchema = yup.object({
     .of(
       yup
         .object({
-          id: yup.string().required('This field is required'),
-          file: yup.mixed().required('File is required'),
+          id: yup
+            .string()
+            .required(
+              i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
+            ),
+          file: yup
+            .mixed()
+            .required(
+              i18n.t('ui.sections.ecommerce.admin.product_listing.file_is_required_7ef4e9c0'),
+            ),
         })
         .required(),
     )
-    .min(1, 'Upload at least 1 media file')
+    .min(
+      1,
+      i18n.t('ui.sections.ecommerce.admin.product_listing.upload_at_least_1_media_file_87db6674'),
+    )
     .required(),
 });
 

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { generatedRevenueData } from 'data/e-commerce/dashboard';
@@ -8,6 +9,7 @@ import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
 import GeneratedRevenueChart from './GeneratedRevenueChart';
 
 const GeneratedRevenue = () => {
+  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
 
@@ -34,7 +36,9 @@ const GeneratedRevenue = () => {
                 mb: 1,
               }}
             >
-              Revenue Generated
+              {translateUi(
+                'ui.sections.dashboards.e_commerce.generated_revenue.revenue_generated_d7891231',
+              )}
             </Typography>
             <Typography
               variant="body2"
@@ -43,7 +47,9 @@ const GeneratedRevenue = () => {
                 textWrap: 'pretty',
               }}
             >
-              Amount of revenue in this month comparing to last year
+              {translateUi(
+                'ui.sections.dashboards.e_commerce.generated_revenue.amount_of_revenue_in_this_month_comparing_to_last_ye_961b7d81',
+              )}
             </Typography>
           </Grid>
           <Grid sx={{ ml: { sm: 'auto', md: 0 }, order: { lg: 1 } }}>
@@ -81,7 +87,9 @@ const GeneratedRevenue = () => {
                 }
                 onClick={() => handleLegendToggle('Last year')}
               >
-                Last year
+                {translateUi(
+                  'ui.sections.dashboards.e_commerce.generated_revenue.last_year_3cf4d8d7',
+                )}
               </Button>
 
               <div>
@@ -111,7 +119,9 @@ const GeneratedRevenue = () => {
                   }
                   onClick={() => handleLegendToggle('This year')}
                 >
-                  This year
+                  {translateUi(
+                    'ui.sections.dashboards.e_commerce.generated_revenue.this_year_094c097f',
+                  )}
                 </Button>
                 <Chip label="+6.19%" color="success" />
               </div>

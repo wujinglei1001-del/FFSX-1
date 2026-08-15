@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, MenuItem, Stack, Typography } from '@mui/material';
 import { DataGrid, useGridApiRef } from '@mui/x-data-grid';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
@@ -9,7 +11,9 @@ import StyledTextField from 'components/styled/StyledTextField';
 const columnDefs = [
   {
     field: 'date',
-    headerName: 'Date',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.date_eb9a4bc1');
+    },
     headerClassName: 'date-header',
     cellClassName: 'date-cell',
     flex: 1.2,
@@ -17,7 +21,9 @@ const columnDefs = [
   },
   {
     field: 'day',
-    headerName: 'Day',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.day_987b9ced');
+    },
     headerClassName: 'day-header',
     cellClassName: 'day-cell',
     flex: 1,
@@ -25,7 +31,9 @@ const columnDefs = [
   },
   {
     field: 'hour',
-    headerName: 'Hour',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.hour_c37cf838');
+    },
     headerClassName: 'hour-header',
     cellClassName: 'hour-cell',
     flex: 1,
@@ -33,7 +41,9 @@ const columnDefs = [
   },
   {
     field: 'reason',
-    headerName: 'Reason',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.reason_f219cc06');
+    },
     headerClassName: 'reason-header',
     cellClassName: 'reason-cell',
     flex: 1,
@@ -41,7 +51,9 @@ const columnDefs = [
   },
   {
     field: 'approver',
-    headerName: 'Approver',
+    get headerName() {
+      return i18n.t('ui.sections.member.profile.profile_tabs.approver_f18fc152');
+    },
     headerClassName: 'approver-header',
     cellClassName: 'approver-cell',
     flex: 1,
@@ -62,6 +74,7 @@ const columnDefs = [
   },
 ];
 const History = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const apiRef = useGridApiRef();
   const columns = useMemo(() => columnDefs, []);
@@ -83,7 +96,7 @@ const History = ({ data }) => {
       }}
     >
       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-        History
+        {translateUi('ui.sections.member.profile.profile_tabs.history_90ccd649')}
       </Typography>
       <Stack
         sx={{
@@ -131,6 +144,7 @@ const History = ({ data }) => {
   );
 };
 const TopAction = ({ handleToggleFilterPanel }) => {
+  const { t: translateUi } = useTranslation();
   const [sortBy, setSortBy] = useState('6-months');
   return (
     <Stack
@@ -146,10 +160,18 @@ const TopAction = ({ handleToggleFilterPanel }) => {
         onChange={(event) => setSortBy(event.target.value)}
         sx={{ maxWidth: 234 }}
       >
-        <MenuItem value="week">Sort by - Last week</MenuItem>
-        <MenuItem value="month">Sort by - Last month</MenuItem>
-        <MenuItem value="3-months">Sort by - Last 3 months</MenuItem>
-        <MenuItem value="6-months">Sort by - Last 6 months</MenuItem>
+        <MenuItem value="week">
+          {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_week_cbce2b89')}
+        </MenuItem>
+        <MenuItem value="month">
+          {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_month_d24d3a53')}
+        </MenuItem>
+        <MenuItem value="3-months">
+          {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_3_months_35e11bcc')}
+        </MenuItem>
+        <MenuItem value="6-months">
+          {translateUi('ui.sections.member.profile.profile_tabs.sort_by_last_6_months_ce59b2be')}
+        </MenuItem>
       </StyledTextField>
       <Button
         variant="soft"
@@ -157,7 +179,7 @@ const TopAction = ({ handleToggleFilterPanel }) => {
         startIcon={<IconifyIcon icon="material-symbols:filter-alt-outline" />}
         onClick={handleToggleFilterPanel}
       >
-        Filter
+        {translateUi('ui.sections.member.profile.profile_tabs.filter_d7decf1a')}
       </Button>
     </Stack>
   );

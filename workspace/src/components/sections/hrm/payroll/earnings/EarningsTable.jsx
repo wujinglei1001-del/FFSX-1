@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid/colDef';
@@ -16,6 +17,7 @@ import {
 } from './RenderCells';
 
 const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { up } = useBreakpoints();
 
@@ -30,7 +32,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
       },
       {
         field: 'employee',
-        headerName: 'Employees',
+        headerName: translateUi('ui.sections.hrm.payroll.earnings.employees_8c5b6be2'),
         headerClassName: 'employee-header',
         cellClassName: 'employee-cell',
         flex: 1.2,
@@ -40,7 +42,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
       },
       {
         field: 'hours',
-        headerName: 'Hours',
+        headerName: translateUi('ui.sections.hrm.payroll.earnings.hours_9e25a34e'),
         headerClassName: 'hours-header',
         cellClassName: 'hours-cell',
         flex: 1,
@@ -50,7 +52,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
       },
       {
         field: 'extraPay',
-        headerName: 'Extra Pay',
+        headerName: translateUi('ui.sections.hrm.payroll.earnings.extra_pay_cd343398'),
         headerClassName: 'extra-pay-header',
         cellClassName: 'extra-pay-cell',
         flex: 1.6,
@@ -60,7 +62,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
       },
       {
         field: 'deduction',
-        headerName: 'Deduction',
+        headerName: translateUi('ui.sections.hrm.payroll.earnings.deduction_b5b89eff'),
         headerClassName: 'deduction-header',
         cellClassName: 'deduction-cell',
         flex: 1.6,
@@ -70,7 +72,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
       },
       {
         field: 'netPayType',
-        headerName: 'Net & Pay Type',
+        headerName: translateUi('ui.sections.hrm.payroll.earnings.net_pay_type_41f0afb6'),
         headerClassName: 'net-pay-type-header',
         cellClassName: 'net-pay-type-cell',
         flex: 1,
@@ -78,7 +80,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
         align: 'right',
         headerAlign: 'right',
         sortable: false,
-        renderCell: (params) => renderNetPayTypeCell(params, apiRef),
+        renderCell: (params) => renderNetPayTypeCell(params, apiRef, currencyFormat),
       },
       {
         field: 'action',

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Divider, Stack, paperClasses } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
@@ -13,6 +14,7 @@ import { SearchBoxButton } from '../common/search-box/SearchBox';
 import TopnavItems from './TopnavItems';
 
 const TopnavSlim = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { navColor, navigationMenuType },
     handleDrawerToggle,
@@ -50,7 +52,9 @@ const TopnavSlim = ({ sx }) => {
         >
           <IconButton
             color="inherit"
-            aria-label="open drawer"
+            aria-label={translateUi(
+              'ui.layouts.main_layout.topnav.topnavslim.open_drawer_fe4563aa',
+            )}
             edge="start"
             onClick={handleDrawerToggle}
             sx={[

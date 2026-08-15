@@ -1,9 +1,11 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, MenuItem, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import { PRIORITY_OPTIONS, getPriorityDotColor } from '../common/constants';
 
 const ChangePriorityActionFields = ({ index }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -42,7 +44,7 @@ const ChangePriorityActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          From
+          {translateUi('ui.sections.project.automation.action_fields.from_3f66052a')}
         </Typography>
         <Controller
           control={control}
@@ -88,7 +90,7 @@ const ChangePriorityActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          To
+          {translateUi('ui.sections.project.automation.action_fields.to_ae79ea1e')}
         </Typography>
         <Controller
           control={control}

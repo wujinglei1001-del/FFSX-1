@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Button, Divider, Stack } from '@mui/material';
 import { users } from 'data/users';
 import { useSnackbar } from 'notistack';
@@ -10,6 +11,7 @@ import Ownership from './Ownership';
 import UserPermissions from './UserPermissions';
 
 const UsersPermissionsTabPanel = () => {
+  const { t: translateUi } = useTranslation();
   const { usersPermissions } = useAccounts();
   const methods = useForm({
     defaultValues: usersPermissions,
@@ -30,7 +32,12 @@ const UsersPermissionsTabPanel = () => {
         sx={{ gap: 4 }}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <AccountTabPanelSection title="Store owner" icon="material-symbols:storefront-outline">
+        <AccountTabPanelSection
+          title={translateUi(
+            'ui.sections.account.users_permissions.userspermissionstabpanel.store_owner_45d30666',
+          )}
+          icon="material-symbols:storefront-outline"
+        >
           <Ownership
             name="Tsamina Mina"
             email="tsaminamina@email.com"
@@ -38,23 +45,39 @@ const UsersPermissionsTabPanel = () => {
             lastLoginAt="2024-11-15 15:54"
           />
         </AccountTabPanelSection>
-        <AccountTabPanelSection title="Global" icon="material-symbols:public">
+        <AccountTabPanelSection
+          title={translateUi(
+            'ui.sections.account.users_permissions.userspermissionstabpanel.global_5f1184f7',
+          )}
+          icon="material-symbols:public"
+        >
           <Global />
         </AccountTabPanelSection>
         <AccountTabPanelSection
-          title="Collaborator Request Permissions"
+          title={translateUi(
+            'ui.sections.account.users_permissions.userspermissionstabpanel.collaborator_request_permissions_16afb3ee',
+          )}
           icon="material-symbols:lock-person-outline"
         >
           <CollabPermissions />
         </AccountTabPanelSection>
-        <AccountTabPanelSection title="User Permissions" icon="material-symbols:person-outline">
+        <AccountTabPanelSection
+          title={translateUi(
+            'ui.sections.account.users_permissions.userspermissionstabpanel.user_permissions_c930fd60',
+          )}
+          icon="material-symbols:person-outline"
+        >
           <UserPermissions />
           <Stack direction="row" sx={{ justifyContent: 'flex-end', gap: 1 }}>
             <Button variant="soft" color="neutral" onClick={() => reset()}>
-              Discard
+              {translateUi(
+                'ui.sections.account.users_permissions.userspermissionstabpanel.discard_36fff63c',
+              )}
             </Button>
             <Button type="submit" variant="contained">
-              Confirm
+              {translateUi(
+                'ui.sections.account.users_permissions.userspermissionstabpanel.confirm_04a21221',
+              )}
             </Button>
           </Stack>
         </AccountTabPanelSection>

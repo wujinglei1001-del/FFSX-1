@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -8,6 +9,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import EditDescription from './EditDescription';
 
 const Description = () => {
+  const { t: translateUi } = useTranslation();
   const [isActiveEditMode, setIsActiveEditMode] = useState(false);
   const { watch } = useFormContext();
 
@@ -16,7 +18,7 @@ const Description = () => {
   return (
     <Paper sx={{ p: { xs: 3, md: 5 } }}>
       <Typography variant="h5" sx={{ mb: 3 }}>
-        Description
+        {translateUi('ui.sections.kanban.kanban.task_details.description_55f8ebc8')}
       </Typography>
       <Stack
         direction="row"

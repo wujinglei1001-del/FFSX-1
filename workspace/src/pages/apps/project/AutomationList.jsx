@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -56,6 +57,7 @@ const TextSelectButton = ({ value, options, onChange, endIcon }) => {
 };
 
 const AutomationList = () => {
+  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
@@ -139,7 +141,7 @@ const AutomationList = () => {
         }
         onClick={handleImport}
       >
-        Import
+        {translateUi('ui.pages.apps.project.automationlist.import_d6fbc9d2')}
       </Button>
       <Button
         variant="soft"
@@ -149,7 +151,7 @@ const AutomationList = () => {
         }
         onClick={handleExport}
       >
-        Export
+        {translateUi('ui.pages.apps.project.automationlist.export_f3e4fadb')}
       </Button>
     </Stack>
   );
@@ -160,8 +162,14 @@ const AutomationList = () => {
         value={createdByFilter}
         onChange={setCreatedByFilter}
         options={[
-          { value: 'all', label: 'Created by: All' },
-          { value: 'me', label: 'Created by: Me' },
+          {
+            value: 'all',
+            label: translateUi('ui.pages.apps.project.automationlist.created_by_all_7a97769d'),
+          },
+          {
+            value: 'me',
+            label: translateUi('ui.pages.apps.project.automationlist.created_by_me_358787ed'),
+          },
         ]}
       />
 
@@ -170,8 +178,14 @@ const AutomationList = () => {
         onChange={setSortBy}
         endIcon={<IconifyIcon icon="material-symbols:swap-vert-rounded" sx={{ fontSize: 16 }} />}
         options={[
-          { value: 'latest', label: 'Sort by: Latest' },
-          { value: 'oldest', label: 'Sort by: Oldest' },
+          {
+            value: 'latest',
+            label: translateUi('ui.pages.apps.project.automationlist.sort_by_latest_b4e60e33'),
+          },
+          {
+            value: 'oldest',
+            label: translateUi('ui.pages.apps.project.automationlist.sort_by_oldest_c04d65c9'),
+          },
         ]}
       />
     </Stack>
@@ -180,8 +194,10 @@ const AutomationList = () => {
   return (
     <Box>
       <ProjectHeader
-        title="Project Automations"
-        subtitle="Explore various project automations to enhance efficiency and save time!"
+        title={translateUi('ui.pages.apps.project.automationlist.project_automations_76ed38c3')}
+        subtitle={translateUi(
+          'ui.pages.apps.project.automationlist.explore_various_project_automations_to_enhance_effic_92d152e8',
+        )}
         showTaskDialog={false}
         topActions={topRightActions}
         toolbar={{
@@ -202,7 +218,7 @@ const AutomationList = () => {
         <TabContext value={filter}>
           <TabList onChange={handleTabChange}>
             <Tab
-              label="All"
+              label={translateUi('ui.pages.apps.project.automationlist.all_6a720856')}
               value="all"
               sx={{
                 textTransform: 'none',
@@ -211,7 +227,7 @@ const AutomationList = () => {
             <Tab
               label={
                 <Stack direction="row" sx={{ gap: 0.5, alignItems: 'center' }}>
-                  <span>Active</span>
+                  <span>{translateUi('ui.pages.apps.project.automationlist.active_a733b809')}</span>
                   <Chip
                     label={activeCount}
                     color="info"
@@ -231,7 +247,9 @@ const AutomationList = () => {
             <Tab
               label={
                 <Stack direction="row" sx={{ gap: 0.5, alignItems: 'center' }}>
-                  <span>Inactive</span>
+                  <span>
+                    {translateUi('ui.pages.apps.project.automationlist.inactive_09af574c')}
+                  </span>
                   <Chip
                     label={inactiveCount}
                     size="small"
@@ -260,7 +278,7 @@ const AutomationList = () => {
                   color: 'text.secondary',
                 }}
               >
-                No automations found
+                {translateUi('ui.pages.apps.project.automationlist.no_automations_found_f06444f8')}
               </Typography>
             </Box>
           ) : (

@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import { Box, Container, Stack, Typography } from '@mui/material';
 import gsap from 'gsap';
@@ -23,6 +24,7 @@ gsap.registerPlugin(ScrollTrigger);
 const PRELOAD_AHEAD = 3;
 
 const ThemePresetsShowcase = () => {
+  const { t: translateUi } = useTranslation();
   const containerRef = useRef(null);
   const titleRef = useRef(null);
   const cardsRef = useRef(null);
@@ -119,10 +121,12 @@ const ThemePresetsShowcase = () => {
       >
         <Box ref={titleRef} sx={{ textAlign: 'center' }}>
           <GradientText variant="h3" sx={{ mb: 0.5 }}>
-            Explore various themes
+            {translateUi('ui.sections.showcase.theme_presets.explore_various_themes_e2e9a27a')}
           </GradientText>
           <Typography variant="body2" color="textSecondary">
-            That best suites your design needs
+            {translateUi(
+              'ui.sections.showcase.theme_presets.that_best_suites_your_design_needs_f1689b96',
+            )}
           </Typography>
         </Box>
 

@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useReducer } from 'r
 import { useTranslation } from 'react-i18next';
 import { initialConfig } from 'config';
 import { getColor } from 'helpers/echart-utils';
-import { getItemFromStore } from 'lib/utils';
+import { getItemFromStore, setItemToStore } from 'lib/utils';
 import {
   COLLAPSE_NAVBAR,
   EXPAND_NAVBAR,
@@ -14,6 +14,15 @@ import { COLOR_GROUPS } from 'theme/primaryColorOverride';
 export const SettingsContext = createContext({});
 
 const SettingsProvider = ({ children }) => {
+  const localeMigrationVersion = 'zh-default-v1';
+  const storedLocaleMigrationVersion = getItemFromStore('localeMigrationVersion', null);
+  const shouldMigrateLocale = storedLocaleMigrationVersion !== localeMigrationVersion;
+
+  if (shouldMigrateLocale) {
+    setItemToStore('locale', initialConfig.locale);
+    setItemToStore('localeMigrationVersion', localeMigrationVersion);
+  }
+
   const storedPrimaryColor = getItemFromStore('primaryColor', undefined);
   let primaryColor = typeof storedPrimaryColor === 'string' ? storedPrimaryColor : null;
 
@@ -36,7 +45,10 @@ const SettingsProvider = ({ children }) => {
     textDirection: getItemFromStore('textDirection', initialConfig.textDirection),
     navigationMenuType: getItemFromStore('navigationMenuType', initialConfig.navigationMenuType),
     navColor: getItemFromStore('navColor', initialConfig.navColor),
-    locale: getItemFromStore('locale', initialConfig.locale),
+    locale: shouldMigrateLocale
+      ? initialConfig.locale
+      : getItemFromStore('locale', initialConfig.locale),
+    currency: getItemFromStore('currency', initialConfig.currency),
     fontFamily: getItemFromStore('fontFamily', initialConfig.fontFamily),
     fontSize: Number(getItemFromStore('fontSize', initialConfig.fontSize.toString())),
     themePreset: themePreset,

@@ -1,4 +1,5 @@
 import { initialConfig } from 'config';
+import i18n from 'locales/i18n';
 import { users } from './users';
 
 const logo = (index) => `${initialConfig.assetsDir}/images/logo/${index}.svg`;
@@ -370,21 +371,27 @@ export const invoiceData = {
     {
       id: 1,
       type: 'service',
-      description: 'Web design service',
+      get description() {
+        return i18n.t('ui.data.invoice.web_design_service_08d28db3');
+      },
       quantity: 3,
       price: 50,
     },
     {
       id: 2,
       type: 'product',
-      description: 'Sofa set',
+      get description() {
+        return i18n.t('ui.data.invoice.sofa_set_bbfe6b84');
+      },
       quantity: 2,
       price: 80.0,
     },
     {
       id: 3,
       type: 'service',
-      description: 'Facebook and campaign',
+      get description() {
+        return i18n.t('ui.data.invoice.facebook_and_campaign_94eb7390');
+      },
       quantity: 1,
       price: 50.0,
     },
@@ -397,7 +404,9 @@ export const invoiceHistories = [
     id: 1,
     date: '2025-03-18T14:02:00',
     companyName: 'Themewagon',
-    message: 'has sent invoice to ',
+    get message() {
+      return i18n.t('ui.data.invoice.has_sent_invoice_to_72ce96b4');
+    },
     image: logo(20),
     email: 'janedoe@gmail.com',
   },
@@ -405,14 +414,18 @@ export const invoiceHistories = [
     id: 2,
     date: '2025-03-18T14:02:00',
     companyName: 'Themewagon',
-    message: 'has updated the invoice.',
+    get message() {
+      return i18n.t('ui.data.invoice.has_updated_the_invoice_e5eb3b54');
+    },
     image: logo(20),
   },
   {
     id: 3,
     date: '2025-03-18T14:02:00',
     companyName: 'Themewagon',
-    message: 'has created the invoice. ',
+    get message() {
+      return i18n.t('ui.data.invoice.has_created_the_invoice_d53d4b6e');
+    },
     image: logo(20),
     isLast: true,
   },

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
@@ -9,11 +10,14 @@ import Image from 'components/base/Image';
 import Deals from './Deals';
 
 const Account = ({ accountData }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, gap: 3, height: 1 }}
     >
-      <Typography variant="h5">Account</Typography>
+      <Typography variant="h5">
+        {translateUi('ui.sections.crm.deal_details.account.account_85dfa32c')}
+      </Typography>
       <Stack
         sx={{
           gap: 3,
@@ -36,7 +40,8 @@ const Account = ({ accountData }) => {
                 {accountData.name}
               </Typography>
               <Typography variant="subtitle2" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-                since {dayjs(accountData.dateCreated).format('YYYY')}
+                {translateUi('ui.sections.crm.deal_details.account.since_2eb888e9')}
+                {dayjs(accountData.dateCreated).format('YYYY')}
               </Typography>
             </Stack>
           </Stack>

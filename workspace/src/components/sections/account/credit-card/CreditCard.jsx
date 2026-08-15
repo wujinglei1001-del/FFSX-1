@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Paper, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { maskCardNumber } from 'lib/utils';
@@ -6,6 +7,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const CreditCard = ({ card, handleOpenDialog }) => {
+  const { t: translateUi } = useTranslation();
   const { cardName, icon, subscriptions, cardNumber, expireDate } = card;
   const { between } = useBreakpoints();
   const betweenMdXl = between('md', 'xl');
@@ -51,9 +53,13 @@ const CreditCard = ({ card, handleOpenDialog }) => {
           </Stack>
           <Stack sx={{ gap: 3 }}>
             <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-              Expires: {dayjs(expireDate).format('MM/YY')}
+              {translateUi('ui.sections.account.credit_card.creditcard.expires_081ecd74')}
+              {dayjs(expireDate).format('MM/YY')}
             </Typography>
-            <Typography variant="caption">{subscriptions} Subscriptions</Typography>
+            <Typography variant="caption">
+              {subscriptions}
+              {translateUi('ui.sections.account.credit_card.creditcard.subscriptions_5697fd85')}
+            </Typography>
           </Stack>
         </Box>
         <Stack

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, FormHelperText, Stack, Typography } from '@mui/material';
 import { convertFileToAttachment } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const InvoiceImageDropzone = () => {
+  const { t: translateUi } = useTranslation();
   const {
     setValue,
     watch,
@@ -130,12 +132,16 @@ const InvoiceImageDropzone = () => {
             />
 
             <Typography variant="caption" component="p" sx={{ alignSelf: 'center' }}>
-              Drag & Drop files here{' '}
+              {translateUi(
+                'ui.sections.invoice.create_invoice.invoiceimagedropzone.drag_drop_files_here_90286c1b',
+              )}{' '}
               <Box component="span" sx={{ color: 'text.disabled', mx: 1 }}>
-                or
+                {translateUi('common.or')}
               </Box>
               <Box component="span" sx={{ color: 'primary.main' }}>
-                browse from device
+                {translateUi(
+                  'ui.sections.invoice.create_invoice.invoiceimagedropzone.browse_from_device_ebaeb8e8',
+                )}
               </Box>
             </Typography>
           </Stack>

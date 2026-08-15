@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Grid, Stack, Typography } from '@mui/material';
 import { recommendedPodcasts } from 'data/content/podcast';
 import { SwiperSlide } from 'swiper/react';
@@ -7,6 +8,7 @@ import Swiper from 'components/base/Swiper';
 import RecommendedPodcast from './RecommendedPodcast';
 
 const PodcastRecommendations = () => {
+  const { t: translateUi } = useTranslation();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -15,7 +17,9 @@ const PodcastRecommendations = () => {
       <Stack sx={{ gap: 4 }}>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 7 }}>
-            <Typography variant="h4">Recommendations</Typography>
+            <Typography variant="h4">
+              {translateUi('ui.sections.content.details.podcast.recommendations_4faa65b5')}
+            </Typography>
           </Grid>
           <Grid size={{ xs: 12, sm: 5 }} sx={{ ml: { sm: 'auto' } }}>
             <Stack
@@ -50,7 +54,9 @@ const PodcastRecommendations = () => {
                   />
                 </Button>
               </Stack>
-              <Button>Load more</Button>
+              <Button>
+                {translateUi('ui.sections.content.details.podcast.load_more_dfe60ca9')}
+              </Button>
             </Stack>
           </Grid>
         </Grid>

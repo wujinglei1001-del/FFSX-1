@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import { FormControlLabel, Radio } from '@mui/material';
 import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
@@ -10,6 +11,7 @@ import { SlimIllustration } from './panel-illustrations/SlimIllustration';
 import { StackedIllustration } from './panel-illustrations/StackedIllustration';
 
 const SidenavShapePanel = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { sidenavType },
     configDispatch,
@@ -38,7 +40,7 @@ const SidenavShapePanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label="Default"
+            label={translateUi('ui.components.settings_panel.sidenavshapepanel.default_808d7dca')}
             image={
               <SidenavDefaultIllustration
                 active={!disableSidenavShapeSection && sidenavType === 'default'}
@@ -53,7 +55,7 @@ const SidenavShapePanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label="Slim"
+            label={translateUi('ui.components.settings_panel.sidenavshapepanel.slim_5ee371a1')}
             image={
               <SlimIllustration active={!disableSidenavShapeSection && sidenavType === 'slim'} />
             }
@@ -66,7 +68,7 @@ const SidenavShapePanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label="Stacked"
+            label={translateUi('ui.components.settings_panel.sidenavshapepanel.stacked_9eafca46')}
             image={
               <StackedIllustration
                 active={!disableSidenavShapeSection && sidenavType === 'stacked'}

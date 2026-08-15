@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import bg from 'assets/images/background/3.webp';
 import Image from 'components/base/Image';
@@ -7,6 +8,7 @@ import SectionHeader from '../common/SectionHeader';
 import { StripedBackground } from '../common/StripedBackground';
 
 const Stats = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, position: 'relative' }}>
       <StripedBackground
@@ -32,8 +34,10 @@ const Stats = ({ data }) => {
                 }}
               >
                 <SectionHeader
-                  title="Stats"
-                  subtitle="Trusted by creators worldwide"
+                  title={translateUi('ui.sections.landing.homepage.stats.stats_be763e9a')}
+                  subtitle={translateUi(
+                    'ui.sections.landing.homepage.stats.trusted_by_creators_worldwide_85155797',
+                  )}
                   sx={{
                     textAlign: 'left',
                   }}
@@ -46,9 +50,9 @@ const Stats = ({ data }) => {
                       color: 'text.secondary',
                     }}
                   >
-                    We enable creators and businesses worldwide with the tools they need to expand,
-                    connect, and increase their earnings. Our platform is crafted to simplify
-                    scaling, ensuring transparency and rewards—trusted by countless users daily.
+                    {translateUi(
+                      'ui.sections.landing.homepage.stats.we_enable_creators_and_businesses_worldwide_with_the_21580fa0',
+                    )}
                   </Typography>
                 </RevealText>
               </Stack>

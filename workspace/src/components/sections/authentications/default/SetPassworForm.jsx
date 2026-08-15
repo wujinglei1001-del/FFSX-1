@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Alert, Box, Button, Link, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import paths from 'routes/paths';
 import * as yup from 'yup';
@@ -11,20 +13,54 @@ import PasswordTextField from 'components/common/PasswordTextField';
 
 const schema = yup
   .object({
-    email: yup.string().email('Invalid email format').required('This field is required'),
-    token: yup.string().required('This field is required'),
+    email: yup
+      .string()
+      .email(
+        i18n.t('ui.sections.authentications.default.setpassworform.invalid_email_format_789ec25c'),
+      )
+      .required(
+        i18n.t(
+          'ui.sections.authentications.default.setpassworform.this_field_is_required_dedbaded',
+        ),
+      ),
+    token: yup
+      .string()
+      .required(
+        i18n.t(
+          'ui.sections.authentications.default.setpassworform.this_field_is_required_dedbaded',
+        ),
+      ),
     password: yup
       .string()
-      .required('This field is required')
-      .min(8, 'Password must be at least 8 characters long'),
+      .required(
+        i18n.t(
+          'ui.sections.authentications.default.setpassworform.this_field_is_required_dedbaded',
+        ),
+      )
+      .min(
+        8,
+        i18n.t(
+          'ui.sections.authentications.default.setpassworform.password_must_be_at_least_8_characters_long_47a76040',
+        ),
+      ),
     password_confirmation: yup
       .string()
-      .required('Confirm password field is required.')
-      .oneOf([yup.ref('password')], 'Your passwords do not match.'),
+      .required(
+        i18n.t(
+          'ui.sections.authentications.default.setpassworform.confirm_password_field_is_required_727423ea',
+        ),
+      )
+      .oneOf(
+        [yup.ref('password')],
+        i18n.t(
+          'ui.sections.authentications.default.setpassworform.your_passwords_do_not_match_9d716135',
+        ),
+      ),
   })
   .required();
 
 const SetPasswordForm = ({ handleSetPassword }) => {
+  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const { enqueueSnackbar } = useSnackbar();
@@ -82,7 +118,9 @@ const SetPasswordForm = ({ handleSetPassword }) => {
               mb: 2,
             }}
           >
-            Set new password
+            {translateUi(
+              'ui.sections.authentications.default.setpassworform.set_new_password_25c6fc7c',
+            )}
           </Typography>
           <Typography
             variant="body1"
@@ -90,10 +128,13 @@ const SetPasswordForm = ({ handleSetPassword }) => {
               mb: 1,
             }}
           >
-            Create a new password for your account. New password must be different from any previous
-            passwords.
+            {translateUi(
+              'ui.sections.authentications.default.setpassworform.create_a_new_password_for_your_account_new_password__52c4e481',
+            )}
             <Link href="#!" sx={{ ml: 1 }}>
-              See password policy
+              {translateUi(
+                'ui.sections.authentications.default.setpassworform.see_password_policy_4ac9d58b',
+              )}
             </Link>
           </Typography>
         </Grid>
@@ -117,7 +158,9 @@ const SetPasswordForm = ({ handleSetPassword }) => {
                   fullWidth
                   size="large"
                   id="password"
-                  label="Password"
+                  label={translateUi(
+                    'ui.sections.authentications.default.setpassworform.password_8be3c943',
+                  )}
                   variant="filled"
                   error={!!errors.password}
                   helperText={<>{errors.password?.message}</>}
@@ -134,7 +177,9 @@ const SetPasswordForm = ({ handleSetPassword }) => {
                   fullWidth
                   size="large"
                   id="password"
-                  label="Confirm Password"
+                  label={translateUi(
+                    'ui.sections.authentications.default.setpassworform.confirm_password_c2d404cb',
+                  )}
                   variant="filled"
                   error={!!errors.password_confirmation}
                   helperText={<>{errors.password_confirmation?.message}</>}
@@ -150,7 +195,9 @@ const SetPasswordForm = ({ handleSetPassword }) => {
                   size="large"
                   variant="contained"
                 >
-                  Set New Password
+                  {translateUi(
+                    'ui.sections.authentications.default.setpassworform.set_new_password_208bb0d7',
+                  )}
                 </Button>
               </Grid>
             </Grid>
@@ -158,7 +205,7 @@ const SetPasswordForm = ({ handleSetPassword }) => {
         </Grid>
       </Grid>
       <Link href="#!" variant="subtitle2">
-        Contact Support
+        {translateUi('ui.sections.authentications.default.setpassworform.contact_support_fe1a2922')}
       </Link>
     </Stack>
   );

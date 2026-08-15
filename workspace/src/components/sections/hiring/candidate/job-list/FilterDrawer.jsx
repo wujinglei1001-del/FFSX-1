@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';
 import Paper from '@mui/material/Paper';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import FilterSection from './FilterSection';
 
 const FilterDrawer = ({ open, handleClose }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Drawer
       variant="temporary"
@@ -47,7 +49,7 @@ const FilterDrawer = ({ open, handleClose }) => {
               fontWeight: 700,
             }}
           >
-            Filters
+            {translateUi('ui.sections.hiring.candidate.job_list.filters_96e57821')}
           </Typography>
           <Button shape="circle" color="neutral" onClick={handleClose}>
             <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
@@ -66,40 +68,99 @@ const FilterDrawer = ({ open, handleClose }) => {
             <FilterSection
               name="Date Post"
               options={[
-                { label: 'Any Time', value: 'anyTime' },
-                { label: 'Last 24 hours', value: 'last24Hours' },
-                { label: 'Last Week', value: 'lastWeek' },
-                { label: 'Last Month', value: 'lastMonth' },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.any_time_f7d51d14'),
+                  value: 'anyTime',
+                },
+                {
+                  label: translateUi(
+                    'ui.sections.hiring.candidate.job_list.last_24_hours_99d63362',
+                  ),
+                  value: 'last24Hours',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.last_week_bc159a56'),
+                  value: 'lastWeek',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.last_month_20fe4f42'),
+                  value: 'lastMonth',
+                },
               ]}
             />
             <FilterSection
               name="Work Mode"
               options={[
-                { label: 'All', value: 'all' },
-                { label: 'On-Site', value: 'onSite' },
-                { label: 'Remote', value: 'remote' },
-                { label: 'Hybrid', value: 'hybrid' },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.all_6a720856'),
+                  value: 'all',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.on_site_bd28a79f'),
+                  value: 'onSite',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.remote_c93f6536'),
+                  value: 'remote',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.hybrid_8e01f6bc'),
+                  value: 'hybrid',
+                },
               ]}
             />
             <FilterSection
               name="Employment Type"
               options={[
-                { label: 'All', value: 'all' },
-                { label: 'Full-Time', value: 'fullTime' },
-                { label: 'Part-Time', value: 'partTime' },
-                { label: 'Contract', value: 'contract' },
-                { label: 'Other', value: 'other' },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.all_6a720856'),
+                  value: 'all',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.full_time_5fbd8fde'),
+                  value: 'fullTime',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.part_time_c5a1ba67'),
+                  value: 'partTime',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.contract_5a0ba3bb'),
+                  value: 'contract',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.other_6e6a6f20'),
+                  value: 'other',
+                },
               ]}
             />
             <FilterSection
               name="Experience"
               options={[
-                { label: 'All', value: 'all' },
-                { label: '0-1 year', value: '0-1' },
-                { label: '1-3 years', value: '1-3' },
-                { label: '3-5 years', value: '3-5' },
-                { label: '5-10 years', value: '5-10' },
-                { label: '10+ years', value: '10+' },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.all_6a720856'),
+                  value: 'all',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.0_1_year_35f27a82'),
+                  value: '0-1',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.1_3_years_e6b122f3'),
+                  value: '1-3',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.3_5_years_0b951c58'),
+                  value: '3-5',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.5_10_years_15148828'),
+                  value: '5-10',
+                },
+                {
+                  label: translateUi('ui.sections.hiring.candidate.job_list.10_years_294d4e0c'),
+                  value: '10+',
+                },
               ]}
             />
           </Stack>
@@ -111,9 +172,11 @@ const FilterDrawer = ({ open, handleClose }) => {
               py: 3,
             }}
           >
-            <Button color="neutral">Clear</Button>
+            <Button color="neutral">
+              {translateUi('ui.sections.hiring.candidate.job_list.clear_719ea396')}
+            </Button>
             <Button variant="contained" fullWidth onClick={handleClose}>
-              Apply
+              {translateUi('ui.sections.hiring.candidate.job_list.apply_cfea419c')}
             </Button>
           </Stack>
         </Paper>

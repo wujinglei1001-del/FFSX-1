@@ -1,20 +1,66 @@
 import { useEffect, useState } from 'react';
 import { Button, Stack, Toolbar } from '@mui/material';
 import { kebabCase } from 'lib/utils';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
 import CollapsedMenu from './CollapsedMenu';
 
 const SecondaryAppbarLinks = [
-  { label: 'Today’s deals', url: '#!' },
-  { label: 'Orders', url: paths.orderList },
-  { label: 'Track order', url: paths.orderTrack },
-  { label: 'Recently viewed', url: '#!' },
-  { label: 'Recommendations', url: '#!' },
-  { label: 'Wishlist', url: paths.wishlist },
-  { label: 'Membership', url: '#!' },
-  { label: 'Deals', url: '#!' },
-  { label: 'Sales', url: '#!' },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.today_s_deals_bc84c286');
+    },
+    url: '#!',
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.orders_cded0933');
+    },
+    url: paths.orderList,
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.track_order_51e971d9');
+    },
+    url: paths.orderTrack,
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.recently_viewed_fd316b7c');
+    },
+    url: '#!',
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.recommendations_4faa65b5');
+    },
+    url: '#!',
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.wishlist_6ff33102');
+    },
+    url: paths.wishlist,
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.membership_53bc9670');
+    },
+    url: '#!',
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.deals_2c874671');
+    },
+    url: '#!',
+  },
+  {
+    get label() {
+      return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.sales_d0edfb6e');
+    },
+    url: '#!',
+  },
 ];
 
 const breakpointsVisibleLinks = {

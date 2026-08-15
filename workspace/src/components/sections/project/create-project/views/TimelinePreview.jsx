@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Paper, Typography, useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
@@ -69,6 +70,7 @@ const previewStyles = (theme) => ({
 });
 
 const TimelinePreview = ({ taskValues, groups, hasGroupingEnabled, groupedTasks, avatarItems }) => {
+  const { t: translateUi } = useTranslation();
   const theme = useTheme();
   const { vars } = theme;
   const peopleCount = avatarItems.length || 0;
@@ -153,7 +155,9 @@ const TimelinePreview = ({ taskValues, groups, hasGroupingEnabled, groupedTasks,
           color: 'text.secondary',
         }}
       >
-        Add tasks to see them in the timeline.
+        {translateUi(
+          'ui.sections.project.create_project.views.add_tasks_to_see_them_in_the_timeline_8150f18b',
+        )}
       </Typography>
     );
   }

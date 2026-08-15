@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, MenuItem, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import { PRIORITY_OPTIONS, STATUS_OPTIONS, getPriorityDotColor } from '../common/constants';
@@ -7,6 +8,7 @@ const statusOptions = [...STATUS_OPTIONS];
 const priorityOptions = [...PRIORITY_OPTIONS];
 
 const MultiSelectConditionFields = ({ index, type }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -19,14 +21,36 @@ const MultiSelectConditionFields = ({ index, type }) => {
         name={`conditions.${index}.operator`}
         render={({ field }) => (
           <StyledTextField select size="medium" sx={{ flex: 1 }} {...field}>
-            <MenuItem value="equals">Is equal to</MenuItem>
-            <MenuItem value="not_equals">Is not equal to</MenuItem>
-            <MenuItem value="is_any_of">Is any of</MenuItem>
-            <MenuItem value="is_all_of">Is all of</MenuItem>
-            <MenuItem value="is_not_any_of">Is not any of</MenuItem>
-            <MenuItem value="is_not_all_of">Is not all of</MenuItem>
-            <MenuItem value="is_set">Is set</MenuItem>
-            <MenuItem value="is_not_set">Is not set</MenuItem>
+            <MenuItem value="equals">
+              {translateUi('ui.sections.project.automation.condition_fields.is_equal_to_db81567d')}
+            </MenuItem>
+            <MenuItem value="not_equals">
+              {translateUi(
+                'ui.sections.project.automation.condition_fields.is_not_equal_to_bc59a50d',
+              )}
+            </MenuItem>
+            <MenuItem value="is_any_of">
+              {translateUi('ui.sections.project.automation.condition_fields.is_any_of_d38f513c')}
+            </MenuItem>
+            <MenuItem value="is_all_of">
+              {translateUi('ui.sections.project.automation.condition_fields.is_all_of_6a831512')}
+            </MenuItem>
+            <MenuItem value="is_not_any_of">
+              {translateUi(
+                'ui.sections.project.automation.condition_fields.is_not_any_of_f165c80f',
+              )}
+            </MenuItem>
+            <MenuItem value="is_not_all_of">
+              {translateUi(
+                'ui.sections.project.automation.condition_fields.is_not_all_of_7f0b1e64',
+              )}
+            </MenuItem>
+            <MenuItem value="is_set">
+              {translateUi('ui.sections.project.automation.condition_fields.is_set_b95d33c0')}
+            </MenuItem>
+            <MenuItem value="is_not_set">
+              {translateUi('ui.sections.project.automation.condition_fields.is_not_set_6d014bcb')}
+            </MenuItem>
           </StyledTextField>
         )}
       />

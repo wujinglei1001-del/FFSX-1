@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonGroup, buttonGroupClasses, useTheme } from '@mui/material';
 import worldNameMap from 'assets/json/world-name-map.zh-CN.json';
 import world from 'assets/json/world.json';
@@ -46,6 +47,7 @@ const coordinatesMap = {
 };
 
 const EngagementMap = ({ data, sx }) => {
+  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { vars } = useTheme();
   const { getThemeColor } = useSettingsContext();
@@ -169,7 +171,9 @@ const EngagementMap = ({ data, sx }) => {
 
       <ButtonGroup
         orientation="vertical"
-        aria-label="vertical outlined button group"
+        aria-label={translateUi(
+          'ui.sections.dashboards.analytics.realtime_engagement.vertical_outlined_button_group_ee15cd8e',
+        )}
         sx={{
           position: 'absolute',
           bottom: { xs: 380, md: 40 },

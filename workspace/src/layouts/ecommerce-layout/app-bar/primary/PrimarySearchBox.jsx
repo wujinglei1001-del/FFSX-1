@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -17,6 +18,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 const searchCategories = ['All', 'Popular', 'New', 'Discounted', 'Top Rated', 'Featured'];
 
 const PrimarySearchBox = () => {
+  const { t: translateUi } = useTranslation();
   const [searchMenuAnchorEl, setSearchMenuAnchorEl] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(searchCategories[0]);
 
@@ -129,7 +131,9 @@ const PrimarySearchBox = () => {
               pl: { xs: '16px !important', md: '8px !important' },
             },
           }}
-          placeholder="Search product"
+          placeholder={translateUi(
+            'ui.layouts.ecommerce_layout.app_bar.primary.search_product_cd4042ff',
+          )}
           slotProps={{
             input: {
               inputProps: {

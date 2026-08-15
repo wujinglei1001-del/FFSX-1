@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Button } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -8,6 +9,7 @@ import { firebaseAuth, googleProvider, microsoftProvider } from 'services/fireba
 import Image from 'components/base/Image';
 
 const SocialAuth = () => {
+  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const {
     config: { assetsDir },
@@ -34,14 +36,21 @@ const SocialAuth = () => {
           size="large"
           sx={{ flex: 1, whiteSpace: 'nowrap' }}
           startIcon={
-            <Image src={`${assetsDir}/images/logo/1.svg`} height={21} width={21} alt="icon" />
+            <Image
+              src={`${assetsDir}/images/logo/1.svg`}
+              height={21}
+              width={21}
+              alt={translateUi('ui.sections.authentications.default.socialauth.icon_f8995ba5')}
+            />
           }
           onClick={async () => {
             await signInWithPopup(firebaseAuth, googleProvider);
             navigate(rootPaths.root);
           }}
         >
-          Sign in with google
+          {translateUi(
+            'ui.sections.authentications.default.socialauth.sign_in_with_google_5797838c',
+          )}
         </Button>
       </Grid>
       <Grid
@@ -57,7 +66,12 @@ const SocialAuth = () => {
           size="large"
           sx={{ flex: 1, whiteSpace: 'nowrap' }}
           startIcon={
-            <Image src={`${assetsDir}/images/logo/2.svg`} height={21} width={21} alt="icon" />
+            <Image
+              src={`${assetsDir}/images/logo/2.svg`}
+              height={21}
+              width={21}
+              alt={translateUi('ui.sections.authentications.default.socialauth.icon_f8995ba5')}
+            />
           }
           onClick={async () => {
             const res = await signInWithPopup(firebaseAuth, microsoftProvider);
@@ -66,7 +80,9 @@ const SocialAuth = () => {
             console.log({ credential });
           }}
         >
-          Sign in with Microsoft
+          {translateUi(
+            'ui.sections.authentications.default.socialauth.sign_in_with_microsoft_fd62c61f',
+          )}
         </Button>
       </Grid>
     </Grid>

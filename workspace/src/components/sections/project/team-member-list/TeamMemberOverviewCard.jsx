@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Divider, Paper, Stack, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const noShrink = { flexShrink: 0 };
@@ -65,7 +67,9 @@ const GridDivider = ({ column }) => (
 
 const OwnerRow = ({ avatar, name, avatarSize = 28 }) => (
   <Stack direction="row" sx={{ justifyContent: 'space-between', width: 1, alignItems: 'center' }}>
-    <Typography variant="subtitle2">Owner:</Typography>
+    <Typography variant="subtitle2">
+      {i18n.t('ui.sections.project.team_member_list.teammemberoverviewcard.owner_719379ae')}
+    </Typography>
     <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
       <Avatar src={avatar} sx={{ width: avatarSize, height: avatarSize }} />
       <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
@@ -82,7 +86,7 @@ const ViewProjectsButton = () => (
     endIcon={<IconifyIcon icon="material-symbols:chevron-right-rounded" fontSize={20} />}
     sx={{ alignSelf: 'flex-start' }}
   >
-    View projects
+    {i18n.t('ui.sections.project.team_member_list.teammemberoverviewcard.view_projects_f2187c88')}
   </Button>
 );
 
@@ -93,13 +97,13 @@ const ProjectStats = ({ runningProjects, doneProjects, runningPct, donePct, labe
       sx={{ flexWrap: 'nowrap', justifyContent: 'space-between', width: 1, ...labelsSx }}
     >
       <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 600, ...noShrink }}>
-        Running:{' '}
+        {i18n.t('ui.sections.project.team_member_list.teammemberoverviewcard.running_07518f09')}{' '}
         <Box component="span" sx={{ fontWeight: 400 }}>
           {runningProjects}
         </Box>
       </Typography>
       <Typography variant="caption" sx={{ color: 'success.main', fontWeight: 600, ...noShrink }}>
-        Done:{' '}
+        {i18n.t('ui.sections.project.team_member_list.teammemberoverviewcard.done_7dd815b7')}{' '}
         <Box component="span" sx={{ fontWeight: 400 }}>
           {doneProjects}
         </Box>
@@ -123,12 +127,18 @@ const ProjectStats = ({ runningProjects, doneProjects, runningPct, donePct, labe
 );
 
 const OverviewMdGrid = ({ stats }) => {
+  const { t: translateUi } = useTranslation();
   const { overview, memberCount, adminCount, moderatorCount, runningPct, donePct } = stats;
 
   return (
     <Stack sx={{ display: { xs: 'none', md: 'flex', lg: 'none' }, gap: 2 }}>
       <Box sx={mdGridSx}>
-        <WrapRow label="Team created on:" sx={gridCell(1, 1)}>
+        <WrapRow
+          label={translateUi(
+            'ui.sections.project.team_member_list.teammemberoverviewcard.team_created_on_101dc6c5',
+          )}
+          sx={gridCell(1, 1)}
+        >
           <Typography
             variant="subtitle2"
             sx={{ color: 'text.secondary', whiteSpace: 'nowrap', flexShrink: 0 }}
@@ -137,11 +147,22 @@ const OverviewMdGrid = ({ stats }) => {
           </Typography>
         </WrapRow>
 
-        <StatRow label="No. of members:" value={memberCount} sx={gridCell(1, 2)} />
+        <StatRow
+          label={translateUi(
+            'ui.sections.project.team_member_list.teammemberoverviewcard.no_of_members_059594d2',
+          )}
+          value={memberCount}
+          sx={gridCell(1, 2)}
+        />
 
         <GridDivider column={2} />
 
-        <WrapRow label="Owner:" sx={{ ...gridCell(3, 1), gap: 1, alignItems: 'center' }}>
+        <WrapRow
+          label={translateUi(
+            'ui.sections.project.team_member_list.teammemberoverviewcard.owner_719379ae',
+          )}
+          sx={{ ...gridCell(3, 1), gap: 1, alignItems: 'center' }}
+        >
           <Stack
             direction="row"
             sx={{ alignItems: 'center', gap: 1, flexShrink: 0, whiteSpace: 'nowrap' }}
@@ -153,12 +174,30 @@ const OverviewMdGrid = ({ stats }) => {
           </Stack>
         </WrapRow>
 
-        <StatRow label="No. of admins:" value={adminCount} sx={gridCell(3, 2)} />
-        <StatRow label="No. of moderators:" value={moderatorCount} sx={gridCell(3, 3)} />
+        <StatRow
+          label={translateUi(
+            'ui.sections.project.team_member_list.teammemberoverviewcard.no_of_admins_0afb02d4',
+          )}
+          value={adminCount}
+          sx={gridCell(3, 2)}
+        />
+        <StatRow
+          label={translateUi(
+            'ui.sections.project.team_member_list.teammemberoverviewcard.no_of_moderators_f018fe0c',
+          )}
+          value={moderatorCount}
+          sx={gridCell(3, 3)}
+        />
 
         <GridDivider column={4} />
 
-        <StatRow label="Total Projects" value={overview.totalProjects} sx={gridCell(5, 1)} />
+        <StatRow
+          label={translateUi(
+            'ui.sections.project.team_member_list.teammemberoverviewcard.total_projects_2a3e9e70',
+          )}
+          value={overview.totalProjects}
+          sx={gridCell(5, 1)}
+        />
         <ProjectStats
           runningProjects={overview.runningProjects}
           doneProjects={overview.doneProjects}
@@ -175,22 +214,48 @@ const OverviewMdGrid = ({ stats }) => {
 };
 
 const OverviewStacked = ({ stats }) => {
+  const { t: translateUi } = useTranslation();
   const { overview, memberCount, adminCount, moderatorCount, runningPct, donePct } = stats;
 
   return (
     <Stack sx={{ gap: 2, display: { xs: 'flex', md: 'none', lg: 'flex' } }}>
-      <StatRow label="Team created on:" value={overview.createdOn} />
-      <StatRow label="No. of members:" value={memberCount} />
+      <StatRow
+        label={translateUi(
+          'ui.sections.project.team_member_list.teammemberoverviewcard.team_created_on_101dc6c5',
+        )}
+        value={overview.createdOn}
+      />
+      <StatRow
+        label={translateUi(
+          'ui.sections.project.team_member_list.teammemberoverviewcard.no_of_members_059594d2',
+        )}
+        value={memberCount}
+      />
 
       <Divider sx={{ my: 1 }} />
 
       <OwnerRow avatar={overview.owner.avatar} name={overview.owner.name} />
-      <StatRow label="No. of admins:" value={adminCount} />
-      <StatRow label="No. of moderators:" value={moderatorCount} />
+      <StatRow
+        label={translateUi(
+          'ui.sections.project.team_member_list.teammemberoverviewcard.no_of_admins_0afb02d4',
+        )}
+        value={adminCount}
+      />
+      <StatRow
+        label={translateUi(
+          'ui.sections.project.team_member_list.teammemberoverviewcard.no_of_moderators_f018fe0c',
+        )}
+        value={moderatorCount}
+      />
 
       <Divider sx={{ my: 1 }} />
 
-      <StatRow label="Total Projects" value={overview.totalProjects} />
+      <StatRow
+        label={translateUi(
+          'ui.sections.project.team_member_list.teammemberoverviewcard.total_projects_2a3e9e70',
+        )}
+        value={overview.totalProjects}
+      />
       <ProjectStats
         runningProjects={overview.runningProjects}
         doneProjects={overview.doneProjects}

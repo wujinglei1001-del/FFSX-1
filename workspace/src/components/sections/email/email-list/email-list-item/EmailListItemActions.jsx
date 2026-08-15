@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Checkbox, IconButton, Stack, Tooltip } from '@mui/material';
 import { useBulkSelect } from 'providers/BulkSelectProvider';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CardHeaderAction from 'components/common/CardHeaderAction';
 
 const EmailListItemActions = ({ email }) => {
+  const { t: translateUi } = useTranslation();
   const { selectedIds, handleToggleCheck } = useBulkSelect();
   const { emailDispatch, resizableWidth } = useEmailContext();
   const { id } = useParams();
@@ -22,7 +24,9 @@ const EmailListItemActions = ({ email }) => {
         direction="row"
         sx={[{ mr: 2, alignItems: 'center', mb: 1 }, (!id || resizableWidth > 500) && { mb: 0 }]}
       >
-        <Tooltip title="Select">
+        <Tooltip
+          title={translateUi('ui.sections.email.email_list.email_list_item.select_85982229')}
+        >
           <Checkbox
             size="small"
             checked={selectedIds.includes(email.id)}

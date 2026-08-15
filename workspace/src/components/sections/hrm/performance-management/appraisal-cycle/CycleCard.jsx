@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
@@ -18,6 +19,7 @@ const AppraisalCycleCard = ({
   sx,
   ...props
 }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       component={Link}
@@ -54,7 +56,10 @@ const AppraisalCycleCard = ({
           mb: 3,
         }}
       >
-        Review Period{`  `}
+        {translateUi(
+          'ui.sections.hrm.performance_management.appraisal_cycle.review_period_9a6ebbbc',
+        )}
+        {`  `}
         <Box
           component="span"
           sx={{
@@ -84,7 +89,8 @@ const AppraisalCycleCard = ({
               color: 'text.secondary',
             }}
           >
-            Start{` `}
+            {translateUi('ui.sections.hrm.performance_management.appraisal_cycle.start_952f3754')}
+            {` `}
             <Box
               component="strong"
               sx={{
@@ -101,7 +107,8 @@ const AppraisalCycleCard = ({
               color: 'text.secondary',
             }}
           >
-            End{` `}
+            {translateUi('ui.sections.hrm.performance_management.appraisal_cycle.end_a2bb9d34')}
+            {` `}
             <Box
               component="strong"
               sx={{

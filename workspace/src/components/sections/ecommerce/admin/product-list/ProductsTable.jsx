@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Box, Chip, Link, Stack } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
@@ -29,6 +30,7 @@ const zeroPad = (num, places) => String(num).padStart(places, '0');
 const defaultPageSize = 8;
 
 const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const navigate = useNavigate();
   const columns = useMemo(
@@ -39,7 +41,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'name',
-        headerName: 'Name',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.name_709a2322'),
         headerClassName: 'name-header',
         cellClassName: 'name-cell',
         minWidth: 500,
@@ -74,7 +76,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'category',
-        headerName: 'Category',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.category_a3c686e7'),
         headerClassName: 'category-header',
         cellClassName: 'category-cell',
         minWidth: 148,
@@ -84,7 +86,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'price',
-        headerName: 'Price',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.price_3e8248e3'),
         headerClassName: 'price-header',
         cellClassName: 'price-cell',
         minWidth: 80,
@@ -93,7 +95,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'status',
-        headerName: 'Status',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.status_bae7d5be'),
         headerClassName: 'status-header',
         cellClassName: 'status-cell',
         minWidth: 148,
@@ -110,7 +112,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'stock',
-        headerName: 'Inventory',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.inventory_300d29fd'),
         headerClassName: 'stock-header',
         cellClassName: 'stock-cell',
         minWidth: 108,
@@ -118,7 +120,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'vendor',
-        headerName: 'Vendor',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.vendor_d96159ff'),
         headerClassName: 'vendor-header',
         cellClassName: 'vendor-cell',
         minWidth: 200,
@@ -132,7 +134,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
       },
       {
         field: 'publishedAt',
-        headerName: 'Published on',
+        headerName: translateUi('ui.sections.ecommerce.admin.product_list.published_on_40fc0639'),
         headerClassName: 'published-header',
         cellClassName: 'published-cell',
         minWidth: 130,

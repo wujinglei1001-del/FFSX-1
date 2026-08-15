@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -5,6 +6,7 @@ import Image from 'components/base/Image';
 import ScrollSpyContent from 'components/scroll-spy/ScrollSpyContent';
 
 const EventDescription = ({ description }) => {
+  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
 
   return (
@@ -23,7 +25,7 @@ const EventDescription = ({ description }) => {
           })}
         >
           <Typography variant="h6" sx={{ my: 3, lineHeight: 1.5 }}>
-            Description
+            {translateUi('ui.sections.events.event_detail.main.description_55f8ebc8')}
           </Typography>
         </ScrollSpyContent>
         <Box sx={{ mb: 3 }}>{description.content}</Box>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Button, Link, Stack } from '@mui/material';
 import { inputBaseClasses } from '@mui/material/InputBase';
 import { profileData } from 'data/social';
@@ -6,6 +7,7 @@ import { useSnackbar } from 'notistack';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThreadInput }) => {
+  const { t: translateUi } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const [text, setText] = useState('');
 
@@ -24,7 +26,7 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
         component={Link}
         href="#!"
         src={profileData.avatar}
-        alt="comment-author-avatar"
+        alt={translateUi('common.accessibility.comment_author_avatar')}
         sx={{ width: 32, height: 32, color: 'unset' }}
       />
       <Stack sx={{ gap: 2, flexGrow: 1 }}>
@@ -57,7 +59,7 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
               toggleThreadInput();
             }}
           >
-            Discard
+            {translateUi('ui.sections.social.tab_panels.posts_panel.discard_36fff63c')}
           </Button>
           <Button
             variant="contained"
@@ -67,7 +69,7 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
               toggleThreadInput();
             }}
           >
-            Comment
+            {translateUi('ui.sections.social.tab_panels.posts_panel.comment_153d7a58')}
           </Button>
         </Stack>
       </Stack>

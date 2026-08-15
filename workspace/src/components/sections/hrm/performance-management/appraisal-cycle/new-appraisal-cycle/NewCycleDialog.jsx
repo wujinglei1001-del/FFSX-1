@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
@@ -21,6 +22,7 @@ import useNewCycleForm from './useNewCycleForm';
 
 const mainEvaluators = appraisalList.map((appraisal) => appraisal.mainEvaluator);
 const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     handleSubmit,
@@ -67,21 +69,26 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
           alignItems: 'center',
         }}
       >
-        Create Appraisal Cycle
+        {translateUi(
+          'ui.sections.hrm.performance_management.appraisal_cycle.create_appraisal_cycle_acd4ed83',
+        )}
         <Button shape="circle" color="neutral" onClick={handleClose}>
           <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20, color: 'neutral.dark' }} />
         </Button>
       </DialogTitle>
       <DialogContent>
         <DialogContentText variant="body2" sx={{ color: 'text.secondary', mb: 2 }}>
-          Set up a new appraisal cycle by defining its name, review period, duration and evaluation
-          template.
+          {translateUi(
+            'ui.sections.hrm.performance_management.appraisal_cycle.set_up_a_new_appraisal_cycle_by_defining_its_name_re_bc0fc976',
+          )}
         </DialogContentText>
         <Grid container rowSpacing={2} columnSpacing={1}>
           <Grid container size={12} rowSpacing={1}>
             <Grid size={12}>
               <TextField
-                label="Cycle Name"
+                label={translateUi(
+                  'ui.sections.hrm.performance_management.appraisal_cycle.cycle_name_8a675e0e',
+                )}
                 fullWidth
                 error={!!errors.name}
                 helperText={errors.name?.message}
@@ -106,7 +113,9 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
                       isClearable
                       customInput={
                         <TextField
-                          label="Review Period"
+                          label={translateUi(
+                            'ui.sections.hrm.performance_management.appraisal_cycle.review_period_9a6ebbbc',
+                          )}
                           fullWidth
                           slotProps={{
                             input: {
@@ -135,7 +144,9 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
               control={control}
               render={({ field }) => (
                 <DatePicker
-                  label="Start Date"
+                  label={translateUi(
+                    'ui.sections.hrm.performance_management.appraisal_cycle.start_date_9d7ab1a5',
+                  )}
                   format="DD/MM/YYYY"
                   value={field.value ? dayjs(field.value) : null}
                   onChange={(date) => {
@@ -159,7 +170,9 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
               control={control}
               render={({ field }) => (
                 <DatePicker
-                  label="Due Date"
+                  label={translateUi(
+                    'ui.sections.hrm.performance_management.appraisal_cycle.due_date_a1b308ec',
+                  )}
                   format="DD/MM/YYYY"
                   shouldDisableDate={(date) => date.isBefore(dayjs(startDate))}
                   value={field.value ? dayjs(field.value) : null}
@@ -194,7 +207,9 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
                     return (
                       <TextField
                         {...params}
-                        label="Main Evaluator"
+                        label={translateUi(
+                          'ui.sections.hrm.performance_management.appraisal_cycle.main_evaluator_40a00873',
+                        )}
                         slotProps={{
                           ...params.slotProps,
                           input: {
@@ -228,7 +243,9 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
                     return (
                       <TextField
                         {...params}
-                        label="Template"
+                        label={translateUi(
+                          'ui.sections.hrm.performance_management.appraisal_cycle.template_3ec1ae06',
+                        )}
                         slotProps={{
                           ...params.slotProps,
                           input: {
@@ -252,10 +269,10 @@ const NewCycleDialog = ({ sx, onClose, handleClose, ...rest }) => {
         }}
       >
         <Button variant="soft" color="neutral" onClick={handleClose}>
-          Discard
+          {translateUi('ui.sections.hrm.performance_management.appraisal_cycle.discard_36fff63c')}
         </Button>
         <Button type="submit" variant="contained" color="primary">
-          Confirm
+          {translateUi('ui.sections.hrm.performance_management.appraisal_cycle.confirm_04a21221')}
         </Button>
       </DialogActions>
     </Dialog>

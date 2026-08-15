@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IconButton, Menu, MenuItem, listClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EmailDetailsActionMenu = () => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -43,10 +45,18 @@ const EmailDetailsActionMenu = () => {
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Reply</MenuItem>
-        <MenuItem onClick={handleClose}>Forward</MenuItem>
-        <MenuItem onClick={handleClose}>Print</MenuItem>
-        <MenuItem onClick={handleClose}>Block</MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.email.email_details.emaildetailsactionmenu.reply_6c2bb735')}
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.email.email_details.emaildetailsactionmenu.forward_ba4e7226')}
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.email.email_details.emaildetailsactionmenu.print_5b221e9c')}
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          {translateUi('ui.sections.email.email_details.emaildetailsactionmenu.block_82dd2cdf')}
+        </MenuItem>
       </Menu>
     </>
   );

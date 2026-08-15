@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -12,6 +13,7 @@ import {
   stepIconClasses,
   stepLabelClasses,
 } from '@mui/material';
+import i18n from 'locales/i18n';
 import DefaultView from 'components/sections/project/create-project/steps/DefaultView';
 import Group from 'components/sections/project/create-project/steps/Group';
 import InviteMembers from 'components/sections/project/create-project/steps/InviteMembers';
@@ -21,33 +23,75 @@ import Tasks from 'components/sections/project/create-project/steps/Tasks';
 
 const steps = [
   {
-    label: 'Project title',
-    description: 'Tell us the title of your project',
+    get label() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.project_title_221834d1',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.tell_us_the_title_of_your_project_c7e8adfc',
+      );
+    },
     content: <ProjectTitle />,
   },
   {
-    label: 'Tasks',
-    description: 'What are some tasks you would like to get done',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.createprojectstepper.tasks_090ec5f5');
+    },
+    get description() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.what_are_some_tasks_you_would_like_to_get_done_9b87def9',
+      );
+    },
     content: <Tasks />,
   },
   {
-    label: 'Group',
-    description: 'Group these tasks into different stages',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.createprojectstepper.group_171a0606');
+    },
+    get description() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.group_these_tasks_into_different_stages_1fb4a639',
+      );
+    },
     content: <Group />,
   },
   {
-    label: 'Status',
-    description: 'Set different statuses to attach with different task',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.createprojectstepper.status_bae7d5be');
+    },
+    get description() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.set_different_statuses_to_attach_with_different_task_cc83b036',
+      );
+    },
     content: <Status />,
   },
   {
-    label: 'Invite members',
-    description: 'Add collaborators to your project',
+    get label() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.invite_members_a30eb836',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.add_collaborators_to_your_project_4ba7824d',
+      );
+    },
     content: <InviteMembers />,
   },
   {
-    label: 'Default View',
-    description: 'Choose a default view to start',
+    get label() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.default_view_a244c8d8',
+      );
+    },
+    get description() {
+      return i18n.t(
+        'ui.sections.project.create_project.createprojectstepper.choose_a_default_view_to_start_65b12060',
+      );
+    },
     content: <DefaultView />,
   },
 ];
@@ -59,6 +103,7 @@ const getBorderColor = (index, activeStep, completedSteps) => {
 };
 
 const CreateProjectStepper = ({ activeStep, setActiveStep, completedSteps, setCompletedSteps }) => {
+  const { t: translateUi } = useTranslation();
   const { trigger } = useFormContext();
 
   const handleContinue = async (event) => {
@@ -140,17 +185,23 @@ const CreateProjectStepper = ({ activeStep, setActiveStep, completedSteps, setCo
               <Box sx={{ display: 'flex', gap: 0.5, pb: 3, justifyContent: 'flex-end' }}>
                 {activeStep > 0 && (
                   <Button variant="soft" color="neutral" onClick={handleBack} type="button">
-                    Back
+                    {translateUi(
+                      'ui.sections.project.create_project.createprojectstepper.back_b52b36b7',
+                    )}
                   </Button>
                 )}
 
                 {steps.length - 1 === activeStep ? (
                   <Button variant="contained" type="submit">
-                    Create project
+                    {translateUi(
+                      'ui.sections.project.create_project.createprojectstepper.create_project_a8d8ff51',
+                    )}
                   </Button>
                 ) : (
                   <Button variant="soft" onClick={handleContinue} type="button">
-                    Continue
+                    {translateUi(
+                      'ui.sections.project.create_project.createprojectstepper.continue_2e026239',
+                    )}
                   </Button>
                 )}
               </Box>

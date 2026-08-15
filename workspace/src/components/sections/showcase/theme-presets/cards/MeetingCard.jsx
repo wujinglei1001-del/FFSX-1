@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   AvatarGroup,
@@ -11,16 +12,23 @@ import {
   avatarClasses,
 } from '@mui/material';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const meetings = [
   {
     id: 1,
-    title: 'Catching up on regular updates',
+    get title() {
+      return i18n.t(
+        'ui.sections.showcase.theme_presets.cards.catching_up_on_regular_updates_0fbe24e0',
+      );
+    },
     date: '11 March, 2023',
     time: '3:30 PM',
     status: {
-      label: 'Now',
+      get label() {
+        return i18n.t('ui.sections.showcase.theme_presets.cards.now_e3b82040');
+      },
       active: true,
     },
     joinMeetLink: '#!',
@@ -28,37 +36,52 @@ const meetings = [
   },
   {
     id: 2,
-    title: 'Meeting with project lead',
+    get title() {
+      return i18n.t('ui.sections.showcase.theme_presets.cards.meeting_with_project_lead_9fbcec00');
+    },
     date: '13 March, 2023',
     time: '9:30 PM',
     status: {
-      label: '2 days',
+      get label() {
+        return i18n.t('ui.sections.showcase.theme_presets.cards.2_days_4d2463e1');
+      },
     },
     attendants: [users[2], users[3]],
   },
   {
     id: 3,
-    title: 'Discussion with the developers on planning',
+    get title() {
+      return i18n.t(
+        'ui.sections.showcase.theme_presets.cards.discussion_with_the_developers_on_planning_b7fcec91',
+      );
+    },
     date: '16 March, 2023',
     time: '7:30 PM',
     status: {
-      label: '3 days',
+      get label() {
+        return i18n.t('ui.sections.showcase.theme_presets.cards.3_days_09ad9df4');
+      },
     },
     attendants: [users[5], users[7], users[8], users[9]],
   },
   {
     id: 4,
-    title: 'Quick idea sharing session.',
+    get title() {
+      return i18n.t('ui.sections.showcase.theme_presets.cards.quick_idea_sharing_session_db16a025');
+    },
     date: '17 March, 2023',
     time: '12:00 PM',
     status: {
-      label: '4 days',
+      get label() {
+        return i18n.t('ui.sections.showcase.theme_presets.cards.4_days_8948b448');
+      },
     },
     attendants: [users[3], users[1], users[10]],
   },
 ];
 
 const MeetingCard = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       background={1}
@@ -145,7 +168,7 @@ const MeetingCard = () => {
                     }
                     href={joinMeetLink}
                   >
-                    Join
+                    {translateUi('ui.sections.showcase.theme_presets.cards.join_e0d73143')}
                   </Button>
                 ) : (
                   <Button
@@ -154,7 +177,7 @@ const MeetingCard = () => {
                       <IconifyIcon icon="material-symbols:alarm-outline" height={20} width={20} />
                     }
                   >
-                    Notify Me
+                    {translateUi('ui.sections.showcase.theme_presets.cards.notify_me_c3f30bf0')}
                   </Button>
                 )}
               </Stack>

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -5,6 +6,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 
 const VideoActions = () => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
 
   const upSm = up('sm');
@@ -24,7 +26,7 @@ const VideoActions = () => {
             icon={`material-symbols:thumb-up-outline-rounded`}
             sx={{ fontSize: 20, mr: 0.5 }}
           />
-          14.2k
+          {translateUi('ui.sections.content.details.video.14_2k_b3e2da1d')}
         </Button>
         <Button variant="soft" color="neutral">
           <IconifyIcon

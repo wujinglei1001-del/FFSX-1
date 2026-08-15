@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -13,6 +14,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import GoalDialog from './goal-dialog';
 
 const GoalCard = ({ goal }) => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   return (
     <Fragment>
@@ -77,7 +79,7 @@ const GoalCard = ({ goal }) => {
                   color: 'text.secondary',
                 }}
               >
-                Created by
+                {translateUi('ui.sections.hrm.performance_management.goals.created_by_5d73cc30')}
               </Box>
               {goal.createdBy.name}
             </Typography>
@@ -121,7 +123,8 @@ const GoalCard = ({ goal }) => {
                 color: 'text.secondary',
               }}
             >
-              Due: {dayjs(goal.dueDate).format('MMM D, YYYY')}
+              {translateUi('ui.sections.hrm.performance_management.goals.due_7513f964')}
+              {dayjs(goal.dueDate).format('MMM D, YYYY')}
             </Typography>
           </Stack>
         </Stack>

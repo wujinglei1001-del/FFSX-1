@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-D8nDyRPw.js";import{n as t}from"./components-CeL8FWIR.js";import{t as n}from"./HiringProvider-CX2MNl7E.js";var r=e(),i=()=>(0,r.jsx)(n,{children:(0,r.jsx)(t,{})});export{i as default};

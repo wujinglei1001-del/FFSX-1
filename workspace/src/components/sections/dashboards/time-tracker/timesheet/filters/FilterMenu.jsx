@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
@@ -8,6 +9,7 @@ import MenuItem from '@mui/material/MenuItem';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FilterMenu = ({ label, field, handleFilter, menuItems }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleMenuOpen = (event) => {
@@ -57,7 +59,7 @@ const FilterMenu = ({ label, field, handleFilter, menuItems }) => {
       >
         {field !== 'timeframe' && (
           <MenuItem disableRipple onClick={() => handleMenuItemClick('')}>
-            All
+            {translateUi('ui.sections.dashboards.time_tracker.timesheet.all_6a720856')}
           </MenuItem>
         )}
         {menuItems.map((item, index) => {

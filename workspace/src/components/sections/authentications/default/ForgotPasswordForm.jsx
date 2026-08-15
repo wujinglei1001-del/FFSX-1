@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Link, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import useCountdown from 'hooks/useCountdown';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
 import CheckMailBoxDialog from '../CheckMailBoxDialog';
@@ -11,11 +13,23 @@ import ViewOnlyAlert from '../common/ViewOnlyAlert';
 
 const schema = yup
   .object({
-    email: yup.string().email('Email must be a valid email').required('This field is required'),
+    email: yup
+      .string()
+      .email(
+        i18n.t(
+          'ui.sections.authentications.default.forgotpasswordform.email_must_be_a_valid_email_612a8b2a',
+        ),
+      )
+      .required(
+        i18n.t(
+          'ui.sections.authentications.default.forgotpasswordform.this_field_is_required_dedbaded',
+        ),
+      ),
   })
   .required();
 
 const ForgotPasswordForm = ({ provider = 'jwt', handleSendResetLink }) => {
+  const { t: translateUi } = useTranslation();
   const [linkSent, setLinkSent] = useState(false);
   const [openCheckEmailDialog, setOpenCheckEmailDialog] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -82,11 +96,14 @@ const ForgotPasswordForm = ({ provider = 'jwt', handleSendResetLink }) => {
               mb: 2,
             }}
           >
-            Forgot Password?
+            {translateUi(
+              'ui.sections.authentications.default.forgotpasswordform.forgot_password_1cc8d181',
+            )}
           </Typography>
           <Typography variant="body1">
-            Please enter your email address and an email with a link to reset your password will be
-            sent.
+            {translateUi(
+              'ui.sections.authentications.default.forgotpasswordform.please_enter_your_email_address_and_an_email_with_a__499592f0',
+            )}
           </Typography>
         </Grid>
         <Grid size={12}>
@@ -103,7 +120,9 @@ const ForgotPasswordForm = ({ provider = 'jwt', handleSendResetLink }) => {
                   size="large"
                   id="email"
                   type="email"
-                  label="Email"
+                  label={translateUi(
+                    'ui.sections.authentications.default.forgotpasswordform.email_84add5b2',
+                  )}
                   variant="filled"
                   error={!!errors.email}
                   helperText={<>{errors.email?.message}</>}
@@ -124,7 +143,10 @@ const ForgotPasswordForm = ({ provider = 'jwt', handleSendResetLink }) => {
                   variant="contained"
                   disabled={linkSent}
                 >
-                  Send Reset Link {time > 0 ? ` in ${time} s` : ''}
+                  {translateUi(
+                    'ui.sections.authentications.default.forgotpasswordform.send_reset_link_987be452',
+                  )}
+                  {time > 0 ? ` in ${time} s` : ''}
                 </Button>
               </Grid>
               <Grid
@@ -139,9 +161,13 @@ const ForgotPasswordForm = ({ provider = 'jwt', handleSendResetLink }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  Don&apos;t have access to that email?
+                  {translateUi(
+                    'ui.sections.authentications.default.forgotpasswordform.don_t_have_access_to_that_email_1f36a26b',
+                  )}
                   <Link href="#!" sx={{ ml: 1 }}>
-                    Try alternate methods
+                    {translateUi(
+                      'ui.sections.authentications.default.forgotpasswordform.try_alternate_methods_46b02e75',
+                    )}
                   </Link>
                 </Typography>
               </Grid>
@@ -151,7 +177,9 @@ const ForgotPasswordForm = ({ provider = 'jwt', handleSendResetLink }) => {
       </Grid>
 
       <Link href="#!" variant="subtitle2">
-        Trouble signing in?
+        {translateUi(
+          'ui.sections.authentications.default.forgotpasswordform.trouble_signing_in_363e4476',
+        )}
       </Link>
       <CheckMailBoxDialog
         open={openCheckEmailDialog}

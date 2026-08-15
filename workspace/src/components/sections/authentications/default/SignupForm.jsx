@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Alert, Box, Button, Divider, Link, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PasswordTextField from 'components/common/PasswordTextField';
@@ -10,16 +12,31 @@ import SocialAuth from './SocialAuth';
 
 const schema = yup
   .object({
-    name: yup.string().required('This field is required'),
+    name: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.authentications.default.signupform.this_field_is_required_dedbaded'),
+      ),
     email: yup
       .string()
-      .email('Please provide a valid email address.')
-      .required('This field is required'),
-    password: yup.string().required('This field is required'),
+      .email(
+        i18n.t(
+          'ui.sections.authentications.default.signupform.please_provide_a_valid_email_address_09016875',
+        ),
+      )
+      .required(
+        i18n.t('ui.sections.authentications.default.signupform.this_field_is_required_dedbaded'),
+      ),
+    password: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.authentications.default.signupform.this_field_is_required_dedbaded'),
+      ),
   })
   .required();
 
 const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLink }) => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -74,16 +91,20 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
               alignItems: { xs: 'flex-start', sm: 'flex-end' },
             }}
           >
-            <Typography variant="h4">Sign up</Typography>
+            <Typography variant="h4">
+              {translateUi('ui.sections.authentications.default.signupform.sign_up_0b81497c')}
+            </Typography>
             <Typography
               variant="subtitle2"
               sx={{
                 color: 'text.secondary',
               }}
             >
-              Already have an account?
+              {translateUi(
+                'ui.sections.authentications.default.signupform.already_have_an_account_8559034a',
+              )}
               <Link href={loginLink} sx={{ ml: 1 }}>
-                Log in
+                {translateUi('ui.sections.authentications.default.signupform.log_in_f7c400ed')}
               </Link>
             </Typography>
           </Stack>
@@ -94,7 +115,11 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
               <SocialAuth />
             </Grid>
             <Grid size={12}>
-              <Divider sx={{ color: 'text.secondary' }}>or use email</Divider>
+              <Divider sx={{ color: 'text.secondary' }}>
+                {translateUi(
+                  'ui.sections.authentications.default.signupform.or_use_email_be1bca91',
+                )}
+              </Divider>
             </Grid>
           </>
         )}
@@ -117,7 +142,9 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
                   size="large"
                   id="name"
                   type="text"
-                  label="Name"
+                  label={translateUi(
+                    'ui.sections.authentications.default.signupform.name_709a2322',
+                  )}
                   variant="filled"
                   error={!!errors.name}
                   helperText={<>{errors.name?.message}</>}
@@ -135,7 +162,9 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
                   size="large"
                   id="email"
                   type="email"
-                  label="Email"
+                  label={translateUi(
+                    'ui.sections.authentications.default.signupform.email_84add5b2',
+                  )}
                   variant="filled"
                   error={!!errors.email}
                   helperText={<>{errors.email?.message}</>}
@@ -152,7 +181,9 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
                   fullWidth
                   size="large"
                   id="password"
-                  label="Password"
+                  label={translateUi(
+                    'ui.sections.authentications.default.signupform.password_8be3c943',
+                  )}
                   variant="filled"
                   error={!!errors.password}
                   helperText={<>{errors.password?.message}</>}
@@ -172,9 +203,14 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
                     color="warning.main"
                     sx={{ verticalAlign: 'text-bottom' }}
                   />{' '}
-                  This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of
-                  Service apply. By clicking the Create Account button, you are agreeing to the{' '}
-                  <Link href="#!">terms and conditions.</Link>
+                  {translateUi(
+                    'ui.sections.authentications.default.signupform.this_site_is_protected_by_recaptcha_and_the_google_p_9da1042c',
+                  )}{' '}
+                  <Link href="#!">
+                    {translateUi(
+                      'ui.sections.authentications.default.signupform.terms_and_conditions_0aee34d9',
+                    )}
+                  </Link>
                 </Typography>
               </Grid>
               <Grid size={12}>
@@ -185,7 +221,9 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
                   size="large"
                   variant="contained"
                 >
-                  Create Account
+                  {translateUi(
+                    'ui.sections.authentications.default.signupform.create_account_eff4fd86',
+                  )}
                 </Button>
               </Grid>
             </Grid>
@@ -193,7 +231,7 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
         </Grid>
       </Grid>
       <Link href="#!" variant="subtitle2" sx={{ flex: 1 }}>
-        Trouble signing in?
+        {translateUi('ui.sections.authentications.default.signupform.trouble_signing_in_363e4476')}
       </Link>
     </Stack>
   );

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Accordion,
   AccordionDetails,
@@ -12,6 +13,7 @@ import RevealItems from '../common/RevealItems';
 import SectionHeader from '../common/SectionHeader';
 
 const FAQSection = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const [expanded, setExpanded] = useState(0);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -20,7 +22,13 @@ const FAQSection = ({ data }) => {
 
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, pt: { xs: 8, sm: 16 }, pb: 8 }}>
-      <SectionHeader title="FAQ" subtitle="Here are some common enquiries we face" sx={{ mb: 3 }} />
+      <SectionHeader
+        title="FAQ"
+        subtitle={translateUi(
+          'ui.sections.landing.homepage.faqsection.here_are_some_common_enquiries_we_face_9050534b',
+        )}
+        sx={{ mb: 3 }}
+      />
 
       <RevealItems component={Container} maxWidth={false} sx={{ maxWidth: 582, px: { xs: 0 } }}>
         {data.map((item, i) => (

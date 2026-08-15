@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -16,6 +17,7 @@ import SectionHeader from '../common/SectionHeader';
 import { doubleFadedStyle } from '../common/styles';
 
 const Testimonial = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
@@ -30,8 +32,10 @@ const Testimonial = ({ data }) => {
   return (
     <Paper sx={{ px: { xs: 3, md: 5 }, pt: 8, pb: { xs: 0, sm: 8 }, outline: 0 }}>
       <SectionHeader
-        title="Testimonial"
-        subtitle="Hear what our clients have to say about us"
+        title={translateUi('ui.sections.landing.homepage.testimonial.testimonial_28900606')}
+        subtitle={translateUi(
+          'ui.sections.landing.homepage.testimonial.hear_what_our_clients_have_to_say_about_us_34992080',
+        )}
         sx={{ mb: 3 }}
       />
       <Stack

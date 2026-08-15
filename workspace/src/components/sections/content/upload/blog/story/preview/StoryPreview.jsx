@@ -1,4 +1,5 @@
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Button, Divider, FormHelperText, Paper, Stack, Typography } from '@mui/material';
 import Image from '@tiptap/extension-image';
 import TextAlign from '@tiptap/extension-text-align';
@@ -7,6 +8,7 @@ import { RichTextReadOnly } from 'mui-tiptap';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const StoryPreview = ({ handleEditStory }) => {
+  const { t: translateUi } = useTranslation();
   const {
     watch,
     formState: { errors },
@@ -28,7 +30,7 @@ const StoryPreview = ({ handleEditStory }) => {
         sx={{ gap: 1, alignItems: 'center', justifyContent: 'space-between', mb: 1 }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Preview
+          {translateUi('ui.sections.content.upload.blog.preview_f1fbb2b4')}
         </Typography>
 
         <Button
@@ -39,7 +41,7 @@ const StoryPreview = ({ handleEditStory }) => {
           sx={{ alignItems: 'center' }}
           startIcon={<IconifyIcon icon="material-symbols:edit-outline-rounded" />}
         >
-          Write Story
+          {translateUi('ui.sections.content.upload.blog.write_story_f35e7298')}
         </Button>
       </Stack>
       <Paper
@@ -92,7 +94,9 @@ const StoryPreview = ({ handleEditStory }) => {
 
           {!title && !subText && !content && (
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              No content yet. Click <strong>"Write Story"</strong> to start writing.
+              {translateUi('ui.sections.content.upload.blog.no_content_yet_click_c937063d')}
+              <strong>{translateUi('ui.sections.content.upload.blog.write_story_87791ac1')}</strong>
+              {translateUi('ui.sections.content.upload.blog.to_start_writing_b18c1a2a')}
             </Typography>
           )}
         </Stack>

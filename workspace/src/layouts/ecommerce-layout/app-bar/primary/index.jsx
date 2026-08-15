@@ -1,5 +1,6 @@
 'use client';
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -14,6 +15,7 @@ import {
 } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
+import CurrencyMenu from 'layouts/main-layout/common/CurrencyMenu';
 import LanguageMenu from 'layouts/main-layout/common/LanguageMenu';
 import ThemeToggler from 'layouts/main-layout/common/ThemeToggler';
 import SearchTextField from 'layouts/main-layout/common/search-box/SearchTextField';
@@ -30,6 +32,7 @@ import ProfileMenu from './ProfileMenu';
 
 const searchCategories = ['All', 'Popular', 'New', 'Discounted', 'Top Rated', 'Featured'];
 const PrimaryAppbar = ({ children }) => {
+  const { t: translateUi } = useTranslation();
   const categoryBtnRef = useRef(null);
   const [openCartDrawer, setOpenCartDrawer] = useState(false);
   const [openItem, setOpenItem] = useState(0);
@@ -66,7 +69,9 @@ const PrimaryAppbar = ({ children }) => {
                 color="neutral"
                 variant="soft"
                 shape="circle"
-                aria-label="open drawer"
+                aria-label={translateUi(
+                  'ui.layouts.ecommerce_layout.app_bar.primary.open_drawer_fe4563aa',
+                )}
                 onClick={handleDrawerToggle}
               >
                 <IconifyIcon icon="material-symbols:menu-rounded" sx={{ fontSize: 20 }} />
@@ -82,6 +87,7 @@ const PrimaryAppbar = ({ children }) => {
           >
             <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
               <LanguageMenu />
+              <CurrencyMenu />
               <ThemeToggler />
               <OutlinedBadge color="error" overlap="circular" badgeContent={cartItems.length}>
                 <Button
@@ -150,7 +156,7 @@ const PrimaryAppbar = ({ children }) => {
                     display: { xs: 'none', lg: 'block' },
                   }}
                 >
-                  Category
+                  {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.category_a3c686e7')}
                 </Box>
               </Button>
 
@@ -266,7 +272,9 @@ const PrimaryAppbar = ({ children }) => {
                         pl: { xs: '16px !important', md: '8px !important' },
                       },
                     }}
-                    placeholder="Search product"
+                    placeholder={translateUi(
+                      'ui.layouts.ecommerce_layout.app_bar.primary.search_product_cd4042ff',
+                    )}
                     slotProps={{
                       input: {
                         inputProps: {

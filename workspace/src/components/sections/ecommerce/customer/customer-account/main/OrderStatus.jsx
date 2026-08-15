@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   List,
@@ -13,31 +14,32 @@ import Grid from '@mui/material/Grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const OrderStatus = ({ stats }) => {
+  const { t: translateUi } = useTranslation();
   const orderStatusItems = useMemo(() => {
     return [
       {
-        label: 'To Pay',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_pay_27dea2d7'),
         icon: 'material-symbols:credit-card-outline',
         field: 'toPay',
         url: '#!',
         count: stats.toPay,
       },
       {
-        label: 'To Ship',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_ship_b873c706'),
         icon: 'material-symbols:local-shipping-outline-rounded',
         field: 'toShip',
         url: '#!',
         count: stats.toShip,
       },
       {
-        label: 'To Receive',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_receive_c96c6a60'),
         field: 'toReceive',
         icon: 'material-symbols:package-2-outline',
         url: '#!',
         count: stats.toReceive,
       },
       {
-        label: 'To Review',
+        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_review_9b44cea8'),
         field: 'toReview',
         icon: 'material-symbols:reviews-outline-rounded',
         url: '#!',
@@ -54,9 +56,13 @@ const OrderStatus = ({ stats }) => {
           mb: 3,
         }}
       >
-        Order status
+        {translateUi('ui.sections.ecommerce.customer.customer_account.order_status_22edd6c1')}
       </Typography>
-      <nav aria-label="Order status">
+      <nav
+        aria-label={translateUi(
+          'ui.sections.ecommerce.customer.customer_account.order_status_22edd6c1',
+        )}
+      >
         <Grid container component={List} disablePadding spacing={2}>
           {orderStatusItems.map(({ label, icon, url, count }) => (
             <Grid

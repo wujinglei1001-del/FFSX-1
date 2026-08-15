@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import { Grid, List, ListSubheader, Popover } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -8,6 +9,7 @@ import NavItem from './NavItem';
 import PromoCard from './PromoCard';
 
 const Topnav = ({ menus, anchorRef }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const { pathname } = useLocation();
 
@@ -82,7 +84,7 @@ const Topnav = ({ menus, anchorRef }) => {
                         mb: 2,
                       }}
                     >
-                      Quick Links
+                      {translateUi('ui.layouts.landing_layout.app_bar.nav.quick_links_917bcf00')}
                     </ListSubheader>
                     {menu.submenus.slice(0, 4).map((submenu) => (
                       <NavItem
@@ -103,7 +105,7 @@ const Topnav = ({ menus, anchorRef }) => {
                         mb: 2,
                       }}
                     >
-                      Other Pages
+                      {translateUi('ui.layouts.landing_layout.app_bar.nav.other_pages_a7637765')}
                     </ListSubheader>
                     {menu.submenus.slice(4).map((submenu) => (
                       <NavItem

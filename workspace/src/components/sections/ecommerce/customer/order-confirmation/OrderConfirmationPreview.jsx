@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import paths from 'routes/paths';
 import OrderConfirmationList from './OrderConfirmationList';
 
 const OrderConfirmationPreview = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack sx={{ gap: 5 }}>
       <div>
@@ -12,7 +14,9 @@ const OrderConfirmationPreview = () => {
             mb: 1,
           }}
         >
-          Thank you for purchasing
+          {translateUi(
+            'ui.sections.ecommerce.customer.order_confirmation.thank_you_for_purchasing_91b2560a',
+          )}
         </Typography>
         <Typography
           variant="h4"
@@ -21,7 +25,9 @@ const OrderConfirmationPreview = () => {
             mb: 3,
           }}
         >
-          Your order has been placed!
+          {translateUi(
+            'ui.sections.ecommerce.customer.order_confirmation.your_order_has_been_placed_52e2ba05',
+          )}
         </Typography>
         <Typography
           variant="h6"
@@ -30,7 +36,9 @@ const OrderConfirmationPreview = () => {
             mb: 1,
           }}
         >
-          Order #1411241235
+          {translateUi(
+            'ui.sections.ecommerce.customer.order_confirmation.order_1411241235_974d6e9f',
+          )}
         </Typography>
         <Typography
           variant="body1"
@@ -38,16 +46,20 @@ const OrderConfirmationPreview = () => {
             color: 'text.secondary',
           }}
         >
-          We’ve sent a confirmation email to your inbox
+          {translateUi(
+            'ui.sections.ecommerce.customer.order_confirmation.we_ve_sent_a_confirmation_email_to_your_inbox_fac33ba6',
+          )}
         </Typography>
       </div>
       <OrderConfirmationList />
       <Stack direction="row" sx={{ gap: 1 }}>
         <Button variant="soft" color="neutral">
-          Order list
+          {translateUi('ui.sections.ecommerce.customer.order_confirmation.order_list_86e684a4')}
         </Button>
         <Button variant="contained" color="primary" href={paths.products}>
-          Browse more items
+          {translateUi(
+            'ui.sections.ecommerce.customer.order_confirmation.browse_more_items_465a7c99',
+          )}
         </Button>
       </Stack>
     </Stack>

@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Button, Divider, Link, Stack, Typography } from '@mui/material';
 import { connectedDevices, loggedInDevices } from 'data/account/privacy-protection';
 import { useSnackbar } from 'notistack';
@@ -11,6 +12,7 @@ import LoginAlerts from './LoginAlerts';
 import TwoFactorAuthOTP from './TwoFactorAuthOTP';
 
 const PrivacyProtectionTabPanel = () => {
+  const { t: translateUi } = useTranslation();
   const methods = useForm({
     defaultValues: {
       otpMethod: 'send_text',
@@ -31,19 +33,27 @@ const PrivacyProtectionTabPanel = () => {
     <FormProvider {...methods}>
       <Stack divider={<Divider />} sx={{ gap: 5, mt: 2 }}>
         <AccountTabPanelSection
-          title="Password Modification"
-          subtitle="Update your password regularly to enhance account security. Ensure your new password is strong and unique."
+          title={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.password_modification_54e3cbe3',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.update_your_password_regularly_to_enhance_account_se_6c588453',
+          )}
           icon="material-symbols:key-outline"
         >
           <ChangePassword />
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Two Factor Authentication"
+          title={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.two_factor_authentication_da7034b1',
+          )}
           subtitleEl={
             <>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                We will ask for OTP whenever we detect login from an unrecognised device.
+                {translateUi(
+                  'ui.sections.account.privacy_protection.privacyprotectiontabpanel.we_will_ask_for_otp_whenever_we_detect_login_from_an_b5582ef4',
+                )}
               </Typography>
               <Typography
                 component={Link}
@@ -51,7 +61,9 @@ const PrivacyProtectionTabPanel = () => {
                 variant="body2"
                 sx={{ display: 'inline-block', mb: 3 }}
               >
-                Click here to turn off two factor authentication
+                {translateUi(
+                  'ui.sections.account.privacy_protection.privacyprotectiontabpanel.click_here_to_turn_off_two_factor_authentication_7f33abf5',
+                )}
               </Typography>
             </>
           }
@@ -61,14 +73,20 @@ const PrivacyProtectionTabPanel = () => {
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Alternate Login Method"
-          subtitle="Set up different alternate methods if you somehow lose your email or password."
+          title={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.alternate_login_method_56619229',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.set_up_different_alternate_methods_if_you_somehow_lo_55c30ac6',
+          )}
           icon="material-symbols:lock-outline"
         >
           <Stack sx={{ gap: 2 }}>
             <AlternateLoginMethod />
             <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-              You are connected in the following devices
+              {translateUi(
+                'ui.sections.account.privacy_protection.privacyprotectiontabpanel.you_are_connected_in_the_following_devices_3a657690',
+              )}
             </Typography>
             {connectedDevices.map((device) => (
               <ConnectedDevice key={device.deviceName} connectedDevice={device} />
@@ -77,13 +95,19 @@ const PrivacyProtectionTabPanel = () => {
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Recognized Devices"
-          subtitle="Review a list of devices in which you won't have to use a login code."
+          title={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.recognized_devices_640aa3d4',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.review_a_list_of_devices_in_which_you_won_t_have_to__2ed77d55',
+          )}
           icon="material-symbols:devices-outline-rounded"
         >
           <Stack sx={{ gap: 2 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-              You are logged in the following devices
+              {translateUi(
+                'ui.sections.account.privacy_protection.privacyprotectiontabpanel.you_are_logged_in_the_following_devices_f7de85ac',
+              )}
             </Typography>
             {loggedInDevices.map((device) => (
               <LoggedDevice key={device.name} loggedinDevice={device} />
@@ -92,17 +116,25 @@ const PrivacyProtectionTabPanel = () => {
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title="Login Alerts"
-          subtitle="Set how we are going to send you an alert if there is an unrecognised login attempt."
+          title={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.login_alerts_2280c3d1',
+          )}
+          subtitle={translateUi(
+            'ui.sections.account.privacy_protection.privacyprotectiontabpanel.set_how_we_are_going_to_send_you_an_alert_if_there_i_90dbfb77',
+          )}
           icon="material-symbols:notifications-outline-rounded"
         >
           <LoginAlerts />
           <Stack direction="row" sx={{ gap: 1, justifyContent: 'flex-end' }}>
             <Button variant="soft" color="neutral" onClick={() => reset()}>
-              Discard
+              {translateUi(
+                'ui.sections.account.privacy_protection.privacyprotectiontabpanel.discard_36fff63c',
+              )}
             </Button>
             <Button variant="contained" onClick={handleSubmit(onSubmit)}>
-              Confirm
+              {translateUi(
+                'ui.sections.account.privacy_protection.privacyprotectiontabpanel.confirm_04a21221',
+              )}
             </Button>
           </Stack>
         </AccountTabPanelSection>

@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Button, Divider, Link, Paper, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EventOrganizerInfo = ({ organizer }) => {
+  const { t: translateUi } = useTranslation();
   const { numberFormat } = useNumberFormat();
 
   return (
@@ -25,7 +27,7 @@ const EventOrganizerInfo = ({ organizer }) => {
         }}
       >
         <Typography variant="h6" sx={{ lineHeight: 1.5 }}>
-          Organizer
+          {translateUi('ui.sections.events.event_detail.main.organizer_debd1720')}
         </Typography>
 
         <Stack
@@ -51,7 +53,7 @@ const EventOrganizerInfo = ({ organizer }) => {
                   notation: 'compact',
                   compactDisplay: 'short',
                 })}
-                &nbsp; followers
+                {translateUi('ui.sections.events.event_detail.main.followers_09322a11')}
               </Typography>
             </div>
           </Stack>
@@ -126,7 +128,7 @@ const EventOrganizerInfo = ({ organizer }) => {
         </Typography>
       </Stack>
       <Button variant="contained" color="neutral" sx={{ alignSelf: 'flex-start' }}>
-        Follow
+        {translateUi('ui.sections.events.event_detail.main.follow_66587a7a')}
       </Button>
     </Paper>
   );

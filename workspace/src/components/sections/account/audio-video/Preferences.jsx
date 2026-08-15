@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   FormControl,
@@ -36,6 +37,7 @@ const blurMarks = [
 ];
 
 const Preferences = () => {
+  const { t: translateUi } = useTranslation();
   const [blurBg, setBlurBg] = useState(true);
 
   return (
@@ -46,27 +48,33 @@ const Preferences = () => {
         sx={{ gap: 2, alignItems: 'flex-start' }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Meeting Preferences
+          {translateUi('ui.sections.account.audio_video.preferences.meeting_preferences_9d1eb24c')}
         </Typography>
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label="Set my status to “🎧” in a meeting"
+          label={translateUi(
+            'ui.sections.account.audio_video.preferences.set_my_status_to_in_a_meeting_c4d3d5bf',
+          )}
           sx={{ gap: 2, ml: 0 }}
         />
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label="Mute my microphone"
+          label={translateUi(
+            'ui.sections.account.audio_video.preferences.mute_my_microphone_df0134a1',
+          )}
           sx={{ gap: 2, ml: 0 }}
         />
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label="Automatically turn on caption when you’re in meeting"
+          label={translateUi(
+            'ui.sections.account.audio_video.preferences.automatically_turn_on_caption_when_you_re_in_meeting_3ea2bda8',
+          )}
           sx={{ gap: 2, ml: 0 }}
         />
       </FormControl>
       <Stack sx={{ gap: 2 }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Blur Background
+          {translateUi('ui.sections.account.audio_video.preferences.blur_background_8f44511a')}
         </Typography>
         <Paper
           variant="elevation"
@@ -76,7 +84,9 @@ const Preferences = () => {
         >
           <FormControlLabel
             control={<Switch checked={blurBg} onChange={(e) => setBlurBg(e.target.checked)} />}
-            label="Blur your video background"
+            label={translateUi(
+              'ui.sections.account.audio_video.preferences.blur_your_video_background_3d282999',
+            )}
             sx={{
               gap: 2,
               ml: 0,
@@ -86,9 +96,15 @@ const Preferences = () => {
             }}
           />
           <Box sx={{ width: 1 }}>
-            <Typography variant="body2">Adjust your blur percentage</Typography>
+            <Typography variant="body2">
+              {translateUi(
+                'ui.sections.account.audio_video.preferences.adjust_your_blur_percentage_d73e1aaf',
+              )}
+            </Typography>
             <Slider
-              aria-label="Restricted values"
+              aria-label={translateUi(
+                'ui.sections.account.audio_video.preferences.restricted_values_edf2a662',
+              )}
               defaultValue={50}
               step={null}
               valueLabelDisplay="auto"

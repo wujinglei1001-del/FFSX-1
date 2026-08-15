@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -13,6 +14,7 @@ import {
 import { users } from 'data/users';
 
 const BlogAuthor = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       variant="elevation"
@@ -27,7 +29,11 @@ const BlogAuthor = () => {
       <List sx={{ py: 0, mb: 2 }}>
         <ListItem sx={{ alignItems: 'center', gap: 1, p: 0 }}>
           <ListItemAvatar sx={{ minWidth: 64 }}>
-            <Avatar src={users[12].avatar} alt="avatar" sx={{ width: 64, height: 64 }} />
+            <Avatar
+              src={users[12].avatar}
+              alt={translateUi('ui.sections.content.details.blog.avatar_9c3bb49f')}
+              sx={{ width: 64, height: 64 }}
+            />
           </ListItemAvatar>
 
           <ListItemText
@@ -45,7 +51,7 @@ const BlogAuthor = () => {
                     color: 'text.primary',
                   }}
                 >
-                  Tsamina Mina
+                  {translateUi('ui.sections.content.details.blog.tsamina_mina_f6bd64fe')}
                 </Typography>
                 <Stack
                   direction="row"
@@ -61,7 +67,7 @@ const BlogAuthor = () => {
                       color: 'text.secondary',
                     }}
                   >
-                    20 Stories
+                    {translateUi('ui.sections.content.details.blog.20_stories_de6bc4bb')}
                   </Typography>
                   <Typography
                     variant="caption"
@@ -70,7 +76,7 @@ const BlogAuthor = () => {
                       color: 'text.secondary',
                     }}
                   >
-                    5 Topics
+                    {translateUi('ui.sections.content.details.blog.5_topics_bd446972')}
                   </Typography>
                   <Typography
                     variant="caption"
@@ -79,7 +85,7 @@ const BlogAuthor = () => {
                       color: 'text.secondary',
                     }}
                   >
-                    100 Followers
+                    {translateUi('ui.sections.content.details.blog.100_followers_9daf27de')}
                   </Typography>
                 </Stack>
               </Stack>
@@ -94,15 +100,14 @@ const BlogAuthor = () => {
             }}
           />
           <Button variant="soft" color="primary">
-            Follow
+            {translateUi('ui.sections.content.details.blog.follow_66587a7a')}
           </Button>
         </ListItem>
       </List>
       <Typography sx={{ color: 'text.secondary' }}>
-        Hi, I'm an architect and writer passionate about exploring the intersection of design,
-        culture, and human experience. With years of practice in architectural design and a deep
-        love for storytelling, I aim to translate complex architectural ideas into engaging and
-        thought-provoking narratives.
+        {translateUi(
+          'ui.sections.content.details.blog.hi_i_m_an_architect_and_writer_passionate_about_expl_9fe52bdb',
+        )}
       </Typography>
     </Paper>
   );

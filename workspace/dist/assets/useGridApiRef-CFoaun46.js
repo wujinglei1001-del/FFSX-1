@@ -1,0 +1,1 @@
+import{d as e,o as t}from"./i18nInstance-truXiXW9.js";var n=e(t(),1),r=()=>n.useRef(null);export{r as t};

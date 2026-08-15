@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Stack } from '@mui/material';
 import { showcaseAssets } from 'data/showcase';
 import { cssVarRgba } from 'lib/utils';
@@ -28,6 +29,7 @@ const createGradientOverlay = (direction) => ({
 });
 
 const WebApps = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   const swiperRef = useRef(null);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -74,7 +76,9 @@ const WebApps = ({ data }) => {
       >
         <RevealText start="top 80%">
           <GradientText variant="h3" gradientOrientation="center">
-            Collection of carefully designed web applications
+            {translateUi(
+              'ui.sections.showcase.web_apps.webapps.collection_of_carefully_designed_web_applications_77ceffdf',
+            )}
           </GradientText>
         </RevealText>
 

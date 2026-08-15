@@ -1,3 +1,4 @@
+import i18n from 'locales/i18n';
 import { getConditionFieldVariant } from './common/conditionRegistry';
 import AssigneeConditionFields from './condition-fields/AssigneeConditionFields';
 import DateBeforeAfterConditionFields from './condition-fields/DateBeforeAfterConditionFields';
@@ -10,9 +11,19 @@ const FIELD_COMPONENTS = {
   priority_from_to: PriorityChangesConditionFields,
   date_before_after: DateBeforeAfterConditionFields,
   assignee: ({ index }) => (
-    <AssigneeConditionFields index={index} hideSearch placeholder="Select a user" />
+    <AssigneeConditionFields
+      index={index}
+      hideSearch
+      placeholder={i18n.t('ui.sections.project.automation.conditionfields.select_a_user_188d2103')}
+    />
   ),
-  label: ({ index }) => <LabelConditionFields index={index} hideSearch placeholder="Any Label" />,
+  label: ({ index }) => (
+    <LabelConditionFields
+      index={index}
+      hideSearch
+      placeholder={i18n.t('ui.sections.project.automation.conditionfields.any_label_f5883937')}
+    />
+  ),
   conditional_filter: () => null,
   none: () => null,
 };

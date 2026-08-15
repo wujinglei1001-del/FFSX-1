@@ -1,9 +1,11 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Autocomplete, Chip, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const Tags = () => {
+  const { t: translateUi } = useTranslation();
   const {
     formState: { errors },
     control,
@@ -18,7 +20,7 @@ const Tags = () => {
           mb: 1,
         }}
       >
-        Tags
+        {translateUi('ui.sections.content.upload.common.tags_848eed0f')}
       </Typography>
       <Controller
         name="tags"
@@ -61,7 +63,7 @@ const Tags = () => {
         }}
       >
         <IconifyIcon icon="material-symbols:info-outline" sx={{ fontSize: 14 }} />
-        Limit of 10
+        {translateUi('ui.sections.content.upload.common.limit_of_10_506115c7')}
       </Typography>
     </div>
   );

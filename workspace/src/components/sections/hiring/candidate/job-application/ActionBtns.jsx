@@ -1,7 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 const ActionBtns = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction="row"
@@ -11,7 +13,9 @@ const ActionBtns = () => {
         mt: 'auto',
       }}
     >
-      <Button color="neutral">Cancel</Button>
+      <Button color="neutral">
+        {translateUi('ui.sections.hiring.candidate.job_application.cancel_77dfd213')}
+      </Button>
       <Stack
         direction="row"
         sx={{
@@ -19,10 +23,10 @@ const ActionBtns = () => {
         }}
       >
         <Button variant="soft" color="neutral">
-          Save
+          {translateUi('ui.sections.hiring.candidate.job_application.save_efc007a3')}
         </Button>
         <Button type="submit" variant="contained">
-          Submit Now
+          {translateUi('ui.sections.hiring.candidate.job_application.submit_now_001147c0')}
         </Button>
       </Stack>
     </Stack>

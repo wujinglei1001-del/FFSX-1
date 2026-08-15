@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -11,9 +12,16 @@ import Image from 'components/base/Image';
 import SectionHeader from '../common/SectionHeader';
 
 const Blog = ({ data }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, py: { xs: 4, sm: 8 } }}>
-      <SectionHeader title="Blog" subtitle="Explore articles on different topics" sx={{ mb: 5 }} />
+      <SectionHeader
+        title={translateUi('ui.sections.landing.homepage.blog.blog_0b9d2b23')}
+        subtitle={translateUi(
+          'ui.sections.landing.homepage.blog.explore_articles_on_different_topics_53d1cca9',
+        )}
+        sx={{ mb: 5 }}
+      />
 
       <Container maxWidth={false} sx={{ maxWidth: 1200, px: { xs: 0 } }}>
         <Grid container spacing={3}>
@@ -28,6 +36,7 @@ const Blog = ({ data }) => {
   );
 };
 const BlogCard = ({ blog }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -79,7 +88,11 @@ const BlogCard = ({ blog }) => {
                 alignItems: 'center',
               }}
             >
-              <Chip label="Nature" variant="soft" color="neutral" />
+              <Chip
+                label={translateUi('ui.sections.landing.homepage.blog.nature_bddc7adb')}
+                variant="soft"
+                color="neutral"
+              />
               <Typography
                 variant="caption"
                 sx={{

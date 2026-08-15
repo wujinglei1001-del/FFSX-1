@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Chip, Link, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { cssVarRgba } from 'lib/utils';
@@ -5,6 +6,7 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const GeneralInfo = ({ customerInfo }) => {
+  const { t: translateUi } = useTranslation();
   const {
     name,
     avatar,
@@ -16,7 +18,7 @@ const GeneralInfo = ({ customerInfo }) => {
 
   const contactDetails = [
     {
-      label: 'Email address',
+      label: translateUi('ui.sections.ecommerce.customer.customer_account.email_address_c94d3175'),
       value: (
         <Link
           href="#!"
@@ -29,7 +31,7 @@ const GeneralInfo = ({ customerInfo }) => {
       ),
     },
     {
-      label: 'Phone number',
+      label: translateUi('ui.sections.ecommerce.customer.customer_account.phone_number_8961d3bf'),
       value: (
         <Link
           href="#!"
@@ -42,11 +44,15 @@ const GeneralInfo = ({ customerInfo }) => {
       ),
     },
     {
-      label: 'Default shipping address',
+      label: translateUi(
+        'ui.sections.ecommerce.customer.customer_account.default_shipping_address_7f97b251',
+      ),
       value: <Typography variant="body1">{address.shipping}</Typography>,
     },
     {
-      label: 'Default billing address',
+      label: translateUi(
+        'ui.sections.ecommerce.customer.customer_account.default_billing_address_1c1978dd',
+      ),
       value: <Typography variant="body1">{address.billing}</Typography>,
     },
   ];
@@ -103,7 +109,9 @@ const GeneralInfo = ({ customerInfo }) => {
                 <Chip
                   variant="filled"
                   color="warning"
-                  label="Star Member"
+                  label={translateUi(
+                    'ui.sections.ecommerce.customer.customer_account.star_member_1725140e',
+                  )}
                   icon={<IconifyIcon icon="material-symbols:stars-rounded" fontSize={16} />}
                 />
               )}
@@ -169,7 +177,9 @@ const GeneralInfo = ({ customerInfo }) => {
           <IconifyIcon icon="material-symbols:edit-outline-rounded" fontSize="20px !important" />
           {upSm && (
             <Box component="span" sx={{ ml: 0.5 }}>
-              Edit information
+              {translateUi(
+                'ui.sections.ecommerce.customer.customer_account.edit_information_7d105ee7',
+              )}
             </Box>
           )}
         </Button>

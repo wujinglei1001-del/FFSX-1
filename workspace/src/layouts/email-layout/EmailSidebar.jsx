@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Drawer, Stack, Typography, drawerClasses } from '@mui/material';
 import { emailSidebarWidth } from 'providers/EmailProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EmailSidebarPanel from './EmailSidebarPanel';
 
 const EmailSidebar = ({ isDrawerOpen, toggleDrawer, up }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       {up ? (
@@ -62,7 +64,7 @@ const EmailSidebar = ({ isDrawerOpen, toggleDrawer, up }) => {
                 fontWeight: 700,
               }}
             >
-              Category
+              {translateUi('ui.layouts.email_layout.emailsidebar.category_a3c686e7')}
             </Typography>
             <Button shape="circle" variant="soft" color="neutral" onClick={toggleDrawer}>
               <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />

@@ -1,45 +1,78 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, MenuItem, Stack, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const micOptions = [
   {
     value: 'built_in_mic',
-    label: 'Built in Microphone (System Default)',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.built_in_microphone_system_default_215993c4',
+      );
+    },
   },
   {
     value: 'external_mic',
-    label: 'External Microphone (USB)',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.external_microphone_usb_a2708d1b',
+      );
+    },
   },
   {
     value: 'headset_mic',
-    label: 'Headset Microphone',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.headset_microphone_36a8262f',
+      );
+    },
   },
   {
     value: 'wireless_mic',
-    label: 'Wireless Microphone (Bluetooth)',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.wireless_microphone_bluetooth_31369a79',
+      );
+    },
   },
 ];
 const speakerOptions = [
   {
     value: 'built_in_speaker',
-    label: 'Built in Speaker (System Default)',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.built_in_speaker_system_default_38aab965',
+      );
+    },
   },
   {
     value: 'external_speaker',
-    label: 'External Speaker (USB)',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.external_speaker_usb_b127308d',
+      );
+    },
   },
   {
     value: 'headset_speaker',
-    label: 'Headset Speaker',
+    get label() {
+      return i18n.t('ui.sections.account.audio_video.microphonespeaker.headset_speaker_88501aa8');
+    },
   },
   {
     value: 'wireless_speaker',
-    label: 'Wireless Speaker (Bluetooth)',
+    get label() {
+      return i18n.t(
+        'ui.sections.account.audio_video.microphonespeaker.wireless_speaker_bluetooth_93cae9f7',
+      );
+    },
   },
 ];
 
 const MicrophoneSpeaker = () => {
+  const { t: translateUi } = useTranslation();
   const [microphone, setMicrophone] = useState(micOptions[0].value);
   const [speaker, setSpeaker] = useState(speakerOptions[0].value);
 
@@ -49,7 +82,9 @@ const MicrophoneSpeaker = () => {
         <StyledTextField
           select
           value={microphone}
-          label="Microphone"
+          label={translateUi(
+            'ui.sections.account.audio_video.microphonespeaker.microphone_24280537',
+          )}
           onChange={({ target: { value } }) => setMicrophone(value)}
           slotProps={{
             select: {
@@ -71,7 +106,7 @@ const MicrophoneSpeaker = () => {
         </StyledTextField>
         <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
           <Typography variant="subtitle2" sx={{ textWrap: 'nowrap' }}>
-            Input level:
+            {translateUi('ui.sections.account.audio_video.microphonespeaker.input_level_088af1bc')}
           </Typography>
           <Stack direction="row" sx={{ width: 1, gap: 0.5 }}>
             {Array.from({ length: 15 }).map((_, index) => (
@@ -92,7 +127,7 @@ const MicrophoneSpeaker = () => {
         <StyledTextField
           select
           value={speaker}
-          label="Speaker"
+          label={translateUi('ui.sections.account.audio_video.microphonespeaker.speaker_7c23b0d9')}
           fullWidth
           onChange={({ target: { value } }) => setSpeaker(value)}
           slotProps={{
@@ -114,7 +149,7 @@ const MicrophoneSpeaker = () => {
           ))}
         </StyledTextField>
         <Button variant="soft" color="neutral">
-          Test speaker
+          {translateUi('ui.sections.account.audio_video.microphonespeaker.test_speaker_ef9bc846')}
         </Button>
       </Box>
     </Stack>

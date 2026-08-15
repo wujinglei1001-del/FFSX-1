@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { TimePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
+import i18n from 'locales/i18n';
 
 const EventDayTimePicker = ({ dayLabel, startTimeName, endTimeName, errors, control }) => (
   <Grid
@@ -27,7 +28,7 @@ const EventDayTimePicker = ({ dayLabel, startTimeName, endTimeName, errors, cont
         name={startTimeName}
         render={({ field }) => (
           <TimePicker
-            label="Start time"
+            label={i18n.t('ui.sections.events.create_event.main.start_time_88d8206d')}
             value={dayjs(field.value) ?? null}
             onChange={field.onChange}
             slotProps={{
@@ -50,7 +51,7 @@ const EventDayTimePicker = ({ dayLabel, startTimeName, endTimeName, errors, cont
         name={endTimeName}
         render={({ field }) => (
           <TimePicker
-            label="End time"
+            label={i18n.t('ui.sections.events.create_event.main.end_time_cd7800da')}
             value={dayjs(field.value) ?? null}
             onChange={field.onChange}
             slotProps={{

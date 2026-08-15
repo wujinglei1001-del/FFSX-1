@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormProvider } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Container, Drawer, Paper, Stack, Typography, drawerClasses } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
@@ -10,6 +11,7 @@ import EventSections from 'components/sections/events/create-event/main/EventSec
 import useCreateEventForm from 'components/sections/events/create-event/useCreateEventForm';
 
 const CreateEvent = () => {
+  const { t: translateUi } = useTranslation();
   const { methods } = useCreateEventForm();
   const { up } = useBreakpoints();
   const [isAsideOpen, setIsAsideOpen] = useState(false);
@@ -36,13 +38,21 @@ const CreateEvent = () => {
           <Box sx={{ mb: 3 }}>
             <PageBreadcrumb
               items={[
-                { label: 'Home', url: paths.events },
-                { label: 'Events', url: '#!' },
-                { label: 'Create Event', active: true },
+                {
+                  label: translateUi('ui.pages.events.createevent.home_70f8bb9a'),
+                  url: paths.events,
+                },
+                { label: translateUi('ui.pages.events.createevent.events_c5497bca'), url: '#!' },
+                {
+                  label: translateUi('ui.pages.events.createevent.create_event_53a956b0'),
+                  active: true,
+                },
               ]}
               sx={{ mb: 2 }}
             />
-            <Typography variant="h4">Create Event</Typography>
+            <Typography variant="h4">
+              {translateUi('ui.pages.events.createevent.create_event_53a956b0')}
+            </Typography>
           </Box>
 
           <Container maxWidth={false} sx={{ maxWidth: 520, px: { xs: 0 } }}>

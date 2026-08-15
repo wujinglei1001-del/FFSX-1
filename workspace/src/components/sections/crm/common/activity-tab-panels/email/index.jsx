@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -8,6 +9,7 @@ import SimpleBar from 'components/base/SimpleBar';
 import EmailAccordion from './EmailAccordion';
 
 const EmailTabPanel = ({ emailData }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upSm = up('sm');
 
@@ -39,7 +41,11 @@ const EmailTabPanel = ({ emailData }) => {
           sx={{ gap: 0.5 }}
         >
           <IconifyIcon icon="material-symbols:reply-rounded" sx={{ fontSize: 16 }} />
-          {upSm && <Box component="span">Reply</Box>}
+          {upSm && (
+            <Box component="span">
+              {translateUi('ui.sections.crm.common.activity_tab_panels.reply_6c2bb735')}
+            </Box>
+          )}
         </Button>
         <Button
           size="small"
@@ -49,7 +55,11 @@ const EmailTabPanel = ({ emailData }) => {
           sx={{ gap: 0.5 }}
         >
           <IconifyIcon icon="material-symbols:forward-rounded" sx={{ fontSize: 16 }} />
-          {upSm && <Box component="span">Forward</Box>}
+          {upSm && (
+            <Box component="span">
+              {translateUi('ui.sections.crm.common.activity_tab_panels.forward_ba4e7226')}
+            </Box>
+          )}
         </Button>
         <Button
           size="small"
@@ -59,7 +69,11 @@ const EmailTabPanel = ({ emailData }) => {
           sx={{ gap: 0.5 }}
         >
           <IconifyIcon icon="material-symbols:archive-outline-rounded" sx={{ fontSize: 16 }} />
-          {upSm && <Box component="span">Archive</Box>}
+          {upSm && (
+            <Box component="span">
+              {translateUi('ui.sections.crm.common.activity_tab_panels.archive_2621c6fd')}
+            </Box>
+          )}
         </Button>
         <Button
           size="small"
@@ -69,7 +83,11 @@ const EmailTabPanel = ({ emailData }) => {
           sx={{ gap: 0.5 }}
         >
           <IconifyIcon icon="material-symbols:all-inbox-outline-rounded" sx={{ fontSize: 16 }} />
-          {upSm && <Box component="span">Open Inbox</Box>}
+          {upSm && (
+            <Box component="span">
+              {translateUi('ui.sections.crm.common.activity_tab_panels.open_inbox_f95cf966')}
+            </Box>
+          )}
         </Button>
       </Stack>
     </Container>

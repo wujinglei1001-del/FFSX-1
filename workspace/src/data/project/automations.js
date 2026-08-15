@@ -1,3 +1,5 @@
+import i18n from 'locales/i18n';
+
 export const automationsData = [
   {
     id: 1,
@@ -23,8 +25,11 @@ export const automationsData = [
     ],
     createdAt: '2024-01-15T10:30:00',
     createdBy: 'John Doe',
-    description:
-      'When Status changes, and Status: Done, and Priority: High, then Move to group: Next week, and Change date: 1 week after trigger, and Change priority: High, and Duplicate to: Another project',
+    get description() {
+      return i18n.t(
+        'ui.data.project.automations.when_status_changes_and_status_done_and_priority_hig_860e47a3',
+      );
+    },
   },
   {
     id: 2,
@@ -50,8 +55,11 @@ export const automationsData = [
     ],
     createdAt: '2024-01-14T09:20:00',
     createdBy: 'Jane Smith',
-    description:
-      'When Status changes, and Status: Done, and Priority: High, then Move to group: Next week, and Change date: 1 week after trigger, and Change priority: High, and Duplicate to: Another project',
+    get description() {
+      return i18n.t(
+        'ui.data.project.automations.when_status_changes_and_status_done_and_priority_hig_860e47a3',
+      );
+    },
   },
   {
     id: 3,
@@ -77,8 +85,11 @@ export const automationsData = [
     ],
     createdAt: '2024-01-13T14:15:00',
     createdBy: 'Bob Johnson',
-    description:
-      'When Status changes, and Status: Done, and Priority: High, then Move to group: Next week, and Change date: 1 week after trigger, and Change priority: High, and Duplicate to: Another project',
+    get description() {
+      return i18n.t(
+        'ui.data.project.automations.when_status_changes_and_status_done_and_priority_hig_860e47a3',
+      );
+    },
   },
   {
     id: 4,
@@ -104,8 +115,11 @@ export const automationsData = [
     ],
     createdAt: '2024-01-12T11:45:00',
     createdBy: 'Alice Williams',
-    description:
-      'When Status changes, and Status: Done, and Priority: High, then Move to group: Next week, and Change date: 1 week after trigger, and Change priority: High, and Duplicate to: Another project',
+    get description() {
+      return i18n.t(
+        'ui.data.project.automations.when_status_changes_and_status_done_and_priority_hig_860e47a3',
+      );
+    },
   },
   {
     id: 5,
@@ -131,8 +145,11 @@ export const automationsData = [
     ],
     createdAt: '2024-01-11T16:30:00',
     createdBy: 'Charlie Brown',
-    description:
-      'When Status changes, and Status: Done, and Priority: High, then Move to group: Next week, and Change date: 1 week after trigger, and Change priority: High, and Duplicate to: Another project',
+    get description() {
+      return i18n.t(
+        'ui.data.project.automations.when_status_changes_and_status_done_and_priority_hig_860e47a3',
+      );
+    },
   },
   {
     id: 6,
@@ -158,7 +175,10 @@ export const automationsData = [
     ],
     createdAt: '2024-01-10T08:20:00',
     createdBy: 'Diana Prince',
-    description:
-      'When Status changes, and Status: Done, and Priority: High, then Move to group: Next week, and Change date: 1 week after trigger, and Change priority: High, and Duplicate to: Another project',
+    get description() {
+      return i18n.t(
+        'ui.data.project.automations.when_status_changes_and_status_done_and_priority_hig_860e47a3',
+      );
+    },
   },
 ];

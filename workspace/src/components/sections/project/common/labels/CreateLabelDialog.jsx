@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -27,6 +28,7 @@ const LABEL_COLOR_PALETTE = LABEL_COLOR_GROUPS.flatMap(({ chKey, themeColor }) =
 );
 
 const CreateLabelDialog = ({ open, onClose, onCreate }) => {
+  const { t: translateUi } = useTranslation();
   const [labelTitle, setLabelTitle] = useState('');
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
 
@@ -62,16 +64,24 @@ const CreateLabelDialog = ({ open, onClose, onCreate }) => {
             mb: 2,
           }}
         >
-          <IconButton onClick={onClose} size="small" aria-label="Back">
+          <IconButton
+            onClick={onClose}
+            size="small"
+            aria-label={translateUi('ui.sections.project.common.labels.back_b52b36b7')}
+          >
             <IconifyIcon
               icon="material-symbols:arrow-back"
               sx={{ fontSize: 20, color: 'text.primary' }}
             />
           </IconButton>
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            Create new label
+            {translateUi('ui.sections.project.common.labels.create_new_label_162fa3b4')}
           </Typography>
-          <IconButton onClick={onClose} size="small" aria-label="Close">
+          <IconButton
+            onClick={onClose}
+            size="small"
+            aria-label={translateUi('ui.sections.project.common.labels.close_bbfa773e')}
+          >
             <IconifyIcon
               icon="material-symbols:close"
               sx={{ fontSize: 20, color: 'text.primary' }}
@@ -82,7 +92,7 @@ const CreateLabelDialog = ({ open, onClose, onCreate }) => {
         <div>
           <StyledTextField
             fullWidth
-            placeholder="Label title"
+            placeholder={translateUi('ui.sections.project.common.labels.label_title_082a1a52')}
             value={labelTitle}
             onChange={(event) => setLabelTitle(event.target.value)}
             variant="filled"
@@ -121,7 +131,7 @@ const CreateLabelDialog = ({ open, onClose, onCreate }) => {
             onClick={handleCreate}
             disabled={!labelTitle.trim()}
           >
-            Create label
+            {translateUi('ui.sections.project.common.labels.create_label_16823034')}
           </Button>
         </div>
       </DialogContent>

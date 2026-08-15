@@ -1,17 +1,30 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Paper, Stack, Typography, boxClasses } from '@mui/material';
 import { acquisitionCostData } from 'data/crm/dashboard';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
+import i18n from 'locales/i18n';
 import ChartLegend from 'components/common/ChartLegend';
 import DashboardMenu from 'components/common/DashboardMenu';
 import AcquisitionCostChart from './AcquisitionCostChart';
 
 const chartLegends = [
-  { label: 'Allotted', color: 'chBlue.300' },
-  { label: 'Used', color: 'chGrey.300' },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.crm.acquisition_cost.allotted_23972c93');
+    },
+    color: 'chBlue.300',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.crm.acquisition_cost.used_02c0e4a1');
+    },
+    color: 'chGrey.300',
+  },
 ];
 
 const AcquisitionCost = () => {
+  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
 
@@ -33,7 +46,9 @@ const AcquisitionCost = () => {
               mb: 1,
             }}
           >
-            Customer Acquisition Cost
+            {translateUi(
+              'ui.sections.dashboards.crm.acquisition_cost.customer_acquisition_cost_70eacd9a',
+            )}
           </Typography>
           <Typography
             variant="subtitle2"
@@ -41,7 +56,9 @@ const AcquisitionCost = () => {
               color: 'text.secondary',
             }}
           >
-            CAC present vs last week
+            {translateUi(
+              'ui.sections.dashboards.crm.acquisition_cost.cac_present_vs_last_week_67e0a979',
+            )}
           </Typography>
         </div>
 

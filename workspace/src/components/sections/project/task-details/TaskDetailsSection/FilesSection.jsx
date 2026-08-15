@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import { taskDetailsData } from 'data/project/task-details';
 import { getFileExtension, getFileIcon } from 'lib/utils';
@@ -26,6 +27,7 @@ const FileRow = ({ item }) => (
 );
 
 const FilesSection = () => {
+  const { t: translateUi } = useTranslation();
   const [attachments, setAttachments] = useState(() => taskDetailsData.attachments);
 
   const onDrop = (acceptedFiles) => {
@@ -60,7 +62,7 @@ const FilesSection = () => {
           mb: 2,
         }}
       >
-        Files
+        {translateUi('ui.sections.project.task_details.taskdetailssection.files_6ce6c512')}
       </Typography>
       <Box sx={{ mb: 2, flexShrign: 0 }}>
         {attachments.map((item) => (

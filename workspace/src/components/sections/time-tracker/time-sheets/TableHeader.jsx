@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   Grid,
@@ -18,6 +19,7 @@ import StyledTextField from 'components/styled/StyledTextField';
 import TableFilter from './TableFilter';
 
 const TimeSheetsTableHeader = ({ tab, handleChange }) => {
+  const { t: translateUi } = useTranslation();
   const { only } = useBreakpoints();
 
   const isXs = only('xs');
@@ -48,9 +50,21 @@ const TimeSheetsTableHeader = ({ tab, handleChange }) => {
           },
         })}
       >
-        <Tab label="Daily" value="daily" disableRipple />
-        <Tab label="Weekly" value="weekly" disableRipple />
-        <Tab label="Monthly" value="monthly" disableRipple />
+        <Tab
+          label={translateUi('ui.sections.time_tracker.time_sheets.tableheader.daily_728298d3')}
+          value="daily"
+          disableRipple
+        />
+        <Tab
+          label={translateUi('ui.sections.time_tracker.time_sheets.tableheader.weekly_158f3da5')}
+          value="weekly"
+          disableRipple
+        />
+        <Tab
+          label={translateUi('ui.sections.time_tracker.time_sheets.tableheader.monthly_d31edb7b')}
+          value="monthly"
+          disableRipple
+        />
       </Tabs>
 
       <Grid container spacing={1}>
@@ -110,7 +124,9 @@ const TimeSheetsTableHeader = ({ tab, handleChange }) => {
           <Stack direction="row" sx={{ gap: 1, justifyContent: { sm: 'flex-end' } }}>
             <SearchTextField
               id="settings-search-box"
-              placeholder="Search member"
+              placeholder={translateUi(
+                'ui.sections.time_tracker.time_sheets.tableheader.search_member_533b9da8',
+              )}
               fullWidth
               sx={{ maxWidth: { sm: 230 } }}
             />

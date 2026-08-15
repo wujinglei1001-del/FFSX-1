@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -6,6 +7,7 @@ import RevealItems from 'components/sections/landing/common/RevealItems';
 import RevealText from 'components/sections/landing/common/RevealText';
 
 const CTA = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -24,20 +26,25 @@ const CTA = () => {
             variant="h2"
             sx={{ typography: { xs: 'h3', sm: 'h2' }, color: 'primary.dark', mb: 1 }}
           >
-            Start with us today!
+            {translateUi('ui.layouts.landing_layout.footer.cta.start_with_us_today_09280e48')}
           </Typography>
         </RevealText>
 
         <RevealText>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Our platform's design and architecture are crafted to boost collaboration, helping your
-            team work together more efficiently to achieve their goals.
+            {translateUi(
+              'ui.layouts.landing_layout.footer.cta.our_platform_s_design_and_architecture_are_crafted_t_d076c5a7',
+            )}
           </Typography>
         </RevealText>
       </Box>
       <RevealItems component={Stack} direction="row" delay={0.1} y={0} sx={{ gap: 1 }}>
-        <Button variant="contained">Create an account</Button>
-        <Button color="neutral">Sign in</Button>
+        <Button variant="contained">
+          {translateUi('ui.layouts.landing_layout.footer.cta.create_an_account_3f4f547d')}
+        </Button>
+        <Button color="neutral">
+          {translateUi('ui.layouts.landing_layout.footer.cta.sign_in_ada2e9e9')}
+        </Button>
       </RevealItems>
     </Stack>
   );

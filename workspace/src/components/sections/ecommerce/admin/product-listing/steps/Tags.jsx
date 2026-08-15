@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Autocomplete, Chip } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 
@@ -18,6 +19,7 @@ const defaultTags = [
 ];
 
 const Tags = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -56,7 +58,9 @@ const Tags = () => {
             <StyledTextField
               {...params}
               variant="filled"
-              placeholder="Type and add tags"
+              placeholder={translateUi(
+                'ui.sections.ecommerce.admin.product_listing.type_and_add_tags_e32fc6ee',
+              )}
               error={!!errors.tags}
               helperText={errors.tags?.message}
             />

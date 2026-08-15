@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import animation404Dark from 'assets/json/404-dark.json';
 import animation404 from 'assets/json/404.json';
@@ -6,6 +7,7 @@ import Lottie from 'lottie-react';
 import paths from 'routes/paths';
 
 const Page404 = () => {
+  const { t: translateUi } = useTranslation();
   const { isDark } = useThemeMode();
 
   return (
@@ -55,7 +57,7 @@ const Page404 = () => {
               mb: 2,
             }}
           >
-            Page not found
+            {translateUi('ui.pages.errors.page404.page_not_found_bc3023b3')}
           </Typography>
           <Typography
             variant="h5"
@@ -65,7 +67,7 @@ const Page404 = () => {
               mb: 5,
             }}
           >
-            No worries! Let’s take you back{' '}
+            {translateUi('ui.pages.errors.page404.no_worries_let_s_take_you_back_fd551e2c')}{' '}
             <Box
               component="br"
               sx={{
@@ -75,11 +77,11 @@ const Page404 = () => {
                 },
               }}
             />
-            while our bear is searching everywhere
+            {translateUi('ui.pages.errors.page404.while_our_bear_is_searching_everywhere_1fb7d139')}
           </Typography>
 
           <Button variant="contained" href={paths.ecommerce} size="large" sx={{ px: 7 }}>
-            Go Back Home{' '}
+            {translateUi('ui.pages.errors.page404.go_back_home_2de04546')}{' '}
           </Button>
         </Box>
       </Stack>

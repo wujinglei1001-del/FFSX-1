@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Timeline, timelineItemClasses } from '@mui/lab';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -6,12 +7,13 @@ import { useKanbanContext } from 'providers/KanbanProvider';
 import ActivityItem from './ActivityItem';
 
 const Activity = () => {
+  const { t: translateUi } = useTranslation();
   const { taskDetails } = useKanbanContext();
 
   return (
     <Paper sx={{ p: { xs: 3, md: 5 } }}>
       <Typography variant="h5" sx={{ mb: 3 }}>
-        Activity
+        {translateUi('ui.sections.kanban.kanban.task_details.activity_81c0d915')}
       </Typography>
       {taskDetails?.activities && (
         <Timeline

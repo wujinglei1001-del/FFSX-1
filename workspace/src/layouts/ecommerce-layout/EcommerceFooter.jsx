@@ -1,79 +1,112 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { kebabCase } from 'lib/utils';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const footerLinks = {
   company: [
     {
-      label: 'About Us',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.about_us_c887b9d3');
+      },
       url: '#!',
     },
     {
-      label: 'Press',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.press_ea683ad6');
+      },
       url: '#!',
     },
     {
-      label: 'Sustainability',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.sustainability_31bc1b17');
+      },
       url: '#!',
     },
     {
-      label: 'Request a Catalog',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.request_a_catalog_b01d6f07');
+      },
       url: '#!',
     },
     {
-      label: 'Careers',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.careers_68d70e59');
+      },
       url: '#!',
     },
     {
-      label: 'Blog',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.blog_0b9d2b23');
+      },
       url: '#!',
     },
   ],
   help: [
     {
-      label: 'Help Center',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.help_center_11015825');
+      },
       url: '#!',
     },
     {
-      label: 'Track Your Order',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.track_your_order_57efbb02');
+      },
       url: '#!',
     },
     {
-      label: 'Shipping',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.shipping_694e6062');
+      },
       url: '#!',
     },
     {
-      label: 'Information',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.information_0eb5ed50');
+      },
       url: '#!',
     },
     {
-      label: 'Return Policy',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.return_policy_63f82a94');
+      },
       url: '#!',
     },
     {
-      label: 'FAQs',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.faqs_ab9dcd4a');
+      },
       url: '#!',
     },
   ],
   contacts: [
     {
-      label: 'Contact Us',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.contact_us_9ad0ccff');
+      },
       url: '#!',
     },
     {
-      label: 'Shops & Outlets',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.shops_outlets_9f448448');
+      },
       url: '#!',
     },
     {
-      label: 'Feedback',
+      get label() {
+        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.feedback_c8d7677e');
+      },
       url: '#!',
     },
   ],
 };
 
 const EcommerceFooter = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ position: 'relative', px: { xs: 3, md: 5 }, py: { xs: 5, md: 7 } }}>
       <Grid container columnSpacing={1}>
@@ -105,10 +138,14 @@ const EcommerceFooter = () => {
                   mb: 0.5,
                 }}
               >
-                Thoughtfully designed,
+                {translateUi(
+                  'ui.layouts.ecommerce_layout.ecommercefooter.thoughtfully_designed_2c5fa4fe',
+                )}
               </Box>
               <Box component="span" sx={{ display: 'block' }}>
-                Masterfully coded
+                {translateUi(
+                  'ui.layouts.ecommerce_layout.ecommercefooter.masterfully_coded_c7e80ef0',
+                )}
               </Box>
             </Typography>
 
@@ -131,7 +168,9 @@ const EcommerceFooter = () => {
                 <StyledTextField
                   id="email"
                   type="email"
-                  placeholder="Your email"
+                  placeholder={translateUi(
+                    'ui.layouts.ecommerce_layout.ecommercefooter.your_email_3fa6f5fb',
+                  )}
                   variant="filled"
                   sx={{
                     maxWidth: 260,
@@ -147,7 +186,7 @@ const EcommerceFooter = () => {
                   }}
                   endIcon={<IconifyIcon icon="material-symbols:arrow-right-alt-rounded" />}
                 >
-                  Subscribe
+                  {translateUi('ui.layouts.ecommerce_layout.ecommercefooter.subscribe_d6981f74')}
                 </Button>
               </Stack>
               <Typography
@@ -157,7 +196,9 @@ const EcommerceFooter = () => {
                   color: 'text.secondary',
                 }}
               >
-                Subscribe to our newsletter for exclusive deals and promotions
+                {translateUi(
+                  'ui.layouts.ecommerce_layout.ecommercefooter.subscribe_to_our_newsletter_for_exclusive_deals_and__c9611e57',
+                )}
               </Typography>
             </Box>
           </Stack>
@@ -256,7 +297,7 @@ const EcommerceFooter = () => {
                   mb: 2,
                 }}
               >
-                Follow us at
+                {translateUi('ui.layouts.ecommerce_layout.ecommercefooter.follow_us_at_cd0644d4')}
               </Typography>
               <Stack direction="row" sx={{ gap: 1, color: 'text.secondary' }}>
                 <Button

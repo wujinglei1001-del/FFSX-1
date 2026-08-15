@@ -1,1 +1,0 @@
-import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiAlert`,t)}var r=t(`MuiAlert`,[`root`,`action`,`icon`,`message`,`filled`,`colorSuccess`,`colorInfo`,`colorWarning`,`colorError`,`outlined`,`standard`]);export{n,r as t};

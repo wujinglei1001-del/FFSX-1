@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Drawer, FormGroup, Stack, Typography, drawerClasses } from '@mui/material';
 import { useEcommerce } from 'providers/EcommerceProvider';
 import paths from 'routes/paths';
@@ -6,6 +7,7 @@ import CartItemsFallback from 'components/sections/ecommerce/customer/cart/CartI
 import CartItem from './CartItem';
 
 const CartDrawer = ({ open, handleClose }) => {
+  const { t: translateUi } = useTranslation();
   const { cartItems, removeItemFromCart } = useEcommerce();
 
   const handleItemRemove = (id) => {
@@ -45,7 +47,9 @@ const CartDrawer = ({ open, handleClose }) => {
             alignItems: 'center',
           }}
         >
-          <Typography variant="h4">Cart</Typography>
+          <Typography variant="h4">
+            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.cart_44656820')}
+          </Typography>
           <Button variant="soft" color="neutral" shape="circle" onClick={handleClose}>
             <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 18 }} />
           </Button>
@@ -88,10 +92,12 @@ const CartDrawer = ({ open, handleClose }) => {
               onClick={handleClose}
               sx={{ flex: 1 }}
             >
-              Go to cart
+              {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.go_to_cart_a5349282')}
             </Button>
             <Button variant="contained" color="primary" sx={{ flex: 1 }}>
-              Proceed to payment
+              {translateUi(
+                'ui.layouts.ecommerce_layout.app_bar.primary.proceed_to_payment_a6f3bb72',
+              )}
             </Button>
           </Stack>
         )}

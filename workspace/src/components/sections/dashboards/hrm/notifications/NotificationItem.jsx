@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { listItemSecondaryActionClasses } from '@mui/material';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
@@ -57,6 +58,7 @@ const getChipColor = (status) => {
 };
 
 const NotificationItem = ({ item }) => {
+  const { t: translateUi } = useTranslation();
   const icon = getIconStyle(item.type);
 
   return (
@@ -107,7 +109,7 @@ const NotificationItem = ({ item }) => {
               href={item.applicationLink}
               sx={{ fontWeight: 500 }}
             >
-              See applicatoin
+              {translateUi('ui.sections.dashboards.hrm.notifications.see_applicatoin_eff22873')}
             </Typography>
           )}
         </Stack>
@@ -124,9 +126,11 @@ const NotificationItem = ({ item }) => {
 
         {item.type === 'application' && (
           <CardHeaderAction>
-            <Button size="small">Accept</Button>
+            <Button size="small">
+              {translateUi('ui.sections.dashboards.hrm.notifications.accept_bb54db51')}
+            </Button>
             <Button size="small" color="error">
-              Reject
+              {translateUi('ui.sections.dashboards.hrm.notifications.reject_2b03b592')}
             </Button>
           </CardHeaderAction>
         )}

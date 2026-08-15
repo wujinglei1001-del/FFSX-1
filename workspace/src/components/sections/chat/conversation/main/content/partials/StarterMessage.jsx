@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
 import { useChatContext } from 'providers/ChatProvider';
 import RecipientAvatar from 'components/sections/chat/common/RecipientAvatar';
 
 const StarterMessage = () => {
+  const { t: translateUi } = useTranslation();
   const { currentConversation } = useChatContext();
 
   if (!currentConversation) return;
@@ -22,7 +24,10 @@ const StarterMessage = () => {
           lineHeight: 1.6,
         }}
       >
-        This is the very beginning of the conversation between <strong>you</strong>
+        {translateUi(
+          'ui.sections.chat.conversation.main.this_is_the_very_beginning_of_the_conversation_betwe_225d7020',
+        )}
+        <strong>{translateUi('common.you')}</strong>
         {currentConversation.recipients.length > 1 ? (
           <>
             ,{' '}
@@ -35,7 +40,7 @@ const StarterMessage = () => {
             {currentConversation.recipients.length > 2 && (
               <>
                 {' '}
-                and{' '}
+                {translateUi('common.and')}{' '}
                 <strong>
                   {currentConversation.recipients.length === 3
                     ? currentConversation.recipients[2].name
@@ -47,7 +52,7 @@ const StarterMessage = () => {
         ) : (
           <>
             {' '}
-            and <strong>{currentConversation.recipients[0].name}</strong>
+            {translateUi('common.and')} <strong>{currentConversation.recipients[0].name}</strong>
           </>
         )}
       </Typography>

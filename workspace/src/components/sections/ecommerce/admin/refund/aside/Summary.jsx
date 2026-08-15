@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, TextField, Typography, inputBaseClasses } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useOrderDetails } from '../../order/OrderDetailsProvider';
 
 const Summary = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { currencyFormat } = useNumberFormat();
   const { control, register, handleSubmit } = useFormContext();
@@ -49,7 +51,7 @@ const Summary = ({ sx }) => {
           mb: 2,
         }}
       >
-        Summary
+        {translateUi('ui.sections.ecommerce.admin.refund.summary_12b71c3e')}
       </Typography>
       <Box
         sx={{
@@ -66,7 +68,7 @@ const Summary = ({ sx }) => {
             justifyContent: 'space-between',
           }}
         >
-          <span>Amount to refund</span>
+          <span>{translateUi('ui.sections.ecommerce.admin.refund.amount_to_refund_32408d68')}</span>
           {currencyFormat(amountToRefund)}
         </Typography>
 
@@ -79,7 +81,7 @@ const Summary = ({ sx }) => {
             justifyContent: 'space-between',
           }}
         >
-          <span>Prior refund</span>
+          <span>{translateUi('ui.sections.ecommerce.admin.refund.prior_refund_89a09c0a')}</span>
           {currencyFormat(priorRefundAmount)}
         </Typography>
 
@@ -92,7 +94,9 @@ const Summary = ({ sx }) => {
             justifyContent: 'space-between',
           }}
         >
-          <span>Total Refund amount</span>
+          <span>
+            {translateUi('ui.sections.ecommerce.admin.refund.total_refund_amount_6888bb93')}
+          </span>
           {currencyFormat(amountToRefund + priorRefundAmount)}
         </Typography>
       </Box>
@@ -100,7 +104,7 @@ const Summary = ({ sx }) => {
         fullWidth
         id="noteToTheBuyer"
         type="text"
-        label="Note to the buyer"
+        label={translateUi('ui.sections.ecommerce.admin.refund.note_to_the_buyer_e5eb8909')}
         variant="filled"
         multiline
         rows={3}
@@ -109,10 +113,10 @@ const Summary = ({ sx }) => {
       />
       <Stack direction="row" sx={{ gap: 1 }}>
         <Button variant="soft" color="neutral" sx={{ minWidth: 80 }}>
-          Cancel
+          {translateUi('ui.sections.ecommerce.admin.refund.cancel_77dfd213')}
         </Button>
         <Button variant="contained" color="primary" fullWidth onClick={handleSubmit(onSubmit)}>
-          Refund
+          {translateUi('ui.sections.ecommerce.admin.refund.refund_e17c8ad0')}
         </Button>
       </Stack>
     </Box>

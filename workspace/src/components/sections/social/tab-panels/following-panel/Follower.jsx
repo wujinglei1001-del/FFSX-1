@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,12 +9,17 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Follower = ({ user, handleFollowStatus }) => {
+  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const downSm = down('sm');
 
   return (
     <Stack key={user.id} direction="row" sx={{ gap: 2, width: 1 }}>
-      <Avatar src={user.avatar} alt="profile-avatar" sx={{ width: 48, height: 48 }} />
+      <Avatar
+        src={user.avatar}
+        alt={translateUi('common.accessibility.profile_avatar')}
+        sx={{ width: 48, height: 48 }}
+      />
       <Stack
         direction="row"
         sx={{ justifyContent: 'space-between', alignItems: 'flex-start', flexGrow: 1 }}
@@ -38,7 +44,7 @@ const Follower = ({ user, handleFollowStatus }) => {
                   ml: 0.5,
                 }}
               >
-                Following
+                {translateUi('ui.sections.social.tab_panels.following_panel.following_90eeb100')}
               </Typography>
             </Typography>
             <Typography
@@ -56,7 +62,7 @@ const Follower = ({ user, handleFollowStatus }) => {
                   ml: 0.5,
                 }}
               >
-                Followers
+                {translateUi('ui.sections.social.tab_panels.following_panel.followers_78eaabf4')}
               </Typography>
             </Typography>
           </Stack>

@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { isSafari } from 'react-device-detect';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import { LineChart } from 'echarts/charts';
@@ -14,6 +15,7 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, LineChart, CanvasRenderer, LegendComponent]);
 
 const UserEngagementChart = ({ ref, sx, data, activeTab }) => {
+  const { t: translateUi } = useTranslation();
   const { vars, typography } = useTheme();
   const { getThemeColor } = useSettingsContext();
   const getFormattedValue = (value, isTooltip = false) => {
@@ -82,7 +84,9 @@ const UserEngagementChart = ({ ref, sx, data, activeTab }) => {
       },
       series: [
         {
-          name: 'Actual value',
+          name: translateUi(
+            'ui.sections.dashboards.analytics.user_engagement.actual_value_82f2b886',
+          ),
           type: 'line',
           smooth: 0.08,
           data: data.actual,
@@ -103,7 +107,9 @@ const UserEngagementChart = ({ ref, sx, data, activeTab }) => {
           },
         },
         {
-          name: 'Projected value',
+          name: translateUi(
+            'ui.sections.dashboards.analytics.user_engagement.projected_value_75e90579',
+          ),
           type: 'line',
           smooth: 0.08,
           data: data.projected,

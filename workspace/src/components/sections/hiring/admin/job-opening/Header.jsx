@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -9,6 +10,7 @@ import SearchTextField from 'components/common/SearchTextField';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 
 const JobOpeningHeader = () => {
+  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const downLg = down('lg');
 
@@ -24,13 +26,19 @@ const JobOpeningHeader = () => {
         <div>
           <PageBreadcrumb
             items={[
-              { label: 'Home', url: paths.hiringJobOpening },
-              { label: 'Members', active: true },
+              {
+                label: translateUi('ui.sections.hiring.admin.job_opening.home_70f8bb9a'),
+                url: paths.hiringJobOpening,
+              },
+              {
+                label: translateUi('ui.sections.hiring.admin.job_opening.members_1cb449c1'),
+                active: true,
+              },
             ]}
             sx={{ mb: 1 }}
           />
           <Typography variant="h4" sx={[downLg && { fontSize: 'h5.fontSize' }]}>
-            Job Openings
+            {translateUi('ui.sections.hiring.admin.job_opening.job_openings_49574894')}
           </Typography>
         </div>
 
@@ -51,7 +59,7 @@ const JobOpeningHeader = () => {
           >
             <SearchTextField
               fullWidth
-              placeholder="Search"
+              placeholder={translateUi('ui.sections.hiring.admin.job_opening.search_bce06414')}
               sx={{ maxWidth: { sm: 250 }, ml: { sm: 'auto' } }}
             />
             <Button
@@ -60,7 +68,7 @@ const JobOpeningHeader = () => {
               startIcon={<IconifyIcon icon="material-symbols:filter-alt-outline" />}
               sx={{ textWrap: 'nowrap', flexShrink: 0 }}
             >
-              Filter
+              {translateUi('ui.sections.hiring.admin.job_opening.filter_d7decf1a')}
             </Button>
           </Stack>
           <Button
@@ -69,7 +77,7 @@ const JobOpeningHeader = () => {
             startIcon={<IconifyIcon icon="material-symbols:add" />}
             sx={{ textWrap: 'nowrap', width: { xs: 1, sm: 'auto' } }}
           >
-            New Opening
+            {translateUi('ui.sections.hiring.admin.job_opening.new_opening_4023932b')}
           </Button>
         </Stack>
       </Stack>

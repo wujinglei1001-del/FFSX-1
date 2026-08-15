@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -14,6 +15,7 @@ import { invoiceHistories } from 'data/invoice';
 import dayjs from 'dayjs';
 
 const InvoiceHistory = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <Stack
@@ -26,9 +28,15 @@ const InvoiceHistory = () => {
           flexWrap: 'wrap',
         }}
       >
-        <Typography variant="h6">Invoice history</Typography>
+        <Typography variant="h6">
+          {translateUi(
+            'ui.sections.invoice.invoice_preview.invoicehistory.invoice_history_6bc8ba2b',
+          )}
+        </Typography>
         <Button variant="soft" color="neutral">
-          Show more history
+          {translateUi(
+            'ui.sections.invoice.invoice_preview.invoicehistory.show_more_history_aabd375c',
+          )}
         </Button>
       </Stack>
       <Divider />
@@ -71,7 +79,7 @@ const InvoiceHistory = () => {
                 }
                 secondary={
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {dayjs(history.date).format('MMMM DD, YYYY')} at{' '}
+                    {dayjs(history.date).format('MMMM DD, YYYY')} {translateUi('common.at')}{' '}
                     {dayjs(history.date).format('h:mm A')}
                   </Typography>
                 }

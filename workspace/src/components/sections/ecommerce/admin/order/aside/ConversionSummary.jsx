@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -12,6 +13,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const ConversionSummary = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { customer } = order;
 
@@ -36,11 +38,11 @@ const ConversionSummary = ({ sx }) => {
             fontWeight: 700,
           }}
         >
-          Conversion summary
+          {translateUi('ui.sections.ecommerce.admin.order.conversion_summary_6abc6cf2')}
         </Typography>
 
         <Button variant="text" size="small" sx={{ flexShrink: 0, minWidth: 0 }}>
-          Details
+          {translateUi('ui.sections.ecommerce.admin.order.details_dc3decbb')}
         </Button>
       </Stack>
       <List dense disablePadding sx={{ mb: 2 }}>

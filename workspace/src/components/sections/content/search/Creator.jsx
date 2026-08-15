@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -14,6 +15,7 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Creator = ({ item }) => {
+  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const downSm = down('sm');
   const [isFollowing, setIsFollowing] = useState(item.isFollowing);
@@ -25,9 +27,18 @@ const Creator = ({ item }) => {
   };
 
   const uploads = [
-    { label: 'Blogs', count: item.uploadedCount.blog },
-    { label: 'Videos', count: item.uploadedCount.videos },
-    { label: 'Podcasts', count: item.uploadedCount.podcasts },
+    {
+      label: translateUi('ui.sections.content.search.creator.blogs_5ef44397'),
+      count: item.uploadedCount.blog,
+    },
+    {
+      label: translateUi('ui.sections.content.search.creator.videos_56b71e89'),
+      count: item.uploadedCount.videos,
+    },
+    {
+      label: translateUi('ui.sections.content.search.creator.podcasts_fd52b45d'),
+      count: item.uploadedCount.podcasts,
+    },
   ].filter((u) => u.count);
 
   return (

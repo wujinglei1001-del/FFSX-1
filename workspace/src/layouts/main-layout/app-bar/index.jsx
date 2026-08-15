@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, paperClasses } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +13,7 @@ import AppbarActionItems from '../common/AppbarActionItems';
 import SearchBox, { SearchBoxButton } from '../common/search-box/SearchBox';
 
 const AppBar = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { drawerWidth, sidenavType, navColor },
     handleDrawerToggle,
@@ -66,7 +68,7 @@ const AppBar = () => {
             color="neutral"
             variant="soft"
             shape="circle"
-            aria-label="open drawer"
+            aria-label={translateUi('ui.layouts.main_layout.app_bar.open_drawer_fe4563aa')}
             onClick={handleDrawerToggle}
           >
             <IconifyIcon icon="material-symbols:menu-rounded" sx={{ fontSize: 20 }} />

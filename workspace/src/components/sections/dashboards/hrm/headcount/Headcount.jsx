@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
@@ -7,26 +8,34 @@ import Stack from '@mui/material/Stack';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
+import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import SectionHeader from 'components/common/SectionHeader';
 import HeadcountChart from './HeadcountChart';
 
 const chartLegends = [
   {
-    label: 'Involuntary',
+    get label() {
+      return i18n.t('ui.sections.dashboards.hrm.headcount.involuntary_0cdaf554');
+    },
     color: 'chBlue.200',
   },
   {
-    label: 'Voluntary',
+    get label() {
+      return i18n.t('ui.sections.dashboards.hrm.headcount.voluntary_b3f66881');
+    },
     color: 'chBlue.100',
   },
   {
-    label: 'Other',
+    get label() {
+      return i18n.t('ui.sections.dashboards.hrm.headcount.other_6e6a6f20');
+    },
     color: 'chGrey.200',
   },
 ];
 
 const Headcount = ({ headcounts }) => {
+  const { t: translateUi } = useTranslation();
   const [value, setValue] = useState(headcounts[0].name);
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
@@ -52,7 +61,7 @@ const Headcount = ({ headcounts }) => {
       sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, height: 1 }}
     >
       <SectionHeader
-        title="Headcount Matrics"
+        title={translateUi('ui.sections.dashboards.hrm.headcount.headcount_matrics_0ea4d586')}
         subTitle="Key summaries  of no. of employees"
         actionComponent={<DashboardMenu />}
       />
@@ -62,7 +71,7 @@ const Headcount = ({ headcounts }) => {
           <TabList
             onChange={handleChange}
             sx={{ mb: 4, borderBottom: 1, borderColor: 'divider' }}
-            aria-label="headcount-tabs"
+            aria-label={translateUi('common.accessibility.headcount_tabs')}
           >
             {headcounts.map((item) => (
               <Tab key={item.name} label={item.name} value={item.name} />
@@ -80,7 +89,7 @@ const Headcount = ({ headcounts }) => {
             }}
           >
             <Typography variant="caption" sx={{ color: 'text.secondary', fontWeight: 700 }}>
-              Reasons:
+              {translateUi('ui.sections.dashboards.hrm.headcount.reasons_91293347')}
             </Typography>
             <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
               {chartLegends.map(({ label, color }) => (

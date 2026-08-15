@@ -1,10 +1,16 @@
 import { Fragment, useState } from 'react';
 import { Button, Menu, MenuItem } from '@mui/material';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const options = [
-  { value: 'timezone', label: 'Timezone' },
+  {
+    value: 'timezone',
+    get label() {
+      return i18n.t('ui.sections.time_tracker.common.time_tracker_header.timezone_d1f7dc89');
+    },
+  },
   { value: 'gmt', label: 'GMT' },
   { value: 'est', label: 'EST' },
   { value: 'cet', label: 'CET' },

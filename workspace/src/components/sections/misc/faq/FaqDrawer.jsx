@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';
@@ -7,6 +8,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import FaqSidenav from './faq-sidenav/FaqSidenav';
 
 const FaqDrawer = () => {
+  const { t: translateUi } = useTranslation();
   const { drawerOpen, handleDrawerClose } = useFaqContext();
 
   return (
@@ -26,7 +28,9 @@ const FaqDrawer = () => {
         direction="row"
         sx={{ pl: 2, pr: 1.25, py: 3, alignItems: 'center', justifyContent: 'space-between' }}
       >
-        <Typography variant="h6">Categories</Typography>
+        <Typography variant="h6">
+          {translateUi('ui.sections.misc.faq.faqdrawer.categories_6ccb6007')}
+        </Typography>
         <Button variant="text" color="neutral" shape="square" onClick={handleDrawerClose}>
           <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
         </Button>

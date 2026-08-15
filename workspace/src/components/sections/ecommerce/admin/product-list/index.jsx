@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, IconButton, MenuItem, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useGridApiRef } from '@mui/x-data-grid';
@@ -17,6 +18,7 @@ const emptySelection = {
 };
 
 const ProductListContainer = () => {
+  const { t: translateUi } = useTranslation();
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const [selectionModel, setSelectionModel] = useState(emptySelection);
   const [bulkStatus, setBulkStatus] = useState('active');
@@ -74,12 +76,14 @@ const ProductListContainer = () => {
               color="primary"
               sx={{ flexShrink: 0 }}
             >
-              Add product
+              {translateUi('ui.sections.ecommerce.admin.product_list.add_product_7c37958a')}
             </Button>
 
             <SearchTextField
               fullWidth
-              placeholder="Search product"
+              placeholder={translateUi(
+                'ui.sections.ecommerce.admin.product_list.search_product_cd4042ff',
+              )}
               onChange={handleSearch}
               sx={{
                 maxWidth: {
@@ -127,10 +131,18 @@ const ProductListContainer = () => {
             onChange={(event) => setBulkStatus(event.target.value)}
             sx={{ minWidth: 140 }}
           >
-            <MenuItem value="active">Active</MenuItem>
-            <MenuItem value="inactive">Inactive</MenuItem>
-            <MenuItem value="draft">Draft</MenuItem>
-            <MenuItem value="archive">Archive</MenuItem>
+            <MenuItem value="active">
+              {translateUi('ui.sections.ecommerce.admin.product_list.active_a733b809')}
+            </MenuItem>
+            <MenuItem value="inactive">
+              {translateUi('ui.sections.ecommerce.admin.product_list.inactive_09af574c')}
+            </MenuItem>
+            <MenuItem value="draft">
+              {translateUi('ui.sections.ecommerce.admin.product_list.draft_23d33e22')}
+            </MenuItem>
+            <MenuItem value="archive">
+              {translateUi('ui.sections.ecommerce.admin.product_list.archive_2621c6fd')}
+            </MenuItem>
           </StyledTextField>
 
           <IconButton color="error" size="small" onClick={() => setSelectionModel(emptySelection)}>

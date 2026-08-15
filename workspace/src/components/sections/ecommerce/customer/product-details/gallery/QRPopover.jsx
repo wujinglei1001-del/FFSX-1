@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Popover, popoverClasses } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const QRPopover = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -39,7 +41,7 @@ const QRPopover = () => {
         }}
         onClick={handleQRClick}
       >
-        Try in your room
+        {translateUi('ui.sections.ecommerce.customer.product_details.try_in_your_room_54e838d5')}
       </Button>
       <Popover
         id={QRId}
@@ -63,7 +65,7 @@ const QRPopover = () => {
       >
         <Image
           src={`${assetsDir}/images/ecommerce/misc/1.webp`}
-          alt="Themewagon QR"
+          alt={translateUi('ui.sections.ecommerce.customer.product_details.themewagon_qr_ec4c6a54')}
           sx={{ width: 164, display: 'block' }}
         />
       </Popover>

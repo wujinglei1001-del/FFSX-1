@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Link, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
 const ProfileSummary = ({ data, sx, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper
       background={1}
@@ -75,7 +77,7 @@ const ProfileSummary = ({ data, sx, ...rest }) => {
                 sx={{ fontWeight: 400, color: 'text.secondary', textWrap: 'nowrap' }}
               >
                 <Box component="span" sx={{ fontWeight: 500, color: 'text.primary' }}>
-                  ID:{' '}
+                  {translateUi('ui.sections.member.profile.profilesummary.id_d789a1e9')}{' '}
                 </Box>{' '}
                 {data.id}
               </Typography>

@@ -1,4 +1,5 @@
 import { FormProvider } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Grid, Stack } from '@mui/material';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -9,6 +10,7 @@ import useCreateAutomationForm from 'components/sections/project/automation/useC
 import ProjectHeader from 'components/sections/project/common/ProjectHeader';
 
 const CreateAutomation = () => {
+  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
   const { methods } = useCreateAutomationForm();
 
@@ -40,7 +42,7 @@ const CreateAutomation = () => {
         }
         onClick={handleImport}
       >
-        Import
+        {translateUi('ui.pages.apps.project.createautomation.import_d6fbc9d2')}
       </Button>
       <Button
         variant="soft"
@@ -50,7 +52,7 @@ const CreateAutomation = () => {
         }
         onClick={handleExport}
       >
-        Export
+        {translateUi('ui.pages.apps.project.createautomation.export_f3e4fadb')}
       </Button>
     </Stack>
   );
@@ -59,8 +61,10 @@ const CreateAutomation = () => {
     <FormProvider {...methods}>
       <Box>
         <ProjectHeader
-          title="Create Automation"
-          subtitle="Let's set automations to save you time and streamline your workflow!"
+          title={translateUi('ui.pages.apps.project.createautomation.create_automation_e0796ee4')}
+          subtitle={translateUi(
+            'ui.pages.apps.project.createautomation.let_s_set_automations_to_save_you_time_and_streamlin_893dfd1a',
+          )}
           showTaskDialog={false}
           topActions={topRightActions}
         />

@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Paper } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SortableDnd from 'components/base/SortableDnd';
 import OptionField from './OptionField';
 
 const VariantsList = ({ variantsFieldArray }) => {
+  const { t: translateUi } = useTranslation();
   const { fields: variants, append, move } = variantsFieldArray;
 
   const handleDragEnd = (event) => {
@@ -41,7 +43,7 @@ const VariantsList = ({ variantsFieldArray }) => {
             append({ name: '', items: [] });
           }}
         >
-          Add another option
+          {translateUi('ui.sections.ecommerce.admin.product_listing.add_another_option_c6f492f1')}
         </Button>
       </SortableDnd>
     </Paper>

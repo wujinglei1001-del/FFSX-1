@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Timeline,
   TimelineConnector,
@@ -25,6 +26,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 dayjs.extend(customParseFormat);
 
 const EventsTimeline = ({ events, handleDrawerClose }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ outline: 'none', height: 1 }}>
       <Box
@@ -45,7 +47,9 @@ const EventsTimeline = ({ events, handleDrawerClose }) => {
             display: { md: 'none' },
           }}
         >
-          <Typography variant="h6">Timeline</Typography>
+          <Typography variant="h6">
+            {translateUi('ui.sections.dashboards.project.events.timeline_018514a3')}
+          </Typography>
           <Button shape="circle" variant="soft" color="neutral" onClick={handleDrawerClose}>
             <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
           </Button>

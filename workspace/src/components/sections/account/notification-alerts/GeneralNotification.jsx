@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   FormControl,
   FormControlLabel,
@@ -9,6 +10,7 @@ import {
 } from '@mui/material';
 
 const GeneralNotification = () => {
+  const { t: translateUi } = useTranslation();
   const { control, watch } = useFormContext();
   const { desktopNotifications, taggedNotifications, muteNotifications } = watch();
 
@@ -20,7 +22,9 @@ const GeneralNotification = () => {
         sx={{ gap: 2, alignItems: 'flex-start' }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Desktop notifications
+          {translateUi(
+            'ui.sections.account.notification_alerts.generalnotification.desktop_notifications_53a3505a',
+          )}
         </Typography>
         {desktopNotifications.map((notificationItem, index) => (
           <Controller
@@ -50,7 +54,9 @@ const GeneralNotification = () => {
         sx={{ gap: 2, alignItems: 'flex-start' }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Get notifications when you are tagged by
+          {translateUi(
+            'ui.sections.account.notification_alerts.generalnotification.get_notifications_when_you_are_tagged_by_a718cdb0',
+          )}
         </Typography>
         {taggedNotifications.map((notificationItem, index) => (
           <Controller
@@ -73,7 +79,9 @@ const GeneralNotification = () => {
         sx={{ gap: 2, alignItems: 'flex-start' }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Mute notifications for the following people
+          {translateUi(
+            'ui.sections.account.notification_alerts.generalnotification.mute_notifications_for_the_following_people_d286586c',
+          )}
         </Typography>
         {muteNotifications.map((notificationItem, index) => (
           <Controller

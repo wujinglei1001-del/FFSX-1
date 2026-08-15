@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, Box, Button, Collapse, IconButton, alertClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PromoAlert = () => {
+  const { t: translateUi } = useTranslation();
   const [isAlertOpen, setIsAlertOpen] = useState(true);
 
   const handleCloseAlert = () => {
@@ -18,7 +20,7 @@ const PromoAlert = () => {
         action={
           <IconButton
             sx={{ color: 'common.white' }}
-            aria-label="close alert"
+            aria-label={translateUi('ui.sections.ecommerce.customer.homepage.close_alert_321767fb')}
             edge="start"
             onClick={handleCloseAlert}
           >
@@ -36,16 +38,16 @@ const PromoAlert = () => {
           },
         }}
       >
-        Get 20% off in your first{' '}
+        {translateUi('ui.sections.ecommerce.customer.homepage.get_20_off_in_your_first_699754df')}{' '}
         <Box
           component="span"
           sx={{
             whiteSpace: 'nowrap',
           }}
         >
-          purchase
+          {translateUi('ui.sections.ecommerce.customer.homepage.purchase_d376ca29')}
           <Button color="neutral" variant="contained" sx={{ ml: 2 }}>
-            Sign up
+            {translateUi('ui.sections.ecommerce.customer.homepage.sign_up_0b81497c')}
           </Button>
         </Box>
       </Alert>

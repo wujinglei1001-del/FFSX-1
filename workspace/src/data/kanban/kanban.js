@@ -1,5 +1,6 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 const image = (index) => `${initialConfig.assetsDir}/images/kanban/task/${index}.webp`;
 
@@ -37,28 +38,36 @@ const attachments = [
 const subtasks = [
   {
     id: 1,
-    title: 'Planning Phase',
+    get title() {
+      return i18n.t('ui.data.kanban.kanban.planning_phase_448907fb');
+    },
     assignee: [],
     time: '2024-12-21T10:38:00',
     checked: false,
   },
   {
     id: 2,
-    title: 'Research and Validation',
+    get title() {
+      return i18n.t('ui.data.kanban.kanban.research_and_validation_ae7f5dcc');
+    },
     assignee: [users[2], users[5]],
     time: '2024-12-21T10:38:00',
     checked: false,
   },
   {
     id: 3,
-    title: 'Create Wireframes',
+    get title() {
+      return i18n.t('ui.data.kanban.kanban.create_wireframes_1c9666a7');
+    },
     assignee: [users[8]],
     time: '2024-12-21T10:38:00',
     checked: false,
   },
   {
     id: 4,
-    title: 'Develop Visual Design',
+    get title() {
+      return i18n.t('ui.data.kanban.kanban.develop_visual_design_d087dd69');
+    },
     assignee: [users[3]],
     time: '2024-12-21T10:38:00',
     checked: true,
@@ -72,14 +81,18 @@ const activities = [
     items: [
       {
         id: 1,
-        title: 'You shared this file with',
+        get title() {
+          return i18n.t('ui.data.kanban.kanban.you_shared_this_file_with_35c79526');
+        },
         avatars: [...users.slice(2, 8)],
         icon: 'material-symbols:share-outline',
         time: '3:15 PM',
       },
       {
         id: 2,
-        title: 'You modified this file',
+        get title() {
+          return i18n.t('ui.data.kanban.kanban.you_modified_this_file_5cfcb055');
+        },
         icon: 'material-symbols:edit-outline-rounded',
         time: '3:10 PM',
       },
@@ -91,8 +104,12 @@ const activities = [
     items: [
       {
         id: 1,
-        title: 'You uploaded this file',
-        description: 'Photography of seashore.jpg',
+        get title() {
+          return i18n.t('ui.data.kanban.kanban.you_uploaded_this_file_e2e821ca');
+        },
+        get description() {
+          return i18n.t('ui.data.kanban.kanban.photography_of_seashore_jpg_d4868447');
+        },
         icon: 'material-symbols:upload-rounded',
         time: '3:10 PM',
       },
@@ -115,13 +132,21 @@ export const kanbanBoard = {
   listItems: [
     {
       id: 'list1',
-      title: 'To do',
+      get title() {
+        return i18n.t('ui.data.kanban.kanban.to_do_8665aed3');
+      },
       compactMode: false,
       tasks: [
         {
           id: 'task1',
-          label: 'feature',
-          title: 'Research for a podcast and video website',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.research_for_a_podcast_and_video_website_4e9176de',
+            );
+          },
           dueDate: '2024-08-08',
           assignee: [users[3], users[5]],
           completed: false,
@@ -138,8 +163,14 @@ export const kanbanBoard = {
         },
         {
           id: 'task2',
-          label: 'bug',
-          title: 'Debug checkout process for the e-commerce website',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.bug_68858584');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.debug_checkout_process_for_the_e_commerce_website_250c43fd',
+            );
+          },
           assignee: [users[4], users[7], users[2]],
           completed: false,
           priority: 'high',
@@ -157,8 +188,14 @@ export const kanbanBoard = {
         {
           id: 'task3',
           coverImage: image(1),
-          label: 'issue',
-          title: 'Research and write a blog about recent landscape architecture',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.issue_00819c0e');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.research_and_write_a_blog_about_recent_landscape_arc_fa649d87',
+            );
+          },
           dueDate: '2024-08-09',
           assignee: [users[5], users[6]],
           completed: false,
@@ -177,13 +214,21 @@ export const kanbanBoard = {
     },
     {
       id: 'list2',
-      title: 'Doing',
+      get title() {
+        return i18n.t('ui.data.kanban.kanban.doing_9f1ffa41');
+      },
       compactMode: false,
       tasks: [
         {
           id: 'task4',
-          label: 'feature',
-          title: 'Design wireframes for the Aurora landing page revamp',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.design_wireframes_for_the_aurora_landing_page_revamp_8437049a',
+            );
+          },
           dueDate: '2024-08-12',
           assignee: [users[2], users[4]],
           completed: false,
@@ -201,8 +246,14 @@ export const kanbanBoard = {
         {
           id: 'task5',
           coverImage: image(2),
-          label: 'undefined',
-          title: 'Install and set up a marketing tool for team operations',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.undefined_d5d4cd07');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.install_and_set_up_a_marketing_tool_for_team_operati_9be624ef',
+            );
+          },
           dueDate: '2024-08-14',
           assignee: [users[7], users[9], users[8]],
           completed: false,
@@ -222,8 +273,14 @@ export const kanbanBoard = {
         {
           id: 'task6',
           coverImage: image(3),
-          label: 'feature',
-          title: 'Prepare and send out a press release for a new collaboration',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.prepare_and_send_out_a_press_release_for_a_new_colla_7d73d66c',
+            );
+          },
           dueDate: '2024-08-09',
           assignee: [users[11], users[14]],
           completed: false,
@@ -241,8 +298,14 @@ export const kanbanBoard = {
         },
         {
           id: 'task7',
-          label: 'issue',
-          title: 'Develop the color code of the logo and need elaboration',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.issue_00819c0e');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.develop_the_color_code_of_the_logo_and_need_elaborat_260f9486',
+            );
+          },
           dueDate: '2024-08-15',
           assignee: [users[1], users[13]],
           completed: false,
@@ -261,14 +324,22 @@ export const kanbanBoard = {
     },
     {
       id: 'list3',
-      title: 'Review',
+      get title() {
+        return i18n.t('ui.data.kanban.kanban.review_e29a79fe');
+      },
       compactMode: false,
       tasks: [
         {
           id: 'task8',
           coverImage: image(4),
-          title: 'Create and refine logo designs for the UI brand',
-          label: 'issue',
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.create_and_refine_logo_designs_for_the_ui_brand_731131c2',
+            );
+          },
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.issue_00819c0e');
+          },
           assignee: [users[15], users[5]],
           completed: false,
           priority: 'urgent',
@@ -285,8 +356,12 @@ export const kanbanBoard = {
         },
         {
           id: 'task9',
-          label: 'feature',
-          title: 'Create an icon library for the project.',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t('ui.data.kanban.kanban.create_an_icon_library_for_the_project_da7f5013');
+          },
           dueDate: '2024-08-08',
           assignee: [users[9], users[15]],
           completed: false,
@@ -305,8 +380,14 @@ export const kanbanBoard = {
         {
           id: 'task10',
           coverImage: image(5),
-          label: 'issue',
-          title: 'Resolve styling issues in dark mode theme',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.issue_00819c0e');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.resolve_styling_issues_in_dark_mode_theme_60494f79',
+            );
+          },
           assignee: [users[7], users[8]],
           completed: false,
           priority: 'medium',
@@ -325,8 +406,14 @@ export const kanbanBoard = {
         {
           id: 'task11',
           coverImage: image(6),
-          label: 'feature',
-          title: 'Write and edit contents for the e-commerce site',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.write_and_edit_contents_for_the_e_commerce_site_e3fa9a35',
+            );
+          },
           dueDate: '2024-08-10',
           assignee: [users[2], users[5], users[9]],
           completed: false,
@@ -346,13 +433,21 @@ export const kanbanBoard = {
     },
     {
       id: 'list4',
-      title: 'Done',
+      get title() {
+        return i18n.t('ui.data.kanban.kanban.done_e9b450d1');
+      },
       compactMode: false,
       tasks: [
         {
           id: 'task12',
-          label: 'feature',
-          title: 'Create the Email Page layout and necessary components',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.create_the_email_page_layout_and_necessary_component_1f9800db',
+            );
+          },
           assignee: [users[6], users[9]],
           completed: true,
           priority: 'medium',
@@ -369,8 +464,14 @@ export const kanbanBoard = {
         },
         {
           id: 'task13',
-          label: 'feature',
-          title: 'Enhance website usability through user feedback',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.enhance_website_usability_through_user_feedback_3ca79c3a',
+            );
+          },
           assignee: [users[2], users[13]],
           completed: true,
           priority: 'medium',
@@ -387,8 +488,14 @@ export const kanbanBoard = {
         {
           id: 'task14',
           coverImage: image(7),
-          label: 'issue',
-          title: 'Plan and execute training sessions for new hires',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.issue_00819c0e');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.plan_and_execute_training_sessions_for_new_hires_5e68d42e',
+            );
+          },
           assignee: [users[1], users[5], users[6]],
           completed: true,
           priority: 'urgent',
@@ -406,8 +513,14 @@ export const kanbanBoard = {
         {
           id: 'task15',
           coverImage: image(8),
-          label: 'undefined',
-          title: 'Organize the meeting for new product ideas',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.undefined_d5d4cd07');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.organize_the_meeting_for_new_product_ideas_1f09a5b1',
+            );
+          },
           assignee: [users[7], users[14]],
           completed: true,
           priority: 'high',
@@ -426,13 +539,21 @@ export const kanbanBoard = {
     },
     {
       id: 'list5',
-      title: 'Rework',
+      get title() {
+        return i18n.t('ui.data.kanban.kanban.rework_0ca516fc');
+      },
       compactMode: false,
       tasks: [
         {
           id: 'task16',
-          label: 'feature',
-          title: 'Blog Edit Page Modification and Playlist Page Design',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.blog_edit_page_modification_and_playlist_page_design_4e6812a7',
+            );
+          },
           assignee: [users[1], users[9]],
           dueDate: '2024-08-08',
           completed: false,
@@ -452,8 +573,14 @@ export const kanbanBoard = {
         {
           id: 'task17',
           coverImage: image(9),
-          label: 'issue',
-          title: 'Plan and execute training sessions for new hires',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.issue_00819c0e');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.plan_and_execute_training_sessions_for_new_hires_5e68d42e',
+            );
+          },
           assignee: [users[4], users[6]],
           dueDate: '2024-08-09',
           completed: false,
@@ -471,8 +598,14 @@ export const kanbanBoard = {
         },
         {
           id: 'task18',
-          label: 'bug',
-          title: 'Analyze Market Trends for Branding Strategies',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.bug_68858584');
+          },
+          get title() {
+            return i18n.t(
+              'ui.data.kanban.kanban.analyze_market_trends_for_branding_strategies_9649314d',
+            );
+          },
           assignee: [users[2], users[13], users[12]],
           completed: false,
           priority: 'urgent',
@@ -489,8 +622,12 @@ export const kanbanBoard = {
         },
         {
           id: 'task19',
-          label: 'feature',
-          title: 'Develop and Execute Marketing Campaigns',
+          get label() {
+            return i18n.t('ui.data.kanban.kanban.feature_4b7615dc');
+          },
+          get title() {
+            return i18n.t('ui.data.kanban.kanban.develop_and_execute_marketing_campaigns_3b0ac73b');
+          },
           assignee: [users[2], users[5]],
           dueDate: '2024-08-08',
           completed: true,

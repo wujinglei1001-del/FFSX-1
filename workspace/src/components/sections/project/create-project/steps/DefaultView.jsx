@@ -1,26 +1,35 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { Box, Button, Stack, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const viewOptions = [
   {
     id: 'calendar',
-    label: 'Calendar View',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.steps.calendar_view_8b0ed804');
+    },
     icon: 'material-symbols-light:calendar-month-outline-rounded',
   },
   {
     id: 'table',
-    label: 'Table view',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.steps.table_view_135aeb7c');
+    },
     icon: 'material-symbols-light:table-rows-outline',
   },
   {
     id: 'kanban',
-    label: 'Kanban view',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.steps.kanban_view_c7c3b63e');
+    },
     icon: 'material-symbols-light:view-kanban-outline-rounded',
   },
   {
     id: 'timeline',
-    label: 'Timeline View',
+    get label() {
+      return i18n.t('ui.sections.project.create_project.steps.timeline_view_4182206c');
+    },
     icon: 'material-symbols-light:view-timeline-outline-rounded',
   },
 ];

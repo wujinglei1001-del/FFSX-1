@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Chip,
@@ -11,12 +12,15 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { currencyFormat, kebabCase, kebabToSentenceCase, numberFormat } from 'lib/utils';
+import useNumberFormat from 'hooks/useNumberFormat';
+import { kebabCase, kebabToSentenceCase } from 'lib/utils';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const ProductCard = ({ product, sx, children }) => {
+  const { t: translateUi } = useTranslation();
+  const { currencyFormat, numberFormat } = useNumberFormat();
   const [image, setImage] = useState(product.images[0].src);
   const [productColor, setProductColor] = useState(product.images[0].color || '');
 
@@ -174,7 +178,11 @@ const ProductCard = ({ product, sx, children }) => {
               mb: 1.5,
             }}
           >
-            Only {product.stock} left in stock (more on the way)
+            {translateUi('ui.sections.ecommerce.customer.common.only_8737f095')}
+            {product.stock}
+            {translateUi(
+              'ui.sections.ecommerce.customer.common.left_in_stock_more_on_the_way_23faa331',
+            )}
           </Typography>
         )}
         <Stack
@@ -194,7 +202,8 @@ const ProductCard = ({ product, sx, children }) => {
               fontWeight: 500,
             }}
           >
-            ({numberFormat(product.sold)} sold)
+            ({numberFormat(product.sold)}
+            {translateUi('ui.sections.ecommerce.customer.common.sold_01d2e75b')}
           </Typography>
         </Stack>
         <Typography
@@ -223,7 +232,11 @@ const ProductCard = ({ product, sx, children }) => {
           >
             {currencyFormat(product.price.regular)}
           </Typography>
-          <Chip variant="soft" color="success" label="Save 50%" />
+          <Chip
+            variant="soft"
+            color="success"
+            label={translateUi('ui.sections.ecommerce.customer.common.save_50_49024abb')}
+          />
         </Stack>
         {children}
       </div>

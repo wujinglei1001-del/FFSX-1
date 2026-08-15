@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Checkbox, Chip, Stack, Typography, styled } from '@mui/material';
 import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -5,6 +6,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import { getStatusChipColor } from '..';
 
 const MemberGridItem = ({ data, sx, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <GridCardWrapper {...rest} sx={{ ...sx }}>
       <Stack direction="row" sx={{ mb: 1, justifyContent: 'space-between' }}>
@@ -58,7 +60,7 @@ const MemberGridItem = ({ data, sx, ...rest }) => {
             <Chip label={data.status} color={getStatusChipColor(data.status)} />
             <Typography variant="caption">
               <Box component="span" sx={{ fontWeight: 500, color: 'text.secondary', mr: 0.5 }}>
-                Team
+                {translateUi('ui.sections.member.member_list.grid_view.team_21888726')}
               </Box>
               <Box component="span" sx={{ fontWeight: 600 }}>
                 {data.team}
@@ -96,7 +98,8 @@ const MemberGridItem = ({ data, sx, ...rest }) => {
           </Stack>
 
           <Typography variant="caption" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-            Hired{` `}
+            {translateUi('ui.sections.member.member_list.grid_view.hired_115779ef')}
+            {` `}
             {dayjs(data.hiredDate).format('MMM DD, YYYY')}
           </Typography>
         </Stack>

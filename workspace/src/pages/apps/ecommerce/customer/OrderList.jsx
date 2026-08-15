@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Container, Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { orderDetailsList } from 'data/e-commerce/orders';
@@ -6,15 +7,22 @@ import PageHeader from 'components/sections/ecommerce/customer/common/PageHeader
 import OrderListContainer from 'components/sections/ecommerce/customer/order-list';
 
 const OrderList = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title="Order list"
+          title={translateUi('ui.pages.apps.ecommerce.customer.order_list_86e684a4')}
           userLoggedIn
           breadcrumb={[
-            { label: 'Home', url: paths.ecommerceHomepage },
-            { label: 'Order list', active: true },
+            {
+              label: translateUi('ui.pages.apps.ecommerce.customer.home_70f8bb9a'),
+              url: paths.ecommerceHomepage,
+            },
+            {
+              label: translateUi('ui.pages.apps.ecommerce.customer.order_list_86e684a4'),
+              active: true,
+            },
           ]}
         />
       </Grid>

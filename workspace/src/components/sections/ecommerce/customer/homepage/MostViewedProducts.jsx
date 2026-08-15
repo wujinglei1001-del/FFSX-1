@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Stack, Typography } from '@mui/material';
 import { kebabCase } from 'lib/utils';
 import paths from 'routes/paths';
@@ -9,6 +10,7 @@ import Image from 'components/base/Image';
 import Swiper from 'components/base/Swiper';
 
 const MostViewedProducts = ({ products }) => {
+  const { t: translateUi } = useTranslation();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -21,7 +23,9 @@ const MostViewedProducts = ({ products }) => {
           mb: 4,
         }}
       >
-        Best viewed items this week
+        {translateUi(
+          'ui.sections.ecommerce.customer.homepage.best_viewed_items_this_week_d0e4f2a7',
+        )}
       </Typography>
       <Stack
         direction="row"

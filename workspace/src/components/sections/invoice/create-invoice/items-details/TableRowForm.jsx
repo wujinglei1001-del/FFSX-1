@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { IconButton, MenuItem, TableCell, TableRow, inputBaseClasses } from '@mui/material';
@@ -8,6 +9,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const TableRowForm = ({ index, field, remove }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat, currencySymbol } = useNumberFormat();
   const {
     register,
@@ -58,8 +60,12 @@ const TableRowForm = ({ index, field, remove }) => {
                 },
               }}
             >
-              <MenuItem value="service">Service</MenuItem>
-              <MenuItem value="product">Product</MenuItem>
+              <MenuItem value="service">
+                {translateUi('ui.sections.invoice.create_invoice.items_details.service_329cb8b6')}
+              </MenuItem>
+              <MenuItem value="product">
+                {translateUi('ui.sections.invoice.create_invoice.items_details.product_dd3b86d1')}
+              </MenuItem>
             </StyledTextField>
           )}
         />

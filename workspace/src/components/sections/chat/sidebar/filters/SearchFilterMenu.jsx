@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import {
   Badge,
@@ -26,6 +27,7 @@ const getDisplayName = (conversation) =>
   conversation.conversationName || conversation.recipients.map((p) => p.name).join(', ');
 
 const SearchFilterMenu = ({ handleSearch, handleFilter }) => {
+  const { t: translateUi } = useTranslation();
   const { conversations, searchQuery } = useChatContext();
   const navigate = useNavigate();
   const inputRef = useRef(null);
@@ -44,7 +46,10 @@ const SearchFilterMenu = ({ handleSearch, handleFilter }) => {
 
   return (
     <>
-      <Tooltip title="Search & filter" placement="right">
+      <Tooltip
+        title={translateUi('ui.sections.chat.sidebar.filters.search_filter_07b4880c')}
+        placement="right"
+      >
         <Badge
           badgeContent={`${conversations.length}`}
           color="primary"
@@ -80,7 +85,7 @@ const SearchFilterMenu = ({ handleSearch, handleFilter }) => {
             inputRef={inputRef}
             autoFocus
             fullWidth
-            placeholder="Search"
+            placeholder={translateUi('ui.sections.chat.sidebar.filters.search_bce06414')}
             value={searchQuery}
             onChange={handleSearch}
             sx={{ [`& .${inputBaseClasses.root}`]: { bgcolor: 'action.hover' } }}

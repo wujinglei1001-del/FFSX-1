@@ -1,5 +1,6 @@
 import { products } from 'data/e-commerce/products';
 import { getItemFromStore, setItemToStore } from 'lib/utils';
+import i18n from 'locales/i18n';
 
 const testUser = {
   email: 'demo@aurora.com',
@@ -28,7 +29,17 @@ export const loginFetcher = () =>
 
 export const sendPasswordResetLinkFetcher = () =>
   new Promise((resolve) =>
-    setTimeout(() => resolve({ message: 'Password reset link sent successfully' }), 1000),
+    setTimeout(
+      () =>
+        resolve({
+          get message() {
+            return i18n.t(
+              'ui.services.swr.dummyfetcher.password_reset_link_sent_successfully_4a12317b',
+            );
+          },
+        }),
+      1000,
+    ),
   );
 
 export const productFetcher = (args) => {

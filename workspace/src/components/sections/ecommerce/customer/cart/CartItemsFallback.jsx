@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/4-dark.webp';
 import illustration from 'assets/images/illustrations/4.webp';
@@ -5,6 +6,7 @@ import paths from 'routes/paths';
 import Image from 'components/base/Image';
 
 const CartItemsFallback = ({ handleDrawerClose }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction="row"
@@ -18,7 +20,7 @@ const CartItemsFallback = ({ handleDrawerClose }) => {
       <div>
         <Image
           src={{ light: illustration, dark: illustrationDark }}
-          alt="cart"
+          alt={translateUi('ui.sections.ecommerce.customer.cart.cart_8bfb4e1a')}
           width={270}
           sx={{ mb: 5 }}
         />
@@ -28,7 +30,7 @@ const CartItemsFallback = ({ handleDrawerClose }) => {
             mb: 1,
           }}
         >
-          Nothing here yet
+          {translateUi('ui.sections.ecommerce.customer.cart.nothing_here_yet_e892255d')}
         </Typography>
         <Typography
           variant="body2"
@@ -36,10 +38,10 @@ const CartItemsFallback = ({ handleDrawerClose }) => {
             mb: 5,
           }}
         >
-          Add items to get started
+          {translateUi('ui.sections.ecommerce.customer.cart.add_items_to_get_started_dd149e08')}
         </Typography>
         <Button variant="contained" href={paths.products} onClick={handleDrawerClose}>
-          Start exploring
+          {translateUi('ui.sections.ecommerce.customer.cart.start_exploring_a12f1371')}
         </Button>
       </div>
     </Stack>

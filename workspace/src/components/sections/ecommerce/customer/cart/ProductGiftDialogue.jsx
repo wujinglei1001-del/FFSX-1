@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -20,6 +21,7 @@ import Image from 'components/base/Image';
 import ProductVariantListItem from '../../admin/common/ProductVariantListItem';
 
 const ProductGiftDialogue = ({ cartItem, open, handleClose }) => {
+  const { t: translateUi } = useTranslation();
   const { name, images } = cartItem;
   return (
     <Dialog
@@ -41,7 +43,7 @@ const ProductGiftDialogue = ({ cartItem, open, handleClose }) => {
         sx={{ mb: 3, px: { xs: 3, md: 5 }, pt: { xs: 3, md: 5 }, pb: 0 }}
         id="customized-dialog-title"
       >
-        Gift this item to a loved one?
+        {translateUi('ui.sections.ecommerce.customer.cart.gift_this_item_to_a_loved_one_746f86b6')}
       </DialogTitle>
       <DialogContent sx={{ px: { xs: 3, md: 5 }, pb: { xs: 4, md: 2 } }}>
         <Stack
@@ -87,7 +89,7 @@ const ProductGiftDialogue = ({ cartItem, open, handleClose }) => {
                 />
               ))}
               <ProductVariantListItem
-                label="Quantity"
+                label={translateUi('ui.sections.ecommerce.customer.cart.quantity_44f6af69')}
                 value={String(cartItem.quantity)}
                 sx={{
                   [`& .${listItemTextClasses.primary}`]: {
@@ -106,25 +108,35 @@ const ProductGiftDialogue = ({ cartItem, open, handleClose }) => {
             mb: 7,
           }}
         >
-          <TextField variant="filled" fullWidth label="To" />
-          <TextField variant="filled" fullWidth label="From" />
+          <TextField
+            variant="filled"
+            fullWidth
+            label={translateUi('ui.sections.ecommerce.customer.cart.to_ae79ea1e')}
+          />
+          <TextField
+            variant="filled"
+            fullWidth
+            label={translateUi('ui.sections.ecommerce.customer.cart.from_3f66052a')}
+          />
         </Stack>
 
         <CheckboxField
-          title="Gift message"
-          subtitle="Add a personalised message that will be printed on the packing slip"
+          title={translateUi('ui.sections.ecommerce.customer.cart.gift_message_d900206b')}
+          subtitle={translateUi(
+            'ui.sections.ecommerce.customer.cart.add_a_personalised_message_that_will_be_printed_on_t_fdb19b32',
+          )}
           price="Free"
           name="gift-message"
           sx={{ mb: 4 }}
         />
 
         <TextField
-          label="Message (optional)"
+          label={translateUi('ui.sections.ecommerce.customer.cart.message_optional_e0def023')}
           multiline
           helperText={
             <>
               <IconifyIcon icon="material-symbols:info-outline-rounded" fontSize={16} />
-              Maximum 60 characters
+              {translateUi('ui.sections.ecommerce.customer.cart.maximum_60_characters_a83d3456')}
             </>
           }
           rows={3}
@@ -149,19 +161,21 @@ const ProductGiftDialogue = ({ cartItem, open, handleClose }) => {
         />
 
         <CheckboxField
-          title="Gift box"
-          subtitle="We’ll wrap your gift in a silver box with ribbons like this one"
+          title={translateUi('ui.sections.ecommerce.customer.cart.gift_box_950daa2e')}
+          subtitle={translateUi(
+            'ui.sections.ecommerce.customer.cart.we_ll_wrap_your_gift_in_a_silver_box_with_ribbons_li_7a6853e5',
+          )}
           price="$5"
           name="gift-box"
         />
       </DialogContent>
       <DialogActions sx={{ p: { xs: 3, md: 5 }, justifyContent: 'flex-start' }}>
         <Button variant="contained" onClick={handleClose} sx={{ minWidth: 160 }}>
-          Save
+          {translateUi('ui.sections.ecommerce.customer.cart.save_efc007a3')}
         </Button>
 
         <Button variant="text" color="neutral" onClick={handleClose}>
-          Cancel
+          {translateUi('ui.sections.ecommerce.customer.cart.cancel_77dfd213')}
         </Button>
       </DialogActions>
     </Dialog>

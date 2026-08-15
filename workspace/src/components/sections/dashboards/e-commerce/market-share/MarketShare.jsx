@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Paper, Stack, Typography, useTheme } from '@mui/material';
 import { shares } from 'data/e-commerce/marketShare';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -8,6 +9,7 @@ import MarketShareChart from './MarketShareChart';
 import MarketShareList from './MarketShareList';
 
 const MarketShare = () => {
+  const { t: translateUi } = useTranslation();
   const { vars } = useTheme();
   const { currencyFormat } = useNumberFormat();
 
@@ -24,7 +26,7 @@ const MarketShare = () => {
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, height: '100%' }} background={1}>
       <SectionHeader
-        title="Market Share"
+        title={translateUi('ui.sections.dashboards.e_commerce.market_share.market_share_ea28616c')}
         subTitle="Amount of revenue in one month"
         actionComponent={<DashboardMenu />}
       />
@@ -62,7 +64,9 @@ const MarketShare = () => {
                   color: 'text.secondary',
                 }}
               >
-                Total transactions
+                {translateUi(
+                  'ui.sections.dashboards.e_commerce.market_share.total_transactions_c471f73f',
+                )}
               </Typography>
             </Box>
           </Box>

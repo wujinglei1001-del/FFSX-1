@@ -1,5 +1,6 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 const logo = (index) => `${initialConfig.assetsDir}/images/brands/${index}.webp`;
 
@@ -64,7 +65,9 @@ export const companies = [
 export const dealsData = [
   {
     id: 'column1',
-    title: 'Contact',
+    get title() {
+      return i18n.t('ui.data.crm.deals.contact_b37456c4');
+    },
     compactMode: false,
     deals: [
       {
@@ -315,7 +318,9 @@ export const dealsData = [
   },
   {
     id: 'column4',
-    title: 'Opportunity',
+    get title() {
+      return i18n.t('ui.data.crm.deals.opportunity_ff325cb8');
+    },
     compactMode: false,
     deals: [
       {
@@ -368,7 +373,9 @@ export const dealsData = [
   },
   {
     id: 'column5',
-    title: 'Won/Lost',
+    get title() {
+      return i18n.t('ui.data.crm.deals.won_lost_76eca01b');
+    },
     compactMode: false,
     deals: [
       {

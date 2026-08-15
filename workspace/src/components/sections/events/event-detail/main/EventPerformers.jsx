@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { List, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -6,6 +7,7 @@ import Image from 'components/base/Image';
 import ScrollSpyContent from 'components/scroll-spy/ScrollSpyContent';
 
 const EventPerformers = ({ performerList }) => {
+  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
 
   return (
@@ -19,7 +21,7 @@ const EventPerformers = ({ performerList }) => {
             })}
           >
             <Typography variant="h6" sx={{ my: 3, lineHeight: 1.5 }}>
-              Performer List
+              {translateUi('ui.sections.events.event_detail.main.performer_list_66c05640')}
             </Typography>
           </ScrollSpyContent>
           <List sx={{ listStylePosition: 'inside', mb: 3 }} disablePadding>

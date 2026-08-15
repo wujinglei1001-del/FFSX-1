@@ -1,4 +1,5 @@
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 export const appraisalList = [
   {
@@ -195,7 +196,9 @@ export const getStatusChipColor = (tag) => {
 export const appraisalCycles = [
   {
     id: 1,
-    title: 'Bi-Annual Review – H2',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.bi_annual_review_h2_48bebde1');
+    },
     reviewPeriod: {
       start: new Date(2025, 6, 1), // Jul 1, 2025
       end: new Date(2025, 11, 31), // Dec 31, 2025
@@ -206,7 +209,9 @@ export const appraisalCycles = [
   },
   {
     id: 2,
-    title: 'Bi-Annual Review – H1',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.bi_annual_review_h1_ec05be8f');
+    },
     reviewPeriod: {
       start: new Date(2025, 0, 1), // Jan 1, 2025
       end: new Date(2025, 5, 30), // Jun 30, 2025
@@ -217,7 +222,9 @@ export const appraisalCycles = [
   },
   {
     id: 3,
-    title: 'Leadership 360 – Q2',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.leadership_360_q2_c6cbc25a');
+    },
     reviewPeriod: {
       start: new Date(2025, 0, 1), // Jan 1, 2025
       end: new Date(2025, 11, 31), // Dec 31, 2025
@@ -228,7 +235,11 @@ export const appraisalCycles = [
   },
   {
     id: 4,
-    title: 'Project-Based Review – Alpha',
+    get title() {
+      return i18n.t(
+        'ui.data.hrm.performance_management.appraisal.project_based_review_alpha_02877d1f',
+      );
+    },
     reviewPeriod: {
       start: new Date(2025, 0, 1), // Jan 1, 2025
       end: new Date(2025, 0, 31), // Jan 31, 2025
@@ -239,7 +250,11 @@ export const appraisalCycles = [
   },
   {
     id: 5,
-    title: 'Probation Review – Batch A',
+    get title() {
+      return i18n.t(
+        'ui.data.hrm.performance_management.appraisal.probation_review_batch_a_2459143b',
+      );
+    },
     reviewPeriod: {
       start: new Date(2024, 0, 1), // Jan 1, 2024
       end: new Date(2024, 11, 31), // Dec 31, 2024
@@ -250,7 +265,9 @@ export const appraisalCycles = [
   },
   {
     id: 6,
-    title: 'Annual Appraisal 2024',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.annual_appraisal_2024_452ba1f4');
+    },
     reviewPeriod: {
       start: new Date(2024, 0, 1), // Jan 1, 2024
       end: new Date(2024, 11, 31), // Dec 31, 2024
@@ -261,7 +278,9 @@ export const appraisalCycles = [
   },
   {
     id: 7,
-    title: 'Year-End Review',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.year_end_review_bcaa4ad8');
+    },
     reviewPeriod: {
       start: new Date(2024, 0, 1),
       end: new Date(2024, 11, 31),
@@ -272,7 +291,9 @@ export const appraisalCycles = [
   },
   {
     id: 8,
-    title: 'Q3 Performance Review',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.q3_performance_review_281e7b56');
+    },
     reviewPeriod: {
       start: new Date(2024, 7, 1), // Aug 1, 2024
       end: new Date(2024, 11, 31),
@@ -283,7 +304,11 @@ export const appraisalCycles = [
   },
   {
     id: 9,
-    title: '9-Month Performance Review',
+    get title() {
+      return i18n.t(
+        'ui.data.hrm.performance_management.appraisal.9_month_performance_review_ea9c881d',
+      );
+    },
     reviewPeriod: {
       start: new Date(2024, 2, 1), // Mar 1, 2024
       end: new Date(2024, 11, 31),
@@ -294,7 +319,9 @@ export const appraisalCycles = [
   },
   {
     id: 10,
-    title: 'Q2 Performance Review',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.q2_performance_review_41823b06');
+    },
     reviewPeriod: {
       start: new Date(2024, 6, 1), // Jul 1, 2024
       end: new Date(2024, 11, 31),
@@ -305,7 +332,9 @@ export const appraisalCycles = [
   },
   {
     id: 11,
-    title: 'Mid-Year Check-In',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.mid_year_check_in_8e215b39');
+    },
     reviewPeriod: {
       start: new Date(2024, 0, 1),
       end: new Date(2024, 6, 31), // Jul 31, 2024
@@ -316,7 +345,9 @@ export const appraisalCycles = [
   },
   {
     id: 12,
-    title: 'Q1 Performance Review',
+    get title() {
+      return i18n.t('ui.data.hrm.performance_management.appraisal.q1_performance_review_7562b802');
+    },
     reviewPeriod: {
       start: new Date(2024, 0, 1),
       end: new Date(2024, 5, 31), // Jun 31, 2024 (UI says Jun 31)

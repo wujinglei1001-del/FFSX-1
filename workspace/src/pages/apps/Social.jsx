@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Container from '@mui/material/Container';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import SocialTabs from 'components/sections/social/SocialTabs';
@@ -5,12 +6,13 @@ import CoverBanner from 'components/sections/social/profile-section/CoverBanner'
 import ProfileInfo from 'components/sections/social/profile-section/ProfileInfo';
 
 const Social = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <>
       <PageBreadcrumb
         items={[
-          { label: 'Pages', url: '#!' },
-          { label: 'Social', active: true },
+          { label: translateUi('ui.pages.apps.social.pages_600584c2'), url: '#!' },
+          { label: translateUi('ui.pages.apps.social.social_41a57508'), active: true },
         ]}
         sx={{ mb: 2, pt: { xs: 3, md: 5 }, px: { xs: 3, md: 5 } }}
       />

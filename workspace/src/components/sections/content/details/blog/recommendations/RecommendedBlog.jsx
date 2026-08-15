@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Chip, Link, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import paths from 'routes/paths';
@@ -5,6 +6,7 @@ import Image from 'components/base/Image';
 import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 
 const RecommendedBlog = ({ item, sxProps }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack
       component={Link}
@@ -35,7 +37,7 @@ const RecommendedBlog = ({ item, sxProps }) => {
             borderRadius: 4,
           }}
           src={item.thumbnail}
-          alt="blogs image"
+          alt={translateUi('ui.sections.content.details.blog.blogs_image_97680fbd')}
         />
       </Box>
       <Box sx={{ flexGrow: 1, px: 1, py: 2 }}>

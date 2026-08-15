@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import { FormControlLabel, Radio } from '@mui/material';
 import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
@@ -10,6 +11,7 @@ import { SidenavIllustration } from './panel-illustrations/SidenavIllustration';
 import { TopnavIllustration } from './panel-illustrations/TopnavIllustration';
 
 const NavigationMenuPanel = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { navigationMenuType },
     configDispatch,
@@ -41,7 +43,7 @@ const NavigationMenuPanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label="Sidenav"
+            label={translateUi('ui.components.settings_panel.navigationmenupanel.sidenav_0b22dd7d')}
             image={
               <SidenavIllustration
                 active={!disableNavigationMenuSection && navigationMenuType === 'sidenav'}
@@ -56,7 +58,7 @@ const NavigationMenuPanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label="Topnav"
+            label={translateUi('ui.components.settings_panel.navigationmenupanel.topnav_f1732fb1')}
             image={
               <TopnavIllustration
                 active={!disableNavigationMenuSection && navigationMenuType === 'topnav'}
@@ -71,7 +73,7 @@ const NavigationMenuPanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label="Combo"
+            label={translateUi('ui.components.settings_panel.navigationmenupanel.combo_dcae5862')}
             image={
               <ComboIllustration
                 active={!disableNavigationMenuSection && navigationMenuType === 'combo'}

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -6,6 +7,7 @@ import ActionBtns from './ActionBtns';
 import DetailsSection from './DetailsSection';
 
 const JobDetailsMain = ({ job }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ height: 1, p: { xs: 3, md: 5 } }}>
       <Container maxWidth="sm" disableGutters>
@@ -18,11 +20,28 @@ const JobDetailsMain = ({ job }) => {
             mb: 4,
           }}
         >
-          <DetailsSection title="About the Role" description={job.details.aboutRole} />
-          <DetailsSection title="Responsibilities" description={job.details.responsibilities} />
-          <DetailsSection title="Requirements" description={job.details.requirements} />
-          <DetailsSection title="Bonus Points" description={job.details.bonusPoints} />
-          <DetailsSection title="Benefits" description={job.details.benefits} />
+          <DetailsSection
+            title={translateUi('ui.sections.hiring.candidate.job_details.about_the_role_60854c5c')}
+            description={job.details.aboutRole}
+          />
+          <DetailsSection
+            title={translateUi(
+              'ui.sections.hiring.candidate.job_details.responsibilities_2294a7fc',
+            )}
+            description={job.details.responsibilities}
+          />
+          <DetailsSection
+            title={translateUi('ui.sections.hiring.candidate.job_details.requirements_09a428f9')}
+            description={job.details.requirements}
+          />
+          <DetailsSection
+            title={translateUi('ui.sections.hiring.candidate.job_details.bonus_points_8f056cb7')}
+            description={job.details.bonusPoints}
+          />
+          <DetailsSection
+            title={translateUi('ui.sections.hiring.candidate.job_details.benefits_927f4067')}
+            description={job.details.benefits}
+          />
         </Stack>
         <ActionBtns />
       </Container>

@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Tab, Tabs, tabClasses, tabsClasses } from '@mui/material';
 import { initialConfig } from 'config';
 import { cssVarRgba } from 'lib/utils';
 
 const CandidateDocuments = () => {
+  const { t: translateUi } = useTranslation();
   const [value, setValue] = useState(0);
 
   const pdf = (() => {
@@ -61,13 +63,22 @@ const CandidateDocuments = () => {
             },
           })}
         >
-          <Tab label="Resume" disableRipple />
-          <Tab label="Cover letter" disableRipple />
-          <Tab label="Portfolio" disableRipple />
+          <Tab
+            label={translateUi('ui.sections.hiring.admin.candidate_details.resume_b3bd0b5a')}
+            disableRipple
+          />
+          <Tab
+            label={translateUi('ui.sections.hiring.admin.candidate_details.cover_letter_80c40a5c')}
+            disableRipple
+          />
+          <Tab
+            label={translateUi('ui.sections.hiring.admin.candidate_details.portfolio_036b18f0')}
+            disableRipple
+          />
         </Tabs>
 
         <Button variant="text" color="neutral" sx={{ flexShrink: 0 }}>
-          Download All
+          {translateUi('ui.sections.hiring.admin.candidate_details.download_all_efe0be9e')}
         </Button>
       </Stack>
 

@@ -1,12 +1,17 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
+import i18n from 'locales/i18n';
 
 const content = (index) => `${initialConfig.assetsDir}/images/content/list/${index}.webp`;
 
 export const contentList = [
   {
     id: 1,
-    title: '10 Simple Time Management Hacks to Skyrocket Your Productivity',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.10_simple_time_management_hacks_to_skyrocket_your_pr_909dc872',
+      );
+    },
     category: 'Time Management',
     key: 'time-management',
     author: 'Jane Warwick',
@@ -18,7 +23,11 @@ export const contentList = [
   },
   {
     id: 2,
-    title: "AI in 2025: What's Next for Artificial Intelligence?",
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.ai_in_2025_what_s_next_for_artificial_intelligence_111f5263',
+      );
+    },
     category: 'Technology',
     key: 'technology',
     author: 'Matt D’Avella',
@@ -30,7 +39,11 @@ export const contentList = [
   },
   {
     id: 3,
-    title: 'Wanderlust Diaries: Stories from Around the World',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.wanderlust_diaries_stories_from_around_the_world_1491f4fb',
+      );
+    },
     category: 'Travel',
     key: 'travel',
     author: 'Sara Phillips',
@@ -42,7 +55,11 @@ export const contentList = [
   },
   {
     id: 4,
-    title: 'Simple Daily Habits to Stay Healthy and Energized',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.simple_daily_habits_to_stay_healthy_and_energized_00d46443',
+      );
+    },
     category: 'Health',
     key: 'health',
     author: 'Michael Johnson',
@@ -54,7 +71,11 @@ export const contentList = [
   },
   {
     id: 5,
-    title: "How Hollywood's Biggest Blockbusters Are Made",
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.how_hollywood_s_biggest_blockbusters_are_made_f0672500',
+      );
+    },
     category: 'Culture',
     key: 'culture',
     author: 'Rachel Collins',
@@ -66,7 +87,11 @@ export const contentList = [
   },
   {
     id: 6,
-    title: 'Into the Wild: Stories of Conservation and Adventure',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.into_the_wild_stories_of_conservation_and_adventure_e7f7e836',
+      );
+    },
     category: 'Wildlife',
     key: 'wildlife',
     author: 'Jessica Lane',
@@ -78,7 +103,11 @@ export const contentList = [
   },
   {
     id: 7,
-    title: 'Pro Gamer Secrets: How to Level Up Your Skills Fast',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.pro_gamer_secrets_how_to_level_up_your_skills_fast_e4fc1639',
+      );
+    },
     category: 'Gaming',
     key: 'gaming',
     author: 'Ethan Miles',
@@ -90,7 +119,11 @@ export const contentList = [
   },
   {
     id: 8,
-    title: 'NASA’s Bold Missions: Exploring the Future of Space Exploration',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.nasa_s_bold_missions_exploring_the_future_of_space_e_4b98fbe1',
+      );
+    },
     category: 'Astronomy',
     key: 'astronomy',
     author: 'AstroGeek TV',
@@ -102,7 +135,11 @@ export const contentList = [
   },
   {
     id: 9,
-    title: '10 Fitness Myths You Need to Stop Believing Right Now',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.10_fitness_myths_you_need_to_stop_believing_right_no_1d5fef85',
+      );
+    },
     category: 'Fitness',
     key: 'fitness',
     author: 'James Rowe',
@@ -114,7 +151,11 @@ export const contentList = [
   },
   {
     id: 10,
-    title: 'The Startup Journey: Stories of Success and Failure',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.the_startup_journey_stories_of_success_and_failure_459c9491',
+      );
+    },
     category: 'Entrepreneurship',
     key: 'entrepreneurship',
     author: 'Zelda Daniels',
@@ -126,7 +167,11 @@ export const contentList = [
   },
   {
     id: 11,
-    title: 'How to Improve Communication Skills in Any Relationship',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.how_to_improve_communication_skills_in_any_relations_75730961',
+      );
+    },
     category: 'Relationships',
     key: 'relationships',
     author: 'Love & Connection Hub',
@@ -138,7 +183,11 @@ export const contentList = [
   },
   {
     id: 12,
-    title: 'Soundscapes: Exploring Music, Art, and Culture',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.soundscapes_exploring_music_art_and_culture_312d8fd8',
+      );
+    },
     category: 'Music',
     key: 'music',
     author: 'Mark Stevens',
@@ -150,7 +199,11 @@ export const contentList = [
   },
   {
     id: 13,
-    title: 'The Best 10 Renowned Online Learning Platforms for Skill Development',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.the_best_10_renowned_online_learning_platforms_for_s_6aaae600',
+      );
+    },
     category: 'Education',
     key: 'education',
     author: 'Sophie Clarke',
@@ -162,7 +215,9 @@ export const contentList = [
   },
   {
     id: 14,
-    title: 'Reel Talk: Behind the Scenes of Film & TV',
+    get title() {
+      return i18n.t('ui.data.content.homepage.reel_talk_behind_the_scenes_of_film_tv_2325732a');
+    },
     category: 'Entertainment',
     key: 'entertainment',
     author: 'Gary Johnson',
@@ -174,7 +229,11 @@ export const contentList = [
   },
   {
     id: 15,
-    title: 'How to Save, Invest, and Achieve Financial Freedom',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.how_to_save_invest_and_achieve_financial_freedom_dca63702',
+      );
+    },
     category: 'Finance',
     key: 'finance',
     author: 'Gary Muytenchek',
@@ -186,7 +245,11 @@ export const contentList = [
   },
   {
     id: 16,
-    title: 'Top 10 Must-Visit Destinations for an Unforgettable Trip',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.top_10_must_visit_destinations_for_an_unforgettable__5031bcc6',
+      );
+    },
     category: 'Travel',
     key: 'travel',
     author: 'Alex Vandruck',
@@ -198,7 +261,11 @@ export const contentList = [
   },
   {
     id: 17,
-    title: 'Time Travelers: Uncovering the Past, Exploring the Future',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.time_travelers_uncovering_the_past_exploring_the_fut_d2369b01',
+      );
+    },
     category: 'History',
     key: 'history',
     author: 'Dr. Alex Monroe',
@@ -210,7 +277,11 @@ export const contentList = [
   },
   {
     id: 18,
-    title: 'Digital Defense: Cybersecurity Trends to Watch',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.digital_defense_cybersecurity_trends_to_watch_ca67ca2b',
+      );
+    },
     category: 'Cybersecurity',
     key: 'cybersecurity',
     author: 'Sarah Connor',
@@ -222,7 +293,11 @@ export const contentList = [
   },
   {
     id: 19,
-    title: 'The Most Exciting Scientific Discoveries of 2024',
+    get title() {
+      return i18n.t(
+        'ui.data.content.homepage.the_most_exciting_scientific_discoveries_of_2024_eecee59f',
+      );
+    },
     category: 'Science',
     key: 'science',
     author: 'Dr. Nathan Clay',
@@ -243,7 +318,11 @@ export const comments = [
     },
     createdAt: '2025-09-14T15:14:00',
     message: {
-      text: 'Modern architecture is truly redefining our world! The blend of aesthetics and functionality is mind-blowing.',
+      get text() {
+        return i18n.t(
+          'ui.data.content.homepage.modern_architecture_is_truly_redefining_our_world_th_4f3a47a2',
+        );
+      },
     },
     engagement: {
       likes: 2000,
@@ -256,7 +335,11 @@ export const comments = [
     author: users[3],
     createdAt: '2025-09-14T14:28:00',
     message: {
-      text: "Loved the futuristic designs in this video! It's amazing to see how innovation is shaping our cities.",
+      get text() {
+        return i18n.t(
+          'ui.data.content.homepage.loved_the_futuristic_designs_in_this_video_it_s_amaz_21e6a6e4',
+        );
+      },
     },
     engagement: {
       likes: 14200,
@@ -268,7 +351,11 @@ export const comments = [
         author: users[8],
         createdAt: '2025-09-14T14:50:00',
         message: {
-          text: 'The focus on sustainability in architecture is inspiring! Hope to see more eco-friendly designs in the future.',
+          get text() {
+            return i18n.t(
+              'ui.data.content.homepage.the_focus_on_sustainability_in_architecture_is_inspi_a4627b52',
+            );
+          },
         },
         engagement: {
           likes: 11,
@@ -284,7 +371,11 @@ export const comments = [
         },
         createdAt: '2025-09-14T15:15:00',
         message: {
-          text: "These structures are truly ahead of their time! Can't wait to see what the next decade brings for modern architecture.",
+          get text() {
+            return i18n.t(
+              'ui.data.content.homepage.these_structures_are_truly_ahead_of_their_time_can_t_80f002dc',
+            );
+          },
         },
         engagement: {
           likes: 32,
@@ -297,7 +388,11 @@ export const comments = [
         author: users[5],
         createdAt: '2025-09-14T15:20:00',
         message: {
-          text: 'Incredible how modern architecture blends technology and creativity! AI and 3D printing are changing everything.',
+          get text() {
+            return i18n.t(
+              'ui.data.content.homepage.incredible_how_modern_architecture_blends_technology_286ffa55',
+            );
+          },
         },
         engagement: {
           likes: 22,

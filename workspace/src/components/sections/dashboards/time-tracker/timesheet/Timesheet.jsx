@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Paper, Stack, Typography } from '@mui/material';
 import { useGridApiRef } from '@mui/x-data-grid';
 import { timesheet } from 'data/time-tracker/dashboard';
@@ -6,6 +7,7 @@ import TimesheetTable from './TimesheetTable';
 import Filters from './filters/Filters';
 
 const Timesheet = () => {
+  const { t: translateUi } = useTranslation();
   const [filterBy, setFilterBy] = useState({ timeframe: 'last 7 days' });
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const apiRef = useGridApiRef();
@@ -29,7 +31,9 @@ const Timesheet = () => {
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, height: 1 }}>
       <Stack direction="row" sx={{ mb: 4, gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
-        <Typography variant="h6">Timesheet</Typography>
+        <Typography variant="h6">
+          {translateUi('ui.sections.dashboards.time_tracker.timesheet.timesheet_8ac3d0fc')}
+        </Typography>
         <Filters
           filterBy={filterBy}
           handleFilter={handleFilter}

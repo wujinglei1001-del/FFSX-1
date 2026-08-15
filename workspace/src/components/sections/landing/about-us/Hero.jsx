@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Container, Typography, keyframes } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { cssVarRgba } from 'lib/utils';
@@ -9,6 +10,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import DashedLine from '../common/DashedLine';
 
 const Hero = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -117,14 +119,16 @@ const Hero = () => {
               variant="h2"
               sx={{ typography: { xs: 'h3', sm: 'h2' }, maxWidth: 800, mx: 'auto', mb: 3 }}
             >
-              Get to Know Us: Together, We Create{' '}
+              {translateUi(
+                'ui.sections.landing.about_us.hero.get_to_know_us_together_we_create_b4135d5a',
+              )}{' '}
               <Box
                 component="span"
                 sx={{
                   color: 'primary.main',
                 }}
               >
-                Magic!
+                {translateUi('ui.sections.landing.about_us.hero.magic_8dbd968d')}
               </Box>{' '}
               🌟🤗
             </Typography>
@@ -132,12 +136,12 @@ const Hero = () => {
               variant="body2"
               sx={{ maxWidth: 730, mx: 'auto', mb: 5, color: 'text.secondary' }}
             >
-              Creating products with a strong identity. We provide brilliant ideas and adding the
-              world called success brand. We deliver customized marketing campaign to use your
-              audience to make a positive move.
+              {translateUi(
+                'ui.sections.landing.about_us.hero.creating_products_with_a_strong_identity_we_provide__36520044',
+              )}
             </Typography>
             <Button variant="contained" href={paths.landingContact}>
-              Let's talk now
+              {translateUi('ui.sections.landing.about_us.hero.let_s_talk_now_f98b4a0e')}
             </Button>
           </Box>
         </Box>
@@ -188,7 +192,7 @@ const Hero = () => {
             <>
               <CursorElement
                 color="info"
-                label="Easy Installation"
+                label={translateUi('ui.sections.landing.about_us.hero.easy_installation_85cdbe94')}
                 sx={{
                   top: '40%',
                 }}
@@ -196,7 +200,7 @@ const Hero = () => {
               <CursorElement
                 direction="left"
                 color="primary"
-                label="Modern Design"
+                label={translateUi('ui.sections.landing.about_us.hero.modern_design_28dd9713')}
                 sx={{
                   top: '10%',
                 }}

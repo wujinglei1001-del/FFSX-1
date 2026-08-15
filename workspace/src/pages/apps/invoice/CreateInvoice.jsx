@@ -1,4 +1,5 @@
 import { FormProvider } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Box, Container, Paper, Stack, Typography } from '@mui/material';
 import paths from 'routes/paths';
@@ -7,6 +8,7 @@ import CreateInvoiceContainer from 'components/sections/invoice/create-invoice';
 import { useCreateInvoiceForm } from 'components/sections/invoice/create-invoice/useCreateInvoiceForm';
 
 const CreateInvoice = () => {
+  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const { methods } = useCreateInvoiceForm();
 
@@ -24,15 +26,23 @@ const CreateInvoice = () => {
         <Box>
           <PageBreadcrumb
             items={[
-              { label: 'Home', url: '/' },
-              { label: 'Invoice', url: paths.createInvoice },
-              { label: 'New Invoice', active: true },
+              { label: translateUi('ui.pages.apps.invoice.createinvoice.home_70f8bb9a'), url: '/' },
+              {
+                label: translateUi('ui.pages.apps.invoice.createinvoice.invoice_f9f38818'),
+                url: paths.createInvoice,
+              },
+              {
+                label: translateUi('ui.pages.apps.invoice.createinvoice.new_invoice_878bae99'),
+                active: true,
+              },
             ]}
             sx={{
               mb: 2,
             }}
           />
-          <Typography variant="h4">Create invoice</Typography>
+          <Typography variant="h4">
+            {translateUi('ui.pages.apps.invoice.createinvoice.create_invoice_a0567cf7')}
+          </Typography>
         </Box>
       </Paper>
       <FormProvider {...methods}>

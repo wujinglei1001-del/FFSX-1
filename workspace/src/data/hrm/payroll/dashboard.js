@@ -1,3 +1,5 @@
+import i18n from 'locales/i18n';
+
 export const currentPayrollRun = {
   start: '2025-03-01',
   end: '2025-03-31',
@@ -8,10 +10,38 @@ export const currentPayrollRun = {
 };
 
 export const paySummaryKpis = [
-  { id: 1, title: 'Gross Pay', value: '$8.2M', icon: 'material-symbols:request-quote-outline' },
-  { id: 2, title: 'Employee Pay', value: '$7.2M', icon: 'material-symbols:payments-outline' },
-  { id: 3, title: 'Tax', value: '$1.2M', icon: 'material-symbols:attach-money' },
-  { id: 4, title: 'Employees', value: '100', icon: 'material-symbols:person-outline' },
+  {
+    id: 1,
+    get title() {
+      return i18n.t('ui.data.hrm.payroll.dashboard.gross_pay_b2ea2a0a');
+    },
+    value: '$8.2M',
+    icon: 'material-symbols:request-quote-outline',
+  },
+  {
+    id: 2,
+    get title() {
+      return i18n.t('ui.data.hrm.payroll.dashboard.employee_pay_4b15b030');
+    },
+    value: '$7.2M',
+    icon: 'material-symbols:payments-outline',
+  },
+  {
+    id: 3,
+    get title() {
+      return i18n.t('ui.data.hrm.payroll.dashboard.tax_9be70f66');
+    },
+    value: '$1.2M',
+    icon: 'material-symbols:attach-money',
+  },
+  {
+    id: 4,
+    get title() {
+      return i18n.t('ui.data.hrm.payroll.dashboard.employees_8c5b6be2');
+    },
+    value: '100',
+    icon: 'material-symbols:person-outline',
+  },
 ];
 
 export const payrollHistoryData = [

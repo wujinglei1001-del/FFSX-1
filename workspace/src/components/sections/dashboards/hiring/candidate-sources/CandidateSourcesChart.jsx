@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
 import { PieChart } from 'echarts/charts';
 import { GridComponent, LegendComponent, TooltipComponent } from 'echarts/components';
@@ -10,6 +11,7 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, PieChart, CanvasRenderer, LegendComponent]);
 
 const CandidateSourcesChart = ({ data, sx, ref }) => {
+  const { t: translateUi } = useTranslation();
   const { getThemeColor } = useSettingsContext();
   const { vars } = useTheme();
 
@@ -29,7 +31,9 @@ const CandidateSourcesChart = ({ data, sx, ref }) => {
       ],
       series: [
         {
-          name: 'Nightingale Chart',
+          name: translateUi(
+            'ui.sections.dashboards.hiring.candidate_sources.nightingale_chart_c493baec',
+          ),
           type: 'pie',
           radius: [60, 150],
           center: ['50%', '100%'],

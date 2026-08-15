@@ -1,4 +1,5 @@
 import { Stack } from '@mui/material';
+import CurrencyMenu from './CurrencyMenu';
 import LanguageMenu from './LanguageMenu';
 import NotificationMenu from './NotificationMenu';
 import ProfileMenu from './ProfileMenu';
@@ -18,6 +19,7 @@ const AppbarActionItems = ({ type = 'default', sx, searchComponent }) => {
     >
       {searchComponent}
       <LanguageMenu type={type} />
+      <CurrencyMenu type={type} />
       <ThemeToggler type={type} />
       <NotificationMenu type={type} />
       <ProfileMenu type={type} />

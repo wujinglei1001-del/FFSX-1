@@ -1,4 +1,5 @@
 import { Fragment, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   DndContext,
   KeyboardSensor,
@@ -133,6 +134,7 @@ const DraggableRow = ({ row, isSelected }) => {
 };
 
 const ProjectTable = ({ tableData }) => {
+  const { t: translateUi } = useTranslation();
   const {
     data,
     editingRowId,
@@ -273,7 +275,11 @@ const ProjectTable = ({ tableData }) => {
                         sx={{ ml: 15, gap: 1 }}
                       >
                         <IconifyIcon icon="material-symbols:add" sx={{ fontSize: 16 }} />
-                        <Typography variant="body2">Add new subtask</Typography>
+                        <Typography variant="body2">
+                          {translateUi(
+                            'ui.sections.project.table_view.projecttable.add_new_subtask_12b7d220',
+                          )}
+                        </Typography>
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -324,14 +330,20 @@ const ProjectTable = ({ tableData }) => {
                       sx={{ ml: 11.25, gap: 1 }}
                     >
                       <IconifyIcon icon="material-symbols:add" sx={{ fontSize: 16 }} />
-                      <Typography variant="body2">Add New Task</Typography>
+                      <Typography variant="body2">
+                        {translateUi(
+                          'ui.sections.project.table_view.projecttable.add_new_task_23c82a1c',
+                        )}
+                      </Typography>
                     </Button>
                   </TableCell>
                 </TableRow>
               </>
             ) : (
               <TableRow>
-                <TableCell colSpan={columns.length}>No results.</TableCell>
+                <TableCell colSpan={columns.length}>
+                  {translateUi('ui.sections.project.table_view.projecttable.no_results_00354033')}
+                </TableCell>
               </TableRow>
             )}
           </TableBody>

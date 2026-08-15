@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -7,6 +8,7 @@ import { currentPayrollRun } from 'data/hrm/payroll/dashboard';
 import dayjs from 'dayjs';
 
 const PayrollCard = () => {
+  const { t: translateUi } = useTranslation();
   const { start, end, payDate, paySchedule, approvePayroll, employeeNo } = currentPayrollRun;
 
   return (
@@ -31,22 +33,25 @@ const PayrollCard = () => {
               lineHeight: 1.5,
             }}
           >
-            Payroll: {dayjs(start).format('D MMM')} - {dayjs(end).format('D MMM')},{' '}
+            {translateUi('ui.sections.hrm.payroll.dashboard.payroll_072a08ad')}
+            {dayjs(start).format('D MMM')} - {dayjs(end).format('D MMM')},{' '}
             {dayjs(end).format('YYYY')}
           </Typography>
-          <Button variant="contained">Run Payroll</Button>
+          <Button variant="contained">
+            {translateUi('ui.sections.hrm.payroll.dashboard.run_payroll_e6657ad6')}
+          </Button>
         </Stack>
         <Grid container spacing={2}>
           <Grid size={{ xs: 6, sm: 3, md: 6, xl: 3 }}>
             <CardInfo
-              title="Pay Date"
+              title={translateUi('ui.sections.hrm.payroll.dashboard.pay_date_02292742')}
               value={dayjs(payDate).format('D MMM, YYYY')}
               sx={{ alignItems: 'flex-start' }}
             />
           </Grid>
           <Grid size={{ xs: 6, sm: 3, md: 6, xl: 3 }}>
             <CardInfo
-              title="Pay Schedule"
+              title={translateUi('ui.sections.hrm.payroll.dashboard.pay_schedule_f93266bb')}
               value={paySchedule}
               sx={{
                 alignItems: { xs: 'flex-end', sm: 'flex-start', md: 'flex-end', xl: 'flex-start' },
@@ -55,14 +60,14 @@ const PayrollCard = () => {
           </Grid>
           <Grid size={{ xs: 6, sm: 3, md: 6, xl: 3 }}>
             <CardInfo
-              title="Approve Payroll"
+              title={translateUi('ui.sections.hrm.payroll.dashboard.approve_payroll_32b028bb')}
               value={dayjs(approvePayroll).format('D MMM, YYYY')}
               sx={{ alignItems: 'flex-start' }}
             />
           </Grid>
           <Grid size={{ xs: 6, sm: 3, md: 6, xl: 3 }}>
             <CardInfo
-              title="Employee No."
+              title={translateUi('ui.sections.hrm.payroll.dashboard.employee_no_c6941af9')}
               value={employeeNo}
               sx={{
                 alignItems: { xs: 'flex-end', sm: 'flex-start', md: 'flex-end', xl: 'flex-start' },

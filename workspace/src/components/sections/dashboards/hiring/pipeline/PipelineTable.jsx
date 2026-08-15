@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
@@ -10,6 +11,7 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 
 const PipelineTable = ({ apiRef, data }) => {
+  const { t: translateUi } = useTranslation();
   const columns = useMemo(
     () => [
       {
@@ -18,7 +20,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'jobPosition',
-        headerName: 'Job Positions',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.job_positions_0fa0402f'),
         headerClassName: 'job-position-header',
         cellClassName: 'job-position-cell',
         valueGetter: ({ title }) => title,
@@ -55,7 +57,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'vacancy',
-        headerName: 'Vacancy',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.vacancy_fec3f6d9'),
         headerClassName: 'vacancy-header',
         cellClassName: 'vacancy-cell',
         valueGetter: ({ vacancy }) => vacancy,
@@ -70,7 +72,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'hiringManager',
-        headerName: 'Hiring Manager',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.hiring_manager_440641fc'),
         headerClassName: 'hiring-manager-header',
         cellClassName: 'hiring-manager-cell',
         minWidth: 190,
@@ -104,7 +106,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'applied',
-        headerName: 'Applied',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.applied_a3e4a569'),
         headerClassName: 'applied-header',
         cellClassName: 'applied-cell',
         minWidth: 125,
@@ -143,7 +145,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'reviewed',
-        headerName: 'Reviewed',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.reviewed_31ef8593'),
         headerClassName: 'reviewed-header',
         cellClassName: 'reviewed-cell',
         minWidth: 125,
@@ -182,7 +184,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'mobileScreen',
-        headerName: 'Mobile Screen',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.mobile_screen_3ea04adb'),
         headerClassName: 'mobile-screen-header',
         cellClassName: 'mobile-screen-cell',
         minWidth: 125,
@@ -221,7 +223,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'interview',
-        headerName: 'Interview',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.interview_19ad8ec7'),
         headerClassName: 'interview-header',
         cellClassName: 'interview-cell',
         minWidth: 125,
@@ -260,7 +262,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'offer',
-        headerName: 'Offer',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.offer_3898b9aa'),
         headerClassName: 'offer-header',
         cellClassName: 'offer-cell',
         minWidth: 125,
@@ -299,7 +301,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'hired',
-        headerName: 'Hired',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.hired_115779ef'),
         headerClassName: 'hired-header',
         cellClassName: 'hired-cell',
         minWidth: 125,
@@ -338,7 +340,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'rejected',
-        headerName: 'Rejected',
+        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.rejected_27eeb7a2'),
         headerClassName: 'rejected-header',
         cellClassName: 'rejected-cell',
         minWidth: 125,

@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Link, Stack, Typography } from '@mui/material';
+import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useAccounts } from 'providers/AccountsProvider';
 import * as yup from 'yup';
@@ -13,11 +15,16 @@ import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const phoneSchema = yup
   .object({
-    phoneNumber: yup.string().required('Phone number is required'),
+    phoneNumber: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.account.personal_info.phone.phone_number_is_required_f845371b'),
+      ),
   })
   .required();
 
 const Phone = () => {
+  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const { personalInfo } = useAccounts();
   const { enqueueSnackbar } = useSnackbar();
@@ -47,7 +54,10 @@ const Phone = () => {
     <FormProvider {...methods}>
       <InfoCard setOpen={setOpen} sx={{ mb: 2 }}>
         <Stack sx={{ gap: { xs: 2, sm: 1 } }}>
-          <InfoCardAttribute label="Number" value={currentPhone} />
+          <InfoCardAttribute
+            label={translateUi('ui.sections.account.personal_info.phone.number_b7baa1d4')}
+            value={currentPhone}
+          />
         </Stack>
         <IconifyIcon
           icon="material-symbols-light:edit-outline"
@@ -55,8 +65,10 @@ const Phone = () => {
         />
       </InfoCard>
       <AccountFormDialog
-        title="Phone"
-        subtitle="Ensure your phone number to enable account recovery and receive important notifications."
+        title={translateUi('ui.sections.account.personal_info.phone.phone_77064d52')}
+        subtitle={translateUi(
+          'ui.sections.account.personal_info.phone.ensure_your_phone_number_to_enable_account_recovery__d3def45e',
+        )}
         open={open}
         onSubmit={onSubmit}
         handleDialogClose={() => setOpen(false)}
@@ -81,8 +93,9 @@ const Phone = () => {
       </AccountFormDialog>
       <Stack sx={{ gap: 1, alignItems: 'flex-start' }}>
         <Typography variant="body2" sx={{ color: 'text.secondary', textWrap: 'pretty' }}>
-          This phone number has to be confirmed to ensure its authenticity first before being
-          connected with your profile.
+          {translateUi(
+            'ui.sections.account.personal_info.phone.this_phone_number_has_to_be_confirmed_to_ensure_its__43644fcd',
+          )}
         </Typography>
         <Link
           href="#!"
@@ -92,7 +105,7 @@ const Phone = () => {
             fontSize: 'body2.fontSize',
           }}
         >
-          Confirm your number{' '}
+          {translateUi('ui.sections.account.personal_info.phone.confirm_your_number_677c0d27')}{' '}
           <IconifyIcon icon="material-symbols:chevron-right" sx={{ fontSize: 20 }} />
         </Link>
       </Stack>

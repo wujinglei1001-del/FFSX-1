@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Badge,
@@ -44,6 +45,7 @@ const formatCommentTime = (iso) => {
 };
 
 const TaskComments = () => {
+  const { t: translateUi } = useTranslation();
   const [comments, setComments] = useState(() => taskDetailsData.comments);
   const [message, setMessage] = useState('');
 
@@ -98,7 +100,7 @@ const TaskComments = () => {
           mb: 4,
         }}
       >
-        Comments
+        {translateUi('ui.sections.project.task_details.taskcomments.comments_fce06e20')}
       </Typography>
       <Stack
         sx={{
@@ -194,7 +196,9 @@ const TaskComments = () => {
                   disableRipple
                   selected={comment.liked}
                   onChange={() => handleLikeToggle(comment.id)}
-                  aria-label="Like comment"
+                  aria-label={translateUi(
+                    'ui.sections.project.task_details.taskcomments.like_comment_114b90c2',
+                  )}
                   sx={{
                     '&:hover': {
                       bgcolor: 'transparent',
@@ -241,7 +245,7 @@ const TaskComments = () => {
                     color: 'primary.main',
                   }}
                 >
-                  Reply
+                  {translateUi('ui.sections.project.task_details.taskcomments.reply_6c2bb735')}
                 </Typography>
               </Stack>
             </Box>
@@ -259,7 +263,9 @@ const TaskComments = () => {
       >
         <TextareaAutosize
           minRows={3}
-          placeholder="Write a message"
+          placeholder={translateUi(
+            'ui.sections.project.task_details.taskcomments.write_a_message_46bfc6e8',
+          )}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={(e) => {
@@ -303,7 +309,7 @@ const TaskComments = () => {
             px: 3,
           }}
         >
-          Comment
+          {translateUi('ui.sections.project.task_details.taskcomments.comment_153d7a58')}
         </Button>
       </Box>
     </Paper>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import { Link, SvgIcon, Typography, typographyClasses, useTheme } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
@@ -6,6 +7,7 @@ import { useSettingsContext } from 'providers/SettingsProvider';
 import paths, { rootPaths } from 'routes/paths';
 
 const Logo = ({ sx, viewBox = '0 0 26 40', showName = true, isShowcase = false, ...rest }) => {
+  const { t: translateUi } = useTranslation();
   const [id, setId] = useState('logo');
   const { pathname } = useLocation();
   const theme = useTheme();
@@ -168,7 +170,7 @@ const Logo = ({ sx, viewBox = '0 0 26 40', showName = true, isShowcase = false, 
             },
           ]}
         >
-          aurora
+          {translateUi('ui.components.common.logo.aurora_c8251d84')}
         </Typography>
       )}
     </Link>

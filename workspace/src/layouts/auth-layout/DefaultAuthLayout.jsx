@@ -1,4 +1,5 @@
 import { Suspense, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useMatch } from 'react-router';
 import { Link, Stack, Tab, Tabs, tabsClasses } from '@mui/material';
 import Grid from '@mui/material/Grid';
@@ -15,6 +16,7 @@ import JwtIcon from 'components/icons/JwtIcon';
 import DefaultLoader from 'components/loading/DefaultLoader';
 
 const DefaultAuthLayout = ({ children }) => {
+  const { t: translateUi } = useTranslation();
   const storedProvider = getItemFromStore('auth_provider');
   const { isDark } = useThemeMode();
   const jwtMatch = useMatch('/authentication/default/jwt/:page');
@@ -120,7 +122,7 @@ const DefaultAuthLayout = ({ children }) => {
                 underline="none"
                 href={paths.defaultAuth0Login}
                 value="auth0"
-                label="Auth 0"
+                label={translateUi('ui.layouts.auth_layout.defaultauthlayout.auth_0_7f082e39')}
                 icon={<Auth0Icon />}
                 iconPosition="start"
                 disableRipple

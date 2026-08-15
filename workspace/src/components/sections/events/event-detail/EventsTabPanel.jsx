@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TabContext, TabList } from '@mui/lab';
 import { Box, Paper, Stack, Tab, tabScrollButtonClasses, tabsClasses } from '@mui/material';
 import { description, eventTermsConditions, performerList, schedule } from 'data/events';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { HashLinkBehavior } from 'theme/components/Link';
 import { useScrollSpyContext } from 'components/scroll-spy';
@@ -13,13 +15,36 @@ import EventSchedule from 'components/sections/events/event-detail/main/EventSch
 import EventTerms from 'components/sections/events/event-detail/main/EventTerms';
 
 const eventTabs = [
-  { label: 'Description', id: 'description' },
-  { label: 'Details', id: 'details' },
-  { label: 'Performer’s list', id: 'performers' },
-  { label: 'Event terms & conditions', id: 'terms' },
+  {
+    get label() {
+      return i18n.t('ui.sections.events.event_detail.eventstabpanel.description_55f8ebc8');
+    },
+    id: 'description',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.events.event_detail.eventstabpanel.details_dc3decbb');
+    },
+    id: 'details',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.events.event_detail.eventstabpanel.performer_s_list_b04c0dc3');
+    },
+    id: 'performers',
+  },
+  {
+    get label() {
+      return i18n.t(
+        'ui.sections.events.event_detail.eventstabpanel.event_terms_conditions_6fc7e517',
+      );
+    },
+    id: 'terms',
+  },
 ];
 
 const EventsTabPanel = () => {
+  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const isDownSm = down('sm');
 
@@ -57,7 +82,9 @@ const EventsTabPanel = () => {
               scrollButtons
               allowScrollButtonsMobile
               onChange={handleTabChange}
-              aria-label="event information tabs"
+              aria-label={translateUi(
+                'ui.sections.events.event_detail.eventstabpanel.event_information_tabs_01f380aa',
+              )}
               centered={isDownSm ? false : true}
               sx={{
                 py: 2,

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -8,6 +9,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CRMDropdownMenu from '../../CRMDropdownMenu';
 
 const Note = ({ note }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
   return (
@@ -37,7 +39,8 @@ const Note = ({ note }) => {
             }}
           >
             <Typography variant="caption" sx={{ color: 'text.secondary', lineHeight: '18px' }}>
-              Added by <strong>{note.author.name}</strong> at{' '}
+              {translateUi('ui.sections.crm.common.activity_tab_panels.added_by_75a4b633')}
+              <strong>{note.author.name}</strong> {translateUi('common.at')}{' '}
               {dayjs(note.createdAt).format('DD MMM, YYYY h:mm a')}
             </Typography>
             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>

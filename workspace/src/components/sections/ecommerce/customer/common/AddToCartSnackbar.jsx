@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { Alert, Snackbar } from '@mui/material';
 
 const AddToCartSnackbar = ({ open, handleClose }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
       <Alert
@@ -9,7 +11,9 @@ const AddToCartSnackbar = ({ open, handleClose }) => {
         variant="filled"
         sx={{ borderRadius: 7, boxShadow: (theme) => theme.vars.shadows[3] }}
       >
-        Added to the cart successfully!
+        {translateUi(
+          'ui.sections.ecommerce.customer.common.added_to_the_cart_successfully_f6ad5caa',
+        )}
       </Alert>
     </Snackbar>
   );

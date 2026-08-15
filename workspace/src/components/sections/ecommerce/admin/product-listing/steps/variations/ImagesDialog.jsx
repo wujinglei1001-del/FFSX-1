@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -17,6 +18,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const ImagesDialog = ({ open, handleClose, field, handleUpdateImages }) => {
+  const { t: translateUi } = useTranslation();
   const [selectedimages, setSelectedimages] = useState([]);
   const { watch } = useFormContext();
 
@@ -54,7 +56,11 @@ const ImagesDialog = ({ open, handleClose, field, handleUpdateImages }) => {
         },
       }}
     >
-      <DialogTitle sx={{ p: 0, mb: 2 }}>Select the related photos</DialogTitle>
+      <DialogTitle sx={{ p: 0, mb: 2 }}>
+        {translateUi(
+          'ui.sections.ecommerce.admin.product_listing.select_the_related_photos_0994ccbc',
+        )}
+      </DialogTitle>
       <DialogContent sx={{ p: 0, mb: 5 }}>
         <Stack
           direction="row"
@@ -127,7 +133,7 @@ const ImagesDialog = ({ open, handleClose, field, handleUpdateImages }) => {
       </DialogContent>
       <DialogActions sx={{ p: 0, justifyContent: 'flex-start' }}>
         <Button variant="contained" sx={{ minWidth: 96 }} onClick={handleSave}>
-          Save
+          {translateUi('ui.sections.ecommerce.admin.product_listing.save_efc007a3')}
         </Button>
         <Button
           color="neutral"
@@ -136,7 +142,7 @@ const ImagesDialog = ({ open, handleClose, field, handleUpdateImages }) => {
           }}
           autoFocus
         >
-          Discard
+          {translateUi('ui.sections.ecommerce.admin.product_listing.discard_36fff63c')}
         </Button>
       </DialogActions>
     </Dialog>

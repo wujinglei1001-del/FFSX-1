@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';
 import Stack from '@mui/material/Stack';
@@ -14,6 +15,7 @@ import CoverImage from './cover-image/CoverImage';
 import Description from './description/Description';
 
 const TaskDetails = () => {
+  const { t: translateUi } = useTranslation();
   const { taskDetails, kanbanDispatch } = useKanbanContext();
   const initialData = {
     ...taskDetails,
@@ -73,10 +75,10 @@ const TaskDetails = () => {
           sx={{ gap: 1, px: { xs: 3, md: 5 }, py: 3, justifyContent: 'flex-end' }}
         >
           <Button variant="soft" color="neutral" onClick={handleDiscartChanges}>
-            Discard
+            {translateUi('ui.sections.kanban.kanban.task_details.discard_36fff63c')}
           </Button>
           <Button variant="contained" type="submit">
-            Save
+            {translateUi('ui.sections.kanban.kanban.task_details.save_efc007a3')}
           </Button>
         </Stack>
       </Drawer>

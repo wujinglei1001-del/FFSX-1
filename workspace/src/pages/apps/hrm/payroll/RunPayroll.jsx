@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
@@ -5,14 +6,15 @@ import HeaderAction from 'components/sections/hrm/payroll/common/HeaderAction';
 import EarningsDeductionsMain from 'components/sections/hrm/payroll/earnings';
 
 const RunPayroll = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Paper component={Grid} container>
       <Grid size={12}>
         <PageHeader
-          title="Run Payroll"
+          title={translateUi('ui.pages.apps.hrm.payroll.run_payroll_e6657ad6')}
           breadcrumb={[
-            { label: 'Home', url: '#!' },
-            { label: 'Run Payroll', active: true },
+            { label: translateUi('ui.pages.apps.hrm.payroll.home_70f8bb9a'), url: '#!' },
+            { label: translateUi('ui.pages.apps.hrm.payroll.run_payroll_e6657ad6'), active: true },
           ]}
           actionComponent={<HeaderAction />}
         />

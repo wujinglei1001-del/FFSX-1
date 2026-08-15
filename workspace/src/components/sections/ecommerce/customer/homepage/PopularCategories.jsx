@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Container, Link, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { kebabCase } from 'lib/utils';
 import Image from 'components/base/Image';
 
 const PopularCategories = ({ categories }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, py: 5 }}>
       <Container sx={{ px: { xs: 0 }, maxWidth: { xl: 1536, md: 900 } }}>
@@ -14,7 +16,7 @@ const PopularCategories = ({ categories }) => {
             mb: 4,
           }}
         >
-          Popular categories
+          {translateUi('ui.sections.ecommerce.customer.homepage.popular_categories_9e5741df')}
         </Typography>
 
         <Grid
@@ -26,7 +28,7 @@ const PopularCategories = ({ categories }) => {
         >
           {categories.map(({ label, image, url }) => (
             <Grid
-              key={kebabCase(label)}
+              key={image}
               sx={{
                 textAlign: 'center',
               }}

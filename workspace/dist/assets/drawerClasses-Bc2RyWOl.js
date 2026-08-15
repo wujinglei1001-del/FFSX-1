@@ -1,1 +1,0 @@
-import{D as e,E as t}from"./createSimplePaletteValueFilter-CUkqyX6u.js";function n(t){return e(`MuiDrawer`,t)}var r=t(`MuiDrawer`,[`root`,`docked`,`paper`,`anchorLeft`,`anchorRight`,`anchorTop`,`anchorBottom`,`modal`]);export{n,r as t};

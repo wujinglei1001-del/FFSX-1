@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { Swatch, hsvaToHex } from '@uiw/react-color';
 import { defaultColors } from 'data/colorPicker';
@@ -16,6 +17,7 @@ const Checked = (props) => {
 };
 
 const SwatchBox = ({ color, updateHexaColor }) => {
+  const { t: translateUi } = useTranslation();
   const [swatchColors, setSwatchColors] = useState(defaultColors);
 
   const handleSwatchColorChange = (color) => {
@@ -33,7 +35,7 @@ const SwatchBox = ({ color, updateHexaColor }) => {
     <Box sx={{ p: 2 }}>
       <Stack direction="row" sx={{ mb: 1, alignItems: 'center', justifyContent: 'space-between' }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>
-          Swatches
+          {translateUi('ui.components.base.color_picker.swatches_75e5054d')}
         </Typography>
         <Button
           variant="soft"

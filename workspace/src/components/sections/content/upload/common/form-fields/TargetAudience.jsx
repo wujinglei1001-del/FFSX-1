@@ -1,7 +1,9 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { FormControlLabel, FormHelperText, Radio, RadioGroup, Typography } from '@mui/material';
 
 const TargetAudience = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -16,7 +18,7 @@ const TargetAudience = () => {
           mb: 1,
         }}
       >
-        Target Audience
+        {translateUi('ui.sections.content.upload.common.target_audience_5cc6318e')}
       </Typography>
       <Controller
         name="targetAudience"
@@ -24,16 +26,26 @@ const TargetAudience = () => {
         defaultValue="all"
         render={({ field }) => (
           <RadioGroup {...field}>
-            <FormControlLabel value="all" control={<Radio />} label="Suitable for all audiences" />
+            <FormControlLabel
+              value="all"
+              control={<Radio />}
+              label={translateUi(
+                'ui.sections.content.upload.common.suitable_for_all_audiences_0f97d558',
+              )}
+            />
             <FormControlLabel
               value="children"
               control={<Radio />}
-              label="Specifically designed for children"
+              label={translateUi(
+                'ui.sections.content.upload.common.specifically_designed_for_children_43b444d3',
+              )}
             />
             <FormControlLabel
               value="adults"
               control={<Radio />}
-              label="Contains content intended for adults"
+              label={translateUi(
+                'ui.sections.content.upload.common.contains_content_intended_for_adults_3fe75991',
+              )}
             />
           </RadioGroup>
         )}

@@ -1,21 +1,29 @@
+import { useTranslation } from 'react-i18next';
 import { Divider, Stack } from '@mui/material';
 import AccountTabPanelSection from '../common/AccountTabPanelSection';
 import Biometrics from './Biometrics';
 import TouchIdFeatures from './TouchIdFeatures';
 
 const TouchIDTabPanel = () => {
+  const { t: translateUi } = useTranslation();
   return (
     <Stack divider={<Divider />} sx={{ gap: 5 }}>
       <AccountTabPanelSection
-        title="Touch ID"
-        subtitle="Touch ID enables quick login, secure payments, autofill, and seamless user switching for a convenient experience."
+        title={translateUi('ui.sections.account.touch_id.touchidtabpanel.touch_id_54983019')}
+        subtitle={translateUi(
+          'ui.sections.account.touch_id.touchidtabpanel.touch_id_enables_quick_login_secure_payments_autofil_fdbbdfa1',
+        )}
         icon="material-symbols:lock-person-outline"
       >
         <Biometrics />
       </AccountTabPanelSection>
       <AccountTabPanelSection
-        title="Touch ID Features & Settings"
-        subtitle="Enable Touch ID for secure login, payments, autofill, and switching users."
+        title={translateUi(
+          'ui.sections.account.touch_id.touchidtabpanel.touch_id_features_settings_b0b720fe',
+        )}
+        subtitle={translateUi(
+          'ui.sections.account.touch_id.touchidtabpanel.enable_touch_id_for_secure_login_payments_autofill_a_4f9a98f0',
+        )}
         icon="material-symbols:lock-clock-outline"
       >
         <TouchIdFeatures />

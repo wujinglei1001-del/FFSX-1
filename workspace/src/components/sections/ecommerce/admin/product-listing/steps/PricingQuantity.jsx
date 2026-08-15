@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Switch,
   Table,
@@ -32,6 +33,7 @@ export const productPricingSchema = yup.object({
 });
 
 const PricingQuantity = () => {
+  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { fields, replace } = useFieldArray({
     control,
@@ -72,7 +74,12 @@ const PricingQuantity = () => {
 
   return (
     <TableContainer>
-      <Table sx={{ minWidth: 720 }} aria-label="pricing table">
+      <Table
+        sx={{ minWidth: 720 }}
+        aria-label={translateUi(
+          'ui.sections.ecommerce.admin.product_listing.pricing_table_dc8d8859',
+        )}
+      >
         <TableHead>
           <TableRow
             sx={{
@@ -81,12 +88,24 @@ const PricingQuantity = () => {
               },
             }}
           >
-            <TableCell>Variant</TableCell>
-            <TableCell>Quantity</TableCell>
-            <TableCell>Regular pricing</TableCell>
-            <TableCell>Sale price</TableCell>
-            <TableCell>Include tax</TableCell>
-            <TableCell>Tax (%)</TableCell>
+            <TableCell>
+              {translateUi('ui.sections.ecommerce.admin.product_listing.variant_cc91b1ea')}
+            </TableCell>
+            <TableCell>
+              {translateUi('ui.sections.ecommerce.admin.product_listing.quantity_44f6af69')}
+            </TableCell>
+            <TableCell>
+              {translateUi('ui.sections.ecommerce.admin.product_listing.regular_pricing_b476e06e')}
+            </TableCell>
+            <TableCell>
+              {translateUi('ui.sections.ecommerce.admin.product_listing.sale_price_4552eaf4')}
+            </TableCell>
+            <TableCell>
+              {translateUi('ui.sections.ecommerce.admin.product_listing.include_tax_cc111df5')}
+            </TableCell>
+            <TableCell>
+              {translateUi('ui.sections.ecommerce.admin.product_listing.tax_88066d9f')}
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody

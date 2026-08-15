@@ -1,4 +1,5 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   List,
@@ -12,6 +13,7 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { DateField } from '@mui/x-date-pickers';
+import i18n from 'locales/i18n';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -21,27 +23,50 @@ const paymentMethods = [
   {
     id: 'card',
     icon: 'material-symbols:credit-card-outline',
-    title: 'Pay via Card',
-    subtitle: 'Pay with your debit or credit card',
+    get title() {
+      return i18n.t('ui.sections.events.event_detail.main.pay_via_card_dbb485c3');
+    },
+    get subtitle() {
+      return i18n.t(
+        'ui.sections.events.event_detail.main.pay_with_your_debit_or_credit_card_89ccb9b6',
+      );
+    },
   },
   {
     id: 'cod',
     icon: 'material-symbols:payments-outline-rounded',
-    title: 'Cash on delivery',
-    subtitle: 'Pay when you receive your product',
+    get title() {
+      return i18n.t('ui.sections.events.event_detail.main.cash_on_delivery_eda24c69');
+    },
+    get subtitle() {
+      return i18n.t(
+        'ui.sections.events.event_detail.main.pay_when_you_receive_your_product_a1d752d8',
+      );
+    },
   },
 ];
 export const EventPaymentMethodSchema = yup.object().shape({
   method: yup
     .string()
-    .oneOf(['cod', 'card', 'bkash'], 'Please select a valid payment method.')
-    .required('This field is required'),
+    .oneOf(
+      ['cod', 'card', 'bkash'],
+      i18n.t('ui.sections.events.event_detail.main.please_select_a_valid_payment_method_e5cb14f0'),
+    )
+    .required(i18n.t('ui.sections.events.event_detail.main.this_field_is_required_dedbaded')),
   cardDetails: yup
     .object({
-      cardNumber: yup.string().required('This field is required'),
-      name: yup.string().required('This field is required'),
-      expiryDate: yup.string().required('This field is required'),
-      cvc: yup.string().required('This field is required'),
+      cardNumber: yup
+        .string()
+        .required(i18n.t('ui.sections.events.event_detail.main.this_field_is_required_dedbaded')),
+      name: yup
+        .string()
+        .required(i18n.t('ui.sections.events.event_detail.main.this_field_is_required_dedbaded')),
+      expiryDate: yup
+        .string()
+        .required(i18n.t('ui.sections.events.event_detail.main.this_field_is_required_dedbaded')),
+      cvc: yup
+        .string()
+        .required(i18n.t('ui.sections.events.event_detail.main.this_field_is_required_dedbaded')),
     })
     .nullable()
     .when('method', {
@@ -55,6 +80,7 @@ export const EventPaymentMethodSchema = yup.object().shape({
     }),
 });
 const EventPaymentMethod = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     register,
@@ -68,7 +94,9 @@ const EventPaymentMethod = () => {
     <div>
       <Box sx={{ mb: 5 }}>
         <Typography variant="h6" sx={{ mb: 3, lineHeight: 1.5 }}>
-          Please choose a payment method
+          {translateUi(
+            'ui.sections.events.event_detail.main.please_choose_a_payment_method_1e12d895',
+          )}
         </Typography>
 
         <Controller
@@ -131,7 +159,7 @@ const EventPaymentMethod = () => {
               }}
             >
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                Supported cards
+                {translateUi('ui.sections.events.event_detail.main.supported_cards_7ccc3a06')}
               </Typography>
               <Stack
                 direction="row"
@@ -149,7 +177,7 @@ const EventPaymentMethod = () => {
           <Grid size={12}>
             <TextField
               fullWidth
-              label="Card number"
+              label={translateUi('ui.sections.events.event_detail.main.card_number_6747e707')}
               type="text"
               variant="filled"
               error={!!errors.cardDetails?.cardNumber}
@@ -160,7 +188,7 @@ const EventPaymentMethod = () => {
           <Grid size={12}>
             <TextField
               fullWidth
-              label="Full name"
+              label={translateUi('ui.sections.events.event_detail.main.full_name_eeb69208')}
               type="text"
               variant="filled"
               error={!!errors.cardDetails?.name}
@@ -175,7 +203,7 @@ const EventPaymentMethod = () => {
               render={({ field: { onChange } }) => (
                 <DateField
                   fullWidth
-                  label="Expiry date"
+                  label={translateUi('ui.sections.events.event_detail.main.expiry_date_6b440cd5')}
                   format="MM/YY"
                   onChange={(date) => onChange(date?.format('MM/YY'))}
                 />

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -21,6 +22,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const MembersDialog = ({ members, open, handleClose }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Dialog
       open={open}
@@ -60,9 +62,15 @@ const MembersDialog = ({ members, open, handleClose }) => {
                       },
                     })}
                   >
-                    <MenuItem value="Member">Member</MenuItem>
-                    <MenuItem value="Admin">Admin</MenuItem>
-                    <MenuItem value="Guest">Guest</MenuItem>
+                    <MenuItem value="Member">
+                      {translateUi('ui.sections.kanban.kanban.page_header.member_6853c98a')}
+                    </MenuItem>
+                    <MenuItem value="Admin">
+                      {translateUi('ui.sections.kanban.kanban.page_header.admin_4e7afebc')}
+                    </MenuItem>
+                    <MenuItem value="Guest">
+                      {translateUi('ui.sections.kanban.kanban.page_header.guest_face83ee')}
+                    </MenuItem>
                   </StyledTextField>
                   <Button size="small" shape="circle" color="neutral" sx={{ flexShrink: 0 }}>
                     <IconifyIcon icon="material-symbols:close-rounded" fontSize={18} />
@@ -109,10 +117,10 @@ const MembersDialog = ({ members, open, handleClose }) => {
       </DialogContent>
       <DialogActions sx={{ p: 3 }}>
         <Button color="neutral" onClick={handleClose}>
-          Cancel
+          {translateUi('ui.sections.kanban.kanban.page_header.cancel_77dfd213')}
         </Button>
         <Button onClick={handleClose} autoFocus>
-          Confirm
+          {translateUi('ui.sections.kanban.kanban.page_header.confirm_04a21221')}
         </Button>
       </DialogActions>
     </Dialog>

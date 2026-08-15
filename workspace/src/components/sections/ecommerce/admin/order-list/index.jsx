@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Button, IconButton, MenuItem, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useGridApiRef } from '@mui/x-data-grid';
@@ -15,6 +16,7 @@ const emptySelection = {
 };
 
 const OrderListContainer = () => {
+  const { t: translateUi } = useTranslation();
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const [selectionModel, setSelectionModel] = useState(emptySelection);
   const apiRef = useGridApiRef();
@@ -57,11 +59,13 @@ const OrderListContainer = () => {
           }}
         >
           <Button href={'#!'} variant="contained" color="primary" sx={{ flexShrink: 0 }}>
-            Add Order
+            {translateUi('ui.sections.ecommerce.admin.order_list.add_order_29c14ca6')}
           </Button>
 
           <SearchTextField
-            placeholder="Search order"
+            placeholder={translateUi(
+              'ui.sections.ecommerce.admin.order_list.search_order_7f86db03',
+            )}
             fullWidth
             onChange={handleSearch}
             sx={{
@@ -75,9 +79,15 @@ const OrderListContainer = () => {
 
           <Box sx={{ maxWidth: { xs: 200, sm: 150 }, width: 1, ml: 'auto' }}>
             <StyledTextField variant="filled" fullWidth select defaultValue="30days">
-              <MenuItem value="30days">Last 30 days</MenuItem>
-              <MenuItem value="90days">Last 90 days</MenuItem>
-              <MenuItem value="lastYear">Last year</MenuItem>
+              <MenuItem value="30days">
+                {translateUi('ui.sections.ecommerce.admin.order_list.last_30_days_6b329852')}
+              </MenuItem>
+              <MenuItem value="90days">
+                {translateUi('ui.sections.ecommerce.admin.order_list.last_90_days_c328508b')}
+              </MenuItem>
+              <MenuItem value="lastYear">
+                {translateUi('ui.sections.ecommerce.admin.order_list.last_year_3cf4d8d7')}
+              </MenuItem>
             </StyledTextField>
           </Box>
 
@@ -91,7 +101,11 @@ const OrderListContainer = () => {
               sx={{ flexShrink: 0 }}
             >
               <IconifyIcon icon="material-symbols:star-rounded" fontSize={20} />
-              {upLg && <Box component="span">Saved</Box>}
+              {upLg && (
+                <Box component="span">
+                  {translateUi('ui.sections.ecommerce.admin.order_list.saved_c0ae8f6e')}
+                </Box>
+              )}
             </Button>
 
             <Button
@@ -114,7 +128,11 @@ const OrderListContainer = () => {
                   fontSize={'20px !important'}
                 />
               )}
-              {upLg && <Box component="span">More filters</Box>}
+              {upLg && (
+                <Box component="span">
+                  {translateUi('ui.sections.ecommerce.admin.order_list.more_filters_bf7117ef')}
+                </Box>
+              )}
             </Button>
           </Stack>
         </Stack>

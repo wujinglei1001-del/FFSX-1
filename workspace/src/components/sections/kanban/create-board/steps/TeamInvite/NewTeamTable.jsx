@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -17,6 +18,7 @@ import StyledFormControl from 'components/styled/StyledFormControl';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const NewTeamTable = ({ fields, remove }) => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -24,7 +26,12 @@ const NewTeamTable = ({ fields, remove }) => {
 
   return (
     <TableContainer sx={{ ml: 0, pl: 0 }}>
-      <Table aria-label="team management table" className="disable-edge-padding">
+      <Table
+        aria-label={translateUi(
+          'ui.sections.kanban.create_board.steps.team_management_table_c49f9e08',
+        )}
+        className="disable-edge-padding"
+      >
         <TableBody>
           {fields.map((person, index) => (
             <TableRow
@@ -70,7 +77,7 @@ const NewTeamTable = ({ fields, remove }) => {
                       />
                     }
                   >
-                    Invite to Aurora
+                    {translateUi('ui.sections.kanban.create_board.steps.invite_to_aurora_42e21246')}
                   </Button>
                 ) : (
                   <StyledFormControl sx={{ maxWidth: { sm: 120 }, width: 1, textAlign: 'left' }}>
@@ -80,9 +87,15 @@ const NewTeamTable = ({ fields, remove }) => {
                       rules={{ required: true }}
                       render={({ field }) => (
                         <StyledTextField select variant="filled" {...field}>
-                          <MenuItem value="Member">Member</MenuItem>
-                          <MenuItem value="Admin">Admin</MenuItem>
-                          <MenuItem value="Guest">Guest</MenuItem>
+                          <MenuItem value="Member">
+                            {translateUi('ui.sections.kanban.create_board.steps.member_6853c98a')}
+                          </MenuItem>
+                          <MenuItem value="Admin">
+                            {translateUi('ui.sections.kanban.create_board.steps.admin_4e7afebc')}
+                          </MenuItem>
+                          <MenuItem value="Guest">
+                            {translateUi('ui.sections.kanban.create_board.steps.guest_face83ee')}
+                          </MenuItem>
                         </StyledTextField>
                       )}
                     />

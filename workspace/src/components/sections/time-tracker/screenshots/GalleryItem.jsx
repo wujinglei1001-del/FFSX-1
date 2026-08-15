@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Button, Collapse, Grid, Paper, Stack, Typography } from '@mui/material';
 import useLightbox from 'hooks/useLightbox';
 import { secondsToHms } from 'lib/utils';
@@ -6,6 +7,7 @@ import Lightbox from 'components/base/Lightbox';
 import ScreenshotItem from './ScreenshotItem';
 
 const GalleryItem = ({ galleryItem, activeGallery, index, handleActiveGallery }) => {
+  const { t: translateUi } = useTranslation();
   const { openLightbox, ...lightboxProps } = useLightbox();
   const { screenshots, timeRange, workedTime } = galleryItem;
 
@@ -35,7 +37,10 @@ const GalleryItem = ({ galleryItem, activeGallery, index, handleActiveGallery })
             <Stack>
               <Typography sx={{ fontWeight: 700, mb: 0.5 }}>{timeRange}</Typography>
               <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                Worked Time: {secondsToHms(workedTime, true)}
+                {translateUi(
+                  'ui.sections.time_tracker.screenshots.galleryitem.worked_time_d50ea014',
+                )}
+                {secondsToHms(workedTime, true)}
               </Typography>
             </Stack>
             <Button shape="square" color="neutral" onClick={() => handleActiveGallery(index)}>

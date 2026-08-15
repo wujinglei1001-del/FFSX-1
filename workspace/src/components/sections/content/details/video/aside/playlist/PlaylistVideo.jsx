@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Card, CardContent, CardMedia, Chip, Link, Stack, Typography } from '@mui/material';
 import paths from 'routes/paths';
 import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 
 const PlaylistVideo = ({ item }) => {
+  const { t: translateUi } = useTranslation();
   return (
     <Card
       component={Link}
@@ -54,7 +56,8 @@ const PlaylistVideo = ({ item }) => {
             }}
           >
             <Typography variant="caption" sx={{ fontWeight: 'medium', color: 'text.secondary' }}>
-              SN: {item.id}
+              {translateUi('ui.sections.content.details.video.sn_c6b66219')}
+              {item.id}
             </Typography>
             <BookmarkButton size="small" />
           </Stack>

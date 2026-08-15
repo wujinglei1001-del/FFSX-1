@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import Image from 'components/base/Image';
 
 const BlogStory = () => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -24,17 +26,17 @@ const BlogStory = () => {
       </Box>
       <Box id="introduction" sx={{ mb: { xs: 3, mb: 5 } }}>
         <Typography variant="h6" sx={{ mb: 2 }}>
-          Introduction
+          {translateUi('ui.sections.content.details.blog.introduction_2473e96b')}
         </Typography>
         <Typography sx={{ color: 'text.secondary' }}>
-          Architecture is more than just building design; it is a reflection of culture, history,
-          and innovation. From ancient pyramids to futuristic skyscrapers, architecture shapes how
-          we live and interact with our environment.
+          {translateUi(
+            'ui.sections.content.details.blog.architecture_is_more_than_just_building_design_it_is_7bc0e0ab',
+          )}
         </Typography>
       </Box>
       <Box id="evolution" sx={{ mb: { xs: 3, mb: 5 } }}>
         <Typography variant="h6" sx={{ mb: 3 }}>
-          The Evolution of Architecture
+          {translateUi('ui.sections.content.details.blog.the_evolution_of_architecture_3b42d01c')}
         </Typography>
         <Typography
           sx={{
@@ -42,11 +44,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Ancient Civilizations
+          {translateUi('ui.sections.content.details.blog.ancient_civilizations_44bde31f')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Structures like the Egyptian Pyramids and the Greek Parthenon reveal the ingenuity of
-          ancient builders, blending form and function with religious and cultural significance.
+          {translateUi(
+            'ui.sections.content.details.blog.structures_like_the_egyptian_pyramids_and_the_greek__ebb194f9',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -54,11 +57,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Medieval Marvels
+          {translateUi('ui.sections.content.details.blog.medieval_marvels_24363ebf')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Structures like the Egyptian Pyramids and the Greek Parthenon reveal the ingenuity of
-          ancient builders, blending form and function with religious and cultural significance.
+          {translateUi(
+            'ui.sections.content.details.blog.structures_like_the_egyptian_pyramids_and_the_greek__ebb194f9',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -66,24 +70,25 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Modern and Postmodern Designs
+          {translateUi('ui.sections.content.details.blog.modern_and_postmodern_designs_6251743e')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          The 20th century saw the rise of steel and concrete, with architects like Frank Lloyd
-          Wright and Zaha Hadid redefining the urban landscape.
+          {translateUi(
+            'ui.sections.content.details.blog.the_20th_century_saw_the_rise_of_steel_and_concrete__8351b69c',
+          )}
         </Typography>
         <Image
           src={`${assetsDir}/images/content/details/blog/2.webp`}
-          alt="image"
+          alt={translateUi('ui.sections.content.details.blog.image_0e762927')}
           sx={{ objectFit: 'cover', mb: 1, width: 1, height: 460 }}
         />
         <Typography component="p" variant="caption" sx={{ textAlign: 'center' }}>
-          Fig: Image
+          {translateUi('ui.sections.content.details.blog.fig_image_0a2f6eda')}
         </Typography>
       </Box>
       <Box id="principle" sx={{ mb: { xs: 3, mb: 5 } }}>
         <Typography variant="h6" sx={{ mb: 3 }}>
-          Core Principles of Architecture
+          {translateUi('ui.sections.content.details.blog.core_principles_of_architecture_9cfe0d5d')}
         </Typography>
         <Typography
           sx={{
@@ -91,11 +96,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Functionality
+          {translateUi('ui.sections.content.details.blog.functionality_79fde2ac')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          At its core, architecture serves the needs of its users, ensuring spaces are practical and
-          efficient.
+          {translateUi(
+            'ui.sections.content.details.blog.at_its_core_architecture_serves_the_needs_of_its_use_c8d04488',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -103,10 +109,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Aesthetics
+          {translateUi('ui.sections.content.details.blog.aesthetics_e041e120')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Designs evoke emotions, combining symmetry, balance, and innovation to create beauty.
+          {translateUi(
+            'ui.sections.content.details.blog.designs_evoke_emotions_combining_symmetry_balance_an_c94a3eb6',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -114,24 +122,25 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Modern and Postmodern Designs
+          {translateUi('ui.sections.content.details.blog.modern_and_postmodern_designs_6251743e')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          The 20th century saw the rise of steel and concrete, with architects like Frank Lloyd
-          Wright and Zaha Hadid redefining the urban landscape.
+          {translateUi(
+            'ui.sections.content.details.blog.the_20th_century_saw_the_rise_of_steel_and_concrete__8351b69c',
+          )}
         </Typography>
         <Image
           src={`${assetsDir}/images/content/details/blog/3.webp`}
-          alt="image"
+          alt={translateUi('ui.sections.content.details.blog.image_0e762927')}
           sx={{ objectFit: 'cover', mb: 1, width: 1, height: 150 }}
         />
         <Typography component="p" variant="caption" sx={{ textAlign: 'center' }}>
-          Fig: Image
+          {translateUi('ui.sections.content.details.blog.fig_image_0a2f6eda')}
         </Typography>
       </Box>
       <Box id="iconic" sx={{ mb: { xs: 3, mb: 5 } }}>
         <Typography variant="h6" sx={{ mb: 3 }}>
-          Iconic Architectural Styles
+          {translateUi('ui.sections.content.details.blog.iconic_architectural_styles_f194a97d')}
         </Typography>
         <Typography
           sx={{
@@ -139,11 +148,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Gothic
+          {translateUi('ui.sections.content.details.blog.gothic_a4cc20dd')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Known for its pointed arches and ribbed vaults, Gothic architecture symbolizes spiritual
-          aspiration.
+          {translateUi(
+            'ui.sections.content.details.blog.known_for_its_pointed_arches_and_ribbed_vaults_gothi_5fa41e87',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -151,11 +161,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Baroque
+          {translateUi('ui.sections.content.details.blog.baroque_9f853049')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Characterized by grandeur and drama, Baroque designs feature bold ornamentation and
-          dynamic shapes.
+          {translateUi(
+            'ui.sections.content.details.blog.characterized_by_grandeur_and_drama_baroque_designs__9c150d3c',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -163,24 +174,27 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Minimalism
+          {translateUi('ui.sections.content.details.blog.minimalism_8055e9b1')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          “Less is more” defines this style, focusing on simplicity, functionality, and natural
-          materials.
+          {translateUi(
+            'ui.sections.content.details.blog.less_is_more_defines_this_style_focusing_on_simplici_d86a906f',
+          )}
         </Typography>
         <Image
           src={`${assetsDir}/images/content/details/blog/4.webp`}
-          alt="image"
+          alt={translateUi('ui.sections.content.details.blog.image_0e762927')}
           sx={{ objectFit: 'cover', mb: 1, width: 1, height: 300 }}
         />
         <Typography component="p" variant="caption" sx={{ textAlign: 'center' }}>
-          Fig: Image
+          {translateUi('ui.sections.content.details.blog.fig_image_0a2f6eda')}
         </Typography>
       </Box>
       <Box id="role-of-technology" sx={{ mb: { xs: 3, mb: 5 } }}>
         <Typography variant="h6" sx={{ mb: 3 }}>
-          The Role of Technology in Architecture
+          {translateUi(
+            'ui.sections.content.details.blog.the_role_of_technology_in_architecture_dff9ecc7',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -188,11 +202,12 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          3D Printing
+          {translateUi('ui.sections.content.details.blog.3d_printing_f8395fbc')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Architects now create precise models and even full-scale structures using advanced 3D
-          printing techniques.
+          {translateUi(
+            'ui.sections.content.details.blog.architects_now_create_precise_models_and_even_full_s_166feda0',
+          )}
         </Typography>
         <Typography
           sx={{
@@ -200,31 +215,32 @@ const BlogStory = () => {
             mb: 1,
           }}
         >
-          Smart Cities
+          {translateUi('ui.sections.content.details.blog.smart_cities_9e235c16')}
         </Typography>
         <Typography sx={{ mb: 3, color: 'text.secondary' }}>
-          Technology integrates sustainability and efficiency, leading to the creation of "smart
-          buildings" and urban planning innovations.
+          {translateUi(
+            'ui.sections.content.details.blog.technology_integrates_sustainability_and_efficiency__25a60ad5',
+          )}
         </Typography>
       </Box>
       <Box id="future-of-architecture" sx={{ mb: { xs: 3, md: 5 } }}>
         <Typography variant="h6" sx={{ mb: 3 }}>
-          The Future of Architecture
+          {translateUi('ui.sections.content.details.blog.the_future_of_architecture_8b5bed6a')}
         </Typography>
         <Typography sx={{ color: 'text.secondary' }}>
-          The future of architecture lies in adaptive, responsive designs that harness artificial
-          intelligence and prioritize sustainability. Urban spaces will likely evolve into
-          multi-functional hubs, blending nature with advanced technologies.
+          {translateUi(
+            'ui.sections.content.details.blog.the_future_of_architecture_lies_in_adaptive_responsi_43559ff7',
+          )}
         </Typography>
       </Box>
       <Box>
         <Typography variant="h6" sx={{ mb: 3 }} id="conclusion">
-          Conclusion
+          {translateUi('ui.sections.content.details.blog.conclusion_e39262de')}
         </Typography>
         <Typography sx={{ mb: { xs: 3, md: 5 }, color: 'text.secondary' }}>
-          Architecture is an ever-evolving discipline that harmonizes art, science, and technology.
-          By learning from the past and innovating for the future, architects continue to shape the
-          spaces we inhabit and inspire generations to come.
+          {translateUi(
+            'ui.sections.content.details.blog.architecture_is_an_ever_evolving_discipline_that_har_67653373',
+          )}
         </Typography>
       </Box>
     </div>

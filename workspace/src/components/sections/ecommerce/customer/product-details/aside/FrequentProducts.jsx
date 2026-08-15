@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -17,6 +18,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const FrequentProducts = ({ frequentProducts }) => {
+  const { t: translateUi } = useTranslation();
   const { numberFormat, currencyFormat } = useNumberFormat();
 
   return (
@@ -27,7 +29,9 @@ const FrequentProducts = ({ frequentProducts }) => {
           mb: 3,
         }}
       >
-        Frequently bought together with
+        {translateUi(
+          'ui.sections.ecommerce.customer.product_details.frequently_bought_together_with_ca79b6c5',
+        )}
       </Typography>
       <FormGroup sx={{ mb: 5, gap: 2 }}>
         {frequentProducts.map(({ id, images, name, ratings, sold, price }) => (
@@ -130,7 +134,8 @@ const FrequentProducts = ({ frequentProducts }) => {
                       color: 'text.secondary',
                     }}
                   >
-                    ({numberFormat(sold)} sold)
+                    ({numberFormat(sold)}
+                    {translateUi('ui.sections.ecommerce.customer.product_details.sold_01d2e75b')}
                   </Typography>
                 </Stack>
               </Stack>
@@ -145,7 +150,9 @@ const FrequentProducts = ({ frequentProducts }) => {
           endIcon={<IconifyIcon icon="material-symbols:chevron-right-rounded" />}
           sx={{ borderRadius: 10 }}
         >
-          Show similar products
+          {translateUi(
+            'ui.sections.ecommerce.customer.product_details.show_similar_products_2ba4c9ab',
+          )}
         </Button>
       </Divider>
     </div>

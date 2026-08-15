@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   AvatarGroup,
@@ -13,6 +14,7 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const MeetingCard = ({ meeting }) => {
+  const { t: translateUi } = useTranslation();
   const { id, title, date, time, status, attendants, joinMeetLink } = meeting;
 
   return (
@@ -98,14 +100,14 @@ const MeetingCard = ({ meeting }) => {
             }
             href={joinMeetLink}
           >
-            Join
+            {translateUi('ui.sections.dashboards.project.schedule_meeting.join_e0d73143')}
           </Button>
         ) : (
           <Button
             variant="soft"
             startIcon={<IconifyIcon icon="material-symbols:alarm-outline" height={20} width={20} />}
           >
-            Notify Me
+            {translateUi('ui.sections.dashboards.project.schedule_meeting.notify_me_c3f30bf0')}
           </Button>
         )}
       </Stack>

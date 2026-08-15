@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import { SET_PRIMARY_COLOR } from 'reducers/SettingsReducer';
@@ -6,6 +7,7 @@ import { COLOR_GROUPS } from 'theme/primaryColorOverride';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PrimaryColorPicker = ({ variant = 'default' }) => {
+  const { t: translateUi } = useTranslation();
   const { config, configDispatch } = useSettingsContext();
 
   const primarySwatches = useMemo(() => Array.from(new Set(COLOR_GROUPS.map((g) => g.main))), []);
@@ -35,7 +37,7 @@ const PrimaryColorPicker = ({ variant = 'default' }) => {
           minWidth: 100,
         }}
       >
-        Primary Color
+        {translateUi('ui.components.settings_panel.theme_preset.primary_color_d3dcce7d')}
       </Typography>
       <Box
         sx={{

@@ -1,4 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Autocomplete, Checkbox, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 
@@ -18,6 +19,7 @@ const TOPIC_OPTIONS = [
 ];
 
 const Topics = () => {
+  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -32,7 +34,7 @@ const Topics = () => {
           mb: 1,
         }}
       >
-        Topics
+        {translateUi('ui.sections.content.upload.media.topics_07e4f9c2')}
       </Typography>
       <Controller
         name="topics"
@@ -68,7 +70,7 @@ const Topics = () => {
             renderInput={(params) => (
               <StyledTextField
                 {...params}
-                placeholder="Select"
+                placeholder={translateUi('ui.sections.content.upload.media.select_85982229')}
                 error={!!errors.topics}
                 helperText={errors.topics?.message}
               />

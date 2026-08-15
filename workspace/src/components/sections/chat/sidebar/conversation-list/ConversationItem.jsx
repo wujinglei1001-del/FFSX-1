@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import {
   ListItemAvatar,
@@ -59,6 +60,7 @@ const getLastMessageText = (lastMessage, recipientName) => {
 };
 
 const ConversationItem = ({ conversation }) => {
+  const { t: translateUi } = useTranslation();
   const { handleChatSidebar } = useChatContext();
   const { conversationId } = useParams();
   const { only } = useBreakpoints();
@@ -173,7 +175,7 @@ const ConversationItem = ({ conversation }) => {
                     color: 'text.primary',
                   }}
                 >
-                  you:{' '}
+                  {translateUi('ui.sections.chat.sidebar.conversation_list.you_47aa08ee')}{' '}
                 </Typography>
               )}
               {getLastMessageText(lastMessage, recipientName)}

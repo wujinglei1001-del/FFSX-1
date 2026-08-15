@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Chip,
@@ -24,6 +25,7 @@ const getTotalPrice = (subtotal, vat, discount, shippingCost) => {
   return taxableAmount + taxAmount + shippingCost;
 };
 const InvoiceTable = ({ invoice }) => {
+  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { itemDetails } = invoice;
   const subTotal = useMemo(() => {
@@ -39,10 +41,16 @@ const InvoiceTable = ({ invoice }) => {
         direction="row"
         sx={{ justifyContent: 'space-between', alignItems: { md: 'flex-end' }, gap: 2, mb: 4 }}
       >
-        <Image src={invoice.organizationImage?.file} alt="logo" width={144} height={72} />
+        <Image
+          src={invoice.organizationImage?.file}
+          alt={translateUi('ui.sections.invoice.invoice_preview.invoicetable.logo_5807dd60')}
+          width={144}
+          height={72}
+        />
         <Box sx={{ textAlign: 'end' }}>
           <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-            Amount: {currencyFormat(invoice.invoiceDetails.amount)}
+            {translateUi('ui.sections.invoice.invoice_preview.invoicetable.amount_281473c4')}
+            {currencyFormat(invoice.invoiceDetails.amount)}
           </Typography>
           <Chip
             variant="soft"
@@ -63,7 +71,9 @@ const InvoiceTable = ({ invoice }) => {
         <Grid container spacing={{ xs: 3, md: 5, lg: 8 }}>
           <Grid size={{ xs: 6 }}>
             <RecipientCard
-              title="Invoice form"
+              title={translateUi(
+                'ui.sections.invoice.invoice_preview.invoicetable.invoice_form_0a2be27f',
+              )}
               data={invoice.invoiceFrom}
               editButton={false}
               sxProps={{ color: 'text.secondary' }}
@@ -71,7 +81,9 @@ const InvoiceTable = ({ invoice }) => {
           </Grid>
           <Grid size={{ xs: 6 }}>
             <RecipientCard
-              title="Invoice To"
+              title={translateUi(
+                'ui.sections.invoice.invoice_preview.invoicetable.invoice_to_6aab5f7e',
+              )}
               data={invoice.invoiceTo}
               editButton={false}
               sxProps={{ color: 'text.secondary' }}
@@ -85,7 +97,13 @@ const InvoiceTable = ({ invoice }) => {
           mb: 4,
         }}
       >
-        <Table sx={{ minWidth: 800 }} stickyHeader aria-label="spanning table">
+        <Table
+          sx={{ minWidth: 800 }}
+          stickyHeader
+          aria-label={translateUi(
+            'ui.sections.invoice.invoice_preview.invoicetable.spanning_table_8063695e',
+          )}
+        >
           <TableHead>
             <TableRow
               sx={{
@@ -100,11 +118,25 @@ const InvoiceTable = ({ invoice }) => {
                 },
               }}
             >
-              <TableCell>Item type</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell align="right">Quantity</TableCell>
-              <TableCell align="right">Unit Price</TableCell>
-              <TableCell align="right">Total</TableCell>
+              <TableCell>
+                {translateUi('ui.sections.invoice.invoice_preview.invoicetable.item_type_9ddc15fd')}
+              </TableCell>
+              <TableCell>
+                {translateUi(
+                  'ui.sections.invoice.invoice_preview.invoicetable.description_55f8ebc8',
+                )}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.invoice.invoice_preview.invoicetable.quantity_44f6af69')}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi(
+                  'ui.sections.invoice.invoice_preview.invoicetable.unit_price_1eea68d0',
+                )}
+              </TableCell>
+              <TableCell align="right">
+                {translateUi('ui.sections.invoice.invoice_preview.invoicetable.total_b25928c6')}
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody
@@ -145,7 +177,7 @@ const InvoiceTable = ({ invoice }) => {
               }}
             >
               <TableCell colSpan={4} align="right">
-                Subtotal
+                {translateUi('ui.sections.invoice.invoice_preview.invoicetable.subtotal_97f7359e')}
               </TableCell>
               <TableCell align="right">{currencyFormat(subTotal)}</TableCell>
             </TableRow>
@@ -160,7 +192,9 @@ const InvoiceTable = ({ invoice }) => {
             >
               <TableCell align="right" colSpan={4}>
                 <Typography variant="body2" sx={{ color: 'error.main' }}>
-                  Discount
+                  {translateUi(
+                    'ui.sections.invoice.invoice_preview.invoicetable.discount_b524936d',
+                  )}
                 </Typography>
               </TableCell>
               <TableCell align="right">
@@ -182,7 +216,9 @@ const InvoiceTable = ({ invoice }) => {
               }}
             >
               <TableCell align="right" colSpan={4}>
-                <Typography variant="body2">Tax</Typography>
+                <Typography variant="body2">
+                  {translateUi('ui.sections.invoice.invoice_preview.invoicetable.tax_9be70f66')}
+                </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
@@ -198,7 +234,11 @@ const InvoiceTable = ({ invoice }) => {
               }}
             >
               <TableCell align="right" colSpan={4}>
-                <Typography variant="body2">Shipping cost</Typography>
+                <Typography variant="body2">
+                  {translateUi(
+                    'ui.sections.invoice.invoice_preview.invoicetable.shipping_cost_3ff0465a',
+                  )}
+                </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
@@ -214,7 +254,11 @@ const InvoiceTable = ({ invoice }) => {
               }}
             >
               <TableCell align="right" colSpan={4}>
-                <Typography variant="body2">Total amount</Typography>
+                <Typography variant="body2">
+                  {translateUi(
+                    'ui.sections.invoice.invoice_preview.invoicetable.total_amount_c1ed4a16',
+                  )}
+                </Typography>
               </TableCell>
               <TableCell align="right">
                 <Typography variant="subtitle2" sx={{ color: 'text.primary', fontWeight: 700 }}>
@@ -234,17 +278,20 @@ const InvoiceTable = ({ invoice }) => {
       </TableContainer>
       <Stack sx={{ gap: 1, mb: 4 }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          Notes
+          {translateUi('ui.sections.invoice.invoice_preview.invoicetable.notes_70440046')}
         </Typography>
         <Typography variant="body2">{invoice.note}</Typography>
       </Stack>
       <Paper variant="elevation" elevation={0} background={1} sx={{ py: 1, textAlign: 'center' }}>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Creating with{' '}
+          {translateUi('ui.sections.invoice.invoice_preview.invoicetable.creating_with_9b7444e1')}{' '}
           <Typography component="span" sx={{ fontWeight: 700, color: 'text.secondary' }}>
-            Aurora{' '}
+            {translateUi('ui.sections.invoice.invoice_preview.invoicetable.aurora_eeee9b76')}{' '}
           </Typography>
-          | 2025 &copy; <Link href="https://themewagon.com/">ThemeWagon</Link>
+          | 2025 &copy;{' '}
+          <Link href="https://themewagon.com/">
+            {translateUi('ui.sections.invoice.invoice_preview.invoicetable.themewagon_42a442ab')}
+          </Link>
         </Typography>
       </Paper>
     </>

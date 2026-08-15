@@ -3,17 +3,22 @@ import { Grow } from '@mui/material';
 import Button from '@mui/material/Button';
 import Menu, { menuClasses } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const menuItems = [
   {
     id: 1,
-    label: 'Share',
+    get label() {
+      return i18n.t('ui.sections.kanban.boards.boards_slider.share_09ca55ca');
+    },
   },
   {
     id: 2,
-    label: 'Delete',
+    get label() {
+      return i18n.t('ui.sections.kanban.boards.boards_slider.delete_f6fdbe48');
+    },
   },
 ];
 

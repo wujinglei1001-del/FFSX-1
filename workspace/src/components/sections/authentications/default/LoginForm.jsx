@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Alert,
@@ -13,6 +14,7 @@ import {
   Typography,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import PasswordTextField from 'components/common/PasswordTextField';
 import DefaultCredentialAlert from '../common/DefaultCredentialAlert';
@@ -23,9 +25,19 @@ const schema = yup
   .object({
     email: yup
       .string()
-      .email('Please provide a valid email address.')
-      .required('This field is required'),
-    password: yup.string().required('This field is required'),
+      .email(
+        i18n.t(
+          'ui.sections.authentications.default.loginform.please_provide_a_valid_email_address_09016875',
+        ),
+      )
+      .required(
+        i18n.t('ui.sections.authentications.default.loginform.this_field_is_required_dedbaded'),
+      ),
+    password: yup
+      .string()
+      .required(
+        i18n.t('ui.sections.authentications.default.loginform.this_field_is_required_dedbaded'),
+      ),
   })
   .required();
 
@@ -38,6 +50,7 @@ const LoginForm = ({
   rememberDevice = true,
   defaultCredential,
 }) => {
+  const { t: translateUi } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -92,16 +105,20 @@ const LoginForm = ({
               alignItems: { xs: 'flex-start', sm: 'flex-end' },
             }}
           >
-            <Typography variant="h4">Log in</Typography>
+            <Typography variant="h4">
+              {translateUi('ui.sections.authentications.default.loginform.log_in_f7c400ed')}
+            </Typography>
             <Typography
               variant="subtitle2"
               sx={{
                 color: 'text.secondary',
               }}
             >
-              Don&apos;t have an account?
+              {translateUi(
+                'ui.sections.authentications.default.loginform.don_t_have_an_account_f838dc11',
+              )}
               <Link href={signUpLink} sx={{ ml: 1 }}>
-                Sign up
+                {translateUi('ui.sections.authentications.default.loginform.sign_up_0b81497c')}
               </Link>
             </Typography>
           </Stack>
@@ -112,7 +129,9 @@ const LoginForm = ({
               <SocialAuth />
             </Grid>
             <Grid size={12}>
-              <Divider sx={{ color: 'text.secondary' }}>or use email</Divider>
+              <Divider sx={{ color: 'text.secondary' }}>
+                {translateUi('ui.sections.authentications.default.loginform.or_use_email_be1bca91')}
+              </Divider>
             </Grid>
           </>
         )}
@@ -137,7 +156,9 @@ const LoginForm = ({
                   size="large"
                   id="email"
                   type="email"
-                  label="Email"
+                  label={translateUi(
+                    'ui.sections.authentications.default.loginform.email_84add5b2',
+                  )}
                   defaultValue={defaultCredential?.email}
                   error={!!errors.email}
                   helperText={<>{errors.email?.message}</>}
@@ -154,7 +175,9 @@ const LoginForm = ({
                   fullWidth
                   size="large"
                   id="password"
-                  label="Password"
+                  label={translateUi(
+                    'ui.sections.authentications.default.loginform.password_8be3c943',
+                  )}
                   defaultValue={defaultCredential?.password}
                   error={!!errors.password}
                   helperText={<>{errors.password?.message}</>}
@@ -185,7 +208,9 @@ const LoginForm = ({
                             color: 'text.secondary',
                           }}
                         >
-                          Remember this device
+                          {translateUi(
+                            'ui.sections.authentications.default.loginform.remember_this_device_e495443b',
+                          )}
                         </Typography>
                       }
                     />
@@ -193,7 +218,9 @@ const LoginForm = ({
 
                   {forgotPasswordLink && (
                     <Link href={forgotPasswordLink} variant="subtitle2">
-                      Forgot Password?
+                      {translateUi(
+                        'ui.sections.authentications.default.loginform.forgot_password_1cc8d181',
+                      )}
                     </Link>
                   )}
                 </Stack>
@@ -206,7 +233,7 @@ const LoginForm = ({
                   variant="contained"
                   loading={isSubmitting}
                 >
-                  Log in
+                  {translateUi('ui.sections.authentications.default.loginform.log_in_f7c400ed')}
                 </Button>
               </Grid>
             </Grid>
@@ -214,7 +241,7 @@ const LoginForm = ({
         </Grid>
       </Grid>
       <Link href="#!" variant="subtitle2">
-        Trouble signing in?
+        {translateUi('ui.sections.authentications.default.loginform.trouble_signing_in_363e4476')}
       </Link>
     </Stack>
   );

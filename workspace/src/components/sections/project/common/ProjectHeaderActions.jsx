@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Box,
   Divider,
@@ -12,6 +13,7 @@ import {
   Tooltip,
 } from '@mui/material';
 import Button from '@mui/material/Button';
+import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import InviteDialog from 'components/common/InviteDialog';
@@ -21,30 +23,53 @@ import FilterDialog from './FilterDialog';
 import { useProjectHeaderToolbarLayout } from './ProjectHeaderToolbarContext';
 
 const timelineViewOptions = [
-  { value: 'dayGridMonth', label: 'Month View' },
-  { value: 'timeGridWeek', label: 'Week View' },
-  { value: 'timeGridDay', label: 'Day View' },
+  {
+    value: 'dayGridMonth',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.month_view_74068d20');
+    },
+  },
+  {
+    value: 'timeGridWeek',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.week_view_6e5b7047');
+    },
+  },
+  {
+    value: 'timeGridDay',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.day_view_a0233b62');
+    },
+  },
 ];
 
 const bottomToolbarActions = [
   {
     key: 'duplicate',
-    label: 'Duplicate',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.duplicate_972d5737');
+    },
     icon: 'material-symbols:content-copy-outline-rounded',
   },
   {
     key: 'export',
-    label: 'Export',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.export_f3e4fadb');
+    },
     icon: 'material-symbols:file-export-outline-rounded',
   },
   {
     key: 'archive',
-    label: 'Archive',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.archive_2621c6fd');
+    },
     icon: 'material-symbols:archive-outline-rounded',
   },
   {
     key: 'delete',
-    label: 'Delete',
+    get label() {
+      return i18n.t('ui.sections.project.common.projectheaderactions.delete_f6fdbe48');
+    },
     icon: 'material-symbols:delete-outline-rounded',
   },
 ];
@@ -113,13 +138,14 @@ const ResponsiveActionButton = ({ label, icon, onClick, upXl, iconSx }) => {
 };
 
 const ProjectFilterAction = ({ upXl, sx }) => {
+  const { t: translateUi } = useTranslation();
   const [filterDialogOpen, setFilterDialogOpen] = useState(false);
 
   return (
     <>
       <Box sx={sx}>
         <ResponsiveActionButton
-          label="Filter"
+          label={translateUi('ui.sections.project.common.projectheaderactions.filter_d7decf1a')}
           icon="material-symbols:filter-list-rounded"
           onClick={() => setFilterDialogOpen(true)}
           upXl={upXl}
@@ -157,6 +183,7 @@ const ProjectMembersBar = ({ onInvite }) => {
 };
 
 export const ProjectTopRightActions = ({ onInvite, onShare }) => {
+  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
   const shareIcon = <IconifyIcon icon="material-symbols:share-outline" sx={{ fontSize: 20 }} />;
@@ -182,7 +209,10 @@ export const ProjectTopRightActions = ({ onInvite, onShare }) => {
           ml: upMd ? undefined : 'auto',
         }}
       >
-        <Tooltip title="Share" disableHoverListener={upMd}>
+        <Tooltip
+          title={translateUi('ui.sections.project.common.projectheaderactions.share_09ca55ca')}
+          disableHoverListener={upMd}
+        >
           <Button
             color="neutral"
             variant="soft"

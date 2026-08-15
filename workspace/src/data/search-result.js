@@ -1,4 +1,5 @@
 import { initialConfig } from 'config';
+import i18n from 'locales/i18n';
 import { users } from './users';
 
 export const files = [
@@ -13,7 +14,11 @@ export const files = [
     image: `${initialConfig.assetsDir}/images/ecommerce/products/96x96/3.webp`,
   },
   {
-    name: 'How_to_not_click_on_perfectly_innocent_looking_links_and_download_malware.pdf',
+    get name() {
+      return i18n.t(
+        'ui.data.search_result.how_to_not_click_on_perfectly_innocent_looking_links_ab207acf',
+      );
+    },
     path: ':: files / Download /',
     icon: 'material-symbols:picture-as-pdf-outline-rounded',
   },
@@ -57,41 +62,57 @@ export const tags = [
 export const breadcrumbs = [
   [
     {
-      label: 'App',
+      get label() {
+        return i18n.t('ui.data.search_result.app_fc4a695f');
+      },
       href: '#!',
     },
     {
-      label: 'E-commerce',
+      get label() {
+        return i18n.t('ui.data.search_result.e_commerce_c991b729');
+      },
       href: '#!',
     },
     {
-      label: 'Customers',
+      get label() {
+        return i18n.t('ui.data.search_result.customers_035eae60');
+      },
       href: '#!',
     },
     {
-      label: 'Create new',
-      href: '#!',
-      active: true,
-    },
-  ],
-  [
-    {
-      label: 'Homepage',
-      href: '#!',
-    },
-    {
-      label: 'E-commerce',
+      get label() {
+        return i18n.t('ui.data.search_result.create_new_54770339');
+      },
       href: '#!',
       active: true,
     },
   ],
   [
     {
-      label: 'Pages',
+      get label() {
+        return i18n.t('ui.data.search_result.homepage_ac066591');
+      },
       href: '#!',
     },
     {
-      label: 'Starter',
+      get label() {
+        return i18n.t('ui.data.search_result.e_commerce_c991b729');
+      },
+      href: '#!',
+      active: true,
+    },
+  ],
+  [
+    {
+      get label() {
+        return i18n.t('ui.data.search_result.pages_600584c2');
+      },
+      href: '#!',
+    },
+    {
+      get label() {
+        return i18n.t('ui.data.search_result.starter_438226dc');
+      },
       href: '#!',
       active: true,
     },

@@ -1,20 +1,43 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { leadSoursesData } from 'data/crm/dashboard';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
+import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import SectionHeader from 'components/common/SectionHeader';
 import LeadSourcesChart from './LeadSourcesChart';
 
 const chartLegends = [
-  { label: 'Organic', color: 'chBlue.400' },
-  { label: 'Marketing', color: 'chOrange.400' },
-  { label: 'Social media', color: 'chLightBlue.300' },
-  { label: 'Blog posts', color: 'chGreen.400' },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.crm.lead_sources.organic_82f86eb9');
+    },
+    color: 'chBlue.400',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.crm.lead_sources.marketing_e0c534a0');
+    },
+    color: 'chOrange.400',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.crm.lead_sources.social_media_7e89cf43');
+    },
+    color: 'chLightBlue.300',
+  },
+  {
+    get label() {
+      return i18n.t('ui.sections.dashboards.crm.lead_sources.blog_posts_7fef20e1');
+    },
+    color: 'chGreen.400',
+  },
 ];
 
 const LeadSources = () => {
+  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
 
@@ -26,7 +49,7 @@ const LeadSources = () => {
         }}
       >
         <SectionHeader
-          title="Lead Sources"
+          title={translateUi('ui.sections.dashboards.crm.lead_sources.lead_sources_00d1de19')}
           subTitle="Ratio of generated leads"
           actionComponent={<DashboardMenu />}
           sx={{ mb: 0, flex: 1 }}

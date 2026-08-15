@@ -1,0 +1,1 @@
+import{a as e}from"./i18nInstance-truXiXW9.js";import{t}from"./Paper-DlnJAYKQ.js";var n=e(),r=({sx:e,...r})=>(0,n.jsx)(t,{component:`section`,sx:[{padding:{xs:3,md:5},height:1},...Array.isArray(e)?e:[e]],...r});export{r as t};

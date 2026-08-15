@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Collapse, IconButton, Paper, Stack, Typography } from '@mui/material';
 import { videos } from 'data/content/video';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -9,6 +10,7 @@ import PlaylistVideo from './PlaylistVideo';
 const playlistItems = videos.filter((item) => item.type === 'playlist');
 
 const VideoPlaylist = ({ togglePlaylist }) => {
+  const { t: translateUi } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(true);
   const { up } = useBreakpoints();
 
@@ -44,7 +46,7 @@ const VideoPlaylist = ({ togglePlaylist }) => {
         sx={{ gap: 2, alignItems: 'center', justifyContent: 'space-between', px: 2 }}
       >
         <Typography variant="h6">
-          Playlist
+          {translateUi('ui.sections.content.details.video.playlist_cd95b41f')}
           <Typography
             component="span"
             variant="body1"
@@ -53,7 +55,7 @@ const VideoPlaylist = ({ togglePlaylist }) => {
               ml: 1,
             }}
           >
-            (120 videos)
+            {translateUi('ui.sections.content.details.video.120_videos_f34cd6b7')}
           </Typography>
         </Typography>
 

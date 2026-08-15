@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Container, Grid, Stack, Tab, Typography } from '@mui/material';
 import bg from 'assets/images/background/4.webp';
 import { useThemeMode } from 'hooks/useThemeMode';
+import i18n from 'locales/i18n';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import RevealImage from '../common/RevealImage';
 import SectionHeader from '../common/SectionHeader';
@@ -13,53 +15,53 @@ const tabContent = (
       gap: 2,
     }}
   >
-    <Typography variant="h6">Our Goal</Typography>
-
-    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      We believe a connected team is a powerful asset, no matter their location. Our mission is to
-      empower remote teams with the tools and insights they need to collaborate seamlessly, stay
-      productive, and reach their full potential. We are dedicated to breaking down barriers and
-      fostering a work environment where every individual feels supported and engaged.
+    <Typography variant="h6">
+      {i18n.t('ui.sections.landing.about_us.ourmission.our_goal_cbcdc20b')}
     </Typography>
 
     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      Our approach goes beyond providing simple software. We are focused on helping you build a
-      strong foundation of communication and trust. We believe that by enabling a more fluid and
-      efficient way of working, we can help you unlock a level of collaboration and innovation that
-      was once only possible in a physical office.
+      {i18n.t(
+        'ui.sections.landing.about_us.ourmission.we_believe_a_connected_team_is_a_powerful_asset_no_m_8ced9b5a',
+      )}
     </Typography>
 
     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      We are committed to helping you navigate the complexities of remote work. Our tools integrate
-      effortlessly into your existing workflows, and we offer dedicated support to ensure your
-      team's success. Because every business is unique, we provide flexible, customizable solutions
-      tailored to your specific needs.
+      {i18n.t(
+        'ui.sections.landing.about_us.ourmission.our_approach_goes_beyond_providing_simple_software_w_ba27d6f9',
+      )}
     </Typography>
 
     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      Ultimately, when your team thrives, your business thrives. Our goal is to be your partner in
-      building a resilient, high-performing team that is ready for the future of work.
-    </Typography>
-
-    <Typography variant="h6">We are here for your needs!</Typography>
-
-    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      We understand that the demands of the modern workplace require a partner who gets it. We've
-      built our platform to be your go-to resource for all things remote work. Our solutions are
-      designed to address your specific needs, whether you're solving complex communication issues,
-      optimizing collaboration, or simply making daily tasks easier for your team.
+      {i18n.t(
+        'ui.sections.landing.about_us.ourmission.we_are_committed_to_helping_you_navigate_the_complex_2da5e207',
+      )}
     </Typography>
 
     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      We are not merely a software provider; we see ourselves as your strategic ally in cultivating
-      a dynamic, efficient, and future-ready remote team. Our commitment goes beyond just offering
-      tools; we provide ongoing support and a steadfast dedication to your success. This ensures
-      that you can tackle any challenge with confidence. Our mission is to empower you in creating a
-      high-performing and satisfied workforce that thrives in today’s ever-evolving landscape.
+      {i18n.t(
+        'ui.sections.landing.about_us.ourmission.ultimately_when_your_team_thrives_your_business_thri_0e2b701c',
+      )}
+    </Typography>
+
+    <Typography variant="h6">
+      {i18n.t('ui.sections.landing.about_us.ourmission.we_are_here_for_your_needs_f5df1a8e')}
+    </Typography>
+
+    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+      {i18n.t(
+        'ui.sections.landing.about_us.ourmission.we_understand_that_the_demands_of_the_modern_workpla_184e7314',
+      )}
+    </Typography>
+
+    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+      {i18n.t(
+        'ui.sections.landing.about_us.ourmission.we_are_not_merely_a_software_provider_we_see_ourselv_27f8b0f2',
+      )}
     </Typography>
   </Stack>
 );
 const OurMission = ({ sx }) => {
+  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -113,16 +115,33 @@ const OurMission = ({ sx }) => {
               }}
             >
               <SectionHeader
-                subtitle="On a mission to empower remote teams"
-                title="MORE ABOUT US"
+                subtitle={translateUi(
+                  'ui.sections.landing.about_us.ourmission.on_a_mission_to_empower_remote_teams_1918e7ce',
+                )}
+                title={translateUi(
+                  'ui.sections.landing.about_us.ourmission.more_about_us_a948eeb6',
+                )}
                 sx={{ textAlign: { xs: 'center', md: 'left' }, mb: 5 }}
               />
 
               <TabContext value={value}>
                 <TabList onChange={handleChange}>
-                  <Tab label="Our goal" value="1" />
-                  <Tab label="Our approach" value="2" />
-                  <Tab label="Our strength" value="3" />
+                  <Tab
+                    label={translateUi('ui.sections.landing.about_us.ourmission.our_goal_042bf01a')}
+                    value="1"
+                  />
+                  <Tab
+                    label={translateUi(
+                      'ui.sections.landing.about_us.ourmission.our_approach_f09011b0',
+                    )}
+                    value="2"
+                  />
+                  <Tab
+                    label={translateUi(
+                      'ui.sections.landing.about_us.ourmission.our_strength_a8c57bd5',
+                    )}
+                    value="3"
+                  />
                 </TabList>
                 <TabPanel value="1" sx={{ px: 0 }}>
                   {tabContent}

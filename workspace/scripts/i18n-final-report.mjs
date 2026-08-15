@@ -7,6 +7,7 @@ import path from 'node:path';
 const reportDir = process.argv[2];
 if (!reportDir) throw new Error('Usage: node scripts/i18n-final-report.mjs <report-directory>');
 const verifiedRemoteSha = process.argv[3] || '';
+const comparisonBase = process.argv[4] || 'HEAD^';
 
 const repoRoot = execFileSync('git', ['rev-parse', '--show-toplevel'], {
   cwd: process.cwd(),
@@ -25,9 +26,10 @@ const statusOutput = execFileSync(
   [
     '-c',
     'core.quotePath=false',
-    'status',
-    '--porcelain=v1',
-    '--untracked-files=all',
+    'diff',
+    '--name-status',
+    '--no-renames',
+    `${comparisonBase}..${localSha}`,
     '--',
     'workspace',
   ],
@@ -37,7 +39,10 @@ const statusOutput = execFileSync(
 const entries = statusOutput
   .split(/\r?\n/)
   .filter(Boolean)
-  .map((line) => ({ status: line.slice(0, 2), path: line.slice(3) }));
+  .map((line) => {
+    const [status, ...pathParts] = line.split('\t');
+    return { status, path: pathParts.at(-1) };
+  });
 const sourceEntries = entries.filter(({ path: filePath }) => filePath.startsWith('workspace/src/'));
 const distEntries = entries.filter(({ path: filePath }) => filePath.startsWith('workspace/dist/'));
 const scriptEntries = entries.filter(({ path: filePath }) =>
@@ -74,6 +79,7 @@ const report = {
   generatedAt: new Date().toISOString(),
   repository: repoRoot,
   scope: 'workspace',
+  comparisonBase,
   backupCoverage: { trackedModifiedSourceFiles: 1031, backedUpOriginals: 1031, missing: 0 },
   fileCounts: {
     workspace: counts(entries),

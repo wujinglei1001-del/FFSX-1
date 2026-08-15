@@ -1,4 +1,4 @@
-import { Avatar, Box, LinearProgress, Paper, Stack, Typography } from '@mui/material';
+import { Avatar, Box, LinearProgress, Link, Paper, Stack, Typography } from '@mui/material';
 import { secondsToHms } from 'lib/utils';
 
 const SiteDataCard = ({ data }) => {
@@ -16,9 +16,9 @@ const SiteDataCard = ({ data }) => {
               sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
             >
               Link:{' '}
-              <Box component="span" sx={{ fontWeight: 400 }}>
+              <Link href={data.link} target="_blank" sx={{ fontWeight: 400 }}>
                 {data.link}
-              </Box>
+              </Link>
             </Typography>
           </Box>
         </Stack>

@@ -1,6 +1,5 @@
 import { Paper } from '@mui/material';
 import EngagementMap from './EngagementMap';
-import EngagementPreview from './EngagementPreview';
 
 const RealtimeEngagement = ({ data }) => {
   return (
@@ -14,8 +13,6 @@ const RealtimeEngagement = ({ data }) => {
           height: { xs: '720px !important', md: '480px !important' },
         }}
       />
-
-      <EngagementPreview />
     </Paper>
   );
 };

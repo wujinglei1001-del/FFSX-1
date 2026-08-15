@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { Box, Container, Stack } from '@mui/material';
-import { showcaseAssets } from 'data/showcase';
+import { figmaPreviewLink, showcaseAssets } from 'data/showcase';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -62,7 +62,9 @@ const FigmaCTA = () => {
         </RevealText>
 
         <RevealOnScroll delay={0.4}>
-          <GradientButton>Preview in Figma</GradientButton>
+          <GradientButton href={figmaPreviewLink} target="_blank" rel="noopener noreferrer">
+            Preview in Figma
+          </GradientButton>
         </RevealOnScroll>
       </Stack>
       <Box

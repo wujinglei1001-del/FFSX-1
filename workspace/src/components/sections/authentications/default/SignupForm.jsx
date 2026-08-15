@@ -62,7 +62,7 @@ const SignupForm = ({ provider = 'jwt', handleSignup, socialAuth = true, loginLi
       >
         {provider === 'firebase' && import.meta.env.VITE_BUILD_MODE === 'production' && (
           <Grid size={12} sx={{ mb: 1 }}>
-            <ViewOnlyAlert />
+            <ViewOnlyAlert docLink="https://aurora.themewagon.com/documentation/authentication#firebase" />
           </Grid>
         )}
         <Grid size={12}>

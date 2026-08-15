@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 import { footerNavItems } from 'data/showcase';
 import RevealText from '../../common/RevealText';
 
@@ -22,19 +22,28 @@ const ShowcaseFooter = () => {
           }}
         >
           Brought to you by{' '}
-          <Box component="span" sx={{ color: 'inherit', fontWeight: 700 }}>
-            FFA-X
-          </Box>{' '}
+          <Link
+            href="https://themewagon.com/"
+            target="_blank"
+            sx={{ color: 'inherit', fontWeight: 700 }}
+          >
+            ThemeWagon
+          </Link>{' '}
           💚
         </Typography>
       </RevealText>
 
       <Stack direction="row" sx={{ gap: 2 }}>
-        {footerNavItems.map(({ label }, index) => (
+        {footerNavItems.map(({ label, to }, index) => (
           <RevealText key={label} start="top 100%" delay={index * 0.1}>
-            <Typography variant="subtitle2" sx={{ color: 'common.white', fontWeight: 600 }}>
+            <Link
+              href={to}
+              target="_blank"
+              variant="subtitle2"
+              sx={{ color: 'common.white', fontWeight: 600 }}
+            >
               {label}
-            </Typography>
+            </Link>
           </RevealText>
         ))}
       </Stack>

@@ -12,7 +12,7 @@ export const IconifyIcon = ({ icon, flipOnRTL = false, color, sx, ...rest }) => 
         [
           `Icon "${icon}" is currently loaded online, which may cause flickering effects.`,
           `To ensure a smoother experience, please register your icon collection for offline use.`,
-          'Icon information is unavailable.',
+          `More information is available at: https://aurora.themewagon.com/documentation/icons`,
         ].join('\n'),
       );
     }

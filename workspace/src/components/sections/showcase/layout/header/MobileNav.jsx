@@ -23,7 +23,7 @@ const MobileNav = () => {
       <List>
         {navItems.map((nav) => (
           <ListItem key={nav.label} disablePadding>
-            <ListItemButton>
+            <ListItemButton href={nav.href}>
               <ListItemText primary={nav.label} />
             </ListItemButton>
           </ListItem>

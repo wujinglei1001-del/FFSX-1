@@ -17,7 +17,7 @@ const TableFilter = () => {
       <FilterSelect
         label="Team"
         options={[
-          { value: 1, label: 'FFA-X' },
+          { value: 1, label: 'ThemeWagon' },
           { value: 2, label: 'MailBluster' },
           { value: 3, label: 'HyperNinja' },
         ]}

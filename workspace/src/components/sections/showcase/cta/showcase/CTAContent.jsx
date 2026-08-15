@@ -74,7 +74,7 @@ const CTAContent = () => {
                     color: 'common.white',
                   }}
                 >
-                  FFA-X
+                  aurora
                 </Typography>
               </Stack>
             </RevealOnScroll>

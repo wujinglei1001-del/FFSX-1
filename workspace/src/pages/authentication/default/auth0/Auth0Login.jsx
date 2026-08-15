@@ -53,7 +53,12 @@ const Auth0Login = () => {
             mb: 6,
           }}
         >
-          {import.meta.env.VITE_BUILD_MODE === 'production' && <ViewOnlyAlert sx={{ mb: 6 }} />}
+          {import.meta.env.VITE_BUILD_MODE === 'production' && (
+            <ViewOnlyAlert
+              docLink="https://aurora.themewagon.com/documentation/authentication#auth0"
+              sx={{ mb: 6 }}
+            />
+          )}
           <Typography
             variant="h4"
             sx={{

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Alert, Box, Collapse, Typography, alertClasses } from '@mui/material';
+import { Alert, Collapse, Link, Typography, alertClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
-const ViewOnlyAlert = ({ sx }) => {
+const ViewOnlyAlert = ({ docLink, sx }) => {
   const [open, setOpen] = useState(true);
 
   return (
@@ -24,9 +24,9 @@ const ViewOnlyAlert = ({ sx }) => {
         <Typography sx={{ fontWeight: 700, mb: 1 }}>This is a View-Only page</Typography>
         <Typography variant="body2">
           Please follow the
-          <Box component="span" sx={{ mx: 0.5, color: 'primary.main' }}>
+          <Link href={docLink} sx={{ mx: 0.5 }}>
             documentation
-          </Box>
+          </Link>
           to implement it in your projects after getting full access to the purchased theme.
         </Typography>
       </Alert>

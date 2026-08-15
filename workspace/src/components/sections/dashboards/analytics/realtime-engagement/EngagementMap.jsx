@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from 'react';
 import { Box, Button, ButtonGroup, buttonGroupClasses, useTheme } from '@mui/material';
+import worldNameMap from 'assets/json/world-name-map.zh-CN.json';
 import world from 'assets/json/world.json';
 import { MapChart, ScatterChart } from 'echarts/charts';
 import {
@@ -80,19 +81,22 @@ const EngagementMap = ({ data, sx }) => {
       tooltip: {
         trigger: 'item',
         formatter: (param) => {
+          const displayName = worldNameMap[param.name] || param.name;
+
           if (
             param.seriesType === 'scatter' &&
             Array.isArray(param.value) &&
             param.value[2] != null
           ) {
-            return `${param.name}: ${param.value[2].toLocaleString()}`;
+            return `${displayName}：${param.value[2].toLocaleString('zh-CN')}`;
           }
 
-          return `${param.name}: ${isNaN(Number(param.value)) ? 0 : param.value}`;
+          return `${displayName}：${isNaN(Number(param.value)) ? 0 : param.value}`;
         },
       },
       geo: {
         map: 'world',
+        nameMap: worldNameMap,
         roam: 'move',
         zoom: zoomLevel,
         center: upSm ? ['55%', '30%'] : ['50%', '0%'],
@@ -107,6 +111,7 @@ const EngagementMap = ({ data, sx }) => {
         {
           type: 'map',
           geoIndex: 0,
+          nameMap: worldNameMap,
           data: data,
           selectedMode: false,
           label: { show: false },

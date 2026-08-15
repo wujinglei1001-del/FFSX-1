@@ -3,8 +3,8 @@ import { users } from './users';
 
 export const files = [
   {
-    name: 'ffa-x_test17.zip',
-    path: ':: files / New folder / ffa-x /',
+    name: 'aurora_test17.zip',
+    path: ':: files / New folder / aurora /',
     icon: 'material-symbols:folder-zip-outline-rounded',
   },
   {

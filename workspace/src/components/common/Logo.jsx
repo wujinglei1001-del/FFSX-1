@@ -168,7 +168,7 @@ const Logo = ({ sx, viewBox = '0 0 26 40', showName = true, isShowcase = false, 
             },
           ]}
         >
-          FFA-X
+          aurora
         </Typography>
       )}
     </Link>

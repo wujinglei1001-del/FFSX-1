@@ -35,17 +35,27 @@ export const preloadAssets = [
   screenshot(4),
 ];
 
-export const navItems = [{ label: 'Documentation' }, { label: 'Support' }, { label: 'Hire us' }];
+export const figmaPreviewLink =
+  'https://www.figma.com/design/OsomtrWKKBgiWvASVVqnIh/Aurora_-Preview--v2.2.0-?node-id=201-89946&t=CsVyE0sFpqpGSqWW-1';
+
+export const navItems = [
+  { label: 'Documentation', href: 'https://aurora.themewagon.com/documentation/getting-started' },
+  { label: 'Support', href: 'mailto:support@themewagon.com' },
+  { label: 'Hire us', href: 'https://themewagon.com/hire-us/' },
+];
 
 export const footerNavItems = [
   {
     label: 'Support',
+    to: 'mailto:support@themewagon.com',
   },
   {
     label: 'Documentations',
+    to: 'https://aurora.themewagon.com/documentation/getting-started',
   },
   {
     label: 'Changelog',
+    to: 'https://aurora.themewagon.com/documentation/changelog',
   },
 ];
 

@@ -5,7 +5,7 @@ import RTLMode from 'theme/RTLMode';
 import { createTheme } from 'theme/theme';
 import { useSettingsContext } from './SettingsProvider';
 
-const ThemeProvider = ({ children }) => {
+const ThemeProvider = ({ children, defaultMode = 'light', modeStorageKey = 'aurora-mode' }) => {
   const {
     config: { textDirection, locale, themePreset, primaryColor, fontFamily, fontSize },
     configDispatch,
@@ -51,8 +51,8 @@ const ThemeProvider = ({ children }) => {
     <MuiThemeProvider
       disableTransitionOnChange
       theme={customTheme}
-      defaultMode="light"
-      modeStorageKey="aurora-mode"
+      defaultMode={defaultMode}
+      modeStorageKey={modeStorageKey}
     >
       <CssBaseline enableColorScheme />
       <RTLMode>{children}</RTLMode>

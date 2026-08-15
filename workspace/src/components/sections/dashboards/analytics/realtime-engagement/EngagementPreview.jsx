@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import RealtimeEngagementChart from './RealtimeEngagementChart';
 
 const EngagementPreview = () => {
@@ -20,14 +20,16 @@ const EngagementPreview = () => {
         maxWidth: { xs: 1, md: 404 },
       }}
     >
-      <Paper
-        variant="elevation"
-        elevation={6}
+      <Box
         sx={{
           display: 'flex',
           py: 5,
           px: 4,
-          borderRadius: 6,
+          border: 0,
+          borderRadius: 0,
+          backgroundColor: 'transparent',
+          backgroundImage: 'none',
+          boxShadow: 'none',
           flexDirection: 'column',
           gap: { xs: 3, md: 5 },
         }}
@@ -39,7 +41,7 @@ const EngagementPreview = () => {
               mb: 1,
             }}
           >
-            User in Last Hour
+            过去一小时内的用户
           </Typography>
 
           <Typography variant="h2" sx={{ fontWeight: 500, color: 'text.secondary' }}>
@@ -54,7 +56,7 @@ const EngagementPreview = () => {
               mb: 3,
             }}
           >
-            User Per Minute
+            每分钟用户数
           </Typography>
 
           <RealtimeEngagementChart
@@ -62,7 +64,7 @@ const EngagementPreview = () => {
             sx={{ height: '80px !important', width: 1 }}
           />
         </div>
-      </Paper>
+      </Box>
     </Box>
   );
 };

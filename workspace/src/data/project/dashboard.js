@@ -308,7 +308,7 @@ export const projectHours = {
 export const projectsInfos = [
   {
     id: 1,
-    name: 'FFA-X',
+    name: 'Aurora',
     color: 'primary',
     tasks: [
       {

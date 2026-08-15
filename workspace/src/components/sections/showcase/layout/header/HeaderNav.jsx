@@ -10,13 +10,16 @@ const HeaderNav = ({ registerNavItemRef }) => {
   return (
     <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
       {upMd &&
-        navItems.map(({ label }) => (
+        navItems.map(({ label, href }) => (
           <Button
             key={label}
             ref={registerNavItemRef}
             size="medium"
             variant="text"
             color="neutral"
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{ p: 1.5, color: 'common.white' }}
           >
             {label}
@@ -25,8 +28,11 @@ const HeaderNav = ({ registerNavItemRef }) => {
 
       <GradientButton
         ref={registerNavItemRef}
+        href="https://mui.com/store/items/aurora/"
         color="neutral"
         sx={{ width: { xs: 160 }, height: { xs: 52 } }}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Purchase
       </GradientButton>

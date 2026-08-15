@@ -86,9 +86,9 @@ export const useCreateInvoiceForm = () => {
     defaultValues: {
       organizationImage: null,
       invoiceFrom: {
-        name: 'FFA-X',
+        name: 'Themewagon',
         phone: '+123456789012',
-        email: '',
+        email: 'themewagon@gmail.com',
         address: 'Wilmington, DE, US 19802-4447',
       },
       invoiceTo: {

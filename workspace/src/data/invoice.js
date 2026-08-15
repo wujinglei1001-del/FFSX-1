@@ -297,9 +297,9 @@ export const invoiceListTableRowData = [
 export const recipientLists = [
   {
     id: 1,
-    name: 'FFA-X',
+    name: 'Aurora',
     avatar: users[6].avatar,
-    email: '',
+    email: 'aurora@themewagon.com',
     status: 'Active',
     phone: '+123456789012',
     location: 'Apt: 6/B, 192 Edsel Road, Van Nuys, California, USA 96580',
@@ -345,16 +345,16 @@ export const recipientLists = [
 export const invoiceData = {
   organizationImage: { id: 1, file: logo(19) },
   invoiceFrom: {
-    name: 'FFA-X',
+    name: 'Themewagon',
     phone: '+123456789012',
-    email: '',
+    email: 'themewagon@gmail.com',
     address: 'Wilmington, DE, US 19802-4447',
     issueDate: '2025-04-20',
   },
   invoiceTo: {
-    name: 'FFA-X',
+    name: 'Aurora',
     phone: '+123456789564',
-    email: '',
+    email: 'aurora@themewagon.com',
     address: '192 Edsel Road, California, USA 96580',
     issueDate: '2025-03-25',
   },
@@ -389,14 +389,14 @@ export const invoiceData = {
       price: 50.0,
     },
   ],
-  note: 'Thank you for your business. If you have any questions concerning this invoice, contact customer service.',
+  note: 'Thank you for your business. If you have any questions concerning this invoice, contact customer service +1 302 433 6002 or send an email at info@themewagon.com.',
 };
 
 export const invoiceHistories = [
   {
     id: 1,
     date: '2025-03-18T14:02:00',
-    companyName: 'FFA-X',
+    companyName: 'Themewagon',
     message: 'has sent invoice to ',
     image: logo(20),
     email: 'janedoe@gmail.com',
@@ -404,14 +404,14 @@ export const invoiceHistories = [
   {
     id: 2,
     date: '2025-03-18T14:02:00',
-    companyName: 'FFA-X',
+    companyName: 'Themewagon',
     message: 'has updated the invoice.',
     image: logo(20),
   },
   {
     id: 3,
     date: '2025-03-18T14:02:00',
-    companyName: 'FFA-X',
+    companyName: 'Themewagon',
     message: 'has created the invoice. ',
     image: logo(20),
     isLast: true,

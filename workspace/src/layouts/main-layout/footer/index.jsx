@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Box, Divider, Link, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 const Footer = () => {
@@ -45,7 +45,7 @@ const Footer = () => {
                 mx: 0.5,
               }}
             >
-              FFA-X{' '}
+              Aurora{' '}
             </Box>
           </Box>
 
@@ -64,9 +64,13 @@ const Footer = () => {
               |
             </Box>{' '}
             {dayjs().year()} ©
-            <Box component="span" sx={{ mx: 0.5 }}>
-              FFA-X
-            </Box>
+            <Link
+              href="https://themewagon.com/"
+              target="_blank"
+              sx={{ textDecoration: 'none', mx: 0.5 }}
+            >
+              ThemeWagon
+            </Link>
           </Box>
         </Typography>
 

@@ -30,7 +30,7 @@ const personalData = {
     {
       icon: logo(20),
       designation: 'UX/UI Designer',
-      company: 'FFA-X Inc.',
+      company: 'ThemeWagon Inc.',
       location: 'Dhaka, Bangladesh',
       startDate: '2024-04-01',
       endDate: '2025-11-01',

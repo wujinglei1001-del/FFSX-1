@@ -1,1 +1,0 @@
-var e=`/assets/1-dark-D6gQwXVa.webp`,t=`/assets/1-BlsbJvVF.webp`;export{e as n,t};

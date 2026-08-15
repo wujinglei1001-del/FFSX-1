@@ -54,7 +54,7 @@ export default defineConfig(({ mode }) => {
       port,
     },
 
-    base: env.VITE_BASENAME ?? '/',
+    base: env.VITE_BASENAME ?? (mode === 'production' ? '/workbench/' : '/'),
 
     resolve: {
       alias: {

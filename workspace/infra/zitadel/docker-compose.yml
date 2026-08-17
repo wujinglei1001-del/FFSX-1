@@ -99,7 +99,12 @@ services:
       - traefik.http.routers.zitadel-canonical-web.priority=100
 
   zitadel-login:
-    image: ghcr.io/zitadel/zitadel-login:${ZITADEL_VERSION}
+    build:
+      context: ./custom-login
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_BASE_PATH: /ui/v2/login
+    image: ${FFAX_ZITADEL_LOGIN_IMAGE:-ffax/zitadel-login:v4.15.0-ffax}
     restart: unless-stopped
     user: "0"
     environment:

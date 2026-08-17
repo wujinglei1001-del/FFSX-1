@@ -15,7 +15,15 @@
 *.bak
 .DS_Store
 
+# Local deployment artifacts (never commit or publish)
+/ffax-release-*.tar.gz
+/ffax-root-home-*.tar.gz
+/ffax-zitadel-login-*.tar
+/ffax-zitadel-login-*.tar.gz
+/.current-release-stamp
+/.last-deploy-stamp
+/.last-root-home-stamp
+
 # Editor metadata
 **/.idea/
 **/.vscode/
-

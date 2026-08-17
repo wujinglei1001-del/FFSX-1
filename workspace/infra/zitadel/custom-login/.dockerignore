@@ -1,0 +1,12 @@
+**/node_modules
+**/.next
+**/.nx
+**/coverage
+**/*.log
+apps/login/acceptance
+apps/login/dockerized
+apps/login/screenshots
+apps/login/**/*.test.ts
+apps/login/**/*.test.tsx
+packages/**/*.test.ts
+packages/**/*.test.tsx

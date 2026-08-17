@@ -18,7 +18,7 @@ const projectId = import.meta.env.VITE_ZITADEL_PROJECT_ID?.trim() || '';
 const authority = normalizeAuthority(import.meta.env.VITE_ZITADEL_DOMAIN);
 const configuredScope =
   import.meta.env.VITE_ZITADEL_SCOPE?.trim() ||
-  'openid profile email offline_access urn:zitadel:iam:user:resourceowner:id urn:zitadel:iam:org:projects:roles';
+  'openid profile email offline_access urn:zitadel:iam:user:resourceowner urn:zitadel:iam:org:projects:roles';
 const audienceScope = projectId ? `urn:zitadel:iam:org:project:id:${projectId}:aud` : '';
 
 export const zitadelConfig = {

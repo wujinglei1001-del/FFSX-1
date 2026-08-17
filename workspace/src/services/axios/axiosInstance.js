@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 // Adding authorization header to axios instance if session exists
 axiosInstance.interceptors.request.use(async (config) => {
-  const authToken = localStorage.getItem('auth_token');
+  const authToken = sessionStorage.getItem('auth_token');
 
   if (authToken) {
     config.headers.Authorization = `Bearer ${authToken}`;

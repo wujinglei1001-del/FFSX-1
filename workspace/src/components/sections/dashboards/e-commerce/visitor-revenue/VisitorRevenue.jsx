@@ -21,7 +21,7 @@ const VisitorRevenue = () => {
           title={translateUi(
             'ui.sections.dashboards.e_commerce.visitor_revenue.visitor_value_90c28192',
           )}
-          subTitle="Avg. income per site visit"
+          subTitle="平均每次访问收入"
           actionComponent={<DashboardMenu />}
           sx={{ mb: 0 }}
         />

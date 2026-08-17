@@ -176,9 +176,7 @@ const Member = ({ member }) => {
           position: 'relative',
           width: 1,
           aspectRatio: '17 / 25',
-          borderRadius: 4,
-          overflow: 'hidden',
-          bgcolor: 'background.elevation1',
+          bgcolor: 'transparent',
           mb: 2,
         }}
       >
@@ -203,20 +201,6 @@ const Member = ({ member }) => {
             }}
           />
         </Box>
-
-        <Box
-          sx={{
-            position: 'absolute',
-            width: 1,
-            height: 1,
-            left: 0,
-            bottom: 0,
-            pointerEvents: 'none',
-            userSelect: 'none',
-            background: (theme) =>
-              `/* @noflip */ linear-gradient(to bottom, transparent 70%, ${theme.vars.palette.background.elevation1})`,
-          }}
-        />
       </Box>
 
       <Stack sx={{ gap: 0.5, alignItems: 'center', textAlign: 'center' }}>

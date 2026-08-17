@@ -1,0 +1,8 @@
+routes:
+  - id: marketplace-domain
+    uri: /*
+    upstream:
+      type: roundrobin
+      nodes:
+        "marketplace-channel-api:8102": 1
+#END

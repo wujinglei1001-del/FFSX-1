@@ -41,7 +41,11 @@ const LanguageMenu = ({ type = 'default' }) => {
         shape="circle"
         onClick={handleClick}
       >
-        <IconifyIcon icon={selectedLanguage.icon} sx={{ fontSize: type === 'slim' ? 20 : 24 }} />
+        {locale === 'zh-CN' ? (
+          'CN'
+        ) : (
+          <IconifyIcon icon={selectedLanguage.icon} sx={{ fontSize: type === 'slim' ? 20 : 24 }} />
+        )}
       </Button>
       <Menu
         anchorEl={anchorEl}
@@ -62,7 +66,11 @@ const LanguageMenu = ({ type = 'default' }) => {
             sx={{ minWidth: 200 }}
           >
             <ListItemIcon>
-              <IconifyIcon icon={language.icon} sx={{ fontSize: 24 }} />
+              {language.locale === 'zh-CN' ? (
+                'CN'
+              ) : (
+                <IconifyIcon icon={language.icon} sx={{ fontSize: 24 }} />
+              )}
             </ListItemIcon>
             <ListItemText
               primary={language.label}

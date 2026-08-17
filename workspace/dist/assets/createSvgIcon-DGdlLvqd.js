@@ -1,1 +1,0 @@
-import{a as e,d as t,o as n}from"./i18nInstance-truXiXW9.js";import{t as r}from"./SvgIcon-Do6xxgDW.js";var i=t(n(),1),a=e();function o(e,t){function n(t,n){return(0,a.jsx)(r,{"data-testid":void 0,ref:n,...t,children:e})}return n.muiName=r.muiName,i.memo(i.forwardRef(n))}export{o as t};

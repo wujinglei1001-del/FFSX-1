@@ -1,1 +1,0 @@
-import{D as e,E as t}from"./createSimplePaletteValueFilter-k5yBtt5A.js";function n(t){return e(`MuiAvatar`,t)}var r=t(`MuiAvatar`,[`root`,`colorDefault`,`circular`,`rounded`,`square`,`img`,`fallback`]);export{n,r as t};

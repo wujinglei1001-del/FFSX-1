@@ -1,32 +1,42 @@
-import { useNavigate } from 'react-router';
-import { defaultJwtAuthCredentials } from 'config';
+import { useEffect, useRef } from 'react';
+import { Navigate, useLocation } from 'react-router';
+import { Alert, Stack } from '@mui/material';
 import { useAuth } from 'providers/AuthProvider';
-import paths, { rootPaths } from 'routes/paths';
-import { useLoginUser } from 'services/swr/api-hooks/useAuthApi';
-import LoginForm from 'components/sections/authentications/default/LoginForm';
+import paths from 'routes/paths';
+import PageLoader from 'components/loading/PageLoader';
 
 const Login = () => {
-  const { setSession } = useAuth();
-  const navigate = useNavigate();
-  const { trigger: login } = useLoginUser();
-  const handleLogin = async (data) => {
-    const res = await login(data).catch((error) => {
-      throw new Error(error.data.message);
-    });
-    if (res) {
-      setSession(res.user, res.authToken);
-      navigate(rootPaths.root);
-    }
-  };
+  const { sessionUser, signin, isConfigured, isLoading, error } = useAuth();
+  const location = useLocation();
+  const started = useRef(false);
+  const returnTo = location.state?.from || paths.ecommerce;
 
-  return (
-    <LoginForm
-      handleLogin={handleLogin}
-      signUpLink={paths.defaultJwtSignup}
-      forgotPasswordLink={paths.defaultJwtForgotPassword}
-      defaultCredential={defaultJwtAuthCredentials}
-    />
-  );
+  useEffect(() => {
+    if (!isConfigured || isLoading || sessionUser || started.current) return;
+
+    started.current = true;
+    signin(returnTo);
+  }, [isConfigured, isLoading, returnTo, sessionUser, signin]);
+
+  if (sessionUser) {
+    return <Navigate to={returnTo} replace />;
+  }
+
+  if (!isConfigured) {
+    return (
+      <Stack sx={{ width: 1, maxWidth: 520, mx: 'auto', p: 3 }}>
+        <Alert severity="info">
+          ZITADEL 尚未配置，请先填写域名、Web Client ID 和 FFAX Project ID。
+        </Alert>
+      </Stack>
+    );
+  }
+
+  if (error) {
+    return <Alert severity="error">无法连接 ZITADEL：{error.message}</Alert>;
+  }
+
+  return <PageLoader sx={{ height: '100vh' }} />;
 };
 
 export default Login;

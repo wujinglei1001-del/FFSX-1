@@ -1,1 +1,0 @@
-import{a as e}from"./i18nInstance-truXiXW9.js";import{t}from"./Box-CBygiLu4.js";import{t as n}from"./useThemeMode-DN7-Xz2l.js";var r=e(),i=({src:e,...i})=>{let{isDark:a}=n();return(0,r.jsx)(t,{component:`img`,src:e?typeof e==`string`?e:a?e.dark:e.light:void 0,...i})};export{i as t};

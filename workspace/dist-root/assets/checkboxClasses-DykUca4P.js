@@ -1,0 +1,1 @@
+import{T as e,w as t}from"./createSimplePaletteValueFilter-cuG5cMy_.js";function n(t){return e(`MuiCheckbox`,t)}var r=t(`MuiCheckbox`,[`root`,`checked`,`disabled`,`indeterminate`,`colorPrimary`,`colorSecondary`,`sizeSmall`,`sizeMedium`]);export{n,r as t};

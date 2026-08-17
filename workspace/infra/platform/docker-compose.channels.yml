@@ -1,0 +1,370 @@
+name: ffax-channels
+
+x-domain-database: &domain-database
+  image: postgres:17.2-alpine
+  restart: unless-stopped
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready -U ffax_channel"]
+    interval: 10s
+    timeout: 5s
+    retries: 12
+
+x-domain-nats: &domain-nats
+  image: nats:2.11.11-alpine
+  restart: unless-stopped
+  command: ["--jetstream", "--store_dir", "/data", "--http_port", "8222"]
+  healthcheck:
+    test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1:8222/healthz"]
+    interval: 10s
+    timeout: 5s
+    retries: 12
+
+x-domain-api: &domain-api
+  image: ${FFAX_CHANNEL_IMAGE:-ffax/channel-runtime:1.0.0}
+  restart: unless-stopped
+  command: ["node", "server/runtime/domain/index.js"]
+  environment: &domain-environment
+    NODE_ENV: production
+    FFAX_ALLOWED_ORIGINS: ${FFAX_ALLOWED_ORIGINS:-https://www.ffax.com}
+    FFAX_INGRESS_SHARED_TOKEN: ${FFAX_INGRESS_SHARED_TOKEN}
+    FFAX_CONTROL_PLANE_URL: ${FFAX_CONTROL_PLANE_URL:-http://ffax-api:8000}
+    FFAX_RUNTIME_HEARTBEAT_TOKEN: ${FFAX_RUNTIME_HEARTBEAT_TOKEN}
+    NODE_OPTIONS: --import=/app/server/runtime/shared/telemetry.js
+    OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+  healthcheck:
+    test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:'+process.env.PORT+'/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))\""]
+    interval: 10s
+    timeout: 5s
+    retries: 20
+    start_period: 20s
+
+x-domain-worker: &domain-worker
+  image: ${FFAX_CHANNEL_IMAGE:-ffax/channel-runtime:1.0.0}
+  restart: unless-stopped
+  command: ["node", "server/runtime/domain/worker.js"]
+  environment: &worker-environment
+    NODE_ENV: production
+    NODE_OPTIONS: --import=/app/server/runtime/shared/telemetry.js
+    OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+    FFAX_CONTROL_PLANE_URL: ${FFAX_CONTROL_PLANE_URL:-http://ffax-api:8000}
+    FFAX_RUNTIME_HEARTBEAT_TOKEN: ${FFAX_RUNTIME_HEARTBEAT_TOKEN}
+
+x-domain-gateway: &domain-gateway
+  image: apache/apisix:3.13.0-debian
+  restart: unless-stopped
+  environment:
+    APISIX_STAND_ALONE: "true"
+  volumes:
+    - ./apisix/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+  healthcheck:
+    test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:9080/health >/dev/null"]
+    interval: 10s
+    timeout: 5s
+    retries: 20
+
+services:
+  channel-image:
+    build:
+      context: ../..
+      dockerfile: server/Dockerfile
+    image: ${FFAX_CHANNEL_IMAGE:-ffax/channel-runtime:1.0.0}
+    command: ["node", "-e", "process.exit(0)"]
+    restart: "no"
+
+  warehouse-db:
+    <<: *domain-database
+    environment:
+      POSTGRES_DB: ffax_warehouse
+      POSTGRES_USER: ffax_channel
+      POSTGRES_PASSWORD: ${WAREHOUSE_DATABASE_PASSWORD}
+    volumes: [warehouse-postgres-data:/var/lib/postgresql/data]
+    networks: [warehouse-lane]
+
+  warehouse-nats:
+    <<: *domain-nats
+    volumes: [warehouse-nats-data:/data]
+    networks: [warehouse-lane]
+
+  warehouse-api:
+    <<: *domain-api
+    env_file: ["${OPENBAO_ENV_DIR}/warehouse.env"]
+    environment:
+      <<: *domain-environment
+      PORT: 8101
+      FFAX_CHANNEL_ID: warehouse
+      DATABASE_URL: postgresql://ffax_channel:${WAREHOUSE_DATABASE_PASSWORD}@warehouse-db:5432/ffax_warehouse
+      NATS_URL: nats://warehouse-nats:4222
+      OTEL_SERVICE_NAME: ffax-warehouse-api
+    depends_on:
+      channel-image: { condition: service_completed_successfully }
+      warehouse-db: { condition: service_healthy }
+      warehouse-nats: { condition: service_healthy }
+    networks: [warehouse-lane, sync-lane, ffax-platform, ffax-secrets, ffax-observability]
+
+  warehouse-worker:
+    <<: *domain-worker
+    env_file: ["${OPENBAO_ENV_DIR}/warehouse.env"]
+    environment:
+      <<: *worker-environment
+      FFAX_CHANNEL_ID: warehouse
+      DATABASE_URL: postgresql://ffax_channel:${WAREHOUSE_DATABASE_PASSWORD}@warehouse-db:5432/ffax_warehouse
+      NATS_URL: nats://warehouse-nats:4222
+      OTEL_SERVICE_NAME: ffax-warehouse-worker
+    depends_on:
+      warehouse-db: { condition: service_healthy }
+      warehouse-nats: { condition: service_healthy }
+    networks: [warehouse-lane, ffax-secrets, ffax-observability]
+
+  warehouse-gateway:
+    <<: *domain-gateway
+    ports: ["127.0.0.1:9101:9080"]
+    volumes:
+      - ./apisix/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/warehouse.yaml:/usr/local/apisix/conf/apisix.yaml:ro
+    depends_on:
+      warehouse-api: { condition: service_healthy }
+    networks: [warehouse-lane]
+
+  marketplace-channel-db:
+    <<: *domain-database
+    environment:
+      POSTGRES_DB: ffax_marketplace_channel
+      POSTGRES_USER: ffax_channel
+      POSTGRES_PASSWORD: ${MARKETPLACE_CHANNEL_DATABASE_PASSWORD}
+    volumes: [marketplace-channel-postgres-data:/var/lib/postgresql/data]
+    networks: [marketplace-lane]
+
+  marketplace-nats:
+    <<: *domain-nats
+    volumes: [marketplace-nats-data:/data]
+    networks: [marketplace-lane]
+
+  marketplace-channel-api:
+    <<: *domain-api
+    env_file: ["${OPENBAO_ENV_DIR}/marketplace.env"]
+    environment:
+      <<: *domain-environment
+      PORT: 8102
+      FFAX_CHANNEL_ID: marketplace
+      DATABASE_URL: postgresql://ffax_channel:${MARKETPLACE_CHANNEL_DATABASE_PASSWORD}@marketplace-channel-db:5432/ffax_marketplace_channel
+      NATS_URL: nats://marketplace-nats:4222
+      MERCUR_URL: http://mercur-api:9000
+      OTEL_SERVICE_NAME: ffax-marketplace-api
+    depends_on:
+      channel-image: { condition: service_completed_successfully }
+      marketplace-channel-db: { condition: service_healthy }
+      marketplace-nats: { condition: service_healthy }
+    networks: [marketplace-lane, sync-lane, ffax-platform, ffax-secrets, ffax-observability]
+
+  marketplace-worker:
+    <<: *domain-worker
+    env_file: ["${OPENBAO_ENV_DIR}/marketplace.env"]
+    environment:
+      <<: *worker-environment
+      FFAX_CHANNEL_ID: marketplace
+      DATABASE_URL: postgresql://ffax_channel:${MARKETPLACE_CHANNEL_DATABASE_PASSWORD}@marketplace-channel-db:5432/ffax_marketplace_channel
+      NATS_URL: nats://marketplace-nats:4222
+      OTEL_SERVICE_NAME: ffax-marketplace-worker
+    depends_on:
+      marketplace-channel-db: { condition: service_healthy }
+      marketplace-nats: { condition: service_healthy }
+    networks: [marketplace-lane, ffax-secrets, ffax-observability]
+
+  marketplace-gateway:
+    <<: *domain-gateway
+    ports: ["127.0.0.1:9102:9080"]
+    volumes:
+      - ./apisix/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/marketplace.yaml:/usr/local/apisix/conf/apisix.yaml:ro
+    depends_on:
+      marketplace-channel-api: { condition: service_healthy }
+    networks: [marketplace-lane]
+
+  logistics-db:
+    <<: *domain-database
+    environment:
+      POSTGRES_DB: ffax_logistics
+      POSTGRES_USER: ffax_channel
+      POSTGRES_PASSWORD: ${LOGISTICS_DATABASE_PASSWORD}
+    volumes: [logistics-postgres-data:/var/lib/postgresql/data]
+    networks: [logistics-lane]
+
+  logistics-nats:
+    <<: *domain-nats
+    volumes: [logistics-nats-data:/data]
+    networks: [logistics-lane]
+
+  logistics-api:
+    <<: *domain-api
+    env_file: ["${OPENBAO_ENV_DIR}/logistics.env"]
+    environment:
+      <<: *domain-environment
+      PORT: 8103
+      FFAX_CHANNEL_ID: logistics
+      DATABASE_URL: postgresql://ffax_channel:${LOGISTICS_DATABASE_PASSWORD}@logistics-db:5432/ffax_logistics
+      NATS_URL: nats://logistics-nats:4222
+      OTEL_SERVICE_NAME: ffax-logistics-api
+    depends_on:
+      channel-image: { condition: service_completed_successfully }
+      logistics-db: { condition: service_healthy }
+      logistics-nats: { condition: service_healthy }
+    networks: [logistics-lane, sync-lane, ffax-platform, ffax-secrets, ffax-observability]
+
+  logistics-worker:
+    <<: *domain-worker
+    env_file: ["${OPENBAO_ENV_DIR}/logistics.env"]
+    environment:
+      <<: *worker-environment
+      FFAX_CHANNEL_ID: logistics
+      DATABASE_URL: postgresql://ffax_channel:${LOGISTICS_DATABASE_PASSWORD}@logistics-db:5432/ffax_logistics
+      NATS_URL: nats://logistics-nats:4222
+      OTEL_SERVICE_NAME: ffax-logistics-worker
+    depends_on:
+      logistics-db: { condition: service_healthy }
+      logistics-nats: { condition: service_healthy }
+    networks: [logistics-lane, ffax-secrets, ffax-observability]
+
+  logistics-gateway:
+    <<: *domain-gateway
+    ports: ["127.0.0.1:9103:9080"]
+    volumes:
+      - ./apisix/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/logistics.yaml:/usr/local/apisix/conf/apisix.yaml:ro
+    depends_on:
+      logistics-api: { condition: service_healthy }
+    networks: [logistics-lane]
+
+  commerce-db:
+    <<: *domain-database
+    environment:
+      POSTGRES_DB: ffax_commerce
+      POSTGRES_USER: ffax_channel
+      POSTGRES_PASSWORD: ${COMMERCE_DATABASE_PASSWORD}
+    volumes: [commerce-postgres-data:/var/lib/postgresql/data]
+    networks: [commerce-lane]
+
+  commerce-nats:
+    <<: *domain-nats
+    volumes: [commerce-nats-data:/data]
+    networks: [commerce-lane]
+
+  commerce-api:
+    <<: *domain-api
+    env_file: ["${OPENBAO_ENV_DIR}/commerce.env"]
+    environment:
+      <<: *domain-environment
+      PORT: 8104
+      FFAX_CHANNEL_ID: commerce
+      DATABASE_URL: postgresql://ffax_channel:${COMMERCE_DATABASE_PASSWORD}@commerce-db:5432/ffax_commerce
+      NATS_URL: nats://commerce-nats:4222
+      OTEL_SERVICE_NAME: ffax-commerce-api
+    depends_on:
+      channel-image: { condition: service_completed_successfully }
+      commerce-db: { condition: service_healthy }
+      commerce-nats: { condition: service_healthy }
+    networks: [commerce-lane, sync-lane, ffax-platform, ffax-secrets, ffax-observability]
+
+  commerce-worker:
+    <<: *domain-worker
+    env_file: ["${OPENBAO_ENV_DIR}/commerce.env"]
+    environment:
+      <<: *worker-environment
+      FFAX_CHANNEL_ID: commerce
+      DATABASE_URL: postgresql://ffax_channel:${COMMERCE_DATABASE_PASSWORD}@commerce-db:5432/ffax_commerce
+      NATS_URL: nats://commerce-nats:4222
+      OTEL_SERVICE_NAME: ffax-commerce-worker
+    depends_on:
+      commerce-db: { condition: service_healthy }
+      commerce-nats: { condition: service_healthy }
+    networks: [commerce-lane, ffax-secrets, ffax-observability]
+
+  commerce-gateway:
+    <<: *domain-gateway
+    ports: ["127.0.0.1:9104:9080"]
+    volumes:
+      - ./apisix/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/commerce.yaml:/usr/local/apisix/conf/apisix.yaml:ro
+    depends_on:
+      commerce-api: { condition: service_healthy }
+    networks: [commerce-lane]
+
+  sync-db:
+    <<: *domain-database
+    environment:
+      POSTGRES_DB: ffax_sync
+      POSTGRES_USER: ffax_channel
+      POSTGRES_PASSWORD: ${SYNC_DATABASE_PASSWORD}
+    volumes: [sync-postgres-data:/var/lib/postgresql/data]
+    networks: [sync-lane]
+
+  sync-nats:
+    <<: *domain-nats
+    volumes: [sync-nats-data:/data]
+    networks: [sync-lane]
+
+  sync-api:
+    image: ${FFAX_CHANNEL_IMAGE:-ffax/channel-runtime:1.0.0}
+    restart: unless-stopped
+    command: ["node", "server/runtime/sync/index.js"]
+    environment:
+      NODE_ENV: production
+      PORT: 8300
+      DATABASE_URL: postgresql://ffax_channel:${SYNC_DATABASE_PASSWORD}@sync-db:5432/ffax_sync
+      NATS_SYNC_URL: nats://sync-nats:4222
+      NATS_WAREHOUSE_URL: nats://warehouse-nats:4222
+      NATS_MARKETPLACE_URL: nats://marketplace-nats:4222
+      NATS_LOGISTICS_URL: nats://logistics-nats:4222
+      NATS_COMMERCE_URL: nats://commerce-nats:4222
+      DOMAIN_WAREHOUSE_URL: http://warehouse-api:8101
+      DOMAIN_MARKETPLACE_URL: http://marketplace-channel-api:8102
+      DOMAIN_LOGISTICS_URL: http://logistics-api:8103
+      DOMAIN_COMMERCE_URL: http://commerce-api:8104
+      FFAX_INGRESS_SHARED_TOKEN: ${FFAX_INGRESS_SHARED_TOKEN}
+      FFAX_ALLOWED_ORIGINS: ${FFAX_ALLOWED_ORIGINS:-https://www.ffax.com}
+      ZITADEL_ISSUER: ${ZITADEL_ISSUER}
+      ZITADEL_PROJECT_ID: ${ZITADEL_PROJECT_ID}
+      ZITADEL_API_CLIENT_ID: ${ZITADEL_API_CLIENT_ID}
+      ZITADEL_API_CLIENT_SECRET: ${ZITADEL_API_CLIENT_SECRET}
+      ZITADEL_INTROSPECTION_URL: http://zitadel-api:8080/oauth/v2/introspect
+      ZITADEL_INSTANCE_HOST: www.ffax.com
+      NODE_OPTIONS: --import=/app/server/runtime/shared/telemetry.js
+      OTEL_SERVICE_NAME: ffax-device-sync
+      OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+    ports: ["127.0.0.1:8300:8300"]
+    depends_on:
+      channel-image: { condition: service_completed_successfully }
+      sync-db: { condition: service_healthy }
+      sync-nats: { condition: service_healthy }
+      warehouse-nats: { condition: service_healthy }
+      marketplace-nats: { condition: service_healthy }
+      logistics-nats: { condition: service_healthy }
+      commerce-nats: { condition: service_healthy }
+    networks: [sync-lane, warehouse-lane, marketplace-lane, logistics-lane, commerce-lane, ffax-platform, ffax-observability]
+
+networks:
+  warehouse-lane: { internal: true }
+  marketplace-lane: { internal: true }
+  logistics-lane: { internal: true }
+  commerce-lane: { internal: true }
+  sync-lane: { internal: true }
+  ffax-platform:
+    name: ffax-platform
+    external: true
+  ffax-secrets:
+    name: ffax-secrets
+    external: true
+  ffax-observability:
+    name: ffax-observability
+    external: true
+
+volumes:
+  warehouse-postgres-data:
+  warehouse-nats-data:
+  marketplace-channel-postgres-data:
+  marketplace-nats-data:
+  logistics-postgres-data:
+  logistics-nats-data:
+  commerce-postgres-data:
+  commerce-nats-data:
+  sync-postgres-data:
+  sync-nats-data:

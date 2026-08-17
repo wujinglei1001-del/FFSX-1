@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import i18n from 'locales/i18n';
@@ -58,7 +57,7 @@ const footerLinks = [
         get label() {
           return i18n.t('ui.layouts.landing_layout.footer.navsection.pricing_a0d9bbad');
         },
-        href: '#!',
+        href: paths.landingSubscriptions,
       },
       {
         get label() {
@@ -104,7 +103,7 @@ const NavSection = () => {
   const { t: translateUi } = useTranslation();
   return (
     <Container maxWidth={false} sx={{ maxWidth: 1448, px: { xs: 3, md: 5 } }}>
-      <Stack divider={<Divider flexItem />}>
+      <Stack>
         <Grid
           container
           rowSpacing={5}

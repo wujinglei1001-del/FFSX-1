@@ -82,7 +82,7 @@ const MonthlyProfitChart = ({ data, sx }) => {
           },
         },
         {
-          name: 'Last year',
+          name: translateUi('ui.sections.dashboards.e_commerce.monthly_profit.last_year_3cf4d8d7'),
           type: 'line',
           data: data.lastYear,
           showSymbol: false,

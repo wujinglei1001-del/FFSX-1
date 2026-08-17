@@ -1,1 +1,0 @@
-import{a as e}from"./i18nInstance-truXiXW9.js";import{t}from"./KanbanProvider-Ci0lLZ8k.js";var n=e(),r=({children:e})=>(0,n.jsx)(t,{children:e});export{r as default};

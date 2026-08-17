@@ -1,7 +1,14 @@
 import { initialConfig } from 'config';
 
 const createTypography = (fontFamily = initialConfig.fontFamily, fontSize = 16) => ({
-  fontFamily: [fontFamily, 'sans-serif', 'Spline Sans Mono', 'monospace', 'Josefin Sans'].join(','),
+  fontFamily: [
+    fontFamily,
+    'Noto Sans SC',
+    'sans-serif',
+    'Spline Sans Mono',
+    'monospace',
+    'Josefin Sans',
+  ].join(','),
   fontSize,
   fontWeightLight: 300,
   fontWeightRegular: 400,

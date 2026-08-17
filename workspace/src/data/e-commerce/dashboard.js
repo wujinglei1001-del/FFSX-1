@@ -8,7 +8,7 @@ export const topProducts = [
   {
     id: 1,
     product: {
-      name: 'Shanty Cotton Seat',
+      name: '简约棉布座椅',
       image: image(1),
     },
     vendors: [users[2], users[7], users[15]],
@@ -19,7 +19,7 @@ export const topProducts = [
   {
     id: 2,
     product: {
-      name: 'Practical Soft Couch',
+      name: '实用柔软沙发',
       image: image(2),
     },
     vendors: [users[6], users[11], users[7], users[13]],
@@ -30,7 +30,7 @@ export const topProducts = [
   {
     id: 3,
     product: {
-      name: 'Rustic Rubber Chair',
+      name: '复古橡胶椅',
       image: image(3),
     },
     vendors: [users[4], users[3], users[5], users[14], users[1], users[2]],
@@ -41,7 +41,7 @@ export const topProducts = [
   {
     id: 4,
     product: {
-      name: 'Ergonomic Frozen Bacon',
+      name: '人体工学冷冻培根',
       image: image(4),
     },
     vendors: [users[6], users[5], users[11], users[15]],
@@ -52,7 +52,7 @@ export const topProducts = [
   {
     id: 5,
     product: {
-      name: 'Unbranded Metal Sofa',
+      name: '无品牌金属沙发',
       image: image(5),
     },
     vendors: [users[12], users[1]],
@@ -63,7 +63,7 @@ export const topProducts = [
   {
     id: 6,
     product: {
-      name: 'Intelligent Soft Sofa',
+      name: '智能软沙发',
       image: image(6),
     },
     vendors: [users[1], users[2], users[3]],
@@ -74,7 +74,7 @@ export const topProducts = [
   {
     id: 7,
     product: {
-      name: 'Handmade Cotton Chair',
+      name: '手工棉布椅',
       image: image(7),
     },
     vendors: [users[2], users[3], users[13], users[14], users[15], users[12]],
@@ -85,7 +85,7 @@ export const topProducts = [
   {
     id: 8,
     product: {
-      name: 'Fantastic Rubber Chair',
+      name: '精美橡胶椅',
       image: image(8),
     },
     vendors: [users[2], users[7], users[15]],
@@ -96,7 +96,7 @@ export const topProducts = [
   {
     id: 9,
     product: {
-      name: 'Generic Steel Divan',
+      name: '通用钢制长椅',
       image: image(9),
     },
     vendors: [users[10], users[13], users[5], users[11], users[12], users[13]],
@@ -107,7 +107,7 @@ export const topProducts = [
   {
     id: 10,
     product: {
-      name: 'Handmade Beanbag',
+      name: '手工豆袋椅',
       image: image(10),
     },
     vendors: [users[10], users[2]],
@@ -118,7 +118,7 @@ export const topProducts = [
   {
     id: 11,
     product: {
-      name: 'Practical Metal Sofa',
+      name: '实用金属沙发',
       image: image(11),
     },
     vendors: [users[4], users[3], users[13], users[14], users[15], users[11]],
@@ -129,7 +129,7 @@ export const topProducts = [
   {
     id: 12,
     product: {
-      name: 'Advanced Soft Couch',
+      name: '高级软沙发',
       image: image(12),
     },
     vendors: [users[15], users[10], users[7], users[9]],
@@ -179,35 +179,35 @@ export const storages = [
 
 export const clientLocations = [
   {
-    name: 'Japan',
+    name: '日本',
     value: 44000,
   },
   {
-    name: 'Greenland',
+    name: '格陵兰',
     value: 41000,
   },
   {
-    name: 'India',
+    name: '印度',
     value: 38000,
   },
   {
-    name: 'Egypt',
+    name: '埃及',
     value: 27000,
   },
   {
-    name: 'Mexico',
+    name: '墨西哥',
     value: 19000,
   },
   {
-    name: 'Angola',
+    name: '安哥拉',
     value: 13000,
   },
   {
-    name: 'Colombia',
+    name: '哥伦比亚',
     value: 11000,
   },
   {
-    name: 'Finland',
+    name: '芬兰',
     value: 7000,
   },
 ];
@@ -232,7 +232,7 @@ export const promoSliderData = [
         'ui.data.e_commerce.dashboard.access_advanced_tools_and_proven_strategies_to_grow__633fa63c',
       );
     },
-    buttonText: 'Upgrade Now',
+    buttonText: '立即升级',
     buttonLink: '#!',
     imageKey: 'rocket',
   },
@@ -245,7 +245,7 @@ export const promoSliderData = [
         'ui.data.e_commerce.dashboard.automate_tasks_reply_instantly_and_gain_helpful_insi_5bf50c7d',
       );
     },
-    buttonText: 'Explore AI',
+    buttonText: '探索 AI',
     buttonLink: '#!',
     imageKey: 'aiTools',
   },
@@ -258,7 +258,7 @@ export const promoSliderData = [
         'ui.data.e_commerce.dashboard.receive_quicker_responses_and_dedicated_support_for__936ae5bc',
       );
     },
-    buttonText: 'Learn More',
+    buttonText: '了解更多',
     buttonLink: '#!',
     imageKey: 'customer',
   },

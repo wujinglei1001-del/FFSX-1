@@ -1,0 +1,1 @@
+import{n as e}from"./jsx-runtime-CB_p5Kcx.js";import{D as t,c as n}from"./createSimplePaletteValueFilter-cuG5cMy_.js";e();function r(){let e=t(n);return e.$$material||e}export{r as t};

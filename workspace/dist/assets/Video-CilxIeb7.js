@@ -1,1 +1,0 @@
-import{a as e}from"./i18nInstance-truXiXW9.js";import{t}from"./Box-CBygiLu4.js";var n=e(),r=({src:e,type:r=`video/webm`,srcProps:i,...a})=>(0,n.jsx)(t,{component:`video`,...a,children:(0,n.jsx)(`source`,{src:e,type:r,...i})});export{r as t};

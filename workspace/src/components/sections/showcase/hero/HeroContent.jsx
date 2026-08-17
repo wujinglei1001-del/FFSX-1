@@ -1,13 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Stack, SvgIcon } from '@mui/material';
-import { figmaPreviewLink } from 'data/showcase';
 import paths from 'routes/paths';
-import FigmaIcon from 'components/icons/FigmaIcon';
 import GradientButton from '../common/GradientButton';
 import TechStack from './TechStack';
 
 const HeroContent = ({ textRef, techStackRef, buttonsRef }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -59,6 +55,7 @@ const HeroContent = ({ textRef, techStackRef, buttonsRef }) => {
         sx={{
           gap: { xs: 0.5, sm: 1 },
           justifyContent: 'center',
+          flexWrap: 'wrap',
           width: { xs: 1, sm: 'auto' },
 
           '& button': {
@@ -67,18 +64,24 @@ const HeroContent = ({ textRef, techStackRef, buttonsRef }) => {
           },
         }}
       >
-        <GradientButton
-          href={figmaPreviewLink}
-          variant="text"
-          target="_blank"
-          rel="noopener noreferrer"
-          icon={<FigmaIcon />}
-        >
-          {translateUi('ui.sections.showcase.hero.herocontent.preview_figma_1c48706e')}
+        <GradientButton href="#templates" variant="text" sx={{ width: { xs: 140, sm: 168 } }}>
+          选择模板
         </GradientButton>
-
-        <GradientButton href={paths.ecommerce} target="_blank" rel="noopener noreferrer">
-          {translateUi('ui.sections.showcase.hero.herocontent.live_preview_a62da901')}
+        <GradientButton href="#features" variant="text" sx={{ width: { xs: 140, sm: 168 } }}>
+          功能介绍
+        </GradientButton>
+        <GradientButton
+          href={`${paths.landingSubscriptions}#free`}
+          variant="text"
+          sx={{ width: { xs: 140, sm: 168 } }}
+        >
+          免费账户
+        </GradientButton>
+        <GradientButton
+          href={`${paths.landingSubscriptions}#plans`}
+          sx={{ width: { xs: 140, sm: 168 } }}
+        >
+          订阅服务
         </GradientButton>
       </Stack>
     </Stack>

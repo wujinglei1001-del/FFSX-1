@@ -23,7 +23,7 @@ const RecentActivities = () => {
           title={translateUi(
             'ui.sections.dashboards.e_commerce.recent_activities.recent_activities_0bcc4f30',
           )}
-          subTitle="Details on shopping composition"
+          subTitle="购物动态详情"
           actionComponent={<DashboardSelectMenu defaultValue={1} />}
         />
 

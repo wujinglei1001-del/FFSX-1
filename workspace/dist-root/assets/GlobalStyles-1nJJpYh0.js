@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{Z as t,c as n}from"./createSimplePaletteValueFilter-cuG5cMy_.js";import{t as r}from"./GlobalStyles-CPw1SWit.js";var i=e();function a(e){return(0,i.jsx)(r,{...e,defaultTheme:n,themeId:t})}export{a as t};

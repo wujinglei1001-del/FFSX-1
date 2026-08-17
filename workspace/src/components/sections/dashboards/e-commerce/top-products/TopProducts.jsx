@@ -22,7 +22,7 @@ const TopProducts = () => {
     <Paper sx={{ px: { xs: 3, md: 5 }, py: { xs: 3, md: 5 }, height: '100%' }}>
       <SectionHeader
         title={translateUi('ui.sections.dashboards.e_commerce.top_products.top_products_a3b3ba6b')}
-        subTitle="Detailed information about the products"
+        subTitle="商品详细信息"
         sx={{ flexWrap: { xs: 'wrap', sm: 'nowrap' }, columnGap: 1, rowGap: 3, mb: 3 }}
         actionComponent={
           <>

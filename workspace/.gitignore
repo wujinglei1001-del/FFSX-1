@@ -10,7 +10,12 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-*.local
+.env
+.env.*
+!.env.example
+!**/.env.example
+infra/zitadel/generated/*
+!infra/zitadel/generated/.gitkeep
 
 # Editor directories and files
 .idea
@@ -22,3 +27,16 @@ dist-ssr
 *.sw?
 
 src/assets
+
+# Temporary Mercur CLI scaffold kept only as a local extraction source.
+# The tracked integration lives in services/mercur-core.
+services/mercur/
+
+# Local release and backup archives must never be committed or deployed.
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.bak
+*.old
+*.orig

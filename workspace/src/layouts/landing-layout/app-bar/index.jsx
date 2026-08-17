@@ -11,7 +11,7 @@ import ThemeToggler from 'layouts/main-layout/common/ThemeToggler';
 import SearchBox, { SearchBoxButton } from 'layouts/main-layout/common/search-box/SearchBox';
 import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
+import paths, { authPaths } from 'routes/paths';
 import Logo from 'components/common/Logo';
 import Sidenav from './nav/Sidenav';
 import Topnav from './nav/Topnav';
@@ -34,6 +34,10 @@ const menus = [
       return i18n.t('ui.layouts.landing_layout.app_bar.contact_b37456c4');
     },
     href: paths.landingContact,
+  },
+  {
+    label: '地球村',
+    href: paths.showcase,
   },
   {
     get label() {
@@ -76,7 +80,7 @@ const menus = [
         get label() {
           return i18n.t('ui.layouts.landing_layout.app_bar.pricing_a0d9bbad');
         },
-        href: '#!',
+        href: `${paths.landingHomepage}#pricing`,
         icon: 'material-symbols:attach-money-rounded',
         secondaryText: 'Discover our plans and choose what fits you best',
       },
@@ -186,7 +190,7 @@ const LandingAppBar = (props) => {
         >
           {upLg && <Topnav menus={menus} anchorRef={popoverAnchorRef} />}
           <ThemeToggler />
-          <Button variant="contained" href="#!" sx={{ minWidth: 120 }}>
+          <Button variant="contained" href={authPaths.login} sx={{ minWidth: 120 }}>
             {translateUi('ui.layouts.landing_layout.app_bar.log_in_d527bf3d')}
           </Button>
           {!upLg && <Sidenav menus={menus} />}

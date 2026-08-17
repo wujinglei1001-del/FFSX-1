@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import paths from 'routes/paths';
 import RevealItems from 'components/sections/landing/common/RevealItems';
 import RevealText from 'components/sections/landing/common/RevealText';
 
@@ -39,11 +41,11 @@ const CTA = () => {
         </RevealText>
       </Box>
       <RevealItems component={Stack} direction="row" delay={0.1} y={0} sx={{ gap: 1 }}>
-        <Button variant="contained">
-          {translateUi('ui.layouts.landing_layout.footer.cta.create_an_account_3f4f547d')}
+        <Button component={Link} href={paths.showcase} variant="contained" underline="none">
+          进入地球村
         </Button>
-        <Button color="neutral">
-          {translateUi('ui.layouts.landing_layout.footer.cta.sign_in_ada2e9e9')}
+        <Button component={Link} href={paths.landingSubscriptions} color="neutral" underline="none">
+          选择服务
         </Button>
       </RevealItems>
     </Stack>

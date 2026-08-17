@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import {
@@ -19,8 +19,8 @@ import Menu from '@mui/material/Menu';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { useAuth } from 'providers/AuthProvider';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
 import { useSettingsContext } from 'providers/SettingsProvider';
-import { demoUser } from 'providers/auth-provider/AuthJwtProvider';
 import paths, { authPaths } from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
@@ -38,9 +38,9 @@ const ProfileMenu = ({ type = 'default' }) => {
   const { themePreset, setThemePreset } = useThemeMode();
 
   const { sessionUser, signout } = useAuth();
+  const { setSettingsPanelConfig } = useSettingsPanelContext();
 
-  // Demo user data used for development purposes
-  const user = useMemo(() => sessionUser || demoUser, [sessionUser]);
+  const user = sessionUser || { name: 'FFAX' };
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -50,14 +50,23 @@ const ProfileMenu = ({ type = 'default' }) => {
     setAnchorEl(null);
   };
 
-  const handleSignout = () => {
-    signout();
-    navigate(paths.defaultLoggedOut);
+  const handleSignout = async () => {
     handleClose();
+    await signout();
   };
 
   const handleThemeToggle = () => {
     setThemePreset(themePreset === 'default-dark' ? 'default-light' : 'default-dark');
+  };
+
+  const handleAccountSettings = () => {
+    handleClose();
+    navigate(paths.account);
+  };
+
+  const handlePreferences = () => {
+    handleClose();
+    setSettingsPanelConfig({ openSettingPanel: true });
   };
 
   const menuButton = (
@@ -170,7 +179,10 @@ const ProfileMenu = ({ type = 'default' }) => {
             {translateUi('ui.layouts.main_layout.common.profilemenu.accessibility_d660049b')}
           </ProfileMenuItem>
 
-          <ProfileMenuItem icon="material-symbols:settings-outline-rounded" onClick={handleClose}>
+          <ProfileMenuItem
+            icon="material-symbols:settings-outline-rounded"
+            onClick={handlePreferences}
+          >
             {translateUi('ui.layouts.main_layout.common.profilemenu.preferences_9dfd349e')}
           </ProfileMenuItem>
 
@@ -190,8 +202,7 @@ const ProfileMenu = ({ type = 'default' }) => {
         <Box sx={{ py: 1 }}>
           <ProfileMenuItem
             icon="material-symbols:manage-accounts-outline-rounded"
-            onClick={handleClose}
-            href="#!"
+            onClick={handleAccountSettings}
           >
             {translateUi('ui.layouts.main_layout.common.profilemenu.account_settings_e3270761')}
           </ProfileMenuItem>

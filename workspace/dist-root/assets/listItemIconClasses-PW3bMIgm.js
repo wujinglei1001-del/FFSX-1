@@ -1,0 +1,1 @@
+import{T as e,w as t}from"./createSimplePaletteValueFilter-cuG5cMy_.js";function n(t){return e(`MuiListItemIcon`,t)}var r=t(`MuiListItemIcon`,[`root`,`alignItemsFlexStart`]);export{r as n,n as t};

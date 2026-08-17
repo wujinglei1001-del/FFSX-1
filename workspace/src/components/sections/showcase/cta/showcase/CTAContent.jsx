@@ -96,9 +96,7 @@ const CTAContent = () => {
         </Stack>
       </Stack>
       <RevealOnScroll delay={0.4}>
-        <GradientButton href={paths.ecommerce} target="_blank" rel="noopener noreferrer">
-          {translateUi('ui.sections.showcase.cta.showcase.live_preview_a62da901')}
-        </GradientButton>
+        <GradientButton href={paths.landingSubscriptions}>选择免费账户或订阅服务</GradientButton>
       </RevealOnScroll>
     </Stack>
   );

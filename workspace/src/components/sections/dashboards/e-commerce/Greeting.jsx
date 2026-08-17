@@ -197,11 +197,7 @@ const Greeting = ({ stats, orders }) => {
 
                   <Tooltip
                     title={
-                      status === 'warning'
-                        ? 'Processing'
-                        : status === 'primary'
-                          ? 'Shipped'
-                          : 'Delivered'
+                      status === 'warning' ? '处理中' : status === 'primary' ? '已发货' : '已送达'
                     }
                   >
                     <Chip

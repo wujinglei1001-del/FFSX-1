@@ -41,22 +41,20 @@ export const figmaPreviewLink =
 
 export const navItems = [
   {
-    get label() {
-      return i18n.t('ui.data.showcase.documentation_9e9cf322');
-    },
-    href: 'https://aurora.themewagon.com/documentation/getting-started',
+    label: '选择模板',
+    href: '#templates',
   },
   {
-    get label() {
-      return i18n.t('ui.data.showcase.support_f32d5a3b');
-    },
-    href: 'mailto:support@themewagon.com',
+    label: '注册',
+    href: paths.defaultJwtSignup,
   },
   {
-    get label() {
-      return i18n.t('ui.data.showcase.hire_us_6b2e944f');
-    },
-    href: 'https://themewagon.com/hire-us/',
+    label: '免费版',
+    href: paths.pricingColumn,
+  },
+  {
+    label: '收费版',
+    href: paths.pricingTable,
   },
 ];
 

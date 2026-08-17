@@ -1,25 +1,42 @@
-import { useNavigate } from 'react-router';
+import { useEffect, useRef } from 'react';
+import { Navigate, useLocation } from 'react-router';
+import { Alert, Stack } from '@mui/material';
 import { useAuth } from 'providers/AuthProvider';
-import paths, { rootPaths } from 'routes/paths';
-import { useRegisterUser } from 'services/swr/api-hooks/useAuthApi';
-import SignupForm from 'components/sections/authentications/default/SignupForm';
+import paths from 'routes/paths';
+import PageLoader from 'components/loading/PageLoader';
 
 const Signup = () => {
-  const { setSession } = useAuth();
-  const { trigger: signup } = useRegisterUser();
-  const navigate = useNavigate();
+  const { sessionUser, signup, isConfigured, isLoading, error } = useAuth();
+  const location = useLocation();
+  const started = useRef(false);
+  const returnTo = location.state?.from || paths.ecommerce;
 
-  const handleSignup = async (data) => {
-    const res = await signup(data).catch((error) => {
-      throw new Error(error.data.message);
-    });
-    if (res) {
-      setSession(res.user, res.authToken);
-      navigate(rootPaths.root);
-    }
-  };
+  useEffect(() => {
+    if (!isConfigured || isLoading || sessionUser || started.current) return;
 
-  return <SignupForm handleSignup={handleSignup} loginLink={paths.defaultJwtLogin} />;
+    started.current = true;
+    signup(returnTo);
+  }, [isConfigured, isLoading, returnTo, sessionUser, signup]);
+
+  if (sessionUser) {
+    return <Navigate to={returnTo} replace />;
+  }
+
+  if (!isConfigured) {
+    return (
+      <Stack sx={{ width: 1, maxWidth: 520, mx: 'auto', p: 3 }}>
+        <Alert severity="info">
+          ZITADEL 尚未配置，请先填写域名、Web Client ID 和 FFAX Project ID。
+        </Alert>
+      </Stack>
+    );
+  }
+
+  if (error) {
+    return <Alert severity="error">无法连接 ZITADEL：{error.message}</Alert>;
+  }
+
+  return <PageLoader sx={{ height: '100vh' }} />;
 };
 
 export default Signup;

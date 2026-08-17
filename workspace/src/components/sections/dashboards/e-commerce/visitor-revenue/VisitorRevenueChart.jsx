@@ -72,7 +72,7 @@ const VisitorRevenueChart = ({ data, sx }) => {
           },
         },
         {
-          name: 'Last year',
+          name: translateUi('ui.sections.dashboards.e_commerce.visitor_revenue.last_year_3cf4d8d7'),
           type: 'bar',
           data: data.lastYear,
           barWidth: '4px',

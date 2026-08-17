@@ -1,1 +1,0 @@
-import{d as e,o as t}from"./i18nInstance-truXiXW9.js";var n=e(t()),r=e=>{let[t,r]=(0,n.useState)({});return{legendState:t,handleLegendToggle:(0,n.useCallback)(t=>{e.current?.getEchartsInstance().dispatchAction({type:`legendToggleSelect`,name:t}),r(e=>({...e,[t]:!e[t]}))},[e])}};export{r as t};

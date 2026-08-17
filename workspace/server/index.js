@@ -1,0 +1,92 @@
+import cors from 'cors';
+import express from 'express';
+import helmet from 'helmet';
+import { requireZitadelAuth } from './auth/zitadel.js';
+import { controlPlaneRouter } from './channels/router.js';
+import { runtimeControlPlaneRouter } from './channels/runtime-router.js';
+import { serverConfig } from './config.js';
+import { databaseHealth, initializeDatabase } from './db/index.js';
+import { requireTenantContext } from './platform/context.js';
+import { platformRouter } from './platform/router.js';
+import { initializeRealtime } from './realtime.js';
+
+const app = express();
+
+app.disable('x-powered-by');
+app.use(helmet());
+app.use(
+  cors({
+    credentials: true,
+    origin(origin, callback) {
+      if (!origin || serverConfig.allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error('Origin is not allowed'));
+    },
+  }),
+);
+app.use(express.json({ limit: '1mb' }));
+
+app.get('/api/health', async (_req, res) => {
+  const database = await databaseHealth();
+  res.status(database.configured && !database.healthy ? 503 : 200).json({
+    status: database.configured && !database.healthy ? 'degraded' : 'ok',
+    service: 'ffax-api',
+    database,
+  });
+});
+
+app.get('/api/auth/profile', requireZitadelAuth, (req, res) => {
+  res.json({
+    data: {
+      id: req.auth.userId,
+      username: req.auth.username,
+      email: req.auth.email,
+      organization: req.auth.organization,
+      roles: req.auth.roles,
+    },
+  });
+});
+
+app.post('/api/auth/logout', requireZitadelAuth, (_req, res) => {
+  res.status(204).end();
+});
+
+app.use('/api/internal/control-plane', runtimeControlPlaneRouter);
+
+app.use(
+  '/api',
+  requireZitadelAuth,
+  requireTenantContext,
+  controlPlaneRouter,
+  platformRouter,
+);
+
+app.use('/api', requireZitadelAuth);
+
+app.use((_req, res) => {
+  res.status(404).json({ error: 'not_found' });
+});
+
+app.use((error, _req, res, _next) => {
+  const status = Number(error.status) || 500;
+
+  res.status(status).json({
+    error: status === 500 ? 'internal_server_error' : error.message,
+  });
+});
+
+const start = async () => {
+  await initializeDatabase();
+  await initializeRealtime();
+  app.listen(serverConfig.port, () =>
+    console.log(`FFAX API listening on port ${serverConfig.port}`),
+  );
+};
+
+start().catch((error) => {
+  console.error('FFAX API startup failed', error);
+  process.exitCode = 1;
+});

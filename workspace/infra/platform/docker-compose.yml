@@ -1,0 +1,102 @@
+name: ffax-platform
+
+services:
+  platform-db:
+    image: postgres:17.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${FFAX_DATABASE_NAME}
+      POSTGRES_USER: ${FFAX_DATABASE_USER}
+      POSTGRES_PASSWORD: ${FFAX_DATABASE_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ${FFAX_DATABASE_NAME} -U ${FFAX_DATABASE_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - platform-postgres-data:/var/lib/postgresql/data
+    networks: [ffax-platform]
+
+  platform-redis:
+    image: redis:7.4.2-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${FFAX_REDIS_PASSWORD}"]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a \"${FFAX_REDIS_PASSWORD}\" ping | grep PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - platform-redis-data:/data
+    networks: [ffax-platform]
+
+  mercur-db:
+    image: postgres:17.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${MERCUR_DATABASE_NAME}
+      POSTGRES_USER: ${MERCUR_DATABASE_USER}
+      POSTGRES_PASSWORD: ${MERCUR_DATABASE_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d ${MERCUR_DATABASE_NAME} -U ${MERCUR_DATABASE_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - mercur-postgres-data:/var/lib/postgresql/data
+    networks: [ffax-platform]
+
+  mercur-api:
+    build:
+      context: ../../services/mercur-core
+      dockerfile: Dockerfile
+    image: ${MERCUR_IMAGE:-ffax/mercur:2.3.1}
+    restart: unless-stopped
+    env_file:
+      - ${MERCUR_ENV_FILE:-./platform.env}
+    environment:
+      DATABASE_URL: postgresql://${MERCUR_DATABASE_USER}:${MERCUR_DATABASE_PASSWORD}@mercur-db:5432/${MERCUR_DATABASE_NAME}
+      REDIS_URL: redis://:${FFAX_REDIS_PASSWORD}@platform-redis:6379
+      MEDUSA_WORKER_MODE: server
+    ports:
+      - 127.0.0.1:9000:9000
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:9000/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))\""]
+      interval: 15s
+      timeout: 8s
+      retries: 20
+      start_period: 40s
+    depends_on:
+      mercur-db: { condition: service_healthy }
+      platform-redis: { condition: service_healthy }
+    volumes:
+      - mercur-uploads:/app/static
+    networks: [ffax-platform]
+
+  mercur-worker:
+    image: ${MERCUR_IMAGE:-ffax/mercur:2.3.1}
+    restart: unless-stopped
+    env_file:
+      - ${MERCUR_ENV_FILE:-./platform.env}
+    environment:
+      DATABASE_URL: postgresql://${MERCUR_DATABASE_USER}:${MERCUR_DATABASE_PASSWORD}@mercur-db:5432/${MERCUR_DATABASE_NAME}
+      REDIS_URL: redis://:${FFAX_REDIS_PASSWORD}@platform-redis:6379
+      MEDUSA_WORKER_MODE: worker
+    depends_on:
+      mercur-db: { condition: service_healthy }
+      platform-redis: { condition: service_healthy }
+      mercur-api: { condition: service_healthy }
+    volumes:
+      - mercur-uploads:/app/static
+    networks: [ffax-platform]
+
+networks:
+  ffax-platform:
+    name: ffax-platform
+    external: true
+
+volumes:
+  platform-postgres-data:
+  platform-redis-data:
+  mercur-postgres-data:
+  mercur-uploads:

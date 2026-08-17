@@ -4,11 +4,9 @@ import { cssVarRgba } from 'lib/utils';
 import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
-import DashedLine from '../common/DashedLine';
 import RevealItems from '../common/RevealItems';
 import RevealText from '../common/RevealText';
 import SectionHeader from '../common/SectionHeader';
-import { StripedBackground } from '../common/StripedBackground';
 
 const createGradientBg = (direction) => ({
   content: '""',
@@ -61,172 +59,153 @@ const Overview = () => {
   const { currentBreakpoint } = useBreakpoints();
   const isSm = currentBreakpoint === 'sm';
   return (
-    <StripedBackground>
-      <Box
-        sx={[
-          {
-            overflow: 'hidden',
-            width: 1,
-            height: 1,
-            position: 'relative',
-            py: 8,
-          },
-        ]}
+    <Box
+      sx={{
+        overflow: 'hidden',
+        width: 1,
+        position: 'relative',
+        py: 8,
+        bgcolor: 'transparent',
+      }}
+    >
+      <Container
+        maxWidth={false}
+        sx={{
+          maxWidth: 1000,
+          '&::before': createGradientBg('left'),
+          '&::after': createGradientBg('right'),
+          position: 'relative',
+        }}
       >
-        <Container
-          maxWidth={false}
+        <Box
           sx={{
-            maxWidth: 1000,
-            '&::before': createGradientBg('left'),
-            '&::after': createGradientBg('right'),
             position: 'relative',
+            px: { xs: 3, md: 6, lg: 10 },
+            py: { xs: 7 },
+            bgcolor: 'transparent',
+            textAlign: 'center',
+            zIndex: 20,
           }}
         >
-          <Box
-            sx={{
-              position: 'relative',
-              px: { xs: 3, md: 6, lg: 10 },
-              py: { xs: 7 },
-              bgcolor: 'background.paper',
-              borderRadius: 4,
-              textAlign: 'center',
-              zIndex: 20,
-            }}
-          >
-            <Box sx={{ mb: 4 }}>
-              <SectionHeader
-                title={translateUi('ui.sections.landing.about_us.overview.about_aurora_f444f811')}
-                subtitle={translateUi(
-                  'ui.sections.landing.about_us.overview.what_is_aurora_f0bccb9a',
-                )}
-                sx={{ mb: 1 }}
-              />
+          <Box sx={{ mb: 4 }}>
+            <SectionHeader
+              title={translateUi('ui.sections.landing.about_us.overview.about_aurora_f444f811')}
+              subtitle={translateUi(
+                'ui.sections.landing.about_us.overview.what_is_aurora_f0bccb9a',
+              )}
+              sx={{ mb: 1 }}
+            />
 
-              <RevealText delay={0.2}>
-                <Typography
-                  variant="subtitle2"
+            <RevealText delay={0.2}>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 400,
+                  maxWidth: 600,
+                  mx: 'auto',
+                }}
+              >
+                {translateUi(
+                  'ui.sections.landing.about_us.overview.aurora_an_intuitive_admin_dashboard_designed_for_sea_fb082f96',
+                )}
+              </Typography>
+            </RevealText>
+          </Box>
+
+          <RevealItems component={Grid} container spacing={1} sx={{ mb: { xs: 4, sm: 0, md: 4 } }}>
+            {stats.map((stat) => (
+              <Grid key={stat.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                <Box
                   sx={{
-                    fontWeight: 400,
-                    maxWidth: 600,
-                    mx: 'auto',
+                    position: 'relative',
+                    borderRadius: 2,
+                    p: 3,
+                    bgcolor: `${stat.color}.lighter`,
+                    overflow: 'hidden',
+                    textAlign: 'left',
+                    '&::before': {
+                      content: '""',
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: 0.6,
+                      backgroundImage: ({
+                        vars,
+                      }) => `linear-gradient(${vars.palette.divider} 1px, transparent 1px),
+         linear-gradient(to right, ${vars.palette.divider} 1px, transparent 1px)`,
+                      backgroundSize: '28px 28px',
+                      pointerEvents: 'none',
+                      WebkitMaskImage:
+                        'linear-gradient(to right, transparent, black 100%), linear-gradient(to top, transparent, black 100%)',
+                      WebkitMaskComposite: 'destination-in',
+                      maskComposite: 'intersect',
+                    },
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.landing.about_us.overview.aurora_an_intuitive_admin_dashboard_designed_for_sea_fb082f96',
-                  )}
-                </Typography>
-              </RevealText>
-            </Box>
-
-            <RevealItems
-              component={Grid}
-              container
-              spacing={1}
-              sx={{ mb: { xs: 4, sm: 0, md: 4 } }}
-            >
-              {stats.map((stat) => (
-                <Grid key={stat.id} size={{ xs: 12, sm: 6, md: 4 }}>
                   <Box
+                    sx={(theme) => ({
+                      position: 'absolute',
+                      top: 8,
+                      right: 8,
+                      color: theme.palette[stat.color].main,
+                      opacity: 0.3,
+                      fontSize: 48,
+                      lineHeight: 1,
+                    })}
+                  >
+                    <IconifyIcon icon={stat.icon} />
+                  </Box>
+
+                  <Avatar
                     sx={{
-                      position: 'relative',
-                      borderRadius: 2,
-                      p: 3,
-                      bgcolor: `${stat.color}.lighter`,
-                      overflow: 'hidden',
-                      textAlign: 'left',
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        inset: 0,
-                        opacity: 0.6,
-                        backgroundImage: ({
-                          vars,
-                        }) => `linear-gradient(${vars.palette.divider} 1px, transparent 1px),
-         linear-gradient(to right, ${vars.palette.divider} 1px, transparent 1px)`,
-                        backgroundSize: '28px 28px',
-                        pointerEvents: 'none',
-                        WebkitMaskImage:
-                          'linear-gradient(to right, transparent, black 100%), linear-gradient(to top, transparent, black 100%)',
-                        WebkitMaskComposite: 'destination-in',
-                        maskComposite: 'intersect',
-                      },
+                      borderRadius: 1,
+                      height: 32,
+                      width: 32,
+                      mb: 2,
+                      bgcolor: `${stat.color}.main`,
                     }}
                   >
-                    <Box
-                      sx={(theme) => ({
-                        position: 'absolute',
-                        top: 8,
-                        right: 8,
-                        color: theme.palette[stat.color].main,
-                        opacity: 0.3,
-                        fontSize: 48,
-                        lineHeight: 1,
-                      })}
-                    >
-                      <IconifyIcon icon={stat.icon} />
-                    </Box>
+                    <IconifyIcon icon={stat.icon} fontSize={20} />
+                  </Avatar>
 
-                    <Avatar
-                      sx={{
-                        borderRadius: 1,
-                        height: 32,
-                        width: 32,
-                        mb: 2,
-                        bgcolor: `${stat.color}.main`,
-                      }}
-                    >
-                      <IconifyIcon icon={stat.icon} fontSize={20} />
-                    </Avatar>
+                  <Typography
+                    variant="subtitle2"
+                    sx={{
+                      fontWeight: 600,
+                      mb: 1,
+                      color: 'text.secondary',
+                    }}
+                  >
+                    {stat.label}
+                  </Typography>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      fontWeight: 700,
+                    }}
+                  >
+                    {stat.content}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
 
-                    <Typography
-                      variant="subtitle2"
-                      sx={{
-                        fontWeight: 600,
-                        mb: 1,
-                        color: 'text.secondary',
-                      }}
-                    >
-                      {stat.label}
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        fontWeight: 700,
-                      }}
-                    >
-                      {stat.content}
-                    </Typography>
-                  </Box>
-                </Grid>
-              ))}
-
-              {isSm && (
-                <Grid size={6} sx={{ alignSelf: 'center' }}>
-                  <Button variant="soft" color="neutral" size="medium">
-                    {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
-                  </Button>
-                </Grid>
-              )}
-            </RevealItems>
-
-            {!isSm && (
-              <Button variant="soft" color="neutral" size="medium">
-                {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
-              </Button>
+            {isSm && (
+              <Grid size={6} sx={{ alignSelf: 'center' }}>
+                <Button variant="soft" color="neutral" size="medium">
+                  {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
+                </Button>
+              </Grid>
             )}
-          </Box>
-        </Container>
+          </RevealItems>
 
-        <DashedLine
-          gradientOrientation="none"
-          sx={{ position: 'absolute', zIndex: 20, width: 1, height: '1px', left: 0, top: 0 }}
-        />
-        <DashedLine
-          gradientOrientation="none"
-          sx={{ position: 'absolute', zIndex: 20, width: 1, height: '1px', left: 0, bottom: 0 }}
-        />
-      </Box>
-    </StripedBackground>
+          {!isSm && (
+            <Button variant="soft" color="neutral" size="medium">
+              {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
+            </Button>
+          )}
+        </Box>
+      </Container>
+    </Box>
   );
 };
 export default Overview;

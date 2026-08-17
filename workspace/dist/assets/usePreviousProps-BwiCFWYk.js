@@ -1,1 +1,0 @@
-import{d as e,o as t}from"./i18nInstance-truXiXW9.js";var n=e(t(),1);function r(e){let t=n.useRef({});return n.useEffect(()=>{t.current=e}),t.current}export{r as t};

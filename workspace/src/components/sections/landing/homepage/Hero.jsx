@@ -1,65 +1,26 @@
-import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useGSAP } from '@gsap/react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { gsap } from 'gsap';
-import { SplitText } from 'gsap/SplitText';
-import { cssVarRgba } from 'lib/utils';
-import { useBreakpoints } from 'providers/BreakpointsProvider';
-import { useSettingsContext } from 'providers/SettingsProvider';
 import paths from 'routes/paths';
-import Image from 'components/base/Image';
-import DashedLine from '../common/DashedLine';
-import { Dot } from '../common/PageHeader';
-import RevealImage from '../common/RevealImage';
 import RevealItems from '../common/RevealItems';
-import { StripedBackground } from '../common/StripedBackground';
 
-gsap.registerPlugin(SplitText);
 const Hero = () => {
   const { t: translateUi } = useTranslation();
-  const {
-    config: { assetsDir },
-  } = useSettingsContext();
-  const { up } = useBreakpoints();
-  const slidesListRef = useRef(null);
-  const upLg = up('lg');
-  const words = ['productivity', 'efficiency', 'collaboration', 'innovation'];
-  useGSAP(() => {
-    const container = slidesListRef.current;
-    if (!container) return;
-    const slides = Array.from(container.children);
-    const tl = gsap.timeline({ repeat: -1 });
-    const splitTexts = slides.map((slide, i) => {
-      const split = new SplitText(slide, { type: 'chars' });
-      gsap.set(split.chars, { y: i === 0 ? 0 : 53 });
-      return split;
-    });
-    splitTexts.forEach((split, i) => {
-      tl.to(container, { duration: 0.3, y: i * -53 }, i * 2)
-        .fromTo(
-          split.chars,
-          { y: 53 },
-          { duration: 0.3, y: 0, stagger: 0.03, ease: 'power2.out' },
-          i * 2,
-        )
-        .to({}, { duration: 1.7 });
-    });
-    return () => splitTexts.forEach((split) => split.revert());
-  }, []);
   return (
     <Box
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        mt: { sm: 7 },
-        pt: 10.5,
+        mt: 0,
+        pt: { xs: 7, sm: 9 },
         pb: { xs: 5, sm: 10.5 },
         px: { xs: 3, md: 5 },
+        minHeight: { xs: 'calc(100vh - 72px)', sm: 'calc(100vh - 96px)' },
+        display: 'flex',
+        alignItems: 'flex-start',
       }}
     >
       <Container
@@ -69,200 +30,74 @@ const Hero = () => {
           position: 'relative',
           px: { xs: 0 },
           textAlign: 'center',
-          bgcolor: 'background.paper',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: 260,
-            height: 96,
-            bottom: -96,
-            left: -260,
-            background: (theme) =>
-              `linear-gradient(to bottom left, ${cssVarRgba(theme.vars.palette.background.elevation2Channel, 1)} 0%, transparent 50%)`,
-          },
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            width: 260,
-            height: 96,
-            top: -96,
-            right: -260,
-            background: (theme) =>
-              `linear-gradient(to top right, ${cssVarRgba(theme.vars.palette.background.elevation2Channel, 1)} 0%, transparent 50%)`,
-          },
         }}
       >
-        <DashedLine
-          orientation="vertical"
-          sx={{
-            zIndex: 10,
-            position: 'absolute',
-            left: 0,
-            top: -72,
-            bottom: -72,
-          }}
-        />
-        <DashedLine
-          orientation="vertical"
-          sx={{
-            zIndex: 10,
-            position: 'absolute',
-            right: 0,
-            top: -72,
-            bottom: -72,
-          }}
-        />
-        {upLg && (
-          <DashedLine
-            orientation="vertical"
+        <Stack sx={{ alignItems: 'center' }}>
+          <Box
             sx={{
-              zIndex: 10,
-              position: 'absolute',
-              left: '50%',
-              top: -72,
-              bottom: -72,
-            }}
-          />
-        )}
-        <DashedLine
-          sx={{
-            width: '100vw',
-            zIndex: 20,
-            position: 'absolute',
-            left: '50%',
-            transform: 'translate(-50%)',
-            top: 0,
-          }}
-        />
-        <DashedLine
-          sx={{
-            width: 200,
-            position: 'absolute',
-            left: -200,
-            zIndex: 10,
-            bottom: 0,
-          }}
-        />
-        <DashedLine
-          sx={{
-            width: 200,
-            position: 'absolute',
-            right: -200,
-            zIndex: 10,
-            bottom: 0,
-          }}
-        />
-
-        <Stack
-          direction={{ xs: 'column', lg: 'row' }}
-          sx={{
-            '&> *': {
-              flex: '1 1 50%',
-              minWidth: 0,
-            },
-          }}
-        >
-          <StripedBackground
-            fadeWidth="0"
-            sx={() => ({
-              p: { xs: 3, sm: 6, md: 10 },
+              p: { xs: 2, sm: 4 },
               position: 'relative',
-            })}
+              width: 1,
+              maxWidth: 820,
+            }}
           >
-            <Dot placement="top-left" />
-            <Dot placement="top-right" />
-            <Dot placement="bottom-right" />
-            <Dot placement="bottom-left" />
             <RevealItems
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'flex-start',
-                maxWidth: 600,
+                alignItems: 'center',
+                maxWidth: 820,
+                mx: 'auto',
               }}
             >
               <Typography
                 variant="h2"
                 sx={{
-                  textAlign: 'left',
-                  lineHeight: 1.2,
+                  fontSize: { xs: '1.375rem', sm: '1.625rem', md: '2rem' },
+                  fontFamily: '"Noto Sans SC", sans-serif',
+                  fontWeight: 500,
+                  textAlign: 'center',
+                  lineHeight: 1.28,
+                  letterSpacing: 0,
                   mb: 2,
                 }}
               >
-                {translateUi('ui.sections.landing.homepage.hero.ultimate_web_app_to_29a1fcff')}{' '}
                 <Box
                   component="span"
                   sx={{
-                    whiteSpace: { sm: 'nowrap' },
+                    display: 'block',
                   }}
                 >
-                  {translateUi('ui.sections.landing.homepage.hero.enhances_69ee45bb')}{' '}
-                  <Box
-                    component="span"
-                    sx={{
-                      color: 'primary.main',
-                      position: 'relative',
-                      right: 0,
-                      display: 'inline-block',
-                      overflow: 'hidden',
-                      height: 53,
-                      verticalAlign: 'top',
-                    }}
-                  >
-                    <Box
-                      ref={slidesListRef}
-                      sx={{
-                        position: 'relative',
-                        display: 'block',
-                      }}
-                    >
-                      {words.map((word) => (
-                        <Box
-                          key={word}
-                          sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            height: 53,
-                            flexDirection: ({ direction }) =>
-                              direction === 'rtl' ? 'row-reverse' : 'row',
-                            justifyContent: ({ direction }) =>
-                              direction === 'rtl' ? 'flex-end' : 'flex-start',
-                            lineHeight: 1.5,
-                          }}
-                        >
-                          {word}.
-                        </Box>
-                      ))}
-                    </Box>
-                  </Box>
+                  连接全球贸易中的每一个角色
+                </Box>
+                <Box component="span" sx={{ display: 'block' }}>
+                  让每一种需求找到正确的响应
                 </Box>
               </Typography>
 
               <Typography
                 variant="h5"
                 sx={{
-                  textAlign: 'left',
+                  textAlign: 'center',
                   fontWeight: 500,
                   mb: 4,
                   color: 'text.secondary',
                 }}
               >
-                {translateUi(
-                  'ui.sections.landing.homepage.hero.try_our_app_for_a_simpler_organized_workflow_0acaf354',
-                )}
+                FFAX 是全球贸易网络中的数字桥梁
               </Typography>
 
               <Typography
                 variant="body2"
                 sx={{
-                  textAlign: 'left',
+                  textAlign: 'center',
+                  maxWidth: 680,
                   mb: 5,
                   color: 'text.secondary',
                 }}
               >
-                {translateUi(
-                  'ui.sections.landing.homepage.hero.our_web_app_offers_a_seamless_experience_allowing_yo_c11cee63',
-                )}
+                通过可信准入、结构化需求、AI
+                智能匹配和数字化履约，连接跨境卖家、工厂、采购商、物流、海外仓及企业服务机构。
               </Typography>
 
               <Stack
@@ -271,57 +106,14 @@ const Hero = () => {
                   gap: 1,
                 }}
               >
-                <Button variant="contained">
-                  {translateUi('ui.sections.landing.homepage.hero.start_today_d83f167a')}
+                <Button variant="contained" href={paths.showcase}>
+                  进入地球村
                 </Button>
                 <Button variant="soft" color="neutral" href={paths.landingContact}>
                   {translateUi('ui.sections.landing.homepage.hero.contact_us_4832e458')}
                 </Button>
               </Stack>
             </RevealItems>
-            <DashedLine
-              gradientOrientation="none"
-              sx={{
-                width: 1,
-                position: 'absolute',
-                zIndex: 10,
-                bottom: 0,
-                left: 0,
-              }}
-            />
-          </StripedBackground>
-          <Box
-            sx={{
-              position: 'relative',
-              width: 1,
-              backgroundImage: ({ vars }) =>
-                `linear-gradient(to bottom, transparent, ${vars.palette.common.background})`,
-            }}
-          >
-            <Dot placement="top-right" />
-            <Dot placement="bottom-right" />
-            <Dot placement="bottom-left" />
-            <RevealImage>
-              <Image
-                src={{
-                  light: `${assetsDir}/images/landing/hero/1.webp`,
-                  dark: `${assetsDir}/images/landing/hero/1-dark.webp`,
-                }}
-                sx={{
-                  position: { lg: 'absolute' },
-                  top: 0,
-                  left: 0,
-                  width: 1,
-                  objectFit: 'cover',
-                  objectPosition: 'top',
-                  maxHeight: 700,
-                  maskImage: {
-                    xs: `linear-gradient(to bottom, black 75%, transparent)`,
-                    lg: `linear-gradient(to bottom, black 30%, transparent 80%)`,
-                  },
-                }}
-              />
-            </RevealImage>
           </Box>
         </Stack>
       </Container>

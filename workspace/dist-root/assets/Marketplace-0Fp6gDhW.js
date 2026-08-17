@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./MicroAppHost-CIHkT8MU.js";var n=e(),r=()=>(0,n.jsx)(t,{appId:`marketplace`});export{r as default};

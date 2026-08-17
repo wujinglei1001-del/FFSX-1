@@ -9,7 +9,7 @@ import Logo from 'components/common/Logo';
 import NavItem from './NavItem';
 import PromoCard from './PromoCard';
 
-const Sidenav = ({ menus }) => {
+const Sidenav = ({ menus = [] }) => {
   const { t: translateUi } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,7 +17,7 @@ const Sidenav = ({ menus }) => {
     setIsOpen(newOpen);
   };
 
-  const menuItems = menus.find((item) => item.label === 'Pages');
+  const submenuItems = menus.find((item) => Array.isArray(item.submenus))?.submenus ?? [];
 
   const DrawerList = (
     <Stack sx={{ gap: 3, width: 320, py: 3, px: 2 }} role="presentation">
@@ -33,7 +33,7 @@ const Sidenav = ({ menus }) => {
       </Stack>
 
       <List disablePadding>
-        {menuItems.submenus.map((menu) => (
+        {submenuItems.map((menu) => (
           <NavItem key={menu.label} menu={menu} disabledSecondaryText />
         ))}
       </List>

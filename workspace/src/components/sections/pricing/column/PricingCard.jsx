@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useThemeMode } from 'hooks/useThemeMode';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PricingCard = ({ data, isYearly }) => {
@@ -23,6 +24,7 @@ const PricingCard = ({ data, isYearly }) => {
 
   return (
     <Card
+      id={!data.price ? 'free' : data.recommended ? 'plans' : undefined}
       sx={[
         {
           p: 5,
@@ -74,7 +76,7 @@ const PricingCard = ({ data, isYearly }) => {
             <Typography variant="h3">
               {isYearly ? currencyFormat(data.price.yearly) : currencyFormat(data.price.monthly)}
             </Typography>
-            <Typography variant="caption">/ {isYearly ? 'year' : 'month'}</Typography>
+            <Typography variant="caption">/ {isYearly ? '年' : '月'}</Typography>
           </Stack>
         )}
 
@@ -109,8 +111,12 @@ const PricingCard = ({ data, isYearly }) => {
       </CardContent>
 
       <CardActions sx={{ p: 0 }}>
-        <Button variant={data.recommended ? 'contained' : 'soft'} fullWidth>
-          {!data.price ? 'Start free trial' : 'Sign up'}
+        <Button
+          variant={data.recommended ? 'contained' : 'soft'}
+          href={data.price ? paths.defaultJwtLogin : paths.defaultJwtSignup}
+          fullWidth
+        >
+          {!data.price ? '创建免费账户' : '购买并继续'}
         </Button>
       </CardActions>
     </Card>

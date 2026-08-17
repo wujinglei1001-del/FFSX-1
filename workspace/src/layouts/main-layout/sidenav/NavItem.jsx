@@ -229,8 +229,10 @@ const NavItem = ({ item, level }) => {
                   color="warning"
                   sx={{ [`& .${badgeClasses.badge}`]: { top: 6, right: -8 } }}
                 >
-                  {t(item.key || item.name)}
+                  {item.translate === false ? item.name : t(item.key || item.name)}
                 </Badge>
+              ) : item.translate === false ? (
+                item.name
               ) : (
                 t(item.key || item.name)
               )}

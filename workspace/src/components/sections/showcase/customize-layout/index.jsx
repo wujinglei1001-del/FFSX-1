@@ -40,7 +40,7 @@ const CustomizeLayout = () => {
 
   return (
     <FormProvider {...methods}>
-      <Box sx={{ position: 'relative', mb: { xs: 15, sm: 35 } }}>
+      <Box id="templates" sx={{ position: 'relative', mb: { xs: 15, sm: 35 } }}>
         <Container maxWidth={false} sx={{ maxWidth: 966, textAlign: 'center' }}>
           <Stack
             sx={{

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Box, Divider, Link, Stack, Typography } from '@mui/material';
+import { Box, Divider, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 const Footer = () => {
@@ -65,14 +65,7 @@ const Footer = () => {
             >
               |
             </Box>{' '}
-            {dayjs().year()} ©
-            <Link
-              href="https://themewagon.com/"
-              target="_blank"
-              sx={{ textDecoration: 'none', mx: 0.5 }}
-            >
-              {translateUi('ui.layouts.main_layout.footer.themewagon_42a442ab')}
-            </Link>
+            {dayjs().year()} © FFA-X
           </Box>
         </Typography>
 

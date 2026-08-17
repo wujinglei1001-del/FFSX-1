@@ -1,0 +1,28 @@
+:root { color-scheme: light dark; }
+.ffax-micro { font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; color: #172133; padding: 8px 4px 32px; }
+.ffax-micro *, .ffax-micro *::before, .ffax-micro *::after { box-sizing: border-box; }
+.ffax-micro-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+.ffax-micro h1 { font-size: clamp(24px, 3vw, 36px); line-height: 1.15; margin: 0 0 8px; }
+.ffax-micro h2 { font-size: 18px; margin: 0; }
+.ffax-micro p { color: #64748b; margin: 0; line-height: 1.65; }
+.ffax-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+.ffax-card { grid-column: span 4; border: 1px solid #dde4ec; border-radius: 14px; padding: 18px; background: #fff; box-shadow: 0 8px 24px rgba(15,23,42,.04); }
+.ffax-card-wide { grid-column: span 8; }
+.ffax-list { display: grid; gap: 10px; margin-top: 16px; }
+.ffax-list-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid #eef2f6; padding-top: 12px; }
+.ffax-button { appearance: none; border: 0; border-radius: 9px; background: #5b6cff; color: #fff; font: inherit; font-weight: 700; padding: 10px 15px; cursor: pointer; }
+.ffax-button-secondary { background: #edf1f5; color: #1f2937; }
+.ffax-button:disabled { cursor: not-allowed; opacity: .5; }
+.ffax-badge { display: inline-flex; align-items: center; border-radius: 999px; background: #eef2ff; color: #3f51d7; font-size: 12px; font-weight: 700; padding: 5px 9px; }
+.ffax-form { display: grid; gap: 12px; }
+.ffax-field { width: 100%; border: 1px solid #d7dee7; border-radius: 9px; background: #fff; color: #172133; font: inherit; padding: 11px 12px; }
+.ffax-error { color: #b42318; margin-bottom: 12px; }
+@media (prefers-color-scheme: dark) {
+  .ffax-micro { color: #edf2f7; }
+  .ffax-micro p { color: #9aa7b8; }
+  .ffax-card { background: #12171d; border-color: #27313d; box-shadow: none; }
+  .ffax-list-row { border-color: #27313d; }
+  .ffax-button-secondary { background: #232b35; color: #edf2f7; }
+  .ffax-field { background: #11161c; border-color: #344050; color: #edf2f7; }
+}
+@media (max-width: 900px) { .ffax-card, .ffax-card-wide { grid-column: span 12; } .ffax-micro-header { align-items: flex-start; flex-direction: column; } }

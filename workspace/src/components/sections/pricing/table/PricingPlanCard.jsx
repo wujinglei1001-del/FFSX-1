@@ -14,6 +14,7 @@ import {
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYearly, sx }) => {
@@ -105,7 +106,7 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
           )}
           {price && (
             <Typography component="span" variant="caption">
-              / {isYearly ? 'y' : 'm'}
+              / {isYearly ? '年' : '月'}
             </Typography>
           )}
         </Typography>
@@ -116,13 +117,14 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
             variant={recommended ? 'contained' : 'soft'}
             startIcon={downMd ? <IconifyIcon icon="material-symbols:shopping-cart" /> : undefined}
             color="primary"
+            href={paths.defaultJwtSignup}
             fullWidth
             sx={{
               minWidth: { xs: 0, sm: 0 },
               [`& .${buttonClasses.startIcon}`]: { m: 0 },
             }}
           >
-            {downMd ? '' : 'Sign up'}
+            {downMd ? '' : '注册选择'}
           </Button>
         </Box>
       </CardContent>

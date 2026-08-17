@@ -1,0 +1,8 @@
+routes:
+  - id: logistics-domain
+    uri: /*
+    upstream:
+      type: roundrobin
+      nodes:
+        "logistics-api:8103": 1
+#END

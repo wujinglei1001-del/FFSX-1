@@ -68,7 +68,11 @@ const ContactForm = () => {
     formState: { errors },
   } = methods;
   const onSubmitHandler = (data) => {
-    console.log(data);
+    const subject = encodeURIComponent(`FFAX 官网咨询 - ${data.company}`);
+    const body = encodeURIComponent(
+      `姓名：${data.firstName} ${data.lastName}\n邮箱：${data.email}\n电话：${data.phone}\n公司：${data.company}\n\n咨询内容：\n${data.purpose}`,
+    );
+    window.location.href = `mailto:hello@ffax.com?subject=${subject}&body=${body}`;
   };
   return (
     <Stack>

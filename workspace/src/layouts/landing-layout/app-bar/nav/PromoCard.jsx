@@ -6,6 +6,7 @@ import illustrationDark from 'assets/images/illustrations/16-dark.webp';
 import illustration from 'assets/images/illustrations/16.webp';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { cssVarRgba } from 'lib/utils';
+import paths from 'routes/paths';
 import Image from 'components/base/Image';
 
 const PromoCard = () => {
@@ -60,7 +61,7 @@ const PromoCard = () => {
           }}
         />
 
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="success" href={paths.landingContact}>
           {translateUi('ui.layouts.landing_layout.app_bar.nav.book_a_demo_5de232f9')}
         </Button>
       </Stack>

@@ -1,0 +1,13 @@
+.git
+.github
+.idea
+dist
+node_modules
+src
+public
+scripts
+*.log
+.env
+.env.*
+infra/zitadel/.env*
+infra/zitadel/generated

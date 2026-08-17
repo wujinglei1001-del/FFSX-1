@@ -36,6 +36,12 @@ const getStockBadge = (val) => {
   }
 };
 
+const stockLabels = {
+  'In Stock': '有现货',
+  'Low Stock': '库存不足',
+  Stockout: '已售罄',
+};
+
 const ProductsTable = ({ apiRef }) => {
   const { t: translateUi } = useTranslation();
   const { currencyFormat, numberFormat } = useNumberFormat();
@@ -145,7 +151,7 @@ const ProductsTable = ({ apiRef }) => {
         headerAlign: 'right',
         renderCell: (params) => (
           <Chip
-            label={params.row.stock}
+            label={stockLabels[params.row.stock] || params.row.stock}
             color={getStockBadge(params.row.stock)?.color}
             variant="soft"
             size="small"

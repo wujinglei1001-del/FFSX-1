@@ -1,0 +1,1 @@
+import{n as e,s as t}from"./jsx-runtime-CB_p5Kcx.js";var n=t(e(),1),r=typeof window<`u`?n.useLayoutEffect:n.useEffect;export{r as t};

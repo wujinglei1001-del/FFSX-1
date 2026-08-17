@@ -1,26 +1,15 @@
-import { useTranslation } from 'react-i18next';
 import { Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { clientLocations } from 'data/e-commerce/dashboard';
-import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
-import SectionHeader from 'components/common/SectionHeader';
 import LocationChart from './LocationChart';
 import LocationMap from './LocationMap';
 
 const ClientsLocations = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{ p: { xs: 3, md: 5 }, height: '100%', display: 'flex', flexDirection: 'column' }}
       background={1}
     >
-      <SectionHeader
-        title={translateUi(
-          'ui.sections.dashboards.e_commerce.clients_locations.most_clients_284466b4',
-        )}
-        subTitle="Our client number based on their primary location"
-        actionComponent={<DashboardSelectMenu defaultValue={1} />}
-      />
       <Grid container spacing={3}>
         <Grid
           size={{

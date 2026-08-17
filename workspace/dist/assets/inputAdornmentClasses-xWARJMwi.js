@@ -1,1 +1,0 @@
-import{D as e,E as t}from"./createSimplePaletteValueFilter-k5yBtt5A.js";function n(t){return e(`MuiInputAdornment`,t)}var r=t(`MuiInputAdornment`,[`root`,`filled`,`standard`,`outlined`,`positionStart`,`positionEnd`,`disablePointerEvents`,`hiddenLabel`,`sizeSmall`]);export{r as n,n as t};

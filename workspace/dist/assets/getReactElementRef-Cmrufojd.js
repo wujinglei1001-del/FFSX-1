@@ -1,1 +1,0 @@
-import{o as e}from"./i18nInstance-truXiXW9.js";e();function t(e){return e?.props?.ref||null}export{t};

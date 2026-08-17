@@ -13,7 +13,7 @@ const StorageUsage = () => {
         title={translateUi(
           'ui.sections.dashboards.e_commerce.storage_usage.storage_usage_e7f5956b',
         )}
-        subTitle=" Product categories occupying warehouse space"
+        subTitle="各商品类别的仓库占用情况"
         actionComponent={<DashboardMenu />}
       />
       <StorageBar storages={storages} />

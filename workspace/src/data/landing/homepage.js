@@ -1,49 +1,42 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 
 const blog = (index) => `${initialConfig.assetsDir}/images/landing/blog/${index}.webp`;
-const gallery = (index) => `${initialConfig.assetsDir}/images/landing/gallery/${index}.webp`;
+const interfaceShowcase = (index) => `/assets/images/showcase/${index}.webp`;
+const themedInterfaceShowcase = (light, dark) => ({
+  light: interfaceShowcase(light),
+  dark: interfaceShowcase(dark),
+});
+const landingExample = (index) => ({
+  light: `${initialConfig.assetsDir}/images/landing/examples/${index}.webp`,
+  dark: `${initialConfig.assetsDir}/images/landing/examples/${index}-dark.webp`,
+});
 const testimonial = (index) =>
   `${initialConfig.assetsDir}/images/landing/testimonial/${index}.webp`;
-const showcase = (index) => `${initialConfig.assetsDir}/images/landing/showcase/${index}.webp`;
 
 export const showcaseData = [
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.skyline_innovations_3311fec6');
-    },
-    img: showcase(1),
-    get subtitle() {
-      return i18n.t(
-        'ui.data.landing.homepage.modern_architecture_reimagined_for_tomorrow_s_cities_36a0a5cc',
-      );
-    },
-    desc: 'A forward-thinking project blending minimal design with functional elegance. This work emphasizes clean geometry and sustainable building practices to create inspiring spaces.',
+    title: '全球贸易协作网络',
+    img: landingExample(4),
+    subtitle: '让需求、角色与服务能力建立可信连接',
+    desc: '连接跨境卖家、工厂、采购商、物流、海外仓和企业服务机构，让真实需求进入统一的数字协作网络。',
+    href: paths.chat,
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.quantum_leap_initiative_8f785a2e');
-    },
-    img: showcase(2),
-    get subtitle() {
-      return i18n.t(
-        'ui.data.landing.homepage.pioneering_solutions_for_modern_infrastructure_755c8834',
-      );
-    },
-    desc: 'A daring take on structural innovation merges advanced technology with classic design. This initiative demonstrates how contemporary construction can meet the urban challenges of the future.',
+    title: '跨境履约与全程追踪',
+    img: landingExample(2),
+    subtitle: '连接订单、仓储、物流与交付状态',
+    desc: '将分散的订单和履约信息汇集到统一流程中，让企业持续掌握仓储、运输、异常与交付进度。',
+    href: paths.ecommerce,
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.ecovision_project_246e5682');
-    },
-    img: showcase(3),
-    get subtitle() {
-      return i18n.t(
-        'ui.data.landing.homepage.where_sustainability_meets_architectural_beauty_5b603c3a',
-      );
-    },
-    desc: 'A project focused on eco-friendly materials and green architecture. Built with efficiency in mind, EcoVision highlights how smart design can minimize impact while maximizing aesthetic value.',
+    title: '企业协同与任务执行',
+    img: themedInterfaceShowcase(4, 3),
+    subtitle: '让跨组织合作转化为清晰、可追踪的任务',
+    desc: '通过团队任务、客户管理、文件、审批和数据看板，为贸易生态中的企业协作提供稳定的执行基础。',
+    href: paths.project,
   },
 ];
 
@@ -112,32 +105,36 @@ export const featuresData = [
 
 export const galleryData = [
   {
-    img: gallery(1),
-    name: 'The Zenith UI/UX',
+    img: interfaceShowcase(12),
+    component: 'client-locations',
+    name: '全球贸易协作网络',
   },
   {
-    img: gallery(2),
-    name: 'The Atlas Interface',
+    img: themedInterfaceShowcase(4, 3),
+    name: 'AI 需求匹配界面',
   },
   {
-    img: gallery(3),
-    name: 'The Serpentine Design',
+    img: landingExample(2),
+    name: '跨境履约控制台',
   },
   {
-    img: gallery(4),
-    name: 'Heritage Blueprint',
+    img: landingExample(5),
+    name: '开放 API 与系统集成',
   },
   {
-    img: gallery(5),
-    name: 'The Vaulted Architecture',
+    img: themedInterfaceShowcase(2, 1),
+    name: '数据分析与业务追踪',
   },
   {
-    img: gallery(6),
-    name: 'Quantum Framework',
+    img: landingExample(4),
+    name: '企业实时协作',
   },
   {
-    img: gallery(7),
-    name: 'The Urban Experience',
+    img: {
+      light: `${initialConfig.assetsDir}/images/landing/examples/1.webp`,
+      dark: `${initialConfig.assetsDir}/images/landing/examples/1.webp`,
+    },
+    name: '多语言与全球运营',
   },
 ];
 

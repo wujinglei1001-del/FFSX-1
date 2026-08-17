@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Box,
@@ -11,8 +11,8 @@ import {
   listClasses,
   paperClasses,
 } from '@mui/material';
+import { zitadelConfig } from 'config/zitadel';
 import { useAuth } from 'providers/AuthProvider';
-import { demoUser } from 'providers/auth-provider/AuthJwtProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
@@ -22,8 +22,7 @@ const ProfileMenu = () => {
 
   const { sessionUser, signout } = useAuth();
 
-  // Demo user data used for development purposes
-  const user = useMemo(() => sessionUser || demoUser, [sessionUser]);
+  const user = sessionUser || { name: 'FFAX' };
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -36,6 +35,11 @@ const ProfileMenu = () => {
   const handleSignout = () => {
     signout();
     handleClose();
+  };
+
+  const handleAccountSettings = () => {
+    handleClose();
+    window.location.assign(zitadelConfig.accountUrl);
   };
 
   return (
@@ -113,10 +117,10 @@ const ProfileMenu = () => {
 
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleAccountSettings}>
             {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.your_account_4ab29102')}
           </MenuItem>
-          <MenuItem onClick={handleClose}>
+          <MenuItem onClick={handleAccountSettings}>
             {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.account_settings_82cf8a5f')}
           </MenuItem>
         </Box>

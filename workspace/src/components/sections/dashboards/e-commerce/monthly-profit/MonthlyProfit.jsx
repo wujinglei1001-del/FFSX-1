@@ -21,7 +21,7 @@ const MonthlyProfit = () => {
           title={translateUi(
             'ui.sections.dashboards.e_commerce.monthly_profit.monthly_earnings_fed45ea1',
           )}
-          subTitle="Total profit gained"
+          subTitle="累计利润"
           actionComponent={<DashboardMenu />}
           sx={{ mb: 0 }}
         />

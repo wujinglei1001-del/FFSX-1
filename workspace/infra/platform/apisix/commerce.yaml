@@ -1,0 +1,8 @@
+routes:
+  - id: commerce-domain
+    uri: /*
+    upstream:
+      type: roundrobin
+      nodes:
+        "commerce-api:8104": 1
+#END

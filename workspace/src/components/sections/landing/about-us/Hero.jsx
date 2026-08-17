@@ -4,16 +4,12 @@ import { Box, Button, Chip, Container, Typography, keyframes } from '@mui/materi
 import { useThemeMode } from 'hooks/useThemeMode';
 import { cssVarRgba } from 'lib/utils';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import { useSettingsContext } from 'providers/SettingsProvider';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
-import DashedLine from '../common/DashedLine';
+import Image from 'components/base/Image';
 
 const Hero = () => {
   const { t: translateUi } = useTranslation();
-  const {
-    config: { assetsDir },
-  } = useSettingsContext();
   const { isDark } = useThemeMode();
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -25,71 +21,12 @@ const Hero = () => {
           maxWidth: 1400,
           position: 'relative',
           px: { xs: 0 },
-          pt: 13,
+          pt: 9,
           textAlign: 'center',
-          bgcolor: 'background.paper',
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            width: 260,
-            height: 96,
-            bottom: -1,
-            left: -260,
-            background: (theme) =>
-              `linear-gradient(to bottom left, ${cssVarRgba(theme.vars.palette.background.elevation2Channel, 1)} 0%, transparent 50%)`,
-          },
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            width: 260,
-            height: 96,
-            top: -96,
-            right: -260,
-            background: (theme) =>
-              `linear-gradient(to top right, ${cssVarRgba(theme.vars.palette.background.elevation2Channel, 1)} 0%, transparent 50%)`,
-          },
+          bgcolor: 'transparent',
         }}
       >
-        <DashedLine
-          orientation="vertical"
-          sx={{
-            height: '105%',
-            zIndex: 10,
-            position: 'absolute',
-            left: 0,
-            bottom: 0,
-          }}
-        />
-        <DashedLine
-          orientation="vertical"
-          sx={{
-            height: '105%',
-            position: 'absolute',
-            right: 0,
-            bottom: 0,
-          }}
-        />
-        <DashedLine
-          sx={{
-            width: '100vw',
-            zIndex: 20,
-            position: 'absolute',
-            left: '50%',
-            transform: 'translate(-50%)',
-            top: 0,
-          }}
-        />
-        <DashedLine
-          sx={{
-            width: '100vw',
-            position: 'absolute',
-            left: '50%',
-            zIndex: -10,
-            transform: 'translate(-50%)',
-            bottom: 96,
-          }}
-        />
-        <Box sx={{ position: 'relative', zIndex: 10, mb: 5.5 }}>
+        <Box sx={{ position: 'relative', zIndex: 10, mb: 2 }}>
           <Box
             sx={{
               position: 'absolute',
@@ -117,7 +54,15 @@ const Hero = () => {
           <Box sx={{ position: 'relative', px: 2 }}>
             <Typography
               variant="h2"
-              sx={{ typography: { xs: 'h3', sm: 'h2' }, maxWidth: 800, mx: 'auto', mb: 3 }}
+              sx={{
+                fontSize: { xs: '2rem', sm: '2.75rem', md: '3.25rem' },
+                fontWeight: 600,
+                lineHeight: 1.18,
+                letterSpacing: '-0.012em',
+                maxWidth: 800,
+                mx: 'auto',
+                mb: 3,
+              }}
             >
               {translateUi(
                 'ui.sections.landing.about_us.hero.get_to_know_us_together_we_create_b4135d5a',
@@ -173,21 +118,28 @@ const Hero = () => {
               userSelect: 'none',
               zIndex: 0,
             },
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: `url(${isDark ? `${assetsDir}/images/landing/hero/1-dark.webp` : `${assetsDir}/images/landing/hero/1.webp`})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'top',
-              borderTopLeftRadius: 8,
-              borderTopRightRadius: 8,
-              pointerEvents: 'none',
-              userSelect: 'none',
-              zIndex: 1,
-            },
           })}
         >
+          <Image
+            src={{
+              light: `${import.meta.env.BASE_URL}images/landing/hero/1-dark-zh-ffax.png`,
+              dark: `${import.meta.env.BASE_URL}images/landing/hero/1-dark-zh-ffax.png`,
+            }}
+            alt="FFA-X 中文工作台静态预览"
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: 1,
+              height: 'auto',
+              minHeight: 1,
+              objectFit: 'cover',
+              objectPosition: 'top left',
+              bgcolor: 'background.default',
+              zIndex: 1,
+              pointerEvents: 'none',
+            }}
+          />
           {upSm && (
             <>
               <CursorElement

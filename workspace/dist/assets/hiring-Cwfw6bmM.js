@@ -1,1 +1,0 @@
-import{a as e}from"./i18nInstance-truXiXW9.js";import{n as t}from"./components-aS-6TUrV.js";import{t as n}from"./HiringProvider-Beg9SuEP.js";var r=e(),i=()=>(0,r.jsx)(n,{children:(0,r.jsx)(t,{})});export{i as default};

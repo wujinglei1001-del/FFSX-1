@@ -1,11 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import { navItems } from 'data/showcase';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import { GradientButton } from '../../common';
 
 const HeaderNav = ({ registerNavItemRef }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
 
@@ -20,8 +19,6 @@ const HeaderNav = ({ registerNavItemRef }) => {
             variant="text"
             color="neutral"
             href={href}
-            target="_blank"
-            rel="noopener noreferrer"
             sx={{ p: 1.5, color: 'common.white' }}
           >
             {label}
@@ -30,13 +27,11 @@ const HeaderNav = ({ registerNavItemRef }) => {
 
       <GradientButton
         ref={registerNavItemRef}
-        href="https://mui.com/store/items/aurora/"
+        href={paths.landingSubscriptions}
         color="neutral"
         sx={{ width: { xs: 160 }, height: { xs: 52 } }}
-        target="_blank"
-        rel="noopener noreferrer"
       >
-        {translateUi('ui.sections.showcase.layout.header.purchase_160f06d4')}
+        选择服务
       </GradientButton>
     </Stack>
   );

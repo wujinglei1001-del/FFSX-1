@@ -1,0 +1,102 @@
+name: ${COMPOSE_PROJECT_NAME:?set a unique compose project for each tenant cell}
+
+x-karrio-environment: &karrio-environment
+  DEBUG_MODE: "False"
+  ADMIN_DASHBOARD: "False"
+  ALLOW_SIGNUP: "False"
+  ALLOWED_HOSTS: api,localhost,127.0.0.1
+  ADMIN_EMAIL: ${KARRIO_ADMIN_EMAIL}
+  ADMIN_PASSWORD: ${KARRIO_ADMIN_PASSWORD}
+  DETACHED_WORKER: "True"
+  SECRET_KEY: ${KARRIO_SECRET_KEY}
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
+  REDIS_PASSWORD: ${KARRIO_REDIS_PASSWORD}
+  DATABASE_HOST: db
+  DATABASE_PORT: 5432
+  DATABASE_NAME: karrio
+  DATABASE_ENGINE: postgresql_psycopg2
+  DATABASE_USERNAME: karrio
+  DATABASE_PASSWORD: ${KARRIO_DATABASE_PASSWORD}
+  KARRIO_HTTP_PORT: 5002
+  ENABLE_ALL_PLUGINS_BY_DEFAULT: "False"
+  OTEL_ENABLED: "true"
+  OTEL_SERVICE_NAME: karrio-${KARRIO_CELL_ID}
+  OTEL_EXPORTER_OTLP_ENDPOINT: ${OTEL_EXPORTER_OTLP_ENDPOINT:-}
+  OTEL_EXPORTER_OTLP_PROTOCOL: ${OTEL_EXPORTER_OTLP_PROTOCOL:-grpc}
+  OTEL_ENVIRONMENT: production
+
+services:
+  db:
+    image: postgres:16.4-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: karrio
+      POSTGRES_USER: karrio
+      POSTGRES_PASSWORD: ${KARRIO_DATABASE_PASSWORD}
+    volumes: [karrio-db:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U karrio -d karrio"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks: [cell]
+
+  redis:
+    image: redis:7.4.1-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "${KARRIO_REDIS_PASSWORD}"]
+    volumes: [karrio-redis:/data]
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli -a $$REDIS_PASSWORD ping | grep -q PONG"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    environment:
+      REDIS_PASSWORD: ${KARRIO_REDIS_PASSWORD}
+    networks: [cell]
+
+  api:
+    image: karrio.docker.scarf.sh/karrio/server:2026.1.32
+    restart: unless-stopped
+    environment:
+      <<: *karrio-environment
+      REDIS_URL: redis://:${KARRIO_REDIS_PASSWORD}@redis:6379/0
+    volumes:
+      - ${KARRIO_PLUGINS_DIR:-./plugins}:/karrio/plugins:ro
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_healthy }
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://127.0.0.1:5002/ >/dev/null"]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+    networks: [cell, logistics-lane, ffax-observability]
+
+  worker:
+    image: karrio.docker.scarf.sh/karrio/server:2026.1.32
+    restart: unless-stopped
+    command: ["/bin/bash", "./worker"]
+    environment:
+      <<: *karrio-environment
+      REDIS_URL: redis://:${KARRIO_REDIS_PASSWORD}@redis:6379/0
+    volumes:
+      - ${KARRIO_PLUGINS_DIR:-./plugins}:/karrio/plugins:ro
+    depends_on:
+      api: { condition: service_healthy }
+    networks: [cell, ffax-observability]
+
+networks:
+  cell: { internal: true }
+  logistics-lane:
+    name: ffax-channels_logistics-lane
+    external: true
+  ffax-observability:
+    name: ffax-observability
+    external: true
+
+volumes:
+  karrio-db:
+  karrio-redis:

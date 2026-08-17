@@ -15,8 +15,8 @@ export const pricing = [
       light: starter,
       dark: starterDark,
     },
-    columnTitle: 'Pricing Starter',
-    tableTitle: 'Starter',
+    columnTitle: '免费版',
+    tableTitle: '免费版',
     price: null,
     features: [
       {
@@ -64,7 +64,7 @@ export const pricing = [
     ],
     tableFeatures: [
       {
-        category: 'Core Features',
+        category: '基础功能',
         features: [
           {
             id: 1,
@@ -90,7 +90,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Advanced Features',
+        category: '高级功能',
         features: [
           {
             id: 1,
@@ -123,7 +123,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Pro Features',
+        category: '专业功能',
         features: [
           {
             id: 1,
@@ -166,8 +166,8 @@ export const pricing = [
       light: pro,
       dark: proDark,
     },
-    columnTitle: 'Pricing Pro',
-    tableTitle: 'Pro',
+    columnTitle: '专业版',
+    tableTitle: '专业版',
     price: {
       monthly: 14.99,
       yearly: 149.99,
@@ -219,7 +219,7 @@ export const pricing = [
     ],
     tableFeatures: [
       {
-        category: 'Core Features',
+        category: '基础功能',
         features: [
           {
             id: 1,
@@ -245,7 +245,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Advanced Features',
+        category: '高级功能',
         features: [
           {
             id: 1,
@@ -278,7 +278,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Pro Features',
+        category: '专业功能',
         features: [
           {
             id: 1,
@@ -318,8 +318,8 @@ export const pricing = [
       light: saver,
       dark: saverDark,
     },
-    columnTitle: 'Pricing Saver',
-    tableTitle: 'Bundle',
+    columnTitle: '组合版',
+    tableTitle: '组合版',
     price: {
       monthly: 24.99,
       yearly: 249.99,
@@ -370,7 +370,7 @@ export const pricing = [
     ],
     tableFeatures: [
       {
-        category: 'Core Features',
+        category: '基础功能',
         features: [
           {
             id: 1,
@@ -396,7 +396,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Advanced Features',
+        category: '高级功能',
         features: [
           {
             id: 1,
@@ -429,7 +429,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Pro Features',
+        category: '专业功能',
         features: [
           {
             id: 1,
@@ -469,8 +469,8 @@ export const pricing = [
       light: industry,
       dark: industryDark,
     },
-    columnTitle: 'Pricing Industry',
-    tableTitle: 'Industry',
+    columnTitle: '行业版',
+    tableTitle: '行业版',
     price: {
       monthly: 49.99,
       yearly: 449.99,
@@ -521,7 +521,7 @@ export const pricing = [
     ],
     tableFeatures: [
       {
-        category: 'Core Features',
+        category: '基础功能',
         features: [
           {
             id: 1,
@@ -547,7 +547,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Advanced Features',
+        category: '高级功能',
         features: [
           {
             id: 1,
@@ -580,7 +580,7 @@ export const pricing = [
         ],
       },
       {
-        category: 'Pro Features',
+        category: '专业功能',
         features: [
           {
             id: 1,

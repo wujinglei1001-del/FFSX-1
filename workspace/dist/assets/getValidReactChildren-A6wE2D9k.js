@@ -1,1 +1,0 @@
-import{d as e,o as t}from"./i18nInstance-truXiXW9.js";var n=e(t(),1);function r(e){return n.Children.toArray(e).filter(e=>n.isValidElement(e))}export{r as t};

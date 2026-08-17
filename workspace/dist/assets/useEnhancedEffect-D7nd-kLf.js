@@ -1,1 +1,0 @@
-import{a as e}from"./useTranslation-BNZGuT7d.js";var t=e;export{t};

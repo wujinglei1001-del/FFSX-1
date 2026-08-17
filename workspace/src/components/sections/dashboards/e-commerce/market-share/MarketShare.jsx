@@ -27,7 +27,7 @@ const MarketShare = () => {
     <Paper sx={{ p: { xs: 3, md: 5 }, height: '100%' }} background={1}>
       <SectionHeader
         title={translateUi('ui.sections.dashboards.e_commerce.market_share.market_share_ea28616c')}
-        subTitle="Amount of revenue in one month"
+        subTitle="单月收入金额"
         actionComponent={<DashboardMenu />}
       />
       <Stack

@@ -26,6 +26,21 @@ print(value)
 PY
 }
 
+operator_file_valid() {
+  python3 - "$1" <<'PY'
+import json
+import sys
+
+try:
+    value = json.load(open(sys.argv[1], encoding="utf-8"))
+    assert isinstance(value.get("root_token"), str) and value["root_token"]
+    assert isinstance(value.get("unseal_keys_b64"), list)
+    assert len(value["unseal_keys_b64"]) >= 3
+except (OSError, ValueError, TypeError, AssertionError):
+    raise SystemExit(1)
+PY
+}
+
 install -d -m 0700 "$(dirname "$operator_file")" "$app_secret_dir"
 compose up -d openbao
 
@@ -37,11 +52,15 @@ for attempt in $(seq 1 60); do
   sleep 2
 done
 
-if [[ ! -f "$operator_file" ]]; then
+if ! operator_file_valid "$operator_file"; then
   umask 077
+  operator_tmp="${operator_file}.tmp"
+  rm -f -- "$operator_tmp"
   compose exec -T openbao bao operator init \
-    -key-shares=5 -key-threshold=3 -format=json > "$operator_file"
-  chmod 0600 "$operator_file"
+    -key-shares=5 -key-threshold=3 -format=json > "$operator_tmp"
+  operator_file_valid "$operator_tmp"
+  chmod 0600 "$operator_tmp"
+  mv -f -- "$operator_tmp" "$operator_file"
 fi
 
 for index in 0 1 2; do

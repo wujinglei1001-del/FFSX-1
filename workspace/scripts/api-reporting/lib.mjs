@@ -27,6 +27,8 @@ export const architectureSources = [
 
 const ignoredDirectoryNames = new Set([
   '.git',
+  '.medusa',
+  '.turbo',
   '.vite',
   'coverage',
   'dist',

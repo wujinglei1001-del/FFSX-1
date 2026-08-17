@@ -272,8 +272,16 @@ channel_compose exec -T logistics-db pg_dump -U ffax_channel ffax_logistics | gz
 channel_compose exec -T commerce-db pg_dump -U ffax_channel ffax_commerce | gzip -9 > "$backup_root/commerce.sql.gz"
 channel_compose exec -T sync-db pg_dump -U ffax_channel ffax_sync | gzip -9 > "$backup_root/sync.sql.gz"
 openbao_root_token="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["root_token"])' "$openbao_operator_file")"
+openbao_snapshot_name="ffax-${stamp}.snap"
 openbao_compose exec -T -e BAO_TOKEN="$openbao_root_token" openbao \
-  bao operator raft snapshot save - > "$backup_root/openbao.snap"
+  bao operator raft snapshot save "/openbao/data/${openbao_snapshot_name}"
+openbao_volume_path="$(docker volume inspect ffax-secrets_openbao-data --format '{{.Mountpoint}}')"
+if [[ "$openbao_volume_path" != /var/lib/docker/volumes/*/_data ]]; then
+  echo "Unexpected OpenBao volume path: $openbao_volume_path" >&2
+  exit 1
+fi
+install -m 0600 "${openbao_volume_path}/${openbao_snapshot_name}" "$backup_root/openbao.snap"
+rm -f -- "${openbao_volume_path}/${openbao_snapshot_name}"
 set -a
 . "$zitadel_env"
 set +a

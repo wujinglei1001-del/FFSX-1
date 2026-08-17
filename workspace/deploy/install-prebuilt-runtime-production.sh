@@ -75,7 +75,6 @@ rollback_runtime() {
 }
 trap rollback_runtime ERR INT TERM
 
-test -f "$images_archive"
 test -f "$release_archive"
 test -f "$workspace/deploy/install-login-static-production.sh"
 test -f "$zitadel_env"
@@ -90,7 +89,11 @@ test -n "$old_ffax_api_image"
 test -n "$old_mercur_image"
 test -n "$old_login_image"
 
-docker load -i "$images_archive"
+if ! docker image inspect "$ffax_api_image" >/dev/null 2>&1 || \
+   ! docker image inspect "$mercur_image" >/dev/null 2>&1; then
+  test -f "$images_archive"
+  docker load -i "$images_archive"
+fi
 docker image inspect "$ffax_api_image" >/dev/null
 docker image inspect "$mercur_image" >/dev/null
 if ! docker image inspect "$login_image" >/dev/null 2>&1; then

@@ -13,17 +13,45 @@ const normalizeReturnTo = (value) => {
   return zitadelConfig.postLoginPath;
 };
 
-const getProjectRoles = (profile) => {
+const getProjectRoleClaim = (profile) => {
   const projectClaim = zitadelConfig.projectId
     ? profile[`urn:zitadel:iam:org:project:${zitadelConfig.projectId}:roles`]
     : undefined;
-  const roles =
+  return (
     projectClaim ||
     profile['urn:zitadel:iam:org:project:roles'] ||
     profile['urn:zitadel:iam:org:projects:roles'] ||
-    {};
+    {}
+  );
+};
 
-  return Object.keys(roles);
+const normalizeProjectRoles = (profile) => {
+  const normalized = {};
+  const claim = getProjectRoleClaim(profile);
+  const grants = Array.isArray(claim) ? claim : [claim];
+
+  for (const grant of grants) {
+    if (!grant || typeof grant !== 'object' || Array.isArray(grant)) continue;
+    for (const [role, organizations] of Object.entries(grant)) {
+      normalized[role] ||= {};
+      if (organizations && typeof organizations === 'object' && !Array.isArray(organizations)) {
+        Object.assign(normalized[role], organizations);
+      }
+    }
+  }
+
+  return normalized;
+};
+
+const getProjectRoles = (profile) => Object.keys(normalizeProjectRoles(profile));
+
+const getRoleOrganization = (profile) => {
+  const organizationIds = new Set(
+    Object.values(normalizeProjectRoles(profile)).flatMap((organizations) =>
+      Object.keys(organizations),
+    ),
+  );
+  return organizationIds.size === 1 ? [...organizationIds][0] : '';
 };
 
 const getSessionUser = (oidcUser) => {
@@ -31,6 +59,7 @@ const getSessionUser = (oidcUser) => {
 
   const { profile } = oidcUser;
   const organization =
+    profile?.['urn:zitadel:iam:user:resourceowner:id'] ||
     profile?.['urn:zitadel:iam:user:resourceowner'] ||
     profile?.['urn:zitadel:iam:org:resourceowner'] ||
     profile?.resourceowner ||
@@ -42,6 +71,7 @@ const getSessionUser = (oidcUser) => {
     profile?.organization?.id ||
     profile?.organization?.orgId ||
     profile?.organization?.resourceOwner ||
+    getRoleOrganization(profile) ||
     '';
 
   return {

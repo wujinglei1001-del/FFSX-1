@@ -1,9 +1,38 @@
 import { getMissingAuthConfig, serverConfig } from '../config.js';
 
+const getRoleClaim = (claims) => {
+  const projectSpecificClaim = `urn:zitadel:iam:org:project:${serverConfig.zitadel.projectId}:roles`;
+
+  return (
+    claims?.[projectSpecificClaim] ||
+    claims?.['urn:zitadel:iam:org:project:roles'] ||
+    claims?.['urn:zitadel:iam:org:projects:roles'] ||
+    {}
+  );
+};
+
+const normalizeRoleClaim = (claim) => {
+  const normalized = {};
+  const grants = Array.isArray(claim) ? claim : [claim];
+
+  for (const grant of grants) {
+    if (!grant || typeof grant !== 'object' || Array.isArray(grant)) continue;
+    for (const [role, organizations] of Object.entries(grant)) {
+      normalized[role] ||= {};
+      if (organizations && typeof organizations === 'object' && !Array.isArray(organizations)) {
+        Object.assign(normalized[role], organizations);
+      }
+    }
+  }
+
+  return normalized;
+};
+
 const extractOrganization = (claims) => {
   if (!claims || typeof claims !== 'object') return '';
 
   const candidate = [
+    claims['urn:zitadel:iam:user:resourceowner:id'],
     claims['urn:zitadel:iam:user:resourceowner'],
     claims['urn:zitadel:iam:org:resourceowner'],
     claims.resourceowner,
@@ -20,6 +49,13 @@ const extractOrganization = (claims) => {
   for (const value of candidate) {
     if (typeof value === 'string' && value.trim()) return value.trim();
   }
+
+  const roleOrganizations = new Set(
+    Object.values(normalizeRoleClaim(getRoleClaim(claims))).flatMap((organizations) =>
+      Object.keys(organizations),
+    ),
+  );
+  if (roleOrganizations.size === 1) return [...roleOrganizations][0];
 
   return '';
 };
@@ -40,18 +76,7 @@ const hasExpectedAudience = (audience) => {
   return audiences.filter(Boolean).includes(serverConfig.zitadel.projectId);
 };
 
-const getRoleClaim = (claims) => {
-  const projectSpecificClaim = `urn:zitadel:iam:org:project:${serverConfig.zitadel.projectId}:roles`;
-
-  return (
-    claims[projectSpecificClaim] ||
-    claims['urn:zitadel:iam:org:project:roles'] ||
-    claims['urn:zitadel:iam:org:projects:roles'] ||
-    {}
-  );
-};
-
-const getRoles = (claims) => Object.keys(getRoleClaim(claims));
+const getRoles = (claims) => Object.keys(normalizeRoleClaim(getRoleClaim(claims)));
 
 const introspectAccessToken = async (token) => {
   const response = await fetch(serverConfig.zitadel.introspectionUrl, {

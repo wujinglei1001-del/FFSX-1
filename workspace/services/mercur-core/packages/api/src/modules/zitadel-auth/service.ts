@@ -88,13 +88,45 @@ export default class ZitadelAuthProviderService extends AbstractAuthModuleProvid
     return response.json() as Promise<ZitadelClaims>;
   }
 
-  private projectRoles(claims: ZitadelClaims) {
+  private normalizedProjectRoles(claims: ZitadelClaims) {
     const roleClaim =
       claims[`urn:zitadel:iam:org:project:${this.options_.projectId}:roles`] ||
       claims['urn:zitadel:iam:org:project:roles'] ||
       claims['urn:zitadel:iam:org:projects:roles'] ||
       {};
-    return Object.keys(roleClaim as Record<string, unknown>);
+    const normalized: Record<string, Record<string, string>> = {};
+    const grants = Array.isArray(roleClaim) ? roleClaim : [roleClaim];
+
+    for (const grant of grants) {
+      if (!grant || typeof grant !== 'object' || Array.isArray(grant)) continue;
+      for (const [role, organizations] of Object.entries(grant)) {
+        normalized[role] ||= {};
+        if (organizations && typeof organizations === 'object' && !Array.isArray(organizations)) {
+          Object.assign(normalized[role], organizations);
+        }
+      }
+    }
+
+    return normalized;
+  }
+
+  private projectRoles(claims: ZitadelClaims) {
+    return Object.keys(this.normalizedProjectRoles(claims));
+  }
+
+  private organization(claims: ZitadelClaims) {
+    const direct = claims['urn:zitadel:iam:user:resourceowner:id'];
+    if (typeof direct === 'string' && direct.trim()) return direct.trim();
+
+    const legacy = claims['urn:zitadel:iam:user:resourceowner'];
+    if (typeof legacy === 'string' && legacy.trim()) return legacy.trim();
+
+    const organizationIds = new Set(
+      Object.values(this.normalizedProjectRoles(claims)).flatMap((organizations) =>
+        Object.keys(organizations),
+      ),
+    );
+    return organizationIds.size === 1 ? [...organizationIds][0] : '';
   }
 
   async authenticate(
@@ -115,7 +147,7 @@ export default class ZitadelAuthProviderService extends AbstractAuthModuleProvid
         return { success: false, error: 'Invalid token audience' };
       }
 
-      const organization = claims['urn:zitadel:iam:user:resourceowner'];
+      const organization = this.organization(claims);
       const userMetadata = {
         email: claims.email,
         username: claims.username || claims.preferred_username,

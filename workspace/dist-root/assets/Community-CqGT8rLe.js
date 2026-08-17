@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./MicroAppHost-Dy-AMfa_.js";var n=e(),r=()=>(0,n.jsx)(t,{appId:`community`});export{r as default};

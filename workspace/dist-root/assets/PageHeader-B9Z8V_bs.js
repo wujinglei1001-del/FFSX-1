@@ -1,0 +1,19 @@
+import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{a as t}from"./createSimplePaletteValueFilter-cuG5cMy_.js";import{t as n}from"./Box-DCoxNJYi.js";import{t as r}from"./Stack-CK3h777z.js";import{t as i}from"./useTheme-UkNRDW0n.js";import{n as a}from"./SettingsProvider-CW2K3YeK.js";import{i as o}from"./utils-B2Nclwa3.js";import{dt as s}from"./index-AlxrZvtr.js";var c=e(),l=({orientation:e=`horizontal`,gradientOrientation:t=`center`,gradient:r,thickness:a=`1px`,...o})=>{let s=i(),l=e===`horizontal`,u=s.vars.palette.divider,d=()=>{if(r||t===`none`)return;let e={ltr:`linear-gradient(to ${l?`right`:`bottom`}, black 0%, black 65%, transparent 100%)`,rtl:`linear-gradient(to ${l?`right`:`bottom`}, transparent 0%, black 35%, black 100%)`,center:`linear-gradient(to ${l?`right`:`bottom`}, transparent 0%, black 10%, black 90%, transparent 100%)`};return e[t]||e.center},f=()=>`repeating-linear-gradient(${l?`90deg`:`0deg`}, black 0, black 4px, transparent 4px, transparent 8px)`,p=()=>{let e=d(),n=f();return r||t===`none`?n:`${n}, ${e}`},m=()=>r||u;return(0,c.jsx)(n,{...o,sx:[{position:`relative`,"&::before":{content:`""`,position:`absolute`,zIndex:10,top:l?`50%`:0,left:l?0:`50%`,width:l?1:a,height:l?a:1,background:m(),maskImage:p(),WebkitMaskImage:p(),maskComposite:`intersect`,WebkitMaskComposite:`source-in`}},...Array.isArray(o.sx)?o.sx:[o.sx]]})},u=t(n,{shouldForwardProp:e=>e!==`direction`&&e!==`stripeColor`&&e!==`baseColor`&&e!==`fadeWidth`})(({theme:e,direction:t=`-45deg`,baseColor:n=`transparent`,fadeWidth:r=`20%`})=>{let{config:{textDirection:i}}=a();return{position:`relative`,"&::before":{content:`""`,position:`absolute`,top:0,left:0,right:0,bottom:0,background:`repeating-linear-gradient(
+        ${i===`rtl`?t.replace(`-`,``):t},
+        ${n},
+        ${n} 5px,
+        ${o(e.vars.palette.dividerChannel,.4)} 5px,
+        ${o(e.vars.palette.dividerChannel,.4)} 7px
+      )`,maskImage:`linear-gradient(
+        to right,
+        transparent 0,
+        black ${r},
+        black calc(100% - ${r}),
+        transparent 100%
+      )`,WebkitMaskImage:`linear-gradient(
+        to right,
+        transparent 0,
+        black ${r},
+        black calc(100% - ${r}),
+        transparent 100%
+      )`,maskSize:`100% 100%`,WebkitMaskSize:`100% 100%`,maskRepeat:`no-repeat`,WebkitMaskRepeat:`no-repeat`}}}),d=({placement:e})=>{let t=e.split(`-`);return(0,c.jsx)(n,{sx:{height:8,width:8,bgcolor:`divider`,borderRadius:`50%`,position:`absolute`,zIndex:10,[t[0]]:-4,[t[1]]:-4}})},f=({children:e})=>(0,c.jsx)(n,{sx:{position:`relative`,pt:5,pb:1,px:{xs:3,md:5}},children:(0,c.jsxs)(s,{sx:{maxWidth:`1400px !important`,position:`relative`,px:{xs:0},"&::after":{content:`""`,position:`absolute`,width:260,height:96,top:-96,right:-260,background:e=>`linear-gradient(to top right, ${o(e.vars.palette.background.elevation2Channel,1)} 0%, transparent 50%)`}},children:[(0,c.jsx)(d,{placement:`top-left`}),(0,c.jsx)(d,{placement:`top-right`}),(0,c.jsx)(d,{placement:`bottom-left`}),(0,c.jsx)(d,{placement:`bottom-right`}),(0,c.jsx)(l,{orientation:`vertical`,gradientOrientation:`rtl`,sx:{height:`120%`,zIndex:10,position:`absolute`,left:0,bottom:0}}),(0,c.jsx)(l,{orientation:`vertical`,gradientOrientation:`rtl`,sx:{height:`120%`,position:`absolute`,right:0,bottom:0}}),(0,c.jsx)(l,{sx:{width:`140%`,zIndex:20,position:`absolute`,left:`50%`,transform:`translate(-50%)`,top:0}}),(0,c.jsx)(l,{sx:{width:`140%`,position:`absolute`,left:`50%`,zIndex:-10,transform:`translate(-50%)`,bottom:0}}),(0,c.jsx)(u,{children:(0,c.jsx)(r,{sx:{alignItems:`center`,position:`relative`,zIndex:10,p:{xs:3,sm:8}},children:e})})]})});export{f as t};

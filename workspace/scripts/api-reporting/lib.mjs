@@ -33,9 +33,14 @@ const ignoredDirectoryNames = new Set([
   'coverage',
   'dist',
   'dist-root',
+  'acceptance',
+  'dockerized',
   'generated',
   'logs',
   'node_modules',
+  'otel-test',
+  'screenshots',
+  'test-mocks',
   'tmp',
 ]);
 
@@ -61,6 +66,8 @@ function isTrackedFile(filePath) {
   const basename = path.basename(filePath).toLowerCase();
   if (basename.startsWith('.env')) return false;
   if (basename.endsWith('.log')) return false;
+  if (/\.(test|spec)\.[cm]?[jt]sx?$/.test(basename)) return false;
+  if (/^(test-setup|test-theme|vitest\.config)/.test(basename)) return false;
   if (basename.includes('secret') && ['.key', '.pem', '.p12', '.pfx'].includes(path.extname(basename))) {
     return false;
   }

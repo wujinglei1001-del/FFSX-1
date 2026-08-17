@@ -123,7 +123,7 @@ services:
       - ./apisix/warehouse.yaml:/usr/local/apisix/conf/apisix.yaml:ro
     depends_on:
       warehouse-api: { condition: service_healthy }
-    networks: [warehouse-lane]
+    networks: [warehouse-lane, gateway-ingress]
 
   marketplace-channel-db:
     <<: *domain-database
@@ -178,7 +178,7 @@ services:
       - ./apisix/marketplace.yaml:/usr/local/apisix/conf/apisix.yaml:ro
     depends_on:
       marketplace-channel-api: { condition: service_healthy }
-    networks: [marketplace-lane]
+    networks: [marketplace-lane, gateway-ingress]
 
   logistics-db:
     <<: *domain-database
@@ -232,7 +232,7 @@ services:
       - ./apisix/logistics.yaml:/usr/local/apisix/conf/apisix.yaml:ro
     depends_on:
       logistics-api: { condition: service_healthy }
-    networks: [logistics-lane]
+    networks: [logistics-lane, gateway-ingress]
 
   commerce-db:
     <<: *domain-database
@@ -286,7 +286,7 @@ services:
       - ./apisix/commerce.yaml:/usr/local/apisix/conf/apisix.yaml:ro
     depends_on:
       commerce-api: { condition: service_healthy }
-    networks: [commerce-lane]
+    networks: [commerce-lane, gateway-ingress]
 
   sync-db:
     <<: *domain-database
@@ -347,6 +347,7 @@ networks:
   logistics-lane: { internal: true }
   commerce-lane: { internal: true }
   sync-lane: { internal: true }
+  gateway-ingress: {}
   ffax-platform:
     name: ffax-platform
     external: true

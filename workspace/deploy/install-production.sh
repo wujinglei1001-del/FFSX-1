@@ -145,6 +145,11 @@ rollback() {
           commerce-api commerce-worker commerce-gateway sync-api
     fi
   fi
+
+  if [[ "$next_workspace" == /var/www/ffax/workspace.next-* ]]; then
+    rm -rf -- "$next_workspace"
+  fi
+  rm -f -- "$archive"
   exit "$exit_code"
 }
 trap rollback ERR INT TERM

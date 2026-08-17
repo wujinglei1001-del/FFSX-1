@@ -116,7 +116,9 @@ docker compose --env-file "$zitadel_env" \
   | gzip -9 > "$backup_root/zitadel.sql.gz"
 
 runtime_changed=true
-platform_compose "$mercur_image" run --rm --no-deps mercur-api npm run predeploy
+if [[ "${FFAX_SKIP_MERCUR_MIGRATIONS:-false}" != "true" ]]; then
+  platform_compose "$mercur_image" run --rm --no-deps mercur-api npm run predeploy
+fi
 platform_compose "$mercur_image" up -d --wait --no-build mercur-api mercur-worker
 zitadel_compose "$ffax_api_image" "$login_image" \
   --profile production up -d --wait --no-deps --no-build ffax-api

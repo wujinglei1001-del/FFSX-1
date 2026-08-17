@@ -111,7 +111,8 @@ export async function calculateArchitectureFingerprint(repositoryRoot = defaultR
   for (const file of files) {
     hash.update(file.relativePath, 'utf8');
     hash.update('\0');
-    hash.update(await fs.readFile(file.absolutePath));
+    const content = await fs.readFile(file.absolutePath, 'utf8');
+    hash.update(content.replaceAll('\r\n', '\n'), 'utf8');
     hash.update('\0');
   }
 

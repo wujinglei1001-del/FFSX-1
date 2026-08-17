@@ -9,6 +9,9 @@ export const createMicroAppConfig = ({ root, appId, globalName, port }) =>
   defineConfig(({ command }) => ({
     root,
     base: command === 'serve' ? '/' : `/workbench/microapps/${appId}/`,
+    define: {
+      'process.env.NODE_ENV': JSON.stringify(command === 'serve' ? 'development' : 'production'),
+    },
     plugins: [
       react(),
       {

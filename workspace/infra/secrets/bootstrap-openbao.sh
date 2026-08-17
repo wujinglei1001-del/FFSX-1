@@ -73,8 +73,14 @@ bao() {
   compose exec -T -e BAO_TOKEN="$root_token" openbao bao "$@"
 }
 
-bao secrets list -format=json | grep -q '"secret/"' || bao secrets enable -path=secret kv-v2 >/dev/null
-bao auth list -format=json | grep -q '"approle/"' || bao auth enable approle >/dev/null
+secrets_json="$(bao secrets list -format=json)"
+if ! grep -q '"secret/"' <<<"$secrets_json"; then
+  bao secrets enable -path=secret kv-v2 >/dev/null
+fi
+auth_json="$(bao auth list -format=json)"
+if ! grep -q '"approle/"' <<<"$auth_json"; then
+  bao auth enable approle >/dev/null
+fi
 
 for channel in warehouse marketplace logistics commerce; do
   policy_file="$(mktemp)"

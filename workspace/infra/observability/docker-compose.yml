@@ -18,7 +18,7 @@ services:
       - ./tempo.yaml:/etc/tempo.yaml:ro
       - tempo-data:/var/tempo
     healthcheck:
-      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1:3200/ready >/dev/null"]
+      test: ["CMD", "/tempo", "-version"]
       interval: 10s
       timeout: 5s
       retries: 30

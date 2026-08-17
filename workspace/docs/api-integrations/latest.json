@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "architectureId": "multi-channel-runtime",
   "architectureVersion": "1.0.0",
-  "generatedAt": "2026-08-17T10:35:05.257Z",
+  "generatedAt": "2026-08-17T10:53:35.631Z",
   "fingerprintAlgorithm": "sha256",
-  "fingerprint": "a42c35bcbbc83b70f65150b4bba453cc0c57a56091476dbbe9b75b44d0a7afa6",
+  "fingerprint": "39c0e0772e28c1c57dcbd1dbb5e775efb7bd01d846379bce7de3562b435fae59",
   "trackedFileCount": 111,
   "manifest": "docs/api-integrations/manifests/multi-channel-runtime.json",
-  "repositoryReport": "docs/api-integrations/reports/20260817T103505Z-multi-channel-runtime.md",
-  "companyReport": "C:\\Users\\Administrator\\Desktop\\FFAX公司信息\\API架构报告-20260817T103505Z-multi-channel-runtime.md"
+  "repositoryReport": "docs/api-integrations/reports/20260817T105335Z-multi-channel-runtime.md",
+  "companyReport": "C:\\Users\\Administrator\\Desktop\\FFAX公司信息\\API架构报告-20260817T105335Z-multi-channel-runtime.md"
 }

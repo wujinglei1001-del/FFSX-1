@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-DoI3DyS0.js";function n(t){return e(`MuiListSubheader`,t)}var r=t(`MuiListSubheader`,[`root`,`colorPrimary`,`colorInherit`,`gutters`,`inset`,`sticky`]);export{r as n,n as t};

@@ -32,20 +32,10 @@ export const rootPaths = {
   hiringCandidate: 'candidate',
   timeTrackerRoot: 'time-tracker',
   memberRoot: 'member',
-  workbenchRoot: 'workbench',
 };
 
 const paths = {
   showcase: `/showcase`,
-
-  marketplace: `/marketplace`,
-  community: `/community`,
-  plugins: `/plugins`,
-  myWorkspace: `/my-workspace`,
-  operationsWorkbench: `/operations`,
-  integrations: `/integrations`,
-  workspaceCustomize: `/workspace/customize`,
-  workspaceToolbox: `/workspace/toolbox`,
 
   ecommerce: `/${rootPaths.dashboardRoot}/ecommerce`,
   crm: `/${rootPaths.dashboardRoot}/crm`,
@@ -63,7 +53,6 @@ const paths = {
   defaultJwtForgotPassword: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/forgot-password`,
   defaultJwt2FA: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/2FA`,
   defaultJwtSetPassword: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/set-password`,
-  zitadelCallback: `/${rootPaths.authRoot}/callback`,
 
   defaultAuth0Login: `/${rootPaths.authRoot}/${rootPaths.authDefaultAuth0Root}/login`,
 
@@ -156,7 +145,6 @@ const paths = {
   landingAbout: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/about-us`,
   landingContact: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/contact`,
   landingFaq: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/faq`,
-  landingSubscriptions: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/subscriptions`,
   landing404: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/404`,
   landingComingSoon: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/coming-soon`,
   landingMaintenance: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/maintenance`,

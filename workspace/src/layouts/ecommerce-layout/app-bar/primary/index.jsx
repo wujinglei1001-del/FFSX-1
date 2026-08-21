@@ -15,7 +15,6 @@ import {
 } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Grid';
-import CurrencyMenu from 'layouts/main-layout/common/CurrencyMenu';
 import LanguageMenu from 'layouts/main-layout/common/LanguageMenu';
 import ThemeToggler from 'layouts/main-layout/common/ThemeToggler';
 import SearchTextField from 'layouts/main-layout/common/search-box/SearchTextField';
@@ -87,7 +86,6 @@ const PrimaryAppbar = ({ children }) => {
           >
             <Stack direction="row" sx={{ alignItems: 'center', gap: 1 }}>
               <LanguageMenu />
-              <CurrencyMenu />
               <ThemeToggler />
               <OutlinedBadge color="error" overlap="circular" badgeContent={cartItems.length}>
                 <Button

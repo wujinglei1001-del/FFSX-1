@@ -1,1 +1,0 @@
-import{T as e,w as t}from"./createSimplePaletteValueFilter-cuG5cMy_.js";function n(t){return e(`MuiListSubheader`,t)}var r=t(`MuiListSubheader`,[`root`,`colorPrimary`,`colorInherit`,`gutters`,`inset`,`sticky`]);export{r as n,n as t};

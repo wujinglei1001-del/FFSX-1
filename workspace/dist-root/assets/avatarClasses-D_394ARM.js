@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-DoI3DyS0.js";function n(t){return e(`MuiAvatar`,t)}var r=t(`MuiAvatar`,[`root`,`colorDefault`,`circular`,`rounded`,`square`,`img`,`fallback`]);export{n,r as t};

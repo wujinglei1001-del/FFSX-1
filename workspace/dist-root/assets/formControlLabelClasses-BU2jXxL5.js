@@ -1,1 +1,0 @@
-import{T as e,w as t}from"./createSimplePaletteValueFilter-cuG5cMy_.js";function n(t){return e(`MuiFormControlLabel`,t)}var r=t(`MuiFormControlLabel`,[`root`,`labelPlacementStart`,`labelPlacementTop`,`labelPlacementBottom`,`disabled`,`label`,`error`,`required`,`asterisk`]);export{n,r as t};

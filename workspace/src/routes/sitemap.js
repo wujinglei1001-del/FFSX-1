@@ -1,74 +1,9 @@
-import i18n from 'locales/i18n';
 import paths from './paths';
 
 const sitemap = [
   {
-    id: 'ffax-platform',
-    subheader: 'FFAX 贸易平台',
-    key: 'ffax_platform',
-    icon: 'material-symbols:hub-outline-rounded',
-    items: [
-      {
-        name: '连接器与通道',
-        key: 'integrations',
-        translate: false,
-        path: paths.integrations,
-        pathName: 'integrations',
-        icon: 'material-symbols:lan-outline-rounded',
-        active: true,
-      },
-      {
-        name: '插件中心',
-        key: 'plugins',
-        translate: false,
-        path: paths.plugins,
-        pathName: 'plugins',
-        icon: 'material-symbols:extension-outline-rounded',
-        active: true,
-      },
-      {
-        name: '自定义工作台',
-        key: 'my_workspace',
-        translate: false,
-        path: paths.myWorkspace,
-        pathName: 'my-workspace',
-        icon: 'material-symbols:dashboard-customize-outline-rounded',
-        active: true,
-      },
-      {
-        name: '工具箱',
-        key: 'workspace_toolbox',
-        translate: false,
-        path: paths.workspaceToolbox,
-        pathName: 'workspace-toolbox',
-        icon: 'material-symbols:construction-outline-rounded',
-        active: true,
-      },
-      {
-        name: '模板与布局',
-        key: 'workspace_customize',
-        translate: false,
-        path: paths.workspaceCustomize,
-        pathName: 'workspace-customize',
-        icon: 'material-symbols:dashboard-customize-outline-rounded',
-        active: true,
-      },
-      {
-        name: '账户设置',
-        key: 'account_settings',
-        translate: false,
-        path: paths.account,
-        pathName: 'account-settings',
-        icon: 'material-symbols:manage-accounts-outline-rounded',
-        active: true,
-      },
-    ],
-  },
-  {
     id: 'homepage',
-    get subheader() {
-      return i18n.t('ui.routes.sitemap.homepage_ac066591');
-    },
+    subheader: 'Homepage',
     key: 'homepage',
     icon: 'material-symbols:data-exploration-outline-rounded',
     items: [
@@ -140,16 +75,13 @@ const sitemap = [
   },
   {
     id: 'apps',
-    get subheader() {
-      return i18n.t('ui.routes.sitemap.apps_d9a36850');
-    },
+    subheader: 'Apps',
     key: 'apps',
     icon: 'material-symbols:widgets-outline-rounded',
     items: [
       {
-        name: '跨境电商',
+        name: 'E-commerce',
         key: 'e_commerce',
-        translate: false,
         pathName: 'ecommerce',
         icon: 'material-symbols:storefront-outline-rounded',
         active: true,
@@ -219,26 +151,16 @@ const sitemap = [
             ],
           },
           {
-            name: '需求市场',
+            name: 'Customer',
             key: 'customer',
-            translate: false,
             pathName: 'customer',
             active: true,
             items: [
               {
-                name: '进入需求市场',
-                key: 'demand_marketplace',
-                translate: false,
-                path: paths.marketplace,
-                pathName: 'marketplace',
-                active: true,
-              },
-              {
-                name: '进入需求社区',
-                key: 'demand_community',
-                translate: false,
-                path: paths.community,
-                pathName: 'community',
+                name: 'Homepage',
+                key: 'homepage',
+                path: paths.ecommerceHomepage,
+                pathName: 'homepage',
                 active: true,
               },
               {
@@ -871,9 +793,7 @@ const sitemap = [
   },
   {
     id: 'pages',
-    get subheader() {
-      return i18n.t('ui.routes.sitemap.pages_600584c2');
-    },
+    subheader: 'Pages',
     key: 'pages',
     icon: 'material-symbols:view-quilt-outline',
     items: [
@@ -1015,9 +935,7 @@ const sitemap = [
   },
   {
     id: 'misc',
-    get subheader() {
-      return i18n.t('ui.routes.sitemap.misc_0a893ece');
-    },
+    subheader: 'Misc',
     key: 'misc',
     icon: 'material-symbols:dashboard-customize-outline-rounded',
     items: [

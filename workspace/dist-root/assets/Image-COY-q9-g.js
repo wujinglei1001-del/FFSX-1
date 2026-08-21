@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./Box-DCoxNJYi.js";import{t as n}from"./useThemeMode-DWWggI8S.js";var r=e(),i=({src:e,...i})=>{let{isDark:a}=n(),o=e?typeof e==`string`?e:a?e.dark:e.light:void 0;return(0,r.jsx)(t,{component:`img`,src:o,...i})};export{i as t};

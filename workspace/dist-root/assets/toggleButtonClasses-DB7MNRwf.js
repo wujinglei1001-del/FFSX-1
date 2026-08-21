@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-DoI3DyS0.js";function n(t){return e(`MuiToggleButton`,t)}var r=t(`MuiToggleButton`,[`root`,`disabled`,`selected`,`standard`,`primary`,`secondary`,`sizeSmall`,`sizeMedium`,`sizeLarge`,`fullWidth`]);export{r as n,n as t};

@@ -1,0 +1,1 @@
+import{D as e,E as t}from"./createSimplePaletteValueFilter-DoI3DyS0.js";function n(t){return e(`MuiTableHead`,t)}var r=t(`MuiTableHead`,[`root`]);export{r as n,n as t};

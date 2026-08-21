@@ -1,0 +1,1 @@
+import{Di as e,Rr as t,bi as n}from"./ReactEchart-DNoPHsu5.js";function r(r,i,a){var o=r.get(`borderRadius`);if(o==null)return a?{cornerRadius:0}:null;n(o)||(o=[o,o,o,o]);var s=Math.abs(i.r||0-i.r0||0);return{cornerRadius:e(o,function(e){return t(e,s)})}}export{r as t};

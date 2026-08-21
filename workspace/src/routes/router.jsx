@@ -1,11 +1,11 @@
 import { Suspense, lazy } from 'react';
 import { Navigate, Outlet, createBrowserRouter, useLocation } from 'react-router';
 import AuthLayout from 'layouts/auth-layout';
+import DefaultAuthLayout from 'layouts/auth-layout/DefaultAuthLayout';
 import EcommerceLayout from 'layouts/ecommerce-layout';
 import LandingLayout from 'layouts/landing-layout';
 import MainLayout from 'layouts/main-layout';
 import Page404 from 'pages/errors/Page404';
-import AuthGurad from 'components/guard/AuthGuard';
 import PageLoader from 'components/loading/PageLoader';
 import AllFiles from 'components/sections/file-manager/main/all-files';
 import RecentFiles from 'components/sections/file-manager/main/recent-files';
@@ -36,8 +36,10 @@ const InvoicePreview = lazy(() => import('pages/apps/invoice/InvoicePreview'));
 // import App from 'App';
 const App = lazy(() => import('App'));
 
+// import AuthGurad from 'components/guard/AuthGuard';
 // import GuestGurad from 'components/guard/GuestGurad';
 // import Splash from 'components/loading/Splash';
+const LoggedOut = lazy(() => import('pages/authentication/default/LoggedOut'));
 const ProjectManagement = lazy(() => import('pages/dashboards/ProjectManagement'));
 const Account = lazy(() => import('pages/others/Account'));
 const Starter = lazy(() => import('pages/others/Starter'));
@@ -48,13 +50,6 @@ const ComingSoon = lazy(() => import('pages/others/ComingSoon'));
 const ECommerce = lazy(() => import('pages/dashboards/ECommerce'));
 const Hiring = lazy(() => import('pages/dashboards/Hiring'));
 const Employee = lazy(() => import('pages/dashboards/Employee'));
-const Marketplace = lazy(() => import('pages/platform/Marketplace'));
-const Community = lazy(() => import('pages/platform/Community'));
-const PluginCenter = lazy(() => import('pages/platform/PluginCenter'));
-const MyWorkspace = lazy(() => import('pages/platform/MyWorkspace'));
-const OperationsWorkbench = lazy(() => import('pages/platform/OperationsWorkbench'));
-const WorkspaceCustomize = lazy(() => import('pages/platform/WorkspaceCustomize'));
-const IntegrationControlPlane = lazy(() => import('pages/platform/IntegrationControlPlane'));
 
 const CRM = lazy(() => import('pages/dashboards/CRM'));
 const Analytics = lazy(() => import('pages/dashboards/Analytics'));
@@ -62,7 +57,15 @@ const HRM = lazy(() => import('pages/dashboards/HRM'));
 const TimeTracker = lazy(() => import('pages/dashboards/TimeTracker'));
 const Login = lazy(() => import('pages/authentication/default/jwt/Login'));
 const Signup = lazy(() => import('pages/authentication/default/jwt/Signup'));
-const ZitadelCallback = lazy(() => import('pages/authentication/ZitadelCallback'));
+const ForgotPassword = lazy(() => import('pages/authentication/default/jwt/ForgotPassword'));
+const TwoFA = lazy(() => import('pages/authentication/default/jwt/TwoFA'));
+const SetPassword = lazy(() => import('pages/authentication/default/jwt/SetPassword'));
+const FirebaseLogin = lazy(() => import('pages/authentication/default/firebase/Login'));
+const FirebaseSignup = lazy(() => import('pages/authentication/default/firebase/Signup'));
+const FirebaseForgotPassword = lazy(
+  () => import('pages/authentication/default/firebase/ForgotPassword'),
+);
+const Auth0Login = lazy(() => import('pages/authentication/default/auth0/Login'));
 
 const EcommerceHomepage = lazy(() => import('pages/apps/ecommerce/customer/Homepage'));
 const Products = lazy(() => import('pages/apps/ecommerce/customer/Products'));
@@ -177,6 +180,10 @@ export const routes = [
     ),
     children: [
       {
+        path: '/',
+        element: <Showcase />,
+      },
+      {
         path: paths.showcase,
         element: <Showcase />,
       },
@@ -190,10 +197,6 @@ export const routes = [
           </Suspense>
         ),
         children: [
-          {
-            index: true,
-            element: <LandingHomepage />,
-          },
           {
             path: paths.landingHomepage,
             element: <LandingHomepage />,
@@ -209,10 +212,6 @@ export const routes = [
           {
             path: paths.landingFaq,
             element: <LandingFAQ />,
-          },
-          {
-            path: paths.landingSubscriptions,
-            element: <PricingColumn />,
           },
           {
             path: paths.landing404,
@@ -231,45 +230,15 @@ export const routes = [
       {
         path: '/',
         element: (
-          <AuthGurad>
-            <MainLayout>
-              <SuspenseOutlet />
-            </MainLayout>
-          </AuthGurad>
+          // Uncomment the following line to activate the AuthGuard for protected routes
+
+          // <AuthGurad>
+          <MainLayout>
+            <SuspenseOutlet />
+          </MainLayout>
+          // </AuthGurad>
         ),
         children: [
-          {
-            path: `${paths.marketplace}/*`,
-            element: <Marketplace />,
-          },
-          {
-            path: `${paths.community}/*`,
-            element: <Community />,
-          },
-          {
-            path: `${paths.plugins}/*`,
-            element: <PluginCenter />,
-          },
-          {
-            path: paths.myWorkspace,
-            element: <MyWorkspace />,
-          },
-          {
-            path: paths.operationsWorkbench,
-            element: <OperationsWorkbench />,
-          },
-          {
-            path: paths.workspaceCustomize,
-            element: <WorkspaceCustomize />,
-          },
-          {
-            path: paths.workspaceToolbox,
-            element: <MyWorkspace initialToolboxOpen />,
-          },
-          {
-            path: paths.integrations,
-            element: <IntegrationControlPlane />,
-          },
           {
             path: paths.ecommerce,
             element: <ECommerce />,
@@ -817,11 +786,11 @@ export const routes = [
         ),
         children: [
           {
-            path: paths.zitadelCallback,
-            element: <ZitadelCallback />,
-          },
-          {
-            element: <SuspenseOutlet />,
+            element: (
+              <DefaultAuthLayout>
+                <SuspenseOutlet />
+              </DefaultAuthLayout>
+            ),
             children: [
               {
                 path: rootPaths.authDefaultJwtRoot,
@@ -836,15 +805,15 @@ export const routes = [
                   },
                   {
                     path: paths.defaultJwtForgotPassword,
-                    element: <Navigate to={paths.defaultJwtLogin} replace />,
+                    element: <ForgotPassword />,
                   },
                   {
                     path: paths.defaultJwt2FA,
-                    element: <Navigate to={paths.defaultJwtLogin} replace />,
+                    element: <TwoFA />,
                   },
                   {
                     path: paths.defaultJwtSetPassword,
-                    element: <Navigate to={paths.defaultJwtLogin} replace />,
+                    element: <SetPassword />,
                   },
                 ],
               },
@@ -853,15 +822,15 @@ export const routes = [
                 children: [
                   {
                     path: paths.defaultFirebaseLogin,
-                    element: <Navigate to={paths.defaultJwtLogin} replace />,
+                    element: <FirebaseLogin />,
                   },
                   {
                     path: paths.defaultFirebaseSignup,
-                    element: <Navigate to={paths.defaultJwtSignup} replace />,
+                    element: <FirebaseSignup />,
                   },
                   {
                     path: paths.defaultFirebaseForgotPassword,
-                    element: <Navigate to={paths.defaultJwtLogin} replace />,
+                    element: <FirebaseForgotPassword />,
                   },
                 ],
               },
@@ -870,13 +839,13 @@ export const routes = [
                 children: [
                   {
                     path: paths.defaultAuth0Login,
-                    element: <Navigate to={paths.defaultJwtLogin} replace />,
+                    element: <Auth0Login />,
                   },
                 ],
               },
               {
                 path: paths.defaultLoggedOut,
-                element: <Navigate to={paths.landingHomepage} replace />,
+                element: <LoggedOut />,
               },
             ],
           },
@@ -891,9 +860,8 @@ export const routes = [
   },
 ];
 
-const basename =
-  (import.meta.env.VITE_BASENAME || import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
-
-const router = createBrowserRouter(routes, { basename });
+const router = createBrowserRouter(routes, {
+  basename: import.meta.env.VITE_BASENAME || '/',
+});
 
 export default router;

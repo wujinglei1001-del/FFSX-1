@@ -1,1 +1,0 @@
-import{T as e,w as t}from"./createSimplePaletteValueFilter-cuG5cMy_.js";function n(t){return e(`MuiAvatar`,t)}var r=t(`MuiAvatar`,[`root`,`colorDefault`,`circular`,`rounded`,`square`,`img`,`fallback`]);export{n,r as t};

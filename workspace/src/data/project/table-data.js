@@ -140,7 +140,7 @@ export const nextMonthTasks = [
           return i18n.t('ui.data.project.table_data.bug_271befc0');
         },
         priority: 'High',
-        dependingOn: 'Needs backend JWT patch first.',
+        dependingOn: 'Needs backend API integration first.',
         startDate: '2025-04-03',
         dueDate: '2025-04-10',
       },

@@ -4,6 +4,7 @@ import { Box, Button, IconButton, MenuItem, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useGridApiRef } from '@mui/x-data-grid';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DataGridSelectionBar from 'components/common/DataGridSelectionBar';
 import SearchTextField from 'components/common/SearchTextField';
@@ -58,7 +59,7 @@ const OrderListContainer = () => {
             flexWrap: { xs: 'wrap', sm: 'nowrap' },
           }}
         >
-          <Button href={'#!'} variant="contained" color="primary" sx={{ flexShrink: 0 }}>
+          <Button href={paths.adminCreateOrder} variant="contained" color="primary" sx={{ flexShrink: 0 }}>
             {translateUi('ui.sections.ecommerce.admin.order_list.add_order_29c14ca6')}
           </Button>
 

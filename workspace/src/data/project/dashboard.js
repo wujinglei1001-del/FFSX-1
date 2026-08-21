@@ -65,7 +65,7 @@ export const upcomingMeetings = [
       },
       active: true,
     },
-    joinMeetLink: '#!',
+    joinMeetLink: null,
     attendants: [users[3], users[4], users[6], users[10], users[11], users[13]],
   },
   {
@@ -385,7 +385,7 @@ export const projectTimelineData = [
 ];
 
 export const projectHours = {
-  aurora: [65, 65, 90, 90, 275, 275, 375, 150, 120],
+  ffax: [65, 65, 90, 90, 275, 275, 375, 150, 120],
   falcon: [50, 26, 75, 50, 175, 175, 105, 260, 350],
   phoenix: [25, 85, 45, 140, 140, 340, 155, 205, 190],
 };
@@ -393,7 +393,7 @@ export const projectHours = {
 export const projectsInfos = [
   {
     id: 1,
-    name: 'Aurora',
+    name: 'FFA-X',
     color: 'primary',
     tasks: [
       {
@@ -457,7 +457,7 @@ export const events = [
     endTime: '5:00 pm',
     members: [users[15], users[5], users[13]],
     eventType: 'physical',
-    virtualLink: '#!',
+    virtualLink: '',
     physical: 'Abc street',
     notificationMinutesBefore: 15,
     color: 'warning',
@@ -489,7 +489,7 @@ export const events = [
     startDate: '2024-12-05',
     startTime: '12:00 pm',
     eventType: 'physical',
-    virtualLink: '#!',
+    virtualLink: '',
     physical: 'Abc street',
     notificationMinutesBefore: 30,
     members: [users[4], users[8], users[5], users[7]],

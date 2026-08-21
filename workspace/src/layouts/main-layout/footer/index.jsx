@@ -40,15 +40,15 @@ const Footer = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            {translateUi('ui.layouts.main_layout.footer.thank_you_for_creating_with_2cdf75fb')}
             <Box
               component="strong"
               sx={{
                 mx: 0.5,
               }}
             >
-              {translateUi('ui.layouts.main_layout.footer.aurora_eeee9b76')}{' '}
+              FFA-X{' '}
             </Box>
+            · {translateUi('ffax.footer.tagline')}
           </Box>
 
           <Box
@@ -69,16 +69,18 @@ const Footer = () => {
           </Box>
         </Typography>
 
-        <Typography
-          variant="caption"
-          component="p"
-          sx={{
-            fontWeight: 'light',
-            color: 'text.secondary',
-          }}
-        >
-          v{import.meta.env.VITE_APP_VERSION}
-        </Typography>
+        {import.meta.env.VITE_APP_VERSION && (
+          <Typography
+            variant="caption"
+            component="p"
+            sx={{
+              fontWeight: 'light',
+              color: 'text.secondary',
+            }}
+          >
+            v{import.meta.env.VITE_APP_VERSION}
+          </Typography>
+        )}
       </Stack>
     </>
   );

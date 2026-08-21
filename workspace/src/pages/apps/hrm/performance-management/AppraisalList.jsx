@@ -8,6 +8,7 @@ import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import SearchFilterActionBar from 'components/sections/hrm/payroll/common/SearchFilterActionBar';
 import ListTable from 'components/sections/hrm/performance-management/appraisal-list/ListTable';
 import AddMember from 'components/sections/hrm/performance-management/appraisal-list/add-member';
+import paths from 'routes/paths';
 
 const AppraisalList = () => {
   const { t: translateUi } = useTranslation();
@@ -40,7 +41,7 @@ const AppraisalList = () => {
         breadcrumb={[
           {
             label: translateUi('ui.pages.apps.hrm.performance_management.home_70f8bb9a'),
-            url: '#!',
+            url: paths.workbench,
           },
           {
             label: translateUi('ui.pages.apps.hrm.performance_management.appraisal_list_f7d5e630'),

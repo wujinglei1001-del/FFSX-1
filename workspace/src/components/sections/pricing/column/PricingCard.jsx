@@ -113,7 +113,7 @@ const PricingCard = ({ data, isYearly }) => {
       <CardActions sx={{ p: 0 }}>
         <Button
           variant={data.recommended ? 'contained' : 'soft'}
-          href={data.price ? paths.defaultJwtLogin : paths.defaultJwtSignup}
+          href={data.price ? paths.zitadelLogin : paths.zitadelSignup}
           fullWidth
         >
           {!data.price ? '创建免费账户' : '购买并继续'}

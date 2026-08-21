@@ -3,7 +3,6 @@ import { initialConfig } from 'config';
 const createTypography = (fontFamily = initialConfig.fontFamily, fontSize = 16) => ({
   fontFamily: [
     fontFamily,
-    'Noto Sans SC',
     'sans-serif',
     'Spline Sans Mono',
     'monospace',

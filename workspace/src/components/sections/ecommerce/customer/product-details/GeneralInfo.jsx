@@ -23,7 +23,7 @@ const GeneralInfo = ({ sx }) => {
             label: translateUi(
               'ui.sections.ecommerce.customer.product_details.living_room_25ff70b3',
             ),
-            url: '#!',
+            url: paths.products,
           },
           {
             label: translateUi('ui.sections.ecommerce.customer.product_details.armchair_d5727b18'),

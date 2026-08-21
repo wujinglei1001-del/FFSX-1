@@ -4,7 +4,7 @@ import animation404Dark from 'assets/json/404-dark.json';
 import animation404 from 'assets/json/404.json';
 import { useThemeMode } from 'hooks/useThemeMode';
 import Lottie from 'lottie-react';
-import paths from 'routes/paths';
+import { rootPaths } from 'routes/paths';
 
 const Page404 = () => {
   const { t: translateUi } = useTranslation();
@@ -57,7 +57,7 @@ const Page404 = () => {
               mb: 2,
             }}
           >
-            {translateUi('ui.pages.errors.page404.page_not_found_bc3023b3')}
+            {translateUi('ffax.errors.not_found.title')}
           </Typography>
           <Typography
             variant="h5"
@@ -67,21 +67,11 @@ const Page404 = () => {
               mb: 5,
             }}
           >
-            {translateUi('ui.pages.errors.page404.no_worries_let_s_take_you_back_fd551e2c')}{' '}
-            <Box
-              component="br"
-              sx={{
-                display: {
-                  xs: 'none',
-                  sm: 'block',
-                },
-              }}
-            />
-            {translateUi('ui.pages.errors.page404.while_our_bear_is_searching_everywhere_1fb7d139')}
+            {translateUi('ffax.errors.not_found.description')}
           </Typography>
 
-          <Button variant="contained" href={paths.ecommerce} size="large" sx={{ px: 7 }}>
-            {translateUi('ui.pages.errors.page404.go_back_home_2de04546')}{' '}
+          <Button variant="contained" href={rootPaths.root} size="large" sx={{ px: 7 }}>
+            {translateUi('ffax.errors.not_found.home')}
           </Button>
         </Box>
       </Stack>

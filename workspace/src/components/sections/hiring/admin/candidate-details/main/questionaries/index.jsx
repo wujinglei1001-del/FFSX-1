@@ -6,7 +6,7 @@ import i18n from 'locales/i18n';
 import CollapsibleSection from './CollapsibleSection';
 import QuestionItem from './QuestionItem';
 
-const aurora = `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`;
+const videoResponse = `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`;
 
 const questionaries = {
   preScreenQuestions: [
@@ -108,7 +108,7 @@ const questionaries = {
           'ui.sections.hiring.admin.candidate_details.why_did_you_choose_to_apply_to_this_company_5d144e5a',
         );
       },
-      answer: aurora,
+      answer: videoResponse,
       type: 'video',
     },
     {
@@ -117,7 +117,7 @@ const questionaries = {
           'ui.sections.hiring.admin.candidate_details.what_are_your_greatest_strengths_f7d073d3',
         );
       },
-      answer: aurora,
+      answer: videoResponse,
       type: 'video',
     },
     {
@@ -126,7 +126,7 @@ const questionaries = {
           'ui.sections.hiring.admin.candidate_details.how_do_you_prefer_to_work_on_tasks_3cf3f8ff',
         );
       },
-      answer: aurora,
+      answer: videoResponse,
       type: 'video',
     },
   ],

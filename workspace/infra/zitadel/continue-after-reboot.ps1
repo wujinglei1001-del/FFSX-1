@@ -79,7 +79,7 @@ try {
     throw 'FFAX API health endpoint is unavailable.'
   }
 
-  if (-not (Wait-Url 'http://localhost:5002/authentication/default/jwt/login' 80)) {
+  if (-not (Wait-Url 'http://localhost:5002/authentication/zitadel/login' 80)) {
     throw 'FFAX frontend is unavailable.'
   }
 
@@ -101,7 +101,7 @@ try {
   }
 
   $success = $true
-  Start-Process 'http://localhost:5002/authentication/default/jwt/login'
+  Start-Process 'http://localhost:5002/authentication/zitadel/login'
 }
 finally {
   if ($success) {

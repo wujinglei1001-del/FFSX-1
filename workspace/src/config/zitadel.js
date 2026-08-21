@@ -1,4 +1,7 @@
 import { WebStorageStateStore } from 'oidc-client-ts';
+import paths, { workbenchEntryPath } from 'routes/paths';
+
+export const REMEMBER_DEVICE_KEY = 'ffax_remember_device';
 
 const browserOrigin = typeof window === 'undefined' ? '' : window.location.origin;
 
@@ -10,7 +13,7 @@ const normalizeBasePath = (value = '/') => {
 };
 
 export const appBasePath = normalizeBasePath(
-  import.meta.env.VITE_BASENAME || import.meta.env.BASE_URL || '/',
+  import.meta.env.BASE_URL || '/',
 );
 
 const getAbsoluteAppUrl = (path) => `${browserOrigin}${appBasePath}${path}`;
@@ -20,6 +23,9 @@ const configuredScope =
   import.meta.env.VITE_ZITADEL_SCOPE?.trim() ||
   'openid profile email offline_access urn:zitadel:iam:user:resourceowner urn:zitadel:iam:org:projects:roles';
 const audienceScope = projectId ? `urn:zitadel:iam:org:project:id:${projectId}:aud` : '';
+const configuredPostLoginPath = normalizeBasePath(
+  import.meta.env.VITE_POST_LOGIN_URL?.trim() || workbenchEntryPath,
+);
 
 export const zitadelConfig = {
   authority,
@@ -27,11 +33,12 @@ export const zitadelConfig = {
   projectId,
   redirectUri:
     import.meta.env.VITE_ZITADEL_CALLBACK_URL?.trim() ||
-    getAbsoluteAppUrl('/authentication/callback'),
+    getAbsoluteAppUrl(paths.zitadelCallback),
   postLogoutRedirectUri:
     import.meta.env.VITE_ZITADEL_POST_LOGOUT_URL?.trim() ||
-    getAbsoluteAppUrl('/pages/landing/homepage'),
-  postLoginPath: import.meta.env.VITE_POST_LOGIN_URL?.trim() || '/dashboard/ecommerce',
+    getAbsoluteAppUrl(paths.zitadelLoggedOut),
+  postLoginPath:
+    appBasePath && configuredPostLoginPath === appBasePath ? '/' : configuredPostLoginPath,
   accountUrl:
     import.meta.env.VITE_ZITADEL_ACCOUNT_URL?.trim() ||
     (authority ? `${authority}/ui/console/users/me` : ''),
@@ -55,5 +62,10 @@ export const getZitadelOidcConfig = () => ({
   userStore:
     typeof window === 'undefined'
       ? undefined
-      : new WebStorageStateStore({ store: window.sessionStorage }),
+      : new WebStorageStateStore({
+          store:
+            window.localStorage.getItem(REMEMBER_DEVICE_KEY) === 'true'
+              ? window.localStorage
+              : window.sessionStorage,
+        }),
 });

@@ -1,6 +1,7 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 
 const image = (index) => `${initialConfig.assetsDir}/images/ecommerce/products/96x96/${index}.webp`;
 
@@ -233,7 +234,7 @@ export const promoSliderData = [
       );
     },
     buttonText: '立即升级',
-    buttonLink: '#!',
+    buttonLink: paths.landingSubscriptions,
     imageKey: 'rocket',
   },
   {
@@ -246,7 +247,7 @@ export const promoSliderData = [
       );
     },
     buttonText: '探索 AI',
-    buttonLink: '#!',
+    buttonLink: paths.contentSearch,
     imageKey: 'aiTools',
   },
   {
@@ -259,7 +260,7 @@ export const promoSliderData = [
       );
     },
     buttonText: '了解更多',
-    buttonLink: '#!',
+    buttonLink: paths.landingContact,
     imageKey: 'customer',
   },
 ];

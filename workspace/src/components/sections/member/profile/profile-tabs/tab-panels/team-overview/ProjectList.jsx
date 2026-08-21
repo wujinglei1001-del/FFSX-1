@@ -156,7 +156,7 @@ const ProjectList = ({ data }) => {
           pageSizeOptions={[7]}
           slots={{
             basePagination: (props) => (
-              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+              <DataGridPagination showFullPagination {...props} />
             ),
           }}
           slotProps={{

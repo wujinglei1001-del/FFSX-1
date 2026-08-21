@@ -11,7 +11,12 @@ const TextContent = ({ content }) => {
       {content.slice(0, showMore ? content.length : 250)}
       {!showMore && '... '}
       {!showMore && (
-        <Link onClick={() => setShowMore(true)} href="#!" sx={{ fontWeight: 700 }}>
+        <Link
+          component="button"
+          type="button"
+          onClick={() => setShowMore(true)}
+          sx={{ fontWeight: 700 }}
+        >
           {translateUi('ui.sections.hrm.performance_management.goals.show_more_25911d48')}
         </Link>
       )}

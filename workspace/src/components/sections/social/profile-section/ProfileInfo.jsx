@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { profileData } from 'data/social';
 import { formatNumber } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
+import paths from 'routes/paths';
 import ProfileActions from './ProfileActions';
 
 const ProfileInfo = () => {
@@ -48,13 +49,13 @@ const ProfileInfo = () => {
         <div>
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center', mb: 1 }}>
             <IconifyIcon icon="material-symbols:link-rounded" sx={{ fontSize: 20 }} />
-            <Typography variant="body2" component={Link} href="#!">
+            <Typography variant="body2">
               {profileData.websiteUrl}
             </Typography>
           </Stack>
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center', mb: 1 }}>
             <IconifyIcon icon="material-symbols:link-rounded" sx={{ fontSize: 20 }} />
-            <Typography variant="body2" component={Link} href="#!">
+            <Typography variant="body2" component={Link} href={paths.memberProfile}>
               {profileData.username}
             </Typography>
           </Stack>

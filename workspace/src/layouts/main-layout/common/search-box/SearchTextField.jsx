@@ -10,7 +10,7 @@ const SearchTextField = ({ slotProps, ...rest }) => {
   return (
     <StyledTextField
       id="search-box"
-      placeholder={translateUi('ui.layouts.main_layout.common.search_box.search_bce06414')}
+      placeholder={translateUi('ffax.ui.search')}
       sx={{
         minWidth: 348,
       }}

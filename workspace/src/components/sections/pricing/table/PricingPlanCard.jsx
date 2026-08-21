@@ -117,7 +117,7 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
             variant={recommended ? 'contained' : 'soft'}
             startIcon={downMd ? <IconifyIcon icon="material-symbols:shopping-cart" /> : undefined}
             color="primary"
-            href={paths.defaultJwtSignup}
+            href={paths.zitadelSignup}
             fullWidth
             sx={{
               minWidth: { xs: 0, sm: 0 },

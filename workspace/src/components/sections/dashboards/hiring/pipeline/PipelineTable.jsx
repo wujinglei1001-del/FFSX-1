@@ -9,6 +9,7 @@ import { GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid/colDef';
 import { gridClasses } from '@mui/x-data-grid/constants';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 
 const PipelineTable = ({ apiRef, data }) => {
   const { t: translateUi } = useTranslation();
@@ -33,7 +34,7 @@ const PipelineTable = ({ apiRef, data }) => {
               }}
             >
               <Link
-                href="#!"
+                href={paths.hiringJobOpening}
                 variant="subtitle2"
                 sx={{
                   fontWeight: 600,
@@ -91,7 +92,7 @@ const PipelineTable = ({ apiRef, data }) => {
                 sx={{ width: 24, height: 24 }}
               />
               <Link
-                href="#!"
+                href={paths.memberProfile}
                 variant="subtitle2"
                 sx={{
                   fontWeight: 400,
@@ -410,7 +411,7 @@ const PipelineTable = ({ apiRef, data }) => {
         checkboxSelection
         slots={{
           basePagination: (props) => (
-            <DataGridPagination showFullPagination showAllHref="#!" {...props} />
+            <DataGridPagination showFullPagination showAllHref={paths.hiringPipeline} {...props} />
           ),
         }}
         sx={({ spacing }) => ({
@@ -426,7 +427,7 @@ const PipelineTable = ({ apiRef, data }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `${spacing(1)} ${spacing(1.25)}`,
                 },

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Link, Paper, Typography } from '@mui/material';
 import { useEcommerce } from 'providers/EcommerceProvider';
+import paths from 'routes/paths';
 import QuantityButtons from '../../common/QuantityButtons';
 
 const Quantity = ({ sx }) => {
@@ -26,7 +27,7 @@ const Quantity = ({ sx }) => {
         }}
         sx={{ mb: 0.5 }}
       />
-      <Link variant="caption" href="#!">
+      <Link variant="caption" href={paths.products}>
         {translateUi('ui.sections.ecommerce.customer.product_details.check_availability_8bfdae52')}
       </Link>
     </Paper>

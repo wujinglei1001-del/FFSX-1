@@ -11,6 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const OrderStatus = ({ stats }) => {
@@ -21,28 +22,28 @@ const OrderStatus = ({ stats }) => {
         label: translateUi('ui.sections.ecommerce.customer.customer_account.to_pay_27dea2d7'),
         icon: 'material-symbols:credit-card-outline',
         field: 'toPay',
-        url: '#!',
+        url: paths.orderList,
         count: stats.toPay,
       },
       {
         label: translateUi('ui.sections.ecommerce.customer.customer_account.to_ship_b873c706'),
         icon: 'material-symbols:local-shipping-outline-rounded',
         field: 'toShip',
-        url: '#!',
+        url: paths.orderList,
         count: stats.toShip,
       },
       {
         label: translateUi('ui.sections.ecommerce.customer.customer_account.to_receive_c96c6a60'),
         field: 'toReceive',
         icon: 'material-symbols:package-2-outline',
-        url: '#!',
+        url: paths.orderList,
         count: stats.toReceive,
       },
       {
         label: translateUi('ui.sections.ecommerce.customer.customer_account.to_review_9b44cea8'),
         field: 'toReview',
         icon: 'material-symbols:reviews-outline-rounded',
-        url: '#!',
+        url: paths.orderList,
         count: stats.toReview,
       },
     ];

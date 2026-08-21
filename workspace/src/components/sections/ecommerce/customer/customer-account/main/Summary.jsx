@@ -10,6 +10,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Summary = ({ stats }) => {
@@ -20,21 +21,21 @@ const Summary = ({ stats }) => {
         id: 1,
         label: translateUi('ui.sections.ecommerce.customer.customer_account.wishlist_6ff33102'),
         icon: 'material-symbols:favorite-outline-rounded',
-        url: '#!',
+        url: paths.wishlist,
         value: stats.wishlist,
       },
       {
         id: 2,
         label: translateUi('ui.sections.ecommerce.customer.customer_account.favourites_e6ccc0fd'),
         icon: 'material-symbols:store-outline-rounded',
-        url: '#!',
+        url: paths.wishlist,
         value: stats.favourites,
       },
       {
         id: 3,
         label: translateUi('ui.sections.ecommerce.customer.customer_account.vouchers_ffaa62ec'),
         icon: 'material-symbols:sell-outline',
-        url: '#!',
+        url: paths.customerAccount,
         value: stats.vouchers,
       },
     ];

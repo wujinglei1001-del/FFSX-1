@@ -1,4 +1,5 @@
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 
 export const analyticKPIs = [
   {
@@ -19,7 +20,7 @@ export const analyticKPIs = [
       get text() {
         return i18n.t('ui.data.analytics.dashboard.traffic_sources_a1494150');
       },
-      url: '#!',
+      url: paths.members,
     },
   },
   {
@@ -40,7 +41,7 @@ export const analyticKPIs = [
       get text() {
         return i18n.t('ui.data.analytics.dashboard.performance_63c90455');
       },
-      url: '#!',
+      url: paths.analytics,
     },
   },
   {
@@ -61,7 +62,7 @@ export const analyticKPIs = [
       get text() {
         return i18n.t('ui.data.analytics.dashboard.top_products_2ebf4b36');
       },
-      url: '#!',
+      url: paths.adminProductList,
     },
   },
   {
@@ -78,7 +79,7 @@ export const analyticKPIs = [
       get text() {
         return i18n.t('ui.data.analytics.dashboard.referral_links_3bf97c2f');
       },
-      url: '#!',
+      url: paths.crm,
     },
   },
 ];

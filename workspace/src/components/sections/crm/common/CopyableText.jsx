@@ -6,7 +6,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
 
-const CopyableText = ({ text, link = false, href = '#!', sx }) => {
+const CopyableText = ({ text, link = false, href, sx }) => {
   const [isTextCopied, setIsTextCopied] = useState(false);
 
   const handleCopyText = async (text) => {
@@ -18,8 +18,8 @@ const CopyableText = ({ text, link = false, href = '#!', sx }) => {
   return (
     <Stack direction="row" sx={{ gap: 0.5, alignItems: 'center', ...sx }}>
       <Typography
-        component={link ? Link : 'p'}
-        href={link ? href : undefined}
+        component={link && href ? Link : 'p'}
+        href={link && href ? href : undefined}
         variant="body2"
         underline="none"
         sx={{ lineClamp: 1, wordBreak: 'break-all', color: 'text.primary' }}

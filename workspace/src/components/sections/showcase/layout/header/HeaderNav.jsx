@@ -1,17 +1,19 @@
+import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
-import { navItems } from 'data/showcase';
+import { publicNavItems } from 'data/ffax-public';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
+import { publicAuthPaths } from 'routes/paths';
 import { GradientButton } from '../../common';
 
 const HeaderNav = ({ registerNavItemRef }) => {
+  const { t } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
 
   return (
     <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
       {upMd &&
-        navItems.map(({ label, href }) => (
+        publicNavItems.map(({ label, href }) => (
           <Button
             key={label}
             ref={registerNavItemRef}
@@ -27,11 +29,11 @@ const HeaderNav = ({ registerNavItemRef }) => {
 
       <GradientButton
         ref={registerNavItemRef}
-        href={paths.landingSubscriptions}
+        href={publicAuthPaths.login}
         color="neutral"
         sx={{ width: { xs: 160 }, height: { xs: 52 } }}
       >
-        选择服务
+        {t('ffax.public.navigation.login')}
       </GradientButton>
     </Stack>
   );

@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./Paper-BvK-nouu.js";var n=e(),r=({sx:e,...r})=>(0,n.jsx)(t,{component:`section`,sx:[{padding:{xs:3,md:5},height:1},...Array.isArray(e)?e:[e]],...r});export{r as t};

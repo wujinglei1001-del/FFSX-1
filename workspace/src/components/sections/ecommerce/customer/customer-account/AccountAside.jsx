@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const services = [
@@ -20,7 +21,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.login_security_f6cf96a8');
     },
     icon: 'material-symbols:lock-outline',
-    url: '#!',
+    url: paths.account,
   },
   {
     id: 2,
@@ -28,7 +29,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.gift_cards_b65882d3');
     },
     icon: 'material-symbols:redeem-rounded',
-    url: '#!',
+    url: paths.products,
   },
   {
     id: 3,
@@ -36,7 +37,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.my_payments_5f5c638c');
     },
     icon: 'material-symbols:payments-outline-rounded',
-    url: '#!',
+    url: paths.payment,
   },
   {
     id: 4,
@@ -44,7 +45,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.digital_support_7849a1ed');
     },
     icon: 'material-symbols:support',
-    url: '#!',
+    url: paths.landingContact,
   },
   {
     id: 5,
@@ -52,7 +53,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.my_messages_d04104be');
     },
     icon: 'material-symbols:chat-outline-rounded',
-    url: '#!',
+    url: paths.chat,
   },
   {
     id: 6,
@@ -60,7 +61,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.my_lists_dc1d2989');
     },
     icon: 'material-symbols:list-rounded',
-    url: '#!',
+    url: paths.wishlist,
   },
   {
     id: 7,
@@ -68,7 +69,7 @@ const services = [
       return i18n.t('ui.sections.ecommerce.customer.customer_account.customer_service_1d0c9a65');
     },
     icon: 'material-symbols:support-agent-rounded',
-    url: '#!',
+    url: paths.landingContact,
   },
 ];
 const AccountAside = () => {

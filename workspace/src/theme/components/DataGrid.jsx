@@ -18,7 +18,7 @@ const DataGrid = {
     disableRowSelectionOnClick: true,
     disableColumnMenu: true,
     columnHeaderHeight: 48,
-    getCellClassName: () => 'aurora-data-grid-cell',
+    getCellClassName: () => 'ffax-data-grid-cell',
     slots: {
       columnSortedDescendingIcon: ({ onLoad, ...props }) => (
         <IconifyIcon icon="material-symbols:sort-rounded" {...props} />
@@ -178,7 +178,7 @@ const DataGrid = {
         backgroundColor: cssVarRgba(theme.vars.palette.primary.lightChannel, 0.08),
       },
       [`& .${gridClasses.cell}`]: {
-        '&.aurora-data-grid-cell': {
+        '&.ffax-data-grid-cell': {
           padding: `0 ${theme.spacing(3)}`,
           [`&.${gridClasses.cellCheckbox}`]: {
             padding: 0,

@@ -9,9 +9,18 @@ import SectionHeader from '../common/SectionHeader';
 const members = [
   {
     id: 1,
-    name: 'Madeline Wuntch',
+    name: 'JINGLEI WU',
     designation: 'CEO & Founder',
-    image: `${initialConfig.assetsDir}/images/landing/team/1.webp`,
+    image: '/images/landing/team/jinglei-wu.png',
+    imageSx: {
+      position: 'absolute',
+      width: '163.76%',
+      height: '117.69%',
+      left: '53.76%',
+      top: '49.86%',
+      transform: 'translate(-50%, -50%)',
+      objectFit: 'cover',
+    },
   },
   {
     id: 2,
@@ -81,10 +90,8 @@ const Team = ({ diamond = false, sx }) => {
           }}
         >
           <SectionHeader
-            subtitle={translateUi(
-              'ui.sections.landing.about_us.team.our_brilliant_teammates_faa76982',
-            )}
-            title={translateUi('common_labels.team')}
+            subtitle={translateUi('ffax.public.about.team.subtitle')}
+            title={translateUi('ffax.public.about.team.title')}
           />
 
           {diamond ? (
@@ -176,12 +183,15 @@ const Member = ({ member }) => {
           position: 'relative',
           width: 1,
           aspectRatio: '17 / 25',
-          bgcolor: 'transparent',
+          borderRadius: 4,
+          overflow: 'hidden',
+          bgcolor: 'background.elevation1',
           mb: 2,
         }}
       >
         <Box
           sx={{
+            ...(member.imageSx && { position: 'absolute', inset: 0 }),
             filter: 'grayscale(100%)',
             transition: (theme) =>
               theme.transitions.create('filter', {
@@ -198,9 +208,24 @@ const Member = ({ member }) => {
             sx={{
               width: 1,
               height: 1,
+              ...member.imageSx,
             }}
           />
         </Box>
+
+        <Box
+          sx={{
+            position: 'absolute',
+            width: 1,
+            height: 1,
+            left: 0,
+            bottom: 0,
+            pointerEvents: 'none',
+            userSelect: 'none',
+            background: (theme) =>
+              `/* @noflip */ linear-gradient(to bottom, transparent 70%, ${theme.vars.palette.background.elevation1})`,
+          }}
+        />
       </Box>
 
       <Stack sx={{ gap: 0.5, alignItems: 'center', textAlign: 'center' }}>

@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 import { getStatusChipColor } from '..';
 
 export const columnDefs = [
@@ -81,7 +82,7 @@ export const columnDefs = [
     flex: 2,
     minWidth: 230,
     renderCell: (params) => (
-      <Link href="#!" variant="body2">
+      <Link href={`mailto:${params.row.email}`} variant="body2">
         {params.row.email}
       </Link>
     ),
@@ -170,7 +171,7 @@ const MembersListView = ({ data }) => {
           pageSizeOptions={[7]}
           slots={{
             basePagination: (props) => (
-              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+              <DataGridPagination showFullPagination {...props} />
             ),
           }}
         />

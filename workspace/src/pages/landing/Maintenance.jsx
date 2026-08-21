@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/15-dark.webp';
 import illustration from 'assets/images/illustrations/15.webp';
-import paths from 'routes/paths';
+import { rootPaths } from 'routes/paths';
 import Image from 'components/base/Image';
 
 const LandingMaintenance = () => {
@@ -37,7 +37,7 @@ const LandingMaintenance = () => {
           )}
         </Typography>
 
-        <Button variant="contained" href={paths.landingHomepage}>
+        <Button variant="contained" href={rootPaths.root}>
           {translateUi('ui.pages.landing.maintenance.go_back_home_2de04546')}
         </Button>
       </div>

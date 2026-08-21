@@ -9,7 +9,7 @@ const VideoPlayer = () => {
   return (
     <Video
       controls
-      src={`${assetsDir}/videos/file-manager/aurora.mp4`}
+      src={`${assetsDir}/videos/file-manager/ffax.mp4`}
       sx={{
         borderRadius: 4,
         width: 1,

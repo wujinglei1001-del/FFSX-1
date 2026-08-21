@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { typographyClasses } from '@mui/material/Typography';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import SearchFilterActionBar from 'components/sections/hrm/payroll/common/SearchFilterActionBar';
+import paths from 'routes/paths';
 import NewAppraisalCycle from './new-appraisal-cycle';
 
 const AppraisalCycleHeader = () => {
@@ -16,7 +17,7 @@ const AppraisalCycleHeader = () => {
           label: translateUi(
             'ui.sections.hrm.performance_management.appraisal_cycle.home_70f8bb9a',
           ),
-          url: '#!',
+          url: paths.workbench,
         },
         {
           label: translateUi(

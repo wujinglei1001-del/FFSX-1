@@ -6,6 +6,7 @@ import useNumberFormat from 'hooks/useNumberFormat';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 
 const calculateSummaryData = (data) => {
   return data.reduce(
@@ -218,7 +219,7 @@ const UserByCountryTable = ({ data }) => {
         }}
         pageSizeOptions={[8, combinedData.length]}
         slots={{
-          basePagination: (props) => <DataGridPagination showAllHref="#!" {...props} />,
+          basePagination: (props) => <DataGridPagination showAllHref={paths.members} {...props} />,
         }}
         sx={({ spacing }) => ({
           [`& .${gridClasses.columnHeaders}`]: {
@@ -236,7 +237,7 @@ const UserByCountryTable = ({ data }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell, .id-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

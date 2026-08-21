@@ -1,7 +1,9 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
+  Alert,
   Box,
   Button,
   FormControl,
@@ -14,8 +16,10 @@ import {
   Typography,
   inputBaseClasses,
 } from '@mui/material';
+import { externalLinks } from 'config';
 import i18n from 'locales/i18n';
 import * as yup from 'yup';
+import { useSubmitContactRequest } from 'services/swr/api-hooks/useContactApi';
 import StyledTextField from 'components/styled/StyledTextField';
 import RevealText from '../common/RevealText';
 import SectionHeader from '../common/SectionHeader';
@@ -23,33 +27,35 @@ import SectionHeader from '../common/SectionHeader';
 const contactFormSchema = yup.object({
   firstName: yup
     .string()
-    .required(i18n.t('ui.sections.landing.contact.contactform.first_name_is_required_fd5f7f4c')),
+    .required(i18n.t('ffax.public.contact.validation.first_name')),
   lastName: yup
     .string()
-    .required(i18n.t('ui.sections.landing.contact.contactform.last_name_is_required_a077f216')),
+    .required(i18n.t('ffax.public.contact.validation.last_name')),
   email: yup
     .string()
-    .email(i18n.t('ui.sections.landing.contact.contactform.email_must_be_a_valid_email_8ab7d26c'))
-    .required(i18n.t('ui.sections.landing.contact.contactform.email_is_required_c79fce0e')),
+    .email(i18n.t('ffax.public.contact.validation.email_invalid'))
+    .required(i18n.t('ffax.public.contact.validation.email_required')),
   phone: yup
     .string()
-    .required(i18n.t('ui.sections.landing.contact.contactform.phone_number_is_required_ad2bfd0b')),
+    .required(i18n.t('ffax.public.contact.validation.phone')),
   company: yup
     .string()
-    .required(i18n.t('ui.sections.landing.contact.contactform.company_is_required_8e6ec6c8')),
+    .required(i18n.t('ffax.public.contact.validation.company')),
   purpose: yup
     .string()
-    .required(i18n.t('ui.sections.landing.contact.contactform.purpose_is_required_a435eb58')),
+    .required(i18n.t('ffax.public.contact.validation.purpose')),
   policyChecked: yup
     .boolean()
     .oneOf(
       [true],
-      i18n.t('ui.sections.landing.contact.contactform.you_must_accept_the_privacy_policy_c63e10f6'),
+      i18n.t('ffax.public.contact.validation.consent'),
     )
-    .required(i18n.t('ui.sections.landing.contact.contactform.policy_is_required_9de372ac')),
+    .required(i18n.t('ffax.public.contact.validation.consent')),
 });
 const ContactForm = () => {
   const { t: translateUi } = useTranslation();
+  const [searchParams] = useSearchParams();
+  const { trigger: submitContactRequest } = useSubmitContactRequest();
   const methods = useForm({
     resolver: yupResolver(contactFormSchema),
     defaultValues: {
@@ -58,40 +64,48 @@ const ContactForm = () => {
       email: '',
       phone: '',
       company: '',
-      purpose: '',
+      purpose:
+        searchParams.get('topic') === 'subscription'
+          ? translateUi('ffax.contact.subscription_inquiry')
+          : '',
       policyChecked: false,
     },
   });
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    reset,
+    setError,
+    formState: { errors, isSubmitSuccessful, isSubmitting },
   } = methods;
-  const onSubmitHandler = (data) => {
-    const subject = encodeURIComponent(`FFAX 官网咨询 - ${data.company}`);
-    const body = encodeURIComponent(
-      `姓名：${data.firstName} ${data.lastName}\n邮箱：${data.email}\n电话：${data.phone}\n公司：${data.company}\n\n咨询内容：\n${data.purpose}`,
-    );
-    window.location.href = `mailto:hello@ffax.com?subject=${subject}&body=${body}`;
+  const onSubmitHandler = async (data) => {
+    try {
+      await submitContactRequest({
+        ...data,
+        policyAccepted: data.policyChecked,
+        topic: searchParams.get('topic') === 'subscription' ? 'subscription' : 'general',
+        locale: i18n.resolvedLanguage || i18n.language,
+      });
+      reset();
+    } catch {
+      setError('root.submit', {
+        type: 'server',
+        message: translateUi('ffax.public.contact.send_failed'),
+      });
+    }
   };
   return (
     <Stack>
       <Box sx={{ textAlign: 'center', mb: 4 }}>
         <SectionHeader
-          title={translateUi('common_labels.contact')}
-          subtitle={translateUi('ui.sections.landing.contact.contactform.get_in_touch_c49bb4c2')}
+          title={translateUi('ffax.public.contact.form_title')}
+          subtitle={translateUi('ffax.public.contact.form_subtitle')}
           sx={{ mb: 2 }}
         />
 
         <RevealText>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            {translateUi(
-              'ui.sections.landing.contact.contactform.reach_out_to_us_anytime_we_re_here_to_help_with_your_8a8aaf2b',
-            )}{' '}
-            <Box component="span" sx={{ whiteSpace: 'nowrap' }}>
-              {translateUi('ui.sections.landing.contact.contactform.and_support_cf452fff')}
-            </Box>
-            .
+            {translateUi('ffax.public.contact.description')}
           </Typography>
         </RevealText>
       </Box>
@@ -104,7 +118,7 @@ const ContactForm = () => {
               mb: 2,
             }}
           >
-            {translateUi('ui.sections.landing.contact.contactform.personal_information_ad12e422')}
+            {translateUi('ffax.public.contact.personal_information')}
           </Typography>
 
           <Grid container spacing={1} sx={{ mb: 3 }}>
@@ -114,9 +128,7 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder={translateUi(
-                  'ui.sections.landing.contact.contactform.first_name_b6ea992a',
-                )}
+                placeholder={translateUi('ffax.public.contact.first_name')}
                 {...register('firstName')}
                 error={!!errors.firstName}
                 helperText={errors.firstName?.message}
@@ -138,9 +150,7 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder={translateUi(
-                  'ui.sections.landing.contact.contactform.last_name_863cb39f',
-                )}
+                placeholder={translateUi('ffax.public.contact.last_name')}
                 {...register('lastName')}
                 error={!!errors.lastName}
                 helperText={errors.lastName?.message}
@@ -162,7 +172,7 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder={translateUi('ui.sections.landing.contact.contactform.email_84add5b2')}
+                placeholder={translateUi('ffax.public.contact.email')}
                 {...register('email')}
                 error={!!errors.email}
                 helperText={errors.email?.message}
@@ -184,7 +194,7 @@ const ContactForm = () => {
                 fullWidth
                 variant="filled"
                 size="large"
-                placeholder={translateUi('ui.sections.landing.contact.contactform.phone_77064d52')}
+                placeholder={translateUi('ffax.public.contact.phone_field')}
                 {...register('phone')}
                 error={!!errors.phone}
                 helperText={errors.phone?.message}
@@ -205,9 +215,7 @@ const ContactForm = () => {
                 type="text"
                 fullWidth
                 size="large"
-                placeholder={translateUi(
-                  'ui.sections.landing.contact.contactform.company_7a199499',
-                )}
+                placeholder={translateUi('ffax.public.contact.company')}
                 variant="filled"
                 {...register('company')}
                 error={!!errors.company}
@@ -233,7 +241,7 @@ const ContactForm = () => {
               mb: 2,
             }}
           >
-            {translateUi('ui.sections.landing.contact.contactform.purposes_9f4de44b')}
+            {translateUi('ffax.public.contact.purpose')}
           </Typography>
 
           <Box sx={{ mb: 3 }}>
@@ -241,7 +249,7 @@ const ContactForm = () => {
               type="text"
               fullWidth
               size="large"
-              placeholder={translateUi('ui.sections.landing.contact.contactform.message_68f4145f')}
+              placeholder={translateUi('ffax.public.contact.message')}
               variant="filled"
               {...register('purpose')}
               error={!!errors.purpose}
@@ -264,14 +272,21 @@ const ContactForm = () => {
                 control={<Switch {...register('policyChecked')} />}
                 label={
                   <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                    {translateUi(
-                      'ui.sections.landing.contact.contactform.by_selecting_this_you_agree_to_our_0b7dbb8e',
-                    )}{' '}
-                    <Link href="#!" sx={{ fontWeight: 500 }}>
-                      {translateUi(
-                        'ui.sections.landing.contact.contactform.privacy_policy_bfdb392a',
-                      )}
-                    </Link>
+                    {externalLinks.legal.privacy ? (
+                      <>
+                        {translateUi('ffax.public.contact.consent_prefix')}{' '}
+                        <Box
+                          component={Link}
+                          href={externalLinks.legal.privacy}
+                          sx={{ fontWeight: 500 }}
+                        >
+                          {translateUi('ffax.public.contact.privacy_policy')}
+                        </Box>
+                        {translateUi('ffax.public.contact.consent_suffix')}
+                      </>
+                    ) : (
+                      translateUi('ffax.public.contact.consent_without_policy')
+                    )}
                   </Typography>
                 }
                 sx={{ gap: 1, marginLeft: 0 }}
@@ -284,8 +299,25 @@ const ContactForm = () => {
             </FormControl>
           </Box>
 
-          <Button type="submit" variant="soft" color="primary" sx={{ width: 220 }}>
-            {translateUi('ui.sections.landing.contact.contactform.send_message_c70a890d')}
+          {isSubmitSuccessful && !errors.root?.submit && (
+            <Alert severity="success" sx={{ mb: 3 }}>
+              {translateUi('ffax.public.contact.sent')}
+            </Alert>
+          )}
+          {errors.root?.submit && (
+            <Alert severity="error" sx={{ mb: 3 }}>
+              {errors.root.submit.message}
+            </Alert>
+          )}
+
+          <Button
+            type="submit"
+            variant="soft"
+            color="primary"
+            loading={isSubmitting}
+            sx={{ width: 220 }}
+          >
+            {translateUi('ffax.public.contact.send')}
           </Button>
         </Stack>
       </FormProvider>

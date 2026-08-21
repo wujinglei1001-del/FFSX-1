@@ -132,7 +132,7 @@ const ContactInfo = ({ icon, isLink = false, value }) => {
         <IconifyIcon icon={icon} sx={{ fontSize: 18 }} />
       </Button>
       {isLink ? (
-        <Link href="#!" variant="subtitle2" sx={valueStyles}>
+        <Link href={`mailto:${value}`} variant="subtitle2" sx={valueStyles}>
           {value}
         </Link>
       ) : (

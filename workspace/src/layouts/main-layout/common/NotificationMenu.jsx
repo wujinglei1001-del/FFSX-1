@@ -1,10 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, Button, Link, Popover, Stack, badgeClasses, paperClasses } from '@mui/material';
-import { notifications as notificationsData } from 'data/notifications';
+import { Link as RouterLink, useNavigate } from 'react-router';
+import useSWR from 'swr';
+import { useSnackbar } from 'notistack';
+import {
+  Alert,
+  Box,
+  Button,
+  Popover,
+  Stack,
+  Typography,
+  badgeClasses,
+  paperClasses,
+} from '@mui/material';
 import dayjs from 'dayjs';
 import { useSettingsContext } from 'providers/SettingsProvider';
-import paths from 'routes/paths';
+import paths, { apiEndpoints } from 'routes/paths';
+import axiosInstance from 'services/axios/axiosInstance';
+import { normalizeNotifications } from 'lib/notifications';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SimpleBar from 'components/base/SimpleBar';
 import NotificationList from 'components/sections/notification/NotificationList';
@@ -12,11 +25,30 @@ import OutlinedBadge from 'components/styled/OutlinedBadge';
 
 const NotificationMenu = ({ type = 'default' }) => {
   const { t: translateUi } = useTranslation();
-  const [notifications, setNotifications] = useState({
-    today: [],
-    older: [],
-  });
+  const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
   const [anchorEl, setAnchorEl] = useState(null);
+  const { data, error, isLoading, mutate } = useSWR(apiEndpoints.notifications);
+  const notificationRows = useMemo(
+    () => normalizeNotifications(data, translateUi),
+    [data, translateUi],
+  );
+  const notifications = useMemo(
+    () =>
+      notificationRows.reduce(
+        (groups, notification) => {
+          if (dayjs().diff(dayjs(notification.createdAt), 'days') === 0) {
+            groups.today.push(notification);
+          } else {
+            groups.older.push(notification);
+          }
+          return groups;
+        },
+        { today: [], older: [] },
+      ),
+    [notificationRows],
+  );
+  const unreadCount = notificationRows.filter((notification) => !notification.readAt).length;
 
   const {
     config: { textDirection },
@@ -30,25 +62,21 @@ const NotificationMenu = ({ type = 'default' }) => {
     setAnchorEl(null);
   };
 
-  useEffect(() => {
-    const datewiseNotification = notificationsData.reduce(
-      (acc, val) => {
-        if (dayjs().diff(dayjs(val.createdAt), 'days') === 0) {
-          acc.today.push(val);
-        } else {
-          acc.older.push(val);
-        }
+  const handleItemClick = async (notification, event) => {
+    event.preventDefault();
+    handleClose();
 
-        return acc;
-      },
-      {
-        today: [],
-        older: [],
-      },
-    );
-
-    setNotifications(datewiseNotification);
-  }, [notificationsData]);
+    try {
+      if (!notification.readAt) {
+        await axiosInstance.put(apiEndpoints.notificationRead(notification.id));
+        await mutate();
+      }
+    } catch {
+      enqueueSnackbar(translateUi('ffax.notifications.mark_failed'), { variant: 'error' });
+    } finally {
+      navigate(notification.href || paths.notifications);
+    }
+  };
 
   return (
     <>
@@ -58,10 +86,13 @@ const NotificationMenu = ({ type = 'default' }) => {
         shape="circle"
         size={type === 'slim' ? 'small' : 'medium'}
         onClick={handleClick}
+        aria-label={translateUi('ffax.navigation.notifications')}
+        title={translateUi('ffax.navigation.notifications')}
       >
         <OutlinedBadge
           variant="dot"
           color="error"
+          invisible={unreadCount === 0}
           sx={{
             [`& .${badgeClasses.badge}`]: {
               height: 10,
@@ -106,17 +137,27 @@ const NotificationMenu = ({ type = 'default' }) => {
       >
         <Box sx={{ pt: 2, flex: 1, overflow: 'hidden' }}>
           <SimpleBar disableHorizontal>
+            {error && (
+              <Alert severity="error" sx={{ mx: 2, mb: 2 }}>
+                {translateUi('ffax.notifications.load_failed')}
+              </Alert>
+            )}
+            {!error && !isLoading && notificationRows.length === 0 && (
+              <Typography variant="body2" color="text.secondary" sx={{ px: 3, py: 2 }}>
+                {translateUi('ffax.notifications.empty')}
+              </Typography>
+            )}
             <NotificationList
-              title={translateUi('ui.layouts.main_layout.common.notificationmenu.today_24345a14')}
+              title={translateUi('ffax.notifications.today')}
               notifications={notifications.today}
               variant="small"
-              onItemClick={handleClose}
+              onItemClick={handleItemClick}
             />
             <NotificationList
-              title={translateUi('ui.layouts.main_layout.common.notificationmenu.older_63f34dd2')}
+              title={translateUi('ffax.notifications.older')}
               notifications={notifications.older}
               variant="small"
-              onItemClick={handleClose}
+              onItemClick={handleItemClick}
             />
           </SimpleBar>
         </Box>
@@ -129,15 +170,13 @@ const NotificationMenu = ({ type = 'default' }) => {
           }}
         >
           <Button
-            component={Link}
+            component={RouterLink}
             underline="none"
-            href={paths.notifications}
+            to={paths.notifications}
             variant="text"
             color="primary"
           >
-            {translateUi(
-              'ui.layouts.main_layout.common.notificationmenu.load_more_notifications_160c9a66',
-            )}
+            {translateUi('ffax.notifications.view_all')}
           </Button>
         </Stack>
       </Popover>

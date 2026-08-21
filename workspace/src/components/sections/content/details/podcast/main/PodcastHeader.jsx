@@ -17,6 +17,7 @@ import { podcastPlaylist } from 'data/content/podcast';
 import { users } from 'data/users';
 import dayjs from 'dayjs';
 import useNumberFormat from 'hooks/useNumberFormat';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -80,7 +81,7 @@ const PodcastHeader = () => {
                 disableTypography
                 primary={
                   <Link
-                    href="#!"
+                    href={paths.memberProfile}
                     variant="subtitle1"
                     sx={{ fontWeight: 'bold', mb: 0.5, width: 'fit-content', color: 'inherit' }}
                   >

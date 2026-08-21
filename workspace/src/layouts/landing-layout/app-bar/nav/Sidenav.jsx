@@ -4,10 +4,10 @@ import { IconButton, Stack } from '@mui/material';
 import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
+import { rootPaths } from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Logo from 'components/common/Logo';
 import NavItem from './NavItem';
-import PromoCard from './PromoCard';
 
 const Sidenav = ({ menus = [] }) => {
   const { t: translateUi } = useTranslation();
@@ -17,15 +17,17 @@ const Sidenav = ({ menus = [] }) => {
     setIsOpen(newOpen);
   };
 
-  const submenuItems = menus.find((item) => Array.isArray(item.submenus))?.submenus ?? [];
+  const drawerItems = menus.flatMap((item) =>
+    Array.isArray(item.submenus) ? item.submenus : [item],
+  );
 
   const DrawerList = (
     <Stack sx={{ gap: 3, width: 320, py: 3, px: 2 }} role="presentation">
       <Stack direction="row" sx={{ px: 2, justifyContent: 'space-between', alignItems: 'center' }}>
-        <Logo />
+        <Logo href={rootPaths.root} />
 
         <IconButton
-          aria-label={translateUi('ui.layouts.landing_layout.app_bar.nav.close_da38860c')}
+          aria-label={translateUi('ffax.public.navigation.close')}
           onClick={toggleDrawer(false)}
         >
           <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
@@ -33,12 +35,15 @@ const Sidenav = ({ menus = [] }) => {
       </Stack>
 
       <List disablePadding>
-        {submenuItems.map((menu) => (
-          <NavItem key={menu.label} menu={menu} disabledSecondaryText />
+        {drawerItems.map((menu) => (
+          <NavItem
+            key={menu.label}
+            menu={menu}
+            disabledSecondaryText
+            handlePopoverClose={toggleDrawer(false)}
+          />
         ))}
       </List>
-
-      <PromoCard />
     </Stack>
   );
 

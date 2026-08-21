@@ -5,7 +5,7 @@ import RTLMode from 'theme/RTLMode';
 import { createTheme } from 'theme/theme';
 import { useSettingsContext } from './SettingsProvider';
 
-const ThemeProvider = ({ children, defaultMode = 'light', modeStorageKey = 'aurora-mode' }) => {
+const ThemeProvider = ({ children, defaultMode = 'light', modeStorageKey = 'ffax-mode' }) => {
   const {
     config: { textDirection, locale, themePreset, primaryColor, fontFamily, fontSize },
     configDispatch,
@@ -27,9 +27,9 @@ const ThemeProvider = ({ children, defaultMode = 'light', modeStorageKey = 'auro
   useLayoutEffect(() => {
     const root = document.documentElement;
     if (themePreset) {
-      root.setAttribute('data-aurora-preset', themePreset);
+      root.setAttribute('data-ffax-preset', themePreset);
     } else {
-      root.removeAttribute('data-aurora-preset');
+      root.removeAttribute('data-ffax-preset');
     }
     if (skipPaletteRefreshOnMountRef.current) {
       skipPaletteRefreshOnMountRef.current = false;
@@ -42,7 +42,7 @@ const ThemeProvider = ({ children, defaultMode = 'light', modeStorageKey = 'auro
     const observer = new MutationObserver(() => configDispatch({ type: REFRESH }));
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-aurora-color-scheme'],
+      attributeFilter: ['data-ffax-color-scheme'],
     });
     return () => observer.disconnect();
   }, [configDispatch]);

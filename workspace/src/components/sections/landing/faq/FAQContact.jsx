@@ -13,6 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import bg from 'assets/images/background/4.webp';
+import { externalLinks } from 'config';
 import { useThemeMode } from 'hooks/useThemeMode';
 import IconifyIcon from 'components/base/IconifyIcon';
 import RevealItems from '../common/RevealItems';
@@ -22,6 +23,25 @@ import SectionHeader from '../common/SectionHeader';
 const FAQContact = ({ sx }) => {
   const { t: translateUi } = useTranslation();
   const { isDark } = useThemeMode();
+  const handleContactSubmit = (event) => {
+    event.preventDefault();
+    if (!externalLinks.contact.email) return;
+    const formData = new FormData(event.currentTarget);
+    const subject = encodeURIComponent(translateUi('ffax.public.faq.mail_subject'));
+    const body = encodeURIComponent(
+      [
+        `${translateUi('ffax.public.contact.first_name')}: ${formData.get('firstName')}`,
+        `${translateUi('ffax.public.contact.last_name')}: ${formData.get('lastName')}`,
+        `${translateUi('ffax.public.contact.email')}: ${formData.get('email')}`,
+        `${translateUi('ffax.public.contact.phone_field')}: ${formData.get('phone')}`,
+        '',
+        `${translateUi('ffax.public.contact.message')}:`,
+        formData.get('message'),
+      ].join('\n'),
+    );
+    window.location.href = `mailto:${externalLinks.contact.email}?subject=${subject}&body=${body}`;
+  };
+
   return (
     <Box
       sx={{
@@ -67,18 +87,14 @@ const FAQContact = ({ sx }) => {
           >
             <Grid size={1}>
               <SectionHeader
-                title={translateUi('common_labels.contact')}
-                subtitle={translateUi(
-                  'ui.sections.landing.faq.faqcontact.still_have_questions_c0780dac',
-                )}
+                title={translateUi('ffax.public.faq.contact_title')}
+                subtitle={translateUi('ffax.public.faq.contact_subtitle')}
                 sx={{ textAlign: 'left', mb: 2 }}
               />
 
               <RevealText delay={0.2}>
                 <Typography variant="body2" sx={{ maxWidth: 440, color: 'text.secondary' }}>
-                  {translateUi(
-                    'ui.sections.landing.faq.faqcontact.still_have_questions_don_t_hesitate_to_ask_our_dedic_c665f79d',
-                  )}
+                  {translateUi('ffax.public.faq.contact_description')}
                 </Typography>
               </RevealText>
             </Grid>
@@ -87,11 +103,16 @@ const FAQContact = ({ sx }) => {
               <RevealItems component={List} disablePadding dense>
                 <ListItem sx={{ gap: 1 }} disableGutters>
                   <ListItemIcon>
-                    <IconifyIcon icon="material-symbols:call-outline" fontSize={24} />
+                    <IconifyIcon icon="material-symbols:public" fontSize={24} />
                   </ListItemIcon>
                   <ListItemText disableTypography>
-                    <Link href="#!" color="textSecondary" variant="body2">
-                      (555) 123-4567
+                    <Link
+                      component={externalLinks.contact.website ? 'a' : 'span'}
+                      href={externalLinks.contact.website || undefined}
+                      color="textSecondary"
+                      variant="body2"
+                    >
+                      {externalLinks.contact.website || '—'}
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -100,10 +121,17 @@ const FAQContact = ({ sx }) => {
                     <IconifyIcon icon="material-symbols:mail-outline-rounded" fontSize={24} />
                   </ListItemIcon>
                   <ListItemText disableTypography>
-                    <Link href="#!" color="textSecondary" variant="body2">
-                      {translateUi(
-                        'ui.sections.landing.faq.faqcontact.hello_randommail_com_dd2ead67',
-                      )}
+                    <Link
+                      component={externalLinks.contact.email ? 'a' : 'span'}
+                      href={
+                        externalLinks.contact.email
+                          ? `mailto:${externalLinks.contact.email}`
+                          : undefined
+                      }
+                      color="textSecondary"
+                      variant="body2"
+                    >
+                      {externalLinks.contact.email || '—'}
                     </Link>
                   </ListItemText>
                 </ListItem>
@@ -116,9 +144,7 @@ const FAQContact = ({ sx }) => {
                   </ListItemIcon>
                   <ListItemText disableTypography>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      {translateUi(
-                        'ui.sections.landing.faq.faqcontact.123_sunnyvale_park_springfield_il_usa_87af5cdd',
-                      )}
+                      {externalLinks.contact.location || '—'}
                     </Typography>
                   </ListItemText>
                 </ListItem>
@@ -126,50 +152,65 @@ const FAQContact = ({ sx }) => {
             </Grid>
           </Grid>
 
-          <RevealItems component={Grid} y={0} container size={1} columns={12} spacing={2}>
-            <Grid size={6}>
-              <TextField
-                variant="filled"
-                label={translateUi('ui.sections.landing.faq.faqcontact.first_name_b6ea992a')}
-                sx={{ width: 1 }}
-              />
-            </Grid>
-            <Grid size={6}>
-              <TextField
-                variant="filled"
-                label={translateUi('ui.sections.landing.faq.faqcontact.last_name_863cb39f')}
-                sx={{ width: 1 }}
-              />
-            </Grid>
-            <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-              <TextField
-                variant="filled"
-                label={translateUi('ui.sections.landing.faq.faqcontact.email_84add5b2')}
-                sx={{ width: 1 }}
-              />
-            </Grid>
-            <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-              <TextField
-                variant="filled"
-                label={translateUi('ui.sections.landing.faq.faqcontact.phone_77064d52')}
-                sx={{ width: 1 }}
-              />
-            </Grid>
-            <Grid size={12}>
-              <TextField
-                multiline
-                rows={2}
-                variant="filled"
-                label={translateUi('ui.sections.landing.faq.faqcontact.message_68f4145f')}
-                sx={{ width: 1 }}
-              />
-            </Grid>
-            <Grid size={12} sx={{ textAlign: 'right' }}>
-              <Button variant="soft">
-                {translateUi('ui.sections.landing.faq.faqcontact.send_message_c70a890d')}
-              </Button>
-            </Grid>
-          </RevealItems>
+          <Grid size={1}>
+            <Box component="form" onSubmit={handleContactSubmit}>
+              <RevealItems component={Grid} y={0} container columns={12} spacing={2}>
+              <Grid size={6}>
+                <TextField
+                  name="firstName"
+                  required
+                  variant="filled"
+                  label={translateUi('ffax.public.contact.first_name')}
+                  sx={{ width: 1 }}
+                />
+              </Grid>
+              <Grid size={6}>
+                <TextField
+                  name="lastName"
+                  required
+                  variant="filled"
+                  label={translateUi('ffax.public.contact.last_name')}
+                  sx={{ width: 1 }}
+                />
+              </Grid>
+              <Grid size={{ xs: 12, sm: 6, md: 12 }}>
+                <TextField
+                  name="email"
+                  required
+                  type="email"
+                  variant="filled"
+                  label={translateUi('ffax.public.contact.email')}
+                  sx={{ width: 1 }}
+                />
+              </Grid>
+              <Grid size={{ xs: 12, sm: 6, md: 12 }}>
+                <TextField
+                  name="phone"
+                  type="tel"
+                  variant="filled"
+                  label={translateUi('ffax.public.contact.phone_field')}
+                  sx={{ width: 1 }}
+                />
+              </Grid>
+              <Grid size={12}>
+                <TextField
+                  name="message"
+                  required
+                  multiline
+                  rows={2}
+                  variant="filled"
+                  label={translateUi('ffax.public.contact.message')}
+                  sx={{ width: 1 }}
+                />
+              </Grid>
+              <Grid size={12} sx={{ textAlign: 'right' }}>
+                <Button type="submit" variant="soft" disabled={!externalLinks.contact.email}>
+                  {translateUi('ffax.public.faq.send')}
+                </Button>
+              </Grid>
+              </RevealItems>
+            </Box>
+          </Grid>
         </Grid>
       </Container>
     </Box>

@@ -2,6 +2,7 @@ import { createContext, useCallback, useEffect, useMemo } from 'react';
 import { AuthProvider as OidcAuthProvider, useAuth as useOidcAuth } from 'react-oidc-context';
 import { useNavigate } from 'react-router';
 import {
+  REMEMBER_DEVICE_KEY,
   appBasePath,
   getZitadelOidcConfig,
   isZitadelConfigured,
@@ -13,6 +14,10 @@ const AUTH_TOKEN_KEY = 'auth_token';
 
 const normalizeReturnTo = (value) => {
   if (typeof value === 'string' && value.startsWith('/') && !value.startsWith('//')) {
+    if (appBasePath && value === appBasePath) return '/';
+    if (appBasePath && value.startsWith(`${appBasePath}/`)) {
+      return value.slice(appBasePath.length) || '/';
+    }
     return value;
   }
 
@@ -79,14 +84,22 @@ const getSessionUser = (oidcUser) => {
     profile?.organization?.resourceOwner ||
     getRoleOrganization(profile) ||
     '';
+  const organizationName =
+    profile?.['urn:zitadel:iam:user:resourceowner:name'] ||
+    profile?.organization_name ||
+    profile?.organizationName ||
+    profile?.org?.name ||
+    profile?.organization?.name ||
+    '';
 
   return {
     id: profile.sub,
-    name: profile.name || profile.preferred_username || profile.email || 'FFAX User',
+    name: profile.name || profile.preferred_username || profile.email || 'FFA-X User',
     email: profile.email,
     avatar: profile.picture,
     username: profile.preferred_username,
     organization,
+    organizationName,
     roles: getProjectRoles(profile),
     profile,
   };
@@ -104,7 +117,6 @@ const UnconfiguredAuthProvider = ({ children }) => {
       isConfigured: false,
       error: null,
       signin: async () => undefined,
-      signup: async () => undefined,
       signout: async () => undefined,
     }),
     [],
@@ -118,27 +130,23 @@ const ZitadelSessionProvider = ({ children }) => {
 
   useEffect(() => {
     if (oidc.user?.access_token) {
-      sessionStorage.setItem(AUTH_TOKEN_KEY, oidc.user.access_token);
-      localStorage.removeItem(AUTH_TOKEN_KEY);
+      const rememberDevice = localStorage.getItem(REMEMBER_DEVICE_KEY) === 'true';
+      const activeStorage = rememberDevice ? localStorage : sessionStorage;
+      const inactiveStorage = rememberDevice ? sessionStorage : localStorage;
+
+      activeStorage.setItem(AUTH_TOKEN_KEY, oidc.user.access_token);
+      inactiveStorage.removeItem(AUTH_TOKEN_KEY);
       return;
     }
 
     sessionStorage.removeItem(AUTH_TOKEN_KEY);
+    localStorage.removeItem(AUTH_TOKEN_KEY);
   }, [oidc.user?.access_token]);
 
   const signin = useCallback(
     (returnTo) =>
       oidc.signinRedirect({
         state: { returnTo: normalizeReturnTo(returnTo) },
-      }),
-    [oidc],
-  );
-
-  const signup = useCallback(
-    (returnTo) =>
-      oidc.signinRedirect({
-        state: { returnTo: normalizeReturnTo(returnTo) },
-        extraQueryParams: { prompt: 'create' },
       }),
     [oidc],
   );
@@ -151,8 +159,15 @@ const ZitadelSessionProvider = ({ children }) => {
     }
     sessionStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(AUTH_TOKEN_KEY);
-    await oidc.removeUser();
-    window.location.assign(`${appBasePath}/authentication/default/logged-out`);
+    localStorage.removeItem(REMEMBER_DEVICE_KEY);
+    try {
+      await oidc.signoutRedirect({
+        post_logout_redirect_uri: zitadelConfig.postLogoutRedirectUri,
+      });
+    } catch {
+      await oidc.removeUser();
+      window.location.assign(`${appBasePath}/authentication/zitadel/logged-out`);
+    }
   }, [oidc]);
 
   const getAccessToken = useCallback(async () => {
@@ -170,7 +185,6 @@ const ZitadelSessionProvider = ({ children }) => {
       isConfigured: true,
       error: oidc.error || null,
       signin,
-      signup,
       signout,
     }),
     [
@@ -180,7 +194,6 @@ const ZitadelSessionProvider = ({ children }) => {
       oidc.isLoading,
       oidc.user,
       signin,
-      signup,
       signout,
     ],
   );

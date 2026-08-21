@@ -73,9 +73,9 @@ const HoursCompletedChart = ({ sx, data }, ref) => {
       },
       series: [
         {
-          name: 'Aurora',
+          name: 'FFA-X',
           type: 'line',
-          data: data.aurora,
+          data: data.ffax,
           zlevel: 1,
           lineStyle: {
             color: getThemeColor(vars.palette.primary.main),

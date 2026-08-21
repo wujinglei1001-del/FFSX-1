@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import LinearProgress from '@mui/material/LinearProgress';
-import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -19,9 +18,9 @@ const GoalCard = ({ goal }) => {
   return (
     <Fragment>
       <Paper
-        component={Link}
+        component="button"
+        type="button"
         background={1}
-        href="#!"
         underline="none"
         onClick={() => setOpen(true)}
         sx={{

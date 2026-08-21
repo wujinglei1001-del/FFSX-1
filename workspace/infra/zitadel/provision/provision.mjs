@@ -13,14 +13,15 @@ const config = {
   callbackUrl:
     process.env.FFAX_CALLBACK_URL || 'http://localhost:5002/authentication/callback',
   postLogoutUrl:
-    process.env.FFAX_POST_LOGOUT_URL || 'http://localhost:5002/pages/landing/homepage',
+    process.env.FFAX_POST_LOGOUT_URL ||
+    'http://localhost:5002/authentication/zitadel/logged-out',
   apiUrl: process.env.FFAX_API_URL?.replace(/\/+$/, '') || 'http://localhost:8000/api',
-  marketplaceApiUrl:
-    process.env.FFAX_MARKETPLACE_API_URL?.replace(/\/+$/, '') || 'http://localhost:9000',
   devMode: /^true$/i.test(process.env.FFAX_DEV_MODE || ''),
   patPath: process.env.ADMIN_PAT_PATH || '/zitadel/bootstrap/admin.pat',
   outputDir: process.env.OUTPUT_DIR || '/output',
 };
+
+const frontendOrigin = new URL(config.frontendUrl).origin;
 
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const requireValue = (value, label) => {
@@ -322,15 +323,15 @@ const writeOutputs = async ({ projectId, webClientId, apiClientId, apiClientSecr
     `VITE_ZITADEL_CALLBACK_URL=${config.callbackUrl}`,
     `VITE_ZITADEL_POST_LOGOUT_URL=${config.postLogoutUrl}`,
     `VITE_ZITADEL_ACCOUNT_URL=${config.publicUrl}/ui/console/users/me`,
-    'VITE_POST_LOGIN_URL=/dashboard/ecommerce',
+    'VITE_POST_LOGIN_URL=/workbench',
     `VITE_API_URL=${config.apiUrl}`,
-    `VITE_MARKETPLACE_API_URL=${config.marketplaceApiUrl}`,
     '',
   ].join('\n');
 
   const serverEnv = [
     'PORT=8000',
-    `FFAX_ALLOWED_ORIGINS=${config.frontendUrl}`,
+    `FFAX_ALLOWED_ORIGINS=${frontendOrigin}`,
+    `FFAX_FRONTEND_URL=${config.frontendUrl}`,
     `ZITADEL_ISSUER=${config.publicUrl}`,
     'ZITADEL_INTERNAL_URL=http://zitadel-api:8080',
     `ZITADEL_PROJECT_ID=${projectId}`,

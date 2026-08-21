@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
-import { initialConfig } from 'config';
+import { fontFamilies, initialConfig } from 'config';
 import { getColor } from 'helpers/echart-utils';
 import { getItemFromStore, setItemToStore } from 'lib/utils';
 import {
@@ -14,7 +14,7 @@ import { COLOR_GROUPS } from 'theme/primaryColorOverride';
 export const SettingsContext = createContext({});
 
 const SettingsProvider = ({ children }) => {
-  const localeMigrationVersion = 'zh-default-v2';
+  const localeMigrationVersion = 'ffax-locales-v1';
   const storedLocaleMigrationVersion = getItemFromStore('localeMigrationVersion', null);
   const shouldMigrateLocale = storedLocaleMigrationVersion !== localeMigrationVersion;
   const layoutMigrationVersion = 'sidenav-default-v1';
@@ -39,6 +39,10 @@ const SettingsProvider = ({ children }) => {
   const storedThemePreset = getItemFromStore('themePreset', initialConfig.themePreset);
   const themePreset =
     typeof storedThemePreset === 'string' ? storedThemePreset : initialConfig.themePreset;
+  const storedFontFamily = getItemFromStore('fontFamily', initialConfig.fontFamily);
+  const fontFamily = fontFamilies.includes(storedFontFamily)
+    ? storedFontFamily
+    : initialConfig.fontFamily;
 
   if (!primaryColor && themePreset) {
     const colorGroup = COLOR_GROUPS.find((group) => group.key === themePreset);
@@ -59,7 +63,7 @@ const SettingsProvider = ({ children }) => {
       ? initialConfig.locale
       : getItemFromStore('locale', initialConfig.locale),
     currency: getItemFromStore('currency', initialConfig.currency),
-    fontFamily: getItemFromStore('fontFamily', initialConfig.fontFamily),
+    fontFamily,
     fontSize: Number(getItemFromStore('fontSize', initialConfig.fontSize.toString())),
     themePreset: themePreset,
     primaryColor,

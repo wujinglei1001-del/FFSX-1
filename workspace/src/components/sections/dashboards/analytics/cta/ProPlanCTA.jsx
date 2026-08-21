@@ -39,7 +39,7 @@ const ProPlanCTA = () => {
         </Typography>
       </Stack>
       <Button
-        href={paths.pricingColumn}
+        href={paths.landingSubscriptions}
         variant="contained"
         color="neutral"
         size="large"

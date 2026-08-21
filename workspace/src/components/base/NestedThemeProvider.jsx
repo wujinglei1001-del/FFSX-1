@@ -23,12 +23,12 @@ const NestedThemeProvider = memo(
   ({ children, preset }) => {
     const mode = useMemo(() => (preset in lightPalettes ? 'light' : 'dark'), [preset]);
 
-    const cssVarPrefix = useMemo(() => `aurora-${preset}`, [preset]);
+    const cssVarPrefix = useMemo(() => `ffax-${preset}`, [preset]);
 
     const theme = useMemo(() => getTheme(preset, cssVarPrefix), [preset, cssVarPrefix]);
 
     return (
-      <div data-aurora-color-scheme={mode}>
+      <div data-ffax-color-scheme={mode}>
         <MuiThemeProvider theme={theme} disableTransitionOnChange>
           {children}
         </MuiThemeProvider>

@@ -175,7 +175,7 @@ const TotalAmountDetails = ({ data }) => {
         pageSizeOptions={[8, combinedData.length]}
         slots={{
           basePagination: (props) => (
-            <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+            <DataGridPagination showFullPagination {...props} />
           ),
         }}
         sx={({ spacing }) => ({
@@ -188,7 +188,7 @@ const TotalAmountDetails = ({ data }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.amount-cell, .project-cell)': { p: `0 ${spacing(1.25)}` },
                 '&.amount-cell': { pl: spacing(1.25) },
                 '&.project-cell': { pr: spacing(1.25) },

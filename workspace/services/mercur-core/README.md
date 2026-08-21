@@ -28,6 +28,7 @@ DATABASE_URL=postgres://user:password@localhost:5432/mercur
 REDIS_URL=redis://localhost:6379
 JWT_SECRET=your-super-secret-jwt-key
 COOKIE_SECRET=your-super-secret-cookie-key
+SEED_SELLER_PASSWORD=choose-a-development-only-seed-password
 ```
 
 4. Install dependencies and start the dev server:

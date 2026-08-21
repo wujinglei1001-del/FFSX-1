@@ -22,6 +22,22 @@ function section(title, body) {
   return `## ${title}\n\n${body}\n`;
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+async function keepOnlyLatestReport(directory, currentFilename, filenamePattern) {
+  const entries = await fs.readdir(directory, { withFileTypes: true });
+  await Promise.all(
+    entries
+      .filter(
+        (entry) =>
+          entry.isFile() && entry.name !== currentFilename && filenamePattern.test(entry.name),
+      )
+      .map((entry) => fs.unlink(path.join(directory, entry.name))),
+  );
+}
+
 function renderReport(manifest, metadata) {
   const endpointRows = manifest.endpoints
     .map((endpoint) => `| ${tableCell(endpoint.method)} | ${tableCell(endpoint.path)} | ${tableCell(endpoint.purpose)} | ${tableCell(endpoint.auth)} | ${tableCell(endpoint.owner)} |`)
@@ -118,6 +134,18 @@ await fs.mkdir(path.dirname(repositoryReportPath), { recursive: true });
 await fs.mkdir(companyDirectory, { recursive: true });
 await fs.writeFile(repositoryReportPath, report, 'utf8');
 await fs.writeFile(companyReportPath, report, 'utf8');
+
+const escapedSlug = escapeRegExp(slug);
+await keepOnlyLatestReport(
+  path.dirname(repositoryReportPath),
+  reportFilename,
+  new RegExp(`^\\d{8}T\\d{6}Z-${escapedSlug}\\.md$`),
+);
+await keepOnlyLatestReport(
+  companyDirectory,
+  path.basename(companyReportPath),
+  new RegExp(`^API架构报告-\\d{8}T\\d{6}Z-${escapedSlug}\\.md$`),
+);
 
 await writeJson(path.join(repositoryRoot, 'docs', 'api-integrations', 'latest.json'), {
   schemaVersion: 1,

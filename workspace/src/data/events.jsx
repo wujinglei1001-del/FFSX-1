@@ -13,7 +13,7 @@ export const eventInfo = {
   endTime: '10:00pm',
   organizerName: 'Rocker’s Heaven',
   location: 'Maverick Convention Center, 56335 Ardella Greens Apt. 511, East Maeville, Arizona',
-  mapLink: '#!',
+  mapLink: null,
 };
 
 export const description = {

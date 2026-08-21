@@ -11,38 +11,48 @@ import ThemeToggler from 'layouts/main-layout/common/ThemeToggler';
 import SearchBox, { SearchBoxButton } from 'layouts/main-layout/common/search-box/SearchBox';
 import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths, { authPaths } from 'routes/paths';
+import paths, { publicAuthPaths, rootPaths } from 'routes/paths';
+import publicSitemap from 'routes/public-sitemap';
 import Logo from 'components/common/Logo';
 import Sidenav from './nav/Sidenav';
 import Topnav from './nav/Topnav';
 
-const loginHref = import.meta.env.PROD ? `/workbench${authPaths.login}` : authPaths.login;
-
 const menus = [
   {
     get label() {
-      return i18n.t('ui.layouts.landing_layout.app_bar.home_70f8bb9a');
+      return i18n.t('ffax.public.navigation.home');
     },
-    href: paths.landingHomepage,
+    href: rootPaths.root,
   },
   {
     get label() {
-      return i18n.t('ui.layouts.landing_layout.app_bar.about_us_c887b9d3');
+      return i18n.t('ffax.public.navigation.about');
     },
     href: paths.landingAbout,
   },
   {
     get label() {
-      return i18n.t('ui.layouts.landing_layout.app_bar.contact_b37456c4');
+      return i18n.t('ffax.public.navigation.contact');
     },
     href: paths.landingContact,
+  },
+  {
+    get label() {
+      return i18n.t('ffax.public.navigation.faq');
+    },
+    href: paths.landingFaq,
+  },
+  {
+    get label() {
+      return i18n.t('ffax.public.navigation.subscriptions');
+    },
+    href: paths.landingSubscriptions,
   },
 ];
 gsap.registerPlugin(ScrollTrigger);
 const LandingAppBar = (props) => {
   const { t: translateUi } = useTranslation();
   const appBarRef = useRef(null);
-  const popoverAnchorRef = useRef(null);
   const { up } = useBreakpoints();
   const upSm = up('sm');
   const upMd = up('md');
@@ -98,29 +108,29 @@ const LandingAppBar = (props) => {
             alignItems: 'center',
           }}
         >
-          <Logo showName={upMd} />
+          <Logo showName={upMd} href={rootPaths.root} />
           {upSm ? (
             <SearchBox
+              navigation={publicSitemap}
               sx={{
                 width: 1,
                 maxWidth: 364,
               }}
             />
           ) : (
-            <SearchBoxButton />
+            <SearchBoxButton navigation={publicSitemap} />
           )}
         </Stack>
         <Stack
           direction="row"
-          ref={popoverAnchorRef}
           sx={{
             gap: 1,
           }}
         >
-          {upLg && <Topnav menus={menus} anchorRef={popoverAnchorRef} />}
+          {upLg && <Topnav menus={menus} />}
           <ThemeToggler />
-          <Button component="a" variant="contained" href={loginHref} sx={{ minWidth: 120 }}>
-            {translateUi('ui.layouts.landing_layout.app_bar.log_in_d527bf3d')}
+          <Button variant="contained" href={publicAuthPaths.login} sx={{ minWidth: 120 }}>
+            {translateUi('ffax.public.navigation.login')}
           </Button>
           {!upLg && <Sidenav menus={menus} />}
         </Stack>

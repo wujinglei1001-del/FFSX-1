@@ -1,6 +1,6 @@
-# FFAX API authentication bridge
+# FFA-X API authentication bridge
 
-This server is the FFAX-owned API boundary. It does not modify ZITADEL. It validates every protected request by calling the official ZITADEL OAuth 2.0 token introspection endpoint with server-side API application credentials.
+This server is the FFA-X-owned API boundary. It does not modify ZITADEL. It validates every protected request by calling the official ZITADEL OAuth 2.0 token introspection endpoint with server-side API application credentials.
 
 ## ZITADEL configuration
 

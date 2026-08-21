@@ -21,11 +21,11 @@ const Categories = ({
       >
         <Tab
           value="popular"
-          label={translateUi('ui.sections.landing.faq.main.popular_categories_70c17499')}
+          label={translateUi('ffax.public.faq.popular')}
         />
         <Tab
           value="all"
-          label={translateUi('ui.sections.landing.faq.main.all_categories_1fd266c2')}
+          label={translateUi('ffax.public.faq.all')}
         />
       </Tabs>
       <Grid container columns={{ xs: 2, md: 4 }} spacing={1} ref={gridRef}>
@@ -79,6 +79,11 @@ const Categories = ({
           </Grid>
         ))}
       </Grid>
+      {displayedCategories.length === 0 && (
+        <Typography sx={{ py: 6, textAlign: 'center', color: 'text.secondary' }}>
+          {translateUi('ffax.faq.search.no_results')}
+        </Typography>
+      )}
     </>
   );
 };

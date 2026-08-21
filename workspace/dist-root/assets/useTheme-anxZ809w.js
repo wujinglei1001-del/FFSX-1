@@ -1,1 +1,0 @@
-import{n as e}from"./jsx-runtime-CB_p5Kcx.js";import{A as t,l as n}from"./Stack-DAOfRNRq.js";e();function r(){let e=t(n);return e.$$material||e}export{r as t};

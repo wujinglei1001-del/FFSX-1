@@ -11,7 +11,7 @@ const SecondaryAppbarLinks = [
     get label() {
       return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.today_s_deals_bc84c286');
     },
-    url: '#!',
+    url: paths.products,
   },
   {
     get label() {
@@ -29,13 +29,13 @@ const SecondaryAppbarLinks = [
     get label() {
       return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.recently_viewed_fd316b7c');
     },
-    url: '#!',
+    url: paths.products,
   },
   {
     get label() {
       return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.recommendations_4faa65b5');
     },
-    url: '#!',
+    url: paths.products,
   },
   {
     get label() {
@@ -47,19 +47,19 @@ const SecondaryAppbarLinks = [
     get label() {
       return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.membership_53bc9670');
     },
-    url: '#!',
+    url: paths.landingSubscriptions,
   },
   {
     get label() {
       return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.deals_2c874671');
     },
-    url: '#!',
+    url: paths.products,
   },
   {
     get label() {
       return i18n.t('ui.layouts.ecommerce_layout.app_bar.secondary.sales_d0edfb6e');
     },
-    url: '#!',
+    url: paths.products,
   },
 ];
 

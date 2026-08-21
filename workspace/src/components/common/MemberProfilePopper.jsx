@@ -186,22 +186,24 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
             </Stack>
             <Stack direction="row" sx={{ gap: 1.5, alignItems: 'center' }}>
               <IconifyIcon icon="material-symbols:call-outline-rounded" />
-              <Link
-                href="tel:+19234657890"
-                underline="hover"
-                sx={{ typography: 'subtitle2', color: 'text.secondary' }}
-              >
-                +1-923-465-7890
-              </Link>
+              {user.phone ? (
+                <Link
+                  href={`tel:${user.phone}`}
+                  underline="hover"
+                  sx={{ typography: 'subtitle2', color: 'text.secondary' }}
+                >
+                  {user.phone}
+                </Link>
+              ) : (
+                <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
+                  —
+                </Typography>
+              )}
             </Stack>
             <Stack direction="row" sx={{ gap: 1.5, alignItems: 'flex-start' }}>
               <IconifyIcon icon="material-symbols:location-on-outline-rounded" />
               <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                {translateUi('ui.components.common.memberprofilepopper.new_york_3dddf7fe')}
-                <br />
-                {translateUi(
-                  'ui.components.common.memberprofilepopper.current_time_10_45_pm_8bf83319',
-                )}
+                {user.location || '—'}
               </Typography>
             </Stack>
           </Stack>

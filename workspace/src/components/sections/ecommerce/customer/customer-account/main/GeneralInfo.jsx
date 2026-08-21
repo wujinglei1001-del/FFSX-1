@@ -21,7 +21,7 @@ const GeneralInfo = ({ customerInfo }) => {
       label: translateUi('ui.sections.ecommerce.customer.customer_account.email_address_c94d3175'),
       value: (
         <Link
-          href="#!"
+          href={`mailto:${email}`}
           sx={{
             color: 'text.primary',
           }}
@@ -34,7 +34,7 @@ const GeneralInfo = ({ customerInfo }) => {
       label: translateUi('ui.sections.ecommerce.customer.customer_account.phone_number_8961d3bf'),
       value: (
         <Link
-          href="#!"
+          href={`tel:${phone}`}
           sx={{
             color: 'text.primary',
           }}

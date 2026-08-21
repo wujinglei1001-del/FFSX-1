@@ -1,1 +1,0 @@
-import{S as e,Y as t,l as n}from"./Stack-DAOfRNRq.js";function r({props:r,name:i}){return e({props:r,name:i,defaultTheme:n,themeId:t})}export{r as t};

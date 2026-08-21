@@ -22,7 +22,7 @@ const ProfileMenu = () => {
 
   const { sessionUser, signout } = useAuth();
 
-  const user = sessionUser || { name: 'FFAX' };
+  const user = sessionUser || { name: 'FFA-X' };
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {

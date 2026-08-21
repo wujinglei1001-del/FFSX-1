@@ -98,7 +98,9 @@ const Phone = () => {
           )}
         </Typography>
         <Link
-          href="#!"
+          component="button"
+          type="button"
+          onClick={() => setOpen(true)}
           sx={{
             display: 'flex',
             alignItems: 'center',

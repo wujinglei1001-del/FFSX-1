@@ -4,6 +4,7 @@ import { Avatar, Button, Link, Stack } from '@mui/material';
 import { inputBaseClasses } from '@mui/material/InputBase';
 import { profileData } from 'data/social';
 import { useSnackbar } from 'notistack';
+import paths from 'routes/paths';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThreadInput }) => {
@@ -24,7 +25,7 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
     >
       <Avatar
         component={Link}
-        href="#!"
+        href={paths.memberProfile}
         src={profileData.avatar}
         alt={translateUi('common.accessibility.comment_author_avatar')}
         sx={{ width: 32, height: 32, color: 'unset' }}

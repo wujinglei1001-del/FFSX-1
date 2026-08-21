@@ -1,5 +1,6 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import paths from 'routes/paths';
 import {
   FormControl,
   FormHelperText,
@@ -131,7 +132,7 @@ const VitalInfo = () => {
             'ui.sections.ecommerce.admin.product_listing.to_list_your_products_you_require_a_unique_identifie_f1281f24',
           )}{' '}
           <Link
-            href="#!"
+            href={paths.landingFaq}
             sx={{
               fontWeight: 700,
             }}

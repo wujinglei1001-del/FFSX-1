@@ -18,10 +18,10 @@ const Mapbox = ({ sx, options, ...rest }) => {
 
   const mapStyles = {
     system: window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'mapbox://styles/themewagon/cljzg9juf007x01pk1bepfgew'
-      : 'mapbox://styles/themewagon/clj57pads001701qo25756jtw',
-    light: 'mapbox://styles/themewagon/clj57pads001701qo25756jtw',
-    dark: 'mapbox://styles/themewagon/cljzg9juf007x01pk1bepfgew',
+      ? 'mapbox://styles/mapbox/dark-v11'
+      : 'mapbox://styles/mapbox/light-v11',
+    light: 'mapbox://styles/mapbox/light-v11',
+    dark: 'mapbox://styles/mapbox/dark-v11',
   };
 
   useEffect(() => {

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Stack } from '@mui/material';
 import TimeTrackerHeader from 'components/sections/time-tracker/common/time-tracker-header';
 import TimeTrackerScreenshotsMain from 'components/sections/time-tracker/screenshots';
+import paths from 'routes/paths';
 
 const Screenshots = () => {
   const { t: translateUi } = useTranslation();
@@ -10,10 +11,13 @@ const Screenshots = () => {
       <TimeTrackerHeader
         title={translateUi('ui.pages.apps.time_tracker.screenshots.screenshots_597b6356')}
         breadcrumb={[
-          { label: translateUi('ui.pages.apps.time_tracker.screenshots.home_70f8bb9a'), url: '#!' },
+          {
+            label: translateUi('ui.pages.apps.time_tracker.screenshots.home_70f8bb9a'),
+            url: paths.workbench,
+          },
           {
             label: translateUi('ui.pages.apps.time_tracker.screenshots.time_tracker_55712c7b'),
-            url: '#!',
+            url: paths.timeTracker,
           },
           {
             label: translateUi('ui.pages.apps.time_tracker.screenshots.screenshots_597b6356'),

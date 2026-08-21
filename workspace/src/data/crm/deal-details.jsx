@@ -640,7 +640,7 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'Aurora Campaign Manager',
+    sentVia: 'FFA-X Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -663,7 +663,7 @@ export const emailData = [
         <br />
         {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
         <br />
-        {i18n.t('ui.data.crm.deal_details.team_aurora_8534330a')}
+        {i18n.t('ui.data.crm.deal_details.team_ffax_8534330a')}
       </Typography>
     ),
     attachment: [{ src: image(1), name: 'screenshot.jpg', size: '16.2kb' }],
@@ -693,7 +693,7 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'Aurora Campaign Manager',
+    sentVia: 'FFA-X Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -717,7 +717,7 @@ export const emailData = [
         <br />
         {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
         <br />
-        {i18n.t('ui.data.crm.deal_details.team_aurora_8534330a')}
+        {i18n.t('ui.data.crm.deal_details.team_ffax_8534330a')}
       </Typography>
     ),
     files: [
@@ -765,7 +765,7 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'Aurora Campaign Manager',
+    sentVia: 'FFA-X Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -779,7 +779,7 @@ export const emailData = [
         <br />
         {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
         <br />
-        {i18n.t('ui.data.crm.deal_details.team_aurora_8534330a')}
+        {i18n.t('ui.data.crm.deal_details.team_ffax_8534330a')}
       </Typography>
     ),
     files: [],

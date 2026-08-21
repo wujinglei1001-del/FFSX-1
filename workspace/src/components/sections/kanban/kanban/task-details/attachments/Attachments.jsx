@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
+import paths from 'routes/paths';
 import Attachment from 'components/base/Attachment';
 import IconifyIcon from 'components/base/IconifyIcon';
 import FileUploadArea from './FileUploadArea';
@@ -32,7 +33,7 @@ const Attachments = () => {
               <>
                 <Typography variant="body2">
                   {translateUi('ui.sections.kanban.kanban.task_details.added_by_75a4b633')}
-                  <Link href="#!">{item.addedBy}</Link>
+                  <Link href={paths.memberProfile}>{item.addedBy}</Link>
                 </Typography>
                 <Stack sx={{ gap: 0.5, alignItems: 'center' }}>
                   <IconifyIcon

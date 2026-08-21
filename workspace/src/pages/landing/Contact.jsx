@@ -12,8 +12,8 @@ const Contact = () => {
 
       <PageHeader>
         <SectionHeader
-          title={translateUi('ui.pages.landing.contact.contact_b37456c4')}
-          subtitle={translateUi('ui.pages.landing.contact.where_to_find_us_3195d5a6')}
+          title={translateUi('ffax.public.contact.page_title')}
+          subtitle={translateUi('ffax.public.contact.page_subtitle')}
         />
       </PageHeader>
 

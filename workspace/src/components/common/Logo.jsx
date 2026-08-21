@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+import { Link as RouterLink } from 'react-router';
 import { Link, SvgIcon, Typography, typographyClasses, useTheme } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { useSettingsContext } from 'providers/SettingsProvider';
-import paths, { rootPaths } from 'routes/paths';
+import paths, { rootPaths, workbenchEntryPath } from 'routes/paths';
 
-const Logo = ({ sx, viewBox = '0 0 26 40', showName = true, isShowcase = false, ...rest }) => {
+const Logo = ({
+  sx,
+  viewBox = '0 0 26 40',
+  showName = true,
+  isShowcase = false,
+  href,
+  ...rest
+}) => {
   const [id, setId] = useState('logo');
-  const { pathname } = useLocation();
   const theme = useTheme();
   const { themePreset } = useThemeMode();
 
@@ -27,13 +33,25 @@ const Logo = ({ sx, viewBox = '0 0 26 40', showName = true, isShowcase = false, 
     setId(`logo-${Math.floor(Math.random() * 1000) + 1}`);
   }, []);
 
+  const isPublicBundle = workbenchEntryPath === paths.workbench;
+  const resolvedHref = href ?? (isPublicBundle ? rootPaths.root : workbenchEntryPath);
+  const usesRouterNavigation = href == null;
+  const navigationProps = usesRouterNavigation
+    ? { component: RouterLink, to: resolvedHref }
+    : { href: resolvedHref };
+
   return (
     <Link
-      href={pathname === '/' || pathname === paths.showcase ? rootPaths.root : paths.ecommerce}
+      {...navigationProps}
       underline="none"
+      draggable={false}
+      onDragStart={(event) => event.preventDefault()}
       sx={{
         display: 'flex',
         alignItems: 'center',
+        userSelect: 'none',
+        WebkitUserSelect: 'none',
+        WebkitUserDrag: 'none',
         '&:hover': {
           [`& .${typographyClasses.root}`]: {
             backgroundPosition: ({ direction }) => (direction === 'rtl' ? 'right' : 'left'),
@@ -168,7 +186,7 @@ const Logo = ({ sx, viewBox = '0 0 26 40', showName = true, isShowcase = false, 
             },
           ]}
         >
-          aurora
+          FFA-X
         </Typography>
       )}
     </Link>

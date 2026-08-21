@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Paper, Stack } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import SectionHeader from 'components/common/SectionHeader';
@@ -22,7 +23,7 @@ const ProductRoadmap = ({ projectInfos }) => {
         actionComponent={
           <>
             <Button
-              href="#!"
+              href={paths.createProject}
               variant="soft"
               shape={upSm ? undefined : 'square'}
               sx={{ ml: 'auto', gap: 0.5 }}

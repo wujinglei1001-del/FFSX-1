@@ -1,9 +1,8 @@
-import { initialConfig } from 'config';
 import { users } from 'data/users';
 
 export const teamMemberListOverview = {
-  teamName: 'ThemeWagon',
-  teamAvatar: `${initialConfig.assetsDir}/images/logo/20.svg`,
+  teamName: 'FFA-X',
+  teamAvatar: `${import.meta.env.BASE_URL}ffax.svg`,
   createdOn: '24 January, 2024',
   owner: {
     name: 'Tyrion Lannister',

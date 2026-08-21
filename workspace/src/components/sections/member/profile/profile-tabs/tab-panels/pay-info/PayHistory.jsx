@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, MenuItem, Stack, Typography } from '@mui/material';
+import { MenuItem, Stack, Typography } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -20,9 +20,9 @@ const createColumnDefs = (currencyFormat) => [
     flex: 1.33,
     minWidth: 120,
     renderCell: (params) => (
-      <Link href="#!" variant="body2">
+      <Typography variant="body2">
         {dayjs(params.row.payDate).format('DD MMM, YYYY')}
-      </Link>
+      </Typography>
     ),
   },
   {
@@ -122,7 +122,7 @@ const PayHistory = ({ data }) => {
           pageSizeOptions={[6]}
           slots={{
             basePagination: (props) => (
-              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+              <DataGridPagination showFullPagination {...props} />
             ),
           }}
           sx={{

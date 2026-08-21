@@ -211,7 +211,7 @@ const TimeSheetsTable = ({ apiRef, tab, rows, selectionModel, onSelectionChange 
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell)': { p: `0 ${spacing(1.25)}` },
                 '&.action-cell': { pl: spacing(1.25) },
               },

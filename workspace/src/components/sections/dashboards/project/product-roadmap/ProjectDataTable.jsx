@@ -265,7 +265,7 @@ const ProjectDataTable = ({ projectInfo }) => {
                 },
                 [`& .${gridClasses.row}`]: {
                   [`& .${gridClasses.cell}`]: {
-                    '&.aurora-data-grid-cell': {
+                    '&.ffax-data-grid-cell': {
                       '&:not(.state-cell)': {
                         p: `0 ${spacing(1.25)}`,
                       },

@@ -9,6 +9,7 @@ import paths from 'routes/paths';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 
 const getStatusBadgeColor = (val) => {
   switch (val) {
@@ -126,7 +127,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
         minWidth: 200,
         renderCell: (params) => {
           return (
-            <Link variant="subtitle2" href="#!" sx={{ fontWeight: 400 }}>
+            <Link variant="subtitle2" href={paths.memberProfile} sx={{ fontWeight: 400 }}>
               {params.row.vendor}
             </Link>
           );
@@ -197,7 +198,7 @@ const ProductsTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChan
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

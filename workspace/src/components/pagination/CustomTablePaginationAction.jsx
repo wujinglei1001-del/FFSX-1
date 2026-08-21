@@ -34,8 +34,10 @@ const CustomTablePaginationAction = ({
       }}
     >
       <Link
+        component={showAllHref ? 'a' : 'button'}
         variant="caption"
-        href={showAllHref}
+        href={showAllHref || undefined}
+        type={showAllHref ? undefined : 'button'}
         onClick={onShowAllClick}
         sx={{ fontWeight: 700, flexShrink: 0, mt: { sm: 0.5 } }}
       >

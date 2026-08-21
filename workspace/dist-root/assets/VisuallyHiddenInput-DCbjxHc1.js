@@ -1,1 +1,0 @@
-import{o as e}from"./Stack-DAOfRNRq.js";var t=e(`input`)({clip:`rect(0 0 0 0)`,clipPath:`inset(50%)`,height:1,overflow:`hidden`,position:`absolute`,bottom:0,left:0,whiteSpace:`nowrap`,width:1});export{t};

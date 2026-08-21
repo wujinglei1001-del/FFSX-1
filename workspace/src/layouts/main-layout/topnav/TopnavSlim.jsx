@@ -10,7 +10,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Logo from 'components/common/Logo';
 import VibrantBackground from 'components/common/VibrantBackground';
 import AppbarActionItems from '../common/AppbarActionItems';
-import { SearchBoxButton } from '../common/search-box/SearchBox';
+import { SearchBoxButton } from '../common/search-box/WorkspaceSearchBox';
 import TopnavItems from './TopnavItems';
 
 const TopnavSlim = ({ sx }) => {

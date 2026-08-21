@@ -3,6 +3,11 @@ import { serverConfig } from './config.js';
 
 let publisher;
 
+export const realtimeHealth = () => ({
+  configured: Boolean(serverConfig.redisUrl),
+  healthy: Boolean(publisher?.isReady),
+});
+
 export const initializeRealtime = async () => {
   if (!serverConfig.redisUrl) return false;
   publisher = createClient({ url: serverConfig.redisUrl });

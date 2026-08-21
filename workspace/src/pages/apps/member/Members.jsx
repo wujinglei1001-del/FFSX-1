@@ -59,7 +59,10 @@ const Members = () => {
         <PageHeader
           title={translateUi('ui.pages.apps.member.members.member_6853c98a')}
           breadcrumb={[
-            { label: translateUi('ui.pages.apps.member.members.home_70f8bb9a'), url: '#!' },
+            {
+              label: translateUi('ui.pages.apps.member.members.home_70f8bb9a'),
+              url: paths.workbench,
+            },
             { label: translateUi('ui.pages.apps.member.members.members_1cb449c1'), active: true },
           ]}
           paperProps={{ sx: { outline: 0 } }}

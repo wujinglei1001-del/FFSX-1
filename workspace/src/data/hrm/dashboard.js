@@ -1,5 +1,6 @@
 import { users } from 'data/users';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 
 export const profile = {
   user: users[0],
@@ -8,7 +9,7 @@ export const profile = {
     salary: 100000,
     recruiter: {
       name: 'Hugo Brook',
-      link: '#!',
+      link: paths.memberProfile,
     },
     application: 25,
     department: 'Human resources',
@@ -260,7 +261,7 @@ export const notifications = {
         return i18n.t('ui.data.hrm.dashboard.applied_for_3_days_leave_oct_30_nov_1_9b7bcf5d');
       },
       type: 'application',
-      applicationLink: '#!',
+      applicationLink: paths.members,
       timeframe: 'in 1 month',
     },
     {
@@ -283,7 +284,7 @@ export const notifications = {
         return i18n.t('ui.data.hrm.dashboard.applied_for_sabbatical_9ef87f0f');
       },
       type: 'application',
-      applicationLink: '#!',
+      applicationLink: paths.members,
       timeframe: 'in 1 month',
     },
     {
@@ -330,7 +331,7 @@ export const notifications = {
         return i18n.t('ui.data.hrm.dashboard.applied_for_1_day_leave_nov_1_5255c891');
       },
       type: 'application',
-      applicationLink: '#!',
+      applicationLink: paths.members,
       timeframe: 'in 1 month',
     },
     {
@@ -451,7 +452,7 @@ export const resignations = [
       name: 'Rubeus Hagrid',
       role: 'UX Designer',
       branch: 'Azkaban Branch',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Salary',
     jssResponse: {
@@ -509,7 +510,7 @@ export const resignations = [
       name: 'Sirius Black',
       role: 'Project Manager',
       branch: 'Quillmark Tower',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Career Growth',
     jssResponse: {
@@ -567,7 +568,7 @@ export const resignations = [
       name: 'Neville Longbottom',
       role: 'IT Support',
       branch: 'Shrieking Shack',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Career Growth',
     jssResponse: {
@@ -625,7 +626,7 @@ export const resignations = [
       name: 'Fred Weasley',
       role: 'System Architect',
       branch: 'Hogwarts Branch',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Better Benefits',
     jssResponse: {
@@ -683,7 +684,7 @@ export const resignations = [
       name: 'Arthur Weasley',
       role: 'Backend Dev.',
       branch: 'Shrieking Shack',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Salary',
     jssResponse: {
@@ -741,7 +742,7 @@ export const resignations = [
       name: 'Draco Malfoy',
       role: 'Product Manager',
       branch: 'Malfoy Enterprises',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Work-Life Balance',
     jssResponse: {
@@ -799,7 +800,7 @@ export const resignations = [
       name: 'Luna Lovegood',
       role: 'Graphic Designer',
       branch: 'The Quibbler',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Career Growth',
     jssResponse: {
@@ -857,7 +858,7 @@ export const resignations = [
       name: 'Severus Snape',
       role: 'Chemist',
       branch: 'Potion Labs Inc.',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Better Benefits',
     jssResponse: {
@@ -915,7 +916,7 @@ export const resignations = [
       name: 'Ginny Weasley',
       role: 'Sports Journalist',
       branch: 'Daily Prophet',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Salary',
     jssResponse: {
@@ -973,7 +974,7 @@ export const resignations = [
       name: 'Bellatrix Lestrange',
       role: 'Legal Consultant',
       branch: 'Dark Arts Firm',
-      link: '#!',
+      link: paths.memberProfile,
     },
     reason: 'Toxic Work Environment',
     jssResponse: {

@@ -4,12 +4,16 @@ import { Box, Button, Chip, Container, Typography, keyframes } from '@mui/materi
 import { useThemeMode } from 'hooks/useThemeMode';
 import { cssVarRgba } from 'lib/utils';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import { useSettingsContext } from 'providers/SettingsProvider';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
-import Image from 'components/base/Image';
+import DashedLine from '../common/DashedLine';
 
 const Hero = () => {
   const { t: translateUi } = useTranslation();
+  const {
+    config: { assetsDir },
+  } = useSettingsContext();
   const { isDark } = useThemeMode();
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -21,12 +25,71 @@ const Hero = () => {
           maxWidth: 1400,
           position: 'relative',
           px: { xs: 0 },
-          pt: 9,
+          pt: 13,
           textAlign: 'center',
-          bgcolor: 'transparent',
+          bgcolor: 'background.paper',
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            width: 260,
+            height: 96,
+            bottom: -1,
+            left: -260,
+            background: (theme) =>
+              `linear-gradient(to bottom left, ${cssVarRgba(theme.vars.palette.background.elevation2Channel, 1)} 0%, transparent 50%)`,
+          },
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            width: 260,
+            height: 96,
+            top: -96,
+            right: -260,
+            background: (theme) =>
+              `linear-gradient(to top right, ${cssVarRgba(theme.vars.palette.background.elevation2Channel, 1)} 0%, transparent 50%)`,
+          },
         }}
       >
-        <Box sx={{ position: 'relative', zIndex: 10, mb: 2 }}>
+        <DashedLine
+          orientation="vertical"
+          sx={{
+            height: '105%',
+            zIndex: 10,
+            position: 'absolute',
+            left: 0,
+            bottom: 0,
+          }}
+        />
+        <DashedLine
+          orientation="vertical"
+          sx={{
+            height: '105%',
+            position: 'absolute',
+            right: 0,
+            bottom: 0,
+          }}
+        />
+        <DashedLine
+          sx={{
+            width: '100vw',
+            zIndex: 20,
+            position: 'absolute',
+            left: '50%',
+            transform: 'translate(-50%)',
+            top: 0,
+          }}
+        />
+        <DashedLine
+          sx={{
+            width: '100vw',
+            position: 'absolute',
+            left: '50%',
+            zIndex: -10,
+            transform: 'translate(-50%)',
+            bottom: 96,
+          }}
+        />
+        <Box sx={{ position: 'relative', zIndex: 10, mb: 5.5 }}>
           <Box
             sx={{
               position: 'absolute',
@@ -54,39 +117,26 @@ const Hero = () => {
           <Box sx={{ position: 'relative', px: 2 }}>
             <Typography
               variant="h2"
-              sx={{
-                fontSize: { xs: '2rem', sm: '2.75rem', md: '3.25rem' },
-                fontWeight: 600,
-                lineHeight: 1.18,
-                letterSpacing: '-0.012em',
-                maxWidth: 800,
-                mx: 'auto',
-                mb: 3,
-              }}
+              sx={{ typography: { xs: 'h3', sm: 'h2' }, maxWidth: 800, mx: 'auto', mb: 3 }}
             >
-              {translateUi(
-                'ui.sections.landing.about_us.hero.get_to_know_us_together_we_create_b4135d5a',
-              )}{' '}
+              {translateUi('ffax.public.about.hero.prefix')}{' '}
               <Box
                 component="span"
                 sx={{
                   color: 'primary.main',
                 }}
               >
-                {translateUi('ui.sections.landing.about_us.hero.magic_8dbd968d')}
+                {translateUi('ffax.public.about.hero.highlight')}
               </Box>{' '}
-              🌟🤗
             </Typography>
             <Typography
               variant="body2"
               sx={{ maxWidth: 730, mx: 'auto', mb: 5, color: 'text.secondary' }}
             >
-              {translateUi(
-                'ui.sections.landing.about_us.hero.creating_products_with_a_strong_identity_we_provide__36520044',
-              )}
+              {translateUi('ffax.public.about.hero.description')}
             </Typography>
             <Button variant="contained" href={paths.landingContact}>
-              {translateUi('ui.sections.landing.about_us.hero.let_s_talk_now_f98b4a0e')}
+              {translateUi('ffax.public.about.hero.contact')}
             </Button>
           </Box>
         </Box>
@@ -118,33 +168,26 @@ const Hero = () => {
               userSelect: 'none',
               zIndex: 0,
             },
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              inset: 0,
+              backgroundImage: `url(${assetsDir}/images/showcase/16.webp)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'top',
+              borderTopLeftRadius: 8,
+              borderTopRightRadius: 8,
+              pointerEvents: 'none',
+              userSelect: 'none',
+              zIndex: 1,
+            },
           })}
         >
-          <Image
-            src={{
-              light: `${import.meta.env.BASE_URL}images/landing/hero/1-dark-zh-ffax.png`,
-              dark: `${import.meta.env.BASE_URL}images/landing/hero/1-dark-zh-ffax.png`,
-            }}
-            alt="FFA-X 中文工作台静态预览"
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: 1,
-              height: 'auto',
-              minHeight: 1,
-              objectFit: 'cover',
-              objectPosition: 'top left',
-              bgcolor: 'background.default',
-              zIndex: 1,
-              pointerEvents: 'none',
-            }}
-          />
           {upSm && (
             <>
               <CursorElement
                 color="info"
-                label={translateUi('ui.sections.landing.about_us.hero.easy_installation_85cdbe94')}
+                label={translateUi('ffax.public.about.hero.open_integration')}
                 sx={{
                   top: '40%',
                 }}
@@ -152,7 +195,7 @@ const Hero = () => {
               <CursorElement
                 direction="left"
                 color="primary"
-                label={translateUi('ui.sections.landing.about_us.hero.modern_design_28dd9713')}
+                label={translateUi('ffax.public.about.hero.trusted_network')}
                 sx={{
                   top: '10%',
                 }}

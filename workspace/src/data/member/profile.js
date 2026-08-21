@@ -69,9 +69,9 @@ const personalData = {
   ],
   experiences: [
     {
-      icon: logo(20),
+      icon: `${import.meta.env.BASE_URL}ffax.svg`,
       designation: 'UX/UI Designer',
-      company: 'ThemeWagon Inc.',
+      company: 'FFA-X',
       location: 'Dhaka, Bangladesh',
       startDate: '2024-04-01',
       endDate: '2025-11-01',

@@ -6,6 +6,7 @@ import { orderListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 import OrderDetailsPopper from './OrderDetailsPopper';
 
 const getPaymentStatusBadgeColor = (val) => {
@@ -92,7 +93,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
                 src={params.row.customer.avatar}
                 sx={{ width: 32, height: 32 }}
               />
-              <Link variant="subtitle2" href="#!" sx={{ fontWeight: 400 }}>
+              <Link variant="subtitle2" href={paths.customerAccount} sx={{ fontWeight: 400 }}>
                 {params.row.customer.name}
               </Link>
             </Stack>
@@ -227,7 +228,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

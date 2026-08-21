@@ -10,7 +10,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Logo from 'components/common/Logo';
 import VibrantBackground from 'components/common/VibrantBackground';
 import AppbarActionItems from '../common/AppbarActionItems';
-import SearchBox, { SearchBoxButton } from '../common/search-box/SearchBox';
+import SearchBox, { SearchBoxButton } from '../common/search-box/WorkspaceSearchBox';
 
 const AppBar = () => {
   const { t: translateUi } = useTranslation();
@@ -68,7 +68,7 @@ const AppBar = () => {
             color="neutral"
             variant="soft"
             shape="circle"
-            aria-label={translateUi('ui.layouts.main_layout.app_bar.open_drawer_fe4563aa')}
+            aria-label={translateUi('ffax.ui.open_navigation')}
             onClick={handleDrawerToggle}
           >
             <IconifyIcon icon="material-symbols:menu-rounded" sx={{ fontSize: 20 }} />

@@ -240,7 +240,7 @@ const NavItem = ({ item, level }) => {
               {item.new && (!sidenavCollapsed || level > 0 || isStackedSideNav) && (
                 <Chip
                   size="xsmall"
-                  label={translateUi('ui.layouts.main_layout.sidenav.navitem.new_c2a6b03f')}
+                  label={translateUi('ffax.ui.new')}
                   color="warning"
                   sx={{ textTransform: 'capitalize', ml: 1 }}
                 />

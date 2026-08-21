@@ -11,7 +11,7 @@ workspace_root="/var/www/ffax/workspace"
 next_workspace="/var/www/ffax/workspace.next-${stamp}"
 previous_workspace="/var/www/ffax/workspace.previous-${stamp}"
 archive="/tmp/ffax-release-${stamp}.tar.gz"
-backup_root="/var/backups/ffax/${stamp}"
+backup_root="/var/backups/ffax/${stamp}-static"
 nginx_current="/etc/nginx/sites-enabled/ffax.com"
 nginx_previous="${backup_root}/ffax.com"
 switched=false
@@ -38,6 +38,7 @@ wait_http() {
 validate_frontend_bundle() {
   local bundle_root="$1"
   local public_prefix="$2"
+  local minimum_asset_count="$3"
   local index_file="${bundle_root}/index.html"
   local asset_count
   local missing=0
@@ -46,8 +47,17 @@ validate_frontend_bundle() {
 
   test -f "$index_file"
   test -d "${bundle_root}/assets"
+  test -f "${bundle_root}/ffax.svg"
+  if [[ -e "${bundle_root}/aurora.svg" ]]; then
+    echo "Legacy Aurora brand icon remains in frontend bundle: ${bundle_root}/aurora.svg" >&2
+    return 1
+  fi
+  if grep -Eiq 'aurora\.svg|Aurora, the intuitive|fonts\.googleapis\.com|fonts\.gstatic\.com|prium\.github\.io/aurora' "$index_file"; then
+    echo "Legacy or remote template dependency remains in frontend entry: ${index_file}" >&2
+    return 1
+  fi
   asset_count="$(find "${bundle_root}/assets" -type f | wc -l | tr -d ' ')"
-  if (( asset_count < 200 )); then
+  if (( asset_count < minimum_asset_count )); then
     echo "Incomplete frontend bundle: ${bundle_root} contains only ${asset_count} asset files" >&2
     return 1
   fi
@@ -134,12 +144,18 @@ rm -rf -- "$next_workspace"
 mkdir -p "$next_workspace"
 tar -xzf "$archive" -C "$next_workspace"
 
+forbidden_artifact="$(find "$next_workspace" -type f \( -name '.DS_Store' -o -name '*.log' -o -name '*.bak' -o -name '*.old' -o -name '*.orig' -o -name '*.tar' -o -name '*.tar.gz' -o -name '*.tgz' -o -name '*.zip' -o -name '*.7z' \) -print -quit)"
+if [[ -n "$forbidden_artifact" ]]; then
+  echo "Forbidden backup, log or editor artifact remains in the static production archive: ${forbidden_artifact}" >&2
+  exit 1
+fi
+
 test -f "$next_workspace/infra/zitadel/docker-compose.yml"
 test -f "$next_workspace/deploy/nginx/ffax.com.conf"
 test -f "$next_workspace/scripts/api-reporting/check.mjs"
 test -f "$next_workspace/docs/api-integrations/latest.json"
-validate_frontend_bundle "$next_workspace/dist" "/workbench/"
-validate_frontend_bundle "$next_workspace/dist-root" "/"
+validate_frontend_bundle "$next_workspace/dist" "/workbench/" 200
+validate_frontend_bundle "$next_workspace/dist-root" "/" 20
 
 FFAX_API_REPORT_REQUIRE_DESKTOP=false \
   node "$next_workspace/scripts/api-reporting/check.mjs" \
@@ -174,7 +190,7 @@ fi
 remove_matching_children "/var/www/ffax" "workspace.previous-*"
 remove_matching_children "/var/www/ffax" "workspace.failed-*"
 remove_matching_children "/var/www/ffax" "workspace.next-*"
-remove_matching_children "/var/backups/ffax" "*" "$backup_root"
+remove_matching_children "/var/backups/ffax" "????????-??????-static" "$backup_root"
 remove_matching_children "/tmp" "ffax-release-*.tar.gz"
 remove_matching_children "/tmp" "ffax-images-*.tar"
 

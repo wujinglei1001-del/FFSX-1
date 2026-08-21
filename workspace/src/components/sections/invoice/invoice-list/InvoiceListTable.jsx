@@ -81,7 +81,7 @@ const InvoiceListTable = ({
                 <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
                   {name}
                 </Typography>
-                <Link href="#!" variant="caption">
+                <Link href={`mailto:${email}`} variant="caption">
                   {email}
                 </Link>
               </div>
@@ -261,7 +261,7 @@ const InvoiceListTable = ({
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.MuiDataGrid-cellCheckbox, .required-amount-cell, .paid-amount-cell, .remaining-balance-cell, .action-cell)':
                   {
                     p: `0 ${spacing(1.25)}`,

@@ -260,7 +260,7 @@ export const useCreateInvoiceForm = () => {
           );
         },
         phone: '+123456789012',
-        email: 'themewagon@gmail.com',
+        email: 'contact@ffax.com',
         address: 'Wilmington, DE, US 19802-4447',
       },
       invoiceTo: {

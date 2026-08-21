@@ -1,7 +1,7 @@
 import { Avatar, Container, Grid, Link, Paper, Typography } from '@mui/material';
+import { externalLinks } from 'config';
 import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
-import Mapbox from 'components/base/Mapbox';
 import RevealItems from '../common/RevealItems';
 import ContactForm from './ContactForm';
 
@@ -10,35 +10,29 @@ const contactCardItems = [
     id: 1,
     icon: 'mdi:phone-in-talk-outline',
     get title() {
-      return i18n.t('ui.sections.landing.contact.contactcontainer.phone_number_ab25d61b');
+      return i18n.t('ffax.public.contact.phone');
     },
-    isLink: true,
-    href: 'tel:55512345678901',
-    content: '(555) 123-4567-8901',
+    isLink: Boolean(externalLinks.contact.phone),
+    href: externalLinks.contact.phone ? `tel:${externalLinks.contact.phone}` : undefined,
+    content: externalLinks.contact.phone || '—',
   },
   {
     id: 2,
     icon: 'mdi:email-outline',
     get title() {
-      return i18n.t('ui.sections.landing.contact.contactcontainer.email_address_09ba557f');
+      return i18n.t('ffax.public.contact.email');
     },
-    isLink: true,
-    href: 'mailto:hello@randommail.com',
-    get content() {
-      return i18n.t('ui.sections.landing.contact.contactcontainer.hello_randommail_com_dd2ead67');
-    },
+    isLink: Boolean(externalLinks.contact.email),
+    href: externalLinks.contact.email ? `mailto:${externalLinks.contact.email}` : undefined,
+    content: externalLinks.contact.email || '—',
   },
   {
     id: 3,
     icon: 'mdi:location-on-outline',
     get title() {
-      return i18n.t('ui.sections.landing.contact.contactcontainer.location_d219c681');
+      return i18n.t('ffax.public.contact.location');
     },
-    get content() {
-      return i18n.t(
-        'ui.sections.landing.contact.contactcontainer.123_sunnyvale_park_springfield_il_usa_87af5cdd',
-      );
-    },
+    content: externalLinks.contact.location || '—',
   },
 ];
 const ContactContainer = () => {
@@ -89,15 +83,6 @@ const ContactContainer = () => {
           </Grid>
         ))}
       </RevealItems>
-
-      <Mapbox
-        sx={{ bgcolor: 'background.elevation1', borderRadius: 2, mb: 8 }}
-        options={{
-          center: [-118.4782382, 34.1917607],
-          zoom: 14,
-          scrollZoom: false,
-        }}
-      />
 
       <Container maxWidth={false} sx={{ maxWidth: 440, py: 6 }} disableGutters>
         <ContactForm />

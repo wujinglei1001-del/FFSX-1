@@ -298,9 +298,9 @@ export const invoiceListTableRowData = [
 export const recipientLists = [
   {
     id: 1,
-    name: 'Aurora',
+    name: 'FFA-X',
     avatar: users[6].avatar,
-    email: 'aurora@themewagon.com',
+    email: 'contact@ffax.com',
     status: 'Active',
     phone: '+123456789012',
     location: 'Apt: 6/B, 192 Edsel Road, Van Nuys, California, USA 96580',
@@ -344,18 +344,18 @@ export const recipientLists = [
 ];
 
 export const invoiceData = {
-  organizationImage: { id: 1, file: logo(19) },
+  organizationImage: { id: 1, file: `${import.meta.env.BASE_URL}ffax.svg` },
   invoiceFrom: {
-    name: 'Themewagon',
+    name: 'FFA-X',
     phone: '+123456789012',
-    email: 'themewagon@gmail.com',
+    email: 'contact@ffax.com',
     address: 'Wilmington, DE, US 19802-4447',
     issueDate: '2025-04-20',
   },
   invoiceTo: {
-    name: 'Aurora',
+    name: 'Global Trade Partner',
     phone: '+123456789564',
-    email: 'aurora@themewagon.com',
+    email: 'contact@ffax.com',
     address: '192 Edsel Road, California, USA 96580',
     issueDate: '2025-03-25',
   },
@@ -396,37 +396,37 @@ export const invoiceData = {
       price: 50.0,
     },
   ],
-  note: 'Thank you for your business. If you have any questions concerning this invoice, contact customer service +1 302 433 6002 or send an email at info@themewagon.com.',
+  note: 'Thank you for your business. If you have any questions concerning this invoice, contact FFA-X at contact@ffax.com.',
 };
 
 export const invoiceHistories = [
   {
     id: 1,
     date: '2025-03-18T14:02:00',
-    companyName: 'Themewagon',
+    companyName: 'FFA-X',
     get message() {
       return i18n.t('ui.data.invoice.has_sent_invoice_to_72ce96b4');
     },
-    image: logo(20),
+    image: `${import.meta.env.BASE_URL}ffax.svg`,
     email: 'janedoe@gmail.com',
   },
   {
     id: 2,
     date: '2025-03-18T14:02:00',
-    companyName: 'Themewagon',
+    companyName: 'FFA-X',
     get message() {
       return i18n.t('ui.data.invoice.has_updated_the_invoice_e5eb3b54');
     },
-    image: logo(20),
+    image: `${import.meta.env.BASE_URL}ffax.svg`,
   },
   {
     id: 3,
     date: '2025-03-18T14:02:00',
-    companyName: 'Themewagon',
+    companyName: 'FFA-X',
     get message() {
       return i18n.t('ui.data.invoice.has_created_the_invoice_d53d4b6e');
     },
-    image: logo(20),
+    image: `${import.meta.env.BASE_URL}ffax.svg`,
     isLast: true,
   },
 ];

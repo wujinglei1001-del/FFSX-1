@@ -9,6 +9,7 @@ import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 import TableLabelDisplayedRows from 'components/pagination/TableLabelDisplayedRows';
 import ActivityChart from './ActivityChart';
 
@@ -200,7 +201,7 @@ const ResignationsTable = ({ tableData }) => {
         slots={{
           basePagination: (props) => (
             <DataGridPagination
-              showAllHref="#!"
+              showAllHref={paths.members}
               labelDisplayedRows={upLg ? TableLabelDisplayedRows : () => null}
               {...props}
             />
@@ -222,7 +223,7 @@ const ResignationsTable = ({ tableData }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.resignation-id-cell, .activity-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

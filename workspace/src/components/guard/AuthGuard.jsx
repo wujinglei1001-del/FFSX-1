@@ -3,7 +3,7 @@ import { useAuth } from 'providers/AuthProvider';
 import paths from 'routes/paths';
 import PageLoader from 'components/loading/PageLoader';
 
-const AuthGurad = ({ children }) => {
+const AuthGuard = ({ children }) => {
   const { sessionUser, isLoading } = useAuth();
   const location = useLocation();
 
@@ -15,11 +15,11 @@ const AuthGurad = ({ children }) => {
     children
   ) : (
     <Navigate
-      to={paths.defaultJwtLogin}
+      to={paths.zitadelLogin}
       replace
       state={{ from: `${location.pathname}${location.search}${location.hash}` }}
     />
   );
 };
 
-export default AuthGurad;
+export default AuthGuard;

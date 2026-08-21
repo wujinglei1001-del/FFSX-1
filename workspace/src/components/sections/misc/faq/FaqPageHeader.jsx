@@ -4,6 +4,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import SearchTextField from 'components/common/SearchTextField';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
+import paths from 'routes/paths';
 
 const FaqPageHeader = () => {
   const { t: translateUi } = useTranslation();
@@ -20,7 +21,10 @@ const FaqPageHeader = () => {
         <div>
           <PageBreadcrumb
             items={[
-              { label: translateUi('ui.sections.misc.faq.faqpageheader.misc_0a893ece'), url: '#!' },
+              {
+                label: translateUi('ui.sections.misc.faq.faqpageheader.misc_0a893ece'),
+                url: paths.workbench,
+              },
               { label: 'Faq', active: true },
             ]}
             sx={{ mb: 2 }}

@@ -200,7 +200,7 @@ export const videos = [
     },
     duration: '23:34',
     thumbnail: thumbnail(1),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Architecture',
     author: users[0],
     uploaderInfo: {
@@ -225,7 +225,7 @@ export const videos = [
     },
     duration: '1:22:04',
     thumbnail: thumbnail(2),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Modern',
     author: users[1],
     uploaderInfo: {
@@ -250,7 +250,7 @@ export const videos = [
     },
     duration: '3:34',
     thumbnail: thumbnail(3),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Design',
     author: users[3],
     uploaderInfo: {
@@ -275,7 +275,7 @@ export const videos = [
     },
     duration: '10:23:34',
     thumbnail: thumbnail(4),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[4],
     uploaderInfo: {
@@ -300,7 +300,7 @@ export const videos = [
     },
     duration: '10:23:34',
     thumbnail: thumbnail(5),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[5],
     uploaderInfo: {
@@ -325,7 +325,7 @@ export const videos = [
     },
     duration: '10:23:34',
     thumbnail: thumbnail(6),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[6],
     uploaderInfo: {
@@ -350,7 +350,7 @@ export const videos = [
     },
     duration: '2:00:09',
     thumbnail: thumbnail(7),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[8],
     uploaderInfo: {
@@ -375,7 +375,7 @@ export const videos = [
     },
     duration: '1:00:10',
     thumbnail: thumbnail(8),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[4],
     uploaderInfo: {
@@ -400,7 +400,7 @@ export const videos = [
     },
     duration: '5:45',
     thumbnail: thumbnail(16),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[12],
     uploaderInfo: {
@@ -425,7 +425,7 @@ export const videos = [
     },
     duration: '15:20',
     thumbnail: thumbnail(18),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[11],
     uploaderInfo: {
@@ -450,7 +450,7 @@ export const videos = [
     },
     duration: '8:30',
     thumbnail: thumbnail(23),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     category: 'Sustainable',
     author: users[5],
     uploaderInfo: {
@@ -476,7 +476,7 @@ export const videos = [
     duration: '10:23:34',
     thumbnail: thumbnail(9),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-10',
@@ -501,7 +501,7 @@ export const videos = [
     duration: '22:34',
     thumbnail: thumbnail(10),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-12',
@@ -526,7 +526,7 @@ export const videos = [
     duration: '56:33',
     thumbnail: thumbnail(11),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-08',
@@ -551,7 +551,7 @@ export const videos = [
     duration: '1:21:04',
     thumbnail: thumbnail(12),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-05',
@@ -576,7 +576,7 @@ export const videos = [
     duration: '8:20:13',
     thumbnail: thumbnail(13),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-01',
@@ -601,7 +601,7 @@ export const videos = [
     duration: '2:23:45',
     thumbnail: thumbnail(14),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-28',
@@ -626,7 +626,7 @@ export const videos = [
     duration: '25:34',
     thumbnail: thumbnail(15),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-25',
@@ -651,7 +651,7 @@ export const videos = [
     duration: '10:25',
     thumbnail: thumbnail(16),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-20',
@@ -676,7 +676,7 @@ export const videos = [
     duration: '3:39:21',
     thumbnail: thumbnail(17),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-15',
@@ -701,7 +701,7 @@ export const videos = [
     duration: '9:11',
     thumbnail: thumbnail(18),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-10',
@@ -726,7 +726,7 @@ export const videos = [
     duration: '1:26:34',
     thumbnail: thumbnail(19),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-05',
@@ -751,7 +751,7 @@ export const videos = [
     duration: '2:01',
     thumbnail: thumbnail(20),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-01',
@@ -776,7 +776,7 @@ export const videos = [
     duration: '1:45:04',
     thumbnail: thumbnail(21),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-28',
@@ -801,7 +801,7 @@ export const videos = [
     duration: '47:14',
     thumbnail: thumbnail(22),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-25',
@@ -826,7 +826,7 @@ export const videos = [
     duration: '32:35',
     thumbnail: thumbnail(23),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-20',
@@ -851,7 +851,7 @@ export const videos = [
     duration: '44:04',
     thumbnail: thumbnail(24),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-15',
@@ -876,7 +876,7 @@ export const videos = [
     duration: '56:00',
     thumbnail: thumbnail(25),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-10',
@@ -901,7 +901,7 @@ export const videos = [
     duration: '14:55',
     thumbnail: thumbnail(26),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-05',
@@ -926,7 +926,7 @@ export const videos = [
     duration: '12:45',
     thumbnail: thumbnail(19),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[4],
     uploaderInfo: {
       uploadedDate: '2025-09-14',
@@ -949,7 +949,7 @@ export const videos = [
     duration: '8:23',
     thumbnail: thumbnail(7),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[11],
     uploaderInfo: {
       uploadedDate: '2025-09-11',
@@ -972,7 +972,7 @@ export const videos = [
     duration: '1:05:12',
     thumbnail: thumbnail(23),
     category: 'History',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[2],
     uploaderInfo: {
       uploadedDate: '2025-09-09',
@@ -995,7 +995,7 @@ export const videos = [
     duration: '33:55',
     thumbnail: thumbnail(2),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[7],
     uploaderInfo: {
       uploadedDate: '2025-09-07',
@@ -1020,7 +1020,7 @@ export const videos = [
     duration: '22:14',
     thumbnail: thumbnail(14),
     category: 'Technology',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[15],
     uploaderInfo: {
       uploadedDate: '2025-09-03',
@@ -1043,7 +1043,7 @@ export const videos = [
     duration: '15:00',
     thumbnail: thumbnail(5),
     category: 'Art',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[10],
     uploaderInfo: {
       uploadedDate: '2025-08-31',
@@ -1066,7 +1066,7 @@ export const videos = [
     duration: '10:29',
     thumbnail: thumbnail(26),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[6],
     uploaderInfo: {
       uploadedDate: '2025-08-29',
@@ -1089,7 +1089,7 @@ export const videos = [
     duration: '19:35',
     thumbnail: thumbnail(11),
     category: 'Technology',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[13],
     uploaderInfo: {
       uploadedDate: '2025-08-27',
@@ -1112,7 +1112,7 @@ export const videos = [
     duration: '48:02',
     thumbnail: thumbnail(3),
     category: 'History',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[9],
     uploaderInfo: {
       uploadedDate: '2025-08-24',
@@ -1135,7 +1135,7 @@ export const videos = [
     duration: '28:54',
     thumbnail: thumbnail(17),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[5],
     uploaderInfo: {
       uploadedDate: '2025-08-21',
@@ -1158,7 +1158,7 @@ export const videos = [
     duration: '1:15:09',
     thumbnail: thumbnail(8),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[12],
     uploaderInfo: {
       uploadedDate: '2025-08-18',
@@ -1181,7 +1181,7 @@ export const videos = [
     duration: '42:18',
     thumbnail: thumbnail(1),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[8],
     uploaderInfo: {
       uploadedDate: '2025-08-14',
@@ -1204,7 +1204,7 @@ export const videos = [
     duration: '9:37',
     thumbnail: thumbnail(25),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-10',
@@ -1227,7 +1227,7 @@ export const videos = [
     duration: '2:01:45',
     thumbnail: thumbnail(9),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[14],
     uploaderInfo: {
       uploadedDate: '2025-08-07',
@@ -1250,7 +1250,7 @@ export const videos = [
     duration: '57:08',
     thumbnail: thumbnail(20),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[3],
     uploaderInfo: {
       uploadedDate: '2025-08-03',
@@ -1275,7 +1275,7 @@ export const videos = [
     duration: '36:21',
     thumbnail: thumbnail(13),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[2],
     uploaderInfo: {
       uploadedDate: '2025-07-30',
@@ -1298,7 +1298,7 @@ export const videos = [
     duration: '18:09',
     thumbnail: thumbnail(6),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[7],
     uploaderInfo: {
       uploadedDate: '2025-07-27',
@@ -1321,7 +1321,7 @@ export const videos = [
     duration: '1:02:48',
     thumbnail: thumbnail(21),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
     author: users[10],
     uploaderInfo: {
       uploadedDate: '2025-07-22',

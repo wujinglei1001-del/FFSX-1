@@ -32,6 +32,7 @@ import dayjs from 'dayjs';
 import i18n from 'locales/i18n';
 import { useDealsContext } from 'providers/DealsProvider';
 import { ADD_NEW_DEAL, SET_CREATE_DEAL_DIALOG } from 'reducers/DealsReducer';
+import paths from 'routes/paths';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 
@@ -86,7 +87,7 @@ const CreateDealDialog = () => {
         email: 'mina@xyz.com',
         videoChat: 'https://zoom.us/j/123456789',
         address: 'Shibuya, Tokyo, Japan',
-        link: '#!',
+        link: paths.memberProfile,
       },
       createDate: dayjs().toString(),
       lastUpdate: dayjs().toString(),

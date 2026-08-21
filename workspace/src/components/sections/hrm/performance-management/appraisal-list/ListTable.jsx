@@ -299,7 +299,7 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
         }}
         slots={{
           basePagination: (props) => (
-            <DataGridPagination showFullPagination showAllHref="#!" {...props} />
+            <DataGridPagination showFullPagination {...props} />
           ),
         }}
         sx={({ spacing }) => ({
@@ -316,7 +316,7 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.MuiDataGrid-cellCheckbox, .action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

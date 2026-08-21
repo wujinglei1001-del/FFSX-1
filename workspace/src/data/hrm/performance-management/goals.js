@@ -23,7 +23,7 @@ export const goals = [
     id: 1,
     get title() {
       return i18n.t(
-        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393',
+        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393',
       );
     },
     get description() {
@@ -37,7 +37,7 @@ export const goals = [
     dueDate: '2022-08-15',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -60,7 +60,7 @@ export const goals = [
     dueDate: '2025-04-20',
     tags: ['High', 'Delayed'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -83,7 +83,7 @@ export const goals = [
     dueDate: '2022-01-10',
     tags: ['Medium', 'Hold'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -106,7 +106,7 @@ export const goals = [
     dueDate: '2023-07-04',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -129,7 +129,7 @@ export const goals = [
     dueDate: '2023-10-14',
     tags: ['Low', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -152,7 +152,7 @@ export const goals = [
     dueDate: '2025-02-28',
     tags: ['High', 'At Risk'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -175,7 +175,7 @@ export const goals = [
     dueDate: '2023-06-05',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -198,7 +198,7 @@ export const goals = [
     dueDate: '2024-03-15',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -207,7 +207,7 @@ export const goals = [
     id: 9,
     get title() {
       return i18n.t(
-        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393',
+        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393',
       );
     },
     get description() {
@@ -221,7 +221,7 @@ export const goals = [
     dueDate: '2022-11-11',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -230,7 +230,7 @@ export const goals = [
     id: 10,
     get title() {
       return i18n.t(
-        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393',
+        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393',
       );
     },
     get description() {
@@ -244,7 +244,7 @@ export const goals = [
     dueDate: '2022-09-30',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -253,7 +253,7 @@ export const goals = [
     id: 11,
     get title() {
       return i18n.t(
-        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393',
+        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393',
       );
     },
     get description() {
@@ -267,7 +267,7 @@ export const goals = [
     dueDate: '2022-05-22',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],
@@ -276,7 +276,7 @@ export const goals = [
     id: 12,
     get title() {
       return i18n.t(
-        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393',
+        'ui.data.hrm.performance_management.goals.prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393',
       );
     },
     get description() {
@@ -290,7 +290,7 @@ export const goals = [
     dueDate: '2021-12-01',
     tags: ['High', 'In Progress'],
     subGoals: [
-      'Release Aurora within 7 days',
+      'Release FFA-X within 7 days',
       'Release Phoenix within 5 days',
       'Release Falcon within 3 days',
     ],

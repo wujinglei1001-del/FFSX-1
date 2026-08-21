@@ -1,42 +1,47 @@
 import { useTranslation } from 'react-i18next';
-import { Link, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { externalLinks } from 'config';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const socialLinks = [
   {
     id: 'fb',
     icon: 'ri:facebook-circle-fill',
-    href: '#!',
+    href: externalLinks.social.facebook,
   },
   {
     id: 'ig',
     icon: 'ri:instagram-line',
-    href: '#!',
+    href: externalLinks.social.instagram,
   },
   {
     id: 'th',
     icon: 'ri:threads-line',
-    href: '#!',
+    href: externalLinks.social.threads,
   },
   {
     id: 'x',
     icon: 'ri:twitter-x-fill',
-    href: '#!',
+    href: externalLinks.social.x,
   },
   {
     id: 'no',
     icon: 'ri:notion-fill',
-    href: '#!',
+    href: externalLinks.social.notion,
   },
   {
     id: 'yt',
     icon: 'ri:youtube-fill',
-    href: '#!',
+    href: externalLinks.social.youtube,
   },
 ];
 const SocialIcons = () => {
   const { t: translateUi } = useTranslation();
+  const configuredSocialLinks = socialLinks.filter((item) => item.href);
+
+  if (!configuredSocialLinks.length) return null;
+
   return (
     <div>
       <Typography
@@ -48,7 +53,7 @@ const SocialIcons = () => {
           color: 'text.disabled',
         }}
       >
-        {translateUi('ui.layouts.landing_layout.footer.socialicons.socials_33310723')}
+        {translateUi('ffax.public.footer.socials')}
       </Typography>
       <Stack
         direction="row"
@@ -56,19 +61,26 @@ const SocialIcons = () => {
           gap: 4,
         }}
       >
-        {socialLinks.map((item) => (
-          <Link key={item.id} href={item.href} underline="none">
+        {configuredSocialLinks.map((item) => (
+          <Box
+            key={item.id}
+            component={item.href ? Link : 'span'}
+            href={item.href || undefined}
+            underline="none"
+          >
             <IconifyIcon
               icon={item.icon}
               sx={{
                 fontSize: 24,
                 color: 'text.disabled',
-                '&:hover': {
-                  color: 'text.secondary',
-                },
+                ...(item.href && {
+                  '&:hover': {
+                    color: 'text.secondary',
+                  },
+                }),
               }}
             />
-          </Link>
+          </Box>
         ))}
       </Stack>
     </div>

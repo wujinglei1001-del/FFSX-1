@@ -7,6 +7,7 @@ import CurrentPayrollRun from 'components/sections/hrm/payroll/dashboard/current
 import PaySummary from 'components/sections/hrm/payroll/dashboard/pay-summary';
 import PayrollCostSummary from 'components/sections/hrm/payroll/dashboard/payroll-cost-summary';
 import PayrollHistory from 'components/sections/hrm/payroll/dashboard/payroll-history';
+import paths from 'routes/paths';
 
 const PayrollDashboard = () => {
   const { t: translateUi } = useTranslation();
@@ -16,7 +17,10 @@ const PayrollDashboard = () => {
         <PageHeader
           title={translateUi('ui.pages.apps.hrm.payroll.payroll_d4598744')}
           breadcrumb={[
-            { label: translateUi('ui.pages.apps.hrm.payroll.home_70f8bb9a'), url: '#!' },
+            {
+              label: translateUi('ui.pages.apps.hrm.payroll.home_70f8bb9a'),
+              url: paths.workbench,
+            },
             { label: translateUi('ui.pages.apps.hrm.payroll.payroll_d4598744'), active: true },
           ]}
           actionComponent={

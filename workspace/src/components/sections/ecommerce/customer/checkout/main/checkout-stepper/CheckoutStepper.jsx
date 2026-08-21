@@ -258,11 +258,11 @@ const CheckoutStepper = () => {
                       color: 'text.disabled',
                     }}
                   >
-                    <Link href={paths.defaultJwtLogin}>
+                    <Link href={paths.zitadelLogin}>
                       {translateUi('ui.sections.ecommerce.customer.checkout.login_4e5a2893')}
                     </Link>{' '}
                     {translateUi('common.or')}{' '}
-                    <Link href={paths.defaultJwtSignup}>
+                    <Link href={paths.zitadelSignup}>
                       {translateUi('ui.sections.ecommerce.customer.checkout.signup_894bc414')}
                     </Link>
                     {translateUi(

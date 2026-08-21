@@ -286,10 +286,10 @@ const InvoiceTable = ({ invoice }) => {
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {translateUi('ui.sections.invoice.invoice_preview.invoicetable.creating_with_9b7444e1')}{' '}
           <Typography component="span" sx={{ fontWeight: 700, color: 'text.secondary' }}>
-            {translateUi('ui.sections.invoice.invoice_preview.invoicetable.aurora_eeee9b76')}{' '}
+            {translateUi('ui.sections.invoice.invoice_preview.invoicetable.ffax_eeee9b76')}{' '}
           </Typography>
-          | 2025 &copy;{' '}
-          <Link href="https://themewagon.com/">
+          | 2026 &copy;{' '}
+          <Link href="https://www.ffax.com/">
             {translateUi('ui.sections.invoice.invoice_preview.invoicetable.themewagon_42a442ab')}
           </Link>
         </Typography>

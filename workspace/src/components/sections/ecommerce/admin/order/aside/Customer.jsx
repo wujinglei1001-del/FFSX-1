@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Link, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
+import paths from 'routes/paths';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const Customer = ({ sx }) => {
@@ -46,7 +47,7 @@ const Customer = ({ sx }) => {
           alt={translateUi('ui.sections.ecommerce.admin.order.captain_haddock_b801c768')}
           sx={{ width: 54, height: 54, mb: 1 }}
         />
-        <Link href="#!" variant="body2">
+        <Link href={paths.customerAccount} variant="body2">
           {customer?.name}
         </Link>
       </Box>

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Stack } from '@mui/material';
 import TimeTrackerAppsSitesMain from 'components/sections/time-tracker/apps-sites';
 import TimeTrackerHeader from 'components/sections/time-tracker/common/time-tracker-header';
+import paths from 'routes/paths';
 
 const AppsSites = () => {
   const { t: translateUi } = useTranslation();
@@ -10,10 +11,13 @@ const AppsSites = () => {
       <TimeTrackerHeader
         title={translateUi('ui.pages.apps.time_tracker.appssites.apps_sites_f81aa92f')}
         breadcrumb={[
-          { label: translateUi('ui.pages.apps.time_tracker.appssites.home_70f8bb9a'), url: '#!' },
+          {
+            label: translateUi('ui.pages.apps.time_tracker.appssites.home_70f8bb9a'),
+            url: paths.workbench,
+          },
           {
             label: translateUi('ui.pages.apps.time_tracker.appssites.time_tracker_55712c7b'),
-            url: '#!',
+            url: paths.timeTracker,
           },
           {
             label: translateUi('ui.pages.apps.time_tracker.appssites.apps_sites_f81aa92f'),

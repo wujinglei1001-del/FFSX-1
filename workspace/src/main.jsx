@@ -11,6 +11,7 @@ import ThemeProvider from 'providers/ThemeProvider';
 import VisionModeProvider from 'providers/VisionModeProvider';
 import router from 'routes/router';
 import SWRConfiguration from 'services/configuration/SWRConfiguration';
+import './assets/fonts/plus-jakarta-sans/index.css';
 import './locales/i18n';
 
 registerIcons();

@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { getStatusChipColor } from 'data/hrm/performance-management';
 import dayjs from 'dayjs';
 import DashboardMenu from 'components/common/DashboardMenu';
+import paths from 'routes/paths';
 
 const AppraisalCycleCard = ({
   id,
@@ -23,7 +24,7 @@ const AppraisalCycleCard = ({
   return (
     <Paper
       component={Link}
-      href="#!"
+      href={paths.hrmPerformanceAppraisalList}
       underline="none"
       background={1}
       {...props}

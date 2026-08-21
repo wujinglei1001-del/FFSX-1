@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Grid, Stack, Typography } from '@mui/material';
 import useLightbox from 'hooks/useLightbox';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Lightbox from 'components/base/Lightbox';
 import Screenshot from './Screenshot';
@@ -37,7 +38,7 @@ const Activities = ({ screencast, isLast }) => {
 
         <Button
           size="small"
-          href="#!"
+          href={paths.timeTrackerScreenshots}
           sx={{ ml: 'auto' }}
           endIcon={
             <IconifyIcon

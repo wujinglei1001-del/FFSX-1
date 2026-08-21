@@ -1,4 +1,379 @@
 {
+  "ffax": {
+    "contact": {
+      "subscription_inquiry": "Subscription service inquiry"
+    },
+    "public": {
+      "navigation": {
+        "home": "Home",
+        "about": "About Us",
+        "contact": "Contact Us",
+        "faq": "FAQ",
+        "subscriptions": "Subscriptions",
+        "register": "Sign up",
+        "free_account": "Free account",
+        "login": "Log in",
+        "workbench": "Workbench",
+        "close": "Close"
+      },
+      "footer": {
+        "brand": "FFA-X",
+        "description": "FFA-X is the trusted digital bridge connecting organizations, capabilities, resources, and fulfillment workflows across global trade.",
+        "support": "Support",
+        "help_center": "Help Center",
+        "access": "Access",
+        "create_account": "Create account",
+        "cta_title": "Connect with FFA-X",
+        "cta_description": "Join the trusted digital bridge for global trade and coordinate real work through authenticated services and connected systems.",
+        "subscription_title": "Subscription inquiry",
+        "subscription_email": "Contact email",
+        "subscription_action": "Contact us",
+        "subscription_body": "Contact email: {{email}}",
+        "socials": "Social media",
+        "rights": "FFA-X © 2026, all rights reserved"
+      },
+      "about": {
+        "hero": {
+          "prefix": "The Digital Bridge for",
+          "highlight": "Global Trade",
+          "description": "Connecting organizations, teams, service capabilities, business resources, and fulfillment workflows in one coordinated ecosystem.",
+          "contact": "Contact us",
+          "open_integration": "Open Integration",
+          "trusted_network": "Trusted Network"
+        },
+        "overview": {
+          "title": "About FFA-X",
+          "subtitle": "What is FFA-X",
+          "description": "FFA-X is the trusted digital bridge for global trade, connecting organizations, teams, service capabilities, business resources, and fulfillment workflows through one coordinated workspace.",
+          "network_label": "Network",
+          "network_value": "Connected Organizations",
+          "capabilities_label": "Capabilities",
+          "capabilities_value": "Service Integration",
+          "fulfillment_label": "Fulfillment",
+          "fulfillment_value": "Coordinated Workflows"
+        },
+        "team": {
+          "title": "Team",
+          "subtitle": "Our brilliant teammates"
+        }
+      },
+      "contact": {
+        "page_title": "Contact Us",
+        "page_subtitle": "Contact details",
+        "phone": "Phone Number",
+        "email": "Email Address",
+        "location": "Service Location",
+        "form_title": "Contact",
+        "form_subtitle": "Get in touch",
+        "description": "Contact us whenever you need help with a question or service request.",
+        "personal_information": "Contact information",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "phone_field": "Phone",
+        "company": "Company",
+        "purpose": "Inquiry",
+        "message": "Message",
+        "consent_prefix": "I agree to send this contact information under the",
+        "privacy_policy": "privacy policy",
+        "consent_suffix": ".",
+        "consent_without_policy": "I confirm that I want to send the contact information above.",
+        "send": "Send message",
+        "sent": "Your contact request has been submitted.",
+        "send_failed": "The contact request could not be submitted. Try again later.",
+        "mail_subject": "FFA-X website inquiry - {{company}}",
+        "validation": {
+          "first_name": "Enter your first name.",
+          "last_name": "Enter your last name.",
+          "email_required": "Enter your email address.",
+          "email_invalid": "Enter a valid email address.",
+          "phone": "Enter your phone number.",
+          "company": "Enter your company.",
+          "purpose": "Enter your inquiry.",
+          "consent": "Confirm that you agree to send the contact information."
+        }
+      },
+      "faq": {
+        "title": "FAQ",
+        "subtitle": "How can we help?",
+        "search": "Search by keyword",
+        "popular": "Popular categories",
+        "all": "All categories",
+        "contact_title": "Contact",
+        "contact_subtitle": "Still have questions?",
+        "contact_description": "If the current guidance does not answer your question, use the configured official contact details to reach us.",
+        "send": "Send message",
+        "mail_subject": "FFA-X FAQ inquiry"
+      }
+    },
+    "project": {
+      "workspace_name_fallback": "Organization workspace",
+      "workspace_description": "Manage this organization's projects, progress, timelines, and responsibilities in one place."
+    },
+    "navigation": {
+      "workbench": "Workbench",
+      "notifications": "Notifications",
+      "language": "Language",
+      "homepage": "Enter Earth Village",
+      "services": "Choose Services"
+    },
+    "footer": {
+      "tagline": "Digital bridge for global trade"
+    },
+    "notifications": {
+      "all": "All notifications",
+      "unread": "Unread",
+      "mark_all_read": "Mark all as read",
+      "empty": "There are no notifications for this account.",
+      "load_failed": "Notifications could not be loaded from the server.",
+      "view_all": "View all notifications",
+      "mark_failed": "Notifications could not be marked as read.",
+      "breadcrumb": "Workbench notification path",
+      "tabs_label": "Notification filters",
+      "today": "Today",
+      "older": "Older",
+      "types": {
+        "offer_created": "A new offer was received"
+      }
+    },
+    "search": {
+      "navigation": "Available pages",
+      "no_results": "No available pages match this search."
+    },
+    "ui": {
+      "open_navigation": "Open navigation",
+      "profile_menu": "Account menu",
+      "preferences": "Preferences",
+      "accessibility": "Accessibility",
+      "dark_mode": "Dark mode",
+      "account_settings": "Account settings",
+      "help_center": "Help center",
+      "sign_out": "Sign out",
+      "sign_in": "Log in",
+      "search": "Search",
+      "new": "New"
+    },
+    "errors": {
+      "not_found": {
+        "title": "Page not found",
+        "description": "This address does not exist or is no longer available. Return to the official FFA-X homepage.",
+        "home": "Back to homepage"
+      }
+    },
+    "auth": {
+      "login": "Log in",
+      "login_form": {
+        "title": "Log in",
+        "no_account": "Don't have an account?",
+        "sign_up": "Sign up",
+        "login_name": "Login name or email",
+        "password": "Password",
+        "remember_device": "Remember this device",
+        "submit": "Log in",
+        "failed": "Login failed. Check your login name and password."
+      },
+      "signup": {
+        "title": "Sign up",
+        "existing_account": "Already have an account?",
+        "given_name": "First name",
+        "family_name": "Last name",
+        "email": "Email",
+        "password": "Password",
+        "create_account": "Create account",
+        "failed": "The account could not be created."
+      },
+      "service": {
+        "unconfigured": "ZITADEL is not configured. Set the domain, Web Client ID, and FFA-X Project ID first.",
+        "connection_failed": "ZITADEL could not be reached: {{message}}"
+      },
+      "errors": {
+        "registration_invalid": "The registration details are incomplete or invalid.",
+        "registration_failed": "The account could not be created. Check the registration details or return to login.",
+        "verification_invalid": "The email verification link is invalid or incomplete.",
+        "verification_expired": "The email verification link is invalid or has expired.",
+        "login_invalid_request": "The login details are incomplete.",
+        "login_invalid_credentials": "The login name or password is incorrect.",
+        "authentication_not_configured": "The ZITADEL login service has not been configured on the server.",
+        "authentication_service_unavailable": "The ZITADEL login service is currently unavailable."
+      },
+      "validation": {
+        "required": "This field is required.",
+        "email": "Enter a valid email address.",
+        "password_length": "Use at least 8 characters."
+      },
+      "email": {
+        "close": "Close",
+        "pending_title": "Check your email",
+        "pending_message": "A verification link has been sent to the email you submitted. Verify it to log in to FFA-X.",
+        "completed": "Already verified?",
+        "return_login": "Return to login",
+        "confirm_title": "Verify email",
+        "confirm_message": "Confirm ownership of this email below. After verification, you can log in to FFA-X.",
+        "ready": "Ready?",
+        "confirm_action": "Confirm verification",
+        "verifying": "Verifying...",
+        "invalid_link": "This verification link is invalid or incomplete.",
+        "verify_failed": "The email could not be verified. The link may have expired."
+      },
+      "logged_out": {
+        "title": "You have been logged out",
+        "headline": "See you again soon",
+        "message": "Your FFA-X session has ended securely. You can log back in whenever you are ready.",
+        "login_again": "Log back in"
+      }
+    },
+    "workbench": {
+      "plugin_center": "Plugin Center",
+      "description": "Manage the plugins made available to this organization through the authenticated FFA-X server API.",
+      "refresh": "Refresh",
+      "search_plugins": "Search plugins",
+      "all_lifecycles": "All lifecycle states",
+      "free": "Free",
+      "load_failed": "The plugin catalog could not be loaded from the server.",
+      "no_plugins": "No server plugin records match the current filter.",
+      "action_completed": "The server completed the plugin action.",
+      "action_failed": "The plugin action failed. {{error}}",
+      "layout": {
+        "reset": "Restore default",
+        "save": "Save layout",
+        "opened": "{{panel}} · Open",
+        "reopen": "Reopen {{panel}}",
+        "load_failed": "The saved layout could not be loaded. The default layout is in use.",
+        "legacy_removed": "The default workbench layout has been restored.",
+        "saved": "The workbench layout was saved.",
+        "conflict": "The layout changed on another device. Refresh and try again.",
+        "save_failed": "The layout could not be saved.",
+        "unknown_panel": "This workbench panel is not recognized."
+      },
+      "errors": {
+        "plugin_payment_not_connected": "This plugin is not currently available for purchase.",
+        "plugin_runtime_not_connected": "The plugin service is currently unavailable. Try again later.",
+        "real_payments_disabled_pending_kyc": "Online payments become available after enterprise account verification.",
+        "invalid_plugin_transition": "This action is not allowed for the plugin's current state.",
+        "unknown_plugin_action": "The plugin action is not recognized."
+      },
+      "columns": {
+        "plugin": "Plugin",
+        "version": "Version",
+        "price": "Price",
+        "lifecycle": "Lifecycle",
+        "capabilities": "Capabilities",
+        "roles": "Required roles",
+        "updated": "Updated"
+      },
+      "lifecycle": {
+        "available": "Available",
+        "purchased": "Purchased",
+        "installing": "Installing",
+        "active": "Active",
+        "disabled": "Disabled",
+        "upgrading": "Upgrading",
+        "failed": "Failed"
+      },
+      "actions": {
+        "purchase": "Get",
+        "install": "Install",
+        "enable": "Enable",
+        "disable": "Disable",
+        "upgrade": "Upgrade",
+        "retry": "Retry"
+      }
+    },
+    "faq": {
+      "categories": {
+        "platform": {
+          "title": "FFA-X Platform",
+          "description": "How the trusted digital bridge for global trade is organized.",
+          "items": {
+            "overview": {
+              "question": "What is FFA-X?",
+              "answer": "FFA-X is a trusted digital bridge for global trade. It connects organizations, teams, service capabilities, business resources, and fulfillment workflows through one coordinated workspace."
+            },
+            "participants": {
+              "question": "Who is FFA-X built to connect?",
+              "answer": "FFA-X is designed to connect buyers, sellers, factories, logistics providers, warehouses, service organizations, and the teams responsible for completing cross-border work."
+            },
+            "ai": {
+              "question": "What role does AI play in FFA-X?",
+              "answer": "AI is a supporting layer for understanding requirements, matching capabilities, and assisting work. Business decisions, permissions, and transactions remain controlled by the connected systems, server APIs, and authorized users."
+            },
+            "modules": {
+              "question": "Which modules appear in the workbench?",
+            "answer": "The workbench organizes authorized functions in saved tabs and split views. Plugin Center and Notifications are currently available; other business modules appear according to organization access."
+            }
+          }
+        },
+        "access": {
+          "title": "Account & Access",
+          "description": "Identity, login, protected pages, and organization access.",
+          "items": {
+            "login": {
+              "question": "How do I sign in?",
+              "answer": "FFA-X uses its unified identity service for sign-in and account registration."
+            },
+            "protection": {
+              "question": "Can I open the workbench without signing in?",
+              "answer": "No. Protected workbench routes require a valid authenticated session and redirect unauthenticated visitors to the ZITADEL login page."
+            },
+            "roles": {
+              "question": "How are organization roles applied?",
+              "answer": "FFA-X reads organization and project-role claims from the authenticated identity. Server APIs must enforce the corresponding tenant and permission rules for every protected operation."
+            },
+            "logout": {
+              "question": "What happens when I sign out?",
+              "answer": "Signing out ends the FFA-X session through the configured identity provider and returns the browser to the official signed-out route."
+            }
+          }
+        },
+        "connections": {
+          "title": "Systems & APIs",
+          "description": "How real services, work pages, and business data are connected.",
+          "items": {
+            "api": {
+              "question": "How does FFA-X connect to business systems?",
+              "answer": "FFA-X connects business systems through service adapters and coordinates information, tasks, and workflows in one workspace."
+            },
+            "workspace": {
+              "question": "Are work modules embedded as external web pages?",
+              "answer": "No. Functional modules run directly in the FFA-X workbench and share its theme, controls, and window interactions."
+            },
+            "records": {
+              "question": "Where do production records come from?",
+              "answer": "Business records are synchronized from connected systems and shown in the workbench according to organization and user permissions."
+            },
+            "transactions": {
+              "question": "Does FFA-X replace every transaction platform?",
+              "answer": "No. Independent transaction and service platforms keep their own authority. FFA-X connects participants, capabilities, information, and workflows across those systems."
+            }
+          }
+        },
+        "workbench": {
+          "title": "Workbench & Interface",
+          "description": "Navigation, responsive layout, language, and appearance.",
+          "items": {
+            "navigation": {
+              "question": "Where do homepage links and buttons lead?",
+              "answer": "Official navigation points to real FFA-X routes such as the homepage, about page, contact page, FAQ, subscriptions, login, and protected workbench. Unconfigured external links are not presented as working services."
+            },
+            "responsive": {
+              "question": "Does the interface support different screen sizes?",
+              "answer": "Yes. The original responsive component structure is retained for desktop, tablet, and mobile layouts."
+            },
+            "themes": {
+              "question": "Are light and dark themes available?",
+              "answer": "Yes. The workbench retains the source theme system, including light and dark modes and the original component interactions."
+            },
+            "languages": {
+              "question": "Which interface languages are available?",
+              "answer": "The current interface includes Simplified Chinese and English language resources."
+            }
+          }
+        }
+      },
+      "search": {
+        "no_results": "No matching FFA-X questions were found."
+      }
+    }
+  },
   "common": {
     "accessibility": {
       "alternate_email": "Alternate email",
@@ -262,7 +637,7 @@
           "selected_835f3b50": "selected"
         },
         "logo": {
-          "aurora_c8251d84": "FFA-X"
+          "ffax_c8251d84": "FFA-X"
         }
       },
       "pagination": {
@@ -2051,7 +2426,7 @@
           },
           "hours_completed": {
             "hours_completed_by_projects_0434a8dc": "Hours completed by projects",
-            "aurora_eeee9b76": "Aurora",
+            "ffax_eeee9b76": "FFA-X",
             "falcon_63f5c347": "Falcon",
             "phoenix_3e978fbf": "Phoenix"
           },
@@ -2673,7 +3048,7 @@
             "not_helpful_85efce01": "Not helpful",
             "load_more_dfe60ca9": "Load more",
             "try_in_your_room_54e838d5": "Try in your room",
-            "themewagon_qr_ec4c6a54": "Themewagon QR",
+            "themewagon_qr_ec4c6a54": "FFA-X QR",
             "home_70f8bb9a": "Home",
             "living_room_25ff70b3": "Living room",
             "armchair_d5727b18": "Armchair",
@@ -3582,7 +3957,7 @@
             "support_f32d5a3b": "Support",
             "marketing_e0c534a0": "Marketing",
             "team_21888726": "Team",
-            "aurora_eeee9b76": "Aurora",
+            "ffax_eeee9b76": "FFA-X",
             "falcon_63f5c347": "Falcon",
             "phoenix_3e978fbf": "Phoenix",
             "hummingbird_e80efe6a": "HummingBird",
@@ -3726,7 +4101,7 @@
             "quantity_must_be_a_number_fb0578a5": "Quantity must be a number",
             "price_is_required_2fa9daf0": "Price is required",
             "price_must_be_a_number_e1ea37ee": "Price must be a number",
-            "themewagon_4ba48b41": "Themewagon",
+            "themewagon_4ba48b41": "FFA-X",
             "web_design_service_08d28db3": "Web design service",
             "soft_set_bb2a923b": "Soft set",
             "facebook_add_campaign_d5b56324": "Facebook add campaign"
@@ -3775,8 +4150,8 @@
             "total_amount_c1ed4a16": "Total amount",
             "notes_70440046": "Notes",
             "creating_with_9b7444e1": "Creating with",
-            "aurora_eeee9b76": "Aurora",
-            "themewagon_42a442ab": "ThemeWagon",
+            "ffax_eeee9b76": "FFA-X",
+            "themewagon_42a442ab": "FFA-X",
             "logo_5807dd60": "logo"
           }
         }
@@ -3841,7 +4216,7 @@
             "add_label_591203a2": "Add Label",
             "you_currently_have_no_team_a8fd6154": "You currently have no team.",
             "team_management_table_c49f9e08": "team management table",
-            "invite_to_aurora_42e21246": "Invite to Aurora",
+            "invite_to_ffax_42e21246": "Invite to FFA-X",
             "member_6853c98a": "Member",
             "admin_4e7afebc": "Admin",
             "guest_face83ee": "Guest",
@@ -3942,38 +4317,24 @@
       "landing": {
         "about_us": {
           "hero": {
-            "get_to_know_us_together_we_create_b4135d5a": "Get to Know Us: Together, We Create",
-            "magic_8dbd968d": "Magic!",
-            "creating_products_with_a_strong_identity_we_provide__36520044": "Creating products with a strong identity. We provide brilliant ideas and adding the world called success brand. We deliver customized marketing campaign to use your audience to make a positive move.",
-            "let_s_talk_now_f98b4a0e": "Let's talk now",
-            "easy_installation_85cdbe94": "Easy Installation",
-            "modern_design_28dd9713": "Modern Design"
-          },
-          "ourmission": {
-            "our_goal_cbcdc20b": "Our Goal",
-            "we_believe_a_connected_team_is_a_powerful_asset_no_m_8ced9b5a": "We believe a connected team is a powerful asset, no matter their location. Our mission is to empower remote teams with the tools and insights they need to collaborate seamlessly, stay productive, and reach their full potential. We are dedicated to breaking down barriers and fostering a work environment where every individual feels supported and engaged.",
-            "our_approach_goes_beyond_providing_simple_software_w_ba27d6f9": "Our approach goes beyond providing simple software. We are focused on helping you build a strong foundation of communication and trust. We believe that by enabling a more fluid and efficient way of working, we can help you unlock a level of collaboration and innovation that was once only possible in a physical office.",
-            "we_are_committed_to_helping_you_navigate_the_complex_2da5e207": "We are committed to helping you navigate the complexities of remote work. Our tools integrate effortlessly into your existing workflows, and we offer dedicated support to ensure your team's success. Because every business is unique, we provide flexible, customizable solutions tailored to your specific needs.",
-            "ultimately_when_your_team_thrives_your_business_thri_0e2b701c": "Ultimately, when your team thrives, your business thrives. Our goal is to be your partner in building a resilient, high-performing team that is ready for the future of work.",
-            "we_are_here_for_your_needs_f5df1a8e": "We are here for your needs!",
-            "we_understand_that_the_demands_of_the_modern_workpla_184e7314": "We understand that the demands of the modern workplace require a partner who gets it. We've built our platform to be your go-to resource for all things remote work. Our solutions are designed to address your specific needs, whether you're solving complex communication issues, optimizing collaboration, or simply making daily tasks easier for your team.",
-            "we_are_not_merely_a_software_provider_we_see_ourselv_27f8b0f2": "We are not merely a software provider; we see ourselves as your strategic ally in cultivating a dynamic, efficient, and future-ready remote team. Our commitment goes beyond just offering tools; we provide ongoing support and a steadfast dedication to your success. This ensures that you can tackle any challenge with confidence. Our mission is to empower you in creating a high-performing and satisfied workforce that thrives in today’s ever-evolving landscape.",
-            "more_about_us_a948eeb6": "MORE ABOUT US",
-            "our_goal_042bf01a": "Our goal",
-            "our_approach_f09011b0": "Our approach",
-            "our_strength_a8c57bd5": "Our strength",
-            "on_a_mission_to_empower_remote_teams_1918e7ce": "On a mission to empower remote teams"
+            "get_to_know_us_together_we_create_b4135d5a": "The Digital Bridge for",
+            "magic_8dbd968d": "Global Trade",
+            "creating_products_with_a_strong_identity_we_provide__36520044": "Connecting organizations, teams, service capabilities, business resources, and fulfillment workflows in one coordinated ecosystem.",
+            "let_s_talk_now_f98b4a0e": "Contact us",
+            "easy_installation_85cdbe94": "Open Integration",
+            "modern_design_28dd9713": "Trusted Network"
           },
           "overview": {
-            "design_59b03536": "Design",
-            "development_4c17aadf": "Development",
-            "growth_marketing_0f4734aa": "Growth Marketing",
-            "about_aurora_f444f811": "About aurora",
-            "aurora_an_intuitive_admin_dashboard_designed_for_sea_fb082f96": "Aurora, an intuitive admin dashboard designed for seamless management, is celebrated for its user-friendly interface, powerful analytics, and a community that fosters collaboration and growth.",
-            "our_works_855a5276": "Our Works",
-            "105_project_delivered_316d6e15": "105+ Project Delivered",
-            "200_applications_built_95da1471": "200+ Applications Built",
-            "what_is_aurora_f0bccb9a": "What is Aurora"
+            "design_59b03536": "Network",
+            "development_4c17aadf": "Capabilities",
+            "growth_marketing_0f4734aa": "Fulfillment",
+            "about_ffax_f444f811": "About FFA-X",
+            "ffax_an_intuitive_admin_dashboard_designed_for_sea_fb082f96": "FFA-X is the trusted digital bridge for global trade, connecting organizations, teams, service capabilities, business resources, and fulfillment workflows through one coordinated workspace.",
+            "our_works_855a5276": "Contact us",
+            "105_project_delivered_316d6e15": "Connected Organizations",
+            "200_applications_built_95da1471": "Service Integration",
+            "coordinated_workflows_32d93004": "Coordinated Workflows",
+            "what_is_ffax_f0bccb9a": "What is FFA-X"
           },
           "team": {
             "madeline_wuntch_642ba189": "Madeline Wuntch",
@@ -3994,8 +4355,8 @@
             "phone_number_ab25d61b": "Phone Number",
             "email_address_09ba557f": "Email Address",
             "location_d219c681": "Location",
-            "hello_randommail_com_dd2ead67": "hello@randommail.com",
-            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "123 Sunnyvale Park, Springfield, IL, USA"
+            "hello_randommail_com_dd2ead67": "hello@ffax.com",
+            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "Global online service"
           },
           "contactform": {
             "first_name_is_required_fd5f7f4c": "First name is required.",
@@ -4026,8 +4387,8 @@
         "faq": {
           "faqcontact": {
             "still_have_questions_don_t_hesitate_to_ask_our_dedic_c665f79d": "Still have questions? Don’t hesitate to ask! Our dedicated team is ready to assist you with any concerns, ensuring you have the clarity and support needed to proceed with confidence.",
-            "hello_randommail_com_dd2ead67": "hello@randommail.com",
-            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "123 Sunnyvale Park, Springfield, IL, USA",
+            "hello_randommail_com_dd2ead67": "hello@ffax.com",
+            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "Global online service",
             "first_name_b6ea992a": "First Name",
             "last_name_863cb39f": "Last Name",
             "email_84add5b2": "Email",
@@ -4227,7 +4588,7 @@
             "marketing_e0c534a0": "Marketing",
             "support_f32d5a3b": "Support",
             "team_21888726": "Team",
-            "themewagon_4ba48b41": "Themewagon",
+            "themewagon_4ba48b41": "FFA-X",
             "mailbluster_0d51e6c7": "Mailbluster",
             "blackbox_78246761": "Blackbox",
             "hyperninja_86aeb854": "Hyperninja",
@@ -4930,7 +5291,7 @@
             "begin_your_journey_with_1a0d9ef4": "Begin your journey with",
             "today_76d70374": "today!",
             "live_preview_a62da901": "Live Preview",
-            "aurora_c8251d84": "aurora"
+            "ffax_c8251d84": "FFA-X"
           }
         },
         "customize_layout": {
@@ -4954,7 +5315,7 @@
         "layout": {
           "footer": {
             "brought_to_you_by_6a89f6ec": "Brought to you by",
-            "themewagon_42a442ab": "ThemeWagon"
+            "themewagon_42a442ab": "FFA-X"
           },
           "header": {
             "purchase_160f06d4": "Purchase"
@@ -5074,7 +5435,7 @@
           "filterdrawer": {
             "member_6853c98a": "Member",
             "team_21888726": "Team",
-            "themewagon_42a442ab": "ThemeWagon",
+            "themewagon_42a442ab": "FFA-X",
             "mailbluster_2b902ce2": "MailBluster",
             "hyperninja_c8cf169b": "HyperNinja",
             "client_1bdd79b1": "Client",
@@ -5183,7 +5544,7 @@
             "content_marketing_a5238b18": "Content Marketing",
             "lead_gen_compaign_9b79c838": "Lead Gen Compaign",
             "team_21888726": "Team",
-            "themewagon_42a442ab": "ThemeWagon",
+            "themewagon_42a442ab": "FFA-X",
             "mailbluster_2b902ce2": "MailBluster",
             "hyperninja_c8cf169b": "HyperNinja",
             "time_type_aff84e63": "Time Type",
@@ -6159,7 +6520,7 @@
           "thank_you_positioned_at_the_front_line_all_eyes_are__19090aed": "Thank you. Positioned at the front line, all eyes are on you, aware of the gravity as we are getting closer-- this fight is not over.",
           "the_pressure_mounts_you_are_feeling_it_but_you_posse_31e0cc3e": "The pressure mounts, you are feeling it, but you possess everything needed to prevail.",
           "embrace_the_belief_that_when_you_fall_you_can_get_up_6b5f84d1": "Embrace the belief that when you fall, you can get up. And if you fall, you definitely will get up.",
-          "team_aurora_8534330a": "Team Aurora.",
+          "team_ffax_8534330a": "Team FFA-X.",
           "hello_gerard_p_9abb38d1": "Hello Gerard P,",
           "you_are_a_good_soldier_carefully_choosing_your_battl_79572db6": "You are a good soldier, carefully choosing your battles and always ready to pick yourself up and dust yourself off and back in the saddle when knocked down. Positioned at the front line, all eyes are on you, aware of the gravity as we are getting closer.",
           "kept_in_sent_gave_feel_will_oh_it_we_has_pleasure_pr_daff725d": "Kept in sent gave feel will oh it we. Has pleasure procured men laughing shutters nay. Old insipidity motionless continuing law shy partiality. Depending acuteness dependent eat use dejection. Unpleasing astonished discovered not nor shy. Morning hearted now met yet beloved evening. Has and upon his last here must.",
@@ -6614,7 +6975,7 @@
         "harmonious_convergence_a5570ccc": "Harmonious Convergence:",
         "nightsky_s_ethereal_melodies_will_blend_seamlessly_w_35de14bf": "NightSky’s ethereal melodies will blend seamlessly with Dawn’s uplifting rhythms. Imagine the Milky Way itself swaying to their cosmic tunes.",
         "stellar_setlists_505e7518": "Stellar Setlists:",
-        "nightsky_will_unveil_their_latest_nebula_inspired_co_78b9c72a": "NightSky will unveil their latest nebula-inspired compositions, while Dawn will ignite the stage with their sun-kissed anthems. Hits like “Galactic Serenade” and “Aurora Borealis” are bound to leave you spellbound.",
+        "nightsky_will_unveil_their_latest_nebula_inspired_co_78b9c72a": "NightSky will unveil their latest nebula-inspired compositions, while Dawn will ignite the stage with their sun-kissed anthems. Hits like “Galactic Serenade” and “FFA-X Borealis” are bound to leave you spellbound.",
         "interstellar_visuals_be97e291": "Interstellar Visuals:",
         "brace_yourself_for_mesmerizing_visuals_projected_ont_4accd1b2": "Brace yourself for mesmerizing visuals projected onto a holographic dome. Nebulas, shooting stars, and celestial ballets will dance in harmony with the music.",
         "cosmic_attire_19855456": "Cosmic Attire:",
@@ -6655,7 +7016,7 @@
         "there_will_be_no_parking_facility_from_the_organizer_13dfd2c0": "There will be no parking facility from the organizers. If available from the venue authority, you may redeem the service on your own accord."
       },
       "faqs": {
-        "aurora_eeee9b76": "Aurora",
+        "ffax_eeee9b76": "FFA-X",
         "pricing_a0d9bbad": "Pricing",
         "campaign_69390e16": "Campaign",
         "templates_f25b700e": "Templates",
@@ -6686,30 +7047,30 @@
         "aws_provides_service_level_agreements_slas_that_assu_e98fe4cb": "AWS provides service-level agreements (SLAs) that assure high uptime and availability. These SLAs come with measurable metrics, giving users a clear understanding of AWS’s performance commitments. Additionally, users can set up multi-region failover for added resilience. AWS’s SLA framework gives clients peace of mind with guaranteed service levels and compensations in case of significant downtime, reflecting AWS’s dedication to maintaining reliable and high-performance cloud environments.",
         "does_aws_offer_hybrid_cloud_solutions_608c439b": "Does AWS offer hybrid cloud solutions?",
         "aws_supports_hybrid_cloud_architectures_through_solu_82403783": "AWS supports hybrid cloud architectures through solutions like AWS Outposts. With Outposts, businesses can extend AWS infrastructure to on-premises setups, balancing AWS’s scalability with local control over specific workloads. This setup is ideal for organizations needing to meet regulatory requirements or manage sensitive data in-house while accessing cloud-based resources.",
-        "what_makes_aurora_unique_1668d19a": "What makes Aurora unique?",
-        "aurora_is_designed_for_seamless_integration_with_mat_85e9fdf8": "Aurora is designed for seamless integration with Material UI components, offering a collection of pre-styled elements that facilitate creating cohesive, visually appealing interfaces. This integration allows developers to streamline the design process, ensuring that components fit effortlessly into various layouts and use cases, saving time and enhancing visual consistency.",
+        "what_makes_ffax_unique_1668d19a": "What makes FFA-X unique?",
+        "ffax_is_designed_for_seamless_integration_with_mat_85e9fdf8": "FFA-X is designed for seamless integration with Material UI components, offering a collection of pre-styled elements that facilitate creating cohesive, visually appealing interfaces. This integration allows developers to streamline the design process, ensuring that components fit effortlessly into various layouts and use cases, saving time and enhancing visual consistency.",
         "can_i_use_third_party_plugins_6692934f": "Can I use third-party plugins?",
-        "absolutely_aurora_is_compatible_with_numerous_third__f264c945": "Absolutely. Aurora is compatible with numerous third-party plugins, making it highly adaptable for diverse application needs. You can add analytics, SEO tools, or specialized UI components without complex setup, offering extensive flexibility to developers who want to tailor the app while maintaining performance and stability. <br/><br/>By supporting a range of integrations, Aurora empowers developers to expand functionality with ease, while ensuring a reliable and high-performance user experience. This versatility makes Aurora a valuable choice for both startups and enterprises that prioritize adaptability and customization in their applications.",
-        "is_aurora_responsive_0009bcac": "Is Aurora responsive?",
-        "aurora_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "Aurora is fully responsive, ensuring smooth functionality across all devices, from mobile to desktop. This adaptability eliminates the need for extensive adjustments, giving users a consistently great experience that aligns with modern design standards.",
+        "absolutely_ffax_is_compatible_with_numerous_third__f264c945": "Absolutely. FFA-X is compatible with numerous third-party plugins, making it highly adaptable for diverse application needs. You can add analytics, SEO tools, or specialized UI components without complex setup, offering extensive flexibility to developers who want to tailor the app while maintaining performance and stability. <br/><br/>By supporting a range of integrations, FFA-X empowers developers to expand functionality with ease, while ensuring a reliable and high-performance user experience. This versatility makes FFA-X a valuable choice for both startups and enterprises that prioritize adaptability and customization in their applications.",
+        "is_ffax_responsive_0009bcac": "Is FFA-X responsive?",
+        "ffax_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "FFA-X is fully responsive, ensuring smooth functionality across all devices, from mobile to desktop. This adaptability eliminates the need for extensive adjustments, giving users a consistently great experience that aligns with modern design standards.",
         "what_themes_are_available_53997f3c": "What themes are available?",
-        "aurora_includes_both_light_and_dark_themes_with_opti_e36082e3": "Aurora includes both light and dark themes, with options for extensive customization to meet unique brand identities. Users can modify colors, fonts, and overall styles to create an interface that reflects specific aesthetic and branding requirements. Seamless theme-switching enhances accessibility, allowing users to choose their preferred appearance effortlessly, promoting engagement and retention through a tailored user experience. <br/><br/> Aurora’s themes are built with inclusivity in mind, creating accessible and welcoming interfaces that adapt to user preferences. These options allow brands to reinforce their identity through visual consistency, contributing to a memorable, cohesive user journey.",
-        "can_i_use_aurora_with_next_js_97d5cb39": "Can I use Aurora with Next.js?",
-        "yes_aurora_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "Yes, Aurora is designed to integrate smoothly with Next.js, supporting both server-side rendering and static site generation. By using Next.js alongside Aurora, developers can create high-performance, SEO-friendly applications that load quickly and offer enhanced user experience. The combination brings together optimized rendering with cohesive styling, making it ideal for scalable applications across varied industries.",
-        "do_you_offer_customer_support_for_aurora_a48652f3": "Do you offer customer support for Aurora?",
-        "yes_aurora_has_a_dedicated_support_team_to_assist_at_8347c441": "Yes, Aurora has a dedicated support team to assist at all stages, from installation to advanced customization. This enables developers to confidently integrate Aurora, knowing that help is available to resolve any issues they may encounter.",
-        "does_aurora_support_localization_a771f01c": "Does Aurora support localization?",
-        "yes_aurora_is_fully_equipped_for_localization_suppor_f003acb3": "Yes, Aurora is fully equipped for localization, supporting i18n for multilingual applications, making it ideal for global audiences. The framework includes settings for easy language adaptation, allowing users to switch languages and catering to diverse regional needs. This enhances accessibility and enables developers to build inclusive applications that resonate with diverse audiences. Aurora’s focus on localization also reflects a commitment to global inclusivity, making it an effective choice for brands aiming to reach a worldwide user base.",
-        "is_aurora_seo_friendly_91592564": "Is Aurora SEO-friendly?",
-        "yes_aurora_is_developed_with_seo_best_practices_in_m_c8b962ba": "Yes, Aurora is developed with SEO best practices in mind, ensuring optimized headers, metadata, and load times. This helps applications rank higher in search results, boosting web visibility. Aurora’s design, combined with features like server-side rendering through Next.js, makes it ideal for creating high-performance, discoverable applications, which is essential for businesses looking to improve their online presence in an increasingly competitive digital landscape.",
-        "what_customization_options_does_aurora_provide_735b1b80": "What customization options does Aurora provide?",
-        "aurora_offers_a_wide_range_of_customization_options__0326b44b": "Aurora offers a wide range of customization options, from color schemes and typography to layout configurations. Developers can easily adjust these elements to align with brand identity, creating a unique and cohesive design. Aurora’s flexibility empowers developers to keep their UI fresh and aligned with evolving design trends, catering to the brand’s unique vision and aesthetic requirements while maintaining a high-quality user experience.",
-        "how_secure_is_aurora_4437c9f9": "How secure is Aurora?",
-        "aurora_prioritizes_security_by_supporting_best_codin_11b585c2": "Aurora prioritizes security by supporting best coding practices, HTTPS, and other security protocols. It integrates well with secure libraries and frameworks, ensuring that user data remains protected. <br/><br/>Aurora’s emphasis on security makes it a dependable choice for applications requiring robust data protection measures. For developers focusing on user privacy and data integrity, Aurora’s security provisions make it a valuable asset in creating trustworthy applications. Aurora’s alignment with modern security standards means that developers can confidently build applications with built-in data protection, safeguarding user information from potential threats.",
-        "does_aurora_support_animation_99ac64b4": "Does Aurora support animation?",
-        "yes_aurora_includes_built_in_support_for_animations__4e7da64e": "Yes, Aurora includes built-in support for animations, allowing developers to add visual enhancements that improve user engagement. Aurora’s animations are lightweight and follow modern design trends, ensuring that applications remain responsive and visually appealing without sacrificing performance. These features make Aurora an excellent option for developers seeking to integrate dynamic elements without compromising on speed or responsiveness, contributing to a lively and interactive user experience.",
-        "can_i_integrate_aurora_with_rest_apis_eebdd93a": "Can I integrate Aurora with REST APIs?",
-        "aurora_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "Aurora is fully compatible with REST APIs, allowing developers to incorporate dynamic data seamlessly. This compatibility enables real-time data fetching and user-specific information display, making it suitable for creating data-driven applications. By supporting REST API integration, Aurora provides developers with the tools to build rich, interactive applications that cater to personalized user experiences and dynamic content delivery.",
+        "ffax_includes_both_light_and_dark_themes_with_opti_e36082e3": "FFA-X includes both light and dark themes, with options for extensive customization to meet unique brand identities. Users can modify colors, fonts, and overall styles to create an interface that reflects specific aesthetic and branding requirements. Seamless theme-switching enhances accessibility, allowing users to choose their preferred appearance effortlessly, promoting engagement and retention through a tailored user experience. <br/><br/> FFA-X’s themes are built with inclusivity in mind, creating accessible and welcoming interfaces that adapt to user preferences. These options allow brands to reinforce their identity through visual consistency, contributing to a memorable, cohesive user journey.",
+        "can_i_use_ffax_with_next_js_97d5cb39": "Can I use FFA-X with Next.js?",
+        "yes_ffax_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "Yes, FFA-X is designed to integrate smoothly with Next.js, supporting both server-side rendering and static site generation. By using Next.js alongside FFA-X, developers can create high-performance, SEO-friendly applications that load quickly and offer enhanced user experience. The combination brings together optimized rendering with cohesive styling, making it ideal for scalable applications across varied industries.",
+        "do_you_offer_customer_support_for_ffax_a48652f3": "Do you offer customer support for FFA-X?",
+        "yes_ffax_has_a_dedicated_support_team_to_assist_at_8347c441": "Yes, FFA-X has a dedicated support team to assist at all stages, from installation to advanced customization. This enables developers to confidently integrate FFA-X, knowing that help is available to resolve any issues they may encounter.",
+        "does_ffax_support_localization_a771f01c": "Does FFA-X support localization?",
+        "yes_ffax_is_fully_equipped_for_localization_suppor_f003acb3": "Yes, FFA-X is fully equipped for localization, supporting i18n for multilingual applications, making it ideal for global audiences. The framework includes settings for easy language adaptation, allowing users to switch languages and catering to diverse regional needs. This enhances accessibility and enables developers to build inclusive applications that resonate with diverse audiences. FFA-X’s focus on localization also reflects a commitment to global inclusivity, making it an effective choice for brands aiming to reach a worldwide user base.",
+        "is_ffax_seo_friendly_91592564": "Is FFA-X SEO-friendly?",
+        "yes_ffax_is_developed_with_seo_best_practices_in_m_c8b962ba": "Yes, FFA-X is developed with SEO best practices in mind, ensuring optimized headers, metadata, and load times. This helps applications rank higher in search results, boosting web visibility. FFA-X’s design, combined with features like server-side rendering through Next.js, makes it ideal for creating high-performance, discoverable applications, which is essential for businesses looking to improve their online presence in an increasingly competitive digital landscape.",
+        "what_customization_options_does_ffax_provide_735b1b80": "What customization options does FFA-X provide?",
+        "ffax_offers_a_wide_range_of_customization_options__0326b44b": "FFA-X offers a wide range of customization options, from color schemes and typography to layout configurations. Developers can easily adjust these elements to align with brand identity, creating a unique and cohesive design. FFA-X’s flexibility empowers developers to keep their UI fresh and aligned with evolving design trends, catering to the brand’s unique vision and aesthetic requirements while maintaining a high-quality user experience.",
+        "how_secure_is_ffax_4437c9f9": "How secure is FFA-X?",
+        "ffax_prioritizes_security_by_supporting_best_codin_11b585c2": "FFA-X prioritizes security by supporting best coding practices, HTTPS, and other security protocols. It integrates well with secure libraries and frameworks, ensuring that user data remains protected. <br/><br/>FFA-X’s emphasis on security makes it a dependable choice for applications requiring robust data protection measures. For developers focusing on user privacy and data integrity, FFA-X’s security provisions make it a valuable asset in creating trustworthy applications. FFA-X’s alignment with modern security standards means that developers can confidently build applications with built-in data protection, safeguarding user information from potential threats.",
+        "does_ffax_support_animation_99ac64b4": "Does FFA-X support animation?",
+        "yes_ffax_includes_built_in_support_for_animations__4e7da64e": "Yes, FFA-X includes built-in support for animations, allowing developers to add visual enhancements that improve user engagement. FFA-X’s animations are lightweight and follow modern design trends, ensuring that applications remain responsive and visually appealing without sacrificing performance. These features make FFA-X an excellent option for developers seeking to integrate dynamic elements without compromising on speed or responsiveness, contributing to a lively and interactive user experience.",
+        "can_i_integrate_ffax_with_rest_apis_eebdd93a": "Can I integrate FFA-X with REST APIs?",
+        "ffax_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "FFA-X is fully compatible with REST APIs, allowing developers to incorporate dynamic data seamlessly. This compatibility enables real-time data fetching and user-specific information display, making it suitable for creating data-driven applications. By supporting REST API integration, FFA-X provides developers with the tools to build rich, interactive applications that cater to personalized user experiences and dynamic content delivery.",
         "do_you_offer_discounts_for_annual_plans_78361afd": "Do you offer discounts for annual plans?",
         "yes_we_provide_a_10_discount_on_annual_subscriptions_56f0180c": "Yes, we provide a 10% discount on annual subscriptions, allowing clients to enjoy our services at a reduced cost while accessing the same features and benefits as monthly plans. Opting for an annual plan is a cost-effective choice for businesses aiming to save on their overall expenses, offering continuous service and savings.",
         "do_you_provide_volume_based_pricing_ab557f8d": "Do you provide volume-based pricing?",
@@ -6830,10 +7191,10 @@
       },
       "file_manager": {
         "my_drive_8dd06507": "My Drive",
-        "aurora_research_3123f0c4": "Aurora_Research",
-        "aurora_new_docs_8db434dd": "Aurora_New.docs",
-        "aurora_backups_52d7cb10": "Aurora_Backups",
-        "aurora_design_e82b353d": "Aurora_Design",
+        "ffax_research_3123f0c4": "FFA-X_Research",
+        "ffax_new_docs_8db434dd": "FFA-X_New.docs",
+        "ffax_backups_52d7cb10": "FFA-X_Backups",
+        "ffax_design_e82b353d": "FFA-X_Design",
         "main_file_zip_dc5c4f09": "Main_File.zip",
         "project_management_html_3d0e9e38": "Project_Management.html",
         "shared_50d0d8dd": "Shared",
@@ -6854,17 +7215,17 @@
         "dodge_durango_the_strong_suv_4cdc4b73": "Dodge Durango: The Strong SUV",
         "travel_tales_50d711fa": "Travel Tales",
         "empty_highway_0c626573": "Empty highway",
-        "aurora_style_c0371747": "Aurora_Style",
+        "ffax_style_c0371747": "FFA-X_Style",
         "photography_of_seashore_34eafefe": "Photography of seashore",
-        "aurora_eeee9b76": "Aurora",
+        "ffax_eeee9b76": "FFA-X",
         "verification_letter_061404f8": "Verification_Letter",
         "resources_backup_0e2f0d5d": "Resources_Backup",
         "elegant_living_room_design_with_green_screen_tv_21361c34": "Elegant Living Room Design with Green Screen TV",
         "road_with_a_curve_53b81d1c": "Road with a curve",
         "man_standing_on_a_rock_mountain_during_daytime_819ad839": "Man Standing on a Rock Mountain during Daytime",
-        "aurora_new_6e008523": "Aurora_New",
+        "ffax_new_6e008523": "FFA-X_New",
         "mt_fuji_308047f8": "Mt. Fuji",
-        "aurora_designs_bb19632f": "Aurora_Designs",
+        "ffax_designs_bb19632f": "FFA-X_Designs",
         "new_folder_b3fdcf96": "New_Folder",
         "wide_road_near_mountains_under_cloudy_sky_2677d8bb": "Wide road near mountains under cloudy sky"
       },
@@ -7063,7 +7424,7 @@
             "developed_stronger_documentation_habits_and_improved_63f8a1ef": "Developed stronger documentation habits and improved stakeholder communication."
           },
           "goals": {
-            "prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393": "Prepare and Launch the Next Version of the Aurora Platform",
+            "prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393": "Prepare and Launch the Next Version of the FFA-X Platform",
             "i_applied_to_this_company_because_of_its_strong_repu_2f03a318": "I applied to this company because of its strong reputation for innovation and quality in content creation. The company’s values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity.",
             "launch_beta_testing_program_for_the_new_mobile_appli_35baca08": "Launch Beta Testing Program for the New Mobile Application",
             "integrate_third_party_payroll_system_with_internal_h_5d1298d4": "Integrate Third-Party Payroll System with Internal HRM Platform",
@@ -7082,12 +7443,12 @@
         }
       },
       "invoice": {
-        "aurora_eeee9b76": "Aurora",
+        "ffax_eeee9b76": "FFA-X",
         "liam_johnson_99370538": "Liam Johnson",
         "sofia_martinez_dd63e038": "Sofia Martinez",
         "ethan_brown_d38939d3": "Ethan Brown",
         "isabella_rossi_f3d65f29": "Isabella Rossi",
-        "themewagon_4ba48b41": "Themewagon",
+        "themewagon_4ba48b41": "FFA-X",
         "web_design_service_08d28db3": "Web design service",
         "sofa_set_bbfe6b84": "Sofa set",
         "facebook_and_campaign_94eb7390": "Facebook and campaign",
@@ -7144,7 +7505,7 @@
           "debug_checkout_process_for_the_e_commerce_website_250c43fd": "Debug checkout process for the e-commerce website",
           "research_and_write_a_blog_about_recent_landscape_arc_fa649d87": "Research and write a blog about recent landscape architecture",
           "doing_9f1ffa41": "Doing",
-          "design_wireframes_for_the_aurora_landing_page_revamp_8437049a": "Design wireframes for the Aurora landing page revamp",
+          "design_wireframes_for_the_ffax_landing_page_revamp_8437049a": "Design wireframes for the FFA-X landing page revamp",
           "install_and_set_up_a_marketing_tool_for_team_operati_9be624ef": "Install and set up a marketing tool for team operations",
           "prepare_and_send_out_a_press_release_for_a_new_colla_7d73d66c": "Prepare and send out a press release for a new collaboration",
           "develop_the_color_code_of_the_logo_and_need_elaborat_260f9486": "Develop the color code of the logo and need elaboration",
@@ -7171,8 +7532,8 @@
       "landing": {
         "faqs": {
           "optimize_performance_and_reduce_costs_using_scalable_298d61d5": "Optimize performance and reduce costs using scalable AWS cloud platforms.",
-          "aurora_eeee9b76": "FFA-X",
-          "simplify_backend_operations_with_aurora_s_clean_mode_29535c96": "Simplify backend operations with Aurora’s clean, modern admin interface.",
+          "ffax_eeee9b76": "FFA-X",
+          "simplify_backend_operations_with_ffax_s_clean_mode_29535c96": "Simplify backend operations with FFA-X’s clean, modern admin interface.",
           "pricing_a0d9bbad": "Pricing",
           "choose_a_plan_that_fits_your_team_goals_and_budget_f61c24bb": "Choose a plan that fits your team, goals, and budget.",
           "campaign_69390e16": "Campaign",
@@ -7217,30 +7578,30 @@
           "aws_provides_service_level_agreements_slas_that_assu_e98fe4cb": "AWS provides service-level agreements (SLAs) that assure high uptime and availability. These SLAs come with measurable metrics, giving users a clear understanding of AWS’s performance commitments. Additionally, users can set up multi-region failover for added resilience. AWS’s SLA framework gives clients peace of mind with guaranteed service levels and compensations in case of significant downtime, reflecting AWS’s dedication to maintaining reliable and high-performance cloud environments.",
           "does_aws_offer_hybrid_cloud_solutions_608c439b": "Does AWS offer hybrid cloud solutions?",
           "aws_supports_hybrid_cloud_architectures_through_solu_82403783": "AWS supports hybrid cloud architectures through solutions like AWS Outposts. With Outposts, businesses can extend AWS infrastructure to on-premises setups, balancing AWS’s scalability with local control over specific workloads. This setup is ideal for organizations needing to meet regulatory requirements or manage sensitive data in-house while accessing cloud-based resources.",
-          "what_makes_aurora_unique_1668d19a": "What makes Aurora unique?",
-          "aurora_is_designed_for_seamless_integration_with_mat_85e9fdf8": "Aurora is designed for seamless integration with Material UI components, offering a collection of pre-styled elements that facilitate creating cohesive, visually appealing interfaces. This integration allows developers to streamline the design process, ensuring that components fit effortlessly into various layouts and use cases, saving time and enhancing visual consistency.",
+          "what_makes_ffax_unique_1668d19a": "What makes FFA-X unique?",
+          "ffax_is_designed_for_seamless_integration_with_mat_85e9fdf8": "FFA-X is designed for seamless integration with Material UI components, offering a collection of pre-styled elements that facilitate creating cohesive, visually appealing interfaces. This integration allows developers to streamline the design process, ensuring that components fit effortlessly into various layouts and use cases, saving time and enhancing visual consistency.",
           "can_i_use_third_party_plugins_6692934f": "Can I use third-party plugins?",
-          "absolutely_aurora_is_compatible_with_numerous_third__f264c945": "Absolutely. Aurora is compatible with numerous third-party plugins, making it highly adaptable for diverse application needs. You can add analytics, SEO tools, or specialized UI components without complex setup, offering extensive flexibility to developers who want to tailor the app while maintaining performance and stability. <br/><br/>By supporting a range of integrations, Aurora empowers developers to expand functionality with ease, while ensuring a reliable and high-performance user experience. This versatility makes Aurora a valuable choice for both startups and enterprises that prioritize adaptability and customization in their applications.",
-          "is_aurora_responsive_0009bcac": "Is Aurora responsive?",
-          "aurora_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "Aurora is fully responsive, ensuring smooth functionality across all devices, from mobile to desktop. This adaptability eliminates the need for extensive adjustments, giving users a consistently great experience that aligns with modern design standards.",
+          "absolutely_ffax_is_compatible_with_numerous_third__f264c945": "Absolutely. FFA-X is compatible with numerous third-party plugins, making it highly adaptable for diverse application needs. You can add analytics, SEO tools, or specialized UI components without complex setup, offering extensive flexibility to developers who want to tailor the app while maintaining performance and stability. <br/><br/>By supporting a range of integrations, FFA-X empowers developers to expand functionality with ease, while ensuring a reliable and high-performance user experience. This versatility makes FFA-X a valuable choice for both startups and enterprises that prioritize adaptability and customization in their applications.",
+          "is_ffax_responsive_0009bcac": "Is FFA-X responsive?",
+          "ffax_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "FFA-X is fully responsive, ensuring smooth functionality across all devices, from mobile to desktop. This adaptability eliminates the need for extensive adjustments, giving users a consistently great experience that aligns with modern design standards.",
           "what_themes_are_available_53997f3c": "What themes are available?",
-          "aurora_includes_both_light_and_dark_themes_with_opti_e36082e3": "Aurora includes both light and dark themes, with options for extensive customization to meet unique brand identities. Users can modify colors, fonts, and overall styles to create an interface that reflects specific aesthetic and branding requirements. Seamless theme-switching enhances accessibility, allowing users to choose their preferred appearance effortlessly, promoting engagement and retention through a tailored user experience. <br/><br/> Aurora’s themes are built with inclusivity in mind, creating accessible and welcoming interfaces that adapt to user preferences. These options allow brands to reinforce their identity through visual consistency, contributing to a memorable, cohesive user journey.",
-          "can_i_use_aurora_with_next_js_97d5cb39": "Can I use Aurora with Next.js?",
-          "yes_aurora_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "Yes, Aurora is designed to integrate smoothly with Next.js, supporting both server-side rendering and static site generation. By using Next.js alongside Aurora, developers can create high-performance, SEO-friendly applications that load quickly and offer enhanced user experience. The combination brings together optimized rendering with cohesive styling, making it ideal for scalable applications across varied industries.",
-          "do_you_offer_customer_support_for_aurora_a48652f3": "Do you offer customer support for Aurora?",
-          "yes_aurora_has_a_dedicated_support_team_to_assist_at_8347c441": "Yes, Aurora has a dedicated support team to assist at all stages, from installation to advanced customization. This enables developers to confidently integrate Aurora, knowing that help is available to resolve any issues they may encounter.",
-          "does_aurora_support_localization_a771f01c": "Does Aurora support localization?",
-          "yes_aurora_is_fully_equipped_for_localization_suppor_f003acb3": "Yes, Aurora is fully equipped for localization, supporting i18n for multilingual applications, making it ideal for global audiences. The framework includes settings for easy language adaptation, allowing users to switch languages and catering to diverse regional needs. This enhances accessibility and enables developers to build inclusive applications that resonate with diverse audiences. Aurora’s focus on localization also reflects a commitment to global inclusivity, making it an effective choice for brands aiming to reach a worldwide user base.",
-          "is_aurora_seo_friendly_91592564": "Is Aurora SEO-friendly?",
-          "yes_aurora_is_developed_with_seo_best_practices_in_m_c8b962ba": "Yes, Aurora is developed with SEO best practices in mind, ensuring optimized headers, metadata, and load times. This helps applications rank higher in search results, boosting web visibility. Aurora’s design, combined with features like server-side rendering through Next.js, makes it ideal for creating high-performance, discoverable applications, which is essential for businesses looking to improve their online presence in an increasingly competitive digital landscape.",
-          "what_customization_options_does_aurora_provide_735b1b80": "What customization options does Aurora provide?",
-          "aurora_offers_a_wide_range_of_customization_options__0326b44b": "Aurora offers a wide range of customization options, from color schemes and typography to layout configurations. Developers can easily adjust these elements to align with brand identity, creating a unique and cohesive design. Aurora’s flexibility empowers developers to keep their UI fresh and aligned with evolving design trends, catering to the brand’s unique vision and aesthetic requirements while maintaining a high-quality user experience.",
-          "how_secure_is_aurora_4437c9f9": "How secure is Aurora?",
-          "aurora_prioritizes_security_by_supporting_best_codin_11b585c2": "Aurora prioritizes security by supporting best coding practices, HTTPS, and other security protocols. It integrates well with secure libraries and frameworks, ensuring that user data remains protected. <br/><br/>Aurora’s emphasis on security makes it a dependable choice for applications requiring robust data protection measures. For developers focusing on user privacy and data integrity, Aurora’s security provisions make it a valuable asset in creating trustworthy applications. Aurora’s alignment with modern security standards means that developers can confidently build applications with built-in data protection, safeguarding user information from potential threats.",
-          "does_aurora_support_animation_99ac64b4": "Does Aurora support animation?",
-          "yes_aurora_includes_built_in_support_for_animations__4e7da64e": "Yes, Aurora includes built-in support for animations, allowing developers to add visual enhancements that improve user engagement. Aurora’s animations are lightweight and follow modern design trends, ensuring that applications remain responsive and visually appealing without sacrificing performance. These features make Aurora an excellent option for developers seeking to integrate dynamic elements without compromising on speed or responsiveness, contributing to a lively and interactive user experience.",
-          "can_i_integrate_aurora_with_rest_apis_eebdd93a": "Can I integrate Aurora with REST APIs?",
-          "aurora_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "Aurora is fully compatible with REST APIs, allowing developers to incorporate dynamic data seamlessly. This compatibility enables real-time data fetching and user-specific information display, making it suitable for creating data-driven applications. By supporting REST API integration, Aurora provides developers with the tools to build rich, interactive applications that cater to personalized user experiences and dynamic content delivery.",
+          "ffax_includes_both_light_and_dark_themes_with_opti_e36082e3": "FFA-X includes both light and dark themes, with options for extensive customization to meet unique brand identities. Users can modify colors, fonts, and overall styles to create an interface that reflects specific aesthetic and branding requirements. Seamless theme-switching enhances accessibility, allowing users to choose their preferred appearance effortlessly, promoting engagement and retention through a tailored user experience. <br/><br/> FFA-X’s themes are built with inclusivity in mind, creating accessible and welcoming interfaces that adapt to user preferences. These options allow brands to reinforce their identity through visual consistency, contributing to a memorable, cohesive user journey.",
+          "can_i_use_ffax_with_next_js_97d5cb39": "Can I use FFA-X with Next.js?",
+          "yes_ffax_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "Yes, FFA-X is designed to integrate smoothly with Next.js, supporting both server-side rendering and static site generation. By using Next.js alongside FFA-X, developers can create high-performance, SEO-friendly applications that load quickly and offer enhanced user experience. The combination brings together optimized rendering with cohesive styling, making it ideal for scalable applications across varied industries.",
+          "do_you_offer_customer_support_for_ffax_a48652f3": "Do you offer customer support for FFA-X?",
+          "yes_ffax_has_a_dedicated_support_team_to_assist_at_8347c441": "Yes, FFA-X has a dedicated support team to assist at all stages, from installation to advanced customization. This enables developers to confidently integrate FFA-X, knowing that help is available to resolve any issues they may encounter.",
+          "does_ffax_support_localization_a771f01c": "Does FFA-X support localization?",
+          "yes_ffax_is_fully_equipped_for_localization_suppor_f003acb3": "Yes, FFA-X is fully equipped for localization, supporting i18n for multilingual applications, making it ideal for global audiences. The framework includes settings for easy language adaptation, allowing users to switch languages and catering to diverse regional needs. This enhances accessibility and enables developers to build inclusive applications that resonate with diverse audiences. FFA-X’s focus on localization also reflects a commitment to global inclusivity, making it an effective choice for brands aiming to reach a worldwide user base.",
+          "is_ffax_seo_friendly_91592564": "Is FFA-X SEO-friendly?",
+          "yes_ffax_is_developed_with_seo_best_practices_in_m_c8b962ba": "Yes, FFA-X is developed with SEO best practices in mind, ensuring optimized headers, metadata, and load times. This helps applications rank higher in search results, boosting web visibility. FFA-X’s design, combined with features like server-side rendering through Next.js, makes it ideal for creating high-performance, discoverable applications, which is essential for businesses looking to improve their online presence in an increasingly competitive digital landscape.",
+          "what_customization_options_does_ffax_provide_735b1b80": "What customization options does FFA-X provide?",
+          "ffax_offers_a_wide_range_of_customization_options__0326b44b": "FFA-X offers a wide range of customization options, from color schemes and typography to layout configurations. Developers can easily adjust these elements to align with brand identity, creating a unique and cohesive design. FFA-X’s flexibility empowers developers to keep their UI fresh and aligned with evolving design trends, catering to the brand’s unique vision and aesthetic requirements while maintaining a high-quality user experience.",
+          "how_secure_is_ffax_4437c9f9": "How secure is FFA-X?",
+          "ffax_prioritizes_security_by_supporting_best_codin_11b585c2": "FFA-X prioritizes security by supporting best coding practices, HTTPS, and other security protocols. It integrates well with secure libraries and frameworks, ensuring that user data remains protected. <br/><br/>FFA-X’s emphasis on security makes it a dependable choice for applications requiring robust data protection measures. For developers focusing on user privacy and data integrity, FFA-X’s security provisions make it a valuable asset in creating trustworthy applications. FFA-X’s alignment with modern security standards means that developers can confidently build applications with built-in data protection, safeguarding user information from potential threats.",
+          "does_ffax_support_animation_99ac64b4": "Does FFA-X support animation?",
+          "yes_ffax_includes_built_in_support_for_animations__4e7da64e": "Yes, FFA-X includes built-in support for animations, allowing developers to add visual enhancements that improve user engagement. FFA-X’s animations are lightweight and follow modern design trends, ensuring that applications remain responsive and visually appealing without sacrificing performance. These features make FFA-X an excellent option for developers seeking to integrate dynamic elements without compromising on speed or responsiveness, contributing to a lively and interactive user experience.",
+          "can_i_integrate_ffax_with_rest_apis_eebdd93a": "Can I integrate FFA-X with REST APIs?",
+          "ffax_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "FFA-X is fully compatible with REST APIs, allowing developers to incorporate dynamic data seamlessly. This compatibility enables real-time data fetching and user-specific information display, making it suitable for creating data-driven applications. By supporting REST API integration, FFA-X provides developers with the tools to build rich, interactive applications that cater to personalized user experiences and dynamic content delivery.",
           "do_you_offer_discounts_for_annual_plans_78361afd": "Do you offer discounts for annual plans?",
           "yes_we_provide_a_10_discount_on_annual_subscriptions_56f0180c": "Yes, we provide a 10% discount on annual subscriptions, allowing clients to enjoy our services at a reduced cost while accessing the same features and benefits as monthly plans. Opting for an annual plan is a cost-effective choice for businesses aiming to save on their overall expenses, offering continuous service and savings.",
           "do_you_provide_volume_based_pricing_ab557f8d": "Do you provide volume-based pricing?",
@@ -7410,7 +7771,7 @@
           "guided_tutorials_491dfe8b": "Guided tutorials.",
           "a_notification_system_that_alerts_users_about_import_62fde3d0": "A notification system that alerts users about important updates and messages.",
           "user_data_protection_c93265dc": "User data protection.",
-          "a_feedback_system_that_allows_users_to_share_their_t_2214fed2": "A feedback system that allows users to share their thoughts and suggestions.",
+          "a_feedback_system_that_allows_users_to_share_their_t_2214fed2": "ZITADEL provides OIDC authentication and passes organization, project-role, and access-token claims to the real server permission checks.",
           "third_party_integration_503f5364": "Third-party integration.",
           "a_responsive_design_that_ensures_optimal_performance_137ba95d": "A responsive design that ensures optimal performance on both mobile and desktop devices.",
           "adaptive_profiles_0a3e5574": "Adaptive profiles.",
@@ -7528,7 +7889,7 @@
       "pricing": {
         "unlimited_leads_922252e7": "Unlimited leads",
         "unlimited_emails_5a234119": "Unlimited emails",
-        "no_aurora_s_branding_38b62b2f": "No Aurora’s branding",
+        "no_ffax_s_branding_38b62b2f": "No FFA-X’s branding",
         "email_automation_d5ae589e": "Email automation",
         "custom_fields_d1f86d52": "Custom fields",
         "pro_templates_377c3fa8": "Pro templates",
@@ -7588,7 +7949,7 @@
           "create_detailed_project_plan_0273ec3f": "Create Detailed Project Plan",
           "ui_ux_refinements_and_updates_ed7ba151": "UI/UX Refinements and Updates",
           "final_prototype_approval_cd2d8333": "Final Prototype Approval",
-          "aurora_eeee9b76": "Aurora",
+          "ffax_eeee9b76": "FFA-X",
           "falcon_63f5c347": "Falcon",
           "perform_quality_assurance_testing_49f9f363": "Perform Quality Assurance Testing",
           "redesign_module_96db2e81": "Redesign module",
@@ -7756,7 +8117,7 @@
         }
       },
       "search_result": {
-        "aurora_test17_zip_3b7470be": "aurora_test17.zip",
+        "ffax_test17_zip_3b7470be": "FFA-X_test17.zip",
         "product_image_11_webp_991da14e": "Product image(11).webp",
         "how_to_not_click_on_perfectly_innocent_looking_links_ab207acf": "How_to_not_click_on_perfectly_innocent_looking_links_and_download_malware.pdf",
         "gojo_satoru_a9feba19": "Gojo Satoru",
@@ -7817,7 +8178,7 @@
           "behance_5659a8dc": "Behance",
           "dribble_adcd325e": "Dribble",
           "outlook_f4d6b594": "Outlook",
-          "themewagon_42a442ab": "ThemeWagon",
+          "themewagon_42a442ab": "FFA-X",
           "mailbluster_2b902ce2": "MailBluster"
         },
         "dashboard": {
@@ -7985,33 +8346,33 @@
         },
         "footer": {
           "cta": {
-            "start_with_us_today_09280e48": "Start with us today!",
-            "our_platform_s_design_and_architecture_are_crafted_t_d076c5a7": "Our platform's design and architecture are crafted to boost collaboration, helping your team work together more efficiently to achieve their goals.",
+            "start_with_us_today_09280e48": "Connect with FFA-X",
+            "our_platform_s_design_and_architecture_are_crafted_t_d076c5a7": "Join the trusted digital bridge for global trade and coordinate real work through authenticated services and connected systems.",
             "create_an_account_3f4f547d": "Create an account",
             "sign_in_ada2e9e9": "Sign in"
           },
           "navsection": {
-            "aurora_eeee9b76": "Aurora",
+            "ffax_eeee9b76": "FFA-X",
             "about_us_c887b9d3": "About Us",
-            "careers_68d70e59": "Careers",
-            "blog_0b9d2b23": "Blog",
+            "careers_68d70e59": "Workbench",
+            "blog_0b9d2b23": "Subscriptions",
             "support_f32d5a3b": "Support",
             "help_center_11015825": "Help Center",
             "contact_us_9ad0ccff": "Contact Us",
-            "pricing_a0d9bbad": "Pricing",
+            "pricing_a0d9bbad": "Subscriptions",
             "faqs_ab9dcd4a": "FAQs",
-            "legal_902c91d9": "Legal",
-            "privacy_cf01481f": "Privacy",
-            "cookie_e4f81994": "Cookie",
-            "terms_a55a275a": "Terms",
-            "security_f25ce1b8": "Security",
-            "aurora_is_a_complete_platform_with_a_user_friendly_i_988b2cd0": "Aurora is a complete platform with a user-friendly interface. It offers tools for seamless collaboration and easy integration with your workflow.",
-            "aurora_ltd_2025_all_rights_reserved_8fc42a94": "Aurora Ltd © 2025, all rights reserved"
+            "legal_902c91d9": "Access",
+            "privacy_cf01481f": "Sign in",
+            "cookie_e4f81994": "Create account",
+            "terms_a55a275a": "FAQ",
+            "security_f25ce1b8": "Contact",
+            "ffax_is_a_complete_platform_with_a_user_friendly_i_988b2cd0": "FFA-X is the trusted digital bridge connecting organizations, capabilities, resources, and fulfillment workflows across global trade.",
+            "ffax_ltd_2025_all_rights_reserved_8fc42a94": "FFA-X © 2026, all rights reserved"
           },
           "newsletter": {
-            "newsletter_6ed05e72": "Newsletter",
-            "email_84add5b2": "Email",
-            "subscribe_d6981f74": "Subscribe"
+            "newsletter_6ed05e72": "Subscription inquiry",
+            "email_84add5b2": "Contact email",
+            "subscribe_d6981f74": "Contact us"
           },
           "socialicons": {
             "socials_33310723": "Socials"
@@ -8054,9 +8415,9 @@
           }
         },
         "footer": {
-          "thank_you_for_creating_with_2cdf75fb": "Thank you for creating with",
-          "aurora_eeee9b76": "Aurora",
-          "themewagon_42a442ab": "ThemeWagon"
+          "thank_you_for_creating_with_2cdf75fb": "Digital bridge for global trade",
+          "ffax_eeee9b76": "FFA-X",
+          "themewagon_42a442ab": "FFA-X"
         },
         "topnav": {
           "open_drawer_fe4563aa": "open drawer",
@@ -8340,24 +8701,6 @@
           }
         }
       },
-      "authentication": {
-        "default": {
-          "auth0": {
-            "log_in_f7c400ed": "Log in",
-            "click_redirect_button_to_continue_logging_in_with_au_c8268009": "Click redirect button to continue logging in with Auth0",
-            "redirect_to_auth0_sign_up_5de80eb5": "Redirect to Auth0 Sign Up",
-            "redirect_to_auth0_log_in_6307d662": "Redirect to Auth0 Log In",
-            "trouble_signing_in_363e4476": "Trouble signing in?"
-          },
-          "loggedout": {
-            "you_have_been_logged_out_9b572515": "You have been logged out.",
-            "see_you_soon_05204645": "See you soon!",
-            "we_are_sad_to_see_you_go_away_but_hey_you_can_log_ba_04afaac9": "We are sad to see you go away but hey, you can log back in anytime you want!",
-            "log_back_in_153267a6": "Log back in",
-            "trouble_signing_in_363e4476": "Trouble signing in?"
-          }
-        }
-      },
       "errors": {
         "page404": {
           "page_not_found_bc3023b3": "Page not found",
@@ -8431,19 +8774,12 @@
         "pricingcolumn": {
           "confused_still_882d7b8d": "Confused still?",
           "try_the_113c4f19": "Try the",
-          "basic_version_of_aurora_41f5188b": "basic version of Aurora"
+          "basic_version_of_ffax_41f5188b": "basic version of FFA-X"
         },
         "pricingtable": {
           "confused_still_882d7b8d": "Confused still?",
           "try_the_113c4f19": "Try the",
-          "basic_version_of_aurora_41f5188b": "basic version of Aurora"
-        }
-      }
-    },
-    "providers": {
-      "auth_provider": {
-        "authjwtprovider": {
-          "guest_face83ee": "Guest"
+          "basic_version_of_ffax_41f5188b": "basic version of FFA-X"
         }
       }
     },

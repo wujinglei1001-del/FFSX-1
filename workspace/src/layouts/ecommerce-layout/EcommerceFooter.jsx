@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import { externalLinks } from 'config';
 import { kebabCase } from 'lib/utils';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
@@ -12,37 +14,37 @@ const footerLinks = {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.about_us_c887b9d3');
       },
-      url: '#!',
+      url: paths.landingAboutUs,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.press_ea683ad6');
       },
-      url: '#!',
+      url: paths.contentSearch,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.sustainability_31bc1b17');
       },
-      url: '#!',
+      url: paths.landingAboutUs,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.request_a_catalog_b01d6f07');
       },
-      url: '#!',
+      url: paths.products,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.careers_68d70e59');
       },
-      url: '#!',
+      url: paths.hiringJobList,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.blog_0b9d2b23');
       },
-      url: '#!',
+      url: paths.contentSearch,
     },
   ],
   help: [
@@ -50,37 +52,37 @@ const footerLinks = {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.help_center_11015825');
       },
-      url: '#!',
+      url: paths.landingFaq,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.track_your_order_57efbb02');
       },
-      url: '#!',
+      url: paths.orderTrack,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.shipping_694e6062');
       },
-      url: '#!',
+      url: paths.landingFaq,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.information_0eb5ed50');
       },
-      url: '#!',
+      url: paths.landingFaq,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.return_policy_63f82a94');
       },
-      url: '#!',
+      url: paths.landingFaq,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.faqs_ab9dcd4a');
       },
-      url: '#!',
+      url: paths.landingFaq,
     },
   ],
   contacts: [
@@ -88,19 +90,19 @@ const footerLinks = {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.contact_us_9ad0ccff');
       },
-      url: '#!',
+      url: paths.landingContact,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.shops_outlets_9f448448');
       },
-      url: '#!',
+      url: paths.landingContact,
     },
     {
       get label() {
         return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.feedback_c8d7677e');
       },
-      url: '#!',
+      url: paths.landingContact,
     },
   ],
 };
@@ -301,7 +303,8 @@ const EcommerceFooter = () => {
               </Typography>
               <Stack direction="row" sx={{ gap: 1, color: 'text.secondary' }}>
                 <Button
-                  href="#!"
+                  href={externalLinks.social.facebook || undefined}
+                  disabled={!externalLinks.social.facebook}
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -315,7 +318,8 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="eva:facebook-fill" fontSize={16} />
                 </Button>
                 <Button
-                  href="#!"
+                  href={externalLinks.social.x || undefined}
+                  disabled={!externalLinks.social.x}
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -329,7 +333,8 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="ri:twitter-x-fill" fontSize={16} />
                 </Button>
                 <Button
-                  href="#!"
+                  href={externalLinks.social.pinterest || undefined}
+                  disabled={!externalLinks.social.pinterest}
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -343,7 +348,8 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="entypo-social:pinterest" fontSize={16} />
                 </Button>
                 <Button
-                  href="#!"
+                  href={externalLinks.social.instagram || undefined}
+                  disabled={!externalLinks.social.instagram}
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -357,7 +363,8 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="ri:instagram-line" fontSize={16} />
                 </Button>
                 <Button
-                  href="#!"
+                  href={externalLinks.social.tiktok || undefined}
+                  disabled={!externalLinks.social.tiktok}
                   shape="circle"
                   variant="soft"
                   color="neutral"

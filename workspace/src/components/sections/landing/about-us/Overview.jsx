@@ -3,10 +3,13 @@ import { Avatar, Box, Button, Container, Grid, Typography } from '@mui/material'
 import { cssVarRgba } from 'lib/utils';
 import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
+import DashedLine from '../common/DashedLine';
 import RevealItems from '../common/RevealItems';
 import RevealText from '../common/RevealText';
 import SectionHeader from '../common/SectionHeader';
+import { StripedBackground } from '../common/StripedBackground';
 
 const createGradientBg = (direction) => ({
   content: '""',
@@ -25,10 +28,10 @@ const stats = [
   {
     id: 1,
     get label() {
-      return i18n.t('ui.sections.landing.about_us.overview.design_59b03536');
+      return i18n.t('ffax.public.about.overview.network_label');
     },
     get content() {
-      return i18n.t('ui.sections.landing.about_us.overview.105_project_delivered_316d6e15');
+      return i18n.t('ffax.public.about.overview.network_value');
     },
     color: 'primary',
     icon: 'material-symbols:format-shapes-outline-rounded',
@@ -36,10 +39,10 @@ const stats = [
   {
     id: 2,
     get label() {
-      return i18n.t('ui.sections.landing.about_us.overview.development_4c17aadf');
+      return i18n.t('ffax.public.about.overview.capabilities_label');
     },
     get content() {
-      return i18n.t('ui.sections.landing.about_us.overview.200_applications_built_95da1471');
+      return i18n.t('ffax.public.about.overview.capabilities_value');
     },
     color: 'info',
     icon: 'material-symbols:code-rounded',
@@ -47,9 +50,11 @@ const stats = [
   {
     id: 3,
     get label() {
-      return i18n.t('ui.sections.landing.about_us.overview.growth_marketing_0f4734aa');
+      return i18n.t('ffax.public.about.overview.fulfillment_label');
     },
-    content: '300%',
+    get content() {
+      return i18n.t('ffax.public.about.overview.fulfillment_value');
+    },
     color: 'success',
     icon: 'material-symbols:show-chart-rounded',
   },
@@ -59,153 +64,178 @@ const Overview = () => {
   const { currentBreakpoint } = useBreakpoints();
   const isSm = currentBreakpoint === 'sm';
   return (
-    <Box
-      sx={{
-        overflow: 'hidden',
-        width: 1,
-        position: 'relative',
-        py: 8,
-        bgcolor: 'transparent',
-      }}
-    >
-      <Container
-        maxWidth={false}
-        sx={{
-          maxWidth: 1000,
-          '&::before': createGradientBg('left'),
-          '&::after': createGradientBg('right'),
-          position: 'relative',
-        }}
-      >
-        <Box
-          sx={{
+    <StripedBackground>
+      <Box
+        sx={[
+          {
+            overflow: 'hidden',
+            width: 1,
+            height: 1,
             position: 'relative',
-            px: { xs: 3, md: 6, lg: 10 },
-            py: { xs: 7 },
-            bgcolor: 'transparent',
-            textAlign: 'center',
-            zIndex: 20,
+            py: 8,
+          },
+        ]}
+      >
+        <Container
+          maxWidth={false}
+          sx={{
+            maxWidth: 1000,
+            '&::before': createGradientBg('left'),
+            '&::after': createGradientBg('right'),
+            position: 'relative',
           }}
         >
-          <Box sx={{ mb: 4 }}>
-            <SectionHeader
-              title={translateUi('ui.sections.landing.about_us.overview.about_aurora_f444f811')}
-              subtitle={translateUi(
-                'ui.sections.landing.about_us.overview.what_is_aurora_f0bccb9a',
-              )}
-              sx={{ mb: 1 }}
-            />
+          <Box
+            sx={{
+              position: 'relative',
+              px: { xs: 3, md: 6, lg: 10 },
+              py: { xs: 7 },
+              bgcolor: 'background.paper',
+              borderRadius: 4,
+              textAlign: 'center',
+              zIndex: 20,
+            }}
+          >
+            <Box sx={{ mb: 4 }}>
+              <SectionHeader
+                title={translateUi('ffax.public.about.overview.title')}
+                subtitle={translateUi('ffax.public.about.overview.subtitle')}
+                sx={{ mb: 1 }}
+              />
 
-            <RevealText delay={0.2}>
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  fontWeight: 400,
-                  maxWidth: 600,
-                  mx: 'auto',
-                }}
-              >
-                {translateUi(
-                  'ui.sections.landing.about_us.overview.aurora_an_intuitive_admin_dashboard_designed_for_sea_fb082f96',
-                )}
-              </Typography>
-            </RevealText>
-          </Box>
-
-          <RevealItems component={Grid} container spacing={1} sx={{ mb: { xs: 4, sm: 0, md: 4 } }}>
-            {stats.map((stat) => (
-              <Grid key={stat.id} size={{ xs: 12, sm: 6, md: 4 }}>
-                <Box
+              <RevealText delay={0.2}>
+                <Typography
+                  variant="subtitle2"
                   sx={{
-                    position: 'relative',
-                    borderRadius: 2,
-                    p: 3,
-                    bgcolor: `${stat.color}.lighter`,
-                    overflow: 'hidden',
-                    textAlign: 'left',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      inset: 0,
-                      opacity: 0.6,
-                      backgroundImage: ({
-                        vars,
-                      }) => `linear-gradient(${vars.palette.divider} 1px, transparent 1px),
-         linear-gradient(to right, ${vars.palette.divider} 1px, transparent 1px)`,
-                      backgroundSize: '28px 28px',
-                      pointerEvents: 'none',
-                      WebkitMaskImage:
-                        'linear-gradient(to right, transparent, black 100%), linear-gradient(to top, transparent, black 100%)',
-                      WebkitMaskComposite: 'destination-in',
-                      maskComposite: 'intersect',
-                    },
+                    fontWeight: 400,
+                    maxWidth: 600,
+                    mx: 'auto',
                   }}
                 >
+                  {translateUi('ffax.public.about.overview.description')}
+                </Typography>
+              </RevealText>
+            </Box>
+
+            <RevealItems
+              component={Grid}
+              container
+              spacing={1}
+              sx={{ mb: { xs: 4, sm: 0, md: 4 } }}
+            >
+              {stats.map((stat) => (
+                <Grid key={stat.id} size={{ xs: 12, sm: 6, md: 4 }}>
                   <Box
-                    sx={(theme) => ({
-                      position: 'absolute',
-                      top: 8,
-                      right: 8,
-                      color: theme.palette[stat.color].main,
-                      opacity: 0.3,
-                      fontSize: 48,
-                      lineHeight: 1,
-                    })}
+                    sx={{
+                      position: 'relative',
+                      borderRadius: 2,
+                      p: 3,
+                      bgcolor: `${stat.color}.lighter`,
+                      overflow: 'hidden',
+                      textAlign: 'left',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        inset: 0,
+                        opacity: 0.6,
+                        backgroundImage: ({
+                          vars,
+                        }) => `linear-gradient(${vars.palette.divider} 1px, transparent 1px),
+         linear-gradient(to right, ${vars.palette.divider} 1px, transparent 1px)`,
+                        backgroundSize: '28px 28px',
+                        pointerEvents: 'none',
+                        WebkitMaskImage:
+                          'linear-gradient(to right, transparent, black 100%), linear-gradient(to top, transparent, black 100%)',
+                        WebkitMaskComposite: 'destination-in',
+                        maskComposite: 'intersect',
+                      },
+                    }}
                   >
-                    <IconifyIcon icon={stat.icon} />
+                    <Box
+                      sx={(theme) => ({
+                        position: 'absolute',
+                        top: 8,
+                        right: 8,
+                        color: theme.palette[stat.color].main,
+                        opacity: 0.3,
+                        fontSize: 48,
+                        lineHeight: 1,
+                      })}
+                    >
+                      <IconifyIcon icon={stat.icon} />
+                    </Box>
+
+                    <Avatar
+                      sx={{
+                        borderRadius: 1,
+                        height: 32,
+                        width: 32,
+                        mb: 2,
+                        bgcolor: `${stat.color}.main`,
+                      }}
+                    >
+                      <IconifyIcon icon={stat.icon} fontSize={20} />
+                    </Avatar>
+
+                    <Typography
+                      variant="subtitle2"
+                      sx={{
+                        fontWeight: 600,
+                        mb: 1,
+                        color: 'text.secondary',
+                      }}
+                    >
+                      {stat.label}
+                    </Typography>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
+                        fontWeight: 700,
+                      }}
+                    >
+                      {stat.content}
+                    </Typography>
                   </Box>
+                </Grid>
+              ))}
 
-                  <Avatar
-                    sx={{
-                      borderRadius: 1,
-                      height: 32,
-                      width: 32,
-                      mb: 2,
-                      bgcolor: `${stat.color}.main`,
-                    }}
+              {isSm && (
+                <Grid size={6} sx={{ alignSelf: 'center' }}>
+                  <Button
+                    variant="soft"
+                    color="neutral"
+                    size="medium"
+                    href={paths.landingContact}
                   >
-                    <IconifyIcon icon={stat.icon} fontSize={20} />
-                  </Avatar>
+                    {translateUi('ffax.public.about.hero.contact')}
+                  </Button>
+                </Grid>
+              )}
+            </RevealItems>
 
-                  <Typography
-                    variant="subtitle2"
-                    sx={{
-                      fontWeight: 600,
-                      mb: 1,
-                      color: 'text.secondary',
-                    }}
-                  >
-                    {stat.label}
-                  </Typography>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{
-                      fontWeight: 700,
-                    }}
-                  >
-                    {stat.content}
-                  </Typography>
-                </Box>
-              </Grid>
-            ))}
-
-            {isSm && (
-              <Grid size={6} sx={{ alignSelf: 'center' }}>
-                <Button variant="soft" color="neutral" size="medium">
-                  {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
-                </Button>
-              </Grid>
+            {!isSm && (
+              <Button
+                variant="soft"
+                color="neutral"
+                size="medium"
+                href={paths.landingContact}
+              >
+                {translateUi('ffax.public.about.hero.contact')}
+              </Button>
             )}
-          </RevealItems>
+          </Box>
+        </Container>
 
-          {!isSm && (
-            <Button variant="soft" color="neutral" size="medium">
-              {translateUi('ui.sections.landing.about_us.overview.our_works_855a5276')}
-            </Button>
-          )}
-        </Box>
-      </Container>
-    </Box>
+        <DashedLine
+          gradientOrientation="none"
+          sx={{ position: 'absolute', zIndex: 20, width: 1, height: '1px', left: 0, top: 0 }}
+        />
+        <DashedLine
+          gradientOrientation="none"
+          sx={{ position: 'absolute', zIndex: 20, width: 1, height: '1px', left: 0, bottom: 0 }}
+        />
+      </Box>
+    </StripedBackground>
   );
 };
 export default Overview;

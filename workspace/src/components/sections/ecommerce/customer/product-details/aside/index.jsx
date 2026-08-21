@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import IconifyIcon from 'components/base/IconifyIcon';
+import paths from 'routes/paths';
 import Colors from './Colors';
 import Materials from './Materials';
 import OrderCustomization from './OrderCustomization';
@@ -89,7 +90,7 @@ const ProductDetailsAside = ({ selectedVariantKey, handleSelectedVariantKey }) =
                     'ui.sections.ecommerce.customer.product_details.10_year_limited_warranty_989955bc',
                   )}
                 </Typography>
-                <Link href="#!" variant="subtitle2">
+                <Link href={paths.landingFaq} variant="subtitle2">
                   {translateUi(
                     'ui.sections.ecommerce.customer.product_details.terms_and_conditions_applicable_25cc1be2',
                   )}

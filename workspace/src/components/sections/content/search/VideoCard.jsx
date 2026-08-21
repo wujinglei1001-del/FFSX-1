@@ -93,7 +93,7 @@ const VideoCard = ({ item, sxProps }) => {
         <Box
           component="video"
           ref={videoRef}
-          src={`${assetsDir}/videos/file-manager/aurora.mp4`}
+          src={`${assetsDir}/videos/file-manager/ffax.mp4`}
           muted
           loop
           sx={{

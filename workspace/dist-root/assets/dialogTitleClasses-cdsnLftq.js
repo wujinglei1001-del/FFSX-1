@@ -1,1 +1,0 @@
-import{D as e,O as t}from"./Stack-DAOfRNRq.js";function n(e){return t(`MuiDialogTitle`,e)}var r=e(`MuiDialogTitle`,[`root`]);export{n,r as t};

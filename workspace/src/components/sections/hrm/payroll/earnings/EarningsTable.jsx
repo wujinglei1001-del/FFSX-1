@@ -119,7 +119,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
         pageSizeOptions={[7, data.length]}
         slots={{
           basePagination: (props) => (
-            <DataGridPagination showFullPagination={upSm} showAllHref="#!" {...props} />
+            <DataGridPagination showFullPagination={upSm} {...props} />
           ),
         }}
         slotProps={{
@@ -141,7 +141,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 alignItems: 'flex-start',
                 '&:not(.action-cell)': {
                   p: `${spacing(1)} ${spacing(1.25)}`,

@@ -92,8 +92,8 @@ const Meeting = ({ date, meeting, isToday }) => {
             ))}
           </AvatarGroup>
         </Stack>
-        {isToday && (
-          <Button variant="soft" href="#!" sx={{ alignSelf: 'flex-start' }}>
+        {isToday && meeting.joinUrl && (
+          <Button variant="soft" href={meeting.joinUrl} sx={{ alignSelf: 'flex-start' }}>
             {translateUi('ui.sections.crm.common.activity_tab_panels.join_now_e1312e12')}
           </Button>
         )}

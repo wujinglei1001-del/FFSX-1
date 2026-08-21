@@ -1,26 +1,44 @@
-# FFAX multi-channel runtime
+# FFA-X multi-channel runtime
 
 ## Open-source infrastructure
 
 - APISIX is the independent ingress gateway for each business channel.
 - NATS JetStream is the persistent queue, retry buffer and consumer boundary.
 - PostgreSQL is isolated per channel and for device synchronization.
-- OpenBao stores connector credentials; FFAX databases only store `openbao://` references.
+- OpenBao stores connector credentials; FFA-X databases only store `openbao://` references.
 - OpenTelemetry Collector and Tempo retain distributed traces.
 - Karrio open-source core and community plugins run as single-tenant logistics cells.
 - Mercur remains the marketplace transaction engine.
 
 Karrio's enterprise multi-tenancy code is not copied or used. A shared open-source
-Karrio database is not a valid FFAX tenant boundary, so each provisioned logistics
+Karrio database is not a valid FFA-X tenant boundary, so each provisioned logistics
 cell receives an independent database, Redis volume, secret and plugin directory.
 
-## FFAX-specific code
+## FFA-X-specific code
 
-FFAX owns the control plane, tenant authorization, connector catalog, runtime
+FFA-X owns the control plane, tenant authorization, connector catalog, runtime
 heartbeats, business event envelopes, outbox/inbox guarantees, dead-letter
 metadata, trace correlation, device synchronization and conflict handling. These
-parts encode FFAX tenant and trade-domain rules and are intentionally not delegated
+parts encode FFA-X tenant and trade-domain rules and are intentionally not delegated
 to a generic third-party system.
+
+## Frontend delivery boundaries
+
+The public root site has its own Vite entry and route graph. It directly reuses the
+existing Showcase, About Us, Contact, FAQ, theme, animation and landing-layout source,
+but it does not import the authenticated workbench or retained template routes. Its
+public asset copy list is restricted to the planet, beam, technology marks, team
+portraits and FFA-X brand icon required by those pages.
+
+The `/workbench/` build remains the authenticated application host. GoldenLayout
+mounts only real React work pages registered by FFA-X; it does not use iframes or
+substitute demonstration cards. Retained source-template routes stay behind the
+explicit `VITE_ENABLE_TEMPLATE_PREVIEW` development flag and are not part of the
+formal production sitemap.
+
+Theme variable prefixes, DOM theme attributes, Emotion cache names and DataGrid class
+names use FFA-X identifiers. The source migration preserves the original component
+layout, gradients and interaction behavior.
 
 ## Failure boundaries
 
@@ -39,4 +57,3 @@ The browser submits a credential once over an authenticated tenant-admin request
 The control plane writes it to OpenBao and returns only a version. Channel AppRoles
 can read only their own tenant connector paths. Secret values must never be placed
 in connector settings, browser storage, Git, Compose files or deployment reports.
-

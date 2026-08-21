@@ -12,7 +12,7 @@ const PromoAlert = () => {
   };
 
   return (
-    <Collapse in={isAlertOpen} data-aurora-color-scheme="light">
+    <Collapse in={isAlertOpen} data-ffax-color-scheme="light">
       <Alert
         icon={false}
         variant="filled"

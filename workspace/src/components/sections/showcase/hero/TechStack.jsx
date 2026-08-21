@@ -1,7 +1,6 @@
 import { Divider, Stack, Tooltip } from '@mui/material';
 import { initialConfig } from 'config';
 import { cssVarRgba } from 'lib/utils';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { darkShadows } from 'theme/shadows';
 import Image from 'components/base/Image';
@@ -10,33 +9,13 @@ const techLogos = [
   { src: `${initialConfig.assetsDir}/images/logo/12.svg`, title: 'JavaScript' },
   { src: `${initialConfig.assetsDir}/images/logo/13.svg`, title: 'TypeScript' },
   { src: `${initialConfig.assetsDir}/images/logo/14.svg`, title: 'Figma' },
-  {
-    src: `${initialConfig.assetsDir}/images/logo/15.svg`,
-    get title() {
-      return i18n.t('ui.sections.showcase.hero.techstack.vite_47e69e75');
-    },
-  },
+  { src: `${initialConfig.assetsDir}/images/logo/15.svg`, title: 'Vite' },
 ];
 
 const mainTechs = [
-  {
-    src: `${initialConfig.assetsDir}/images/logo/16.svg`,
-    get title() {
-      return i18n.t('ui.sections.showcase.hero.techstack.nextjs_16_a94cc4a6');
-    },
-  },
-  {
-    src: `${initialConfig.assetsDir}/images/logo/17.svg`,
-    get title() {
-      return i18n.t('ui.sections.showcase.hero.techstack.react_19_d39c9c67');
-    },
-  },
-  {
-    src: `${initialConfig.assetsDir}/images/logo/18.svg`,
-    get title() {
-      return i18n.t('ui.sections.showcase.hero.techstack.mui_v9_6d4e79dd');
-    },
-  },
+  { src: `${initialConfig.assetsDir}/images/logo/16.svg`, title: 'Next.js 16' },
+  { src: `${initialConfig.assetsDir}/images/logo/17.svg`, title: 'React 19' },
+  { src: `${initialConfig.assetsDir}/images/logo/18.svg`, title: 'MUI v9' },
 ];
 
 const TechStack = () => {

@@ -209,36 +209,6 @@ const SettingsPanel = () => {
             </Box>
           </SimpleBar>
         </Box>
-        <Toolbar
-          sx={{
-            display: 'block',
-            borderTop: 1,
-            borderColor: 'dividerLight',
-            py: 2,
-          }}
-        >
-          <Typography
-            variant="subtitle1"
-            sx={{
-              fontWeight: 700,
-              background: `linear-gradient(92.45deg, #20DE99 -0.35%, #7DB1F5 43.54%, #5A9EF6 78.08%)`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            {translateUi('ui.components.settings_panel.settingspanel.and_more_0a3e48a6')}
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{
-              background: `linear-gradient(92.45deg, #5A9EF6 -0.35%, #7DB1F5 43.54%, #20DE99 78.91%)`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            {translateUi('ui.components.settings_panel.settingspanel.coming_soon_1323a056')}
-          </Typography>
-        </Toolbar>
       </Drawer>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Link, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
+import paths from 'routes/paths';
 
 const PurchaseDetails = ({ sx }) => {
   const { t: translateUi } = useTranslation();
@@ -66,7 +67,7 @@ const PurchaseDetails = ({ sx }) => {
             {translateUi(
               'ui.sections.ecommerce.customer.product_details.of_receiving_products_2271db01',
             )}{' '}
-            <Link href="#!">
+            <Link href={paths.landingFaq}>
               {translateUi('ui.sections.ecommerce.customer.product_details.view_details_00c3e21c')}
             </Link>
           </Typography>

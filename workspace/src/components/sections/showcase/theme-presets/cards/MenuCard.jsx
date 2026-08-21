@@ -8,14 +8,14 @@ import {
   listItemTextClasses,
 } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
-import sitemap from 'routes/sitemap';
+import { templateSitemap } from 'routes/sitemap';
 import { lightPalettes } from 'theme/palettes';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const MenuCard = ({ themePreset }) => {
   const isDark = !(themePreset in lightPalettes);
 
-  const homepageMenu = sitemap.find((item) => item.id === 'homepage');
+  const homepageMenu = templateSitemap.find((item) => item.id === 'homepage');
   const menuItems = homepageMenu?.items || [];
 
   return (

@@ -6,7 +6,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { navItems } from 'data/showcase';
+import { publicNavItems } from 'data/ffax-public';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Logo from 'components/common/Logo';
 import NeutralButton from '../../common/NeutralButton';
@@ -21,7 +21,7 @@ const MobileNav = () => {
   const DrawerList = (
     <Box sx={{ width: 352, p: 1 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {navItems.map((nav) => (
+        {publicNavItems.map((nav) => (
           <ListItem key={nav.label} disablePadding>
             <ListItemButton href={nav.href}>
               <ListItemText primary={nav.label} />
@@ -45,7 +45,7 @@ const MobileNav = () => {
         />
       </NeutralButton>
 
-      <Drawer data-aurora-color-scheme="dark" open={open} onClose={toggleDrawer(false)}>
+      <Drawer data-ffax-color-scheme="dark" open={open} onClose={toggleDrawer(false)}>
         <Stack direction="row" sx={{ p: 3, justifyContent: 'space-between', alignItems: 'center' }}>
           <Logo
             sx={{

@@ -15,7 +15,7 @@ platform_env="/etc/ffax/platform/compose.env"
 ffax_api_env="/etc/ffax/platform/ffax-api.env"
 mercur_env="/etc/ffax/platform/mercur.env"
 channels_env="/etc/ffax/platform/channels.env"
-backup_root="/var/backups/ffax/${stamp}"
+backup_root="/var/backups/ffax/${stamp}-runtime"
 ffax_api_image="ffax/api:${stamp}"
 mercur_image="ffax/mercur:${stamp}"
 channel_image="ffax/channel-runtime:${stamp}"
@@ -23,6 +23,28 @@ old_ffax_api_image=""
 old_mercur_image=""
 old_channel_image=""
 runtime_changed=false
+
+remove_matching_children() {
+  local base="$1"
+  local pattern="$2"
+  local keep="${3:-}"
+  local candidate
+  local resolved
+
+  for candidate in "${base}"/${pattern}; do
+    [[ -e "$candidate" ]] || continue
+    resolved="$(realpath -m -- "$candidate")"
+    case "$resolved" in
+      "${base}"/*) ;;
+      *)
+        echo "Refusing to remove unexpected path: ${resolved}" >&2
+        return 1
+        ;;
+    esac
+    [[ -n "$keep" && "$resolved" == "$keep" ]] && continue
+    rm -rf -- "$resolved"
+  done
+}
 
 container_image() {
   docker inspect --format '{{.Config.Image}}' "$1" 2>/dev/null || true
@@ -159,9 +181,13 @@ bash "$workspace/deploy/install-static-production.sh" "$stamp"
 wait_http https://www.ffax.com/workbench-api/health 15
 wait_http https://www.ffax.com/marketplace-api/health 15
 
+remove_matching_children "/var/backups/ffax" "????????-??????-runtime" "$backup_root"
+remove_matching_children "/tmp" "ffax-release-*.tar.gz"
+remove_matching_children "/tmp" "ffax-images-*.tar"
+
 trap - ERR INT TERM
-rm -f -- "$images_archive" "$release_archive"
 echo "RUNTIME_DEPLOYED:${stamp}"
+echo "BACKUP:${backup_root}"
 echo "FFAX_API_IMAGE:${ffax_api_image}"
 echo "MERCUR_IMAGE:${mercur_image}"
 echo "CHANNEL_IMAGE:${channel_image}"

@@ -61,7 +61,7 @@ const StackedSidenav = () => {
 
   const { sessionUser } = useAuth();
 
-  const user = sessionUser || { name: 'FFAX' };
+  const user = sessionUser || { name: 'FFA-X' };
 
   const drawer = (
     <Box sx={{ flex: 1, overflow: 'hidden' }}>

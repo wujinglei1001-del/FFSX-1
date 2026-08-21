@@ -226,7 +226,7 @@ export const kanbanBoard = {
           },
           get title() {
             return i18n.t(
-              'ui.data.kanban.kanban.design_wireframes_for_the_aurora_landing_page_revamp_8437049a',
+              'ui.data.kanban.kanban.design_wireframes_for_the_ffax_landing_page_revamp_8437049a',
             );
           },
           dueDate: '2024-08-12',

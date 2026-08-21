@@ -136,7 +136,6 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
         slots={{
           basePagination: (props) => (
             <DataGridPagination
-              showAllHref="#!"
               labelDisplayedRows={upLg ? TableLabelDisplayedRows : () => null}
               {...props}
             />
@@ -163,7 +162,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.project-cell, .action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

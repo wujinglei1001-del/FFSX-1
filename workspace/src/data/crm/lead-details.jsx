@@ -2,6 +2,7 @@ import { Avatar, Chip, Link, Typography } from '@mui/material';
 import { users } from 'data/users';
 import { generateUniqueId } from 'lib/utils';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import CopyableText from 'components/sections/crm/common/CopyableText';
 
 export const contactInfoData = [
@@ -16,7 +17,7 @@ export const contactInfoData = [
   {
     attribute: 'Account',
     value: (
-      <Typography component={Link} href="#!" underline="hover" variant="body2">
+      <Typography component={Link} href={paths.leadDetails} underline="hover" variant="body2">
         {i18n.t('ui.data.crm.lead_details.waka_waka_plc_d8d0c122')}
       </Typography>
     ),

@@ -256,7 +256,7 @@ const PayrollDetails = () => {
           pageSizeOptions={[6, activeRows.length]}
           slots={{
             basePagination: (props) => (
-              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+              <DataGridPagination showFullPagination {...props} />
             ),
           }}
           sx={({ spacing }) => ({
@@ -279,7 +279,7 @@ const PayrollDetails = () => {
             },
             [`& .${gridClasses.row}`]: {
               [`& .${gridClasses.cell}`]: {
-                '&.aurora-data-grid-cell': {
+                '&.ffax-data-grid-cell': {
                   '&:not(.employee-cell, .employees-cell, .net-pay-cell, .total-cell)': {
                     p: `0 ${spacing(1.25)}`,
                   },

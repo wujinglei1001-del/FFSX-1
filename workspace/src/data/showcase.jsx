@@ -1,6 +1,6 @@
 import { initialConfig } from 'config';
 import i18n from 'locales/i18n';
-import paths from 'routes/paths';
+import paths, { publicAuthPaths } from 'routes/paths';
 
 const screenshot = (index) => `${initialConfig.assetsDir}/images/showcase/${index}.webp`;
 const video = (name) => `${initialConfig.assetsDir}/videos/showcase/${name}.webm`;
@@ -37,45 +37,53 @@ export const preloadAssets = [
 ];
 
 export const figmaPreviewLink =
-  'https://www.figma.com/design/OsomtrWKKBgiWvASVVqnIh/Aurora_-Preview--v2.2.0-?node-id=201-89946&t=CsVyE0sFpqpGSqWW-1';
+  'https://www.figma.com/design/YlOsUHOWLfRFfHurUbQIdo/FFA-X?node-id=39061-5596';
 
 export const navItems = [
   {
-    label: '选择模板',
-    href: '#templates',
+    get label() {
+      return i18n.t('ffax.public.navigation.about');
+    },
+    href: paths.landingAbout,
   },
   {
-    label: '注册',
-    href: paths.defaultJwtSignup,
+    get label() {
+      return i18n.t('ffax.public.navigation.register');
+    },
+    href: publicAuthPaths.signup,
   },
   {
-    label: '免费版',
-    href: paths.pricingColumn,
+    get label() {
+      return i18n.t('ffax.public.navigation.free_account');
+    },
+    href: publicAuthPaths.signup,
   },
   {
-    label: '收费版',
-    href: paths.pricingTable,
+    get label() {
+      return i18n.t('ffax.public.navigation.subscriptions');
+    },
+    href: paths.landingSubscriptions,
   },
 ];
 
 export const footerNavItems = [
   {
     get label() {
-      return i18n.t('ui.data.showcase.support_f32d5a3b');
+      return i18n.t('ffax.public.navigation.contact');
     },
-    to: 'mailto:support@themewagon.com',
+    to: paths.landingContact,
   },
   {
     get label() {
-      return i18n.t('ui.data.showcase.documentations_63673c36');
+      return i18n.t('ffax.public.navigation.faq');
     },
-    to: 'https://aurora.themewagon.com/documentation/getting-started',
+    to: paths.landingFaq,
   },
   {
     get label() {
-      return i18n.t('ui.data.showcase.changelog_164b3d48');
+      return i18n.t('ffax.public.navigation.about');
     },
-    to: 'https://aurora.themewagon.com/documentation/changelog',
+    to: paths.landingAbout,
   },
 ];
 

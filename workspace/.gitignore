@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 dist
+dist-root
 dist-ssr
 .env
 .env.*
@@ -26,7 +27,12 @@ infra/zitadel/generated/*
 *.sln
 *.sw?
 
-src/assets
+# Source assets are extracted locally by default. Keep only the approved bundled font material.
+src/assets/*
+!src/assets/fonts/
+src/assets/fonts/*
+!src/assets/fonts/plus-jakarta-sans/
+!src/assets/fonts/plus-jakarta-sans/**
 
 # Temporary Mercur CLI scaffold kept only as a local extraction source.
 # The tracked integration lives in services/mercur-core.

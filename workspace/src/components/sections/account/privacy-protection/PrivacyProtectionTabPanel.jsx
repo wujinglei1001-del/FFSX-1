@@ -1,6 +1,7 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Button, Divider, Link, Stack, Typography } from '@mui/material';
+import { zitadelConfig } from 'config/zitadel';
 import { connectedDevices, loggedInDevices } from 'data/account/privacy-protection';
 import { useSnackbar } from 'notistack';
 import AccountTabPanelSection from '../common/AccountTabPanelSection';
@@ -56,8 +57,8 @@ const PrivacyProtectionTabPanel = () => {
                 )}
               </Typography>
               <Typography
-                component={Link}
-                href="#!"
+                component={zitadelConfig.accountUrl ? Link : 'span'}
+                href={zitadelConfig.accountUrl || undefined}
                 variant="body2"
                 sx={{ display: 'inline-block', mb: 3 }}
               >

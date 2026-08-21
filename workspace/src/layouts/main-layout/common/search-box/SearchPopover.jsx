@@ -6,7 +6,7 @@ const Transition = function Transition({ ref, ...props }) {
   return <Fade ref={ref} {...props} />;
 };
 
-const SearchPopover = ({ anchorEl, handleClose }) => {
+const SearchPopover = ({ anchorEl, handleClose, navigation }) => {
   const open = Boolean(anchorEl);
   const {
     config: { navigationMenuType },
@@ -51,7 +51,7 @@ const SearchPopover = ({ anchorEl, handleClose }) => {
         },
       }}
     >
-      <SearchResult handleClose={handleClose} />
+      <SearchResult handleClose={handleClose} navigation={navigation} />
     </Popover>
   );
 };

@@ -1,11 +1,12 @@
 import { initialConfig } from 'config';
 import i18n from 'locales/i18n';
+import { paths } from 'routes/paths';
 import { users } from './users';
 
 export const files = [
   {
-    name: 'aurora_test17.zip',
-    path: ':: files / New folder / aurora /',
+    name: 'ffax_workspace.zip',
+    path: ':: files / New folder / ffax /',
     icon: 'material-symbols:folder-zip-outline-rounded',
   },
   {
@@ -65,25 +66,25 @@ export const breadcrumbs = [
       get label() {
         return i18n.t('ui.data.search_result.app_fc4a695f');
       },
-      href: '#!',
+      href: paths.workbench,
     },
     {
       get label() {
         return i18n.t('ui.data.search_result.e_commerce_c991b729');
       },
-      href: '#!',
+      href: paths.ecommerce,
     },
     {
       get label() {
         return i18n.t('ui.data.search_result.customers_035eae60');
       },
-      href: '#!',
+      href: paths.members,
     },
     {
       get label() {
         return i18n.t('ui.data.search_result.create_new_54770339');
       },
-      href: '#!',
+      href: paths.memberNewMember,
       active: true,
     },
   ],
@@ -92,13 +93,13 @@ export const breadcrumbs = [
       get label() {
         return i18n.t('ui.data.search_result.homepage_ac066591');
       },
-      href: '#!',
+      href: paths.workbench,
     },
     {
       get label() {
         return i18n.t('ui.data.search_result.e_commerce_c991b729');
       },
-      href: '#!',
+      href: paths.ecommerce,
       active: true,
     },
   ],
@@ -107,13 +108,13 @@ export const breadcrumbs = [
       get label() {
         return i18n.t('ui.data.search_result.pages_600584c2');
       },
-      href: '#!',
+      href: paths.workbench,
     },
     {
       get label() {
         return i18n.t('ui.data.search_result.starter_438226dc');
       },
-      href: '#!',
+      href: paths.starter,
       active: true,
     },
   ],

@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, ListItemIcon, ListItemText, MenuItem } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import { languages } from 'locales/languages';
@@ -7,6 +8,7 @@ import { SET_LOCALE } from 'reducers/SettingsReducer';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const LanguageMenu = ({ type = 'default' }) => {
+  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const {
     config: { locale },
@@ -40,6 +42,8 @@ const LanguageMenu = ({ type = 'default' }) => {
         variant="text"
         shape="circle"
         onClick={handleClick}
+        aria-label={translateUi('ffax.navigation.language')}
+        title={translateUi('ffax.navigation.language')}
       >
         {locale === 'zh-CN' ? (
           'CN'

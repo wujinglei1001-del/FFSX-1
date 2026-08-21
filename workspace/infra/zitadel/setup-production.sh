@@ -6,6 +6,49 @@ WORKSPACE_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/../.." && pwd)
 ENV_FILE="$SCRIPT_DIR/.env.production"
 COMPOSE_FILE="$SCRIPT_DIR/docker-compose.yml"
 
+merge_env_file() {
+  source_file=$1
+  destination_file=$2
+
+  if [ ! -f "$destination_file" ]; then
+    install -m 600 "$source_file" "$destination_file"
+    return
+  fi
+
+  temporary_file=$(mktemp "${destination_file}.XXXXXX")
+  awk '
+    NR == FNR {
+      if ($0 !~ /^[[:space:]]*#/ && index($0, "=") > 1) {
+        key = $0
+        sub(/=.*/, "", key)
+        values[key] = substr($0, index($0, "=") + 1)
+        order[++count] = key
+      }
+      next
+    }
+    {
+      if ($0 !~ /^[[:space:]]*#/ && index($0, "=") > 1) {
+        key = $0
+        sub(/=.*/, "", key)
+        if (key in values) {
+          print key "=" values[key]
+          written[key] = 1
+          next
+        }
+      }
+      print
+    }
+    END {
+      for (i = 1; i <= count; i += 1) {
+        key = order[i]
+        if (!(key in written)) print key "=" values[key]
+      }
+    }
+  ' "$source_file" "$destination_file" > "$temporary_file"
+  install -m 600 "$temporary_file" "$destination_file"
+  rm -f -- "$temporary_file"
+}
+
 if [ ! -f "$ENV_FILE" ]; then
   umask 077
   master_key=$(openssl rand -hex 16)
@@ -34,11 +77,10 @@ if [ ! -f "$ENV_FILE" ]; then
     echo "ZITADEL_SMTP_FROM="
     echo "ZITADEL_SMTP_FROM_NAME=FFAX"
     echo "ZITADEL_SMTP_REPLY_TO="
-    echo "FFAX_FRONTEND_URL=https://www.ffax.com"
+    echo "FFAX_FRONTEND_URL=https://www.ffax.com/workbench"
     echo "FFAX_CALLBACK_URL=https://www.ffax.com/workbench/authentication/callback"
-    echo "FFAX_POST_LOGOUT_URL=https://www.ffax.com/workbench/pages/landing/homepage"
+    echo "FFAX_POST_LOGOUT_URL=https://www.ffax.com/workbench/authentication/zitadel/logged-out"
     echo "FFAX_API_URL=https://www.ffax.com/workbench-api"
-    echo "FFAX_MARKETPLACE_API_URL=https://www.ffax.com/marketplace-api"
     echo "FFAX_DEV_MODE=false"
     echo "ZITADEL_VERSION=v4.15.0"
     echo "TRAEFIK_IMAGE=traefik:v3.6.8"
@@ -57,10 +99,20 @@ fi
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" up -d --wait
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" --profile setup run --rm zitadel-provision
 
-install -m 600 "$SCRIPT_DIR/generated/frontend.env.local" "$WORKSPACE_DIR/.env.production"
-install -m 600 "$SCRIPT_DIR/generated/server.env" "$WORKSPACE_DIR/server/.env"
+merge_env_file "$SCRIPT_DIR/generated/frontend.env.local" "$WORKSPACE_DIR/.env.production"
+merge_env_file "$SCRIPT_DIR/generated/server.env" "$WORKSPACE_DIR/server/.env"
 
 docker compose --env-file "$ENV_FILE" -f "$COMPOSE_FILE" --profile production up -d --wait ffax-api
+
+attempt=1
+while ! curl --fail --silent --show-error --max-time 10 http://127.0.0.1:8000/api/health >/dev/null 2>&1; do
+  if [ "$attempt" -ge 30 ]; then
+    echo "FFAX API health check did not become ready." >&2
+    exit 1
+  fi
+  attempt=$((attempt + 1))
+  sleep 2
+done
 
 echo "FFAX production authentication and API services are ready."
 echo "Frontend environment: $WORKSPACE_DIR/.env.production"

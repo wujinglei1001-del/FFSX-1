@@ -42,7 +42,10 @@ const CreateEvent = () => {
                   label: translateUi('ui.pages.events.createevent.home_70f8bb9a'),
                   url: paths.events,
                 },
-                { label: translateUi('ui.pages.events.createevent.events_c5497bca'), url: '#!' },
+                {
+                  label: translateUi('ui.pages.events.createevent.events_c5497bca'),
+                  url: paths.eventsRoot,
+                },
                 {
                   label: translateUi('ui.pages.events.createevent.create_event_53a956b0'),
                   active: true,

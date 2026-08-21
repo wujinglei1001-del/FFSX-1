@@ -31,7 +31,7 @@ const meetings = [
       },
       active: true,
     },
-    joinMeetLink: '#!',
+    joinMeetLink: null,
     attendants: [users[3], users[4], users[6], users[10], users[11], users[13]],
   },
   {

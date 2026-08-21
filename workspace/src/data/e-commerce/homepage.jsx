@@ -846,7 +846,7 @@ export const categoryBanners = [
       <>{i18n.t('ui.data.e_commerce.homepage.browse_furnitures_for_your_living_room_2bbb0e2c')}</>
     ),
     image: banner(1),
-    url: '#!',
+    url: paths.products,
   },
   {
     id: 2,
@@ -854,7 +854,7 @@ export const categoryBanners = [
       <>{i18n.t('ui.data.e_commerce.homepage.spend_leisure_on_your_lawn_with_comfort_61861720')}</>
     ),
     image: banner(2),
-    url: '#!',
+    url: paths.products,
   },
   {
     id: 3,
@@ -862,6 +862,6 @@ export const categoryBanners = [
       <>{i18n.t('ui.data.e_commerce.homepage.let_ergonomics_meet_style_in_your_office_06151c17')}</>
     ),
     image: banner(3),
-    url: '#!',
+    url: paths.products,
   },
 ];

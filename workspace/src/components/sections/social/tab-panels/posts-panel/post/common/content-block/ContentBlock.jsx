@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Avatar, Link, Stack } from '@mui/material';
+import paths from 'routes/paths';
 import Actions from './Actions';
 import Attachments from './Attachments';
 import AuthorInfo from './AuthorInfo';
@@ -12,7 +13,7 @@ const ContentBlock = ({ content, toggleThreadInput }) => {
     <Stack direction="row" sx={{ gap: 2, py: 2 }}>
       <Avatar
         component={Link}
-        href="#!"
+        href={paths.memberProfile}
         src={content.author.avatar}
         alt={translateUi('common.accessibility.content_author_avatar')}
         sx={{

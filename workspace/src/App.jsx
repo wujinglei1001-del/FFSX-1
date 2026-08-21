@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { useConfigFromQuery } from 'hooks/useConfigFromQuery';
 import AuthProvider from 'providers/AuthProvider';
+import { rootPaths } from 'routes/paths';
 import SettingPanelToggler from 'components/settings-panel/SettingPanelToggler';
 import SettingsPanel from 'components/settings-panel/SettingsPanel';
 
@@ -10,12 +11,15 @@ const App = () => {
 
   useConfigFromQuery();
 
-  const isLandingPage = pathname === '/' || pathname.startsWith('/pages/landing/');
+  const runtimeBasePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
+  const isWorkbenchBundle = runtimeBasePath === '/workbench';
+  const isShowcase = !isWorkbenchBundle && pathname === '/';
+  const isAuthentication = pathname.startsWith(`/${rootPaths.authRoot}`);
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (isLandingPage) {
+    if (isShowcase) {
       document.documentElement.style.overscrollBehavior = 'none';
       document.documentElement.style.filter = 'none';
     }
@@ -24,13 +28,13 @@ const App = () => {
       document.documentElement.style.overscrollBehavior = 'auto';
       document.documentElement.style.filter = 'auto';
     };
-  }, [pathname, isLandingPage]);
+  }, [pathname, isShowcase]);
 
   return (
     <AuthProvider>
       <Outlet />
 
-      {!isLandingPage && (
+      {!isShowcase && !isAuthentication && (
         <>
           <SettingsPanel />
           <SettingPanelToggler />

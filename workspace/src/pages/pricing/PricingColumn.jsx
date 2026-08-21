@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { pricing } from 'data/pricing';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import PricingHeader from 'components/sections/pricing/PricingHeader';
 import PricingCard from 'components/sections/pricing/column/PricingCard';
 import PricingCardWide from 'components/sections/pricing/column/PricingCardWide';
@@ -49,8 +50,8 @@ const PricingColumn = () => {
         </Typography>
         <Typography sx={{ textAlign: 'center' }}>
           {translateUi('ui.pages.pricing.pricingcolumn.try_the_113c4f19')}
-          <Link href="#!">
-            {translateUi('ui.pages.pricing.pricingcolumn.basic_version_of_aurora_41f5188b')}
+          <Link href={paths.zitadelSignup}>
+            {translateUi('ui.pages.pricing.pricingcolumn.basic_version_of_ffax_41f5188b')}
           </Link>
         </Typography>
       </Box>

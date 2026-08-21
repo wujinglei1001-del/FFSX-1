@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import { users } from 'data/users';
 import useNumberFormat from 'hooks/useNumberFormat';
+import paths from 'routes/paths';
 
 const ChannelInfo = () => {
   const { t: translateUi } = useTranslation();
@@ -34,7 +35,7 @@ const ChannelInfo = () => {
           disableTypography
           primary={
             <Link
-              href="#!"
+              href={paths.memberProfile}
               variant="subtitle1"
               sx={{ fontWeight: 'bold', mb: 0.5, width: 'fit-content', color: 'inherit' }}
             >

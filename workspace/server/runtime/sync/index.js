@@ -84,7 +84,7 @@ app.post('/v1/devices', async (req, res) => {
       req.sync.userId,
       text(req.body.deviceId, 'device_id', 200),
       text(req.body.platform || 'web', 'platform', 40),
-      text(req.body.deviceName || 'FFAX Web', 'device_name', 160),
+      text(req.body.deviceName || 'FFA-X Web', 'device_name', 160),
       jsonObject(req.body.metadata),
     ],
   );

@@ -160,7 +160,7 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                   variant="contained"
                   color="neutral"
                   sx={{ whiteSpace: 'nowrap' }}
-                  href={paths.defaultJwtLogin}
+                  href={paths.zitadelLogin}
                 >
                   {translateUi('ui.sections.ecommerce.customer.common.login_to_checkout_70d9af3b')}
                 </Button>
@@ -168,7 +168,7 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                   variant="text"
                   color="neutral"
                   sx={{ whiteSpace: 'nowrap' }}
-                  href={paths.defaultJwtSignup}
+                  href={paths.zitadelSignup}
                 >
                   {translateUi(
                     'ui.sections.ecommerce.customer.common.create_a_new_account_19e93057',

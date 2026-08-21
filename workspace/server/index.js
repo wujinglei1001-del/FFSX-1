@@ -1,15 +1,22 @@
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
-import { loginWithZitadel, logoutWithZitadel } from './auth/login.js';
+import {
+  getZitadelLoginClientHealth,
+  loginWithZitadel,
+  logoutWithZitadel,
+  registerWithZitadel,
+  verifyEmailWithZitadel,
+} from './auth/login.js';
 import { requireZitadelAuth } from './auth/zitadel.js';
 import { controlPlaneRouter } from './channels/router.js';
 import { runtimeControlPlaneRouter } from './channels/runtime-router.js';
-import { serverConfig } from './config.js';
+import { getMissingAuthConfig, serverConfig } from './config.js';
 import { databaseHealth, initializeDatabase } from './db/index.js';
 import { requireTenantContext } from './platform/context.js';
 import { platformRouter } from './platform/router.js';
-import { initializeRealtime } from './realtime.js';
+import { createContactRequest } from './public/contact.js';
+import { initializeRealtime, realtimeHealth } from './realtime.js';
 
 const app = express();
 
@@ -32,15 +39,36 @@ app.use(express.json({ limit: '1mb' }));
 
 app.get('/api/health', async (_req, res) => {
   const database = await databaseHealth();
-  res.status(database.configured && !database.healthy ? 503 : 200).json({
-    status: database.configured && !database.healthy ? 'degraded' : 'ok',
+  const missingAuthenticationConfig = getMissingAuthConfig();
+  const loginClient = await getZitadelLoginClientHealth();
+  const realtime = realtimeHealth();
+  const authentication = {
+    configured: missingAuthenticationConfig.length === 0 && loginClient.configured,
+    missing: missingAuthenticationConfig,
+    loginClient,
+  };
+  const ready =
+    database.configured &&
+    database.healthy &&
+    authentication.configured &&
+    realtime.configured &&
+    realtime.healthy;
+
+  res.status(ready ? 200 : 503).json({
+    status: ready ? 'ok' : 'degraded',
     service: 'ffax-api',
+    ready,
     database,
+    authentication,
+    realtime,
   });
 });
 
 app.post('/api/auth/login', loginWithZitadel);
+app.post('/api/auth/register', registerWithZitadel);
+app.post('/api/auth/verify-email', verifyEmailWithZitadel);
 app.post('/api/auth/logout', logoutWithZitadel);
+app.post('/api/public/contact-requests', createContactRequest);
 
 app.get('/api/auth/profile', requireZitadelAuth, (req, res) => {
   res.json({

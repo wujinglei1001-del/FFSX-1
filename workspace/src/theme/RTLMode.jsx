@@ -6,7 +6,7 @@ import rtlPlugin from 'stylis-plugin-rtl';
 
 const createRtlCache = () => {
   const cache = createCache({
-    key: 'aurorartl',
+    key: 'ffaxrtl',
     stylisPlugins: [rtlPlugin],
   });
   cache.compat = true;
@@ -16,7 +16,7 @@ const createRtlCache = () => {
 
 const createLtrCache = () => {
   const cache = createCache({
-    key: 'aurora',
+    key: 'ffax',
   });
   cache.compat = true;
 

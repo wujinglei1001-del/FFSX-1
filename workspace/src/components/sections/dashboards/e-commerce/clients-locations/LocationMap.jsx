@@ -74,7 +74,7 @@ const LocationMap = ({ data, sx }) => {
               : currentBreakpoint === 'sm'
                 ? ['10%', '5%']
                 : [0, 0],
-          roam: true,
+          roam: 'move',
           scaleLimit: {
             min: 1,
           },
@@ -88,14 +88,7 @@ const LocationMap = ({ data, sx }) => {
             areaColor: getThemeColor(vars.palette.chGrey[200]),
           },
           emphasis: {
-            disabled: false,
-            itemStyle: {
-              areaColor: getThemeColor(vars.palette.chBlue[300]),
-              borderColor: 'transparent',
-            },
-            label: {
-              show: false,
-            },
+            disabled: true,
           },
         },
       ],
@@ -166,7 +159,7 @@ const LocationMap = ({ data, sx }) => {
           color="neutral"
           key="one"
           shape="square"
-          sx={{ fontSize: 20, border: 0 }}
+          sx={{ fontSize: 20, border: 1, borderColor: 'background.elevation2' }}
           onClick={handleZoomIn}
           disabled={maxZoomLevel === zoomLevel}
         >
@@ -177,7 +170,7 @@ const LocationMap = ({ data, sx }) => {
           color="neutral"
           key="two"
           shape="square"
-          sx={{ fontSize: 20, border: 0 }}
+          sx={{ fontSize: 20, border: 1, borderColor: 'background.elevation2' }}
           onClick={handleZoomOut}
           disabled={minZoomLevel === zoomLevel}
         >

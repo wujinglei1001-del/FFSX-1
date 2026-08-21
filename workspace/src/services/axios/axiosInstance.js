@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const BASE_URL = import.meta.env.VITE_API_URL || '/workbench-api';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 // Adding authorization header to axios instance if session exists
 axiosInstance.interceptors.request.use(async (config) => {
-  const authToken = sessionStorage.getItem('auth_token');
+  const authToken = sessionStorage.getItem('auth_token') || localStorage.getItem('auth_token');
 
   if (authToken) {
     config.headers.Authorization = `Bearer ${authToken}`;

@@ -12,6 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Creator = ({ item }) => {
@@ -73,7 +74,7 @@ const Creator = ({ item }) => {
           <Typography
             variant="subtitle1"
             component={Link}
-            href="#!"
+            href={paths.memberProfile}
             sx={{
               fontWeight: 700,
               color: 'inherit',

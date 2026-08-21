@@ -1,4 +1,379 @@
 {
+  "ffax": {
+    "contact": {
+      "subscription_inquiry": "订阅服务咨询"
+    },
+    "public": {
+      "navigation": {
+        "home": "首页",
+        "about": "关于我们",
+        "contact": "联系我们",
+        "faq": "常见问题",
+        "subscriptions": "订阅服务",
+        "register": "注册",
+        "free_account": "免费账户",
+        "login": "登入",
+        "workbench": "工作台",
+        "close": "关闭"
+      },
+      "footer": {
+        "brand": "FFA-X",
+        "description": "FFA-X 是连接全球贸易组织、能力、资源与履约流程的可信数字桥梁。",
+        "support": "支持",
+        "help_center": "帮助中心",
+        "access": "访问",
+        "create_account": "创建账户",
+        "cta_title": "连接 FFA-X",
+        "cta_description": "加入全球贸易可信数字桥梁，通过已认证服务与已连接系统协同真实业务。",
+        "subscription_title": "订阅服务咨询",
+        "subscription_email": "联系邮箱",
+        "subscription_action": "联系我们",
+        "subscription_body": "联系邮箱：{{email}}",
+        "socials": "社交媒体",
+        "rights": "FFA-X © 2026，保留所有权利"
+      },
+      "about": {
+        "hero": {
+          "prefix": "全球贸易网络中的",
+          "highlight": "数字桥梁",
+          "description": "连接组织、团队、服务能力、业务资源与履约流程，在统一可信生态中协同运转。",
+          "contact": "联系我们",
+          "open_integration": "开放集成",
+          "trusted_network": "可信网络"
+        },
+        "overview": {
+          "title": "关于 FFA-X",
+          "subtitle": "什么是 FFA-X",
+          "description": "FFA-X 是全球贸易网络中的可信数字桥梁，通过统一工作台连接组织、团队、服务能力、业务资源与履约流程。",
+          "network_label": "网络",
+          "network_value": "连接组织",
+          "capabilities_label": "能力",
+          "capabilities_value": "服务集成",
+          "fulfillment_label": "履约",
+          "fulfillment_value": "协同工作流"
+        },
+        "team": {
+          "title": "团队",
+          "subtitle": "我们的优秀团队成员"
+        }
+      },
+      "contact": {
+        "page_title": "联系我们",
+        "page_subtitle": "联系方式",
+        "phone": "电话号码",
+        "email": "电子邮箱",
+        "location": "服务地点",
+        "form_title": "联系",
+        "form_subtitle": "联系我们",
+        "description": "请随时联系我们，我们会协助处理你的问题与服务需求。",
+        "personal_information": "联系信息",
+        "first_name": "名",
+        "last_name": "姓",
+        "phone_field": "电话",
+        "company": "公司",
+        "purpose": "咨询内容",
+        "message": "留言",
+        "consent_prefix": "我同意按照",
+        "privacy_policy": "隐私政策",
+        "consent_suffix": "发送上述联系信息。",
+        "consent_without_policy": "我确认通过此表单发送上述联系信息。",
+        "send": "发送消息",
+        "sent": "联系信息已提交。",
+        "send_failed": "联系信息提交失败，请稍后重试。",
+        "mail_subject": "FFA-X 官网咨询 - {{company}}",
+        "validation": {
+          "first_name": "请输入名。",
+          "last_name": "请输入姓。",
+          "email_required": "请输入电子邮箱。",
+          "email_invalid": "请输入有效的电子邮箱。",
+          "phone": "请输入电话号码。",
+          "company": "请输入公司。",
+          "purpose": "请输入咨询内容。",
+          "consent": "请确认同意发送联系信息。"
+        }
+      },
+      "faq": {
+        "title": "FAQ",
+        "subtitle": "我们能如何帮助你？",
+        "search": "按关键词搜索",
+        "popular": "常用分类",
+        "all": "全部分类",
+        "contact_title": "联系",
+        "contact_subtitle": "还有疑问吗？",
+        "contact_description": "如果现有说明没有解决问题，请通过已配置的官方联系方式联系我们。",
+        "send": "发送消息",
+        "mail_subject": "FFA-X 常见问题咨询"
+      }
+    },
+    "project": {
+      "workspace_name_fallback": "组织工作区",
+      "workspace_description": "在此统一管理当前组织的项目、进度、时间线与责任分工。"
+    },
+    "navigation": {
+      "workbench": "工作台",
+      "notifications": "通知",
+      "language": "语言",
+      "homepage": "进入地球村",
+      "services": "选择服务"
+    },
+    "footer": {
+      "tagline": "全球贸易网络中的数字桥梁"
+    },
+    "notifications": {
+      "all": "全部通知",
+      "unread": "未读",
+      "mark_all_read": "全部标为已读",
+      "empty": "当前账户暂无通知。",
+      "load_failed": "无法从服务器加载通知。",
+      "view_all": "查看全部通知",
+      "mark_failed": "通知未能标记为已读。",
+      "breadcrumb": "工作台通知路径",
+      "tabs_label": "通知筛选",
+      "today": "今天",
+      "older": "更早",
+      "types": {
+        "offer_created": "收到新的报价"
+      }
+    },
+    "search": {
+      "navigation": "可用页面",
+      "no_results": "没有匹配的可用页面。"
+    },
+    "ui": {
+      "open_navigation": "打开导航",
+      "profile_menu": "账户菜单",
+      "preferences": "偏好设置",
+      "accessibility": "无障碍设置",
+      "dark_mode": "深色模式",
+      "account_settings": "账户设置",
+      "help_center": "帮助中心",
+      "sign_out": "退出登录",
+      "sign_in": "登入",
+      "search": "搜索",
+      "new": "新"
+    },
+    "errors": {
+      "not_found": {
+        "title": "页面不存在",
+        "description": "当前地址不存在或已停止提供，请返回 FFA-X 官方首页。",
+        "home": "返回首页"
+      }
+    },
+    "auth": {
+      "login": "登入",
+      "login_form": {
+        "title": "登入",
+        "no_account": "还没有账户？",
+        "sign_up": "注册",
+        "login_name": "登录名或电子邮箱",
+        "password": "密码",
+        "remember_device": "记住此设备",
+        "submit": "登入",
+        "failed": "登入失败，请检查登录名和密码。"
+      },
+      "signup": {
+        "title": "注册",
+        "existing_account": "已有账户？",
+        "given_name": "名",
+        "family_name": "姓",
+        "email": "电子邮箱",
+        "password": "密码",
+        "create_account": "创建账户",
+        "failed": "无法创建账户。"
+      },
+      "service": {
+        "unconfigured": "ZITADEL 尚未配置，请先填写域名、Web Client ID 和 FFA-X Project ID。",
+        "connection_failed": "无法连接 ZITADEL：{{message}}"
+      },
+      "errors": {
+        "registration_invalid": "注册信息不完整或格式不正确。",
+        "registration_failed": "无法创建账户，请检查注册信息或直接返回登入。",
+        "verification_invalid": "邮箱验证链接无效或不完整。",
+        "verification_expired": "邮箱验证链接无效或已过期。",
+        "login_invalid_request": "登录信息不完整。",
+        "login_invalid_credentials": "登录名或密码不正确。",
+        "authentication_not_configured": "ZITADEL 登录服务尚未完成服务器配置。",
+        "authentication_service_unavailable": "当前无法连接 ZITADEL 登录服务。"
+      },
+      "validation": {
+        "required": "此项为必填项。",
+        "email": "请输入有效的电子邮箱。",
+        "password_length": "密码至少需要 8 个字符。"
+      },
+      "email": {
+        "close": "关闭",
+        "pending_title": "请检查邮箱",
+        "pending_message": "验证链接已发送至你提交的邮箱。完成验证后即可登入 FFA-X。",
+        "completed": "已经完成验证？",
+        "return_login": "返回登入",
+        "confirm_title": "验证邮箱",
+        "confirm_message": "点击下方操作确认邮箱归属。验证成功后即可登入 FFA-X。",
+        "ready": "准备好了吗？",
+        "confirm_action": "确认验证",
+        "verifying": "正在验证…",
+        "invalid_link": "邮箱验证链接无效或不完整。",
+        "verify_failed": "无法验证邮箱，链接可能已经过期。"
+      },
+      "logged_out": {
+        "title": "你已退出登录",
+        "headline": "期待再次见到你",
+        "message": "当前 FFA-X 会话已经安全结束，你可以随时重新登入。",
+        "login_again": "重新登入"
+      }
+    },
+    "workbench": {
+      "plugin_center": "插件中心",
+      "description": "通过已认证的 FFA-X 服务器接口管理当前组织可用的插件。",
+      "refresh": "刷新",
+      "search_plugins": "搜索插件",
+      "all_lifecycles": "全部生命周期状态",
+      "free": "免费",
+      "load_failed": "无法从服务器加载插件目录。",
+      "no_plugins": "服务器没有返回符合当前筛选条件的插件记录。",
+      "action_completed": "服务器已完成插件操作。",
+      "action_failed": "插件操作失败。{{error}}",
+      "layout": {
+        "reset": "恢复默认",
+        "save": "保存布局",
+        "opened": "{{panel}} · 已打开",
+        "reopen": "重新打开 {{panel}}",
+        "load_failed": "未能读取已保存布局，已使用默认布局。",
+        "legacy_removed": "已恢复默认工作台布局。",
+        "saved": "工作台布局已保存。",
+        "conflict": "布局已在其他设备更新，请刷新后重试。",
+        "save_failed": "布局保存失败。",
+        "unknown_panel": "无法识别此工作台面板。"
+      },
+      "errors": {
+        "plugin_payment_not_connected": "此插件当前无法购买。",
+        "plugin_runtime_not_connected": "插件服务当前不可用，请稍后重试。",
+        "real_payments_disabled_pending_kyc": "在线支付将在企业账户验证完成后开放。",
+        "invalid_plugin_transition": "当前插件状态不允许执行此操作。",
+        "unknown_plugin_action": "无法识别该插件操作。"
+      },
+      "columns": {
+        "plugin": "插件",
+        "version": "版本",
+        "price": "价格",
+        "lifecycle": "生命周期",
+        "capabilities": "能力",
+        "roles": "所需角色",
+        "updated": "更新时间"
+      },
+      "lifecycle": {
+        "available": "可获取",
+        "purchased": "已获取",
+        "installing": "安装中",
+        "active": "已启用",
+        "disabled": "已停用",
+        "upgrading": "升级中",
+        "failed": "失败"
+      },
+      "actions": {
+        "purchase": "获取",
+        "install": "安装",
+        "enable": "启用",
+        "disable": "停用",
+        "upgrade": "升级",
+        "retry": "重试"
+      }
+    },
+    "faq": {
+      "categories": {
+        "platform": {
+          "title": "FFA-X 平台",
+          "description": "了解全球贸易可信数字桥梁的组织方式。",
+          "items": {
+            "overview": {
+              "question": "什么是 FFA-X？",
+              "answer": "FFA-X 是全球贸易网络中的可信数字桥梁，通过统一工作台连接组织、团队、服务能力、业务资源与履约流程。"
+            },
+            "participants": {
+              "question": "FFA-X 连接哪些参与方？",
+              "answer": "FFA-X 面向买家、卖家、工厂、物流服务商、仓库、专业服务组织，以及负责完成跨境业务的各类团队。"
+            },
+            "ai": {
+              "question": "AI 在 FFA-X 中承担什么角色？",
+              "answer": "AI 是用于理解需求、匹配能力和辅助工作的支持层。业务决策、权限和交易仍由已连接的系统、服务器 API 与获授权用户控制。"
+            },
+            "modules": {
+              "question": "工作台包含哪些模块？",
+            "answer": "工作台通过可保存的标签与分屏组织已授权功能，目前可使用插件中心与通知；其他业务模块会按组织权限开放。"
+            }
+          }
+        },
+        "access": {
+          "title": "账号与访问",
+          "description": "身份、登录、受保护页面与组织访问。",
+          "items": {
+            "login": {
+              "question": "如何登录？",
+              "answer": "FFA-X 通过统一身份服务完成登录与账号注册。"
+            },
+            "protection": {
+              "question": "未登录可以进入工作台吗？",
+              "answer": "不可以。受保护的工作台路由要求有效登录会话，未登录访问会跳转到 ZITADEL 登录页。"
+            },
+            "roles": {
+              "question": "组织角色如何生效？",
+              "answer": "FFA-X 从已认证身份中读取组织和项目角色声明；服务器 API 必须在每项受保护操作中执行对应的租户与权限规则。"
+            },
+            "logout": {
+              "question": "退出登录后会发生什么？",
+              "answer": "退出操作会通过已配置的身份提供方结束 FFA-X 会话，并返回正式的退出完成页面。"
+            }
+          }
+        },
+        "connections": {
+          "title": "系统与 API",
+          "description": "真实服务、工作页与业务数据的连接方式。",
+          "items": {
+            "api": {
+              "question": "FFA-X 如何连接业务系统？",
+              "answer": "FFA-X 通过服务适配器连接各业务系统，在统一工作台中协调信息、任务与流程。"
+            },
+            "workspace": {
+              "question": "功能模块会嵌入外部网页吗？",
+              "answer": "不会。功能模块直接运行在 FFA-X 工作台中，并统一使用系统的主题、控件和窗口交互。"
+            },
+            "records": {
+              "question": "生产业务记录来自哪里？",
+              "answer": "业务记录由已连接的系统同步，并依据组织与用户权限在工作台中显示。"
+            },
+            "transactions": {
+              "question": "FFA-X 会替代所有交易平台吗？",
+              "answer": "不会。独立交易和服务平台继续保留自身权责，FFA-X 负责跨系统连接参与方、能力、信息与业务流程。"
+            }
+          }
+        },
+        "workbench": {
+          "title": "工作台与界面",
+          "description": "导航、响应式布局、语言与显示设置。",
+          "items": {
+            "navigation": {
+              "question": "首页文字和按钮会跳转到哪里？",
+              "answer": "正式导航指向 FFA-X 的真实路由，包括首页、关于我们、联系我们、常见问题、订阅、登录和受保护工作台；未配置的外部链接不会伪装成可用服务。"
+            },
+            "responsive": {
+              "question": "界面支持不同屏幕尺寸吗？",
+              "answer": "支持。系统保留源码原有响应式组件结构，适配桌面、平板与移动端布局。"
+            },
+            "themes": {
+              "question": "支持浅色和深色主题吗？",
+              "answer": "支持。工作台保留源码主题系统，包括浅色、深色模式以及原组件交互。"
+            },
+            "languages": {
+              "question": "当前提供哪些界面语言？",
+              "answer": "当前界面包含简体中文和英文语言资源。"
+            }
+          }
+        }
+      },
+      "search": {
+        "no_results": "没有找到匹配的 FFA-X 问题。"
+      }
+    }
+  },
   "common": {
     "accessibility": {
       "alternate_email": "备用邮箱",
@@ -262,7 +637,7 @@
           "selected_835f3b50": "已选择"
         },
         "logo": {
-          "aurora_c8251d84": "FFA-X"
+          "ffax_c8251d84": "FFA-X"
         }
       },
       "pagination": {
@@ -991,14 +1366,14 @@
           "loginform": {
             "this_field_is_required_dedbaded": "该字段为必填项",
             "please_provide_a_valid_email_address_09016875": "请提供有效的电子邮件地址。",
-            "log_in_f7c400ed": "登录",
-            "don_t_have_an_account_f838dc11": "没有帐户？",
+            "log_in_f7c400ed": "登入",
+            "don_t_have_an_account_f838dc11": "还没有账户？",
             "sign_up_0b81497c": "注册",
             "or_use_email_be1bca91": "或使用电子邮件",
             "email_84add5b2": "电子邮件",
-            "login_name_or_email": "用户名或电子邮件",
+            "login_name_or_email": "登录名或邮箱",
             "password_8be3c943": "密码",
-            "remember_this_device_e495443b": "记住这个设备",
+            "remember_this_device_e495443b": "记住此设备",
             "forgot_password_1cc8d181": "忘记密码？",
             "trouble_signing_in_363e4476": "登录时遇到问题？"
           },
@@ -2051,7 +2426,7 @@
           },
           "hours_completed": {
             "hours_completed_by_projects_0434a8dc": "项目完成时间",
-            "aurora_eeee9b76": "FFA-X",
+            "ffax_eeee9b76": "FFA-X",
             "falcon_63f5c347": "猎鹰",
             "phoenix_3e978fbf": "凤凰城"
           },
@@ -2673,7 +3048,7 @@
             "not_helpful_85efce01": "没有帮助",
             "load_more_dfe60ca9": "加载更多",
             "try_in_your_room_54e838d5": "在你的房间里试试",
-            "themewagon_qr_ec4c6a54": "主题旅行车二维码",
+            "themewagon_qr_ec4c6a54": "FFA-X 二维码",
             "home_70f8bb9a": "首页",
             "living_room_25ff70b3": "客厅",
             "armchair_d5727b18": "扶手椅",
@@ -3582,7 +3957,7 @@
             "support_f32d5a3b": "支持",
             "marketing_e0c534a0": "营销",
             "team_21888726": "团队",
-            "aurora_eeee9b76": "FFA-X",
+            "ffax_eeee9b76": "FFA-X",
             "falcon_63f5c347": "猎鹰",
             "phoenix_3e978fbf": "凤凰城",
             "hummingbird_e80efe6a": "蜂鸟",
@@ -3726,7 +4101,7 @@
             "quantity_must_be_a_number_fb0578a5": "数量必须是数字",
             "price_is_required_2fa9daf0": "价格为必填项",
             "price_must_be_a_number_e1ea37ee": "价格必须是数字",
-            "themewagon_4ba48b41": "主题马车",
+            "themewagon_4ba48b41": "FFA-X",
             "web_design_service_08d28db3": "网页设计服务",
             "soft_set_bb2a923b": "软套",
             "facebook_add_campaign_d5b56324": "Facebook 添加活动"
@@ -3775,8 +4150,8 @@
             "total_amount_c1ed4a16": "总额",
             "notes_70440046": "注释",
             "creating_with_9b7444e1": "创造与",
-            "aurora_eeee9b76": "FFA-X",
-            "themewagon_42a442ab": "主题马车",
+            "ffax_eeee9b76": "FFA-X",
+            "themewagon_42a442ab": "FFA-X",
             "logo_5807dd60": "标志"
           }
         }
@@ -3841,7 +4216,7 @@
             "add_label_591203a2": "添加标签",
             "you_currently_have_no_team_a8fd6154": "您目前没有团队。",
             "team_management_table_c49f9e08": "团队管理表",
-            "invite_to_aurora_42e21246": "邀请前往FFA-X",
+            "invite_to_ffax_42e21246": "邀请前往FFA-X",
             "member_6853c98a": "成员",
             "admin_4e7afebc": "管理端",
             "guest_face83ee": "嘉宾",
@@ -3942,38 +4317,24 @@
       "landing": {
         "about_us": {
           "hero": {
-            "get_to_know_us_together_we_create_b4135d5a": "了解我们：我们一起创造",
-            "magic_8dbd968d": "魔法！",
-            "creating_products_with_a_strong_identity_we_provide__36520044": "创造具有强烈个性的产品。我们提供绝妙的创意，为世界增添成功的品牌。我们提供定制的营销活动，利用您的受众采取积极行动。",
-            "let_s_talk_now_f98b4a0e": "现在我们来谈谈",
-            "easy_installation_85cdbe94": "安装方便",
-            "modern_design_28dd9713": "现代设计"
-          },
-          "ourmission": {
-            "our_goal_cbcdc20b": "我们的目标",
-            "we_believe_a_connected_team_is_a_powerful_asset_no_m_8ced9b5a": "我们为成长中的中型企业打造统一数字工作台，将成员、项目、任务、沟通和业务数据连接在一起，帮助跨部门团队减少信息孤岛，在一个平台内高效协同。",
-            "our_approach_goes_beyond_providing_simple_software_w_ba27d6f9": "我们的软件基于 React 19、Vite 8 与 Material UI 9 构建，通过模块化架构承载项目管理、实时沟通、日历、文件和数据看板，并可通过标准 API 与企业现有系统连接。",
-            "we_are_committed_to_helping_you_navigate_the_complex_2da5e207": "我们致力于帮助您应对远程工作的复杂性。我们的工具可以轻松集成到您现有的工作流程中，并且我们提供专门的支持以确保您的团队取得成功。由于每项业务都是独一无二的，因此我们提供根据您的特定需求量身定制的灵活、可定制的解决方案。",
-            "ultimately_when_your_team_thrives_your_business_thri_0e2b701c": "最终，当您的团队蓬勃发展时，您的业务就会蓬勃发展。我们的目标是成为您的合作伙伴，打造一支有弹性、高绩效的团队，为未来的工作做好准备。",
-            "we_are_here_for_your_needs_f5df1a8e": "我们随时满足您的需求！",
-            "we_understand_that_the_demands_of_the_modern_workpla_184e7314": "我们理解中型企业既需要成熟的软件能力，也需要灵活的扩展空间。平台支持统一身份认证、REST API、实时数据获取、多语言和响应式布局，可根据组织规模逐步接入 CRM、人力资源、电商、内容与运营模块。",
-            "we_are_not_merely_a_software_provider_we_see_ourselv_27f8b0f2": "我们不仅仅是软件提供商；我们将自己视为您的战略盟友，帮助您培养一支充满活力、高效且面向未来的远程团队。我们的承诺不仅仅是提供工具；我们为您的成功提供持续的支持和坚定的奉献。这确保您可以充满信心地应对任何挑战。我们的使命是帮助您打造一支高绩效、满意的员工队伍，在当今不断发展的环境中蓬勃发展。",
-            "more_about_us_a948eeb6": "更多关于我们",
-            "our_goal_042bf01a": "我们的目标",
-            "our_approach_f09011b0": "我们的方法",
-            "our_strength_a8c57bd5": "我们的实力",
-            "on_a_mission_to_empower_remote_teams_1918e7ce": "致力于为远程团队提供支持"
+            "get_to_know_us_together_we_create_b4135d5a": "全球贸易网络中的",
+            "magic_8dbd968d": "数字桥梁",
+            "creating_products_with_a_strong_identity_we_provide__36520044": "连接组织、团队、服务能力、业务资源与履约流程，在统一可信生态中协同运转。",
+            "let_s_talk_now_f98b4a0e": "联系我们",
+            "easy_installation_85cdbe94": "开放集成",
+            "modern_design_28dd9713": "可信网络"
           },
           "overview": {
-            "design_59b03536": "设计",
-            "development_4c17aadf": "发展",
-            "growth_marketing_0f4734aa": "成长营销",
-            "about_aurora_f444f811": "关于FFA-X",
-            "aurora_an_intuitive_admin_dashboard_designed_for_sea_fb082f96": "FFA-X 是一款专为无缝管理而设计的直观管理仪表板，以其用户友好的界面、强大的分析功能以及促进协作和发展的社区而闻名。",
-            "our_works_855a5276": "我们的作品",
-            "105_project_delivered_316d6e15": "已交付 105+ 个项目",
-            "200_applications_built_95da1471": "已构建 200 多个应用程序",
-            "what_is_aurora_f0bccb9a": "什么是FFA-X"
+            "design_59b03536": "网络",
+            "development_4c17aadf": "能力",
+            "growth_marketing_0f4734aa": "履约",
+            "about_ffax_f444f811": "关于FFA-X",
+            "ffax_an_intuitive_admin_dashboard_designed_for_sea_fb082f96": "FFA-X 是全球贸易网络中的可信数字桥梁，通过统一工作台连接组织、团队、服务能力、业务资源与履约流程。",
+            "our_works_855a5276": "联系我们",
+            "105_project_delivered_316d6e15": "连接组织",
+            "200_applications_built_95da1471": "服务集成",
+            "coordinated_workflows_32d93004": "协同工作流",
+            "what_is_ffax_f0bccb9a": "什么是FFA-X"
           },
           "team": {
             "madeline_wuntch_642ba189": "马德琳·温奇",
@@ -3986,7 +4347,7 @@
             "raymond_holt_9d6ba991": "雷蒙德·霍尔特",
             "charles_boyle_374b667c": "查尔斯·博伊尔",
             "kevin_cozner_6723f4d2": "凯文·科兹纳",
-            "our_brilliant_teammates_faa76982": "我们优秀的队友"
+            "our_brilliant_teammates_faa76982": "我们的优秀团队成员"
           }
         },
         "contact": {
@@ -3994,8 +4355,8 @@
             "phone_number_ab25d61b": "电话号码",
             "email_address_09ba557f": "电子邮件地址",
             "location_d219c681": "地点",
-            "hello_randommail_com_dd2ead67": "hello@randommail.com",
-            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "123 Sunnyvale Park, 斯普林菲尔德, 伊利诺伊州, 美国"
+            "hello_randommail_com_dd2ead67": "hello@ffax.com",
+            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "全球在线服务"
           },
           "contactform": {
             "first_name_is_required_fd5f7f4c": "名字为必填项。",
@@ -4026,8 +4387,8 @@
         "faq": {
           "faqcontact": {
             "still_have_questions_don_t_hesitate_to_ask_our_dedic_c665f79d": "还有疑问吗？不要犹豫，快来询问吧！我们的专业团队随时准备帮助您解决任何疑虑，确保您获得充满信心地继续进行所需的清晰度和支持。",
-            "hello_randommail_com_dd2ead67": "hello@randommail.com",
-            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "123 Sunnyvale Park, 斯普林菲尔德, 伊利诺伊州, 美国",
+            "hello_randommail_com_dd2ead67": "hello@ffax.com",
+            "123_sunnyvale_park_springfield_il_usa_87af5cdd": "全球在线服务",
             "first_name_b6ea992a": "名字",
             "last_name_863cb39f": "姓氏",
             "email_84add5b2": "电子邮件",
@@ -4080,12 +4441,12 @@
             "project_showcase_ed0898bf": "项目展示"
           },
           "hero": {
-            "ultimate_web_app_to_29a1fcff": "React 19 + Vite 企业级工作台，助力中型企业",
-            "try_our_app_for_a_simpler_organized_workflow_0acaf354": "将项目、沟通、日历、文件与业务数据整合到一个工作台。",
-            "our_web_app_offers_a_seamless_experience_allowing_yo_c11cee63": "平台采用 React 19、Vite 8 与 Material UI 9 构建，通过 Axios、SWR 和 REST API 连接企业数据，并支持 JWT、Auth0 与 Firebase 身份认证，为中型企业提供安全、灵活、可扩展的协同办公体验。",
-            "start_today_d83f167a": "从今天开始",
+            "ultimate_web_app_to_29a1fcff": "全球贸易网络中的数字桥梁",
+            "try_our_app_for_a_simpler_organized_workflow_0acaf354": "FFA-X 是全球贸易网络中的数字桥梁",
+            "our_web_app_offers_a_seamless_experience_allowing_yo_c11cee63": "通过可信准入、结构化需求、AI 智能匹配和数字化履约，连接跨境卖家、工厂、采购商、物流、海外仓及企业服务机构。",
+            "start_today_d83f167a": "进入地球村",
             "contact_us_4832e458": "联系我们",
-            "enhances_69ee45bb": "实现"
+            "enhances_69ee45bb": "连接"
           },
           "newsletter": {
             "want_to_stay_updated_baa1d75b": "想要保持最新状态吗？",
@@ -4227,7 +4588,7 @@
             "marketing_e0c534a0": "营销",
             "support_f32d5a3b": "支持",
             "team_21888726": "团队",
-            "themewagon_4ba48b41": "主题马车",
+            "themewagon_4ba48b41": "FFA-X",
             "mailbluster_0d51e6c7": "邮件轰炸机",
             "blackbox_78246761": "黑匣子",
             "hyperninja_86aeb854": "超级忍者",
@@ -4930,7 +5291,7 @@
             "begin_your_journey_with_1a0d9ef4": "开始您的旅程",
             "today_76d70374": "今天！",
             "live_preview_a62da901": "实时预览",
-            "aurora_c8251d84": "FFA-X"
+            "ffax_c8251d84": "FFA-X"
           }
         },
         "customize_layout": {
@@ -4954,7 +5315,7 @@
         "layout": {
           "footer": {
             "brought_to_you_by_6a89f6ec": "为您带来",
-            "themewagon_42a442ab": "主题马车"
+            "themewagon_42a442ab": "FFA-X"
           },
           "header": {
             "purchase_160f06d4": "购买"
@@ -5074,7 +5435,7 @@
           "filterdrawer": {
             "member_6853c98a": "成员",
             "team_21888726": "团队",
-            "themewagon_42a442ab": "主题马车",
+            "themewagon_42a442ab": "FFA-X",
             "mailbluster_2b902ce2": "邮件狂暴",
             "hyperninja_c8cf169b": "超级忍者",
             "client_1bdd79b1": "客户",
@@ -5183,7 +5544,7 @@
             "content_marketing_a5238b18": "内容营销",
             "lead_gen_compaign_9b79c838": "潜在客户发掘活动",
             "team_21888726": "团队",
-            "themewagon_42a442ab": "主题马车",
+            "themewagon_42a442ab": "FFA-X",
             "mailbluster_2b902ce2": "邮件狂暴",
             "hyperninja_c8cf169b": "超级忍者",
             "time_type_aff84e63": "时间类型",
@@ -6159,7 +6520,7 @@
           "thank_you_positioned_at_the_front_line_all_eyes_are__19090aed": "谢谢你。站在前线，所有的目光都集中在你身上，随着我们越来越近，你意识到了重力——这场战斗还没有结束。",
           "the_pressure_mounts_you_are_feeling_it_but_you_posse_31e0cc3e": "压力越来越大，你能感觉到，但你拥有获胜所需的一切。",
           "embrace_the_belief_that_when_you_fall_you_can_get_up_6b5f84d1": "相信当你跌倒时，你可以站起来。而如果你跌倒了，你一定会爬起来。",
-          "team_aurora_8534330a": "FFA-X队。",
+          "team_ffax_8534330a": "FFA-X队。",
           "hello_gerard_p_9abb38d1": "你好杰拉德·P，",
           "you_are_a_good_soldier_carefully_choosing_your_battl_79572db6": "你是一名优秀的士兵，仔细选择你的战斗，并随时准备好在被击倒时振作起来，掸掉身上的灰尘，重新坐回马鞍上。位于前线，所有的目光都集中在你身上，随着我们越来越近，你意识到了重力。",
           "kept_in_sent_gave_feel_will_oh_it_we_has_pleasure_pr_daff725d": "保留在发送给感觉将哦它我们。是否已使男人笑百叶窗不。老平淡不动，续法羞偏。视敏锐度依赖吃用沮丧。令人不快的惊讶发现既不害羞也不害羞。清晨的心现在遇到了心爱的夜晚。已经和他最后一次在这里必须。",
@@ -6655,7 +7016,7 @@
         "there_will_be_no_parking_facility_from_the_organizer_13dfd2c0": "组织者不会提供停车设施。如果场馆当局允许，您可以自行兑换该服务。"
       },
       "faqs": {
-        "aurora_eeee9b76": "FFA-X",
+        "ffax_eeee9b76": "FFA-X",
         "pricing_a0d9bbad": "定价",
         "campaign_69390e16": "活动",
         "templates_f25b700e": "模板",
@@ -6686,30 +7047,30 @@
         "aws_provides_service_level_agreements_slas_that_assu_e98fe4cb": "AWS 提供服务级别协议 (SLA)，以确保高正常运行时间和可用性。这些 SLA 附带可衡量的指标，使用户能够清楚地了解 AWS 的性能承诺。此外，用户可以设置多区域故障转移以增强弹性。 AWS 的 SLA 框架让客户高枕无忧，在发生严重停机时提供有保证的服务水平和补偿，这体现了 AWS 致力于维护可靠和高性能的云环境。",
         "does_aws_offer_hybrid_cloud_solutions_608c439b": "AWS 是否提供混合云解决方案？",
         "aws_supports_hybrid_cloud_architectures_through_solu_82403783": "AWS 通过 AWS Outposts 等解决方案支持混合云架构。借助 Outposts，企业可以将 AWS 基础设施扩展到本地设置，从而平衡 AWS 的可扩展性与对特定工作负载的本地控制。此设置非常适合需要满足法规要求或在访问基于云的资源时管理内部敏感数据的组织。",
-        "what_makes_aurora_unique_1668d19a": "FFA-X有何独特之处？",
-        "aurora_is_designed_for_seamless_integration_with_mat_85e9fdf8": "FFA-X 专为与 Material UI 组件无缝集成而设计，提供一系列预先设计的元素，有助于创建具有凝聚力、视觉吸引力的界面。这种集成使开发人员能够简化设计流程，确保组件轻松适合各种布局和用例，从而节省时间并增强视觉一致性。",
+        "what_makes_ffax_unique_1668d19a": "FFA-X有何独特之处？",
+        "ffax_is_designed_for_seamless_integration_with_mat_85e9fdf8": "FFA-X 专为与 Material UI 组件无缝集成而设计，提供一系列预先设计的元素，有助于创建具有凝聚力、视觉吸引力的界面。这种集成使开发人员能够简化设计流程，确保组件轻松适合各种布局和用例，从而节省时间并增强视觉一致性。",
         "can_i_use_third_party_plugins_6692934f": "我可以使用第三方插件吗？",
-        "absolutely_aurora_is_compatible_with_numerous_third__f264c945": "绝对的。 FFA-X 与众多第三方插件兼容，使其能够高度适应多样化的应用需求。您可以添加分析、SEO 工具或专门的 UI 组件，无需复杂的设置，为想要定制应用程序同时保持性能和稳定性的开发人员提供广泛的灵活性。 <br/><br/>通过支持一系列集成，FFA-X 使开发人员能够轻松扩展功能，同时确保可靠和高性能的用户体验。这种多功能性使 FFA-X 成为优先考虑应用程序适应性和定制性的初创公司和企业的宝贵选择。",
-        "is_aurora_responsive_0009bcac": "FFA-X有反应吗？",
-        "aurora_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "FFA-X 具有完全响应能力，确保从移动设备到桌面设备的所有设备都能流畅运行。这种适应性消除了大量调整的需要，为用户提供了符合现代设计标准的始终如一的出色体验。",
+        "absolutely_ffax_is_compatible_with_numerous_third__f264c945": "绝对的。 FFA-X 与众多第三方插件兼容，使其能够高度适应多样化的应用需求。您可以添加分析、SEO 工具或专门的 UI 组件，无需复杂的设置，为想要定制应用程序同时保持性能和稳定性的开发人员提供广泛的灵活性。 <br/><br/>通过支持一系列集成，FFA-X 使开发人员能够轻松扩展功能，同时确保可靠和高性能的用户体验。这种多功能性使 FFA-X 成为优先考虑应用程序适应性和定制性的初创公司和企业的宝贵选择。",
+        "is_ffax_responsive_0009bcac": "FFA-X有反应吗？",
+        "ffax_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "FFA-X 具有完全响应能力，确保从移动设备到桌面设备的所有设备都能流畅运行。这种适应性消除了大量调整的需要，为用户提供了符合现代设计标准的始终如一的出色体验。",
         "what_themes_are_available_53997f3c": "有哪些主题可用？",
-        "aurora_includes_both_light_and_dark_themes_with_opti_e36082e3": "FFA-X 包括浅色和深色主题，并提供广泛的定制选项，以满足独特的品牌标识。用户可以修改颜色、字体和整体样式，以创建反映特定审美和品牌要求的界面。无缝主题切换增强了可访问性，让用户可以轻松选择自己喜欢的外观，通过定制的用户体验提高参与度和保留率。 <br/><br/> FFA-X 的主题在构建时考虑到了包容性，创建了可适应用户偏好的易于访问和欢迎的界面。这些选项使品牌能够通过视觉一致性来强化其身份，从而打造令人难忘、有凝聚力的用户旅程。",
-        "can_i_use_aurora_with_next_js_97d5cb39": "我可以将 FFA-X 与 Next.js 一起使用吗？",
-        "yes_aurora_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "是的，FFA-X 旨在与 Next.js 顺利集成，支持服务器端渲染和静态站点生成。通过将 Next.js 与 FFA-X 结合使用，开发人员可以创建高性能、SEO 友好的应用程序，这些应用程序可以快速加载并提供增强的用户体验。该组合将优化的渲染与内聚的样式结合在一起，使其成为跨不同行业的可扩展应用程序的理想选择。",
-        "do_you_offer_customer_support_for_aurora_a48652f3": "你们为 FFA-X 提供客户支持吗？",
-        "yes_aurora_has_a_dedicated_support_team_to_assist_at_8347c441": "是的，FFA-X 拥有专门的支持团队，可以在从安装到高级定制的各个阶段提供协助。这使开发人员能够自信地集成 FFA-X，因为他们知道可以提供帮助来解决他们可能遇到的任何问题。",
-        "does_aurora_support_localization_a771f01c": "FFA-X 支持本地化吗？",
-        "yes_aurora_is_fully_equipped_for_localization_suppor_f003acb3": "是的，FFA-X 完全具备本地化能力，支持 i18n 多语言应用程序，使其成为全球受众的理想选择。该框架包括易于语言适应的设置，允许用户切换语言并满足不同地区的需求。这增强了可访问性，并使开发人员能够构建与不同受众产生共鸣的包容性应用程序。 FFA-X 对本地化的关注也体现了对全球包容性的承诺，使其成为旨在覆盖全球用户群的品牌的有效选择。",
-        "is_aurora_seo_friendly_91592564": "FFA-X 是否适合 SEO？",
-        "yes_aurora_is_developed_with_seo_best_practices_in_m_c8b962ba": "是的，FFA-X 在开发时考虑了 SEO 最佳实践，确保优化标头、元数据和加载时间。这有助于应用程序在搜索结果中排名更高，从而提高网络可见性。 FFA-X 的设计与 Next.js 的服务器端渲染等功能相结合，使其成为创建高性能、可发现的应用程序的理想选择，这对于希望在竞争日益激烈的数字环境中提高在线形象的企业至关重要。",
-        "what_customization_options_does_aurora_provide_735b1b80": "FFA-X 提供哪些定制选项？",
-        "aurora_offers_a_wide_range_of_customization_options__0326b44b": "FFA-X 提供了广泛的自定义选项，从配色方案和版式到布局配置。开发人员可以轻松调整这些元素以与品牌标识保持一致，从而创建独特且有凝聚力的设计。 FFA-X 的灵活性使开发人员能够保持 UI 的新鲜度并与不断变化的设计趋势保持一致，满足品牌独特的愿景和审美要求，同时保持高质量的用户体验。",
-        "how_secure_is_aurora_4437c9f9": "FFA-X的安全性如何？",
-        "aurora_prioritizes_security_by_supporting_best_codin_11b585c2": "FFA-X 通过支持最佳编码实践、HTTPS 和其他安全协议来优先考虑安全性。它与安全库和框架完美集成，确保用户数据受到保护。 <br/><br/>FFA-X 对安全性的重视使其成为需要强大数据保护措施的应用程序的可靠选择。对于关注用户隐私和数据完整性的开发人员来说，FFA-X 的安全规定使其成为创建值得信赖的应用程序的宝贵资产。 FFA-X 符合现代安全标准，这意味着开发人员可以自信地构建具有内置数据保护功能的应用程序，从而保护用户信息免受潜在威胁。",
-        "does_aurora_support_animation_99ac64b4": "FFA-X 支持动画吗？",
-        "yes_aurora_includes_built_in_support_for_animations__4e7da64e": "是的，FFA-X 包含对动画的内置支持，允许开发人员添加视觉增强功能以提高用户参与度。 FFA-X 的动画是轻量级的，遵循现代设计趋势，确保应用程序在不牺牲性能的情况下保持响应速度和视觉吸引力。这些功能使 FFA-X 成为寻求集成动态元素而不影响速度或响应能力的开发人员的绝佳选择，从而有助于提供生动的交互式用户体验。",
-        "can_i_integrate_aurora_with_rest_apis_eebdd93a": "我可以将 FFA-X 与 REST API 集成吗？",
-        "aurora_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "FFA-X 与 REST API 完全兼容，允许开发人员无缝合并动态数据。这种兼容性支持实时数据获取和用户特定的信息显示，使其适合创建数据驱动的应用程序。通过支持 REST API 集成，FFA-X 为开发人员提供了构建丰富的交互式应用程序的工具，以满足个性化用户体验和动态内容交付。",
+        "ffax_includes_both_light_and_dark_themes_with_opti_e36082e3": "FFA-X 包括浅色和深色主题，并提供广泛的定制选项，以满足独特的品牌标识。用户可以修改颜色、字体和整体样式，以创建反映特定审美和品牌要求的界面。无缝主题切换增强了可访问性，让用户可以轻松选择自己喜欢的外观，通过定制的用户体验提高参与度和保留率。 <br/><br/> FFA-X 的主题在构建时考虑到了包容性，创建了可适应用户偏好的易于访问和欢迎的界面。这些选项使品牌能够通过视觉一致性来强化其身份，从而打造令人难忘、有凝聚力的用户旅程。",
+        "can_i_use_ffax_with_next_js_97d5cb39": "我可以将 FFA-X 与 Next.js 一起使用吗？",
+        "yes_ffax_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "是的，FFA-X 旨在与 Next.js 顺利集成，支持服务器端渲染和静态站点生成。通过将 Next.js 与 FFA-X 结合使用，开发人员可以创建高性能、SEO 友好的应用程序，这些应用程序可以快速加载并提供增强的用户体验。该组合将优化的渲染与内聚的样式结合在一起，使其成为跨不同行业的可扩展应用程序的理想选择。",
+        "do_you_offer_customer_support_for_ffax_a48652f3": "你们为 FFA-X 提供客户支持吗？",
+        "yes_ffax_has_a_dedicated_support_team_to_assist_at_8347c441": "是的，FFA-X 拥有专门的支持团队，可以在从安装到高级定制的各个阶段提供协助。这使开发人员能够自信地集成 FFA-X，因为他们知道可以提供帮助来解决他们可能遇到的任何问题。",
+        "does_ffax_support_localization_a771f01c": "FFA-X 支持本地化吗？",
+        "yes_ffax_is_fully_equipped_for_localization_suppor_f003acb3": "是的，FFA-X 完全具备本地化能力，支持 i18n 多语言应用程序，使其成为全球受众的理想选择。该框架包括易于语言适应的设置，允许用户切换语言并满足不同地区的需求。这增强了可访问性，并使开发人员能够构建与不同受众产生共鸣的包容性应用程序。 FFA-X 对本地化的关注也体现了对全球包容性的承诺，使其成为旨在覆盖全球用户群的品牌的有效选择。",
+        "is_ffax_seo_friendly_91592564": "FFA-X 是否适合 SEO？",
+        "yes_ffax_is_developed_with_seo_best_practices_in_m_c8b962ba": "是的，FFA-X 在开发时考虑了 SEO 最佳实践，确保优化标头、元数据和加载时间。这有助于应用程序在搜索结果中排名更高，从而提高网络可见性。 FFA-X 的设计与 Next.js 的服务器端渲染等功能相结合，使其成为创建高性能、可发现的应用程序的理想选择，这对于希望在竞争日益激烈的数字环境中提高在线形象的企业至关重要。",
+        "what_customization_options_does_ffax_provide_735b1b80": "FFA-X 提供哪些定制选项？",
+        "ffax_offers_a_wide_range_of_customization_options__0326b44b": "FFA-X 提供了广泛的自定义选项，从配色方案和版式到布局配置。开发人员可以轻松调整这些元素以与品牌标识保持一致，从而创建独特且有凝聚力的设计。 FFA-X 的灵活性使开发人员能够保持 UI 的新鲜度并与不断变化的设计趋势保持一致，满足品牌独特的愿景和审美要求，同时保持高质量的用户体验。",
+        "how_secure_is_ffax_4437c9f9": "FFA-X的安全性如何？",
+        "ffax_prioritizes_security_by_supporting_best_codin_11b585c2": "FFA-X 通过支持最佳编码实践、HTTPS 和其他安全协议来优先考虑安全性。它与安全库和框架完美集成，确保用户数据受到保护。 <br/><br/>FFA-X 对安全性的重视使其成为需要强大数据保护措施的应用程序的可靠选择。对于关注用户隐私和数据完整性的开发人员来说，FFA-X 的安全规定使其成为创建值得信赖的应用程序的宝贵资产。 FFA-X 符合现代安全标准，这意味着开发人员可以自信地构建具有内置数据保护功能的应用程序，从而保护用户信息免受潜在威胁。",
+        "does_ffax_support_animation_99ac64b4": "FFA-X 支持动画吗？",
+        "yes_ffax_includes_built_in_support_for_animations__4e7da64e": "是的，FFA-X 包含对动画的内置支持，允许开发人员添加视觉增强功能以提高用户参与度。 FFA-X 的动画是轻量级的，遵循现代设计趋势，确保应用程序在不牺牲性能的情况下保持响应速度和视觉吸引力。这些功能使 FFA-X 成为寻求集成动态元素而不影响速度或响应能力的开发人员的绝佳选择，从而有助于提供生动的交互式用户体验。",
+        "can_i_integrate_ffax_with_rest_apis_eebdd93a": "我可以将 FFA-X 与 REST API 集成吗？",
+        "ffax_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "FFA-X 与 REST API 完全兼容，允许开发人员无缝合并动态数据。这种兼容性支持实时数据获取和用户特定的信息显示，使其适合创建数据驱动的应用程序。通过支持 REST API 集成，FFA-X 为开发人员提供了构建丰富的交互式应用程序的工具，以满足个性化用户体验和动态内容交付。",
         "do_you_offer_discounts_for_annual_plans_78361afd": "你们为年度计划提供折扣吗？",
         "yes_we_provide_a_10_discount_on_annual_subscriptions_56f0180c": "是的，我们为年度订阅提供 10% 的折扣，使客户能够以较低的成本享受我们的服务，同时获得与包月计划相同的功能和好处。对于旨在节省总体开支、提供持续服务和节省费用的企业来说，选择年度计划是一种经济高效的选择。",
         "do_you_provide_volume_based_pricing_ab557f8d": "你们提供基于数量的定价吗？",
@@ -6830,10 +7191,10 @@
       },
       "file_manager": {
         "my_drive_8dd06507": "我的驾驶",
-        "aurora_research_3123f0c4": "FFA-X_研究",
-        "aurora_new_docs_8db434dd": "FFA-X_New.docs",
-        "aurora_backups_52d7cb10": "FFA-X_备份",
-        "aurora_design_e82b353d": "FFA-X_设计",
+        "ffax_research_3123f0c4": "FFA-X_研究",
+        "ffax_new_docs_8db434dd": "FFA-X_New.docs",
+        "ffax_backups_52d7cb10": "FFA-X_备份",
+        "ffax_design_e82b353d": "FFA-X_设计",
         "main_file_zip_dc5c4f09": "Main_File.zip",
         "project_management_html_3d0e9e38": "Project_Management.html",
         "shared_50d0d8dd": "共享",
@@ -6854,17 +7215,17 @@
         "dodge_durango_the_strong_suv_4cdc4b73": "道奇杜兰戈：强劲的 SUV",
         "travel_tales_50d711fa": "旅行故事",
         "empty_highway_0c626573": "空荡荡的高速公路",
-        "aurora_style_c0371747": "FFA-X_风格",
+        "ffax_style_c0371747": "FFA-X_风格",
         "photography_of_seashore_34eafefe": "海边摄影",
-        "aurora_eeee9b76": "FFA-X",
+        "ffax_eeee9b76": "FFA-X",
         "verification_letter_061404f8": "验证信",
         "resources_backup_0e2f0d5d": "资源_备份",
         "elegant_living_room_design_with_green_screen_tv_21361c34": "优雅的客厅设计，配有绿屏电视",
         "road_with_a_curve_53b81d1c": "有曲线的路",
         "man_standing_on_a_rock_mountain_during_daytime_819ad839": "白天站在岩石山上的人",
-        "aurora_new_6e008523": "FFA-X_新",
+        "ffax_new_6e008523": "FFA-X_新",
         "mt_fuji_308047f8": "富士山",
-        "aurora_designs_bb19632f": "FFA-X_设计",
+        "ffax_designs_bb19632f": "FFA-X_设计",
         "new_folder_b3fdcf96": "新建文件夹",
         "wide_road_near_mountains_under_cloudy_sky_2677d8bb": "多云天空下山附近的宽阔道路"
       },
@@ -7063,7 +7424,7 @@
             "developed_stronger_documentation_habits_and_improved_63f8a1ef": "养成更强的文档习惯并改善利益相关者的沟通。"
           },
           "goals": {
-            "prepare_and_launch_the_next_version_of_the_aurora_pl_c71ea393": "准备并启动下一版本的 FFA-X 平台",
+            "prepare_and_launch_the_next_version_of_the_ffax_pl_c71ea393": "准备并启动下一版本的 FFA-X 平台",
             "i_applied_to_this_company_because_of_its_strong_repu_2f03a318": "我申请加入这家公司是因为它在内容创作方面的创新和质量方面享有盛誉。公司的价值观与我对讲故事和提供引人入胜的内容的热情相一致。我很高兴有机会为重视创造力的团队贡献我的写作专业知识。",
             "launch_beta_testing_program_for_the_new_mobile_appli_35baca08": "启动新移动应用程序的 Beta 测试计划",
             "integrate_third_party_payroll_system_with_internal_h_5d1298d4": "将第三方薪资系统与内部人力资源管理平台集成",
@@ -7082,12 +7443,12 @@
         }
       },
       "invoice": {
-        "aurora_eeee9b76": "FFA-X",
+        "ffax_eeee9b76": "FFA-X",
         "liam_johnson_99370538": "利亚姆·约翰逊",
         "sofia_martinez_dd63e038": "索菲亚·马丁内斯",
         "ethan_brown_d38939d3": "伊森·布朗",
         "isabella_rossi_f3d65f29": "伊莎贝拉·罗西",
-        "themewagon_4ba48b41": "主题马车",
+        "themewagon_4ba48b41": "FFA-X",
         "web_design_service_08d28db3": "网页设计服务",
         "sofa_set_bbfe6b84": "沙发套",
         "facebook_and_campaign_94eb7390": "Facebook 和活动",
@@ -7144,7 +7505,7 @@
           "debug_checkout_process_for_the_e_commerce_website_250c43fd": "调试电子商务网站的结账流程",
           "research_and_write_a_blog_about_recent_landscape_arc_fa649d87": "研究并撰写有关最新景观设计的博客",
           "doing_9f1ffa41": "做事",
-          "design_wireframes_for_the_aurora_landing_page_revamp_8437049a": "为 FFA-X 登陆页面改造设计线框图",
+          "design_wireframes_for_the_ffax_landing_page_revamp_8437049a": "为 FFA-X 登陆页面改造设计线框图",
           "install_and_set_up_a_marketing_tool_for_team_operati_9be624ef": "安装并设置用于团队运营的营销工具",
           "prepare_and_send_out_a_press_release_for_a_new_colla_7d73d66c": "准备并发送新合作的新闻稿",
           "develop_the_color_code_of_the_logo_and_need_elaborat_260f9486": "制定标志的颜色代码并需要细化",
@@ -7171,8 +7532,8 @@
       "landing": {
         "faqs": {
           "optimize_performance_and_reduce_costs_using_scalable_298d61d5": "使用可扩展的 AWS 云平台优化性能并降低成本。",
-          "aurora_eeee9b76": "FFA-X",
-          "simplify_backend_operations_with_aurora_s_clean_mode_29535c96": "使用 FFA-X 干净、现代的管理界面简化后端操作。",
+          "ffax_eeee9b76": "FFA-X",
+          "simplify_backend_operations_with_ffax_s_clean_mode_29535c96": "使用 FFA-X 干净、现代的管理界面简化后端操作。",
           "pricing_a0d9bbad": "定价",
           "choose_a_plan_that_fits_your_team_goals_and_budget_f61c24bb": "选择适合您的团队、目标和预算的计划。",
           "campaign_69390e16": "活动",
@@ -7217,30 +7578,30 @@
           "aws_provides_service_level_agreements_slas_that_assu_e98fe4cb": "AWS 提供服务级别协议 (SLA)，以确保高正常运行时间和可用性。这些 SLA 附带可衡量的指标，使用户能够清楚地了解 AWS 的性能承诺。此外，用户可以设置多区域故障转移以增强弹性。 AWS 的 SLA 框架让客户高枕无忧，在发生严重停机时提供有保证的服务水平和补偿，这体现了 AWS 致力于维护可靠和高性能的云环境。",
           "does_aws_offer_hybrid_cloud_solutions_608c439b": "AWS 是否提供混合云解决方案？",
           "aws_supports_hybrid_cloud_architectures_through_solu_82403783": "AWS 通过 AWS Outposts 等解决方案支持混合云架构。借助 Outposts，企业可以将 AWS 基础设施扩展到本地设置，从而平衡 AWS 的可扩展性与对特定工作负载的本地控制。此设置非常适合需要满足法规要求或在访问基于云的资源时管理内部敏感数据的组织。",
-          "what_makes_aurora_unique_1668d19a": "FFA-X有何独特之处？",
-          "aurora_is_designed_for_seamless_integration_with_mat_85e9fdf8": "FFA-X 专为与 Material UI 组件无缝集成而设计，提供一系列预先设计的元素，有助于创建具有凝聚力、视觉吸引力的界面。这种集成使开发人员能够简化设计流程，确保组件轻松适合各种布局和用例，从而节省时间并增强视觉一致性。",
+          "what_makes_ffax_unique_1668d19a": "FFA-X有何独特之处？",
+          "ffax_is_designed_for_seamless_integration_with_mat_85e9fdf8": "FFA-X 专为与 Material UI 组件无缝集成而设计，提供一系列预先设计的元素，有助于创建具有凝聚力、视觉吸引力的界面。这种集成使开发人员能够简化设计流程，确保组件轻松适合各种布局和用例，从而节省时间并增强视觉一致性。",
           "can_i_use_third_party_plugins_6692934f": "我可以使用第三方插件吗？",
-          "absolutely_aurora_is_compatible_with_numerous_third__f264c945": "绝对的。 FFA-X 与众多第三方插件兼容，使其能够高度适应多样化的应用需求。您可以添加分析、SEO 工具或专门的 UI 组件，无需复杂的设置，为想要定制应用程序同时保持性能和稳定性的开发人员提供广泛的灵活性。 <br/><br/>通过支持一系列集成，FFA-X 使开发人员能够轻松扩展功能，同时确保可靠和高性能的用户体验。这种多功能性使 FFA-X 成为优先考虑应用程序适应性和定制性的初创公司和企业的宝贵选择。",
-          "is_aurora_responsive_0009bcac": "FFA-X有反应吗？",
-          "aurora_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "FFA-X 具有完全响应能力，确保从移动设备到桌面设备的所有设备都能流畅运行。这种适应性消除了大量调整的需要，为用户提供了符合现代设计标准的始终如一的出色体验。",
+          "absolutely_ffax_is_compatible_with_numerous_third__f264c945": "绝对的。 FFA-X 与众多第三方插件兼容，使其能够高度适应多样化的应用需求。您可以添加分析、SEO 工具或专门的 UI 组件，无需复杂的设置，为想要定制应用程序同时保持性能和稳定性的开发人员提供广泛的灵活性。 <br/><br/>通过支持一系列集成，FFA-X 使开发人员能够轻松扩展功能，同时确保可靠和高性能的用户体验。这种多功能性使 FFA-X 成为优先考虑应用程序适应性和定制性的初创公司和企业的宝贵选择。",
+          "is_ffax_responsive_0009bcac": "FFA-X有反应吗？",
+          "ffax_is_fully_responsive_ensuring_smooth_functiona_34ce0587": "FFA-X 具有完全响应能力，确保从移动设备到桌面设备的所有设备都能流畅运行。这种适应性消除了大量调整的需要，为用户提供了符合现代设计标准的始终如一的出色体验。",
           "what_themes_are_available_53997f3c": "有哪些主题可用？",
-          "aurora_includes_both_light_and_dark_themes_with_opti_e36082e3": "FFA-X 包括浅色和深色主题，并提供广泛的定制选项，以满足独特的品牌标识。用户可以修改颜色、字体和整体样式，以创建反映特定审美和品牌要求的界面。无缝主题切换增强了可访问性，让用户可以轻松选择自己喜欢的外观，通过定制的用户体验提高参与度和保留率。 <br/><br/> FFA-X 的主题在构建时考虑到了包容性，创建了可适应用户偏好的易于访问和欢迎的界面。这些选项使品牌能够通过视觉一致性来强化其身份，从而打造令人难忘、有凝聚力的用户旅程。",
-          "can_i_use_aurora_with_next_js_97d5cb39": "我可以将 FFA-X 与 Next.js 一起使用吗？",
-          "yes_aurora_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "是的，FFA-X 旨在与 Next.js 顺利集成，支持服务器端渲染和静态站点生成。通过将 Next.js 与 FFA-X 结合使用，开发人员可以创建高性能、SEO 友好的应用程序，这些应用程序可以快速加载并提供增强的用户体验。该组合将优化的渲染与内聚的样式结合在一起，使其成为跨不同行业的可扩展应用程序的理想选择。",
-          "do_you_offer_customer_support_for_aurora_a48652f3": "你们为 FFA-X 提供客户支持吗？",
-          "yes_aurora_has_a_dedicated_support_team_to_assist_at_8347c441": "是的，FFA-X 拥有专门的支持团队，可以在从安装到高级定制的各个阶段提供协助。这使开发人员能够自信地集成 FFA-X，因为他们知道可以提供帮助来解决他们可能遇到的任何问题。",
-          "does_aurora_support_localization_a771f01c": "FFA-X 支持本地化吗？",
-          "yes_aurora_is_fully_equipped_for_localization_suppor_f003acb3": "是的，FFA-X 完全具备本地化能力，支持 i18n 多语言应用程序，使其成为全球受众的理想选择。该框架包括易于语言适应的设置，允许用户切换语言并满足不同地区的需求。这增强了可访问性，并使开发人员能够构建与不同受众产生共鸣的包容性应用程序。 FFA-X 对本地化的关注也体现了对全球包容性的承诺，使其成为旨在覆盖全球用户群的品牌的有效选择。",
-          "is_aurora_seo_friendly_91592564": "FFA-X 是否适合 SEO？",
-          "yes_aurora_is_developed_with_seo_best_practices_in_m_c8b962ba": "是的，FFA-X 在开发时考虑了 SEO 最佳实践，确保优化标头、元数据和加载时间。这有助于应用程序在搜索结果中排名更高，从而提高网络可见性。 FFA-X 的设计与 Next.js 的服务器端渲染等功能相结合，使其成为创建高性能、可发现的应用程序的理想选择，这对于希望在竞争日益激烈的数字环境中提高在线形象的企业至关重要。",
-          "what_customization_options_does_aurora_provide_735b1b80": "FFA-X 提供哪些定制选项？",
-          "aurora_offers_a_wide_range_of_customization_options__0326b44b": "FFA-X 提供了广泛的自定义选项，从配色方案和版式到布局配置。开发人员可以轻松调整这些元素以与品牌标识保持一致，从而创建独特且有凝聚力的设计。 FFA-X 的灵活性使开发人员能够保持 UI 的新鲜度并与不断变化的设计趋势保持一致，满足品牌独特的愿景和审美要求，同时保持高质量的用户体验。",
-          "how_secure_is_aurora_4437c9f9": "FFA-X的安全性如何？",
-          "aurora_prioritizes_security_by_supporting_best_codin_11b585c2": "FFA-X 通过支持最佳编码实践、HTTPS 和其他安全协议来优先考虑安全性。它与安全库和框架完美集成，确保用户数据受到保护。 <br/><br/>FFA-X 对安全性的重视使其成为需要强大数据保护措施的应用程序的可靠选择。对于关注用户隐私和数据完整性的开发人员来说，FFA-X 的安全规定使其成为创建值得信赖的应用程序的宝贵资产。 FFA-X 符合现代安全标准，这意味着开发人员可以自信地构建具有内置数据保护功能的应用程序，从而保护用户信息免受潜在威胁。",
-          "does_aurora_support_animation_99ac64b4": "FFA-X 支持动画吗？",
-          "yes_aurora_includes_built_in_support_for_animations__4e7da64e": "是的，FFA-X 包含对动画的内置支持，允许开发人员添加视觉增强功能以提高用户参与度。 FFA-X 的动画是轻量级的，遵循现代设计趋势，确保应用程序在不牺牲性能的情况下保持响应速度和视觉吸引力。这些功能使 FFA-X 成为寻求集成动态元素而不影响速度或响应能力的开发人员的绝佳选择，从而有助于提供生动的交互式用户体验。",
-          "can_i_integrate_aurora_with_rest_apis_eebdd93a": "我可以将 FFA-X 与 REST API 集成吗？",
-          "aurora_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "FFA-X 与 REST API 完全兼容，允许开发人员无缝合并动态数据。这种兼容性支持实时数据获取和用户特定的信息显示，使其适合创建数据驱动的应用程序。通过支持 REST API 集成，FFA-X 为开发人员提供了构建丰富的交互式应用程序的工具，以满足个性化用户体验和动态内容交付。",
+          "ffax_includes_both_light_and_dark_themes_with_opti_e36082e3": "FFA-X 包括浅色和深色主题，并提供广泛的定制选项，以满足独特的品牌标识。用户可以修改颜色、字体和整体样式，以创建反映特定审美和品牌要求的界面。无缝主题切换增强了可访问性，让用户可以轻松选择自己喜欢的外观，通过定制的用户体验提高参与度和保留率。 <br/><br/> FFA-X 的主题在构建时考虑到了包容性，创建了可适应用户偏好的易于访问和欢迎的界面。这些选项使品牌能够通过视觉一致性来强化其身份，从而打造令人难忘、有凝聚力的用户旅程。",
+          "can_i_use_ffax_with_next_js_97d5cb39": "我可以将 FFA-X 与 Next.js 一起使用吗？",
+          "yes_ffax_is_designed_to_integrate_smoothly_with_ne_ae47fc07": "是的，FFA-X 旨在与 Next.js 顺利集成，支持服务器端渲染和静态站点生成。通过将 Next.js 与 FFA-X 结合使用，开发人员可以创建高性能、SEO 友好的应用程序，这些应用程序可以快速加载并提供增强的用户体验。该组合将优化的渲染与内聚的样式结合在一起，使其成为跨不同行业的可扩展应用程序的理想选择。",
+          "do_you_offer_customer_support_for_ffax_a48652f3": "你们为 FFA-X 提供客户支持吗？",
+          "yes_ffax_has_a_dedicated_support_team_to_assist_at_8347c441": "是的，FFA-X 拥有专门的支持团队，可以在从安装到高级定制的各个阶段提供协助。这使开发人员能够自信地集成 FFA-X，因为他们知道可以提供帮助来解决他们可能遇到的任何问题。",
+          "does_ffax_support_localization_a771f01c": "FFA-X 支持本地化吗？",
+          "yes_ffax_is_fully_equipped_for_localization_suppor_f003acb3": "是的，FFA-X 完全具备本地化能力，支持 i18n 多语言应用程序，使其成为全球受众的理想选择。该框架包括易于语言适应的设置，允许用户切换语言并满足不同地区的需求。这增强了可访问性，并使开发人员能够构建与不同受众产生共鸣的包容性应用程序。 FFA-X 对本地化的关注也体现了对全球包容性的承诺，使其成为旨在覆盖全球用户群的品牌的有效选择。",
+          "is_ffax_seo_friendly_91592564": "FFA-X 是否适合 SEO？",
+          "yes_ffax_is_developed_with_seo_best_practices_in_m_c8b962ba": "是的，FFA-X 在开发时考虑了 SEO 最佳实践，确保优化标头、元数据和加载时间。这有助于应用程序在搜索结果中排名更高，从而提高网络可见性。 FFA-X 的设计与 Next.js 的服务器端渲染等功能相结合，使其成为创建高性能、可发现的应用程序的理想选择，这对于希望在竞争日益激烈的数字环境中提高在线形象的企业至关重要。",
+          "what_customization_options_does_ffax_provide_735b1b80": "FFA-X 提供哪些定制选项？",
+          "ffax_offers_a_wide_range_of_customization_options__0326b44b": "FFA-X 提供了广泛的自定义选项，从配色方案和版式到布局配置。开发人员可以轻松调整这些元素以与品牌标识保持一致，从而创建独特且有凝聚力的设计。 FFA-X 的灵活性使开发人员能够保持 UI 的新鲜度并与不断变化的设计趋势保持一致，满足品牌独特的愿景和审美要求，同时保持高质量的用户体验。",
+          "how_secure_is_ffax_4437c9f9": "FFA-X的安全性如何？",
+          "ffax_prioritizes_security_by_supporting_best_codin_11b585c2": "FFA-X 通过支持最佳编码实践、HTTPS 和其他安全协议来优先考虑安全性。它与安全库和框架完美集成，确保用户数据受到保护。 <br/><br/>FFA-X 对安全性的重视使其成为需要强大数据保护措施的应用程序的可靠选择。对于关注用户隐私和数据完整性的开发人员来说，FFA-X 的安全规定使其成为创建值得信赖的应用程序的宝贵资产。 FFA-X 符合现代安全标准，这意味着开发人员可以自信地构建具有内置数据保护功能的应用程序，从而保护用户信息免受潜在威胁。",
+          "does_ffax_support_animation_99ac64b4": "FFA-X 支持动画吗？",
+          "yes_ffax_includes_built_in_support_for_animations__4e7da64e": "是的，FFA-X 包含对动画的内置支持，允许开发人员添加视觉增强功能以提高用户参与度。 FFA-X 的动画是轻量级的，遵循现代设计趋势，确保应用程序在不牺牲性能的情况下保持响应速度和视觉吸引力。这些功能使 FFA-X 成为寻求集成动态元素而不影响速度或响应能力的开发人员的绝佳选择，从而有助于提供生动的交互式用户体验。",
+          "can_i_integrate_ffax_with_rest_apis_eebdd93a": "我可以将 FFA-X 与 REST API 集成吗？",
+          "ffax_is_fully_compatible_with_rest_apis_allowing_d_4d3b92ed": "FFA-X 与 REST API 完全兼容，允许开发人员无缝合并动态数据。这种兼容性支持实时数据获取和用户特定的信息显示，使其适合创建数据驱动的应用程序。通过支持 REST API 集成，FFA-X 为开发人员提供了构建丰富的交互式应用程序的工具，以满足个性化用户体验和动态内容交付。",
           "do_you_offer_discounts_for_annual_plans_78361afd": "你们为年度计划提供折扣吗？",
           "yes_we_provide_a_10_discount_on_annual_subscriptions_56f0180c": "是的，我们为年度订阅提供 10% 的折扣，使客户能够以较低的成本享受我们的服务，同时获得与包月计划相同的功能和好处。对于旨在节省总体开支、提供持续服务和节省费用的企业来说，选择年度计划是一种经济高效的选择。",
           "do_you_provide_volume_based_pricing_ab557f8d": "你们提供基于数量的定价吗？",
@@ -7410,7 +7771,7 @@
           "guided_tutorials_491dfe8b": "Material UI 9 设计系统",
           "a_notification_system_that_alerts_users_about_import_62fde3d0": "统一组件、主题、布局与响应式规范，支持浅色、深色及企业品牌定制。",
           "user_data_protection_c93265dc": "企业级身份认证",
-          "a_feedback_system_that_allows_users_to_share_their_t_2214fed2": "支持 JWT、Auth0 与 Firebase 认证方案，并为后续角色权限和组织级访问控制提供基础。",
+          "a_feedback_system_that_allows_users_to_share_their_t_2214fed2": "由 ZITADEL 提供 OIDC 身份认证，并将组织、项目角色和访问令牌声明传递给真实服务器权限校验。",
           "third_party_integration_503f5364": "开放 API 与数据集成",
           "a_responsive_design_that_ensures_optimal_performance_137ba95d": "通过 Axios、SWR 与 REST API 对接现有业务系统、数据服务和第三方平台。",
           "adaptive_profiles_0a3e5574": "一体化协同办公",
@@ -7528,7 +7889,7 @@
       "pricing": {
         "unlimited_leads_922252e7": "无限潜在客户",
         "unlimited_emails_5a234119": "无限的电子邮件",
-        "no_aurora_s_branding_38b62b2f": "没有 FFA-X 的品牌",
+        "no_ffax_s_branding_38b62b2f": "没有 FFA-X 的品牌",
         "email_automation_d5ae589e": "电子邮件自动化",
         "custom_fields_d1f86d52": "自定义字段",
         "pro_templates_377c3fa8": "专业模板",
@@ -7588,7 +7949,7 @@
           "create_detailed_project_plan_0273ec3f": "创建详细的项目计划",
           "ui_ux_refinements_and_updates_ed7ba151": "UI/UX 改进和更新",
           "final_prototype_approval_cd2d8333": "最终原型批准",
-          "aurora_eeee9b76": "FFA-X",
+          "ffax_eeee9b76": "FFA-X",
           "falcon_63f5c347": "猎鹰",
           "perform_quality_assurance_testing_49f9f363": "执行质量保证测试",
           "redesign_module_96db2e81": "重新设计模块",
@@ -7756,7 +8117,7 @@
         }
       },
       "search_result": {
-        "aurora_test17_zip_3b7470be": "FFA-X_test17.zip",
+        "ffax_test17_zip_3b7470be": "FFA-X_test17.zip",
         "product_image_11_webp_991da14e": "产品图片(11).webp",
         "how_to_not_click_on_perfectly_innocent_looking_links_ab207acf": "如何避免点击看似正常的链接并下载恶意软件.pdf",
         "gojo_satoru_a9feba19": "五条悟",
@@ -7817,7 +8178,7 @@
           "behance_5659a8dc": "行为",
           "dribble_adcd325e": "运球",
           "outlook_f4d6b594": "展望",
-          "themewagon_42a442ab": "主题马车",
+          "themewagon_42a442ab": "FFA-X",
           "mailbluster_2b902ce2": "邮件狂暴"
         },
         "dashboard": {
@@ -7985,33 +8346,33 @@
         },
         "footer": {
           "cta": {
-            "start_with_us_today_09280e48": "今天就从我们开始吧！",
-            "our_platform_s_design_and_architecture_are_crafted_t_d076c5a7": "我们平台的设计和架构旨在促进协作，帮助您的团队更有效地合作以实现他们的目标。",
+            "start_with_us_today_09280e48": "连接 FFA-X",
+            "our_platform_s_design_and_architecture_are_crafted_t_d076c5a7": "加入全球贸易可信数字桥梁，通过已认证服务与已连接系统协同真实业务。",
             "create_an_account_3f4f547d": "创建帐户",
             "sign_in_ada2e9e9": "登录"
           },
           "navsection": {
-            "aurora_eeee9b76": "FFA-X",
+            "ffax_eeee9b76": "FFA-X",
             "about_us_c887b9d3": "关于我们",
-            "careers_68d70e59": "职业机会",
-            "blog_0b9d2b23": "博客",
+            "careers_68d70e59": "工作台",
+            "blog_0b9d2b23": "订阅服务",
             "support_f32d5a3b": "支持",
             "help_center_11015825": "帮助中心",
             "contact_us_9ad0ccff": "联系我们",
-            "pricing_a0d9bbad": "定价",
+            "pricing_a0d9bbad": "订阅服务",
             "faqs_ab9dcd4a": "常见问题解答",
-            "legal_902c91d9": "法律",
-            "privacy_cf01481f": "隐私",
-            "cookie_e4f81994": "饼干",
-            "terms_a55a275a": "条款",
-            "security_f25ce1b8": "安全性",
-            "aurora_is_a_complete_platform_with_a_user_friendly_i_988b2cd0": "FFA-X 是一个完整的平台，具有用户友好的界面。它提供了无缝协作以及与您的工作流程轻松集成的工具。",
-            "aurora_ltd_2025_all_rights_reserved_8fc42a94": "FFA-X有限公司 © 2025，保留所有权利"
+            "legal_902c91d9": "访问",
+            "privacy_cf01481f": "登录",
+            "cookie_e4f81994": "创建账户",
+            "terms_a55a275a": "常见问题",
+            "security_f25ce1b8": "联系我们",
+            "ffax_is_a_complete_platform_with_a_user_friendly_i_988b2cd0": "FFA-X 是连接全球贸易组织、能力、资源与履约流程的可信数字桥梁。",
+            "ffax_ltd_2025_all_rights_reserved_8fc42a94": "FFA-X © 2026，保留所有权利"
           },
           "newsletter": {
-            "newsletter_6ed05e72": "时事通讯",
-            "email_84add5b2": "电子邮件",
-            "subscribe_d6981f74": "订阅"
+            "newsletter_6ed05e72": "订阅服务咨询",
+            "email_84add5b2": "联系邮箱",
+            "subscribe_d6981f74": "联系我们"
           },
           "socialicons": {
             "socials_33310723": "社交"
@@ -8054,9 +8415,9 @@
           }
         },
         "footer": {
-          "thank_you_for_creating_with_2cdf75fb": "感谢您与我们一起创造",
-          "aurora_eeee9b76": "FFA-X",
-          "themewagon_42a442ab": "主题马车"
+          "thank_you_for_creating_with_2cdf75fb": "全球贸易网络中的数字桥梁",
+          "ffax_eeee9b76": "FFA-X",
+          "themewagon_42a442ab": "FFA-X"
         },
         "topnav": {
           "open_drawer_fe4563aa": "打开抽屉",
@@ -8340,24 +8701,6 @@
           }
         }
       },
-      "authentication": {
-        "default": {
-          "auth0": {
-            "log_in_f7c400ed": "登录",
-            "click_redirect_button_to_continue_logging_in_with_au_c8268009": "单击重定向按钮继续使用 Auth0 登录",
-            "redirect_to_auth0_sign_up_5de80eb5": "重定向到 Auth0 注册",
-            "redirect_to_auth0_log_in_6307d662": "重定向到 Auth0 登录",
-            "trouble_signing_in_363e4476": "登录时遇到问题？"
-          },
-          "loggedout": {
-            "you_have_been_logged_out_9b572515": "您已退出。",
-            "see_you_soon_05204645": "再见！",
-            "we_are_sad_to_see_you_go_away_but_hey_you_can_log_ba_04afaac9": "看到您离开我们感到很难过，但是嘿，您可以随时重新登录！",
-            "log_back_in_153267a6": "重新登录",
-            "trouble_signing_in_363e4476": "登录时遇到问题？"
-          }
-        }
-      },
       "errors": {
         "page404": {
           "page_not_found_bc3023b3": "找不到页面",
@@ -8431,19 +8774,12 @@
         "pricingcolumn": {
           "confused_still_882d7b8d": "还困惑吗？",
           "try_the_113c4f19": "尝试一下",
-          "basic_version_of_aurora_41f5188b": "FFA-X基础版"
+          "basic_version_of_ffax_41f5188b": "FFA-X基础版"
         },
         "pricingtable": {
           "confused_still_882d7b8d": "还困惑吗？",
           "try_the_113c4f19": "尝试一下",
-          "basic_version_of_aurora_41f5188b": "FFA-X基础版"
-        }
-      }
-    },
-    "providers": {
-      "auth_provider": {
-        "authjwtprovider": {
-          "guest_face83ee": "嘉宾"
+          "basic_version_of_ffax_41f5188b": "FFA-X基础版"
         }
       }
     },

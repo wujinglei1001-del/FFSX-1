@@ -10,6 +10,24 @@ CREATE TABLE IF NOT EXISTS ffax_actor (
 );
 CREATE INDEX IF NOT EXISTS ffax_actor_tenant_idx ON ffax_actor (tenant_id);
 
+CREATE TABLE IF NOT EXISTS ffax_contact_request (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  first_name text NOT NULL,
+  last_name text NOT NULL,
+  email text NOT NULL,
+  phone text NOT NULL,
+  company text NOT NULL,
+  purpose text NOT NULL,
+  topic text NOT NULL DEFAULT 'general' CHECK (topic IN ('general','subscription')),
+  locale text,
+  status text NOT NULL DEFAULT 'new' CHECK (status IN ('new','reviewing','resolved','closed')),
+  consent_at timestamptz NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now(),
+  updated_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS ffax_contact_request_status_idx
+  ON ffax_contact_request (status, created_at DESC);
+
 CREATE TABLE IF NOT EXISTS ffax_category (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   tenant_id text,
@@ -177,7 +195,6 @@ CREATE TABLE IF NOT EXISTS ffax_plugin (
   name text NOT NULL,
   version text NOT NULL,
   description text NOT NULL DEFAULT '',
-  microapp_entry text,
   routes jsonb NOT NULL DEFAULT '[]',
   widgets jsonb NOT NULL DEFAULT '[]',
   capabilities jsonb NOT NULL DEFAULT '[]',
@@ -236,9 +253,30 @@ CREATE TABLE IF NOT EXISTS ffax_audit_log (
   created_at timestamptz NOT NULL DEFAULT now()
 );
 
-DELETE FROM ffax_plugin
-WHERE id IN ('ffax.marketplace', 'ffax.community', 'ffax.plugins')
-  AND microapp_entry LIKE '/workbench/microapps/%';
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1
+    FROM information_schema.columns
+    WHERE table_schema = current_schema()
+      AND table_name = 'ffax_plugin'
+      AND column_name = 'microapp_entry'
+  ) THEN
+    DELETE FROM ffax_tenant_plugin
+    WHERE plugin_id IN (
+      SELECT id
+      FROM ffax_plugin
+      WHERE id IN ('ffax.marketplace', 'ffax.community', 'ffax.plugins')
+        AND microapp_entry LIKE '/workbench/microapps/%'
+    );
+
+    DELETE FROM ffax_plugin
+    WHERE id IN ('ffax.marketplace', 'ffax.community', 'ffax.plugins')
+      AND microapp_entry LIKE '/workbench/microapps/%';
+
+    ALTER TABLE ffax_plugin DROP COLUMN microapp_entry;
+  END IF;
+END $$;
 
 CREATE TABLE IF NOT EXISTS ffax_channel_definition (
   id text PRIMARY KEY,
@@ -292,7 +330,7 @@ INSERT INTO ffax_channel_definition
   (id,name,description,gateway_service,queue_service,database_service)
 VALUES
   ('warehouse','仓储与 WMS','海外仓、客户 WMS、库存、库位和入出库事件','warehouse-gateway','warehouse-nats','warehouse-db'),
-  ('marketplace','交易市场','Mercur、需求市场、报价、订单和结算事件','marketplace-gateway','marketplace-nats','marketplace-db'),
+  ('marketplace','交易市场','Mercur、需求市场、报价、订单和结算事件','marketplace-gateway','marketplace-nats','marketplace-channel-db'),
   ('logistics','物流核心','承运商报价、出单、标签、轨迹和异常事件','logistics-gateway','logistics-nats','logistics-db'),
   ('commerce','电商数据','店铺、商品、订单、退款和平台 Webhook','commerce-gateway','commerce-nats','commerce-db')
 ON CONFLICT (id) DO UPDATE SET
@@ -308,14 +346,14 @@ VALUES
   ('warehouse.custom-wms','warehouse','自定义 WMS','api-key','["inventory.read","inventory.write","fulfillment.read"]'),
   ('warehouse.shipbob','warehouse','ShipBob','api-key','["inventory.read","fulfillment.read","fulfillment.write"]'),
   ('marketplace.mercur','marketplace','Mercur','oidc','["catalog","orders","fulfillment","settlement"]'),
-  ('marketplace.demands','marketplace','FFAX 需求市场','oidc','["demands","offers","messaging","reviews"]'),
+  ('marketplace.demands','marketplace','FFA-X 需求市场','oidc','["demands","offers","messaging","reviews"]'),
   ('logistics.ups','logistics','UPS','oauth2','["rate.quote","shipment.create","label.create","tracking.read"]'),
   ('logistics.usps','logistics','USPS','oauth2','["rate.quote","shipment.create","label.create","tracking.read"]'),
   ('logistics.fedex','logistics','FedEx','oauth2','["rate.quote","shipment.create","label.create","tracking.read"]'),
   ('logistics.dhl','logistics','DHL','api-key','["rate.quote","shipment.create","label.create","tracking.read"]'),
   ('commerce.amazon','commerce','Amazon','oauth2','["stores","products","orders","refunds"]'),
   ('commerce.shopify','commerce','Shopify','oauth2','["stores","products","orders","refunds"]'),
-  ('commerce.ebay','commerce','eBay','oauth2','["stores","products","orders","refunds"]'),
+  ('commerce.ebay','commerce','eBay','oauth2','["identity","orders","inventory","trading"]'),
   ('commerce.walmart','commerce','Walmart','oauth2','["stores","products","orders","refunds"]')
 ON CONFLICT (id) DO UPDATE SET
   channel_id=EXCLUDED.channel_id,

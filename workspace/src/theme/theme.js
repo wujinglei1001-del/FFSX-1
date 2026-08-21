@@ -102,14 +102,14 @@ export const createTheme = ({
   fontSize,
   typography,
   primaryColor,
-  cssVarPrefix = 'aurora',
+  cssVarPrefix = 'ffax',
 }) => {
   const muiLocales = getMuiLocale(locale);
   const dataGridLocale = dataGridLocales[locale.split('-').join('')];
 
   const theme = muiCreateTheme(
     {
-      cssVariables: { colorSchemeSelector: 'data-aurora-color-scheme', cssVarPrefix },
+      cssVariables: { colorSchemeSelector: 'data-ffax-color-scheme', cssVarPrefix },
       colorSchemes: {
         light: {
           palette: applyPrimaryOverride(

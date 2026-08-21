@@ -6,8 +6,8 @@ const logo = (index) => `${initialConfig.assetsDir}/images/logo/${index}.svg`;
 export const workHistory = [
   {
     id: 1,
-    companyName: 'ThemeWagon Inc.',
-    companyLogo: logo(20),
+    companyName: 'FFA-X',
+    companyLogo: `${import.meta.env.BASE_URL}ffax.svg`,
     designation: 'UX/UI Designer',
     location: 'Dhaka, Bangladesh',
     startDate: '2023-12-01',

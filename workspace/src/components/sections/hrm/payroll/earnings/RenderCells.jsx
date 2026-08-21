@@ -5,6 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import NumberTextField from 'components/base/NumberTextField';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -15,7 +16,7 @@ const renderEmployeeCell = (params) => {
     <Stack direction="row" sx={{ gap: 1.5, alignItems: 'center' }}>
       <Avatar src={params.row.employee.avatar} sx={{ width: 24, height: 24 }} />
       <Stack sx={{ gap: 0.5 }}>
-        <Link href="#!" sx={{ typography: 'subtitle2', fontWeight: 400 }}>
+        <Link href={paths.memberProfile} sx={{ typography: 'subtitle2', fontWeight: 400 }}>
           {params.row.employee.name}
         </Link>
         <Typography variant="caption" sx={{ lineHeight: 1.5 }}>

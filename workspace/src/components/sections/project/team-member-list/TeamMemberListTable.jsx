@@ -14,6 +14,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CustomColumnMenu from 'components/common/CustomColumnMenu';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const defaultPageSize = 10;
@@ -77,7 +78,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
               <Avatar src={avatar} alt={name} sx={{ width: 24, height: 24, flexShrink: 0 }} />
               <Stack sx={{ gap: 0.5, minWidth: 0, overflow: 'hidden' }}>
                 <Typography variant="subtitle2" noWrap sx={{ textOverflow: 'ellipsis' }}>
-                  <Link href="#!">{name}</Link>
+                  <Link href={paths.memberProfile}>{name}</Link>
                 </Typography>
                 <Typography
                   variant="caption"
@@ -303,7 +304,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
           [`& .${gridClasses.columnHeaderTitle}`]: {
             whiteSpace: 'nowrap',
           },
-          [`& .${gridClasses.cell}.aurora-data-grid-cell`]: {
+          [`& .${gridClasses.cell}.ffax-data-grid-cell`]: {
             px: 2,
           },
           [`& .${gridClasses.columnHeader} .${gridClasses.sortButton}`]: {

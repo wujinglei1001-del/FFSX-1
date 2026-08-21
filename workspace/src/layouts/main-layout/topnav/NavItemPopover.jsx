@@ -1,8 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
+import { Link as RouterLink, useLocation } from 'react-router';
 import {
   Box,
-  Link,
   List,
   ListItemButton,
   ListItemText,
@@ -70,8 +69,8 @@ const NavitemPopover = ({ anchorEl, open, handleClose, items, level }) => {
           {items.map((item) => (
             <Fragment key={item.pathName}>
               <ListItemButton
-                component={item.items ? 'div' : Link}
-                href={item.items ? undefined : item.path}
+                component={item.items ? 'div' : RouterLink}
+                to={item.items ? undefined : item.path}
                 onClick={(e) => {
                   if (item.items) {
                     setItemAnchorEl(e.currentTarget);

@@ -28,7 +28,6 @@ const ProfileHeader = () => {
             label: translateUi(
               'ui.sections.hiring.admin.candidate_details.candidate_details_4e4d7cc1',
             ),
-            url: '#!',
             active: true,
           },
         ]}

@@ -5,6 +5,12 @@ import path from 'path';
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd());
 
+const requiredSecret = (name: 'JWT_SECRET' | 'COOKIE_SECRET') => {
+  const value = process.env[name]?.trim();
+  if (!value) throw new Error(`${name} must be configured before Mercur starts.`);
+  return value;
+};
+
 // Resolves where a dashboard app lives:
 // - in the source tree (development): ../../apps/<name>
 // - in the production build artifact: hosts that deploy only `.medusa/server` (for example
@@ -29,8 +35,8 @@ module.exports = withMercur({
       adminCors: process.env.ADMIN_CORS!,
       vendorCors: process.env.VENDOR_CORS!,
       authCors: process.env.AUTH_CORS!,
-      jwtSecret: process.env.JWT_SECRET || 'supersecret',
-      cookieSecret: process.env.COOKIE_SECRET || 'supersecret',
+      jwtSecret: requiredSecret('JWT_SECRET'),
+      cookieSecret: requiredSecret('COOKIE_SECRET'),
       authMethodsPerActor: {
         user: ['zitadel'],
         member: ['zitadel'],

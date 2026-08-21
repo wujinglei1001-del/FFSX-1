@@ -62,24 +62,23 @@ const Account = ({ accountData }) => {
             gap: 1,
           }}
         >
-          {accountData.contactIcons.map((icon) => (
-            <Button
-              href={
-                icon === 'material-symbols:mail-outline'
-                  ? 'mailto:?'
-                  : icon === 'material-symbols:call-outline'
-                    ? 'tel:?'
-                    : '#!'
-              }
-              key={icon}
-              shape="square"
-              variant="soft"
-              size="large"
-              color="neutral"
-            >
-              <IconifyIcon icon={icon} sx={{ fontSize: 24 }} />
-            </Button>
-          ))}
+          {accountData.contactIcons.map((icon) => {
+            const href = accountData.contactLinks?.[icon];
+
+            return (
+              <Button
+                href={href}
+                disabled={!href}
+                key={icon}
+                shape="square"
+                variant="soft"
+                size="large"
+                color="neutral"
+              >
+                <IconifyIcon icon={icon} sx={{ fontSize: 24 }} />
+              </Button>
+            );
+          })}
         </Stack>
       </Stack>
       <Deals deals={accountData.ongoingDeals} />

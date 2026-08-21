@@ -61,7 +61,7 @@ Run route codegen when a task changes:
 - request or response typing used by generated routes
 - block-installed API routes that should surface in generated types
 
-If a route task changes generated types, confirm `@acme/api/_generated` still makes sense for consumers.
+If a route task changes generated types, confirm `@ffax/mercur-api/_generated` still makes sense for consumers.
 
 ## `medusa-config.ts`
 

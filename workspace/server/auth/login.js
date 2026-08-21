@@ -6,30 +6,62 @@ let loginClientToken;
 const getLoginClientToken = async () => {
   if (loginClientToken) return loginClientToken;
 
-  loginClientToken = (await readFile(serverConfig.zitadel.loginClientPatFile, 'utf8')).trim();
+  try {
+    loginClientToken = (await readFile(serverConfig.zitadel.loginClientPatFile, 'utf8')).trim();
+  } catch {
+    const error = new Error('authentication_not_configured');
+    error.status = 503;
+    throw error;
+  }
+
   if (!loginClientToken) {
-    throw new Error('ZITADEL login client token is empty');
+    const error = new Error('authentication_not_configured');
+    error.status = 503;
+    throw error;
   }
 
   return loginClientToken;
 };
 
+export const getZitadelLoginClientHealth = async () => {
+  try {
+    await getLoginClientToken();
+    return { configured: true };
+  } catch {
+    return { configured: false };
+  }
+};
+
 const requestZitadel = async (path, { method = 'POST', body } = {}) => {
   const token = await getLoginClientToken();
-  const response = await fetch(`${serverConfig.zitadel.internalUrl}${path}`, {
-    method,
-    headers: {
-      Accept: 'application/json',
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-      Host: serverConfig.zitadel.instanceHost,
-      'X-Forwarded-Proto': serverConfig.zitadel.publicScheme,
-    },
-    body: body === undefined ? undefined : JSON.stringify(body),
-    signal: AbortSignal.timeout(15000),
-  });
+  let response;
+  try {
+    response = await fetch(`${serverConfig.zitadel.internalUrl}${path}`, {
+      method,
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+        Host: serverConfig.zitadel.instanceHost,
+        'X-Forwarded-Proto': serverConfig.zitadel.publicScheme,
+      },
+      body: body === undefined ? undefined : JSON.stringify(body),
+      signal: AbortSignal.timeout(15000),
+    });
+  } catch {
+    const error = new Error('authentication_service_unavailable');
+    error.status = 503;
+    throw error;
+  }
   const text = await response.text();
-  const payload = text ? JSON.parse(text) : {};
+  let payload = {};
+  if (text) {
+    try {
+      payload = JSON.parse(text);
+    } catch {
+      payload = { message: text };
+    }
+  }
 
   if (!response.ok) {
     const error = new Error(payload.message || `ZITADEL request failed (${response.status})`);
@@ -40,7 +72,7 @@ const requestZitadel = async (path, { method = 'POST', body } = {}) => {
   return payload;
 };
 
-const removeFailedSession = async (sessionId, sessionToken) => {
+const removeZitadelSession = async (sessionId, sessionToken) => {
   if (!sessionId || !sessionToken) return;
 
   try {
@@ -49,12 +81,104 @@ const removeFailedSession = async (sessionId, sessionToken) => {
       body: { sessionToken },
     });
   } catch {
-    // The failed login response is more important than cleanup failure.
+    // Session cleanup failure must not mask the original authentication result.
   }
 };
 
 const normalizeAuthRequest = (value = '') =>
   value.startsWith('oidc_') ? value.slice('oidc_'.length) : value;
+
+const normalizeText = (value) => (typeof value === 'string' ? value.trim() : '');
+
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const getEmailVerificationUrlTemplate = () =>
+  `${serverConfig.frontendUrl}/authentication/zitadel/verify-email` +
+  '?userId={{.UserID}}&code={{.Code}}&orgId={{.OrgID}}';
+
+export const registerWithZitadel = async (req, res, next) => {
+  const givenName = normalizeText(req.body?.givenName);
+  const familyName = normalizeText(req.body?.familyName);
+  const email = normalizeText(req.body?.email).toLowerCase();
+  const password = typeof req.body?.password === 'string' ? req.body.password : '';
+
+  if (
+    !givenName ||
+    !familyName ||
+    givenName.length > 200 ||
+    familyName.length > 200 ||
+    !isValidEmail(email) ||
+    email.length > 320 ||
+    password.length < 8 ||
+    password.length > 200 ||
+    !serverConfig.frontendUrl
+  ) {
+    res.status(400).json({ error: 'registration_invalid' });
+    return;
+  }
+
+  try {
+    await requestZitadel('/v2/users/human', {
+      body: {
+        username: email,
+        profile: {
+          givenName,
+          familyName,
+          displayName: `${givenName} ${familyName}`,
+        },
+        email: {
+          email,
+          sendCode: {
+            urlTemplate: getEmailVerificationUrlTemplate(),
+          },
+        },
+        password: {
+          password,
+          changeRequired: false,
+        },
+      },
+    });
+
+    res
+      .status(201)
+      .set('Cache-Control', 'no-store')
+      .json({ data: { verificationRequired: true } });
+  } catch (error) {
+    if (error.status === 400 || error.status === 409) {
+      res.status(error.status).json({
+        error: 'registration_failed',
+      });
+      return;
+    }
+
+    next(error);
+  }
+};
+
+export const verifyEmailWithZitadel = async (req, res, next) => {
+  const userId = normalizeText(req.body?.userId);
+  const verificationCode = normalizeText(req.body?.code);
+
+  if (!userId || userId.length > 200 || !verificationCode || verificationCode.length > 512) {
+    res.status(400).json({ error: 'verification_invalid' });
+    return;
+  }
+
+  try {
+    await requestZitadel(`/v2/users/${encodeURIComponent(userId)}/email/verify`, {
+      body: { verificationCode },
+    });
+
+    res.set('Cache-Control', 'no-store').json({ data: { verified: true } });
+  } catch (error) {
+    if (error.status === 400 || error.status === 404) {
+      res.status(400).json({ error: 'verification_expired' });
+      return;
+    }
+
+    next(error);
+  }
+};
 
 export const loginWithZitadel = async (req, res, next) => {
   const loginName = typeof req.body?.loginName === 'string' ? req.body.loginName.trim() : '';
@@ -62,9 +186,10 @@ export const loginWithZitadel = async (req, res, next) => {
   const authRequest = normalizeAuthRequest(
     typeof req.body?.authRequest === 'string' ? req.body.authRequest.trim() : '',
   );
+  const rememberDevice = req.body?.rememberDevice === true;
 
   if (!loginName || !password || !/^V2_[A-Za-z0-9_-]+$/.test(authRequest)) {
-    res.status(400).json({ error: '登录信息不完整。' });
+    res.status(400).json({ error: 'login_invalid_request' });
     return;
   }
 
@@ -100,16 +225,16 @@ export const loginWithZitadel = async (req, res, next) => {
       secure: serverConfig.zitadel.publicScheme === 'https',
       sameSite: 'lax',
       path: '/',
-      maxAge: 12 * 60 * 60 * 1000,
+      ...(rememberDevice ? { maxAge: 30 * 24 * 60 * 60 * 1000 } : {}),
     };
     res.cookie('ffax_zitadel_session_id', sessionId, cookieOptions);
     res.cookie('ffax_zitadel_session_token', sessionToken, cookieOptions);
     res.set('Cache-Control', 'no-store').json({ data: { callbackUrl: finalized.callbackUrl } });
   } catch (error) {
-    await removeFailedSession(sessionId, sessionToken);
+    await removeZitadelSession(sessionId, sessionToken);
 
     if (error.status === 400 || error.status === 401 || error.status === 404) {
-      res.status(401).json({ error: '用户名或密码不正确。' });
+      res.status(401).json({ error: 'login_invalid_credentials' });
       return;
     }
 
@@ -129,7 +254,7 @@ const readCookie = (req, name) => {
 export const logoutWithZitadel = async (req, res) => {
   const sessionId = readCookie(req, 'ffax_zitadel_session_id');
   const sessionToken = readCookie(req, 'ffax_zitadel_session_token');
-  await removeFailedSession(sessionId, sessionToken);
+  await removeZitadelSession(sessionId, sessionToken);
 
   const cookieOptions = {
     httpOnly: true,

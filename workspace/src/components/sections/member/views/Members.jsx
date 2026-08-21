@@ -44,7 +44,10 @@ const Members = () => {
         <PageHeader
           title={translateUi('ui.sections.member.views.members.member_6853c98a')}
           breadcrumb={[
-            { label: translateUi('ui.sections.member.views.members.home_70f8bb9a'), url: '#!' },
+            {
+              label: translateUi('ui.sections.member.views.members.home_70f8bb9a'),
+              url: paths.workbench,
+            },
             {
               label: translateUi('ui.sections.member.views.members.members_1cb449c1'),
               active: true,

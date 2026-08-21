@@ -6,6 +6,7 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
+import paths from 'routes/paths';
 
 const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMode }) => {
   const { t: translateUi } = useTranslation();
@@ -87,7 +88,7 @@ const PricingHeader = ({ isYearly, handleSwitchChange, onButtonChange, displayMo
           )}
         </Typography>
 
-        <Link href="#!">
+        <Link href={paths.landingContact}>
           {translateUi('ui.sections.pricing.pricingheader.have_questions_chat_with_us_1eb18566')}
         </Link>
       </Box>

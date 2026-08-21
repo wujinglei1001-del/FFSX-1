@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import { orderListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
+import paths from 'routes/paths';
 
 const OrderDetailsPopper = ({ params }) => {
   const { t: translateUi } = useTranslation();
@@ -63,7 +64,7 @@ const OrderDetailsPopper = ({ params }) => {
       <Link
         ref={linkRef}
         variant="subtitle2"
-        href="#!"
+        href={paths.adminOrder}
         sx={{ fontWeight: 400 }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

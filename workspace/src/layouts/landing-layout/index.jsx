@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import useSettingsPanelMountEffect from 'hooks/useSettingsPanelMountEffect';
 import { useSettingsContext } from 'providers/SettingsProvider';
-import { mutate } from 'swr';
 import LandingAppBar from './app-bar';
 import LandingFooter from './footer';
 
@@ -27,9 +26,6 @@ const LandingLayout = ({ children }) => {
     return () => {
       setConfig({
         navColor: navColorRef.current,
-      });
-      mutate((key) => Array.isArray(key) && key[0].startsWith('e-commerce'), undefined, {
-        revalidate: true,
       });
     };
   }, []);

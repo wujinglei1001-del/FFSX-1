@@ -11,11 +11,15 @@ const splitList = (value = '') =>
     .map((item) => item.trim())
     .filter(Boolean);
 
+const allowedOrigins = splitList(process.env.FFAX_ALLOWED_ORIGINS || 'http://localhost:5002');
+
 export const serverConfig = {
   port: Number(process.env.PORT || 8000),
-  allowedOrigins: splitList(process.env.FFAX_ALLOWED_ORIGINS || 'http://localhost:5002'),
+  allowedOrigins,
+  frontendUrl: normalizeUrl(process.env.FFAX_FRONTEND_URL || allowedOrigins[0] || ''),
   databaseUrl: process.env.FFAX_DATABASE_URL?.trim() || '',
   redisUrl: process.env.FFAX_REDIS_URL?.trim() || '',
+  syncApiUrl: normalizeUrl(process.env.FFAX_SYNC_API_URL || 'http://sync-api:8300'),
   mercurBaseUrl: normalizeUrl(process.env.MERCUR_BASE_URL || 'http://localhost:9000'),
   paymentsEnabled: process.env.FFAX_ENABLE_REAL_PAYMENTS === 'true',
   zitadel: {

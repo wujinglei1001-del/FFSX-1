@@ -232,6 +232,17 @@ const updateStoreCurrencies = createWorkflow(
 );
 
 export default async function seedDemoData({ container }: ExecArgs) {
+  if (process.env.NODE_ENV === "production" && process.env.ALLOW_DEMO_SEED !== "true") {
+    throw new Error(
+      "Demo marketplace seed is disabled in production. Set ALLOW_DEMO_SEED=true only for an explicitly authorized disposable environment."
+    );
+  }
+
+  const sellerPassword = process.env.SEED_SELLER_PASSWORD?.trim();
+  if (!sellerPassword) {
+    throw new Error("SEED_SELLER_PASSWORD must be configured before running the demo seed.");
+  }
+
   const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
   const link = container.resolve(ContainerRegistrationKeys.LINK);
   const query = container.resolve(ContainerRegistrationKeys.QUERY);
@@ -594,7 +605,6 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
   logger.info("Finished seeding global product attributes.");
 
-  const SELLER_PASSWORD = "supersecret";
   const SELLER_CONFIGS = [
     { name: "Sole Society", email: "seller@mercur.dev", first_name: "Demo", last_name: "Seller", city: "Berlin", country_code: "DE", address_1: "Alexanderplatz 1" },
     { name: "Kickz Corner", email: "kickz@mercur.dev", first_name: "Kai", last_name: "Corner", city: "Amsterdam", country_code: "NL", address_1: "Damrak 12" },
@@ -660,7 +670,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
 
     let authIdentityId: string;
     const registerResponse = await authModuleService.register("emailpass", {
-      body: { email: sellerConfig.email, password: SELLER_PASSWORD },
+      body: { email: sellerConfig.email, password: sellerPassword },
     });
 
     if (registerResponse.success && registerResponse.authIdentity) {

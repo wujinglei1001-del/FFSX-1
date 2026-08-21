@@ -97,14 +97,14 @@ const AssignResponsibility = () => {
           <TextField
             label={translateUi('ui.sections.hrm.performance_management.new_goal.team_21888726')}
             fullWidth
-            defaultValue="Aurora"
+            defaultValue="FFA-X"
             select
             error={!!errors.assignResponsibility?.team}
             helperText={errors.assignResponsibility?.team?.message}
             {...register('assignResponsibility.team')}
           >
-            <MenuItem value="Aurora">
-              {translateUi('ui.sections.hrm.performance_management.new_goal.aurora_eeee9b76')}
+            <MenuItem value="FFA-X">
+              {translateUi('ui.sections.hrm.performance_management.new_goal.ffax_eeee9b76')}
             </MenuItem>
             <MenuItem value="Falcon">
               {translateUi('ui.sections.hrm.performance_management.new_goal.falcon_63f5c347')}

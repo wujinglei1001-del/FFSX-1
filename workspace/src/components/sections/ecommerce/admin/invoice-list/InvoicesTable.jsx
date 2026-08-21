@@ -7,6 +7,7 @@ import useNumberFormat from 'hooks/useNumberFormat';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 
 const getPaymentStatusBadgeColor = (val) => {
   switch (val) {
@@ -40,7 +41,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
         flex: 1,
         renderCell: (params) => {
           return (
-            <Link variant="subtitle2" sx={{ fontWeight: 400 }} href="#!">
+            <Link variant="subtitle2" sx={{ fontWeight: 400 }} href={paths.adminInvoice}>
               {params.row.invoiceId}
             </Link>
           );
@@ -77,7 +78,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
                 >
                   {params.row.customer.name}
                 </Typography>
-                <Link href="#!" variant="caption">
+                <Link href={`mailto:${params.row.customer.email}`} variant="caption">
                   {params.row.customer.email}
                 </Link>
               </div>
@@ -103,7 +104,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
         minWidth: 128,
         renderCell: (params) => {
           return (
-            <Link variant="subtitle2" href="#!" sx={{ fontWeight: 400 }}>
+            <Link variant="subtitle2" href={paths.adminOrder} sx={{ fontWeight: 400 }}>
               {params.row.id}
             </Link>
           );
@@ -221,7 +222,7 @@ const InvoicesTable = ({ apiRef, selectionModel, onSelectionChange }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

@@ -19,7 +19,7 @@ const Goals = () => {
         breadcrumb={[
           {
             label: translateUi('ui.pages.apps.hrm.performance_management.home_70f8bb9a'),
-            url: '#!',
+            url: paths.workbench,
           },
           {
             label: translateUi('ui.pages.apps.hrm.performance_management.goals_48d8c627'),

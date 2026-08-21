@@ -76,7 +76,7 @@ const CTAContent = () => {
                     color: 'common.white',
                   }}
                 >
-                  {translateUi('ui.sections.showcase.cta.showcase.aurora_c8251d84')}
+                  {translateUi('ui.sections.showcase.cta.showcase.ffax_c8251d84')}
                 </Typography>
               </Stack>
             </RevealOnScroll>
@@ -96,7 +96,7 @@ const CTAContent = () => {
         </Stack>
       </Stack>
       <RevealOnScroll delay={0.4}>
-        <GradientButton href={paths.landingSubscriptions}>选择免费账户或订阅服务</GradientButton>
+        <GradientButton href={paths.landingSubscriptions}>咨询订阅服务</GradientButton>
       </RevealOnScroll>
     </Stack>
   );

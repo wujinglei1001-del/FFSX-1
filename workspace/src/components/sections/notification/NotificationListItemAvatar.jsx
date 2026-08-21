@@ -1,8 +1,11 @@
 import { Avatar, AvatarGroup, Badge, badgeClasses } from '@mui/material';
-import { notificationBadge } from 'data/notifications';
+import { notificationBadges } from 'data/notification-badges';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const NotificationListItemAvatar = ({ notification, variant }) => {
+  const badge = notificationBadges[notification.type] || notificationBadges.default;
+  const users = Array.isArray(notification.user) ? notification.user : [];
+
   return (
     <Badge
       overlap="circular"
@@ -13,7 +16,7 @@ const NotificationListItemAvatar = ({ notification, variant }) => {
             {
               height: 24,
               width: 24,
-              bgcolor: notificationBadge[notification.type].color,
+              bgcolor: badge.color,
             },
             variant === 'small' && {
               height: 16,
@@ -22,7 +25,7 @@ const NotificationListItemAvatar = ({ notification, variant }) => {
           ]}
         >
           <IconifyIcon
-            icon={notificationBadge[notification.type].icon}
+            icon={badge.icon}
             sx={[
               { fontSize: notification.type === 'reaction_smile' ? 22 : 16 },
               variant === 'small' && { fontSize: notification.type === 'reaction_smile' ? 16 : 10 },
@@ -40,21 +43,21 @@ const NotificationListItemAvatar = ({ notification, variant }) => {
       }}
     >
       <AvatarGroup max={2} sx={{ mr: 1.5 }}>
-        {notification.user.slice(0, 2).map((user, index) => (
+        {users.slice(0, 2).map((user, index) => (
           <Avatar
             alt={user.name}
             src={user.avatar}
             key={user.id}
             sx={[
               { height: 56, width: 56 },
-              notification.user.length > 1 &&
+              users.length > 1 &&
                 index === 0 && {
                   mr: '-18px !important',
                 },
               index === 1 && {
                 mt: 2.25,
               },
-              notification.user.length > 1 && {
+              users.length > 1 && {
                 height: 38,
                 width: 38,
               },
@@ -62,7 +65,7 @@ const NotificationListItemAvatar = ({ notification, variant }) => {
                 height: 40,
                 width: 40,
               },
-              notification.user.length > 1 &&
+              users.length > 1 &&
                 variant === 'small' && {
                   height: 28,
                   width: 28,

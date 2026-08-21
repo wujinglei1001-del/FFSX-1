@@ -44,7 +44,12 @@ const PodcastDetails = () => {
                   }
                   sx={{ fontSize: 20 }}
                 />
-                <Typography component={Link} href="#!">
+                <Typography
+                  component={social.platform.toLowerCase() === 'email' ? Link : 'span'}
+                  href={
+                    social.platform.toLowerCase() === 'email' ? `mailto:${social.link}` : undefined
+                  }
+                >
                   <Box component="span" sx={{ color: 'primary.main' }}>
                     {social.link}
                   </Box>

@@ -1,4 +1,5 @@
 import express from 'express';
+import { serverConfig } from '../config.js';
 import { query, withTransaction } from '../db/index.js';
 import { audit, requireAnyRole } from '../platform/context.js';
 import { writeConnectorCredential } from '../runtime/shared/openbao.js';
@@ -6,6 +7,7 @@ import {
   channelById,
   channelCatalog,
   connectorById,
+  isConnectorRuntimeReady,
   publicChannelCatalog,
   publicConnectorCatalog,
 } from './catalog.js';
@@ -35,7 +37,7 @@ const runtimeStatus = (runtimes) => {
 };
 
 const syncChanges = async (req) => {
-  const url = new URL('/v1/changes', process.env.FFAX_SYNC_API_URL || 'http://sync-api:8300');
+  const url = new URL('/v1/changes', serverConfig.syncApiUrl);
   url.searchParams.set('cursor', '0');
   url.searchParams.set('limit', '500');
   const response = await fetch(url, {
@@ -122,8 +124,10 @@ controlPlaneRouter.get('/v1/control-plane/topology', async (req, res) => {
   });
   const connectors = publicConnectorCatalog().map((connector) => ({
     ...connector,
-    enabled: connectorStates.get(connector.id)?.enabled || false,
-    status: connectorStates.get(connector.id)?.status || 'available',
+    enabled: connector.runtimeReady && (connectorStates.get(connector.id)?.enabled || false),
+    status: connector.runtimeReady
+      ? connectorStates.get(connector.id)?.status || 'available'
+      : 'not_connected',
     configVersion: connectorStates.get(connector.id)?.config_version || 0,
     updatedAt: connectorStates.get(connector.id)?.updated_at || null,
   }));
@@ -178,8 +182,10 @@ controlPlaneRouter.get('/v1/control-plane/connectors', async (req, res) => {
   res.json({
     data: publicConnectorCatalog().map((connector) => ({
       ...connector,
-      enabled: byId.get(connector.id)?.enabled || false,
-      status: byId.get(connector.id)?.status || 'available',
+      enabled: connector.runtimeReady && (byId.get(connector.id)?.enabled || false),
+      status: connector.runtimeReady
+        ? byId.get(connector.id)?.status || 'available'
+        : 'not_connected',
       settings: byId.get(connector.id)?.settings || {},
       credentialConfigured: Boolean(byId.get(connector.id)?.credential_ref),
       credentialReferencePrefix: `openbao://secret/tenants/${req.platform.tenantId}/connectors/${connector.channelId}/`,
@@ -220,6 +226,9 @@ controlPlaneRouter.put(
   async (req, res) => {
     const definition = connectorById.get(req.params.id);
     if (!definition) return res.status(404).json({ error: 'connector_not_found' });
+    if (!isConnectorRuntimeReady(definition.id)) {
+      return res.status(501).json({ error: 'connector_runtime_not_connected' });
+    }
     const credential = jsonObject(req.body.credential);
     const entries = Object.entries(credential);
     if (
@@ -328,6 +337,9 @@ controlPlaneRouter.put(
   async (req, res) => {
     const definition = connectorById.get(req.params.id);
     if (!definition) return res.status(404).json({ error: 'connector_not_found' });
+    if (req.body.enabled && !isConnectorRuntimeReady(definition.id)) {
+      return res.status(501).json({ error: 'connector_runtime_not_connected' });
+    }
 
     const result = await withTransaction(async (client) => {
       const current = await client.query(

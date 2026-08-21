@@ -166,7 +166,7 @@ const SlimNavItem = ({ item, level }) => {
           {item.new && (
             <Chip
               size="xsmall"
-              label={translateUi('ui.layouts.main_layout.sidenav.slimnavitem.new_c2a6b03f')}
+              label={translateUi('ffax.ui.new')}
               color="warning"
               sx={{ textTransform: 'capitalize', ml: 1 }}
             />

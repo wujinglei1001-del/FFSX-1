@@ -294,7 +294,7 @@ const ProjectListTable = ({ onItemClick }) => {
           [`& .${gridClasses.columnHeader}`]: {
             px: 2,
           },
-          [`& .${gridClasses.cell}.aurora-data-grid-cell`]: {
+          [`& .${gridClasses.cell}.ffax-data-grid-cell`]: {
             px: 2,
           },
           [`& .${gridClasses.columnHeader} .${gridClasses.sortButton}`]: {

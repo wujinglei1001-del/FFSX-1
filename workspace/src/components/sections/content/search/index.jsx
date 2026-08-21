@@ -46,7 +46,7 @@ const formatSearchKey = (str) =>
 
 const SearchContainer = () => {
   const { t: translateUi } = useTranslation();
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
   const [searchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState('recommended');
   const [value, setValue] = useState('blogs');
@@ -74,7 +74,7 @@ const SearchContainer = () => {
               key={id}
               component={Link}
               clickable
-              href={`${pathname}${search}#!`}
+              href={`${pathname}?key=${encodeURIComponent(label)}`}
               label={label}
               size="large"
               sx={{

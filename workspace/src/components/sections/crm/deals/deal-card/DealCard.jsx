@@ -26,28 +26,24 @@ import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
-const contactLinks = [
-  {
-    id: 1,
-    icon: 'material-symbols:call-outline',
-    href: '#!',
-  },
-  {
-    id: 2,
-    icon: 'material-symbols:mail-outline-rounded',
-    href: '#!',
-  },
-  {
-    id: 3,
-    icon: 'material-symbols:video-call-outline-rounded',
-    href: '#!',
-  },
-  {
-    id: 4,
-    icon: 'material-symbols:contact-mail-outline-rounded',
-    href: '#!',
-  },
-];
+const getContactLinks = (client) =>
+  [
+    client.phone && {
+      id: 'phone',
+      icon: 'material-symbols:call-outline',
+      href: `tel:${client.phone}`,
+    },
+    client.email && {
+      id: 'email',
+      icon: 'material-symbols:mail-outline-rounded',
+      href: `mailto:${client.email}`,
+    },
+    client.videoChat && {
+      id: 'video',
+      icon: 'material-symbols:video-call-outline-rounded',
+      href: client.videoChat,
+    },
+  ].filter(Boolean);
 
 const DealCard = memo(({ deal }) => {
   const { dealsDispatch } = useDealsContext();
@@ -185,15 +181,17 @@ const DealCard = memo(({ deal }) => {
             <Stack direction="row" sx={{ gap: 0.5, alignItems: 'center' }}>
               <Typography
                 component={Link}
+                href={paths.memberProfile}
                 variant="body2"
                 sx={{ alignItems: 'center', fontWeight: 600, mr: 1.5 }}
               >
                 {deal.client.name}
               </Typography>
 
-              {contactLinks.map((item) => (
+              {getContactLinks(deal.client).map((item) => (
                 <Button
                   key={item.id}
+                  href={item.href}
                   variant="soft"
                   shape="square"
                   color="neutral"

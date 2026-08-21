@@ -259,7 +259,7 @@ platformRouter.post('/v1/demands/:id/offers', async (req, res) => {
       [
         demand.rows[0].tenant_id,
         'offer.created',
-        '收到新的报价',
+        'offer.created',
         { demandId: req.params.id, offerId: inserted.rows[0].id },
       ],
     );
@@ -544,12 +544,13 @@ platformRouter.delete(
 
 platformRouter.get('/v1/plugins', async (req, res) => {
   const result = await query(
-    `SELECT p.*, tp.lifecycle, tp.installed_version, tp.config_version, tp.licensed_until
+    `SELECT p.*, false AS runtime_ready, false AS payments_ready,
+       tp.lifecycle, tp.installed_version, tp.config_version, tp.licensed_until
      FROM ffax_plugin p LEFT JOIN ffax_tenant_plugin tp ON tp.plugin_id=p.id AND tp.tenant_id=$1
      WHERE p.status='available' ORDER BY p.name`,
     [req.platform.tenantId],
   );
-  res.json({ data: result.rows, paymentsEnabled: serverConfig.paymentsEnabled });
+  res.json({ data: result.rows });
 });
 
 platformRouter.post(
@@ -560,23 +561,7 @@ platformRouter.post(
       req.params.id,
     ]);
     if (!plugin.rows[0]) throw notFound('plugin');
-    if (plugin.rows[0].price_minor > 0 && !serverConfig.paymentsEnabled) {
-      return res.status(409).json({ error: 'real_payments_disabled_pending_kyc' });
-    }
-    const result = await query(
-      `INSERT INTO ffax_tenant_plugin (tenant_id,plugin_id,purchase_order_id,installed_version,lifecycle,updated_by)
-     VALUES ($1,$2,$3,$4,'purchased',$5)
-     ON CONFLICT (tenant_id,plugin_id) DO UPDATE SET purchase_order_id=EXCLUDED.purchase_order_id,
-       lifecycle='purchased',updated_by=EXCLUDED.updated_by,updated_at=now() RETURNING *`,
-      [
-        req.platform.tenantId,
-        req.params.id,
-        req.body.orderId || `internal:${Date.now()}`,
-        plugin.rows[0].version,
-        req.platform.userId,
-      ],
-    );
-    res.json({ data: result.rows[0] });
+    return res.status(501).json({ error: 'plugin_runtime_not_connected' });
   },
 );
 
@@ -602,23 +587,11 @@ platformRouter.post(
       return res
         .status(409)
         .json({ error: 'invalid_plugin_transition', lifecycle: before.rows[0].lifecycle });
-    const next =
-      action === 'disable' ? 'disabled' : action === 'upgrade' ? 'upgrading' : 'installing';
-    await query(
-      'UPDATE ffax_tenant_plugin SET lifecycle=$3,updated_by=$4,updated_at=now() WHERE tenant_id=$1 AND plugin_id=$2',
-      [req.platform.tenantId, req.params.id, next, req.platform.userId],
-    );
-    const final = action === 'disable' ? 'disabled' : 'active';
-    const result = await query(
-      `UPDATE ffax_tenant_plugin tp SET lifecycle=$3,installed_version=p.version,config_version=config_version+1,updated_at=now()
-     FROM ffax_plugin p WHERE tp.tenant_id=$1 AND tp.plugin_id=$2 AND p.id=tp.plugin_id RETURNING tp.*`,
-      [req.platform.tenantId, req.params.id, final],
-    );
-    await publishTenantEvent(req.platform.tenantId, {
-      type: 'plugin.lifecycle',
-      data: result.rows[0],
+
+    res.status(501).json({
+      error: 'plugin_runtime_not_connected',
+      lifecycle: before.rows[0].lifecycle,
     });
-    res.json({ data: result.rows[0] });
   },
 );
 
@@ -673,10 +646,26 @@ platformRouter.get('/v1/workspaces/:id/panel-layout', panelLayout.get);
 platformRouter.put('/v1/workspaces/:id/panel-layout', panelLayout.put);
 
 platformRouter.get('/v1/marketplace/status', async (req, res) => {
+  let reachable = false;
+  let upstreamStatus = null;
+
+  try {
+    const response = await fetch(new URL('/health', `${serverConfig.mercurBaseUrl}/`), {
+      signal: AbortSignal.timeout(3000),
+    });
+    reachable = response.ok;
+    upstreamStatus = response.status;
+  } catch {
+    reachable = false;
+  }
+
   res.json({
     data: {
       baseUrl: serverConfig.mercurBaseUrl,
-      paymentsEnabled: serverConfig.paymentsEnabled,
+      reachable,
+      upstreamStatus,
+      paymentsReady: false,
+      paymentsRequested: serverConfig.paymentsEnabled,
       tenantId: req.platform.tenantId,
     },
   });

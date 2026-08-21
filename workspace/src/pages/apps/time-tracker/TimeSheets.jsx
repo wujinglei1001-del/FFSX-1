@@ -3,6 +3,7 @@ import { Paper, Stack } from '@mui/material';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import TimeSheetsTableContainer from 'components/sections/time-tracker/time-sheets';
 import TimesheetsHeaderActions from 'components/sections/time-tracker/time-sheets/HeaderActions';
+import paths from 'routes/paths';
 
 const TimeSheets = () => {
   const { t: translateUi } = useTranslation();
@@ -11,10 +12,13 @@ const TimeSheets = () => {
       <PageHeader
         title={translateUi('ui.pages.apps.time_tracker.timesheets.timesheets_1b485b9e')}
         breadcrumb={[
-          { label: translateUi('ui.pages.apps.time_tracker.timesheets.home_70f8bb9a'), url: '#!' },
+          {
+            label: translateUi('ui.pages.apps.time_tracker.timesheets.home_70f8bb9a'),
+            url: paths.workbench,
+          },
           {
             label: translateUi('ui.pages.apps.time_tracker.timesheets.time_tracker_55712c7b'),
-            url: '#!',
+            url: paths.timeTracker,
           },
           {
             label: translateUi('ui.pages.apps.time_tracker.timesheets.timesheets_1b485b9e'),

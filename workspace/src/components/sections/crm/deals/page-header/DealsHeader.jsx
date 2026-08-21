@@ -26,7 +26,6 @@ const breadcrumbItems = [
     get label() {
       return i18n.t('ui.sections.crm.deals.page_header.deals_2c874671');
     },
-    url: '#!',
     active: true,
   },
 ];

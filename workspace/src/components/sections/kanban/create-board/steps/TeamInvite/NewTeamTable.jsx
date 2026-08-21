@@ -77,7 +77,7 @@ const NewTeamTable = ({ fields, remove }) => {
                       />
                     }
                   >
-                    {translateUi('ui.sections.kanban.create_board.steps.invite_to_aurora_42e21246')}
+                    {translateUi('ui.sections.kanban.create_board.steps.invite_to_ffax_42e21246')}
                   </Button>
                 ) : (
                   <StyledFormControl sx={{ maxWidth: { sm: 120 }, width: 1, textAlign: 'left' }}>

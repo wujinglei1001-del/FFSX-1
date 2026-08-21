@@ -9,6 +9,7 @@ import paths from 'routes/paths';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import paths from 'routes/paths';
 
 const getStockBadge = (val) => {
   switch (val) {
@@ -194,7 +195,9 @@ const ProductsTable = ({ apiRef }) => {
         pageSizeOptions={[6, topProducts.length]}
         checkboxSelection
         slots={{
-          basePagination: (props) => <DataGridPagination showAllHref="#!" {...props} />,
+          basePagination: (props) => (
+            <DataGridPagination showAllHref={paths.adminProductList} {...props} />
+          ),
         }}
         sx={({ spacing }) => ({
           [`& .${gridClasses.columnHeaders}`]: {
@@ -212,7 +215,7 @@ const ProductsTable = ({ apiRef }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.aurora-data-grid-cell': {
+              '&.ffax-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

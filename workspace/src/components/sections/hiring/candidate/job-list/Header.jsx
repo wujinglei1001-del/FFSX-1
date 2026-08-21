@@ -6,6 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -41,7 +42,7 @@ const Header = ({ toggleDrawer }) => {
             items={[
               {
                 label: translateUi('ui.sections.hiring.candidate.job_list.home_70f8bb9a'),
-                url: '#!',
+                url: paths.workbench,
               },
               {
                 label: translateUi('ui.sections.hiring.candidate.job_list.job_list_e9d5f772'),

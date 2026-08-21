@@ -16,6 +16,10 @@
 .DS_Store
 
 # Local deployment artifacts (never commit or publish)
+/*.tar.gz
+/*.tgz
+/*.zip
+/*.7z
 /ffax-release-*.tar.gz
 /ffax-root-home-*.tar.gz
 /ffax-zitadel-login-*.tar

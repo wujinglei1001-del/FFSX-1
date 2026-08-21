@@ -1,7 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
-  Button,
   List,
   ListItem,
   ListItemButton,
@@ -9,17 +7,16 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import paths from 'routes/paths';
 import Image from 'components/base/Image';
-import NotificationActionMenu from './NotificationActionMenu';
 import NotificationListItemAvatar from './NotificationListItemAvatar';
 
 dayjs.extend(relativeTime);
 
 const NotificationList = ({ title, notifications, sx, variant = 'default', onItemClick }) => {
-  const { t: translateUi } = useTranslation();
   if (notifications.length > 0) {
     return (
       <List
@@ -42,21 +39,12 @@ const NotificationList = ({ title, notifications, sx, variant = 'default', onIte
         sx={sx}
       >
         {notifications.map((notification) => (
-          <ListItem
-            key={notification.id}
-            disablePadding
-            secondaryAction={<NotificationActionMenu />}
-            sx={{
-              '& .MuiListItemSecondaryAction-root': {
-                top: 16,
-                transform: 'none',
-              },
-            }}
-          >
+          <ListItem key={notification.id} disablePadding>
             <ListItemButton
-              href={paths.notifications}
+              component={RouterLink}
+              to={notification.href || paths.notifications}
               disableRipple
-              onClick={onItemClick}
+              onClick={(event) => onItemClick?.(notification, event)}
               sx={[
                 {
                   flexDirection: 'column',
@@ -153,42 +141,6 @@ const NotificationList = ({ title, notifications, sx, variant = 'default', onIte
                       sx={{ borderRadius: 2 }}
                     />
                   ))}
-                </Stack>
-              )}
-              {['friend_request', 'group_invitation'].includes(notification.type) && (
-                <Stack
-                  direction="row"
-                  sx={[
-                    {
-                      gap: 1,
-                      ml: 12,
-                      pointerEvents: 'auto',
-                    },
-                    variant === 'small' && {
-                      ml: 10,
-                    },
-                  ]}
-                >
-                  <Button
-                    variant="soft"
-                    color="primary"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      e.preventDefault();
-                    }}
-                  >
-                    {translateUi('ui.sections.notification.notificationlist.accept_bb54db51')}
-                  </Button>
-                  <Button
-                    variant="soft"
-                    color="neutral"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      e.preventDefault();
-                    }}
-                  >
-                    {translateUi('ui.sections.notification.notificationlist.delete_f6fdbe48')}
-                  </Button>
                 </Stack>
               )}
             </ListItemButton>

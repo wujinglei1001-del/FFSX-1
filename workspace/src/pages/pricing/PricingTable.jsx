@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Box, Link, Typography } from '@mui/material';
 import PricingHeader from 'components/sections/pricing/PricingHeader';
 import PricingTableContent from 'components/sections/pricing/table/PricingTableContent';
+import paths from 'routes/paths';
 
 const PricingTable = () => {
   const { t: translateUi } = useTranslation();
@@ -27,8 +28,8 @@ const PricingTable = () => {
           }}
         >
           {translateUi('ui.pages.pricing.pricingtable.try_the_113c4f19')}
-          <Link href="#!">
-            {translateUi('ui.pages.pricing.pricingtable.basic_version_of_aurora_41f5188b')}
+          <Link href={paths.zitadelSignup}>
+            {translateUi('ui.pages.pricing.pricingtable.basic_version_of_ffax_41f5188b')}
           </Link>
         </Typography>
       </Box>

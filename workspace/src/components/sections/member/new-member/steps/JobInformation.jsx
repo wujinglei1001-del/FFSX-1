@@ -127,7 +127,7 @@ const JobInformation = () => {
             <MenuItem value="" disabled>
               {translateUi('ui.sections.member.new_member.steps.select_85982229')}
             </MenuItem>
-            <MenuItem value="Themewagon">
+            <MenuItem value="FFA-X">
               {translateUi('ui.sections.member.new_member.steps.themewagon_4ba48b41')}
             </MenuItem>
             <MenuItem value="Mailbluster">

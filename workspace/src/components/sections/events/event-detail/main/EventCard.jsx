@@ -10,13 +10,14 @@ import {
   Typography,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
+import paths from 'routes/paths';
 
 const EventCard = ({ event, sx }) => {
   const { t: translateUi } = useTranslation();
   const { title, image, priceRange, date, time, location } = event;
 
   return (
-    <Link href="#!">
+    <Link href={paths.events}>
       <Card sx={{ outline: 'none', bgcolor: 'background.elevation1', ...sx }}>
         <CardMedia
           component="img"

@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import { showcaseAssets } from 'data/showcase';
+import { publicShowcaseAssets } from 'data/ffax-public';
 import Image from 'components/base/Image';
 import Video from 'components/base/Video';
 
@@ -14,7 +14,7 @@ const HeroMedia = ({ ref }) => {
       }}
     >
       <Video
-        src={showcaseAssets.hero.video}
+        src={publicShowcaseAssets.hero.video}
         type="video/webm"
         sx={{ width: 1, height: 1, objectFit: 'cover', position: 'absolute' }}
         autoPlay
@@ -23,7 +23,7 @@ const HeroMedia = ({ ref }) => {
         playsInline
       />
       <Image
-        src={showcaseAssets.hero.planet}
+        src={publicShowcaseAssets.hero.planet}
         sx={{
           width: { xs: '150%', sm: '120%', md: 1 },
           position: 'absolute',

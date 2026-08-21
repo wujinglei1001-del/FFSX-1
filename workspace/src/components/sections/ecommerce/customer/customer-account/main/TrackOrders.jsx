@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Box, Chip, Link, Paper, Stack, Typography } from '@mui/material';
 import { toSentenceCase } from 'lib/utils';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'components/base/Image';
@@ -93,7 +94,7 @@ const TrackOrders = ({ orders }) => {
         >
           {orders.map((order) => (
             <SwiperSlide key={order.product.id}>
-              <OrderItem order={order} actionUrl="#!" />
+              <OrderItem order={order} actionUrl={paths.orderTrack} />
             </SwiperSlide>
           ))}
         </Swiper>

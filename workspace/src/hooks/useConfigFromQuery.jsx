@@ -19,7 +19,7 @@ const validators = {
   sidenavType: ['default', 'stacked', 'slim'],
   topnavType: ['default', 'stacked', 'slim'],
   navColor: ['default', 'vibrant'],
-  locale: ['en-US', 'fr-FR', 'bn-BD', 'zh-CN', 'hi-IN', 'ar-SA'],
+  locale: ['en-US', 'zh-CN'],
 };
 
 export const useConfigFromQuery = () => {

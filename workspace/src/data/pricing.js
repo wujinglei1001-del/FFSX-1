@@ -33,7 +33,7 @@ export const pricing = [
       },
       {
         get title() {
-          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+          return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
         },
         active: true,
       },
@@ -83,7 +83,7 @@ export const pricing = [
           {
             id: 3,
             get title() {
-              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+              return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
             },
             active: true,
           },
@@ -188,7 +188,7 @@ export const pricing = [
       },
       {
         get title() {
-          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+          return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
         },
         active: true,
       },
@@ -238,7 +238,7 @@ export const pricing = [
           {
             id: 3,
             get title() {
-              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+              return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
             },
             active: true,
           },
@@ -339,7 +339,7 @@ export const pricing = [
       },
       {
         get title() {
-          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+          return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
         },
         active: true,
       },
@@ -389,7 +389,7 @@ export const pricing = [
           {
             id: 3,
             get title() {
-              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+              return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
             },
             active: true,
           },
@@ -490,7 +490,7 @@ export const pricing = [
       },
       {
         get title() {
-          return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+          return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
         },
         active: true,
       },
@@ -540,7 +540,7 @@ export const pricing = [
           {
             id: 3,
             get title() {
-              return i18n.t('ui.data.pricing.no_aurora_s_branding_38b62b2f');
+              return i18n.t('ui.data.pricing.no_ffax_s_branding_38b62b2f');
             },
             active: true,
           },

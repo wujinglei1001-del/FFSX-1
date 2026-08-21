@@ -1,12 +1,8 @@
 import { initReactI18next } from 'react-i18next';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import translationAr from './langs/ar.json';
-import translationBn from './langs/bn.json';
-import translationEn from './langs/en.json';
-import translationFr from './langs/fr.json';
-import translationHi from './langs/hi.json';
-import translationZh from './langs/zh.json';
+import translationEn from 'locales/langs/en.json';
+import translationZh from 'locales/langs/zh.json';
 
 i18n
   .use(LanguageDetector)
@@ -14,11 +10,7 @@ i18n
   .init({
     resources: {
       enUS: { translation: translationEn },
-      frFR: { translation: translationFr },
-      bnBD: { translation: translationBn },
       zhCN: { translation: translationZh },
-      hiIN: { translation: translationHi },
-      arSA: { translation: translationAr },
     },
     lng: 'zhCN',
     ns: ['translation'],

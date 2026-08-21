@@ -52,7 +52,7 @@ const ProductTopSection = ({ isDrawerOpen, toggleDrawer }) => {
           },
           {
             label: translateUi('ui.sections.ecommerce.customer.products.living_room_25ff70b3'),
-            url: '#!',
+            url: paths.products,
           },
           {
             label: translateUi('ui.sections.ecommerce.customer.products.armchair_d5727b18'),

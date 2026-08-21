@@ -7,7 +7,7 @@ import SearchDialog from './SearchDialog';
 import SearchPopover from './SearchPopover';
 import SearchTextField from './SearchTextField';
 
-const SearchBox = ({ sx }) => {
+const SearchBox = ({ sx, navigation }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -36,12 +36,12 @@ const SearchBox = ({ sx }) => {
           },
         }}
       />
-      <SearchPopover anchorEl={anchorEl} handleClose={handleClose} />
+      <SearchPopover anchorEl={anchorEl} handleClose={handleClose} navigation={navigation} />
     </>
   );
 };
 
-export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
+export const SearchBoxButton = ({ type = 'default', sx, navigation, ...rest }) => {
   const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const { up } = useBreakpoints();
@@ -69,7 +69,7 @@ export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
           {...rest}
         >
           <Box sx={{ mb: 0.25 }} component="span">
-            {translateUi('ui.layouts.main_layout.common.search_box.search_bce06414')}
+            {translateUi('ffax.ui.search')}
           </Box>
         </Button>
       ) : (
@@ -80,6 +80,8 @@ export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
           variant="soft"
           size={type === 'slim' ? 'small' : 'medium'}
           onClick={handleClick}
+          aria-label={translateUi('ffax.ui.search')}
+          title={translateUi('ffax.ui.search')}
           sx={sx}
           {...rest}
         >
@@ -89,7 +91,7 @@ export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
           />
         </Button>
       )}
-      <SearchDialog anchorEl={anchorEl} handleClose={handleClose} />
+      <SearchDialog anchorEl={anchorEl} handleClose={handleClose} navigation={navigation} />
     </>
   );
 };

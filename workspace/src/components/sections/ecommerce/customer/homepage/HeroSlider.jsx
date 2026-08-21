@@ -2,6 +2,7 @@ import { Box, Link, Typography, buttonBaseClasses } from '@mui/material';
 import { initialConfig } from 'config';
 import { cssVarRgba } from 'lib/utils';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
 import { blue, orange } from 'theme/colors/base';
@@ -32,7 +33,7 @@ const slides = [
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/1.webp`,
-    url: '#!',
+    url: paths.products,
   },
   {
     id: 2,
@@ -57,7 +58,7 @@ const slides = [
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/2.webp`,
-    url: '#!',
+    url: paths.products,
   },
   {
     id: 3,
@@ -91,7 +92,7 @@ const slides = [
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/3.webp`,
-    url: '#!',
+    url: paths.products,
   },
 ];
 

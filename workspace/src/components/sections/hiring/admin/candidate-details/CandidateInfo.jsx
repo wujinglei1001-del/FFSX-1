@@ -60,7 +60,7 @@ const CandidateInfo = ({ contact, jobPreferences, experiences, education }) => {
             primary={translateUi(
               'ui.sections.hiring.admin.candidate_details.website_portfolio_3b8f63bd',
             )}
-            secondary={<Link href="#!">{contact.website}</Link>}
+            secondary={<Typography variant="body2">{contact.website}</Typography>}
           />
         </Grid>
       </Grid>

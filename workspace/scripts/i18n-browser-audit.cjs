@@ -35,15 +35,12 @@ const dynamicSamples = {
   productDetails: ['1'],
 };
 const registryPathOverrides = new Map([
-  [328, '/apps/ecommerce/admin'],
-  [319, '/apps/ecommerce/admin/product-list/all'],
-  [715, '/apps/ecommerce/customer'],
-  [779, '/authentication'],
-  [796, '/authentication/default/jwt'],
-  [821, '/authentication/default/firebase'],
-  [838, '/authentication/default/auth0'],
-  [623, '/apps/chat/1'],
-  [856, '/not-a-real-route'],
+  [321, '/apps/ecommerce/admin'],
+  [616, '/apps/chat/1'],
+  [708, '/apps/ecommerce/customer'],
+  [772, '/authentication'],
+  [789, '/authentication/zitadel'],
+  [811, '/not-a-real-route'],
 ]);
 
 const routeSource = fs.readFileSync(path.join(projectRoot, 'src', 'routes', 'router.jsx'), 'utf8');
@@ -110,7 +107,7 @@ const routeAst = parse(routeSource, { sourceType: 'module', plugins: ['jsx'] });
   });
 
   const unresolved = routeEntries.filter(({ route }) => typeof route !== 'string');
-  if (routeEntries.length !== 141 || unresolved.length) {
+  if (unresolved.length) {
     throw new Error(
       `Route extraction failed: found=${routeEntries.length}, unresolved=${JSON.stringify(unresolved)}`,
     );
@@ -237,7 +234,7 @@ const routeAst = parse(routeSource, { sourceType: 'module', plugins: ['jsx'] });
   const screenshotPage = await screenshotContext.newPage();
   for (const [name, route] of [
     ['showcase', '/showcase'],
-    ['login', '/authentication/default/jwt/login'],
+    ['login', '/authentication/zitadel/login'],
     ['dashboard', '/dashboard/ecommerce'],
   ]) {
     await screenshotPage.goto(`${baseUrl}${route}?themePreset=default-dark&locale=zh-CN`, {

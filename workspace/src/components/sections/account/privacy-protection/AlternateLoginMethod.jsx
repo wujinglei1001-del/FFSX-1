@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
   Chip,
-  Link,
   List,
   ListItem,
   ListItemText,
@@ -118,11 +117,11 @@ const AlternateLoginMethod = () => {
                 {translateUi(
                   'ui.sections.account.privacy_protection.alternateloginmethod.download_an_authenticator_app_such_as_4d69fc1b',
                 )}
-                <Link href="#!">
+                <Typography component="span" sx={{ color: 'primary.main' }}>
                   {translateUi(
                     'ui.sections.account.privacy_protection.alternateloginmethod.microsoft_authenticator_440b31d5',
                   )}
-                </Link>
+                </Typography>
               </>
             }
             slotProps={{ primary: { variant: 'body2' } }}

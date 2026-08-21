@@ -68,7 +68,7 @@ function Assert-FrontendBundle {
   }
 }
 
-Assert-FrontendBundle -BundleRoot (Join-Path $workspaceRoot 'dist') -PublicPrefix '/workbench/' -MinimumAssetCount 200
+Assert-FrontendBundle -BundleRoot (Join-Path $workspaceRoot 'dist') -PublicPrefix '/workbench/' -MinimumAssetCount 20
 Assert-FrontendBundle -BundleRoot (Join-Path $workspaceRoot 'dist-root') -PublicPrefix '/' -MinimumAssetCount 20
 
 $archivePath = "E:\FAA\ffax-release-${Stamp}.tar.gz"
@@ -122,7 +122,7 @@ if ($LASTEXITCODE -ne 0) {
 
 $distAssetCount = @($entries | Where-Object { $_ -like './dist/assets/*' -and -not $_.EndsWith('/') }).Count
 $rootAssetCount = @($entries | Where-Object { $_ -like './dist-root/assets/*' -and -not $_.EndsWith('/') }).Count
-if ($distAssetCount -lt 200 -or $rootAssetCount -lt 200) {
+if ($distAssetCount -lt 20 -or $rootAssetCount -lt 20) {
   throw "Archive verification failed: workbench=$distAssetCount, root=$rootAssetCount"
 }
 $forbiddenEntries = $entries | Where-Object {

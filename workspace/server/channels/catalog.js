@@ -52,9 +52,20 @@ export const connectorCatalog = [
   { id: 'logistics.dhl', channelId: 'logistics', name: 'DHL', authType: 'api-key' },
   { id: 'commerce.amazon', channelId: 'commerce', name: 'Amazon', authType: 'oauth2' },
   { id: 'commerce.shopify', channelId: 'commerce', name: 'Shopify', authType: 'oauth2' },
-  { id: 'commerce.ebay', channelId: 'commerce', name: 'eBay', authType: 'oauth2' },
+  {
+    id: 'commerce.ebay',
+    channelId: 'commerce',
+    name: 'eBay',
+    authType: 'oauth2',
+    capabilities: ['identity', 'orders', 'inventory', 'trading'],
+  },
   { id: 'commerce.walmart', channelId: 'commerce', name: 'Walmart', authType: 'oauth2' },
 ];
+
+const runtimeReadyConnectorIds = new Set(['commerce.ebay']);
+
+export const isConnectorRuntimeReady = (connectorId) =>
+  runtimeReadyConnectorIds.has(connectorId);
 
 export const channelById = new Map(channelCatalog.map((channel) => [channel.id, channel]));
 export const connectorById = new Map(
@@ -71,4 +82,8 @@ export const publicChannelCatalog = () =>
     database,
   }));
 
-export const publicConnectorCatalog = () => connectorCatalog.map((connector) => ({ ...connector }));
+export const publicConnectorCatalog = () =>
+  connectorCatalog.map((connector) => ({
+    ...connector,
+    runtimeReady: isConnectorRuntimeReady(connector.id),
+  }));

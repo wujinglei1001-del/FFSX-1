@@ -2,7 +2,8 @@ import crypto from 'node:crypto';
 import express from 'express';
 import helmet from 'helmet';
 import { trace } from '@opentelemetry/api';
-import { connectorById } from '../../channels/catalog.js';
+import { connectorById, isConnectorRuntimeReady } from '../../channels/catalog.js';
+import { createEbayRouter } from '../connectors/ebay.js';
 import { createDatabase } from '../shared/database.js';
 
 const channelId = process.env.FFAX_CHANNEL_ID?.trim();
@@ -90,10 +91,17 @@ app.get('/health', async (_req, res) => {
   });
 });
 
+if (channelId === 'commerce') {
+  app.use('/v1/connectors/commerce.ebay', authenticateIngress, createEbayRouter({ database }));
+}
+
 app.post('/v1/webhooks/:connectorId', authenticateIngress, async (req, res) => {
   const connector = connectorById.get(req.params.connectorId);
   if (!connector || connector.channelId !== channelId)
     return res.status(404).json({ error: 'connector_not_registered_for_channel' });
+  if (!isConnectorRuntimeReady(connector.id)) {
+    return res.status(501).json({ error: 'connector_runtime_not_connected' });
+  }
 
   const tenantId = text(req.headers['x-ffax-tenant-id'], 'tenant_id', 200);
   const traceId = text(

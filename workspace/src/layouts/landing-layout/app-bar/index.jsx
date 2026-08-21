@@ -16,6 +16,8 @@ import Logo from 'components/common/Logo';
 import Sidenav from './nav/Sidenav';
 import Topnav from './nav/Topnav';
 
+const loginHref = import.meta.env.PROD ? `/workbench${authPaths.login}` : authPaths.login;
+
 const menus = [
   {
     get label() {
@@ -117,7 +119,7 @@ const LandingAppBar = (props) => {
         >
           {upLg && <Topnav menus={menus} anchorRef={popoverAnchorRef} />}
           <ThemeToggler />
-          <Button variant="contained" href={authPaths.login} sx={{ minWidth: 120 }}>
+          <Button variant="contained" href={loginHref} sx={{ minWidth: 120 }}>
             {translateUi('ui.layouts.landing_layout.app_bar.log_in_d527bf3d')}
           </Button>
           {!upLg && <Sidenav menus={menus} />}

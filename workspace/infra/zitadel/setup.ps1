@@ -91,7 +91,7 @@ try {
     $composeFiles += @('-f', 'docker-compose.smtp.yml')
   }
 
-  docker compose --env-file .env @composeFiles up -d --wait postgres zitadel-api zitadel-login proxy
+  docker compose --env-file .env @composeFiles up -d --wait postgres zitadel-api proxy
   if ($LASTEXITCODE -ne 0) { throw 'ZITADEL services failed to start.' }
 
   docker compose --env-file .env @composeFiles --profile setup run --rm zitadel-provision

@@ -1,44 +1,15 @@
-import { Suspense, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useMatch } from 'react-router';
-import { Link, Stack, Tab, Tabs, tabsClasses } from '@mui/material';
+import { Suspense } from 'react';
+import { Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import authDark from 'assets/json/auth-dark.json';
 import auth from 'assets/json/auth.json';
 import { useThemeMode } from 'hooks/useThemeMode';
-import { cssVarRgba, getItemFromStore } from 'lib/utils';
 import Lottie from 'lottie-react';
-import paths from 'routes/paths';
 import Logo from 'components/common/Logo';
-import Auth0Icon from 'components/icons/Auth0Icon';
-import FirebaseIcon from 'components/icons/FirebaseIcon';
-import JwtIcon from 'components/icons/JwtIcon';
 import DefaultLoader from 'components/loading/DefaultLoader';
 
 const DefaultAuthLayout = ({ children }) => {
-  const { t: translateUi } = useTranslation();
-  const storedProvider = getItemFromStore('auth_provider');
   const { isDark } = useThemeMode();
-  const jwtMatch = useMatch('/authentication/default/jwt/:page');
-  const auth0Match = useMatch('/authentication/default/auth0/:page');
-  const firebaseMatch = useMatch('/authentication/default/firebase/:page');
-  const [value, setValue] = useState(storedProvider || 'jwt');
-
-  const handleChange = (_event, newValue) => {
-    setValue(newValue);
-  };
-
-  useEffect(() => {
-    if (jwtMatch) {
-      setValue('jwt');
-    }
-    if (auth0Match) {
-      setValue('auth0');
-    }
-    if (firebaseMatch) {
-      setValue('firebase');
-    }
-  }, []);
 
   return (
     <Grid
@@ -91,56 +62,7 @@ const DefaultAuthLayout = ({ children }) => {
             {isDark ? <Lottie animationData={authDark} /> : <Lottie animationData={auth} />}
           </Stack>
 
-          <Stack direction="row" sx={{ justifyContent: 'center' }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              sx={{
-                bgcolor: 'background.elevation1',
-                p: 1,
-                borderRadius: 9,
-                [`& .${tabsClasses.indicator}`]: {
-                  height: 1,
-                  bgcolor: (theme) => cssVarRgba(theme.vars.palette.primary.mainChannel, 0.1),
-                  borderRadius: 12,
-                },
-              }}
-            >
-              <Tab
-                component={Link}
-                underline="none"
-                href={paths.defaultJwtLogin}
-                value="jwt"
-                label="jwt"
-                icon={<JwtIcon />}
-                iconPosition="start"
-                disableRipple
-                sx={{ px: 1.75 }}
-              />
-              <Tab
-                component={Link}
-                underline="none"
-                href={paths.defaultAuth0Login}
-                value="auth0"
-                label={translateUi('ui.layouts.auth_layout.defaultauthlayout.auth_0_7f082e39')}
-                icon={<Auth0Icon />}
-                iconPosition="start"
-                disableRipple
-                sx={{ px: 1.75 }}
-              />
-              <Tab
-                component={Link}
-                underline="none"
-                href={paths.defaultFirebaseLogin}
-                value="firebase"
-                label="Firebase"
-                icon={<FirebaseIcon />}
-                iconPosition="start"
-                disableRipple
-                sx={{ px: 1.75 }}
-              />
-            </Tabs>
-          </Stack>
+          <div />
         </Stack>
       </Grid>
       <Grid

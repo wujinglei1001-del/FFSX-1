@@ -22,7 +22,6 @@ export const architectureSources = [
   'src/pages/platform',
   'src/routes',
   'src/services/axios',
-  'microapps/apps',
 ];
 
 const ignoredDirectoryNames = new Set([

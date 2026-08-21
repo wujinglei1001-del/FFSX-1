@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./Box-Dim3KBfX.js";var n=e(),r=({children:e,sx:r})=>(0,n.jsx)(t,{sx:{mx:`-10px`,...r},children:e});export{r as t};

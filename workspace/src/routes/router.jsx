@@ -153,8 +153,6 @@ const PodcastContent = lazy(() => import('pages/apps/content/details/PodcastCont
 const CreateBlog = lazy(() => import('pages/apps/content/CreateBlog'));
 const UploadMedia = lazy(() => import('pages/apps/content/UploadMedia'));
 
-const Showcase = lazy(() => import('pages/Showcase'));
-
 export const SuspenseOutlet = () => {
   const { pathname } = useLocation();
 
@@ -181,11 +179,13 @@ export const routes = [
     children: [
       {
         path: '/',
-        element: <Showcase />,
-      },
-      {
-        path: paths.showcase,
-        element: <Showcase />,
+        element: (
+          <Suspense fallback={<PageLoader sx={{ height: '100vh' }} />}>
+            <LandingLayout>
+              <LandingHomepage />
+            </LandingLayout>
+          </Suspense>
+        ),
       },
       {
         path: '/',

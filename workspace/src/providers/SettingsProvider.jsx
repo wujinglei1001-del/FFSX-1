@@ -14,13 +14,23 @@ import { COLOR_GROUPS } from 'theme/primaryColorOverride';
 export const SettingsContext = createContext({});
 
 const SettingsProvider = ({ children }) => {
-  const localeMigrationVersion = 'zh-default-v1';
+  const localeMigrationVersion = 'zh-default-v2';
   const storedLocaleMigrationVersion = getItemFromStore('localeMigrationVersion', null);
   const shouldMigrateLocale = storedLocaleMigrationVersion !== localeMigrationVersion;
+  const layoutMigrationVersion = 'sidenav-default-v1';
+  const storedLayoutMigrationVersion = getItemFromStore('layoutMigrationVersion', null);
+  const shouldMigrateLayout = storedLayoutMigrationVersion !== layoutMigrationVersion;
 
   if (shouldMigrateLocale) {
     setItemToStore('locale', initialConfig.locale);
     setItemToStore('localeMigrationVersion', localeMigrationVersion);
+  }
+
+  if (shouldMigrateLayout) {
+    setItemToStore('navigationMenuType', initialConfig.navigationMenuType);
+    setItemToStore('sidenavType', initialConfig.sidenavType);
+    setItemToStore('sidenavCollapsed', String(initialConfig.sidenavCollapsed));
+    setItemToStore('layoutMigrationVersion', layoutMigrationVersion);
   }
 
   const storedPrimaryColor = getItemFromStore('primaryColor', undefined);

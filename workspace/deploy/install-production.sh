@@ -27,13 +27,11 @@ nginx_previous="${backup_root}/ffax.com"
 mercur_image="ffax/mercur:2.3.1-${stamp}"
 ffax_api_image="ffax/api:${stamp}"
 channel_image="ffax/channel-runtime:${stamp}"
-zitadel_login_image="ffax/zitadel-login:v4.15.0-ffax-${stamp}"
 switched=false
 services_changed=false
 old_mercur_image=""
 old_ffax_api_image=""
 old_channel_image=""
-old_zitadel_login_image=""
 
 platform_compose() {
   MERCUR_IMAGE="$mercur_image" MERCUR_ENV_FILE="$mercur_env" \
@@ -57,7 +55,6 @@ observability_compose() {
 
 zitadel_compose() {
   FFAX_API_IMAGE="$ffax_api_image" FFAX_API_ENV_FILE="$ffax_api_env" \
-    FFAX_ZITADEL_LOGIN_IMAGE="$zitadel_login_image" \
     docker compose --env-file "$zitadel_env" \
       -f "$next_workspace/infra/zitadel/docker-compose.yml" "$@"
 }
@@ -166,12 +163,6 @@ rollback() {
     else
       docker rm -f ffax-zitadel-ffax-api-1 >/dev/null 2>&1 || true
     fi
-    if [[ -n "$old_zitadel_login_image" ]]; then
-      FFAX_ZITADEL_LOGIN_IMAGE="$old_zitadel_login_image" \
-        docker compose --env-file "$zitadel_env" -f "$rollback_zitadel" up -d zitadel-login
-    else
-      docker rm -f ffax-zitadel-zitadel-login-1 >/dev/null 2>&1 || true
-    fi
     if [[ -n "$old_channel_image" ]]; then
       FFAX_CHANNEL_IMAGE="$old_channel_image" \
         docker compose --env-file "$channels_env" -f "$rollback_channels" up -d \
@@ -220,7 +211,6 @@ test -f "$next_workspace/infra/zitadel/docker-compose.yml"
 test -f "$next_workspace/deploy/nginx/ffax.com.conf"
 test -f "$next_workspace/scripts/api-reporting/check.mjs"
 test -f "$next_workspace/docs/api-integrations/latest.json"
-test -f "$next_workspace/infra/zitadel/custom-login/Dockerfile"
 
 validate_frontend_bundle "$next_workspace/dist" "/workbench/"
 validate_frontend_bundle "$next_workspace/dist-root" "/"
@@ -293,13 +283,6 @@ fi
 old_mercur_image="$(container_image ffax-platform-mercur-api-1)"
 old_ffax_api_image="$(container_image ffax-zitadel-ffax-api-1)"
 old_channel_image="$(container_image ffax-channels-warehouse-api-1)"
-old_zitadel_login_image="$(container_image ffax-zitadel-zitadel-login-1)"
-
-if ! docker image inspect "$zitadel_login_image" >/dev/null 2>&1; then
-  docker build -t "$zitadel_login_image" \
-    -f "$next_workspace/infra/zitadel/custom-login/Dockerfile" \
-    "$next_workspace/infra/zitadel/custom-login"
-fi
 
 docker network inspect ffax-platform >/dev/null 2>&1 || docker network create ffax-platform >/dev/null
 docker network connect ffax-platform ffax-zitadel-zitadel-api-1 >/dev/null 2>&1 || true
@@ -433,7 +416,7 @@ if [[ "$migration_complete" != true ]]; then
   exit 1
 fi
 platform_compose up -d --wait mercur-api mercur-worker
-zitadel_compose --profile production up -d --wait --no-deps ffax-api zitadel-login
+zitadel_compose --profile production up -d --wait --no-deps ffax-api
 channel_compose up -d --wait \
   warehouse-api warehouse-worker warehouse-gateway \
   marketplace-channel-api marketplace-worker marketplace-gateway \
@@ -458,7 +441,6 @@ nginx -t
 systemctl reload nginx
 
 wait_http https://www.ffax.com/workbench/ 15 2
-wait_http https://www.ffax.com/ui/v2/login/healthy 15 2
 wait_http https://www.ffax.com/workbench-api/health 15 2
 wait_http https://www.ffax.com/marketplace-api/health 15 2
 wait_http https://www.ffax.com/sync-api/health 15 2

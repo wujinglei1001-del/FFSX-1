@@ -65,15 +65,6 @@ $excludePatterns = @(
   '--exclude=coverage',
   '--exclude=playwright-report',
   '--exclude=test-results',
-  '--exclude=infra/zitadel/custom-login/apps/login/screenshots',
-  '--exclude=infra/zitadel/custom-login/apps/login/acceptance',
-  '--exclude=infra/zitadel/custom-login/apps/login/dockerized',
-  '--exclude=infra/zitadel/custom-login/apps/login/test-mocks',
-  '--exclude=infra/zitadel/custom-login/apps/login/test-setup.ts',
-  '--exclude=infra/zitadel/custom-login/apps/login/test-theme.js',
-  '--exclude=infra/zitadel/custom-login/apps/login/vitest.config.ts',
-  '--exclude=infra/zitadel/custom-login/apps/login/vitest.config.dockerized.ts',
-  '--exclude=infra/zitadel/custom-login/apps/login/src/app/otel-test',
   '--exclude=*.test.ts',
   '--exclude=*.test.tsx',
   '--exclude=*.spec.ts',
@@ -110,7 +101,7 @@ $forbiddenEntries = $entries | Where-Object {
   if ($_ -match '\.env(?:\.[^/]+)*\.(example|template)$') {
     return $false
   }
-  $_ -match '(^|/)(node_modules|\.git|logs?)(/|$)|infra/zitadel/custom-login/apps/login/(screenshots|acceptance|dockerized|test-mocks|src/app/otel-test)(/|$)|infra/zitadel/custom-login/apps/login/(test-setup\.ts|test-theme\.js|vitest\.config(?:\.dockerized)?\.ts)$|\.(test|spec)\.(ts|tsx|js|jsx)$|\.snap$|(^|/)(\.env|[^/]+\.env(?:\.[^/]+)?$)|\.log$|\.tar\.gz$'
+  $_ -match '(^|/)(node_modules|\.git|logs?)(/|$)|\.(test|spec)\.(ts|tsx|js|jsx)$|\.snap$|(^|/)(\.env|[^/]+\.env(?:\.[^/]+)?$)|\.log$|\.tar\.gz$'
 }
 if ($forbiddenEntries) {
   throw 'Archive contains a forbidden backup, log, secret, dependency, or nested archive entry'

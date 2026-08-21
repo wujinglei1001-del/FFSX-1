@@ -633,8 +633,9 @@ const layoutHandler = ({ table, configColumn, bodyKey }) => ({
   put: async (req, res) => {
     const expectedVersion = Number(req.body.version || 0);
     const config = jsonObject(req.body[bodyKey]);
-    const secondary =
-      bodyKey === 'breakpoints' ? jsonArray(req.body.widgets) : jsonArray(req.body.panels);
+    const secondary = JSON.stringify(
+      bodyKey === 'breakpoints' ? jsonArray(req.body.widgets) : jsonArray(req.body.panels),
+    );
     const secondaryColumn = bodyKey === 'breakpoints' ? 'widgets' : 'panels';
     const result = await query(
       `INSERT INTO ${table} (tenant_id,user_id,workspace_id,version,${configColumn},${secondaryColumn})

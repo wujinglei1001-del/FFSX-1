@@ -262,7 +262,7 @@
           "selected_835f3b50": "selected"
         },
         "logo": {
-          "aurora_c8251d84": "aurora"
+          "aurora_c8251d84": "FFA-X"
         }
       },
       "pagination": {
@@ -996,6 +996,7 @@
             "sign_up_0b81497c": "Sign up",
             "or_use_email_be1bca91": "or use email",
             "email_84add5b2": "Email",
+            "login_name_or_email": "Username or email",
             "password_8be3c943": "Password",
             "remember_this_device_e495443b": "Remember this device",
             "forgot_password_1cc8d181": "Forgot Password?",
@@ -7170,7 +7171,7 @@
       "landing": {
         "faqs": {
           "optimize_performance_and_reduce_costs_using_scalable_298d61d5": "Optimize performance and reduce costs using scalable AWS cloud platforms.",
-          "aurora_eeee9b76": "Aurora",
+          "aurora_eeee9b76": "FFA-X",
           "simplify_backend_operations_with_aurora_s_clean_mode_29535c96": "Simplify backend operations with Aurora’s clean, modern admin interface.",
           "pricing_a0d9bbad": "Pricing",
           "choose_a_plan_that_fits_your_team_goals_and_budget_f61c24bb": "Choose a plan that fits your team, goals, and budget.",

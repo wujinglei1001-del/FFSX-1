@@ -10,12 +10,12 @@ const App = () => {
 
   useConfigFromQuery();
 
-  const isShowcase = pathname === '/' || pathname.startsWith('/showcase');
+  const isLandingPage = pathname === '/' || pathname.startsWith('/pages/landing/');
 
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    if (isShowcase) {
+    if (isLandingPage) {
       document.documentElement.style.overscrollBehavior = 'none';
       document.documentElement.style.filter = 'none';
     }
@@ -24,13 +24,13 @@ const App = () => {
       document.documentElement.style.overscrollBehavior = 'auto';
       document.documentElement.style.filter = 'auto';
     };
-  }, [pathname, isShowcase]);
+  }, [pathname, isLandingPage]);
 
   return (
     <AuthProvider>
       <Outlet />
 
-      {!isShowcase && (
+      {!isLandingPage && (
         <>
           <SettingsPanel />
           <SettingPanelToggler />

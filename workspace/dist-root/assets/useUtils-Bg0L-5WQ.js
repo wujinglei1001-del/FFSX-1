@@ -1,0 +1,1 @@
+import{n as e,s as t}from"./jsx-runtime-CB_p5Kcx.js";import{A as n,j as r}from"./usePickerPrivateContext-DFeRGCd8.js";var i=t(e(),1),a=()=>n().defaultDates,o=e=>{let t=r(),n=i.useRef(void 0);return n.current===void 0&&(n.current=t.date(void 0,e)),n.current};export{o as n,a as t};

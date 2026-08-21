@@ -35,8 +35,6 @@ export const rootPaths = {
 };
 
 const paths = {
-  showcase: `/showcase`,
-
   ecommerce: `/${rootPaths.dashboardRoot}/ecommerce`,
   crm: `/${rootPaths.dashboardRoot}/crm`,
   project: `/${rootPaths.dashboardRoot}/project`,

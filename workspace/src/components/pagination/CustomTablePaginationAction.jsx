@@ -39,7 +39,7 @@ const CustomTablePaginationAction = ({
         onClick={onShowAllClick}
         sx={{ fontWeight: 700, flexShrink: 0, mt: { sm: 0.5 } }}
       >
-        {isShowingAll ? 'View less' : 'Show all'}
+        {isShowingAll ? '收起' : '显示全部'}
       </Link>
 
       {showFullPagination ? (

@@ -1,0 +1,1 @@
+import{a as e,c as t,i as n}from"./createSvgIcon-DdI6kHM_.js";import{p as r}from"./ButtonBase-UlZYmIs-.js";function i(i){let{elementType:a,externalSlotProps:o,ownerState:s,skipResolvingSlotProps:c=!1,...l}=i,u=c?{}:n(o,s),{props:d,internalRef:f}=e({...l,externalSlotProps:u}),p=r(f,u?.ref,i.additionalProps?.ref);return t(a,{...d,ref:p},s)}export{i as t};

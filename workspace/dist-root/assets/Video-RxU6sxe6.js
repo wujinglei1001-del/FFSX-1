@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./Box-Dim3KBfX.js";var n=e(),r=({src:e,type:r=`video/webm`,srcProps:i,...a})=>(0,n.jsx)(t,{component:`video`,...a,children:(0,n.jsx)(`source`,{src:e,type:r,...i})});export{r as t};

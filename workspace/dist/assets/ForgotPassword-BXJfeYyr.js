@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{o as t,t as n}from"./firebase-Cl7H70sx.js";import{t as r}from"./ForgotPasswordForm-BrTmfZ5v.js";var i=e(),a=()=>(0,i.jsx)(r,{provider:`firebase`,handleSendResetLink:async({email:e})=>await t(n,e).catch(e=>{throw Error(e.message)})});export{a as default};

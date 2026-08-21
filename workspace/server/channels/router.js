@@ -3,8 +3,8 @@ import { query, withTransaction } from '../db/index.js';
 import { audit, requireAnyRole } from '../platform/context.js';
 import { writeConnectorCredential } from '../runtime/shared/openbao.js';
 import {
-  channelCatalog,
   channelById,
+  channelCatalog,
   connectorById,
   publicChannelCatalog,
   publicConnectorCatalog,
@@ -32,6 +32,50 @@ const runtimeStatus = (runtimes) => {
   if (!runtimes.some((runtime) => runtime.instance_id.endsWith('-api'))) return 'degraded';
   if (!runtimes.some((runtime) => runtime.instance_id.endsWith('-worker'))) return 'degraded';
   return 'healthy';
+};
+
+const syncChanges = async (req) => {
+  const url = new URL('/v1/changes', process.env.FFAX_SYNC_API_URL || 'http://sync-api:8300');
+  url.searchParams.set('cursor', '0');
+  url.searchParams.set('limit', '500');
+  const response = await fetch(url, {
+    headers: { Authorization: req.headers.authorization || '' },
+    signal: AbortSignal.timeout(10000),
+  });
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const error = new Error(body.error || `runtime_status_${response.status}`);
+    error.status = response.status;
+    throw error;
+  }
+  return Array.isArray(body.data?.changes) ? body.data.changes : [];
+};
+
+const materializeCollections = (changes) => {
+  const current = new Map();
+  changes.forEach((change) => {
+    const entityType = String(change.entity_type || 'entity');
+    const entityId = String(change.entity_id || change.sequence);
+    const key = `${entityType}:${entityId}`;
+    if (change.operation === 'delete' || change.operation === 'tombstone') {
+      current.delete(key);
+      return;
+    }
+    current.set(key, {
+      ...(change.payload && typeof change.payload === 'object' ? change.payload : {}),
+      entity_type: entityType,
+      entity_id: entityId,
+      entity_version: change.entity_version,
+      sequence: change.sequence,
+      trace_id: change.trace_id,
+      created_at: change.created_at,
+    });
+  });
+  return [...current.values()].reduce((collections, item) => {
+    const key = item.entity_type;
+    (collections[key] ||= []).push(item);
+    return collections;
+  }, {});
 };
 
 const optionalText = (value, max = 500) => {
@@ -145,6 +189,31 @@ controlPlaneRouter.get('/v1/control-plane/connectors', async (req, res) => {
   });
 });
 
+controlPlaneRouter.get('/v1/control-plane/channels/:id/workspace', async (req, res) => {
+  const channel = channelById.get(req.params.id);
+  if (!channel) return res.status(404).json({ error: 'channel_not_found' });
+  const changes = (await syncChanges(req)).filter((change) => change.channel_id === channel.id);
+  res.json({
+    data: {
+      channel: publicChannelCatalog().find((item) => item.id === channel.id),
+      collections: materializeCollections(changes),
+    },
+  });
+});
+
+controlPlaneRouter.get('/v1/control-plane/sync/workspace', async (req, res) => {
+  const changes = (await syncChanges(req)).map((change) => ({
+    ...change,
+    payload: { channel_id: change.channel_id, ...change.payload },
+  }));
+  res.json({
+    data: {
+      channel: { id: 'sync', name: '同步数据' },
+      collections: materializeCollections(changes),
+    },
+  });
+});
+
 controlPlaneRouter.put(
   '/v1/control-plane/connectors/:id/credential',
   requireAnyRole('tenant-admin', 'platform-admin'),
@@ -200,7 +269,13 @@ controlPlaneRouter.put(
            updated_at=now()
          RETURNING connector_id,channel_id,enabled,status,settings,
            true AS credential_configured,config_version,updated_at`,
-        [req.platform.tenantId, definition.id, definition.channelId, reference, req.platform.userId],
+        [
+          req.platform.tenantId,
+          definition.id,
+          definition.channelId,
+          reference,
+          req.platform.userId,
+        ],
       );
       await audit(client, req, 'connector.credential.write', 'connector', definition.id, {
         channelId: definition.channelId,
@@ -235,7 +310,11 @@ controlPlaneRouter.get(
           if (!response.ok) throw new Error(`runtime_status_${response.status}`);
           return { channelId: channel.id, status: 'reachable', ...(await response.json()).data };
         } catch (error) {
-          return { channelId: channel.id, status: 'unreachable', error: String(error.message || error) };
+          return {
+            channelId: channel.id,
+            status: 'unreachable',
+            error: String(error.message || error),
+          };
         }
       }),
     );

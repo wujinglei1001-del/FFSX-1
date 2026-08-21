@@ -22,7 +22,11 @@ i18n
     },
     lng: 'zhCN',
     ns: ['translation'],
-    fallbackLng: 'enUS',
+    fallbackLng: 'zhCN',
+    detection: {
+      order: [],
+      caches: [],
+    },
     debug: false,
   });
 

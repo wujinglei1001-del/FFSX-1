@@ -68,14 +68,10 @@ const ShowcaseContent = () => (
       }}
     >
       <CustomizeLayout />
-      <Stack id="templates">
-        <ThemePresetsShowcase />
-      </Stack>
+      <ThemePresetsShowcase />
       <PrefixedLayouts data={prefixedLayouts} />
       <ElegantCards />
-      <Stack id="features">
-        <WebApps data={webApps} />
-      </Stack>
+      <WebApps data={webApps} />
       <FigmaCTA />
       <ShowcaseCTA />
     </Stack>

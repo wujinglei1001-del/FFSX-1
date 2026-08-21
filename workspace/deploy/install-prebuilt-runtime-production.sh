@@ -14,13 +14,14 @@ zitadel_env="/etc/ffax/zitadel.env"
 platform_env="/etc/ffax/platform/compose.env"
 ffax_api_env="/etc/ffax/platform/ffax-api.env"
 mercur_env="/etc/ffax/platform/mercur.env"
+channels_env="/etc/ffax/platform/channels.env"
 backup_root="/var/backups/ffax/${stamp}"
 ffax_api_image="ffax/api:${stamp}"
 mercur_image="ffax/mercur:${stamp}"
-login_image="ffax/zitadel-login:v4.15.0-ffax-${stamp}"
+channel_image="ffax/channel-runtime:${stamp}"
 old_ffax_api_image=""
 old_mercur_image=""
-old_login_image=""
+old_channel_image=""
 runtime_changed=false
 
 container_image() {
@@ -51,9 +52,14 @@ platform_compose() {
 
 zitadel_compose() {
   FFAX_API_IMAGE="$1" FFAX_API_ENV_FILE="$ffax_api_env" \
-    FFAX_ZITADEL_LOGIN_IMAGE="$2" \
     docker compose --env-file "$zitadel_env" \
-      -f "$workspace/infra/zitadel/docker-compose.yml" "${@:3}"
+      -f "$workspace/infra/zitadel/docker-compose.yml" "${@:2}"
+}
+
+channel_compose() {
+  FFAX_CHANNEL_IMAGE="$1" \
+    docker compose --env-file "$channels_env" \
+      -f "$workspace/infra/platform/docker-compose.channels.yml" "${@:2}"
 }
 
 rollback_runtime() {
@@ -62,13 +68,21 @@ rollback_runtime() {
   set +e
   echo "Runtime deployment failed; restoring previous images" >&2
   if [[ "$runtime_changed" == true ]]; then
-    if [[ -n "$old_ffax_api_image" && -n "$old_login_image" ]]; then
-      zitadel_compose "$old_ffax_api_image" "$old_login_image" \
-        --profile production up -d --wait --no-deps --no-build ffax-api zitadel-login
+    if [[ -n "$old_ffax_api_image" ]]; then
+      zitadel_compose "$old_ffax_api_image" \
+        --profile production up -d --wait --no-deps --no-build ffax-api
     fi
     if [[ -n "$old_mercur_image" ]]; then
       platform_compose "$old_mercur_image" \
         up -d --wait --no-build mercur-api mercur-worker
+    fi
+    if [[ -n "$old_channel_image" ]]; then
+      channel_compose "$old_channel_image" \
+        up -d --wait --no-build \
+          warehouse-api warehouse-worker warehouse-gateway \
+          marketplace-channel-api marketplace-worker marketplace-gateway \
+          logistics-api logistics-worker logistics-gateway \
+          commerce-api commerce-worker commerce-gateway sync-api
     fi
   fi
   exit "$exit_code"
@@ -76,29 +90,29 @@ rollback_runtime() {
 trap rollback_runtime ERR INT TERM
 
 test -f "$release_archive"
-test -f "$workspace/deploy/install-login-static-production.sh"
+test -f "$workspace/deploy/install-static-production.sh"
 test -f "$zitadel_env"
 test -f "$platform_env"
 test -f "$ffax_api_env"
 test -f "$mercur_env"
+test -f "$channels_env"
 
 old_ffax_api_image="$(container_image ffax-zitadel-ffax-api-1)"
 old_mercur_image="$(container_image ffax-platform-mercur-api-1)"
-old_login_image="$(container_image ffax-zitadel-zitadel-login-1)"
+old_channel_image="$(container_image ffax-channels-warehouse-api-1)"
 test -n "$old_ffax_api_image"
 test -n "$old_mercur_image"
-test -n "$old_login_image"
+test -n "$old_channel_image"
 
 if ! docker image inspect "$ffax_api_image" >/dev/null 2>&1 || \
-   ! docker image inspect "$mercur_image" >/dev/null 2>&1; then
+   ! docker image inspect "$mercur_image" >/dev/null 2>&1 || \
+   ! docker image inspect "$channel_image" >/dev/null 2>&1; then
   test -f "$images_archive"
   docker load -i "$images_archive"
 fi
 docker image inspect "$ffax_api_image" >/dev/null
 docker image inspect "$mercur_image" >/dev/null
-if ! docker image inspect "$login_image" >/dev/null 2>&1; then
-  docker tag "$old_login_image" "$login_image"
-fi
+docker image inspect "$channel_image" >/dev/null
 
 install -d -m 0700 "$backup_root"
 set -a
@@ -123,13 +137,24 @@ if [[ "${FFAX_SKIP_MERCUR_MIGRATIONS:-false}" != "true" ]]; then
   platform_compose "$mercur_image" run --rm --no-deps mercur-api npm run predeploy
 fi
 platform_compose "$mercur_image" up -d --wait --no-build mercur-api mercur-worker
-zitadel_compose "$ffax_api_image" "$login_image" \
+zitadel_compose "$ffax_api_image" \
   --profile production up -d --wait --no-deps --no-build ffax-api
+channel_compose "$channel_image" \
+  up -d --wait --no-build \
+    warehouse-api warehouse-worker warehouse-gateway \
+    marketplace-channel-api marketplace-worker marketplace-gateway \
+    logistics-api logistics-worker logistics-gateway \
+    commerce-api commerce-worker commerce-gateway sync-api
 
 wait_http http://127.0.0.1:9000/health
 wait_http http://127.0.0.1:8000/api/health
+wait_http http://127.0.0.1:8300/health
+wait_http http://127.0.0.1:9101/health
+wait_http http://127.0.0.1:9102/health
+wait_http http://127.0.0.1:9103/health
+wait_http http://127.0.0.1:9104/health
 
-bash "$workspace/deploy/install-login-static-production.sh" "$stamp"
+bash "$workspace/deploy/install-static-production.sh" "$stamp"
 
 wait_http https://www.ffax.com/workbench-api/health 15
 wait_http https://www.ffax.com/marketplace-api/health 15
@@ -139,3 +164,4 @@ rm -f -- "$images_archive" "$release_archive"
 echo "RUNTIME_DEPLOYED:${stamp}"
 echo "FFAX_API_IMAGE:${ffax_api_image}"
 echo "MERCUR_IMAGE:${mercur_image}"
+echo "CHANNEL_IMAGE:${channel_image}"

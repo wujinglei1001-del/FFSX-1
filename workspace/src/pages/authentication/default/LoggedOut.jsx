@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Box, Button, Link, Stack, Typography } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import { authPaths } from 'routes/paths';
 
 const LoggedOut = () => {
@@ -33,9 +33,7 @@ const LoggedOut = () => {
           {translateUi('ui.pages.authentication.default.loggedout.log_back_in_153267a6')}
         </Button>
       </Box>
-      <Link href="#!" variant="subtitle2">
-        {translateUi('ui.pages.authentication.default.loggedout.trouble_signing_in_363e4476')}
-      </Link>
+      <Box />
     </Stack>
   );
 };

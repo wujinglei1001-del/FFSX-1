@@ -1,1 +1,0 @@
-import{Dt as e,Et as t,bi as n,hi as r}from"./ReactEchart-DNoPHsu5.js";function i(i,a,o){a=n(a)&&{coordDimensions:a}||r({encodeDefine:i.getEncode()},a);var s=i.getSource(),c=t(s,a).dimensions,l=new e(c,i);return l.initData(s,o),l}export{i as t};

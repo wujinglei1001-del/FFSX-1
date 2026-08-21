@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-CB_p5Kcx.js";import{t}from"./KanbanProvider-D-hiAI73.js";var n=e(),r=({children:e})=>(0,n.jsx)(t,{children:e});export{r as default};

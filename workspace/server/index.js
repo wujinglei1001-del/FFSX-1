@@ -1,6 +1,7 @@
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
+import { loginWithZitadel, logoutWithZitadel } from './auth/login.js';
 import { requireZitadelAuth } from './auth/zitadel.js';
 import { controlPlaneRouter } from './channels/router.js';
 import { runtimeControlPlaneRouter } from './channels/runtime-router.js';
@@ -38,6 +39,9 @@ app.get('/api/health', async (_req, res) => {
   });
 });
 
+app.post('/api/auth/login', loginWithZitadel);
+app.post('/api/auth/logout', logoutWithZitadel);
+
 app.get('/api/auth/profile', requireZitadelAuth, (req, res) => {
   res.json({
     data: {
@@ -48,10 +52,6 @@ app.get('/api/auth/profile', requireZitadelAuth, (req, res) => {
       roles: req.auth.roles,
     },
   });
-});
-
-app.post('/api/auth/logout', requireZitadelAuth, (_req, res) => {
-  res.status(204).end();
 });
 
 app.use('/api/internal/control-plane', runtimeControlPlaneRouter);

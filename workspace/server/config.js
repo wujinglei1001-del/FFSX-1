@@ -20,10 +20,15 @@ export const serverConfig = {
   paymentsEnabled: process.env.FFAX_ENABLE_REAL_PAYMENTS === 'true',
   zitadel: {
     issuer: normalizeUrl(process.env.ZITADEL_ISSUER),
+    internalUrl: normalizeUrl(process.env.ZITADEL_INTERNAL_URL || 'http://zitadel-api:8080'),
     projectId: process.env.ZITADEL_PROJECT_ID?.trim() || '',
     apiClientId: process.env.ZITADEL_API_CLIENT_ID?.trim() || '',
     apiClientSecret: process.env.ZITADEL_API_CLIENT_SECRET?.trim() || '',
     instanceHost: process.env.ZITADEL_INSTANCE_HOST?.trim() || '',
+    publicScheme: process.env.ZITADEL_PUBLIC_SCHEME?.trim() || 'https',
+    loginClientPatFile:
+      process.env.ZITADEL_LOGIN_CLIENT_PAT_FILE?.trim() ||
+      '/zitadel/bootstrap/login-client.pat',
     introspectionUrl:
       process.env.ZITADEL_INTROSPECTION_URL?.trim() ||
       `${normalizeUrl(process.env.ZITADEL_ISSUER)}/oauth/v2/introspect`,

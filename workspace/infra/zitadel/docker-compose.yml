@@ -25,8 +25,6 @@ services:
     depends_on:
       zitadel-api:
         condition: service_healthy
-      zitadel-login:
-        condition: service_healthy
 
   zitadel-api:
     image: ghcr.io/zitadel/zitadel:${ZITADEL_VERSION}
@@ -57,10 +55,9 @@ services:
       ZITADEL_FIRSTINSTANCE_ORG_LOGINCLIENT_MACHINE_NAME: Automatically Initialized IAM_LOGIN_CLIENT
       ZITADEL_FIRSTINSTANCE_ORG_LOGINCLIENT_PAT_EXPIRATIONDATE: ${LOGIN_CLIENT_PAT_EXPIRATION}
       ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_REQUIRED: true
-      ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_BASEURI: ${ZITADEL_PUBLIC_URL}/ui/v2/login/
-      ZITADEL_OIDC_DEFAULTLOGINURLV2: ${ZITADEL_PUBLIC_URL}/ui/v2/login/login?authRequest=
-      ZITADEL_OIDC_DEFAULTLOGOUTURLV2: ${ZITADEL_PUBLIC_URL}/ui/v2/login/logout?post_logout_redirect=
-      ZITADEL_SAML_DEFAULTLOGINURLV2: ${ZITADEL_PUBLIC_URL}/ui/v2/login/login?samlRequest=
+      ZITADEL_DEFAULTINSTANCE_FEATURES_LOGINV2_BASEURI: ${FFAX_FRONTEND_URL}/workbench/authentication/default/jwt
+      ZITADEL_OIDC_DEFAULTLOGINURLV2: ${FFAX_FRONTEND_URL}/workbench/authentication/default/jwt/login?authRequest=
+      ZITADEL_OIDC_DEFAULTLOGOUTURLV2: ${FFAX_FRONTEND_URL}/workbench/authentication/default/logged-out?post_logout_redirect=
       ZITADEL_LOGSTORE_ACCESS_STDOUT_ENABLED: ${ZITADEL_ACCESS_LOG_STDOUT_ENABLED}
       ZITADEL_SERVICEPING_ENABLED: false
       ZITADEL_TELEMETRY_ENABLED: false
@@ -93,56 +90,10 @@ services:
       - traefik.http.routers.zitadel-api-alias-web.middlewares=zitadel-strip-api
       - traefik.http.routers.zitadel-api-alias-web.service=zitadel-api
       - traefik.http.routers.zitadel-api-alias-web.priority=200
-      - traefik.http.routers.zitadel-canonical-web.rule=Host(`${ZITADEL_DOMAIN}`) && !PathPrefix(`/ui/v2/login`) && !PathPrefix(`/api`) && !Path(`/`)
+      - traefik.http.routers.zitadel-canonical-web.rule=Host(`${ZITADEL_DOMAIN}`) && !PathPrefix(`/api`) && !Path(`/`)
       - traefik.http.routers.zitadel-canonical-web.entrypoints=web
       - traefik.http.routers.zitadel-canonical-web.service=zitadel-api
       - traefik.http.routers.zitadel-canonical-web.priority=100
-
-  zitadel-login:
-    build:
-      context: ./custom-login
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_BASE_PATH: /ui/v2/login
-    image: ${FFAX_ZITADEL_LOGIN_IMAGE:-ffax/zitadel-login:v4.15.0-ffax}
-    restart: unless-stopped
-    user: "0"
-    environment:
-      ZITADEL_API_URL: http://zitadel-api:8080
-      NEXT_PUBLIC_BASE_PATH: /ui/v2/login
-      ZITADEL_SERVICE_USER_TOKEN_FILE: /zitadel/bootstrap/login-client.pat
-      CUSTOM_REQUEST_HEADERS: Host:${ZITADEL_INSTANCE_HOST},X-Forwarded-Proto:${ZITADEL_PUBLIC_SCHEME}
-    healthcheck:
-      test:
-        - CMD
-        - /bin/sh
-        - -c
-        - node /app/healthcheck.mjs http://localhost:3000/ui/v2/login/healthy
-      interval: 10s
-      timeout: 30s
-      retries: 12
-      start_period: 20s
-    volumes:
-      - zitadel-bootstrap:/zitadel/bootstrap:ro
-    networks:
-      - ffax-zitadel
-    depends_on:
-      zitadel-api:
-        condition: service_healthy
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=ffax-zitadel
-      - traefik.http.services.zitadel-login.loadbalancer.server.port=3000
-      - traefik.http.middlewares.zitadel-root-rewrite.replacepath.path=/ui/v2/login/
-      - traefik.http.routers.zitadel-root-web.rule=Host(`${ZITADEL_DOMAIN}`) && Path(`/`)
-      - traefik.http.routers.zitadel-root-web.entrypoints=web
-      - traefik.http.routers.zitadel-root-web.middlewares=zitadel-root-rewrite
-      - traefik.http.routers.zitadel-root-web.service=zitadel-login
-      - traefik.http.routers.zitadel-root-web.priority=400
-      - traefik.http.routers.zitadel-login-web.rule=Host(`${ZITADEL_DOMAIN}`) && PathPrefix(`/ui/v2/login`)
-      - traefik.http.routers.zitadel-login-web.entrypoints=web
-      - traefik.http.routers.zitadel-login-web.service=zitadel-login
-      - traefik.http.routers.zitadel-login-web.priority=250
 
   zitadel-provision:
     image: node:22-alpine
@@ -210,8 +161,14 @@ services:
       NODE_OPTIONS: --import=/app/server/runtime/shared/telemetry.js
       OTEL_SERVICE_NAME: ffax-control-plane
       OTEL_EXPORTER_OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+      ZITADEL_INTERNAL_URL: http://zitadel-api:8080
+      ZITADEL_INSTANCE_HOST: ${ZITADEL_INSTANCE_HOST}
+      ZITADEL_PUBLIC_SCHEME: ${ZITADEL_PUBLIC_SCHEME}
+      ZITADEL_LOGIN_CLIENT_PAT_FILE: /zitadel/bootstrap/login-client.pat
     ports:
       - 127.0.0.1:8000:8000
+    volumes:
+      - zitadel-bootstrap:/zitadel/bootstrap:ro
     networks:
       - ffax-zitadel
       - ffax-platform

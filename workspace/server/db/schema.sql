@@ -236,22 +236,9 @@ CREATE TABLE IF NOT EXISTS ffax_audit_log (
   created_at timestamptz NOT NULL DEFAULT now()
 );
 
-INSERT INTO ffax_plugin (id, name, version, description, microapp_entry, routes, widgets, capabilities, required_roles, permissions)
-VALUES
-  ('ffax.marketplace', '需求市场', '1.0.0', '采购、物流、仓储、清关、企业服务需求与订单交易入口', '/workbench/microapps/marketplace/', '["/workbench/marketplace"]', '["market-summary","order-status"]', '["catalog","orders","fulfillment"]', '{}', '{"marketplace:read"}'),
-  ('ffax.community', '贸易需求社区', '1.0.0', '需求发布、议价、收藏、会话与评价', '/workbench/microapps/community/', '["/workbench/community"]', '["demand-feed","unread-messages"]', '["demands","negotiation","messaging","reviews"]', '{}', '{"community:read"}'),
-  ('ffax.plugins', '插件中心', '1.0.0', '插件购买、授权、安装、升级与停用', '/workbench/microapps/plugins/', '["/workbench/plugins"]', '["plugin-status"]', '["plugin-lifecycle"]', '{tenant-admin}', '{"plugins:manage"}')
-ON CONFLICT (id) DO UPDATE SET
-  name = EXCLUDED.name,
-  version = EXCLUDED.version,
-  description = EXCLUDED.description,
-  microapp_entry = EXCLUDED.microapp_entry,
-  routes = EXCLUDED.routes,
-  widgets = EXCLUDED.widgets,
-  capabilities = EXCLUDED.capabilities,
-  required_roles = EXCLUDED.required_roles,
-  permissions = EXCLUDED.permissions,
-  updated_at = now();
+DELETE FROM ffax_plugin
+WHERE id IN ('ffax.marketplace', 'ffax.community', 'ffax.plugins')
+  AND microapp_entry LIKE '/workbench/microapps/%';
 
 CREATE TABLE IF NOT EXISTS ffax_channel_definition (
   id text PRIMARY KEY,

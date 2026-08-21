@@ -1,1 +1,0 @@
-export const UNKNOWN_USER_ID = "000000000000000000";

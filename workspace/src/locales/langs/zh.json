@@ -268,11 +268,11 @@
       "pagination": {
         "customtablepaginationaction": {
           "previous_50f94286": "上一页",
-          "next_bc981983": "下一步"
+          "next_bc981983": "下一页"
         },
         "tablelabeldisplayedrows": {
           "showing_163d8174": "显示中",
-          "out_of_5ee0bb55": "出于",
+          "out_of_5ee0bb55": "共",
           "items_7316c8b2": "项目"
         }
       },
@@ -996,6 +996,7 @@
             "sign_up_0b81497c": "注册",
             "or_use_email_be1bca91": "或使用电子邮件",
             "email_84add5b2": "电子邮件",
+            "login_name_or_email": "用户名或电子邮件",
             "password_8be3c943": "密码",
             "remember_this_device_e495443b": "记住这个设备",
             "forgot_password_1cc8d181": "忘记密码？",

@@ -25,11 +25,6 @@ const schema = yup
   .object({
     email: yup
       .string()
-      .email(
-        i18n.t(
-          'ui.sections.authentications.default.loginform.please_provide_a_valid_email_address_09016875',
-        ),
-      )
       .required(
         i18n.t('ui.sections.authentications.default.loginform.this_field_is_required_dedbaded'),
       ),
@@ -108,19 +103,21 @@ const LoginForm = ({
             <Typography variant="h4">
               {translateUi('ui.sections.authentications.default.loginform.log_in_f7c400ed')}
             </Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{
-                color: 'text.secondary',
-              }}
-            >
-              {translateUi(
-                'ui.sections.authentications.default.loginform.don_t_have_an_account_f838dc11',
-              )}
-              <Link href={signUpLink} sx={{ ml: 1 }}>
-                {translateUi('ui.sections.authentications.default.loginform.sign_up_0b81497c')}
-              </Link>
-            </Typography>
+            {signUpLink && (
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  color: 'text.secondary',
+                }}
+              >
+                {translateUi(
+                  'ui.sections.authentications.default.loginform.don_t_have_an_account_f838dc11',
+                )}
+                <Link href={signUpLink} sx={{ ml: 1 }}>
+                  {translateUi('ui.sections.authentications.default.loginform.sign_up_0b81497c')}
+                </Link>
+              </Typography>
+            )}
           </Stack>
         </Grid>
         {socialAuth && (
@@ -155,9 +152,9 @@ const LoginForm = ({
                   fullWidth
                   size="large"
                   id="email"
-                  type="email"
+                  type="text"
                   label={translateUi(
-                    'ui.sections.authentications.default.loginform.email_84add5b2',
+                    'ui.sections.authentications.default.loginform.login_name_or_email',
                   )}
                   defaultValue={defaultCredential?.email}
                   error={!!errors.email}
@@ -240,9 +237,7 @@ const LoginForm = ({
           </Box>
         </Grid>
       </Grid>
-      <Link href="#!" variant="subtitle2">
-        {translateUi('ui.sections.authentications.default.loginform.trouble_signing_in_363e4476')}
-      </Link>
+      <div />
     </Stack>
   );
 };

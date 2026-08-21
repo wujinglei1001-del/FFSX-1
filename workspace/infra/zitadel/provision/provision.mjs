@@ -332,10 +332,13 @@ const writeOutputs = async ({ projectId, webClientId, apiClientId, apiClientSecr
     'PORT=8000',
     `FFAX_ALLOWED_ORIGINS=${config.frontendUrl}`,
     `ZITADEL_ISSUER=${config.publicUrl}`,
+    'ZITADEL_INTERNAL_URL=http://zitadel-api:8080',
     `ZITADEL_PROJECT_ID=${projectId}`,
     `ZITADEL_API_CLIENT_ID=${apiClientId}`,
     `ZITADEL_API_CLIENT_SECRET=${apiClientSecret}`,
     `ZITADEL_INSTANCE_HOST=${config.instanceHost}`,
+    `ZITADEL_PUBLIC_SCHEME=${config.publicUrl.startsWith('https://') ? 'https' : 'http'}`,
+    'ZITADEL_LOGIN_CLIENT_PAT_FILE=/zitadel/bootstrap/login-client.pat',
     '',
   ].join('\n');
 

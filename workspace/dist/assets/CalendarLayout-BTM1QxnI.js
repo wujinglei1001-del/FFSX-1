@@ -1,1 +1,0 @@
-import{n as e,s as t,t as n}from"./jsx-runtime-CB_p5Kcx.js";import{n as r}from"./components-ComqZ8E1.js";import{f as i}from"./index-BJc1Vth8.js";import{t as a}from"./CalendarProvider-HLLUWtxn.js";var o=t(e()),s=n(),c=()=>(0,s.jsx)(a,{children:(0,s.jsx)(o.Suspense,{fallback:(0,s.jsx)(i,{sx:{flex:1}}),children:(0,s.jsx)(r,{})})});export{c as default};

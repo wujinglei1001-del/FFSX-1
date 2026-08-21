@@ -1,7 +1,13 @@
 import { createContext, useCallback, useEffect, useMemo } from 'react';
 import { AuthProvider as OidcAuthProvider, useAuth as useOidcAuth } from 'react-oidc-context';
 import { useNavigate } from 'react-router';
-import { getZitadelOidcConfig, isZitadelConfigured, zitadelConfig } from 'config/zitadel';
+import {
+  appBasePath,
+  getZitadelOidcConfig,
+  isZitadelConfigured,
+  zitadelConfig,
+} from 'config/zitadel';
+import axiosInstance from 'services/axios/axiosInstance';
 
 const AUTH_TOKEN_KEY = 'auth_token';
 
@@ -138,11 +144,15 @@ const ZitadelSessionProvider = ({ children }) => {
   );
 
   const signout = useCallback(async () => {
+    try {
+      await axiosInstance.post('/auth/logout');
+    } catch {
+      // Local sign-out must still complete if the server session has already expired.
+    }
     sessionStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(AUTH_TOKEN_KEY);
-    await oidc.signoutRedirect({
-      post_logout_redirect_uri: zitadelConfig.postLogoutRedirectUri,
-    });
+    await oidc.removeUser();
+    window.location.assign(`${appBasePath}/authentication/default/logged-out`);
   }, [oidc]);
 
   const getAccessToken = useCallback(async () => {

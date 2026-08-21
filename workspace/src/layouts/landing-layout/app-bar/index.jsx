@@ -119,7 +119,7 @@ const LandingAppBar = (props) => {
         >
           {upLg && <Topnav menus={menus} anchorRef={popoverAnchorRef} />}
           <ThemeToggler />
-          <Button variant="contained" href={loginHref} sx={{ minWidth: 120 }}>
+          <Button component="a" variant="contained" href={loginHref} sx={{ minWidth: 120 }}>
             {translateUi('ui.layouts.landing_layout.app_bar.log_in_d527bf3d')}
           </Button>
           {!upLg && <Sidenav menus={menus} />}

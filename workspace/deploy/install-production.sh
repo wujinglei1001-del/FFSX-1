@@ -249,7 +249,7 @@ test -f "$next_workspace/deploy/nginx/ffax.com.conf"
 test -f "$next_workspace/scripts/api-reporting/check.mjs"
 test -f "$next_workspace/docs/api-integrations/latest.json"
 
-validate_frontend_bundle "$next_workspace/dist" "/workbench/" 200
+validate_frontend_bundle "$next_workspace/dist" "/workbench/" 20
 validate_frontend_bundle "$next_workspace/dist-root" "/" 20
 
 FFAX_API_REPORT_REQUIRE_DESKTOP=false \

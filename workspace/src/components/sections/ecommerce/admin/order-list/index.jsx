@@ -59,7 +59,12 @@ const OrderListContainer = () => {
             flexWrap: { xs: 'wrap', sm: 'nowrap' },
           }}
         >
-          <Button href={paths.adminCreateOrder} variant="contained" color="primary" sx={{ flexShrink: 0 }}>
+          <Button
+            href={paths.adminCreateOrder}
+            variant="contained"
+            color="primary"
+            sx={{ flexShrink: 0 }}
+          >
             {translateUi('ui.sections.ecommerce.admin.order_list.add_order_29c14ca6')}
           </Button>
 

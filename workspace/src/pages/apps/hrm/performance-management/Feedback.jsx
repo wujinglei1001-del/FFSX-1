@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
+import paths from 'routes/paths';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import HRMFeedbackMain from 'components/sections/hrm/performance-management/feedback';
-import paths from 'routes/paths';
 
 const Feedback = () => {
   const { t: translateUi } = useTranslation();

@@ -1,3 +1,4 @@
+import { Link as RouterLink } from 'react-router';
 import {
   Box,
   List,
@@ -7,7 +8,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { Link as RouterLink } from 'react-router';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import paths from 'routes/paths';

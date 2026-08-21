@@ -201,12 +201,7 @@ const Overview = () => {
 
               {isSm && (
                 <Grid size={6} sx={{ alignSelf: 'center' }}>
-                  <Button
-                    variant="soft"
-                    color="neutral"
-                    size="medium"
-                    href={paths.landingContact}
-                  >
+                  <Button variant="soft" color="neutral" size="medium" href={paths.landingContact}>
                     {translateUi('ffax.public.about.hero.contact')}
                   </Button>
                 </Grid>
@@ -214,12 +209,7 @@ const Overview = () => {
             </RevealItems>
 
             {!isSm && (
-              <Button
-                variant="soft"
-                color="neutral"
-                size="medium"
-                href={paths.landingContact}
-              >
+              <Button variant="soft" color="neutral" size="medium" href={paths.landingContact}>
                 {translateUi('ffax.public.about.hero.contact')}
               </Button>
             )}

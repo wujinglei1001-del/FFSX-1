@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import CurrentPayrollRun from 'components/sections/hrm/payroll/dashboard/current-payroll-run';
 import PaySummary from 'components/sections/hrm/payroll/dashboard/pay-summary';
 import PayrollCostSummary from 'components/sections/hrm/payroll/dashboard/payroll-cost-summary';
 import PayrollHistory from 'components/sections/hrm/payroll/dashboard/payroll-history';
-import paths from 'routes/paths';
 
 const PayrollDashboard = () => {
   const { t: translateUi } = useTranslation();

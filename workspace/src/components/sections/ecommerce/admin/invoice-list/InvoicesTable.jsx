@@ -4,10 +4,10 @@ import { Avatar, Box, Button, Chip, Link, Stack, Typography } from '@mui/materia
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import { invoiceListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 
 const getPaymentStatusBadgeColor = (val) => {
   switch (val) {

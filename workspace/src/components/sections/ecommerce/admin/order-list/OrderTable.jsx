@@ -4,9 +4,9 @@ import { Avatar, Box, Chip, Link, Stack } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import { orderListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
+import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 import OrderDetailsPopper from './OrderDetailsPopper';
 
 const getPaymentStatusBadgeColor = (val) => {

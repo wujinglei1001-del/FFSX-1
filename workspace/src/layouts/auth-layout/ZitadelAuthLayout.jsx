@@ -4,8 +4,8 @@ import Grid from '@mui/material/Grid';
 import authDark from 'assets/json/auth-dark.json';
 import auth from 'assets/json/auth.json';
 import { useThemeMode } from 'hooks/useThemeMode';
-import { rootPaths } from 'routes/paths';
 import Lottie from 'lottie-react';
+import { rootPaths } from 'routes/paths';
 import Logo from 'components/common/Logo';
 import DefaultLoader from 'components/loading/DefaultLoader';
 

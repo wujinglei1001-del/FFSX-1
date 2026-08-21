@@ -5,9 +5,9 @@ import { Alert, Box, Button, Chip, Stack, Typography } from '@mui/material';
 import { VirtualLayout } from 'golden-layout';
 import 'golden-layout/dist/css/goldenlayout-base.css';
 import 'golden-layout/dist/css/themes/goldenlayout-light-theme.css';
+import Notifications from 'pages/others/Notifications';
 import axiosInstance from 'services/axios/axiosInstance';
 import PluginCenter from 'components/sections/workbench/PluginCenter';
-import Notifications from 'pages/others/Notifications';
 
 const WORKSPACE_ID = 'workbench';
 const ALLOWED_PANEL_TYPES = new Set(['plugin-center', 'notifications']);

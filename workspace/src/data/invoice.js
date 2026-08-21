@@ -1,8 +1,5 @@
-import { initialConfig } from 'config';
 import i18n from 'locales/i18n';
 import { users } from './users';
-
-const logo = (index) => `${initialConfig.assetsDir}/images/logo/${index}.svg`;
 
 export const invoiceListTableRowData = [
   {

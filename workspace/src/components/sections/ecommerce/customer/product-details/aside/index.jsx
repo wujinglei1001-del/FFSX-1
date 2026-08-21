@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Link, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import IconifyIcon from 'components/base/IconifyIcon';
 import paths from 'routes/paths';
+import IconifyIcon from 'components/base/IconifyIcon';
 import Colors from './Colors';
 import Materials from './Materials';
 import OrderCustomization from './OrderCustomization';

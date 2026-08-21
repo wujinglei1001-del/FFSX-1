@@ -31,11 +31,7 @@ const ShowcaseFooter = () => {
       <Stack direction="row" sx={{ gap: 2 }}>
         {publicFooterNavItems.map(({ label, to }, index) => (
           <RevealText key={label} start="top 100%" delay={index * 0.1}>
-            <Link
-              href={to}
-              variant="subtitle2"
-              sx={{ color: 'common.white', fontWeight: 600 }}
-            >
+            <Link href={to} variant="subtitle2" sx={{ color: 'common.white', fontWeight: 600 }}>
               {label}
             </Link>
           </RevealText>

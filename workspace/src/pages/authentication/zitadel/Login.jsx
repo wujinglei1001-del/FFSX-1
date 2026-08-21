@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navigate, useLocation } from 'react-router';
 import { Alert, Stack } from '@mui/material';
-import { useAuth } from 'providers/AuthProvider';
 import { REMEMBER_DEVICE_KEY } from 'config/zitadel';
+import { useAuth } from 'providers/AuthProvider';
 import paths, { workbenchEntryPath } from 'routes/paths';
 import { useLoginUser } from 'services/swr/api-hooks/useAuthApi';
 import PageLoader from 'components/loading/PageLoader';
@@ -74,12 +74,7 @@ const Login = () => {
     return <PageLoader sx={{ height: '100vh' }} />;
   }
 
-  return (
-    <LoginForm
-      handleLogin={handleLogin}
-      signUpLink={paths.zitadelSignup}
-    />
-  );
+  return <LoginForm handleLogin={handleLogin} signUpLink={paths.zitadelSignup} />;
 };
 
 export default Login;

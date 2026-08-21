@@ -17,15 +17,11 @@ const LoggedOut = () => {
     >
       <Box sx={{ display: { xs: 'none', md: 'block' } }} />
       <Box sx={{ maxWidth: 370 }}>
-        <Typography variant="h4">
-          {translateUi('ffax.auth.logged_out.title')}
-        </Typography>
+        <Typography variant="h4">{translateUi('ffax.auth.logged_out.title')}</Typography>
         <Typography variant="h2" sx={{ mb: 2 }}>
           {translateUi('ffax.auth.logged_out.headline')}
         </Typography>
-        <Typography sx={{ mb: 6 }}>
-          {translateUi('ffax.auth.logged_out.message')}
-        </Typography>
+        <Typography sx={{ mb: 6 }}>{translateUi('ffax.auth.logged_out.message')}</Typography>
         <Button
           component={RouterLink}
           to={authPaths.login}

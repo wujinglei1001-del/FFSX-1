@@ -174,9 +174,7 @@ const TotalAmountDetails = ({ data }) => {
         initialState={{ pagination: { paginationModel: { pageSize: 8 } } }}
         pageSizeOptions={[8, combinedData.length]}
         slots={{
-          basePagination: (props) => (
-            <DataGridPagination showFullPagination {...props} />
-          ),
+          basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
         }}
         sx={({ spacing }) => ({
           [`& .${gridClasses.columnHeaders}`]: {

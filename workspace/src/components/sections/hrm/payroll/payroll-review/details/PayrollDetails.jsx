@@ -255,9 +255,7 @@ const PayrollDetails = () => {
           }}
           pageSizeOptions={[6, activeRows.length]}
           slots={{
-            basePagination: (props) => (
-              <DataGridPagination showFullPagination {...props} />
-            ),
+            basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
           }}
           sx={({ spacing }) => ({
             '& .MuiDataGrid-columnHeader[aria-colindex="1"]': {

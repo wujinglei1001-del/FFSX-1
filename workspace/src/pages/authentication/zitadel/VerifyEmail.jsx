@@ -72,11 +72,7 @@ const VerifyEmail = () => {
 
   return (
     <>
-      <SignupForm
-        handleSignup={disabledSubmit}
-        loginLink={paths.zitadelLogin}
-        disabled
-      />
+      <SignupForm handleSignup={disabledSubmit} loginLink={paths.zitadelLogin} disabled />
       <EmailVerificationDialog
         open
         mode="confirm"

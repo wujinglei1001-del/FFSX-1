@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Link, Stack, Typography } from '@mui/material';
-import IconifyIcon from 'components/base/IconifyIcon';
 import paths from 'routes/paths';
+import IconifyIcon from 'components/base/IconifyIcon';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const Customer = ({ sx }) => {

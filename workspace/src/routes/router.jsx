@@ -6,6 +6,7 @@ import EcommerceLayout from 'layouts/ecommerce-layout';
 import LandingLayout from 'layouts/landing-layout';
 import MainLayout from 'layouts/main-layout';
 import Page404 from 'pages/errors/Page404';
+import AuthGuard from 'components/guard/AuthGuard';
 import PageLoader from 'components/loading/PageLoader';
 import AllFiles from 'components/sections/file-manager/main/all-files';
 import RecentFiles from 'components/sections/file-manager/main/recent-files';
@@ -36,7 +37,6 @@ const InvoicePreview = lazy(() => import('pages/apps/invoice/InvoicePreview'));
 // import App from 'App';
 const App = lazy(() => import('App'));
 
-import AuthGuard from 'components/guard/AuthGuard';
 const LoggedOut = lazy(() => import('pages/authentication/zitadel/LoggedOut'));
 const ProjectManagement = lazy(() => import('pages/dashboards/ProjectManagement'));
 const Account = lazy(() => import('pages/others/Account'));
@@ -168,10 +168,7 @@ export const SuspenseOutlet = () => {
 const WorkbenchRouteBoundary = ({ children }) => {
   const { pathname } = useLocation();
 
-  if (
-    !templatePreviewEnabled &&
-    !productionWorkbenchPaths.has(normalizeRoutePath(pathname))
-  ) {
+  if (!templatePreviewEnabled && !productionWorkbenchPaths.has(normalizeRoutePath(pathname))) {
     return <Navigate to={workbenchEntryPath} replace />;
   }
 

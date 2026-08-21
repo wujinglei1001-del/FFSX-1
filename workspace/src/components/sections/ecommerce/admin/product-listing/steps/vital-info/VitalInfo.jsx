@@ -1,6 +1,5 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import paths from 'routes/paths';
 import {
   FormControl,
   FormHelperText,
@@ -13,6 +12,7 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import i18n from 'locales/i18n';
+import paths from 'routes/paths';
 import * as yup from 'yup';
 import Category from './CategorySelect';
 

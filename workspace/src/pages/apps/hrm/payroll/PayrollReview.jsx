@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
+import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import HeaderAction from 'components/sections/hrm/payroll/common/HeaderAction';
 import PayrollPreviewMain from 'components/sections/hrm/payroll/payroll-review';
-import paths from 'routes/paths';
 
 const PayrollReview = () => {
   const { t: translateUi } = useTranslation();

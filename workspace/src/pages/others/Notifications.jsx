@@ -1,17 +1,17 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router';
-import useSWR from 'swr';
-import { useSnackbar } from 'notistack';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import { Alert, Breadcrumbs, Button, Link, Stack, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab, { tabClasses } from '@mui/material/Tab';
-import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths, { apiEndpoints, workbenchEntryPath } from 'routes/paths';
-import axiosInstance from 'services/axios/axiosInstance';
 import { normalizeNotifications } from 'lib/notifications';
+import { useSnackbar } from 'notistack';
+import { useBreakpoints } from 'providers/BreakpointsProvider';
+import { apiEndpoints, workbenchEntryPath } from 'routes/paths';
+import axiosInstance from 'services/axios/axiosInstance';
+import useSWR from 'swr';
 import IconifyIcon from 'components/base/IconifyIcon';
 import NotificationTabPanel from 'components/sections/notification/NotificationTabPanel';
 
@@ -62,10 +62,7 @@ const Notifications = () => {
         p: { xs: 3, md: 5 },
       }}
     >
-      <Breadcrumbs
-        aria-label={translateUi('ffax.notifications.breadcrumb')}
-        sx={{ mb: 2 }}
-      >
+      <Breadcrumbs aria-label={translateUi('ffax.notifications.breadcrumb')} sx={{ mb: 2 }}>
         <Link component={RouterLink} to={workbenchEntryPath}>
           {translateUi('ffax.navigation.workbench')}
         </Link>
@@ -110,7 +107,10 @@ const Notifications = () => {
               label={upSm ? translateUi('ffax.notifications.unread') : undefined}
               value="unread"
               icon={
-                <IconifyIcon icon="material-symbols:mark-email-unread-outline-rounded" fontSize={20} />
+                <IconifyIcon
+                  icon="material-symbols:mark-email-unread-outline-rounded"
+                  fontSize={20}
+                />
               }
               iconPosition="start"
             />

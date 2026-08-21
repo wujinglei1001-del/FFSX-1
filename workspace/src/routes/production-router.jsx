@@ -3,9 +3,9 @@ import { Navigate, Outlet, createBrowserRouter } from 'react-router';
 import AuthLayout from 'layouts/auth-layout';
 import ZitadelAuthLayout from 'layouts/auth-layout/ZitadelAuthLayout';
 import MainLayout from 'layouts/main-layout';
+import paths, { rootPaths, workbenchEntryPath } from 'routes/paths';
 import AuthGuard from 'components/guard/AuthGuard';
 import PageLoader from 'components/loading/PageLoader';
-import paths, { rootPaths, workbenchEntryPath } from 'routes/paths';
 
 const App = lazy(() => import('App'));
 const Workbench = lazy(() => import('pages/apps/workbench/Workbench'));

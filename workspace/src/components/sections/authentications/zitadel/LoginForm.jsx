@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { Link as RouterLink } from 'react-router';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Alert,
   Box,
@@ -20,12 +20,8 @@ import PasswordTextField from 'components/common/PasswordTextField';
 
 const schema = yup
   .object({
-    email: yup
-      .string()
-      .required(i18n.t('ffax.auth.validation.required')),
-    password: yup
-      .string()
-      .required(i18n.t('ffax.auth.validation.required')),
+    email: yup.string().required(i18n.t('ffax.auth.validation.required')),
+    password: yup.string().required(i18n.t('ffax.auth.validation.required')),
   })
   .required();
 
@@ -81,9 +77,7 @@ const LoginForm = ({ handleLogin, signUpLink }) => {
               alignItems: { xs: 'flex-start', sm: 'flex-end' },
             }}
           >
-            <Typography variant="h4">
-              {translateUi('ffax.auth.login_form.title')}
-            </Typography>
+            <Typography variant="h4">{translateUi('ffax.auth.login_form.title')}</Typography>
             {signUpLink && (
               <Typography
                 variant="subtitle2"
@@ -156,11 +150,7 @@ const LoginForm = ({ handleLogin, signUpLink }) => {
                 >
                   <FormControlLabel
                     control={
-                      <Checkbox
-                        color="primary"
-                        size="small"
-                        {...register('rememberDevice')}
-                      />
+                      <Checkbox color="primary" size="small" {...register('rememberDevice')} />
                     }
                     label={
                       <Typography

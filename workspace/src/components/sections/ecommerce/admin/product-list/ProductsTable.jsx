@@ -9,7 +9,6 @@ import paths from 'routes/paths';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 
 const getStatusBadgeColor = (val) => {
   switch (val) {

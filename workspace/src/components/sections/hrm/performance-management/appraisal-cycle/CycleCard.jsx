@@ -7,8 +7,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { getStatusChipColor } from 'data/hrm/performance-management';
 import dayjs from 'dayjs';
-import DashboardMenu from 'components/common/DashboardMenu';
 import paths from 'routes/paths';
+import DashboardMenu from 'components/common/DashboardMenu';
 
 const AppraisalCycleCard = ({
   id,

@@ -10,11 +10,11 @@ import {
   tablePaginationClasses,
 } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomColumnMenu from 'components/common/CustomColumnMenu';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const defaultPageSize = 10;

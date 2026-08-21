@@ -119,9 +119,7 @@ const History = ({ data }) => {
             }}
             pageSizeOptions={[7]}
             slots={{
-              basePagination: (props) => (
-                <DataGridPagination showFullPagination {...props} />
-              ),
+              basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
             }}
             slotProps={{
               panel: {

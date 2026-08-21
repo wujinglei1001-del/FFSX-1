@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Container from '@mui/material/Container';
+import paths from 'routes/paths';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import SocialTabs from 'components/sections/social/SocialTabs';
 import CoverBanner from 'components/sections/social/profile-section/CoverBanner';
 import ProfileInfo from 'components/sections/social/profile-section/ProfileInfo';
-import paths from 'routes/paths';
 
 const Social = () => {
   const { t: translateUi } = useTranslation();

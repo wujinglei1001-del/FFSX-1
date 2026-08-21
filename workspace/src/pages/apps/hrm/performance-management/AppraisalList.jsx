@@ -4,11 +4,11 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { typographyClasses } from '@mui/material/Typography';
 import { useGridApiRef } from '@mui/x-data-grid';
+import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import SearchFilterActionBar from 'components/sections/hrm/payroll/common/SearchFilterActionBar';
 import ListTable from 'components/sections/hrm/performance-management/appraisal-list/ListTable';
 import AddMember from 'components/sections/hrm/performance-management/appraisal-list/add-member';
-import paths from 'routes/paths';
 
 const AppraisalList = () => {
   const { t: translateUi } = useTranslation();

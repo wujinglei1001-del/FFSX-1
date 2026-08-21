@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { Stack } from '@mui/material';
+import paths from 'routes/paths';
 import TimeTrackerAppsSitesMain from 'components/sections/time-tracker/apps-sites';
 import TimeTrackerHeader from 'components/sections/time-tracker/common/time-tracker-header';
-import paths from 'routes/paths';
 
 const AppsSites = () => {
   const { t: translateUi } = useTranslation();

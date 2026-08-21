@@ -8,7 +8,10 @@ import SelectedCategory from './SelectedCategory';
 
 gsap.registerPlugin(useGSAP);
 
-const normalizeSearchValue = (value) => String(value || '').trim().toLocaleLowerCase();
+const normalizeSearchValue = (value) =>
+  String(value || '')
+    .trim()
+    .toLocaleLowerCase();
 
 const filterCategory = (category, normalizedQuery) => {
   if (!category) return null;

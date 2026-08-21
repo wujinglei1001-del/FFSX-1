@@ -1,8 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink, useNavigate } from 'react-router';
-import useSWR from 'swr';
-import { useSnackbar } from 'notistack';
 import {
   Alert,
   Box,
@@ -14,10 +12,12 @@ import {
   paperClasses,
 } from '@mui/material';
 import dayjs from 'dayjs';
+import { normalizeNotifications } from 'lib/notifications';
+import { useSnackbar } from 'notistack';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import paths, { apiEndpoints } from 'routes/paths';
 import axiosInstance from 'services/axios/axiosInstance';
-import { normalizeNotifications } from 'lib/notifications';
+import useSWR from 'swr';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SimpleBar from 'components/base/SimpleBar';
 import NotificationList from 'components/sections/notification/NotificationList';

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Box, Link, Typography } from '@mui/material';
+import paths from 'routes/paths';
 import PricingHeader from 'components/sections/pricing/PricingHeader';
 import PricingTableContent from 'components/sections/pricing/table/PricingTableContent';
-import paths from 'routes/paths';
 
 const PricingTable = () => {
   const { t: translateUi } = useTranslation();

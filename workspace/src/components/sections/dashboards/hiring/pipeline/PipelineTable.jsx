@@ -7,9 +7,9 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid/colDef';
 import { gridClasses } from '@mui/x-data-grid/constants';
+import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 
 const PipelineTable = ({ apiRef, data }) => {
   const { t: translateUi } = useTranslation();

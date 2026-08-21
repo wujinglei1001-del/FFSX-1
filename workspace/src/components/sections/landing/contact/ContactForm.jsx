@@ -18,38 +18,25 @@ import {
 } from '@mui/material';
 import { externalLinks } from 'config';
 import i18n from 'locales/i18n';
-import * as yup from 'yup';
 import { useSubmitContactRequest } from 'services/swr/api-hooks/useContactApi';
+import * as yup from 'yup';
 import StyledTextField from 'components/styled/StyledTextField';
 import RevealText from '../common/RevealText';
 import SectionHeader from '../common/SectionHeader';
 
 const contactFormSchema = yup.object({
-  firstName: yup
-    .string()
-    .required(i18n.t('ffax.public.contact.validation.first_name')),
-  lastName: yup
-    .string()
-    .required(i18n.t('ffax.public.contact.validation.last_name')),
+  firstName: yup.string().required(i18n.t('ffax.public.contact.validation.first_name')),
+  lastName: yup.string().required(i18n.t('ffax.public.contact.validation.last_name')),
   email: yup
     .string()
     .email(i18n.t('ffax.public.contact.validation.email_invalid'))
     .required(i18n.t('ffax.public.contact.validation.email_required')),
-  phone: yup
-    .string()
-    .required(i18n.t('ffax.public.contact.validation.phone')),
-  company: yup
-    .string()
-    .required(i18n.t('ffax.public.contact.validation.company')),
-  purpose: yup
-    .string()
-    .required(i18n.t('ffax.public.contact.validation.purpose')),
+  phone: yup.string().required(i18n.t('ffax.public.contact.validation.phone')),
+  company: yup.string().required(i18n.t('ffax.public.contact.validation.company')),
+  purpose: yup.string().required(i18n.t('ffax.public.contact.validation.purpose')),
   policyChecked: yup
     .boolean()
-    .oneOf(
-      [true],
-      i18n.t('ffax.public.contact.validation.consent'),
-    )
+    .oneOf([true], i18n.t('ffax.public.contact.validation.consent'))
     .required(i18n.t('ffax.public.contact.validation.consent')),
 });
 const ContactForm = () => {

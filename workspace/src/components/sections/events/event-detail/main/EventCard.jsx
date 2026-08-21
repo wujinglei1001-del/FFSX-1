@@ -9,8 +9,8 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import IconifyIcon from 'components/base/IconifyIcon';
 import paths from 'routes/paths';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const EventCard = ({ event, sx }) => {
   const { t: translateUi } = useTranslation();

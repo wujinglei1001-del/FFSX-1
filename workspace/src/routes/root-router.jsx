@@ -2,8 +2,8 @@ import { Suspense, lazy, useEffect } from 'react';
 import { Navigate, Outlet, createBrowserRouter, useLocation } from 'react-router';
 import { useConfigFromQuery } from 'hooks/useConfigFromQuery';
 import LandingLayout from 'layouts/landing-layout';
-import PageLoader from 'components/loading/PageLoader';
 import paths, { rootPaths } from 'routes/paths';
+import PageLoader from 'components/loading/PageLoader';
 
 const Showcase = lazy(() => import('pages/Showcase'));
 const AboutUs = lazy(() => import('pages/landing/AboutUs'));

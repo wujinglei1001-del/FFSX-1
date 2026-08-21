@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import HeaderAction from 'components/sections/hrm/payroll/common/HeaderAction';
 import EarningsDeductionsMain from 'components/sections/hrm/payroll/earnings';
-import paths from 'routes/paths';
 
 const RunPayroll = () => {
   const { t: translateUi } = useTranslation();

@@ -20,9 +20,7 @@ const createColumnDefs = (currencyFormat) => [
     flex: 1.33,
     minWidth: 120,
     renderCell: (params) => (
-      <Typography variant="body2">
-        {dayjs(params.row.payDate).format('DD MMM, YYYY')}
-      </Typography>
+      <Typography variant="body2">{dayjs(params.row.payDate).format('DD MMM, YYYY')}</Typography>
     ),
   },
   {
@@ -121,9 +119,7 @@ const PayHistory = ({ data }) => {
           }}
           pageSizeOptions={[6]}
           slots={{
-            basePagination: (props) => (
-              <DataGridPagination showFullPagination {...props} />
-            ),
+            basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
           }}
           sx={{
             '& .MuiDataGrid-columnHeaders': {

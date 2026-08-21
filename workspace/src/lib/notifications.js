@@ -2,9 +2,7 @@ const asObject = (value) =>
   value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 
 const asInternalHref = (value) =>
-  typeof value === 'string' && value.startsWith('/') && !value.startsWith('//')
-    ? value
-    : undefined;
+  typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') ? value : undefined;
 
 const normalizeUsers = (payload) => {
   if (Array.isArray(payload.users) && payload.users.length) {

@@ -8,8 +8,8 @@ import Typography from '@mui/material/Typography';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import DataGridPagination from 'components/pagination/DataGridPagination';
 import paths from 'routes/paths';
+import DataGridPagination from 'components/pagination/DataGridPagination';
 import TableLabelDisplayedRows from 'components/pagination/TableLabelDisplayedRows';
 import ActivityChart from './ActivityChart';
 

@@ -5,7 +5,6 @@ import dayjs from 'dayjs';
 import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 import { getStatusChipColor } from '..';
 
 export const columnDefs = [
@@ -170,9 +169,7 @@ const MembersListView = ({ data }) => {
           }}
           pageSizeOptions={[7]}
           slots={{
-            basePagination: (props) => (
-              <DataGridPagination showFullPagination {...props} />
-            ),
+            basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
           }}
         />
       </Box>

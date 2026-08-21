@@ -54,11 +54,7 @@ const MainLayout = ({ children }) => {
   }, [navigationMenuType, topnavType]);
 
   const templatePreviewEnabled = import.meta.env.VITE_ENABLE_TEMPLATE_PREVIEW === 'true';
-  const realWorkspaceRoutes = [
-    rootPaths.root,
-    paths.workbench,
-    paths.notifications,
-  ];
+  const realWorkspaceRoutes = [rootPaths.root, paths.workbench, paths.notifications];
 
   if (!templatePreviewEnabled && !realWorkspaceRoutes.includes(pathname)) {
     return <Navigate to={workbenchEntryPath} replace />;

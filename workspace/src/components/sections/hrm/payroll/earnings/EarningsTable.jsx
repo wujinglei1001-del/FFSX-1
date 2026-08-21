@@ -118,9 +118,7 @@ const EarningsTable = ({ apiRef, filterButtonEl, data }) => {
         }}
         pageSizeOptions={[7, data.length]}
         slots={{
-          basePagination: (props) => (
-            <DataGridPagination showFullPagination={upSm} {...props} />
-          ),
+          basePagination: (props) => <DataGridPagination showFullPagination={upSm} {...props} />,
         }}
         slotProps={{
           panel: {

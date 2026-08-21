@@ -298,9 +298,7 @@ const ListTable = ({ apiRef, filterButtonEl }) => {
           },
         }}
         slots={{
-          basePagination: (props) => (
-            <DataGridPagination showFullPagination {...props} />
-          ),
+          basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
         }}
         sx={({ spacing }) => ({
           [`& .${gridClasses.columnHeaders}`]: {

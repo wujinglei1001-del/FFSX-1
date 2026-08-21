@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Box, Link, Paper, Stack, Typography } from '@mui/material';
-import IconifyIcon from 'components/base/IconifyIcon';
 import paths from 'routes/paths';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const PurchaseDetails = ({ sx }) => {
   const { t: translateUi } = useTranslation();

@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import paths from 'routes/paths';
 import SearchTextField from 'components/common/SearchTextField';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
-import paths from 'routes/paths';
 
 const FaqPageHeader = () => {
   const { t: translateUi } = useTranslation();

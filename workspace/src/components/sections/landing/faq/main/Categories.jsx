@@ -19,14 +19,8 @@ const Categories = ({
         onChange={handleTabChange}
         sx={{ mb: 3, mx: 'auto', width: 'fit-content' }}
       >
-        <Tab
-          value="popular"
-          label={translateUi('ffax.public.faq.popular')}
-        />
-        <Tab
-          value="all"
-          label={translateUi('ffax.public.faq.all')}
-        />
+        <Tab value="popular" label={translateUi('ffax.public.faq.popular')} />
+        <Tab value="all" label={translateUi('ffax.public.faq.all')} />
       </Tabs>
       <Grid container columns={{ xs: 2, md: 4 }} spacing={1} ref={gridRef}>
         {displayedCategories.map((category) => (

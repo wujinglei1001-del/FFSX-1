@@ -12,9 +12,7 @@ const NewsLetter = () => {
     event.preventDefault();
     if (!externalLinks.contact.email) return;
     const subject = encodeURIComponent(translateUi('ffax.contact.subscription_inquiry'));
-    const body = encodeURIComponent(
-      translateUi('ffax.public.footer.subscription_body', { email }),
-    );
+    const body = encodeURIComponent(translateUi('ffax.public.footer.subscription_body', { email }));
     window.location.href = `mailto:${externalLinks.contact.email}?subject=${subject}&body=${body}`;
   };
 

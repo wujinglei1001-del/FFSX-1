@@ -12,9 +12,7 @@ const normalizeBasePath = (value = '/') => {
   return withoutTrailingSlash || '';
 };
 
-export const appBasePath = normalizeBasePath(
-  import.meta.env.BASE_URL || '/',
-);
+export const appBasePath = normalizeBasePath(import.meta.env.BASE_URL || '/');
 
 const getAbsoluteAppUrl = (path) => `${browserOrigin}${appBasePath}${path}`;
 const projectId = import.meta.env.VITE_ZITADEL_PROJECT_ID?.trim() || '';
@@ -32,8 +30,7 @@ export const zitadelConfig = {
   clientId: import.meta.env.VITE_ZITADEL_CLIENT_ID?.trim() || '',
   projectId,
   redirectUri:
-    import.meta.env.VITE_ZITADEL_CALLBACK_URL?.trim() ||
-    getAbsoluteAppUrl(paths.zitadelCallback),
+    import.meta.env.VITE_ZITADEL_CALLBACK_URL?.trim() || getAbsoluteAppUrl(paths.zitadelCallback),
   postLogoutRedirectUri:
     import.meta.env.VITE_ZITADEL_POST_LOGOUT_URL?.trim() ||
     getAbsoluteAppUrl(paths.zitadelLoggedOut),

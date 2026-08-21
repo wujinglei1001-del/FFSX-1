@@ -187,15 +187,7 @@ const ZitadelSessionProvider = ({ children }) => {
       signin,
       signout,
     }),
-    [
-      getAccessToken,
-      oidc.error,
-      oidc.isAuthenticated,
-      oidc.isLoading,
-      oidc.user,
-      signin,
-      signout,
-    ],
+    [getAccessToken, oidc.error, oidc.isAuthenticated, oidc.isLoading, oidc.user, signin, signout],
   );
 
   return <AuthZitadelContext value={value}>{children}</AuthZitadelContext>;

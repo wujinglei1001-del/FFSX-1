@@ -155,59 +155,59 @@ const FAQContact = ({ sx }) => {
           <Grid size={1}>
             <Box component="form" onSubmit={handleContactSubmit}>
               <RevealItems component={Grid} y={0} container columns={12} spacing={2}>
-              <Grid size={6}>
-                <TextField
-                  name="firstName"
-                  required
-                  variant="filled"
-                  label={translateUi('ffax.public.contact.first_name')}
-                  sx={{ width: 1 }}
-                />
-              </Grid>
-              <Grid size={6}>
-                <TextField
-                  name="lastName"
-                  required
-                  variant="filled"
-                  label={translateUi('ffax.public.contact.last_name')}
-                  sx={{ width: 1 }}
-                />
-              </Grid>
-              <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-                <TextField
-                  name="email"
-                  required
-                  type="email"
-                  variant="filled"
-                  label={translateUi('ffax.public.contact.email')}
-                  sx={{ width: 1 }}
-                />
-              </Grid>
-              <Grid size={{ xs: 12, sm: 6, md: 12 }}>
-                <TextField
-                  name="phone"
-                  type="tel"
-                  variant="filled"
-                  label={translateUi('ffax.public.contact.phone_field')}
-                  sx={{ width: 1 }}
-                />
-              </Grid>
-              <Grid size={12}>
-                <TextField
-                  name="message"
-                  required
-                  multiline
-                  rows={2}
-                  variant="filled"
-                  label={translateUi('ffax.public.contact.message')}
-                  sx={{ width: 1 }}
-                />
-              </Grid>
-              <Grid size={12} sx={{ textAlign: 'right' }}>
-                <Button type="submit" variant="soft" disabled={!externalLinks.contact.email}>
-                  {translateUi('ffax.public.faq.send')}
-                </Button>
-              </Grid>
+                <Grid size={6}>
+                  <TextField
+                    name="firstName"
+                    required
+                    variant="filled"
+                    label={translateUi('ffax.public.contact.first_name')}
+                    sx={{ width: 1 }}
+                  />
+                </Grid>
+                <Grid size={6}>
+                  <TextField
+                    name="lastName"
+                    required
+                    variant="filled"
+                    label={translateUi('ffax.public.contact.last_name')}
+                    sx={{ width: 1 }}
+                  />
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6, md: 12 }}>
+                  <TextField
+                    name="email"
+                    required
+                    type="email"
+                    variant="filled"
+                    label={translateUi('ffax.public.contact.email')}
+                    sx={{ width: 1 }}
+                  />
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6, md: 12 }}>
+                  <TextField
+                    name="phone"
+                    type="tel"
+                    variant="filled"
+                    label={translateUi('ffax.public.contact.phone_field')}
+                    sx={{ width: 1 }}
+                  />
+                </Grid>
+                <Grid size={12}>
+                  <TextField
+                    name="message"
+                    required
+                    multiline
+                    rows={2}
+                    variant="filled"
+                    label={translateUi('ffax.public.contact.message')}
+                    sx={{ width: 1 }}
+                  />
+                </Grid>
+                <Grid size={12} sx={{ textAlign: 'right' }}>
+                  <Button type="submit" variant="soft" disabled={!externalLinks.contact.email}>
+                    {translateUi('ffax.public.faq.send')}
+                  </Button>
+                </Grid>
               </RevealItems>
             </Box>
           </Grid>

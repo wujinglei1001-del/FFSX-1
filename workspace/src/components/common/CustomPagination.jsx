@@ -27,11 +27,7 @@ const CustomPagination = ({ count, sx, ...rest }) => {
       rowsPerPage={rowsPerPage}
       onRowsPerPageChange={handleChangeRowsPerPage}
       ActionsComponent={(props) => (
-        <CustomTablePaginationAction
-          onShowAllClick={handleShowAll}
-          showFullPagination
-          {...props}
-        />
+        <CustomTablePaginationAction onShowAllClick={handleShowAll} showFullPagination {...props} />
       )}
       sx={{ bgcolor: 'background.paper', ...sx }}
       {...rest}

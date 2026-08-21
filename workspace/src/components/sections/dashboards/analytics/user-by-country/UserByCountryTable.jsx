@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Chip, Stack, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
+import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
-import paths from 'routes/paths';
 
 const calculateSummaryData = (data) => {
   return data.reduce(

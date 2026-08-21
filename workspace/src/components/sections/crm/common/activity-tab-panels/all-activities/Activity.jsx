@@ -5,8 +5,8 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { cssVarRgba } from 'lib/utils';
-import IconifyIcon from 'components/base/IconifyIcon';
 import paths from 'routes/paths';
+import IconifyIcon from 'components/base/IconifyIcon';
 import CRMDropdownMenu from '../../CRMDropdownMenu';
 
 const Activity = ({ activity }) => {

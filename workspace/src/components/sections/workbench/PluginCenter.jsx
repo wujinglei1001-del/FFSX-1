@@ -1,26 +1,17 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useSWR from 'swr';
-import { useSnackbar } from 'notistack';
-import {
-  Alert,
-  Avatar,
-  Box,
-  Button,
-  Chip,
-  MenuItem,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Alert, Avatar, Box, Button, Chip, MenuItem, Stack, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
-import { apiEndpoints } from 'routes/paths';
+import { useSnackbar } from 'notistack';
 import { useAuth } from 'providers/AuthProvider';
+import { apiEndpoints } from 'routes/paths';
 import axiosInstance from 'services/axios/axiosInstance';
+import useSWR from 'swr';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import SearchTextField from 'components/common/SearchTextField';
-import StyledTextField from 'components/styled/StyledTextField';
 import DataGridPagination from 'components/pagination/DataGridPagination';
+import StyledTextField from 'components/styled/StyledTextField';
 
 const defaultPageSize = 8;
 
@@ -72,7 +63,11 @@ const PluginCenter = () => {
         plugin.version,
         ...asArray(plugin.capabilities),
         ...asArray(plugin.required_roles),
-      ].some((value) => String(value || '').toLocaleLowerCase().includes(query));
+      ].some((value) =>
+        String(value || '')
+          .toLocaleLowerCase()
+          .includes(query),
+      );
     });
   }, [lifecycle, plugins, searchQuery]);
 

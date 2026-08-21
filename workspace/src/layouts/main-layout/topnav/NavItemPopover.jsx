@@ -1,13 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router';
-import {
-  Box,
-  List,
-  ListItemButton,
-  ListItemText,
-  Popover,
-  popoverClasses,
-} from '@mui/material';
+import { Box, List, ListItemButton, ListItemText, Popover, popoverClasses } from '@mui/material';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useNavContext } from '../NavProvider';

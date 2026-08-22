@@ -180,19 +180,11 @@ wait_http https://www.ffax.com/integration-api/marketplace/health 15 2
 wait_http https://www.ffax.com/integration-api/logistics/health 15 2
 wait_http https://www.ffax.com/integration-api/commerce/health 15 2
 
-obsolete_login_image="$(docker inspect --format '{{.Config.Image}}' ffax-zitadel-zitadel-login-1 2>/dev/null || true)"
-docker rm -f ffax-zitadel-zitadel-login-1 >/dev/null 2>&1 || true
-if [[ -n "$obsolete_login_image" ]] && \
-   ! docker ps -a --format '{{.Image}}' | grep -Fxq "$obsolete_login_image"; then
-  docker image rm "$obsolete_login_image" >/dev/null 2>&1 || true
-fi
-
 remove_matching_children "/var/www/ffax" "workspace.previous-*"
 remove_matching_children "/var/www/ffax" "workspace.failed-*"
 remove_matching_children "/var/www/ffax" "workspace.next-*"
 remove_matching_children "/var/backups/ffax" "????????-??????-static" "$backup_root"
-remove_matching_children "/tmp" "ffax-release-*.tar.gz"
-remove_matching_children "/tmp" "ffax-images-*.tar"
+rm -f -- "$archive"
 
 trap - ERR INT TERM
 echo "DEPLOYED:${stamp}"

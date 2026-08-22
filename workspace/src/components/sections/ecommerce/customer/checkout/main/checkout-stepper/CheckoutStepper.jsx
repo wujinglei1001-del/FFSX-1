@@ -207,8 +207,7 @@ const CheckoutStepper = () => {
                       color: 'text.disabled',
                     }}
                   >
-                    <Link href={paths.defaultJwtLogin}>Login</Link> or{' '}
-                    <Link href={paths.defaultJwtSignup}>Signup</Link> to save your information
+                    <Link href={paths.zitadelLogin}>Login</Link> to save your information
                   </Typography>
                   {!isLastStep && (
                     <Box

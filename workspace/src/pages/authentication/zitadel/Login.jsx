@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { Navigate, useLocation } from 'react-router';
 import { REMEMBER_DEVICE_KEY } from 'config/zitadel';
 import { useAuth } from 'providers/AuthProvider';
-import paths, { workbenchEntryPath } from 'routes/paths';
+import { workbenchEntryPath } from 'routes/paths';
 import { useLoginUser } from 'services/swr/api-hooks/useAuthApi';
 import PageLoader from 'components/loading/PageLoader';
 import LoginForm from 'components/sections/authentications/default/LoginForm';
@@ -43,13 +43,7 @@ const Login = () => {
   if (sessionUser) return <Navigate to={returnTo} replace />;
   if (!isConfigured || isLoading || !authRequest) return <PageLoader sx={{ height: '100vh' }} />;
 
-  return (
-    <LoginForm
-      handleLogin={handleLogin}
-      signUpLink={paths.zitadelSignup}
-      forgotPasswordLink={paths.defaultJwtForgotPassword}
-    />
-  );
+  return <LoginForm handleLogin={handleLogin} />;
 };
 
 export default Login;

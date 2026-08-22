@@ -4,10 +4,6 @@ import {
   Alert,
   Box,
   Button,
-  Checkbox,
-  Divider,
-  FormControlLabel,
-  Link,
   Stack,
   TextField,
   Typography,
@@ -15,9 +11,6 @@ import {
 import Grid from '@mui/material/Grid';
 import * as yup from 'yup';
 import PasswordTextField from 'components/common/PasswordTextField';
-import DefaultCredentialAlert from '../common/DefaultCredentialAlert';
-import ViewOnlyAlert from '../common/ViewOnlyAlert';
-import SocialAuth from './SocialAuth';
 
 const schema = yup
   .object({
@@ -29,15 +22,7 @@ const schema = yup
   })
   .required();
 
-const LoginForm = ({
-  provider = 'jwt',
-  handleLogin,
-  signUpLink,
-  forgotPasswordLink,
-  socialAuth = true,
-  rememberDevice = true,
-  defaultCredential,
-}) => {
+const LoginForm = ({ handleLogin }) => {
   const {
     register,
     handleSubmit,
@@ -76,46 +61,9 @@ const LoginForm = ({
           mb: 5,
         }}
       >
-        {provider === 'firebase' && import.meta.env.VITE_BUILD_MODE === 'production' && (
-          <Grid size={12} sx={{ mb: 1 }}>
-            <ViewOnlyAlert
-              docLink={`https://aurora.themewagon.com/documentation/authentication#firebase`}
-            />
-          </Grid>
-        )}
         <Grid size={12}>
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            sx={{
-              gap: 1,
-              justifyContent: 'space-between',
-              alignItems: { xs: 'flex-start', sm: 'flex-end' },
-            }}
-          >
-            <Typography variant="h4">Log in</Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{
-                color: 'text.secondary',
-              }}
-            >
-              Don&apos;t have an account?
-              <Link href={signUpLink} sx={{ ml: 1 }}>
-                Sign up
-              </Link>
-            </Typography>
-          </Stack>
+          <Typography variant="h4">Log in</Typography>
         </Grid>
-        {socialAuth && (
-          <>
-            <Grid size={12}>
-              <SocialAuth />
-            </Grid>
-            <Grid size={12}>
-              <Divider sx={{ color: 'text.secondary' }}>or use email</Divider>
-            </Grid>
-          </>
-        )}
 
         <Grid size={12}>
           <Box component="form" noValidate onSubmit={handleSubmit(onSubmit)}>
@@ -124,7 +72,6 @@ const LoginForm = ({
                 {errors.root?.credential?.message}
               </Alert>
             )}
-            {defaultCredential && <DefaultCredentialAlert />}
             <Grid container>
               <Grid
                 sx={{
@@ -138,7 +85,6 @@ const LoginForm = ({
                   id="email"
                   type="email"
                   label="Email"
-                  defaultValue={defaultCredential?.email}
                   error={!!errors.email}
                   helperText={<>{errors.email?.message}</>}
                   {...register('email')}
@@ -155,50 +101,12 @@ const LoginForm = ({
                   size="large"
                   id="password"
                   label="Password"
-                  defaultValue={defaultCredential?.password}
                   error={!!errors.password}
                   helperText={<>{errors.password?.message}</>}
                   {...register('password')}
                 />
               </Grid>
-              <Grid
-                sx={{
-                  mb: 6,
-                }}
-                size={12}
-              >
-                <Stack
-                  direction="row"
-                  sx={{
-                    gap: 1,
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  {rememberDevice && (
-                    <FormControlLabel
-                      control={<Checkbox name="checked" color="primary" size="small" />}
-                      label={
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            color: 'text.secondary',
-                          }}
-                        >
-                          Remember this device
-                        </Typography>
-                      }
-                    />
-                  )}
-
-                  {forgotPasswordLink && (
-                    <Link href={forgotPasswordLink} variant="subtitle2">
-                      Forgot Password?
-                    </Link>
-                  )}
-                </Stack>
-              </Grid>
-              <Grid size={12}>
+              <Grid size={12} sx={{ mt: 3.5 }}>
                 <Button
                   fullWidth
                   type="submit"
@@ -213,9 +121,7 @@ const LoginForm = ({
           </Box>
         </Grid>
       </Grid>
-      <Link href="#!" variant="subtitle2">
-        Trouble signing in?
-      </Link>
+      <div />
     </Stack>
   );
 };

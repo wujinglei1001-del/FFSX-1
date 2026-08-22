@@ -56,18 +56,7 @@ const CRM = lazy(() => import('pages/dashboards/CRM'));
 const Analytics = lazy(() => import('pages/dashboards/Analytics'));
 const HRM = lazy(() => import('pages/dashboards/HRM'));
 const TimeTracker = lazy(() => import('pages/dashboards/TimeTracker'));
-const Login = lazy(() => import('pages/authentication/default/jwt/Login'));
 const ZitadelLogin = lazy(() => import('pages/authentication/zitadel/Login'));
-const Signup = lazy(() => import('pages/authentication/default/jwt/Signup'));
-const ForgotPassword = lazy(() => import('pages/authentication/default/jwt/ForgotPassword'));
-const TwoFA = lazy(() => import('pages/authentication/default/jwt/TwoFA'));
-const SetPassword = lazy(() => import('pages/authentication/default/jwt/SetPassword'));
-const FirebaseLogin = lazy(() => import('pages/authentication/default/firebase/Login'));
-const FirebaseSignup = lazy(() => import('pages/authentication/default/firebase/Signup'));
-const FirebaseForgotPassword = lazy(
-  () => import('pages/authentication/default/firebase/ForgotPassword'),
-);
-const Auth0Login = lazy(() => import('pages/authentication/default/auth0/Login'));
 
 const EcommerceHomepage = lazy(() => import('pages/apps/ecommerce/customer/Homepage'));
 const Products = lazy(() => import('pages/apps/ecommerce/customer/Products'));
@@ -804,55 +793,8 @@ export const routes = [
             ),
             children: [
               {
-                path: rootPaths.authDefaultJwtRoot,
-                children: [
-                  {
-                    path: paths.defaultJwtLogin,
-                    element: <Login />,
-                  },
-                  {
-                    path: paths.defaultJwtSignup,
-                    element: <Signup />,
-                  },
-                  {
-                    path: paths.defaultJwtForgotPassword,
-                    element: <ForgotPassword />,
-                  },
-                  {
-                    path: paths.defaultJwt2FA,
-                    element: <TwoFA />,
-                  },
-                  {
-                    path: paths.defaultJwtSetPassword,
-                    element: <SetPassword />,
-                  },
-                ],
-              },
-              {
-                path: rootPaths.authDefaultFirebaseRoot,
-                children: [
-                  {
-                    path: paths.defaultFirebaseLogin,
-                    element: <FirebaseLogin />,
-                  },
-                  {
-                    path: paths.defaultFirebaseSignup,
-                    element: <FirebaseSignup />,
-                  },
-                  {
-                    path: paths.defaultFirebaseForgotPassword,
-                    element: <FirebaseForgotPassword />,
-                  },
-                ],
-              },
-              {
-                path: rootPaths.authDefaultAuth0Root,
-                children: [
-                  {
-                    path: paths.defaultAuth0Login,
-                    element: <Auth0Login />,
-                  },
-                ],
+                index: true,
+                element: <Navigate to={paths.zitadelLogin} replace />,
               },
               {
                 path: rootPaths.authZitadelRoot,
@@ -872,8 +814,8 @@ export const routes = [
                 element: <PageLoader sx={{ height: '100vh' }} />,
               },
               {
-                path: paths.defaultLoggedOut,
-                element: <LoggedOut />,
+                path: '*',
+                element: <Navigate to={paths.zitadelLogin} replace />,
               },
             ],
           },

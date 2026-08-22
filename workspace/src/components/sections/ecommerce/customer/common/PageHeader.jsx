@@ -151,17 +151,9 @@ const PageHeader = ({ title, breadcrumb, userLoggedIn, sx }) => {
                   variant="contained"
                   color="neutral"
                   sx={{ whiteSpace: 'nowrap' }}
-                  href={paths.defaultJwtLogin}
+                  href={paths.zitadelLogin}
                 >
                   Login to checkout
-                </Button>
-                <Button
-                  variant="text"
-                  color="neutral"
-                  sx={{ whiteSpace: 'nowrap' }}
-                  href={paths.defaultJwtSignup}
-                >
-                  Create a new account
                 </Button>
               </Stack>
             </Stack>

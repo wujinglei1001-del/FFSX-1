@@ -1,62 +1,33 @@
 import { useLocation, useNavigate } from 'react-router';
 import { Box, FormControlLabel, Radio, RadioGroup, Stack, Typography } from '@mui/material';
-import i18n from 'locales/i18n';
 import { useVisionMode } from 'providers/VisionModeProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const visionOptions = [
   {
     value: 'normal',
-    get label() {
-      return i18n.t('ui.components.settings_panel.visionmodepanel.normal_45e118d0');
-    },
-    get description() {
-      return i18n.t(
-        'ui.components.settings_panel.visionmodepanel.shows_all_colors_normally_0caaf954',
-      );
-    },
+    label: 'Normal',
+    description: 'Shows all colors normally',
   },
   {
     value: 'protanopia',
-    get label() {
-      return i18n.t('ui.components.settings_panel.visionmodepanel.protanopia_32c66f60');
-    },
-    get description() {
-      return i18n.t('ui.components.settings_panel.visionmodepanel.hard_to_see_red_shades_277bcba9');
-    },
+    label: 'Protanopia',
+    description: 'Hard to see red shades',
   },
   {
     value: 'deuteranopia',
-    get label() {
-      return i18n.t('ui.components.settings_panel.visionmodepanel.deuteranopia_92343a03');
-    },
-    get description() {
-      return i18n.t(
-        'ui.components.settings_panel.visionmodepanel.hard_to_see_green_shades_f919ab09',
-      );
-    },
+    label: 'Deuteranopia',
+    description: 'Hard to see green shades',
   },
   {
     value: 'tritanopia',
-    get label() {
-      return i18n.t('ui.components.settings_panel.visionmodepanel.tritanopia_a0ce24c0');
-    },
-    get description() {
-      return i18n.t(
-        'ui.components.settings_panel.visionmodepanel.hard_to_see_blue_shades_40e5be6b',
-      );
-    },
+    label: 'Tritanopia',
+    description: 'Hard to see blue shades',
   },
   {
     value: 'achromatopsia',
-    get label() {
-      return i18n.t('ui.components.settings_panel.visionmodepanel.achromatopsia_e31f4fb0');
-    },
-    get description() {
-      return i18n.t(
-        'ui.components.settings_panel.visionmodepanel.shows_only_black_and_white_215f0d66',
-      );
-    },
+    label: 'Achromatopsia',
+    description: 'Shows only black and white',
   },
 ];
 

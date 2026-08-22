@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { Box, Divider, Link, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 
 const Footer = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <>
       <Divider />
@@ -40,15 +38,15 @@ const Footer = () => {
               whiteSpace: 'nowrap',
             }}
           >
+            Thank you for creating with
             <Box
               component="strong"
               sx={{
                 mx: 0.5,
               }}
             >
-              FFA-X{' '}
+              Aurora{' '}
             </Box>
-            · {translateUi('ffax.footer.tagline')}
           </Box>
 
           <Box
@@ -65,22 +63,27 @@ const Footer = () => {
             >
               |
             </Box>{' '}
-            {dayjs().year()} © FFA-X
+            {dayjs().year()} ©
+            <Link
+              href="https://themewagon.com/"
+              target="_blank"
+              sx={{ textDecoration: 'none', mx: 0.5 }}
+            >
+              ThemeWagon
+            </Link>
           </Box>
         </Typography>
 
-        {import.meta.env.VITE_APP_VERSION && (
-          <Typography
-            variant="caption"
-            component="p"
-            sx={{
-              fontWeight: 'light',
-              color: 'text.secondary',
-            }}
-          >
-            v{import.meta.env.VITE_APP_VERSION}
-          </Typography>
-        )}
+        <Typography
+          variant="caption"
+          component="p"
+          sx={{
+            fontWeight: 'light',
+            color: 'text.secondary',
+          }}
+        >
+          v{import.meta.env.VITE_APP_VERSION}
+        </Typography>
       </Stack>
     </>
   );

@@ -79,7 +79,7 @@ const ContentCard = ({ item }) => {
         {isVideo && (
           <CardMedia
             component="video"
-            src={`${assetsDir}/videos/file-manager/ffax.mp4`}
+            src={`${assetsDir}/videos/file-manager/aurora.mp4`}
             muted
             loop
             playsInline

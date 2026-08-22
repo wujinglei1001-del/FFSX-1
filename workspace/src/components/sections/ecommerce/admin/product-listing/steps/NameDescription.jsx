@@ -1,28 +1,17 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormControl, FormHelperText, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import Editor from 'components/base/Editor';
 
 export const nameDescriptionFormSchema = yup
   .object({
-    name: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-      ),
-    description: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-      ),
+    name: yup.string().required('This field is required'),
+    description: yup.string().required('This field is required'),
   })
   .required();
 
 const NameDescription = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -36,9 +25,7 @@ const NameDescription = () => {
           fullWidth
           id="name"
           type="text"
-          label={translateUi(
-            'ui.sections.ecommerce.admin.product_listing.name_of_product_4457a4c2',
-          )}
+          label="Name of product"
           variant="filled"
           error={!!errors.name}
           helperText={errors.name?.message}

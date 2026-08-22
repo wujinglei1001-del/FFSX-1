@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { gridClasses } from '@mui/x-data-grid/constants';
 import { cssVarRgba } from 'lib/utils';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 
@@ -18,7 +17,7 @@ const DataGrid = {
     disableRowSelectionOnClick: true,
     disableColumnMenu: true,
     columnHeaderHeight: 48,
-    getCellClassName: () => 'ffax-data-grid-cell',
+    getCellClassName: () => 'aurora-data-grid-cell',
     slots: {
       columnSortedDescendingIcon: ({ onLoad, ...props }) => (
         <IconifyIcon icon="material-symbols:sort-rounded" {...props} />
@@ -53,9 +52,7 @@ const DataGrid = {
       },
       columnsManagement: {
         searchInputProps: {
-          get placeholder() {
-            return i18n.t('ui.theme.components.datagrid.search_columns_805ab8bc');
-          },
+          placeholder: 'Search columns...',
         },
         disableResetButton: true,
         disableShowHideToggle: true,
@@ -146,9 +143,7 @@ const DataGrid = {
       alignItems: 'center',
       justifyContent: 'space-between',
       '&::before': {
-        get content() {
-          return i18n.t('ui.theme.components.datagrid.filter_996e43f3');
-        },
+        content: '"Filter"',
         color: theme.vars.palette.text.primary,
         fontWeight: 600,
         fontSize: theme.typography.subtitle1.fontSize,
@@ -178,7 +173,7 @@ const DataGrid = {
         backgroundColor: cssVarRgba(theme.vars.palette.primary.lightChannel, 0.08),
       },
       [`& .${gridClasses.cell}`]: {
-        '&.ffax-data-grid-cell': {
+        '&.aurora-data-grid-cell': {
           padding: `0 ${theme.spacing(3)}`,
           [`&.${gridClasses.cellCheckbox}`]: {
             padding: 0,

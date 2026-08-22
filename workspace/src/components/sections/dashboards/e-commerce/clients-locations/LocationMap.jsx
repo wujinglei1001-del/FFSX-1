@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonGroup, buttonGroupClasses, useTheme } from '@mui/material';
 import world from 'assets/json/world.json';
 import { MapChart } from 'echarts/charts';
@@ -33,7 +32,6 @@ echarts.use([
 echarts.registerMap('world', { geoJSON: world });
 
 const LocationMap = ({ data, sx }) => {
-  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { vars } = useTheme();
   const { currentBreakpoint } = useBreakpoints();
@@ -142,9 +140,7 @@ const LocationMap = ({ data, sx }) => {
       />
       <ButtonGroup
         orientation="vertical"
-        aria-label={translateUi(
-          'ui.sections.dashboards.e_commerce.clients_locations.vertical_outlined_button_group_ee15cd8e',
-        )}
+        aria-label="vertical outlined button group"
         sx={{
           position: 'absolute',
           bottom: 0,

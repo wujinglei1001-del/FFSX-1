@@ -1,8 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack } from '@mui/material';
 
 const BottomBar = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       background={1}
@@ -24,10 +22,10 @@ const BottomBar = () => {
         }}
       >
         <Button type="button" variant="soft" color="neutral">
-          {translateUi('ui.sections.ecommerce.admin.create_order.save_draft_cc1316dd')}
+          Save Draft
         </Button>
         <Button type="button" variant="contained">
-          {translateUi('ui.sections.ecommerce.admin.create_order.create_order_0289c84e')}
+          Create Order
         </Button>
       </Stack>
     </Paper>

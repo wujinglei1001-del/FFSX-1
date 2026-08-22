@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, ButtonBase, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 import KPI from './KPI';
 
 const CRMKPIs = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <>
       {data.map((kpi) => (
@@ -38,7 +36,7 @@ const CRMKPIs = ({ data }) => {
               <IconifyIcon icon="material-symbols:add-2-rounded" sx={{ fontSize: 24 }} />
             </Avatar>
             <Typography variant="body2" sx={{ fontWeight: 700, color: 'primary.main' }}>
-              {translateUi('ui.sections.dashboards.crm.kpi.add_new_kpi_39cf0b8c')}
+              Add New KPI
             </Typography>
           </ButtonBase>
         </Paper>

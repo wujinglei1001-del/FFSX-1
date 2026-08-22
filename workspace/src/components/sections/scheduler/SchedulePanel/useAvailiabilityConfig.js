@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 
 export function useAvailabilityConfig(onAddSlot, onUpdateSlot, onRemoveSlot) {
   const { control, watch, setError, clearErrors } = useFormContext();
@@ -85,11 +84,7 @@ export function useAvailabilityConfig(onAddSlot, onUpdateSlot, onRemoveSlot) {
       if (!start.isBefore(end)) {
         setError(fieldPath, {
           type: 'validate',
-          get message() {
-            return i18n.t(
-              'ui.sections.scheduler.schedulepanel.useavailiabilityconfig.start_time_must_be_before_end_time_2647ba3d',
-            );
-          },
+          message: 'Start time must be before end time',
         });
 
         return;
@@ -98,11 +93,7 @@ export function useAvailabilityConfig(onAddSlot, onUpdateSlot, onRemoveSlot) {
       if (isOverlapping(updatedTimeSlots, slot, slotIndex)) {
         setError(fieldPath, {
           type: 'validate',
-          get message() {
-            return i18n.t(
-              'ui.sections.scheduler.schedulepanel.useavailiabilityconfig.this_time_overlaps_with_another_slot_89354368',
-            );
-          },
+          message: 'This time overlaps with another slot',
         });
 
         return;

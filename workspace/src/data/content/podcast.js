@@ -1,6 +1,5 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 import { comments } from './homepage';
 
 const podcast = (index) =>
@@ -9,31 +8,17 @@ const podcast = (index) =>
 export const podcastPlaylist = [
   {
     id: 1,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.innovative_architecture_shaping_the_future_of_urban__998cab65',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.exploring_cutting_edge_architectural_trends_transfor_ab7087a3',
-      );
-    },
+    title: 'Innovative Architecture: Shaping the Future of Urban Spaces',
+    description:
+      'Exploring cutting-edge architectural trends transforming how we design and live in cities.',
     category: 'Architecture',
     image: podcast(1),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.smart_cities_how_technology_is_transforming_urban_ar_19e599a8',
-          );
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.discover_the_fascinating_world_of_modern_architectur_96e73320',
-          );
-        },
+        title: 'Smart Cities: How Technology is Transforming Urban Architecture',
+        description:
+          'Discover the fascinating world of modern architecture! In this video, we explore cutting-edge designs, innovative materials, and groundbreaking ideas shaping the skylines of today and the future. From iconic landmarks to sustainable structures, see how architecture is redefining the way we live, work, and connect with our surroundings. Watch now to get inspired!',
         duration: '46:00',
         audioSrc: '/audio/smart-cities.mp3',
         imageSrc: podcast(3),
@@ -94,16 +79,9 @@ export const podcastPlaylist = [
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.sustainable_skyscrapers_building_taller_with_green_i_b3e1ad1b',
-          );
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.dicta_semper_curae_animi_sint_per_aliqua_illo_impedi_74459b1a',
-          );
-        },
+        title: 'Sustainable Skyscrapers: Building Taller with Green Innovations',
+        description:
+          'Dicta semper. Curae? Animi sint per aliqua illo impedit adipiscing? Distinctio? Cum ullamco vehicula, aute culpa lobortis error!',
         duration: '44:00',
         audioSrc: '/audio/sustainable-skyscrapers.mp3',
         imageSrc: podcast(2),
@@ -115,16 +93,8 @@ export const podcastPlaylist = [
       },
       {
         episodeNumber: 3,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.reviving_old_spaces_the_rise_of_adaptive_reuse_in_ar_abfc52cb',
-          );
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.voluptatem_accusamus_laborum_rhoncus_condimentum_aen_6ef42243',
-          );
-        },
+        title: 'Reviving Old Spaces: The Rise of Adaptive Reuse in Architecture',
+        description: 'Voluptatem accusamus, laborum rhoncus condimentum, aenean!',
         duration: '30:00',
         audioSrc: '/audio/adaptive-reuse.mp3',
         imageSrc: podcast(4),
@@ -136,16 +106,8 @@ export const podcastPlaylist = [
       },
       {
         episodeNumber: 4,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.parametric_design_how_algorithms_are_reshaping_urban_122c1d8f',
-          );
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.reprehenderit_dictumst_delectus_atque_in_proin_solut_b4475562',
-          );
-        },
+        title: 'Parametric Design: How Algorithms are Reshaping Urban Spaces',
+        description: 'Reprehenderit dictumst delectus atque in. Proin soluta nisi? Fuga pretium.',
         duration: '55:00',
         audioSrc: '/audio/parametric-design.mp3',
         imageSrc: podcast(5),
@@ -157,16 +119,9 @@ export const podcastPlaylist = [
       },
       {
         episodeNumber: 5,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.biophilic_design_blending_nature_with_modern_urban_s_09dec00a',
-          );
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.laboris_nam_asperiores_reiciendis_volutpat_nostrum_v_fdf1df18',
-          );
-        },
+        title: 'Biophilic Design: Blending Nature with Modern Urban Structures',
+        description:
+          'Laboris nam asperiores, reiciendis volutpat nostrum, volutpat, aliquam! Iste soluta, magnis irure! ',
         duration: '13:00',
         audioSrc: '/audio/biophilic-design.mp3',
         imageSrc: podcast(6),
@@ -178,17 +133,10 @@ export const podcastPlaylist = [
       },
       {
         episodeNumber: 6,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.future_homes_the_rise_of_modular_and_prefabricated_h_646f2ab3',
-          );
-        },
+        title: 'Future Homes: The Rise of Modular and Prefabricated Housing',
         imageSrc: podcast(7),
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.lectus_fugiat_praesent_aute_exercitationem_malesuada_d770b292',
-          );
-        },
+        description:
+          'Lectus fugiat praesent aute exercitationem malesuada dolor inventore est totam, maecenas potenti, cupidatat fermentum eleifend! Saepe!',
         duration: '60:00',
         audioSrc: '/audio/future-homes.mp3',
         date: '2024-09-05',
@@ -199,16 +147,9 @@ export const podcastPlaylist = [
       },
       {
         episodeNumber: 7,
-        get title() {
-          return i18n.t(
-            'ui.data.content.podcast.ai_in_architecture_the_future_of_smart_and_automated_46f49bdb',
-          );
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.habitant_incidunt_quos_corporis_nascetur_perferendis_b40ebb9d',
-          );
-        },
+        title: 'AI in Architecture: The Future of Smart and Automated Design',
+        description:
+          'Habitant, incidunt quos corporis nascetur perferendis ab similique habitant, laborum aliquid rhoncus hendrerit, ante ullam ante!',
         duration: '46:00',
         audioSrc: '/audio/ai-architecture.mp3',
         imageSrc: podcast(8),
@@ -233,29 +174,15 @@ export const podcastPlaylist = [
   },
   {
     id: 2,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.digital_art_revolution_how_technology_transforms_cre_6fda2365',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.exploring_the_latest_trends_and_innovations_in_techn_a9e18a7f',
-      );
-    },
+    title: 'Digital Art Revolution: How Technology Transforms Creativity',
+    description: 'Exploring the latest trends and innovations in technology with industry experts.',
     category: 'Digital Art',
     image: podcast(9),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -265,27 +192,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         imageSrc: podcast(2),
@@ -296,14 +211,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -321,29 +230,15 @@ export const podcastPlaylist = [
   },
   {
     id: 3,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.sculpting_the_future_new_materials_techniques_explor_4fc71ae0',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.exploring_the_latest_trends_and_innovations_in_techn_a9e18a7f',
-      );
-    },
+    title: 'Sculpting the Future: New Materials & Techniques Explored',
+    description: 'Exploring the latest trends and innovations in technology with industry experts.',
     category: 'Sculpture',
     image: podcast(10),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -353,27 +248,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -383,14 +266,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: comments,
       },
@@ -408,11 +285,7 @@ export const podcastPlaylist = [
   },
   {
     id: 4,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.the_art_of_sculpture_tradition_meets_modern_innovati_da14151f',
-      );
-    },
+    title: 'The Art of Sculpture: Tradition Meets Modern Innovation',
     description: `Accusantium eius inventore magnis maecenas quos massa totam. 
     Cubilia dolorum adipisci proin, nonummy magna eos perspiciatis aliqua, suscipit, 
     elit incididunt! Est eiusmod cumque nonummy aspernatur natoque! Aliquam penatibus 
@@ -425,14 +298,8 @@ export const podcastPlaylist = [
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -442,27 +309,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -472,14 +327,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -497,29 +346,15 @@ export const podcastPlaylist = [
   },
   {
     id: 5,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.the_evolution_of_concept_art_in_gaming_film_design_a3e65390',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.exploring_the_latest_trends_and_innovations_in_techn_a9e18a7f',
-      );
-    },
+    title: 'The Evolution of Concept Art in Gaming & Film Design',
+    description: 'Exploring the latest trends and innovations in technology with industry experts.',
     category: 'Concept Art',
     image: podcast(12),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -529,27 +364,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -559,14 +382,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -584,11 +401,7 @@ export const podcastPlaylist = [
   },
   {
     id: 6,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.concept_art_mastery_crafting_worlds_beyond_imaginati_66a939d4',
-      );
-    },
+    title: 'Concept Art Mastery: Crafting Worlds Beyond Imagination',
     description: `diamlorem cupidatat ridiculus, totam accusantium, quas vivamus 
       quo neque, cum in, cupiditate aliquam, massa! Quo inceptos eros 
       commodi placerat hic eveniet recusandae hymenaeos natoque, pretium 
@@ -602,14 +415,8 @@ export const podcastPlaylist = [
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -619,27 +426,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -649,14 +444,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: comments,
       },
@@ -674,29 +463,16 @@ export const podcastPlaylist = [
   },
   {
     id: 7,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.parametric_architecture_how_algorithms_shape_our_cit_7b06354b',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.non_parturient_eos_euismod_do_phasellus_lacus_eget_s_416d4324',
-      );
-    },
+    title: 'Parametric Architecture: How Algorithms Shape Our Cities',
+    description:
+      'Non parturient eos euismod do phasellus lacus eget suscipit nulla dolor montes aute vestibulum gravida hic provident porta metus venenatis! Hic atque hendrerit lobortis, orci totam dignissim temporibus minima conubia, odio, magna debitis semper',
     category: 'Architecture',
     image: podcast(14),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -706,27 +482,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -736,14 +500,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -761,29 +519,16 @@ export const podcastPlaylist = [
   },
   {
     id: 8,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.sustainable_architecture_designing_a_greener_tomorro_d404ec11',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.imperdiet_provident_volutpat_lorem_inventore_ipsam_m_99ae7847',
-      );
-    },
+    title: 'Sustainable Architecture: Designing a Greener Tomorrow',
+    description:
+      'Imperdiet provident volutpat lorem inventore ipsam. Minus lacus fusce facilis, ridiculus pariatur litora curabitur, cras.',
     category: 'Architecture',
     image: podcast(15),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -793,27 +538,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -823,14 +556,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -848,29 +575,16 @@ export const podcastPlaylist = [
   },
   {
     id: 9,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.3d_printing_in_art_design_a_creative_revolution_29b4bd4c',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.hymenaeos_ut_semper_hendrerit_voluptas_nesciunt_vehi_b230aa8e',
-      );
-    },
+    title: '3D Printing in Art & Design: A Creative Revolution',
+    description:
+      'Hymenaeos ut semper! Hendrerit, voluptas nesciunt, vehicula incidunt repudiandae suspendisse hic ridiculus? Deleniti consequuntur consectetuer ex praesentium orci incididunt aliqua vestibulum!',
     category: 'Digital Art',
     image: podcast(16),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -880,27 +594,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -910,14 +612,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -935,29 +631,16 @@ export const podcastPlaylist = [
   },
   {
     id: 10,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.ai_in_digital_art_the_rise_of_machine_generated_crea_29de5458',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.similique_donec_magna_malesuada_justo_nonummy_quis_b_24087ac7',
-      );
-    },
+    title: 'AI in Digital Art: The Rise of Machine-Generated Creativity',
+    description:
+      'Similique donec magna. Malesuada justo, nonummy quis beatae? Duis, fames laboris, nesciunt! Platea sagittis nonummy porttitor.',
     category: 'Digital Art',
     image: podcast(17),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -967,27 +650,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -997,14 +668,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -1022,29 +687,15 @@ export const podcastPlaylist = [
   },
   {
     id: 11,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.blending_nature_architecture_organic_designs_of_the__4205ff44',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.exploring_the_latest_trends_and_innovations_in_techn_a9e18a7f',
-      );
-    },
+    title: 'Blending Nature & Architecture: Organic Designs of the Future',
+    description: 'Exploring the latest trends and innovations in technology with industry experts.',
     category: 'Architecture',
     image: podcast(18),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -1054,27 +705,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -1084,14 +723,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -1109,29 +742,16 @@ export const podcastPlaylist = [
   },
   {
     id: 12,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.nostrum_laoreet_quis_dolorum_libero_reprehenderit_na_77075364',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.torquent_molestias_qui_dapibus_fuga_nihil_consectetu_aabcfdac',
-      );
-    },
+    title: 'Nostrum laoreet, quis, dolorum libero reprehenderit, natus earum asperiores',
+    description:
+      'Torquent molestias qui dapibus fuga? Nihil consectetuer feugiat occaecati voluptatum, consectetur consequatur, anim eiusmod pellentesque hendrerit. Potenti qui pede nostrum! Ipsum',
     category: 'Architecture',
     image: podcast(22),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ai_and_machine_learning_e29d756f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.an_in_depth_discussion_on_how_ai_is_transforming_var_a2eef0f9',
-          );
-        },
+        title: 'AI and Machine Learning',
+        description: 'An in-depth discussion on how AI is transforming various industries.',
         duration: '45:30',
         audioSrc: '/audio/ai-machine-learning.mp3',
         date: '2023-01-15',
@@ -1141,27 +761,15 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'John Smith',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'John Smith' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_rise_of_quantum_computing_a2ce024d');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_the_basics_and_potential_of_quantum_co_bb976ab6',
-          );
-        },
+        title: 'The Rise of Quantum Computing',
+        description: 'Understanding the basics and potential of quantum computing.',
         duration: '50:10',
         audioSrc: '/audio/quantum-computing.mp3',
         date: '2023-01-22',
@@ -1171,14 +779,8 @@ export const podcastPlaylist = [
           { platform: 'LinkedIn', link: 'https://linkedin.com/company/futureoftech' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Jane Doe',
-          },
-          {
-            role: 'Guest',
-            name: 'Alice Johnson',
-          },
+          { role: 'Host', name: 'Jane Doe' },
+          { role: 'Guest', name: 'Alice Johnson' },
         ],
         comments: [],
       },
@@ -1199,29 +801,15 @@ export const podcastPlaylist = [
 export const recommendedPodcasts = [
   {
     id: 1,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.the_art_of_minimalist_architecture_less_is_more_in_d_1101ba8b',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.insights_and_advice_on_maintaining_a_healthy_lifesty_e6a45cf4',
-      );
-    },
+    title: 'The Art of Minimalist Architecture: Less Is More in Design',
+    description: 'Insights and advice on maintaining a healthy lifestyle.',
     category: 'Architecture',
     image: podcast(19),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.nutrition_basics_312d8b71');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.the_essentials_of_a_balanced_diet_and_its_effects_on_9ca48c03',
-          );
-        },
+        title: 'Nutrition Basics',
+        description: 'The essentials of a balanced diet and its effects on overall health.',
         duration: '40:00',
         audioSrc: '/audio/nutrition-basics.mp3',
         date: '2023-03-01',
@@ -1231,14 +819,8 @@ export const recommendedPodcasts = [
           { platform: 'Instagram', link: 'https://instagram.com/healthmatters' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Laura Green',
-          },
-          {
-            role: 'Guest',
-            name: 'Dr. Mike Collins',
-          },
+          { role: 'Host', name: 'Laura Green' },
+          { role: 'Guest', name: 'Dr. Mike Collins' },
         ],
         comments: [],
       },
@@ -1256,70 +838,38 @@ export const recommendedPodcasts = [
   },
   {
     id: 2,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.how_technology_is_transforming_the_future_of_sculptu_8916a9ab',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.revealing_fascinating_historical_stories_and_forgott_8f6c1c2f',
-      );
-    },
+    title: 'How Technology Is Transforming the Future of Sculpture Art',
+    description: 'Revealing fascinating historical stories and forgotten events.',
     category: 'Sculpture',
     image: podcast(20),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.ancient_civilizations_44bde31f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.exploring_the_wonders_and_mysteries_of_ancient_socie_4e288177',
-          );
-        },
+        title: 'Ancient Civilizations',
+        description: 'Exploring the wonders and mysteries of ancient societies.',
         duration: '52:15',
         audioSrc: '/audio/ancient-civilizations.mp3',
         date: '2023-02-10',
         tags: ['History', 'Ancient Civilizations'],
         socials: [{ platform: 'Twitter', link: 'https://twitter.com/historyuncovered' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Mark Brown',
-          },
-          {
-            role: 'Guest',
-            name: 'Sara Lee',
-          },
+          { role: 'Host', name: 'Mark Brown' },
+          { role: 'Guest', name: 'Sara Lee' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.world_war_ii_stories_b9c1c6c4');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.personal_accounts_and_major_events_from_world_war_ii_aab76052',
-          );
-        },
+        title: 'World War II Stories',
+        description: 'Personal accounts and major events from World War II.',
         duration: '47:30',
         audioSrc: '/audio/ww2-stories.mp3',
         date: '2023-02-20',
         tags: ['WWII', 'History'],
         socials: [{ platform: 'Twitter', link: 'https://twitter.com/historyuncovered' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Mark Brown',
-          },
-          {
-            role: 'Guest',
-            name: 'Tom Harris',
-          },
+          { role: 'Host', name: 'Mark Brown' },
+          { role: 'Guest', name: 'Tom Harris' },
         ],
         comments: [],
       },
@@ -1337,43 +887,23 @@ export const recommendedPodcasts = [
   },
   {
     id: 3,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.revolutionizing_skylines_the_rise_of_parametric_arch_68573a4d',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.discussions_with_top_entrepreneurs_about_business_st_8470dd80',
-      );
-    },
+    title: 'Revolutionizing Skylines: The Rise of Parametric Architectur',
+    description: 'Discussions with top entrepreneurs about business strategies and growth.',
     category: 'Architecture',
     image: podcast(21),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.starting_your_own_business_65ea2c5f');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.tips_and_tricks_for_launching_a_successful_startup_98d174c4',
-          );
-        },
+        title: 'Starting Your Own Business',
+        description: 'Tips and tricks for launching a successful startup.',
         duration: '38:45',
         audioSrc: '/audio/starting-business.mp3',
         date: '2023-04-12',
         tags: ['Business', 'Startup'],
         socials: [{ platform: 'LinkedIn', link: 'https://linkedin.com/company/businessinsights' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Emma Clark',
-          },
-          {
-            role: 'Guest',
-            name: 'David Ross',
-          },
+          { role: 'Host', name: 'Emma Clark' },
+          { role: 'Guest', name: 'David Ross' },
         ],
         comments: [],
       },
@@ -1391,70 +921,38 @@ export const recommendedPodcasts = [
   },
   {
     id: 4,
-    get title() {
-      return i18n.t(
-        'ui.data.content.podcast.from_sketch_to_masterpiece_the_creative_process_behi_7da4439d',
-      );
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.interviews_with_artists_designers_and_creators_on_th_b9316b78',
-      );
-    },
+    title: 'From Sketch to Masterpiece: The Creative Process Behind Concept Art',
+    description: 'Interviews with artists, designers, and creators on their creative processes.',
     category: 'Concept Art',
     image: podcast(22),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.the_art_of_storytelling_367b7ce6');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.how_creativity_shapes_stories_across_different_mediu_b6455259',
-          );
-        },
+        title: 'The Art of Storytelling',
+        description: 'How creativity shapes stories across different mediums.',
         duration: '43:20',
         audioSrc: '/audio/art-of-storytelling.mp3',
         date: '2023-05-05',
         tags: ['Creativity', 'Storytelling', 'Art'],
         socials: [{ platform: 'Instagram', link: 'https://instagram.com/creativeminds' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Sophia Martin',
-          },
-          {
-            role: 'Guest',
-            name: 'Liam Turner',
-          },
+          { role: 'Host', name: 'Sophia Martin' },
+          { role: 'Guest', name: 'Liam Turner' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.design_thinking_20f3c4bb');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.applying_design_thinking_in_business_and_daily_life_ec432cf6',
-          );
-        },
+        title: 'Design Thinking',
+        description: 'Applying design thinking in business and daily life.',
         duration: '41:50',
         audioSrc: '/audio/design-thinking.mp3',
         date: '2023-05-12',
         tags: ['Design', 'Innovation'],
         socials: [{ platform: 'Instagram', link: 'https://instagram.com/creativeminds' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Sophia Martin',
-          },
-          {
-            role: 'Guest',
-            name: 'Nina Patel',
-          },
+          { role: 'Host', name: 'Sophia Martin' },
+          { role: 'Guest', name: 'Nina Patel' },
         ],
         comments: [],
       },
@@ -1472,25 +970,15 @@ export const recommendedPodcasts = [
   },
   {
     id: 5,
-    get title() {
-      return i18n.t('ui.data.content.podcast.travel_tales_50d711fa');
-    },
-    get description() {
-      return i18n.t('ui.data.content.podcast.sharing_experiences_from_around_the_world_b800bb24');
-    },
+    title: 'Travel Tales',
+    description: 'Sharing experiences from around the world.',
     category: 'Travel',
     image: podcast(23),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.backpacking_europe_72e3d9d7');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.a_journey_through_europe_s_best_hidden_gems_c7479aa6',
-          );
-        },
+        title: 'Backpacking Europe',
+        description: 'A journey through Europe’s best hidden gems.',
         duration: '55:00',
         audioSrc: '/audio/backpacking-europe.mp3',
         date: '2023-06-01',
@@ -1500,14 +988,8 @@ export const recommendedPodcasts = [
           { platform: 'Instagram', link: 'https://instagram.com/traveltales' },
         ],
         team: [
-          {
-            role: 'Host',
-            name: 'Oliver King',
-          },
-          {
-            role: 'Guest',
-            name: 'Maya Singh',
-          },
+          { role: 'Host', name: 'Oliver King' },
+          { role: 'Guest', name: 'Maya Singh' },
         ],
         comments: [],
       },
@@ -1525,66 +1007,38 @@ export const recommendedPodcasts = [
   },
   {
     id: 6,
-    get title() {
-      return i18n.t('ui.data.content.podcast.finance_simplified_3048bd56');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.making_sense_of_personal_finance_and_investment_stra_b2620cfd',
-      );
-    },
+    title: 'Finance Simplified',
+    description: 'Making sense of personal finance and investment strategies.',
     category: 'Finance',
     image: podcast(24),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.budgeting_101_e6f83246');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.basic_budgeting_tips_for_financial_health_d46cae01',
-          );
-        },
+        title: 'Budgeting 101',
+        description: 'Basic budgeting tips for financial health.',
         duration: '30:00',
         audioSrc: '/audio/budgeting-101.mp3',
         date: '2023-07-10',
         tags: ['Finance', 'Budgeting'],
         socials: [{ platform: 'LinkedIn', link: 'https://linkedin.com/company/financesimplified' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Kevin Lee',
-          },
-          {
-            role: 'Guest',
-            name: 'Ana Gomez',
-          },
+          { role: 'Host', name: 'Kevin Lee' },
+          { role: 'Guest', name: 'Ana Gomez' },
         ],
         comments: [],
       },
       {
         episodeNumber: 2,
-        get title() {
-          return i18n.t('ui.data.content.podcast.investing_basics_d86e48c1');
-        },
-        get description() {
-          return i18n.t('ui.data.content.podcast.how_to_start_investing_wisely_b1cedec8');
-        },
+        title: 'Investing Basics',
+        description: 'How to start investing wisely.',
         duration: '35:45',
         audioSrc: '/audio/investing-basics.mp3',
         date: '2023-07-17',
         tags: ['Investing', 'Finance'],
         socials: [{ platform: 'LinkedIn', link: 'https://linkedin.com/company/financesimplified' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Kevin Lee',
-          },
-          {
-            role: 'Guest',
-            name: 'Michael Powell',
-          },
+          { role: 'Host', name: 'Kevin Lee' },
+          { role: 'Guest', name: 'Michael Powell' },
         ],
         comments: [],
       },
@@ -1603,41 +1057,23 @@ export const recommendedPodcasts = [
   },
   {
     id: 7,
-    get title() {
-      return i18n.t('ui.data.content.podcast.science_today_19ab4e02');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.content.podcast.breaking_down_new_scientific_discoveries_and_theorie_5c6dc556',
-      );
-    },
+    title: 'Science Today',
+    description: 'Breaking down new scientific discoveries and theories.',
     category: 'Science',
     image: podcast(18),
     episodeLists: [
       {
         episodeNumber: 1,
-        get title() {
-          return i18n.t('ui.data.content.podcast.climate_change_explained_7723d8cc');
-        },
-        get description() {
-          return i18n.t(
-            'ui.data.content.podcast.understanding_climate_change_and_its_global_effects_9d5e33cd',
-          );
-        },
+        title: 'Climate Change Explained',
+        description: 'Understanding climate change and its global effects.',
         duration: '48:00',
         audioSrc: '/audio/climate-change.mp3',
         date: '2023-08-01',
         tags: ['Science', 'Climate Change'],
         socials: [{ platform: 'Twitter', link: 'https://twitter.com/sciencetoday' }],
         team: [
-          {
-            role: 'Host',
-            name: 'Rachel Adams',
-          },
-          {
-            role: 'Guest',
-            name: 'Dr. Liam White',
-          },
+          { role: 'Host', name: 'Rachel Adams' },
+          { role: 'Guest', name: 'Dr. Liam White' },
         ],
         comments: [],
       },
@@ -1656,171 +1092,91 @@ export const recommendedPodcasts = [
 ];
 
 export const audioTranscript = [
-  {
-    id: 1,
-    time: 0,
-    get text() {
-      return i18n.t('ui.data.content.podcast.intro_music_plays_b9a93c6f');
-    },
-  },
+  { id: 1, time: 0, text: 'Intro Music Plays' },
   {
     id: 2,
     time: 15,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.welcome_to_building_the_future_the_podcast_where_we__71c4e1ed',
-      );
-    },
+    text: "Welcome to Building the Future, the podcast where we delve into the world of architecture and design, exploring how it shapes our cities, lives, and future. I'm Sophia Carter, and today, we’re discussing 'The Evolution of Modern Architecture and Its Impact on Society.'",
   },
   {
     id: 3,
     time: 25,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.joining_us_today_is_liam_brooks_a_celebrated_archite_3fdad33c',
-      );
-    },
+    text: 'Joining us today is Liam Brooks, a celebrated architect known for his innovative designs and sustainable projects. Welcome to the show, Liam!',
   },
   {
     id: 4,
     time: 33,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.thanks_for_having_me_sophia_i_m_thrilled_to_be_here__3336a560',
-      );
-    },
+    text: "Thanks for having me, Sophia. I'm thrilled to be here and share my thoughts on the ever-evolving world of architecture.",
   },
   {
     id: 5,
     time: 40,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.let_s_start_with_the_basics_liam_how_would_you_defin_2f825524',
-      );
-    },
+    text: 'Let’s start with the basics. Liam, how would you define modern architecture in simple terms?',
   },
   {
     id: 6,
     time: 65,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.modern_architecture_is_all_about_breaking_away_from__f34ef123',
-      );
-    },
+    text: 'Modern architecture is all about breaking away from traditional styles and focusing on simplicity, functionality, and innovation. It’s characterized by clean lines, open spaces, and the use of materials like steel, glass, and concrete. It’s more than just aesthetic; it’s about creating spaces that are practical and sustainable.',
   },
   {
     id: 7,
     time: 72,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.speaking_of_sustainability_how_has_it_influenced_mod_42de0381',
-      );
-    },
+    text: 'Speaking of sustainability, how has it influenced modern architectural practices in recent years?',
   },
   {
     id: 8,
     time: 87,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.sustainability_now_sits_at_the_heart_of_contemporary_4ca45921',
-      );
-    },
+    text: 'Sustainability now sits at the heart of contemporary design. Architects are integrating green roofs, smart energy systems, and recycled materials to minimize environmental impact. Cities are changing, and buildings are evolving to meet new ecological demands.',
   },
   {
     id: 9,
     time: 115,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.it_s_fascinating_to_see_how_technology_is_transformi_5cf44d6b',
-      );
-    },
+    text: "It's fascinating to see how technology is transforming urban spaces. What role do smart systems play in today's architecture?",
   },
   {
     id: 10,
     time: 132,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.smart_systems_have_revolutionized_building_efficienc_1bf3e4d3',
-      );
-    },
+    text: 'Smart systems have revolutionized building efficiency, from automated lighting and climate control to data-driven maintenance. This tech not only improves daily operations but also helps reduce energy consumption across cities.',
   },
   {
     id: 11,
     time: 145,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.could_you_share_an_example_of_a_project_where_smart__7cae0844',
-      );
-    },
+    text: 'Could you share an example of a project where smart technology made a significant difference?',
   },
   {
     id: 12,
     time: 160,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.absolutely_on_a_recent_downtown_office_development_w_b09df1eb',
-      );
-    },
+    text: 'Absolutely. On a recent downtown office development, we implemented a responsive façade that adapts to sunlight and temperature, dramatically reducing energy costs and improving occupant comfort throughout the year.',
   },
   {
     id: 13,
     time: 185,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.that_s_impressive_how_do_these_trends_shape_the_futu_825f6d0d',
-      );
-    },
+    text: "That's impressive. How do these trends shape the future of cities and the way people interact with their environments?",
   },
   {
     id: 14,
     time: 200,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.as_cities_become_smarter_urban_spaces_are_designed_t_84a9ace3',
-      );
-    },
+    text: 'As cities become smarter, urban spaces are designed to promote connectivity, well-being, and accessibility. Advanced data analysis helps city planners create inclusive spaces where people feel engaged and supported.',
   },
   {
     id: 15,
     time: 217,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.what_advice_would_you_give_young_architects_starting_eaf790fa',
-      );
-    },
+    text: 'What advice would you give young architects starting their careers?',
   },
   {
     id: 16,
     time: 230,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.stay_curious_and_embrace_new_technologies_always_pri_45c0464e',
-      );
-    },
+    text: 'Stay curious and embrace new technologies. Always prioritize people in your designs. Architecture is not just about buildings, but about communities and experiences.',
   },
   {
     id: 17,
     time: 245,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.thank_you_so_much_for_your_insights_liam_it_s_been_a_6870b86b',
-      );
-    },
+    text: "Thank you so much for your insights, Liam. It's been a pleasure having you on the show.",
   },
   {
     id: 18,
     time: 252,
-    get text() {
-      return i18n.t(
-        'ui.data.content.podcast.thank_you_sophia_it_s_been_great_discussing_these_ex_6613bad4',
-      );
-    },
+    text: 'Thank you, Sophia. It’s been great discussing these exciting changes in architecture.',
   },
-  {
-    id: 19,
-    time: 256,
-    get text() {
-      return i18n.t('ui.data.content.podcast.outro_music_plays_f266f190');
-    },
-  },
+  { id: 19, time: 256, text: 'Outro Music Plays' },
 ];

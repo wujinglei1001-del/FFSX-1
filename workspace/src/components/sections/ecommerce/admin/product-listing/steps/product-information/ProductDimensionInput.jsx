@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   FormControl,
   FormHelperText,
@@ -12,7 +11,6 @@ import {
 } from '@mui/material';
 
 const ProductDimensionInput = ({ label, field }) => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -29,7 +27,7 @@ const ProductDimensionInput = ({ label, field }) => {
     >
       <TextField disabled label={label} sx={{ width: { xs: 80, sm: 170 } }} />
       <TextField
-        label={translateUi('ui.sections.ecommerce.admin.product_listing.value_8dce170d')}
+        label="Value"
         type="number"
         sx={{
           flex: 1,
@@ -49,24 +47,16 @@ const ProductDimensionInput = ({ label, field }) => {
         sx={{ width: { xs: 80, sm: 96 } }}
         error={!!errors.productInformation?.[field]?.unit?.message}
       >
-        <InputLabel>
-          {translateUi('ui.sections.ecommerce.admin.product_listing.unit_f6b935ab')}
-        </InputLabel>
+        <InputLabel>Unit</InputLabel>
         <Controller
           name={`productInformation.${field}.unit`}
           control={control}
           defaultValue="ft"
           render={({ field }) => (
             <Select sx={{ height: 1 }} {...field}>
-              <MenuItem value="in">
-                {translateUi('ui.sections.ecommerce.admin.product_listing.inches_79a0469d')}
-              </MenuItem>
-              <MenuItem value="ft">
-                {translateUi('ui.sections.ecommerce.admin.product_listing.feet_7037c84e')}
-              </MenuItem>
-              <MenuItem value="m">
-                {translateUi('ui.sections.ecommerce.admin.product_listing.meters_6ad427ce')}
-              </MenuItem>
+              <MenuItem value="in">Inches</MenuItem>
+              <MenuItem value="ft">Feet</MenuItem>
+              <MenuItem value="m">Meters</MenuItem>
             </Select>
           )}
         />

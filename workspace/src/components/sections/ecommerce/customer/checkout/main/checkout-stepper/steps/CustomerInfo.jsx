@@ -1,41 +1,21 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 export const customerInfoFormSchema = yup
   .object({
     customer: yup.object({
-      email: yup
-        .string()
-        .email()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      firstName: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      lastName: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      phoneNumber: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
+      email: yup.string().email().required('This field is required'),
+      firstName: yup.string().required('This field is required'),
+      lastName: yup.string().required('This field is required'),
+      phoneNumber: yup.string().required('This field is required'),
     }),
   })
   .required();
 
 const CustomerInfo = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -55,7 +35,7 @@ const CustomerInfo = () => {
           fullWidth
           id="email"
           type="email"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.email_address_36896d2e')}
+          label="Email address*"
           variant="filled"
           error={!!errors.customer?.email}
           helperText={errors.customer?.email?.message}
@@ -72,7 +52,7 @@ const CustomerInfo = () => {
           fullWidth
           id="firstName"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.first_name_3cba86b9')}
+          label="First name*"
           variant="filled"
           error={!!errors.customer?.firstName}
           helperText={errors.customer?.firstName?.message}
@@ -89,7 +69,7 @@ const CustomerInfo = () => {
           fullWidth
           id="lastName"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.last_name_b649dc90')}
+          label="Last name*"
           variant="filled"
           error={!!errors.customer?.lastName}
           helperText={errors.customer?.lastName?.message}
@@ -133,7 +113,7 @@ const CustomerInfo = () => {
             fullWidth
             id="phoneNumber"
             type="tel"
-            label={translateUi('ui.sections.ecommerce.customer.checkout.phone_number_811a70a5')}
+            label="Phone number*"
             variant="filled"
             error={!!errors.customer?.phoneNumber}
             helperText={errors.customer?.phoneNumber?.message}

@@ -1,9 +1,6 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Chip, Link, Paper, Stack, Typography } from '@mui/material';
 import { toSentenceCase } from 'lib/utils';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'components/base/Image';
@@ -11,40 +8,27 @@ import Image from 'components/base/Image';
 const orderTracking = {
   confirmed: {
     color: 'info',
-    get message() {
-      return i18n.t(
-        'ui.sections.ecommerce.customer.customer_account.your_order_has_been_confirmed_and_is_now_at_our_main_f0d3d188',
-      );
-    },
+    message:
+      'Your order has been confirmed and is now at our main logistics facility, where it will be prepared for shipment.',
   },
   shipped: {
     color: 'warning',
-    get message() {
-      return i18n.t(
-        'ui.sections.ecommerce.customer.customer_account.your_package_has_departed_from_our_central_warehouse_9120c22b',
-      );
-    },
+    message:
+      'Your package has departed from our central warehouse and is now in transit through our delivery network to your region.',
   },
   out_for_delivery: {
     color: 'warning',
-    get message() {
-      return i18n.t(
-        'ui.sections.ecommerce.customer.customer_account.your_package_has_arrived_at_our_local_distribution_c_fc2db79f',
-      );
-    },
+    message:
+      'Your package has arrived at our local distribution center and is now on a delivery vehicle heading to your location.',
   },
   delivered: {
     color: 'success',
-    get message() {
-      return i18n.t(
-        'ui.sections.ecommerce.customer.customer_account.your_package_has_been_successfully_delivered_to_the__e026f141',
-      );
-    },
+    message:
+      'Your package has been successfully delivered to the specified destination. Thank you for choosing our service.',
   },
 };
 
 const TrackOrders = ({ orders }) => {
-  const { t: translateUi } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
 
@@ -75,7 +59,7 @@ const TrackOrders = ({ orders }) => {
           mb: 3,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.customer_account.track_orders_12d8ab40')}
+        Track orders
       </Typography>
 
       <Box
@@ -94,7 +78,7 @@ const TrackOrders = ({ orders }) => {
         >
           {orders.map((order) => (
             <SwiperSlide key={order.product.id}>
-              <OrderItem order={order} actionUrl={paths.orderTrack} />
+              <OrderItem order={order} actionUrl="#!" />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -131,7 +115,6 @@ const TrackOrders = ({ orders }) => {
 };
 
 const OrderItem = ({ order, actionUrl }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction={{ xs: 'column', sm: 'row' }}
@@ -149,11 +132,7 @@ const OrderItem = ({ order, actionUrl }) => {
           justifyContent: 'center',
         }}
       >
-        <Image
-          src={order.product.images[0].src}
-          alt={translateUi('ui.sections.ecommerce.customer.customer_account.stain_0ae42b6f')}
-          sx={{ width: 144 }}
-        />
+        <Image src={order.product.images[0].src} alt="Stain" sx={{ width: 144 }} />
       </Box>
       <Stack sx={{ justifyContent: 'space-between' }}>
         <div>
@@ -172,11 +151,7 @@ const OrderItem = ({ order, actionUrl }) => {
           >
             {orderTracking[order.status].message}
           </Typography>
-          <Link href={actionUrl}>
-            {translateUi(
-              'ui.sections.ecommerce.customer.customer_account.click_here_to_track_your_package_fb9b12c3',
-            )}
-          </Link>
+          <Link href={actionUrl}>Click here to track your package</Link>
         </div>
       </Stack>
     </Stack>

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, IconButton, Link, Stack, Typography, textFieldClasses } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import paths from 'routes/paths';
@@ -8,7 +7,6 @@ import QuantityButtons from 'components/sections/ecommerce/customer/common/Quant
 import ItemVariant from './ItemVariant';
 
 const CreateOrderItem = ({ orderItem, setOrderItems }) => {
-  const { t: translateUi } = useTranslation();
   const { id, images, variants, quantity, price, name, vendor } = orderItem;
   const { currencyFormat } = useNumberFormat();
 
@@ -65,7 +63,7 @@ const CreateOrderItem = ({ orderItem, setOrderItems }) => {
                 </Link>
               </Typography>
               <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                {translateUi('ui.sections.ecommerce.admin.create_order.sold_by_12c71f0a')}{' '}
+                Sold by{' '}
                 <Box component="span" sx={{ fontWeight: 500, color: 'text.primary' }}>
                   {vendor}
                 </Box>

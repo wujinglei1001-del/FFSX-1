@@ -1,5 +1,4 @@
 import { memo, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import Avatar, { avatarClasses } from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Card from '@mui/material/Card';
@@ -27,7 +26,6 @@ const getLabelChipColor = (val) => {
 };
 
 const TaskCard = memo(({ task }) => {
-  const { t: translateUi } = useTranslation();
   const progressValue = useMemo(() => {
     if (task.progress?.showBar) {
       return (task.progress.completed / task.progress.total) * 100;
@@ -49,7 +47,7 @@ const TaskCard = memo(({ task }) => {
         <CardMedia
           component="img"
           image={task.coverImage}
-          alt={translateUi('common.accessibility.card_image')}
+          alt="card-image"
           sx={{
             p: 1,
             height: 214,

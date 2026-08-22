@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import LanguageDialog from './LanguageDialog';
 import LanguageItem from './LanguageItem';
 
 const Languages = () => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const { watch } = useFormContext();
   const checkedLanguages = watch('languages');
@@ -30,7 +28,7 @@ const Languages = () => {
         startIcon={<IconifyIcon icon="material-symbols:add" sx={{ fontSize: 20 }} />}
         onClick={() => setOpen(true)}
       >
-        {translateUi('ui.sections.account.language_region.languages.add_another_e8ac4f65')}
+        Add Another
       </Button>
       <LanguageDialog open={open} handleDialogClose={() => setOpen(false)} />
     </>

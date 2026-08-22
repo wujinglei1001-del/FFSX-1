@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import { Box, Container } from '@mui/material';
 import { showcaseAssets } from 'data/showcase';
@@ -12,7 +11,6 @@ import GradientText from '../common/GradientText';
 gsap.registerPlugin(ScrollTrigger);
 
 const ElegantCards = () => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const sectionRef = useRef(null);
   const textRef = useRef(null);
@@ -70,7 +68,7 @@ const ElegantCards = () => {
               textAlign: 'center',
             }}
           >
-            {translateUi('ui.sections.showcase.elegant_cards.elegantly_crafted_cards_75907377')}
+            Elegantly crafted cards
           </GradientText>
 
           {images.map((img, i) => (

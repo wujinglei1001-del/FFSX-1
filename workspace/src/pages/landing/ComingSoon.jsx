@@ -1,22 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Paper, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/2-dark.webp';
 import illustration from 'assets/images/illustrations/2.webp';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import Image from 'components/base/Image';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const comingSoonSchema = yup.object({
-  email: yup
-    .string()
-    .email(i18n.t('ui.pages.landing.comingsoon.email_must_be_a_valid_email_8ab7d26c'))
-    .required(i18n.t('ui.pages.landing.comingsoon.email_is_required_c79fce0e')),
+  email: yup.string().email('Email must be a valid email.').required('Email is required.'),
 });
 dayjs.extend(duration);
 const initialDuration = dayjs.duration({
@@ -58,7 +53,6 @@ const TimeBox = ({ time, title }) => {
   );
 };
 const LandingComingSoon = () => {
-  const { t: translateUi } = useTranslation();
   const [timeLeft, setTimeLeft] = useState(initialDuration);
   const {
     register,
@@ -102,7 +96,7 @@ const LandingComingSoon = () => {
           light: illustration,
           dark: illustrationDark,
         }}
-        alt={translateUi('ui.pages.landing.comingsoon.character_f0db3fa4')}
+        alt="character"
         sx={{ width: 1, maxWidth: 440, objectFit: 'contain', mb: 2 }}
       />
       <Stack
@@ -112,33 +106,25 @@ const LandingComingSoon = () => {
           gap: { xs: 0.5, sm: 1 },
         }}
       >
-        <TimeBox time={days} title={translateUi('ui.pages.landing.comingsoon.days_f6bb0f46')} />
-        <TimeBox time={hours} title={translateUi('ui.pages.landing.comingsoon.hours_9e25a34e')} />
-        <TimeBox
-          time={minutes}
-          title={translateUi('ui.pages.landing.comingsoon.minutes_092f99ea')}
-        />
-        <TimeBox
-          time={seconds}
-          title={translateUi('ui.pages.landing.comingsoon.seconds_5fb1db52')}
-        />
+        <TimeBox time={days} title="Days" />
+        <TimeBox time={hours} title="Hours" />
+        <TimeBox time={minutes} title="Minutes" />
+        <TimeBox time={seconds} title="Seconds" />
       </Stack>
       <div>
         <Typography variant="h4" sx={{ mb: 1 }}>
-          {translateUi('ui.pages.landing.comingsoon.we_are_coming_soon_ed857c53')}
+          We are coming soon!
         </Typography>
 
         <Typography variant="subtitle1" sx={{ mb: 3, color: 'text.secondary' }}>
-          {translateUi(
-            'ui.pages.landing.comingsoon.stay_tuned_exciting_updates_are_on_the_way_while_our_db69204b',
-          )}{' '}
+          Stay tuned! Exciting updates are on the way while our team preapares{' '}
           <Box
             component="span"
             sx={{
               whiteSpace: 'nowrap',
             }}
           >
-            {translateUi('ui.pages.landing.comingsoon.something_speacial_4126f3f2')}
+            something speacial.
           </Box>
         </Typography>
 
@@ -149,7 +135,7 @@ const LandingComingSoon = () => {
           >
             <StyledTextField
               variant="filled"
-              placeholder={translateUi('ui.pages.landing.comingsoon.email_84add5b2')}
+              placeholder="Email"
               type="email"
               {...register('email')}
               error={!!errors.email}
@@ -157,7 +143,7 @@ const LandingComingSoon = () => {
               sx={{ flexGrow: 1 }}
             />
             <Button type="submit" variant="soft" color="neutral">
-              {translateUi('ui.pages.landing.comingsoon.send_now_dae33010')}
+              Send now
             </Button>
           </Stack>
         </form>

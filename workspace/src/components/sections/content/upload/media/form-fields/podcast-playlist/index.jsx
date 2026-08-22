@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -21,7 +20,6 @@ import StyledTextField from 'components/styled/StyledTextField';
 import AddNewDialog from './AddNewDialog';
 
 export default function PodcastPlaylist() {
-  const { t: translateUi } = useTranslation();
   const [podcasts] = useState(podcastPlaylist);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -50,12 +48,12 @@ export default function PodcastPlaylist() {
   return (
     <Paper variant="elevation" elevation={0} background={1} sx={{ p: 2 }}>
       <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 700 }}>
-        {translateUi('ui.sections.content.upload.media.podcast_playlist_d47d2a81')}
+        Podcast/Playlist
       </Typography>
 
       <StyledTextField
         fullWidth
-        placeholder={translateUi('ui.sections.content.upload.media.search_bce06414')}
+        placeholder="Search"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         slotProps={{

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
@@ -12,7 +11,6 @@ import { styled } from '@mui/material/styles';
 import dayjs from 'dayjs';
 
 const DetailsSection = ({ goal }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -24,9 +22,7 @@ const DetailsSection = ({ goal }) => {
       </Typography>
       <Grid container spacing={2}>
         <Grid size="grow">
-          <CaptionTypography>
-            {translateUi('ui.sections.hrm.performance_management.goals.created_by_5d73cc30')}
-          </CaptionTypography>
+          <CaptionTypography>Created by</CaptionTypography>
           <Stack
             direction="row"
             sx={{
@@ -40,17 +36,13 @@ const DetailsSection = ({ goal }) => {
         </Grid>
         <Grid container size={{ xs: 12, sm: 5 }}>
           <Grid size={6}>
-            <CaptionTypography>
-              {translateUi('ui.sections.hrm.performance_management.goals.created_date_479fa82a')}
-            </CaptionTypography>
+            <CaptionTypography>Created Date</CaptionTypography>
             <Typography variant="caption" sx={{ fontWeight: 500, display: 'block' }}>
               {dayjs(goal.createdDate).format('MMM D, YYYY')}
             </Typography>
           </Grid>
           <Grid size={6}>
-            <CaptionTypography>
-              {translateUi('ui.sections.hrm.performance_management.goals.due_date_a1b308ec')}
-            </CaptionTypography>
+            <CaptionTypography>Due Date</CaptionTypography>
             <Typography variant="caption" sx={{ fontWeight: 500, display: 'block' }}>
               {dayjs(goal.dueDate).format('MMM D, YYYY')}
             </Typography>
@@ -75,7 +67,7 @@ const DetailsSection = ({ goal }) => {
         }}
       >
         <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.hrm.performance_management.goals.subgoals_cc541056')}
+          Subgoals
         </Typography>
         <FormGroup>
           {goal.subGoals.map((subGoal, index) => (

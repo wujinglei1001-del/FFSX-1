@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Divider } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { newHiresData as data } from 'data/hiring/dashboard';
@@ -8,11 +7,10 @@ import SectionWrapper from '../common/SectionWrapper';
 import NewJoiner from './NewJoiner';
 
 const NewHires = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack component={SectionWrapper}>
       <SectionHeader
-        title={translateUi('ui.sections.dashboards.hiring.new_hires.new_hires_3993be77')}
+        title="New Hires"
         subTitle="Recent joiners by date, role"
         actionComponent={<DashboardMenu size="medium" />}
       />

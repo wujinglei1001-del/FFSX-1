@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
 import GalleryItem from './GalleryItem';
 import TopButtonGroup from './TopButtonGroup';
 
 const ActivityGallery = ({ activityGallery }) => {
-  const { t: translateUi } = useTranslation();
   const [activeGallery, setActiveGallery] = useState(0);
 
   const handleActiveGallery = (index) =>
@@ -23,9 +21,7 @@ const ActivityGallery = ({ activityGallery }) => {
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: 600 }}>
-          {translateUi(
-            'ui.sections.time_tracker.screenshots.activitygallery.activity_gallery_92d54a7d',
-          )}
+          Activity Gallery
         </Typography>
 
         <TopButtonGroup />

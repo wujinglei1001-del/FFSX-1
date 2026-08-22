@@ -1,47 +1,40 @@
-import { useTranslation } from 'react-i18next';
-import { Box, Link, Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 import Stack from '@mui/material/Stack';
-import { externalLinks } from 'config';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const socialLinks = [
   {
     id: 'fb',
     icon: 'ri:facebook-circle-fill',
-    href: externalLinks.social.facebook,
+    href: '#!',
   },
   {
     id: 'ig',
     icon: 'ri:instagram-line',
-    href: externalLinks.social.instagram,
+    href: '#!',
   },
   {
     id: 'th',
     icon: 'ri:threads-line',
-    href: externalLinks.social.threads,
+    href: '#!',
   },
   {
     id: 'x',
     icon: 'ri:twitter-x-fill',
-    href: externalLinks.social.x,
+    href: '#!',
   },
   {
     id: 'no',
     icon: 'ri:notion-fill',
-    href: externalLinks.social.notion,
+    href: '#!',
   },
   {
     id: 'yt',
     icon: 'ri:youtube-fill',
-    href: externalLinks.social.youtube,
+    href: '#!',
   },
 ];
 const SocialIcons = () => {
-  const { t: translateUi } = useTranslation();
-  const configuredSocialLinks = socialLinks.filter((item) => item.href);
-
-  if (!configuredSocialLinks.length) return null;
-
   return (
     <div>
       <Typography
@@ -53,7 +46,7 @@ const SocialIcons = () => {
           color: 'text.disabled',
         }}
       >
-        {translateUi('ffax.public.footer.socials')}
+        Socials
       </Typography>
       <Stack
         direction="row"
@@ -61,26 +54,19 @@ const SocialIcons = () => {
           gap: 4,
         }}
       >
-        {configuredSocialLinks.map((item) => (
-          <Box
-            key={item.id}
-            component={item.href ? Link : 'span'}
-            href={item.href || undefined}
-            underline="none"
-          >
+        {socialLinks.map((item) => (
+          <Link key={item.id} href={item.href} underline="none">
             <IconifyIcon
               icon={item.icon}
               sx={{
                 fontSize: 24,
                 color: 'text.disabled',
-                ...(item.href && {
-                  '&:hover': {
-                    color: 'text.secondary',
-                  },
-                }),
+                '&:hover': {
+                  color: 'text.secondary',
+                },
               }}
             />
-          </Box>
+          </Link>
         ))}
       </Stack>
     </div>

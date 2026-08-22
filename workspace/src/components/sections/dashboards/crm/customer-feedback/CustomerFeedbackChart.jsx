@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import { BarChart } from 'echarts/charts';
@@ -13,7 +12,6 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, BarChart, CanvasRenderer, LegendComponent]);
 
 const CustomerFeedbackChart = ({ ref, sx, data }) => {
-  const { t: translateUi } = useTranslation();
   const { vars, typography } = useTheme();
   const { getThemeColor } = useSettingsContext();
 
@@ -86,9 +84,7 @@ const CustomerFeedbackChart = ({ ref, sx, data }) => {
           },
         },
         {
-          name: translateUi(
-            'ui.sections.dashboards.crm.customer_feedback.75th_percentile_a39ab390',
-          ),
+          name: '75th Percentile',
           data: data['75thPercentile'],
           type: 'line',
           smooth: 0.3,

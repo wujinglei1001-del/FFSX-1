@@ -1,13 +1,11 @@
 import { useCallback, useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack } from '@mui/material';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
 import Editor from 'components/base/Editor';
 import EditableTypography from './EditableTypography';
 
 const StoryEdit = ({ handleEditStory }) => {
-  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
   const {
     setValue,
@@ -44,14 +42,14 @@ const StoryEdit = ({ handleEditStory }) => {
       >
         <EditableTypography
           fieldName="title"
-          placeholder={translateUi('ui.sections.content.upload.blog.title_768e0c1c')}
+          placeholder="Title"
           variant="h6"
           hasError={!!errors.title}
         />
 
         <EditableTypography
           fieldName="subText"
-          placeholder={translateUi('ui.sections.content.upload.blog.subtitle_e159d05a')}
+          placeholder="Subtitle"
           variant="subtitle1"
           sx={{ fontWeight: 700 }}
           color="textSecondary"
@@ -62,7 +60,7 @@ const StoryEdit = ({ handleEditStory }) => {
           ref={editorRef}
           content={initialContent}
           onChange={handleEditorChange}
-          placeholder={translateUi('ui.sections.content.upload.blog.write_your_story_d51e4083')}
+          placeholder="Write your story..."
           isValid={!errors.content}
           sx={{
             '& .MuiTiptap-MenuBar-root': {
@@ -98,7 +96,7 @@ const StoryEdit = ({ handleEditStory }) => {
         sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 1 }}
       >
         <Button type="button" color="neutral" onClick={handleCancel} disabled={isSubmitting}>
-          {translateUi('ui.sections.content.upload.blog.cancel_77dfd213')}
+          Cancel
         </Button>
 
         <Button

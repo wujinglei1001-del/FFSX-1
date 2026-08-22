@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Card,
@@ -9,15 +8,13 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EventCard = ({ event, sx }) => {
-  const { t: translateUi } = useTranslation();
   const { title, image, priceRange, date, time, location } = event;
 
   return (
-    <Link href={paths.events}>
+    <Link href="#!">
       <Card sx={{ outline: 'none', bgcolor: 'background.elevation1', ...sx }}>
         <CardMedia
           component="img"
@@ -87,10 +84,7 @@ const EventCard = ({ event, sx }) => {
                   {location}
                 </Typography>
               </div>
-              <IconButton
-                edge="start"
-                aria-label={translateUi('ui.sections.events.event_detail.main.favourite_824168b6')}
-              >
+              <IconButton edge="start" aria-label="favourite">
                 <IconifyIcon
                   icon="material-symbols:favorite-outline-rounded"
                   width={20}

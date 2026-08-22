@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
@@ -50,7 +49,6 @@ const filterData = (project, filterBy) => {
   return addTimes(durations);
 };
 const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const timerange = getTimeRange(filterBy.timeframe);
   const { up } = useBreakpoints();
@@ -70,7 +68,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
     () => [
       {
         field: 'project',
-        headerName: translateUi('ui.sections.dashboards.time_tracker.timesheet.project_f6f4da8d'),
+        headerName: 'Project',
         headerClassName: 'project-header',
         cellClassName: 'project-cell',
         minWidth: 260,
@@ -88,7 +86,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
       })),
       {
         field: 'totalTimes',
-        headerName: translateUi('ui.sections.dashboards.time_tracker.timesheet.total_b25928c6'),
+        headerName: 'Total',
         headerClassName: 'total-times-header',
         cellClassName: 'total-times-cell',
         flex: 1,
@@ -136,6 +134,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
         slots={{
           basePagination: (props) => (
             <DataGridPagination
+              showAllHref="#!"
               labelDisplayedRows={upLg ? TableLabelDisplayedRows : () => null}
               {...props}
             />
@@ -162,7 +161,7 @@ const TimesheetTable = ({ apiRef, filterBy, timesheet, filterButtonEl }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.project-cell, .action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

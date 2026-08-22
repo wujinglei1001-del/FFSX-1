@@ -78,11 +78,11 @@ const CssBaseline = {
       filter: 'url("#achromatopsia-filter")',
     },
 
-    '[data-ffax-color-scheme="dark"][data-ffax-preset="ember"] .MuiPaper-root[class*="MuiPaper-elevation"]':
+    '[data-aurora-color-scheme="dark"][data-aurora-preset="ember"] .MuiPaper-root[class*="MuiPaper-elevation"]':
       {
         boxShadow: `${darkShadows[1]} !important`,
       },
-    '[data-ffax-color-scheme="dark"][data-ffax-preset="midnight"] .MuiPaper-root[class*="MuiPaper-elevation"]':
+    '[data-aurora-color-scheme="dark"][data-aurora-preset="midnight"] .MuiPaper-root[class*="MuiPaper-elevation"]':
       {
         boxShadow: `${darkShadows[1]} !important`,
       },

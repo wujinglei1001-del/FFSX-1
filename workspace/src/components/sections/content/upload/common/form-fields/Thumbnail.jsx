@@ -1,5 +1,4 @@
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
 import FileDropZone from 'components/base/FileDropZone';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -10,7 +9,6 @@ const ACCEPT_IMAGE_TYPES = {
 };
 
 const Thumbnail = () => {
-  const { t: translateUi } = useTranslation();
   const {
     setValue,
     formState: { errors, isSubmitSuccessful },
@@ -39,7 +37,7 @@ const Thumbnail = () => {
           mb: 1,
         }}
       >
-        {translateUi('ui.sections.content.upload.common.thumbnail_20f9b91f')}
+        Thumbnail
       </Typography>
       <FileDropZone
         key={`thumbnail-${thumbnailValue?.file?.name || 'empty'}-${isSubmitSuccessful ? 'reset' : 'default'}`}
@@ -76,9 +74,8 @@ const Thumbnail = () => {
             fontWeight: 'medium',
           }}
         >
-          {translateUi(
-            'ui.sections.content.upload.common.images_should_be_in_jpeg_or_png_format_up_to_15mb_in_ec30bde4',
-          )}
+          Images should be in JPEG or PNG format, up to 15MB in size. A 16:9 aspect ratio is
+          required, with 3000×3000 pixels recommended for high resolution.
         </Typography>
       </Stack>
     </div>

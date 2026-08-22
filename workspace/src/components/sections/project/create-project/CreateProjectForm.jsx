@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Drawer, Grid, IconButton, Paper, Typography } from '@mui/material';
 import { drawerClasses } from '@mui/material/Drawer';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -13,7 +12,6 @@ import CreateProjectStepper from 'components/sections/project/create-project/Cre
 import useCreateProjectStepper from 'components/sections/project/create-project/useCreateProjectStepper';
 
 const CreateProjectForm = () => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upLg = up('lg');
   const { topbarHeight } = useNavContext();
@@ -35,16 +33,14 @@ const CreateProjectForm = () => {
       onClick={() => setDrawerOpen(true)}
       startIcon={<IconifyIcon icon="material-symbols:tune-rounded" sx={{ fontSize: 18 }} />}
     >
-      {translateUi('ui.sections.project.create_project.createprojectform.project_setup_307abfd2')}
+      Project Setup
     </Button>
   );
 
   const stepperContent = (
     <Box sx={{ pb: 3 }}>
       <Typography variant="h4" sx={{ mb: 1 }}>
-        {translateUi(
-          'ui.sections.project.create_project.createprojectform.create_project_a8d8ff51',
-        )}
+        Create project
       </Typography>
       <Typography
         variant="body2"
@@ -53,9 +49,7 @@ const CreateProjectForm = () => {
           maxWidth: 420,
         }}
       >
-        {translateUi(
-          'ui.sections.project.create_project.createprojectform.just_take_a_little_bit_time_to_give_us_some_informat_d716d43d',
-        )}
+        Just take a little bit time to give us some information and then kick off the project.
       </Typography>
 
       <CreateProjectStepper
@@ -94,9 +88,7 @@ const CreateProjectForm = () => {
                 }}
               >
                 <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                  {translateUi(
-                    'ui.sections.project.create_project.createprojectform.project_setup_a0e72cd3',
-                  )}
+                  Project setup
                 </Typography>
                 <IconButton color="default" size="small" onClick={() => setDrawerOpen(false)}>
                   <IconifyIcon
@@ -139,9 +131,7 @@ const CreateProjectForm = () => {
           <Grid size={{ xs: 12, lg: 9 }} sx={{ minWidth: 0 }}>
             {!upLg && (
               <ProjectHeader
-                title={translateUi(
-                  'ui.sections.project.create_project.createprojectform.create_a_project_a469a595',
-                )}
+                title="Create a project"
                 showTaskDialog={false}
                 topActions={projectSetupButton}
               />

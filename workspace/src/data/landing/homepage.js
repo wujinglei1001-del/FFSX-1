@@ -1,168 +1,77 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 
 const blog = (index) => `${initialConfig.assetsDir}/images/landing/blog/${index}.webp`;
-const interfaceShowcase = (index) => `/assets/images/showcase/${index}.webp`;
-const themedInterfaceShowcase = (light, dark) => ({
-  light: interfaceShowcase(light),
-  dark: interfaceShowcase(dark),
-});
-const landingExample = (index) => ({
-  light: `${initialConfig.assetsDir}/images/landing/examples/${index}.webp`,
-  dark: `${initialConfig.assetsDir}/images/landing/examples/${index}-dark.webp`,
-});
+const gallery = (index) => `${initialConfig.assetsDir}/images/landing/gallery/${index}.webp`;
 const testimonial = (index) =>
   `${initialConfig.assetsDir}/images/landing/testimonial/${index}.webp`;
+const showcase = (index) => `${initialConfig.assetsDir}/images/landing/showcase/${index}.webp`;
 
 export const showcaseData = [
   {
-    title: '全球贸易协作网络',
-    img: landingExample(4),
-    subtitle: '让需求、角色与服务能力建立可信连接',
-    desc: '连接跨境卖家、工厂、采购商、物流、海外仓和企业服务机构，让真实需求进入统一的数字协作网络。',
-    href: paths.chat,
+    title: 'Skyline Innovations',
+    img: showcase(1),
+    subtitle: 'Modern architecture reimagined for tomorrow’s cities.',
+    desc: 'A forward-thinking project blending minimal design with functional elegance. This work emphasizes clean geometry and sustainable building practices to create inspiring spaces.',
   },
   {
-    title: '跨境履约与全程追踪',
-    img: landingExample(2),
-    subtitle: '连接订单、仓储、物流与交付状态',
-    desc: '将分散的订单和履约信息汇集到统一流程中，让企业持续掌握仓储、运输、异常与交付进度。',
-    href: paths.ecommerce,
+    title: 'Quantum Leap Initiative',
+    img: showcase(2),
+    subtitle: 'Pioneering solutions for modern infrastructure.',
+    desc: 'A daring take on structural innovation merges advanced technology with classic design. This initiative demonstrates how contemporary construction can meet the urban challenges of the future.',
   },
   {
-    title: '企业协同与任务执行',
-    img: themedInterfaceShowcase(4, 3),
-    subtitle: '让跨组织合作转化为清晰、可追踪的任务',
-    desc: '通过团队任务、客户管理、文件、审批和数据看板，为贸易生态中的企业协作提供稳定的执行基础。',
-    href: paths.project,
+    title: 'EcoVision Project',
+    img: showcase(3),
+    subtitle: 'Where sustainability meets architectural beauty.',
+    desc: 'A project focused on eco-friendly materials and green architecture. Built with efficiency in mind, EcoVision highlights how smart design can minimize impact while maximizing aesthetic value.',
   },
 ];
 
 export const featuresData = [
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.real_time_collaboration_f67c2564');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.landing.homepage.an_intuitive_drag_and_drop_interface_for_easy_conten_aa2d7910',
-      );
-    },
+    title: 'Real-time collaboration.',
+    description: 'An intuitive drag-and-drop interface for easy content management.',
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.guided_tutorials_491dfe8b');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.landing.homepage.a_notification_system_that_alerts_users_about_import_62fde3d0',
-      );
-    },
+    title: 'Guided tutorials.',
+    description: 'A notification system that alerts users about important updates and messages.',
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.user_data_protection_c93265dc');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.landing.homepage.a_feedback_system_that_allows_users_to_share_their_t_2214fed2',
-      );
-    },
+    title: 'User data protection.',
+    description: 'A feedback system that allows users to share their thoughts and suggestions.',
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.third_party_integration_503f5364');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.landing.homepage.a_responsive_design_that_ensures_optimal_performance_137ba95d',
-      );
-    },
+    title: 'Third-party integration.',
+    description:
+      'A responsive design that ensures optimal performance on both mobile and desktop devices.',
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.adaptive_profiles_0a3e5574');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.landing.homepage.a_sleek_dashboard_that_provides_real_time_analytics__10e23476',
-      );
-    },
+    title: 'Adaptive profiles.',
+    description:
+      'A sleek dashboard that provides real-time analytics and insights. Users can customize their views.',
   },
   {
-    get title() {
-      return i18n.t('ui.data.landing.homepage.personalized_themes_4aef3556');
-    },
-    get description() {
-      return i18n.t(
-        'ui.data.landing.homepage.a_robust_search_feature_that_helps_users_find_conten_825f9a4a',
-      );
-    },
+    title: 'Personalized themes.',
+    description: 'A robust search feature that helps users find content quickly and efficiently.',
   },
 ];
 
 export const galleryData = [
-  {
-    img: interfaceShowcase(12),
-    component: 'client-locations',
-    name: '全球贸易协作网络',
-  },
-  {
-    img: themedInterfaceShowcase(4, 3),
-    name: 'AI 需求匹配界面',
-  },
-  {
-    img: landingExample(2),
-    name: '跨境履约控制台',
-  },
-  {
-    img: landingExample(5),
-    name: '开放 API 与系统集成',
-  },
-  {
-    img: themedInterfaceShowcase(2, 1),
-    name: '数据分析与业务追踪',
-  },
-  {
-    img: landingExample(4),
-    name: '企业实时协作',
-  },
-  {
-    img: {
-      light: `${initialConfig.assetsDir}/images/landing/examples/1.webp`,
-      dark: `${initialConfig.assetsDir}/images/landing/examples/1.webp`,
-    },
-    name: '多语言与全球运营',
-  },
+  { img: gallery(1), name: 'The Zenith UI/UX' },
+  { img: gallery(2), name: 'The Atlas Interface' },
+  { img: gallery(3), name: 'The Serpentine Design' },
+  { img: gallery(4), name: 'Heritage Blueprint' },
+  { img: gallery(5), name: 'The Vaulted Architecture' },
+  { img: gallery(6), name: 'Quantum Framework' },
+  { img: gallery(7), name: 'The Urban Experience' },
 ];
 
 export const statsData = [
-  {
-    value: '4,000+',
-    get label() {
-      return i18n.t('ui.data.landing.homepage.users_and_still_counting_199d6e55');
-    },
-  },
-  {
-    value: '$25,000',
-    get label() {
-      return i18n.t('ui.data.landing.homepage.in_revenue_and_still_generating_31121901');
-    },
-  },
-  {
-    value: '3%',
-    get label() {
-      return i18n.t('ui.data.landing.homepage.flat_platform_fee_fa865c44');
-    },
-  },
-  {
-    value: '5,152',
-    get label() {
-      return i18n.t('ui.data.landing.homepage.transactions_this_year_e570c66c');
-    },
-  },
+  { value: '4,000+', label: 'Users and still counting' },
+  { value: '$25,000', label: 'In revenue and still generating' },
+  { value: '3%', label: 'Flat platform fee' },
+  { value: '5,152', label: 'Transactions this year' },
 ];
 
 export const testimonialData = [
@@ -212,11 +121,7 @@ export const blogData = [
   {
     id: 1,
     img: blog(1),
-    get title() {
-      return i18n.t(
-        'ui.data.landing.homepage.enhancing_your_conversion_rates_through_front_end_de_c23eb589',
-      );
-    },
+    title: 'Enhancing Your Conversion Rates Through Front-End Development',
     tag: 'Nature',
     date: '2024-12-31',
     timeRead: '12 min read',
@@ -226,11 +131,7 @@ export const blogData = [
   {
     id: 2,
     img: blog(2),
-    get title() {
-      return i18n.t(
-        'ui.data.landing.homepage.boosting_your_conversion_rates_with_front_end_develo_590d771c',
-      );
-    },
+    title: 'Boosting Your Conversion Rates with Front-End Development',
     tag: 'Nature',
     date: '2024-12-31',
     timeRead: '12 min read',
@@ -240,11 +141,7 @@ export const blogData = [
   {
     id: 3,
     img: blog(3),
-    get title() {
-      return i18n.t(
-        'ui.data.landing.homepage.improving_conversion_rates_via_front_end_development_1bc84e2d',
-      );
-    },
+    title: 'Improving Conversion Rates via Front-End Development',
     tag: 'Nature',
     date: '2024-12-31',
     timeRead: '12 min read',

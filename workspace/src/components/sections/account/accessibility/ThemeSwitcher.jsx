@@ -1,12 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Paper, Stack, Tab, Tabs, Typography, tabsClasses } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { basic, grey } from 'theme/colors/base';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ThemeSwitcher = () => {
-  const { t: translateUi } = useTranslation();
   const { setThemePreset, isDark } = useThemeMode();
   const { control } = useFormContext();
   return (
@@ -53,7 +51,7 @@ const ThemeSwitcher = () => {
                       color: grey[800],
                     }}
                   >
-                    {translateUi('ui.sections.account.accessibility.themeswitcher.aa_2c419ecc')}
+                    Aa
                   </Typography>
                   <Stack
                     component={Paper}
@@ -112,7 +110,7 @@ const ThemeSwitcher = () => {
                       color: grey[100],
                     }}
                   >
-                    {translateUi('ui.sections.account.accessibility.themeswitcher.aa_2c419ecc')}
+                    Aa
                   </Typography>
                   <Stack
                     component={Paper}
@@ -158,13 +156,13 @@ const ThemeSwitcher = () => {
           variant="subtitle2"
           sx={{ minWidth: 116, fontWeight: 400, color: 'text.secondary' }}
         >
-          {translateUi('ui.sections.account.accessibility.themeswitcher.light_a36ef8ab')}
+          Light
         </Typography>
         <Typography
           variant="subtitle2"
           sx={{ minWidth: 116, fontWeight: 400, color: 'text.secondary' }}
         >
-          {translateUi('ui.sections.account.accessibility.themeswitcher.dark_ae1ef014')}
+          Dark
         </Typography>
       </Stack>
     </>

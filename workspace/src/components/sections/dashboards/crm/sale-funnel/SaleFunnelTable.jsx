@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Chip,
@@ -16,7 +15,6 @@ const getChipColor = (val) => {
 };
 
 const SaleFunnelTable = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <TableContainer
       sx={{
@@ -49,15 +47,9 @@ const SaleFunnelTable = ({ data }) => {
         >
           <TableRow>
             <TableCell sx={{ p: '0 !important', width: 32 }} />
-            <TableCell sx={{ pl: 0 }}>
-              {translateUi('ui.sections.dashboards.crm.sale_funnel.stage_ca6d0e3a')}
-            </TableCell>
-            <TableCell align="right">
-              {translateUi('ui.sections.dashboards.crm.sale_funnel.lost_lead_3a97e9df')}
-            </TableCell>
-            <TableCell align="right">
-              {translateUi('ui.sections.dashboards.crm.sale_funnel.this_month_1b478533')}
-            </TableCell>
+            <TableCell sx={{ pl: 0 }}>Stage</TableCell>
+            <TableCell align="right">Lost lead</TableCell>
+            <TableCell align="right">This month</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

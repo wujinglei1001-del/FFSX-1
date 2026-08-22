@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Avatar,
@@ -19,7 +18,6 @@ import StyledTextField from 'components/styled/StyledTextField';
 import RecipientAvatar from '../common/RecipientAvatar';
 
 const NewChatHeader = ({ selectedRecipients, onRecipientsChange }) => {
-  const { t: translateUi } = useTranslation();
   const inputRef = useRef(null);
   const [open, setOpen] = useState(false);
   const { down } = useBreakpoints();
@@ -37,9 +35,7 @@ const NewChatHeader = ({ selectedRecipients, onRecipientsChange }) => {
     <Paper sx={{ px: { xs: 3, md: 5 }, py: 3 }}>
       <Stack direction="row" sx={{ gap: 1, alignItems: 'center', mb: 3 }}>
         {downSm && (
-          <Tooltip
-            title={translateUi('ui.sections.chat.new.newchatheader.conversation_list_c0f0a0f2')}
-          >
+          <Tooltip title="Conversation list">
             <Button
               shape="circle"
               variant="soft"
@@ -56,7 +52,7 @@ const NewChatHeader = ({ selectedRecipients, onRecipientsChange }) => {
             fontWeight: 400,
           }}
         >
-          {translateUi('ui.sections.chat.new.newchatheader.new_message_1ed2e7b5')}
+          New message
         </Typography>
       </Stack>
       <Stack direction="row" sx={{ gap: 1 }}>
@@ -66,7 +62,7 @@ const NewChatHeader = ({ selectedRecipients, onRecipientsChange }) => {
             mt: -0.5,
           }}
         >
-          {translateUi('ui.sections.chat.new.newchatheader.to_7e7fbc81')}{' '}
+          To:{' '}
         </Typography>
         <Autocomplete
           open={open}

@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -8,7 +7,6 @@ import AvatarDropBox from 'components/base/AvatarDropBox';
 import ApplicationFormSection from '../common/ApplicationFormSection';
 
 const BasicInfo = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -46,9 +44,7 @@ const BasicInfo = () => {
         <Grid container spacing={1}>
           <Grid size={6}>
             <TextField
-              label={translateUi(
-                'ui.sections.hiring.candidate.job_application.first_name_b6ea992a',
-              )}
+              label="First Name"
               fullWidth
               error={!!errors.personalInfo?.basic?.firstName}
               helperText={errors.personalInfo?.basic?.firstName?.message}
@@ -57,7 +53,7 @@ const BasicInfo = () => {
           </Grid>
           <Grid size={6}>
             <TextField
-              label={translateUi('ui.sections.hiring.candidate.job_application.last_name_863cb39f')}
+              label="Last Name"
               fullWidth
               error={!!errors.personalInfo?.basic?.lastName}
               helperText={errors.personalInfo?.basic?.lastName?.message}
@@ -66,7 +62,7 @@ const BasicInfo = () => {
           </Grid>
           <Grid size={6}>
             <TextField
-              label={translateUi('ui.sections.hiring.candidate.job_application.email_84add5b2')}
+              label="Email"
               fullWidth
               error={!!errors.personalInfo?.basic?.email}
               helperText={errors.personalInfo?.basic?.email?.message}
@@ -75,7 +71,7 @@ const BasicInfo = () => {
           </Grid>
           <Grid size={6}>
             <TextField
-              label={translateUi('ui.sections.hiring.candidate.job_application.phone_no_8578b945')}
+              label="Phone No"
               fullWidth
               error={!!errors.personalInfo?.basic?.phone}
               helperText={errors.personalInfo?.basic?.phone?.message}
@@ -84,9 +80,7 @@ const BasicInfo = () => {
           </Grid>
           <Grid size={12}>
             <TextField
-              label={translateUi(
-                'ui.sections.hiring.candidate.job_application.current_address_04dbe0f3',
-              )}
+              label="Current Address"
               fullWidth
               error={!!errors.personalInfo?.basic?.currentAddress}
               helperText={errors.personalInfo?.basic?.currentAddress?.message}
@@ -95,9 +89,7 @@ const BasicInfo = () => {
           </Grid>
           <Grid size={12}>
             <TextField
-              label={translateUi(
-                'ui.sections.hiring.candidate.job_application.permanent_address_b1bfe9e9',
-              )}
+              label="Permanent Address"
               fullWidth
               error={!!errors.personalInfo?.basic?.permanentAddress}
               helperText={errors.personalInfo?.basic?.permanentAddress?.message}

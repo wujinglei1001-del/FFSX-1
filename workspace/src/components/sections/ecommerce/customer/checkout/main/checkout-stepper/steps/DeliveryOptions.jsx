@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Chip,
@@ -13,7 +12,6 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import useNumberFormat from 'hooks/useNumberFormat';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 const deliveryOptions = [
@@ -57,16 +55,11 @@ const deliveryOptions = [
 
 export const deliveryOptionFormSchema = yup
   .object({
-    deliveryOption: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.ecommerce.customer.checkout.please_select_a_delivery_option_1537ed83'),
-      ),
+    deliveryOption: yup.string().required('Please select a delivery option.'),
   })
   .required();
 
 const DeliveryOptions = () => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const {
     control,
@@ -91,7 +84,7 @@ const DeliveryOptions = () => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.checkout.category_a3c686e7')}
+              Category
             </Typography>
           </Grid>
           <Grid size={5}>
@@ -101,7 +94,7 @@ const DeliveryOptions = () => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.checkout.estimated_arrival_9446222d')}
+              Estimated arrival
             </Typography>
           </Grid>
           <Grid sx={{ textAlign: 'end' }} size={3}>
@@ -111,7 +104,7 @@ const DeliveryOptions = () => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.checkout.shipping_cost_3ff0465a')}
+              Shipping cost
             </Typography>
           </Grid>
         </Grid>
@@ -179,10 +172,7 @@ const DeliveryOptions = () => {
                                 mb: 1,
                               }}
                             >
-                              {translateUi(
-                                'ui.sections.ecommerce.customer.checkout.receive_by_743ee91a',
-                              )}
-                              {option.estimatedArrival.date}
+                              Receive by {option.estimatedArrival.date}
                             </Typography>
                             <Chip
                               label={option.estimatedArrival.days}

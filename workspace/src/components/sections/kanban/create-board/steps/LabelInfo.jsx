@@ -1,7 +1,5 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, IconButton, Stack, TextField } from '@mui/material';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ColorPicker from 'components/base/color-picker/ColorPicker';
@@ -11,21 +9,14 @@ export const labelInfoFormSchema = yup.object().shape({
     .array()
     .of(
       yup.object().shape({
-        label: yup
-          .string()
-          .required(
-            i18n.t('ui.sections.kanban.create_board.steps.label_name_is_required_b83e3fb2'),
-          ),
-        color: yup
-          .string()
-          .required(i18n.t('ui.sections.kanban.create_board.steps.color_is_required_4f0d080c')),
+        label: yup.string().required('Label name is required'),
+        color: yup.string().required('Color is required'),
       }),
     )
     .required(),
 });
 
 const LabelInfo = () => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -84,7 +75,7 @@ const LabelInfo = () => {
         }
         onClick={() => append({ label: '', color: 'primary.lighter' })}
       >
-        {translateUi('ui.sections.kanban.create_board.steps.add_label_591203a2')}
+        Add Label
       </Button>
     </>
   );

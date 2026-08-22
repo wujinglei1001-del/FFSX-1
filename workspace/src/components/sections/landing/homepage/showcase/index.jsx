@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
@@ -10,7 +9,6 @@ import { StripedBackground } from '../../common/StripedBackground';
 import ShowcaseItem from './Item';
 
 const Showcase = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
   return (
@@ -21,12 +19,7 @@ const Showcase = ({ data }) => {
             gap: 3,
           }}
         >
-          <SectionHeader
-            title={translateUi('ui.sections.landing.homepage.showcase.showcase_5577e487')}
-            subtitle={translateUi(
-              'ui.sections.landing.homepage.showcase.our_selected_works_cd66fa68',
-            )}
-          />
+          <SectionHeader title="Showcase" subtitle="Our selected works" />
           <Box
             sx={{
               position: 'relative',

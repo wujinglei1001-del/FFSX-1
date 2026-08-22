@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Paper, Stack } from '@mui/material';
 import { monthlyProfitChartData } from 'data/e-commerce/dashboard';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -7,7 +6,6 @@ import EcomStatSection from 'components/sections/common/EcomStatSection';
 import MonthlyProfitChart from './MonthlyProfitChart';
 
 const MonthlyProfit = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, flex: 1, height: 1 }}>
       <Stack
@@ -18,10 +16,8 @@ const MonthlyProfit = () => {
         }}
       >
         <SectionHeader
-          title={translateUi(
-            'ui.sections.dashboards.e_commerce.monthly_profit.monthly_earnings_fed45ea1',
-          )}
-          subTitle="累计利润"
+          title="Monthly Earnings"
+          subTitle="Total profit gained"
           actionComponent={<DashboardMenu />}
           sx={{ mb: 0 }}
         />

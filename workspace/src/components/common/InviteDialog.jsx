@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Avatar,
@@ -24,7 +23,6 @@ import StyledSelect from 'components/styled/StyledSelect';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const InviteDialog = ({ open, onClose }) => {
-  const { t: translateUi } = useTranslation();
   const [selectedMembers, setSelectedMembers] = useState([]);
   const [message, setMessage] = useState('');
   const [memberRole, setMemberRole] = useState('Member');
@@ -51,9 +49,7 @@ const InviteDialog = ({ open, onClose }) => {
           direction="row"
           sx={{ mb: 3, alignItems: 'center', justifyContent: 'space-between' }}
         >
-          <Typography variant="h6">
-            {translateUi('ui.components.common.invitedialog.invite_members_a30eb836')}
-          </Typography>
+          <Typography variant="h6">Invite members</Typography>
           <Button variant="text" color="neutral" size="small" shape="square" onClick={onClose}>
             <IconifyIcon
               icon="material-symbols:close-rounded"
@@ -127,7 +123,7 @@ const InviteDialog = ({ open, onClose }) => {
                 {...params}
                 autoFocus
                 fullWidth
-                placeholder={translateUi('ui.components.common.invitedialog.add_user_f347a8dd')}
+                placeholder="Add user"
                 sx={{
                   [`& .${inputBaseClasses.root}`]: {
                     px: '8px !important',
@@ -159,24 +155,16 @@ const InviteDialog = ({ open, onClose }) => {
               },
             }}
           >
-            <MenuItem value="Member">
-              {translateUi('ui.components.common.invitedialog.member_6853c98a')}
-            </MenuItem>
-            <MenuItem value="Admin">
-              {translateUi('ui.components.common.invitedialog.admin_4e7afebc')}
-            </MenuItem>
-            <MenuItem value="Guest">
-              {translateUi('ui.components.common.invitedialog.guest_face83ee')}
-            </MenuItem>
+            <MenuItem value="Member">Member</MenuItem>
+            <MenuItem value="Admin">Admin</MenuItem>
+            <MenuItem value="Guest">Guest</MenuItem>
           </StyledSelect>
         </Stack>
         <TextField
           fullWidth
           multiline
           rows={3}
-          label={translateUi(
-            'ui.components.common.invitedialog.write_a_short_message_optional_b3508a62',
-          )}
+          label="Write a short message (optional)"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
         />
@@ -186,14 +174,14 @@ const InviteDialog = ({ open, onClose }) => {
           startIcon={<IconifyIcon icon="material-symbols:link-rounded" />}
           sx={{ flexShrink: 0 }}
         >
-          {translateUi('ui.components.common.invitedialog.create_copy_link_5a5b4e02')}
+          Create & copy link
         </Button>
         <Box sx={{ ml: 'auto !important' }}>
           <Button color="neutral" onClick={onClose}>
-            {translateUi('ui.components.common.invitedialog.cancel_77dfd213')}
+            Cancel
           </Button>
           <Button onClick={onClose} autoFocus>
-            {translateUi('ui.components.common.invitedialog.invite_b136609f')}
+            Invite
           </Button>
         </Box>
       </DialogActions>

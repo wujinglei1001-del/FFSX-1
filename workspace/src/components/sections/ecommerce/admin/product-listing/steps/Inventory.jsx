@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Controller, useFieldArray, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Checkbox,
   FormControl,
@@ -14,7 +13,6 @@ import {
   TextField,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 export const productInventoryFormSchema = yup.object({
@@ -23,21 +21,9 @@ export const productInventoryFormSchema = yup.object({
     .of(
       yup
         .object({
-          variant: yup
-            .string()
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-            ),
-          sku: yup
-            .string()
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-            ),
-          barcode: yup
-            .string()
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-            ),
+          variant: yup.string().required('This field is required'),
+          sku: yup.string().required('This field is required'),
+          barcode: yup.string().required('This field is required'),
         })
         .required(),
     )
@@ -51,7 +37,6 @@ export const productInventoryFormSchema = yup.object({
 });
 
 const Inventory = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -91,12 +76,7 @@ const Inventory = () => {
     <Grid container rowSpacing={5} columnSpacing={1}>
       <Grid size={12}>
         <TableContainer>
-          <Table
-            sx={{ minWidth: 720 }}
-            aria-label={translateUi(
-              'ui.sections.ecommerce.admin.product_listing.pricing_table_dc8d8859',
-            )}
-          >
+          <Table sx={{ minWidth: 720 }} aria-label="pricing table">
             <TableHead>
               <TableRow
                 sx={{
@@ -105,19 +85,9 @@ const Inventory = () => {
                   },
                 }}
               >
-                <TableCell sx={{ width: '30%' }}>
-                  {translateUi('ui.sections.ecommerce.admin.product_listing.variant_cc91b1ea')}
-                </TableCell>
-                <TableCell sx={{ width: '35%' }}>
-                  {translateUi(
-                    'ui.sections.ecommerce.admin.product_listing.sku_stock_keeping_unit_7f384026',
-                  )}
-                </TableCell>
-                <TableCell sx={{ width: '35%' }}>
-                  {translateUi(
-                    'ui.sections.ecommerce.admin.product_listing.barcode_isbn_upc_gtin_etc_2518a1ee',
-                  )}
-                </TableCell>
+                <TableCell sx={{ width: '30%' }}>Variant</TableCell>
+                <TableCell sx={{ width: '35%' }}>SKU (Stock keeping unit)</TableCell>
+                <TableCell sx={{ width: '35%' }}>Barcode (ISBN, UPC, GTIN etc)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody
@@ -130,9 +100,7 @@ const Inventory = () => {
                   <TableCell>{field.variant}</TableCell>
                   <TableCell>
                     <TextField
-                      label={translateUi(
-                        'ui.sections.ecommerce.admin.product_listing.sku_stock_keeping_unit_7f384026',
-                      )}
+                      label="SKU  (Stock keeping unit)"
                       type="text"
                       fullWidth
                       error={!!errors.inventories?.[index]?.sku?.message}
@@ -143,9 +111,7 @@ const Inventory = () => {
                   <TableCell>
                     <TextField
                       fullWidth
-                      label={translateUi(
-                        'ui.sections.ecommerce.admin.product_listing.barcode_isbn_upc_gtin_etc_2518a1ee',
-                      )}
+                      label="Barcode (ISBN, UPC, GTIN etc)"
                       type="text"
                       error={!!errors.inventories?.[index]?.barcode?.message}
                       helperText={errors.inventories?.[index]?.barcode?.message}
@@ -170,9 +136,7 @@ const Inventory = () => {
                 render={({ field }) => <Checkbox {...field} checked={field.value} />}
               />
             }
-            label={translateUi(
-              'ui.sections.ecommerce.admin.product_listing.track_quantity_8b8f12a0',
-            )}
+            label="Track quantity"
           />
         </FormControl>
 
@@ -186,9 +150,7 @@ const Inventory = () => {
                 render={({ field }) => <Checkbox {...field} checked={field.value} />}
               />
             }
-            label={translateUi(
-              'ui.sections.ecommerce.admin.product_listing.continue_selling_when_out_of_stock_0a6b5da3',
-            )}
+            label="Continue selling when out of stock"
           />
         </FormControl>
       </Grid>

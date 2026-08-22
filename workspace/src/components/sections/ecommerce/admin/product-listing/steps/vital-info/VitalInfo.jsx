@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   FormControl,
   FormHelperText,
@@ -11,55 +10,24 @@ import {
   Typography,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 import * as yup from 'yup';
 import Category from './CategorySelect';
 
 export const vitalInfoFormSchema = yup
   .object({
     vitalInfo: yup.object({
-      productId: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
-      productIdType: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
-      category: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
-      title: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
-      brand: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
-      manufacturer: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
-      mfrNumber: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.admin.product_listing.this_field_is_required_dedbaded'),
-        ),
+      productId: yup.string().required('This field is required'),
+      productIdType: yup.string().required('This field is required'),
+      category: yup.string().required('This field is required'),
+      title: yup.string().required('This field is required'),
+      brand: yup.string().required('This field is required'),
+      manufacturer: yup.string().required('This field is required'),
+      mfrNumber: yup.string().required('This field is required'),
     }),
   })
   .required();
 
 const VitalInfo = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -78,7 +46,7 @@ const VitalInfo = () => {
           fullWidth
           id="productId"
           type="text"
-          label={translateUi('ui.sections.ecommerce.admin.product_listing.product_id_ea9c55c5')}
+          label="Product ID"
           variant="filled"
           error={!!errors.vitalInfo?.productId}
           helperText={errors.vitalInfo?.productId?.message}
@@ -92,9 +60,7 @@ const VitalInfo = () => {
         }}
       >
         <FormControl variant="filled" fullWidth error={!!errors.vitalInfo?.productIdType}>
-          <InputLabel id="productID-type-label">
-            {translateUi('ui.sections.ecommerce.admin.product_listing.product_id_type_11c30276')}
-          </InputLabel>
+          <InputLabel id="productID-type-label">Product ID type</InputLabel>
 
           <Controller
             name="vitalInfo.productIdType"
@@ -103,9 +69,7 @@ const VitalInfo = () => {
             render={({ field }) => (
               <Select
                 labelId="productID-type-label"
-                label={translateUi(
-                  'ui.sections.ecommerce.admin.product_listing.product_id_type_11c30276',
-                )}
+                label="Product ID type"
                 {...field}
                 displayEmpty
                 inputProps={{ 'aria-label': 'Without label' }}
@@ -128,16 +92,16 @@ const VitalInfo = () => {
             mb: 1,
           }}
         >
-          {translateUi(
-            'ui.sections.ecommerce.admin.product_listing.to_list_your_products_you_require_a_unique_identifie_f1281f24',
-          )}{' '}
+          To list your products you require a unique identifier for your product such as UPC, EAN,
+          or GCID. You can request exemptions to list products that do not have standard product IDs
+          for certain categories{' '}
           <Link
-            href={paths.landingFaq}
+            href="#!"
             sx={{
               fontWeight: 700,
             }}
           >
-            {translateUi('ui.sections.ecommerce.admin.product_listing.learn_more_824d76b1')}
+            Learn more
           </Link>
         </Typography>
       </Grid>
@@ -149,7 +113,7 @@ const VitalInfo = () => {
           fullWidth
           id="title"
           type="text"
-          label={translateUi('ui.sections.ecommerce.admin.product_listing.title_768e0c1c')}
+          label="Title"
           variant="filled"
           error={!!errors.vitalInfo?.title}
           helperText={errors.vitalInfo?.title?.message}
@@ -161,7 +125,7 @@ const VitalInfo = () => {
           fullWidth
           id="brand"
           type="text"
-          label={translateUi('ui.sections.ecommerce.admin.product_listing.brand_62b4aa57')}
+          label="Brand"
           variant="filled"
           error={!!errors.vitalInfo?.brand}
           helperText={errors.vitalInfo?.brand?.message}
@@ -173,7 +137,7 @@ const VitalInfo = () => {
           fullWidth
           id="manufacturer"
           type="text"
-          label={translateUi('ui.sections.ecommerce.admin.product_listing.manufacturer_7adfcd13')}
+          label="Manufacturer"
           variant="filled"
           error={!!errors.vitalInfo?.manufacturer}
           helperText={errors.vitalInfo?.manufacturer?.message}
@@ -185,9 +149,7 @@ const VitalInfo = () => {
           fullWidth
           id="mfrNumber"
           type="text"
-          label={translateUi(
-            'ui.sections.ecommerce.admin.product_listing.mfr_part_number_cfa9980b',
-          )}
+          label="MFR part number"
           variant="filled"
           error={!!errors.vitalInfo?.mfrNumber}
           helperText={errors.vitalInfo?.mfrNumber?.message}

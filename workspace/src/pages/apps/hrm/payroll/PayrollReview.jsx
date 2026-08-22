@@ -1,22 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
-import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import HeaderAction from 'components/sections/hrm/payroll/common/HeaderAction';
 import PayrollPreviewMain from 'components/sections/hrm/payroll/payroll-review';
 
 const PayrollReview = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper>
       <PageHeader
-        title={translateUi('ui.pages.apps.hrm.payroll.payroll_review_23700363')}
+        title="Payroll Review"
         breadcrumb={[
-          {
-            label: translateUi('ui.pages.apps.hrm.payroll.home_70f8bb9a'),
-            url: paths.workbench,
-          },
-          { label: translateUi('ui.pages.apps.hrm.payroll.payroll_review_23700363'), active: true },
+          { label: 'Home', url: '#!' },
+          { label: 'Payroll Review', active: true },
         ]}
         actionComponent={<HeaderAction />}
       />

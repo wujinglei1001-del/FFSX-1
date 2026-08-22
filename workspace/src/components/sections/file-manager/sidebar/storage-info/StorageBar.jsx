@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Stack, Tooltip, Typography } from '@mui/material';
 
 const segmentColors = {
@@ -11,7 +10,6 @@ const segmentColors = {
 };
 
 const StorageBar = ({ data, totalStorage = 20 }) => {
-  const { t: translateUi } = useTranslation();
   const usedStorage = Number(data.reduce((acc, curr) => acc + curr.size, 0).toFixed(2));
   const percentUsed = Math.round((usedStorage / totalStorage) * 100);
 
@@ -40,8 +38,7 @@ const StorageBar = ({ data, totalStorage = 20 }) => {
           fontWeight: 600,
         }}
       >
-        {percentUsed}
-        {translateUi('ui.sections.file_manager.sidebar.storage_info.full_5418230f')}
+        {percentUsed}% Full
       </Typography>
       <Stack
         direction="row"
@@ -76,10 +73,7 @@ const StorageBar = ({ data, totalStorage = 20 }) => {
           color: 'text.secondary',
         }}
       >
-        {translateUi('ui.sections.file_manager.sidebar.storage_info.used_ce1e5c7e')}
-        {usedStorage}
-        {translateUi('ui.sections.file_manager.sidebar.storage_info.gb_of_d4285bdc')}
-        {totalStorage} GB
+        Used: {usedStorage} GB of {totalStorage} GB
       </Typography>
     </Stack>
   );

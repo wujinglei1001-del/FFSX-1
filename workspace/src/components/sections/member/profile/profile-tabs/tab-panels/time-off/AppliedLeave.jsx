@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Paper, Stack, Typography } from '@mui/material';
 import DashboardMenu from 'components/common/DashboardMenu';
 
 const AppliedLeave = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ p: { xs: 2, sm: 3 }, outline: 0, borderRadius: 4, minWidth: 0 }}>
       <Stack
@@ -14,7 +12,7 @@ const AppliedLeave = ({ data }) => {
         }}
       >
         <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-          {translateUi('ui.sections.member.profile.profile_tabs.applied_leave_56bde9af')}
+          Applied Leave
         </Typography>
         <Stack
           sx={{
@@ -85,7 +83,7 @@ const AppliedLeave = ({ data }) => {
                       sx={{ fontWeight: 400, color: 'text.secondary' }}
                       noWrap
                     >
-                      {translateUi('ui.sections.member.profile.profile_tabs.reason_f219cc06')}
+                      Reason
                     </Typography>
                     <Typography variant="subtitle2" sx={{ fontWeight: 700 }} noWrap>
                       {item.reason}

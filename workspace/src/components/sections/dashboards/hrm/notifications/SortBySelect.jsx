@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { selectClasses } from '@mui/material';
 import MenuItem from '@mui/material/MenuItem';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const SortBySelect = () => {
-  const { t: translateUi } = useTranslation();
   const [sortBy, setSortBy] = useState('');
 
   return (
@@ -28,7 +26,7 @@ const SortBySelect = () => {
       }}
     >
       <MenuItem value="sort-by" disabled sx={{ display: 'none' }}>
-        {translateUi('ui.sections.dashboards.hrm.notifications.sort_by_a2a5bdec')}
+        Sort by
       </MenuItem>
 
       {['Latest', 'Oldest', 'High priority'].map((item) => (

@@ -1,16 +1,14 @@
-import { useTranslation } from 'react-i18next';
 import { InputAdornment } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const SearchTextField = ({ slotProps, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   const { input: inputSlotProps } = slotProps || {};
 
   return (
     <StyledTextField
       id="search-box"
-      placeholder={translateUi('ffax.ui.search')}
+      placeholder="Search"
       sx={{
         minWidth: 348,
       }}

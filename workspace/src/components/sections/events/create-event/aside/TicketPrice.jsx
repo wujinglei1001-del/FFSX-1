@@ -1,5 +1,4 @@
 import { Controller, useFieldArray, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Box,
@@ -18,7 +17,6 @@ import NumberTextField from 'components/base/NumberTextField';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const TicketPrice = ({ handleClose }) => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     register,
@@ -57,9 +55,7 @@ const TicketPrice = ({ handleClose }) => {
           mb: 3,
         }}
       >
-        <Typography variant="h6">
-          {translateUi('ui.sections.events.create_event.aside.ticket_price_baf50f96')}
-        </Typography>
+        <Typography variant="h6">Ticket Price</Typography>
 
         {handleClose && (
           <Button shape="circle" variant="soft" color="neutral" onClick={handleClose}>
@@ -92,7 +88,7 @@ const TicketPrice = ({ handleClose }) => {
                       fontWeight: 400,
                     }}
                   >
-                    {translateUi('ui.sections.events.create_event.aside.free_75f52718')}
+                    Free
                   </Typography>
                 }
               />
@@ -107,7 +103,7 @@ const TicketPrice = ({ handleClose }) => {
                       fontWeight: 400,
                     }}
                   >
-                    {translateUi('ui.sections.events.create_event.aside.paid_dc9d4584')}
+                    Paid
                   </Typography>
                 }
               />
@@ -127,7 +123,7 @@ const TicketPrice = ({ handleClose }) => {
                   <TextField
                     fullWidth
                     type="text"
-                    label={translateUi('ui.sections.events.create_event.aside.options_6bf5da9c')}
+                    label="Options"
                     placeholder="VIP"
                     {...register(`ticketPricing.options.${index}.name`)}
                     error={!!errors.ticketPricing?.options?.[index]?.name}
@@ -136,7 +132,7 @@ const TicketPrice = ({ handleClose }) => {
                   <Stack direction="row" sx={{ gap: 1 }}>
                     <NumberTextField
                       fullWidth
-                      label={translateUi('ui.sections.events.create_event.aside.price_3e8248e3')}
+                      label="Price"
                       placeholder="$0.00"
                       error={!!errors.ticketPricing?.options?.[index]?.price}
                       helperText={errors.ticketPricing?.options?.[index]?.price?.message}
@@ -146,9 +142,7 @@ const TicketPrice = ({ handleClose }) => {
                     />
                     <NumberTextField
                       fullWidth
-                      label={translateUi(
-                        'ui.sections.events.create_event.aside.no_of_tickets_254a4234',
-                      )}
+                      label="No. of tickets"
                       error={!!errors.ticketPricing?.options?.[index]?.noOfTickets}
                       helperText={errors.ticketPricing?.options?.[index]?.noOfTickets?.message}
                       {...register(`ticketPricing.options.${index}.noOfTickets`, {
@@ -211,7 +205,7 @@ const TicketPrice = ({ handleClose }) => {
           variant="text"
           startIcon={<IconifyIcon icon="material-symbols:add-rounded" />}
         >
-          {translateUi('ui.sections.events.create_event.aside.add_another_option_c6f492f1')}
+          Add another option
         </Button>
       )}
     </Box>

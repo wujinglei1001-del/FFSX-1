@@ -1,5 +1,7 @@
-import i18n from 'locales/i18n';
+import { initialConfig } from 'config';
 import { users } from './users';
+
+const logo = (index) => `${initialConfig.assetsDir}/images/logo/${index}.svg`;
 
 export const invoiceListTableRowData = [
   {
@@ -295,9 +297,9 @@ export const invoiceListTableRowData = [
 export const recipientLists = [
   {
     id: 1,
-    name: 'FFA-X',
+    name: 'Aurora',
     avatar: users[6].avatar,
-    email: 'contact@ffax.com',
+    email: 'aurora@themewagon.com',
     status: 'Active',
     phone: '+123456789012',
     location: 'Apt: 6/B, 192 Edsel Road, Van Nuys, California, USA 96580',
@@ -341,18 +343,18 @@ export const recipientLists = [
 ];
 
 export const invoiceData = {
-  organizationImage: { id: 1, file: `${import.meta.env.BASE_URL}ffax.svg` },
+  organizationImage: { id: 1, file: logo(19) },
   invoiceFrom: {
-    name: 'FFA-X',
+    name: 'Themewagon',
     phone: '+123456789012',
-    email: 'contact@ffax.com',
+    email: 'themewagon@gmail.com',
     address: 'Wilmington, DE, US 19802-4447',
     issueDate: '2025-04-20',
   },
   invoiceTo: {
-    name: 'Global Trade Partner',
+    name: 'Aurora',
     phone: '+123456789564',
-    email: 'contact@ffax.com',
+    email: 'aurora@themewagon.com',
     address: '192 Edsel Road, California, USA 96580',
     issueDate: '2025-03-25',
   },
@@ -368,62 +370,50 @@ export const invoiceData = {
     {
       id: 1,
       type: 'service',
-      get description() {
-        return i18n.t('ui.data.invoice.web_design_service_08d28db3');
-      },
+      description: 'Web design service',
       quantity: 3,
       price: 50,
     },
     {
       id: 2,
       type: 'product',
-      get description() {
-        return i18n.t('ui.data.invoice.sofa_set_bbfe6b84');
-      },
+      description: 'Sofa set',
       quantity: 2,
       price: 80.0,
     },
     {
       id: 3,
       type: 'service',
-      get description() {
-        return i18n.t('ui.data.invoice.facebook_and_campaign_94eb7390');
-      },
+      description: 'Facebook and campaign',
       quantity: 1,
       price: 50.0,
     },
   ],
-  note: 'Thank you for your business. If you have any questions concerning this invoice, contact FFA-X at contact@ffax.com.',
+  note: 'Thank you for your business. If you have any questions concerning this invoice, contact customer service +1 302 433 6002 or send an email at info@themewagon.com.',
 };
 
 export const invoiceHistories = [
   {
     id: 1,
     date: '2025-03-18T14:02:00',
-    companyName: 'FFA-X',
-    get message() {
-      return i18n.t('ui.data.invoice.has_sent_invoice_to_72ce96b4');
-    },
-    image: `${import.meta.env.BASE_URL}ffax.svg`,
+    companyName: 'Themewagon',
+    message: 'has sent invoice to ',
+    image: logo(20),
     email: 'janedoe@gmail.com',
   },
   {
     id: 2,
     date: '2025-03-18T14:02:00',
-    companyName: 'FFA-X',
-    get message() {
-      return i18n.t('ui.data.invoice.has_updated_the_invoice_e5eb3b54');
-    },
-    image: `${import.meta.env.BASE_URL}ffax.svg`,
+    companyName: 'Themewagon',
+    message: 'has updated the invoice.',
+    image: logo(20),
   },
   {
     id: 3,
     date: '2025-03-18T14:02:00',
-    companyName: 'FFA-X',
-    get message() {
-      return i18n.t('ui.data.invoice.has_created_the_invoice_d53d4b6e');
-    },
-    image: `${import.meta.env.BASE_URL}ffax.svg`,
+    companyName: 'Themewagon',
+    message: 'has created the invoice. ',
+    image: logo(20),
     isLast: true,
   },
 ];

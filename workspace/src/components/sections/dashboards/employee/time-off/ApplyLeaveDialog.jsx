@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@mui/material/Button';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
@@ -16,29 +15,19 @@ import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { Fragment } from 'react/jsx-runtime';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const leaveApplyingSchema = yup.object({
-  from: yup
-    .date()
-    .required(i18n.t('ui.sections.dashboards.employee.time_off.date_is_required_2f7469c4')),
-  to: yup
-    .date()
-    .required(i18n.t('ui.sections.dashboards.employee.time_off.date_is_required_2f7469c4')),
-  categories: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.employee.time_off.category_is_required_eb1ae362')),
+  from: yup.date().required('Date is required'),
+  to: yup.date().required('Date is required'),
+  categories: yup.string().required('Category is required'),
   totalDays: yup.number().required(''),
-  reason: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.employee.time_off.reason_is_required_d691fce5')),
+  reason: yup.string().required('Reason is required'),
 });
 const ApplyLeaveDialog = () => {
-  const { t: translateUi } = useTranslation();
   const {
     handleSubmit,
     control,
@@ -69,7 +58,7 @@ const ApplyLeaveDialog = () => {
   return (
     <Fragment>
       <Button fullWidth variant="soft" color="neutral" onClick={(_) => setOpen(true)}>
-        {translateUi('ui.sections.dashboards.employee.time_off.apply_leave_b9236983')}
+        Apply Leave
       </Button>
       <Dialog
         open={open}
@@ -98,7 +87,7 @@ const ApplyLeaveDialog = () => {
             alignItems: 'center',
           })}
         >
-          {translateUi('ui.sections.dashboards.employee.time_off.leave_request_261b685d')}
+          Leave Request
           <Button shape="circle" color="neutral" onClick={onClose}>
             <IconifyIcon
               icon="material-symbols:close"
@@ -113,9 +102,8 @@ const ApplyLeaveDialog = () => {
             variant="body2"
             sx={{ color: 'text.secondary', mb: 3, textWrap: 'pretty' }}
           >
-            {translateUi(
-              'ui.sections.dashboards.employee.time_off.provide_the_details_of_your_leave_request_includingd_f5fc89b3',
-            )}
+            Provide the details of your leave request, includingdates, type of leave, and a brief
+            reason for your absence.
           </DialogContentText>
           <Grid container rowSpacing={2} columnSpacing={1} sx={{ mb: 3 }}>
             <Grid size={6}>
@@ -124,7 +112,7 @@ const ApplyLeaveDialog = () => {
                 control={control}
                 render={({ field }) => (
                   <DatePicker
-                    label={translateUi('ui.sections.dashboards.employee.time_off.from_3f66052a')}
+                    label="From"
                     value={field.value ? dayjs(field.value) : null}
                     onChange={(val) => field.onChange(val?.toDate())}
                     slotProps={{
@@ -145,7 +133,7 @@ const ApplyLeaveDialog = () => {
                 control={control}
                 render={({ field }) => (
                   <DatePicker
-                    label={translateUi('ui.sections.dashboards.employee.time_off.to_ae79ea1e')}
+                    label="To"
                     value={field.value ? dayjs(field.value) : null}
                     onChange={(val) => field.onChange(val?.toDate())}
                     slotProps={{
@@ -164,32 +152,24 @@ const ApplyLeaveDialog = () => {
               <TextField
                 select
                 fullWidth
-                label={translateUi('ui.sections.dashboards.employee.time_off.cateogories_3361d230')}
+                label="Cateogories"
                 error={!!errors.categories}
                 helperText={errors.categories?.message}
                 {...register('categories')}
                 defaultValue=""
               >
                 <MenuItem value="" disabled>
-                  {translateUi('ui.sections.dashboards.employee.time_off.select_85982229')}
+                  Select
                 </MenuItem>
-                <MenuItem value="Casual Leave">
-                  {translateUi('ui.sections.dashboards.employee.time_off.casual_leave_4d425434')}
-                </MenuItem>
-                <MenuItem value="Sick Leave">
-                  {translateUi('ui.sections.dashboards.employee.time_off.sick_leave_2d980554')}
-                </MenuItem>
-                <MenuItem value="Paid Leave">
-                  {translateUi('ui.sections.dashboards.employee.time_off.paid_leave_f1eec325')}
-                </MenuItem>
-                <MenuItem value="Vacation">
-                  {translateUi('ui.sections.dashboards.employee.time_off.vacation_789ca75e')}
-                </MenuItem>
+                <MenuItem value="Casual Leave">Casual Leave</MenuItem>
+                <MenuItem value="Sick Leave">Sick Leave</MenuItem>
+                <MenuItem value="Paid Leave">Paid Leave</MenuItem>
+                <MenuItem value="Vacation">Vacation</MenuItem>
               </TextField>
             </Grid>
             <Grid size={6}>
               <TextField
-                label={translateUi('ui.sections.dashboards.employee.time_off.total_days_b60c2dd3')}
+                label="Total Days"
                 fullWidth
                 slotProps={{
                   input: {
@@ -201,7 +181,7 @@ const ApplyLeaveDialog = () => {
             </Grid>
           </Grid>
           <TextAreaField
-            placeholder={translateUi('ui.sections.dashboards.employee.time_off.reason_f219cc06')}
+            placeholder="Reason"
             error={!!errors.reason}
             helperText={errors.reason?.message}
             {...register('reason')}
@@ -214,10 +194,10 @@ const ApplyLeaveDialog = () => {
           })}
         >
           <Button color="neutral" onClick={() => onClose()} sx={{ ml: 'auto !important' }}>
-            {translateUi('ui.sections.dashboards.employee.time_off.discard_36fff63c')}
+            Discard
           </Button>
           <Button type="submit" variant="contained" color="primary">
-            {translateUi('ui.sections.dashboards.employee.time_off.save_efc007a3')}
+            Save
           </Button>
         </DialogActions>
       </Dialog>

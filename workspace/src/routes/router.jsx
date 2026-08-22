@@ -1,16 +1,16 @@
 import { Suspense, lazy } from 'react';
 import { Navigate, Outlet, createBrowserRouter, useLocation } from 'react-router';
 import AuthLayout from 'layouts/auth-layout';
-import ZitadelAuthLayout from 'layouts/auth-layout/ZitadelAuthLayout';
+import DefaultAuthLayout from 'layouts/auth-layout/DefaultAuthLayout';
 import EcommerceLayout from 'layouts/ecommerce-layout';
 import LandingLayout from 'layouts/landing-layout';
 import MainLayout from 'layouts/main-layout';
 import Page404 from 'pages/errors/Page404';
-import AuthGuard from 'components/guard/AuthGuard';
 import PageLoader from 'components/loading/PageLoader';
+import AuthGuard from 'components/guard/AuthGuard';
 import AllFiles from 'components/sections/file-manager/main/all-files';
 import RecentFiles from 'components/sections/file-manager/main/recent-files';
-import paths, { rootPaths, workbenchEntryPath } from './paths';
+import paths, { rootPaths } from './paths';
 
 const RunPayroll = lazy(() => import('pages/apps/hrm/payroll/RunPayroll'));
 const PayrollDashboard = lazy(() => import('pages/apps/hrm/payroll/PayrollDashboard'));
@@ -37,7 +37,10 @@ const InvoicePreview = lazy(() => import('pages/apps/invoice/InvoicePreview'));
 // import App from 'App';
 const App = lazy(() => import('App'));
 
-const LoggedOut = lazy(() => import('pages/authentication/zitadel/LoggedOut'));
+// import AuthGurad from 'components/guard/AuthGuard';
+// import GuestGurad from 'components/guard/GuestGurad';
+// import Splash from 'components/loading/Splash';
+const LoggedOut = lazy(() => import('pages/authentication/default/LoggedOut'));
 const ProjectManagement = lazy(() => import('pages/dashboards/ProjectManagement'));
 const Account = lazy(() => import('pages/others/Account'));
 const Starter = lazy(() => import('pages/others/Starter'));
@@ -53,9 +56,18 @@ const CRM = lazy(() => import('pages/dashboards/CRM'));
 const Analytics = lazy(() => import('pages/dashboards/Analytics'));
 const HRM = lazy(() => import('pages/dashboards/HRM'));
 const TimeTracker = lazy(() => import('pages/dashboards/TimeTracker'));
-const Login = lazy(() => import('pages/authentication/zitadel/Login'));
-const Signup = lazy(() => import('pages/authentication/zitadel/Signup'));
-const VerifyEmail = lazy(() => import('pages/authentication/zitadel/VerifyEmail'));
+const Login = lazy(() => import('pages/authentication/default/jwt/Login'));
+const ZitadelLogin = lazy(() => import('pages/authentication/zitadel/Login'));
+const Signup = lazy(() => import('pages/authentication/default/jwt/Signup'));
+const ForgotPassword = lazy(() => import('pages/authentication/default/jwt/ForgotPassword'));
+const TwoFA = lazy(() => import('pages/authentication/default/jwt/TwoFA'));
+const SetPassword = lazy(() => import('pages/authentication/default/jwt/SetPassword'));
+const FirebaseLogin = lazy(() => import('pages/authentication/default/firebase/Login'));
+const FirebaseSignup = lazy(() => import('pages/authentication/default/firebase/Signup'));
+const FirebaseForgotPassword = lazy(
+  () => import('pages/authentication/default/firebase/ForgotPassword'),
+);
+const Auth0Login = lazy(() => import('pages/authentication/default/auth0/Login'));
 
 const EcommerceHomepage = lazy(() => import('pages/apps/ecommerce/customer/Homepage'));
 const Products = lazy(() => import('pages/apps/ecommerce/customer/Products'));
@@ -122,8 +134,11 @@ const CreateAutomation = lazy(() => import('pages/apps/project/CreateAutomation'
 const TableView = lazy(() => import('pages/apps/project/TableView'));
 
 const CalendarLayout = lazy(() => import('components/sections/calendar/CalendarLayout'));
+const PricingColumn = lazy(() => import('pages/pricing/PricingColumn'));
+const PricingTable = lazy(() => import('pages/pricing/PricingTable'));
 const FAQ = lazy(() => import('pages/misc/FAQ'));
 
+const LandingHomepage = lazy(() => import('pages/landing/Homepage'));
 const AboutUs = lazy(() => import('pages/landing/AboutUs'));
 const Contact = lazy(() => import('pages/landing/Contact'));
 const LandingFAQ = lazy(() => import('pages/landing/LandingFAQ'));
@@ -141,15 +156,9 @@ const CreateBlog = lazy(() => import('pages/apps/content/CreateBlog'));
 const UploadMedia = lazy(() => import('pages/apps/content/UploadMedia'));
 
 const Showcase = lazy(() => import('pages/Showcase'));
-const Workbench = lazy(() => import('pages/apps/workbench/Workbench'));
 
-const templatePreviewEnabled = import.meta.env.VITE_ENABLE_TEMPLATE_PREVIEW === 'true';
-const basename = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
-const isWorkbenchBundle = basename === '/workbench';
-const normalizeRoutePath = (value) => value.replace(/\/+$/, '') || '/';
-const productionWorkbenchPaths = new Set(
-  [workbenchEntryPath, paths.notifications].map(normalizeRoutePath),
-);
+const isWorkbenchBuild =
+  ((import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/') === '/workbench';
 
 export const SuspenseOutlet = () => {
   const { pathname } = useLocation();
@@ -165,39 +174,29 @@ export const SuspenseOutlet = () => {
   );
 };
 
-const WorkbenchRouteBoundary = ({ children }) => {
-  const { pathname } = useLocation();
-
-  if (!templatePreviewEnabled && !productionWorkbenchPaths.has(normalizeRoutePath(pathname))) {
-    return <Navigate to={workbenchEntryPath} replace />;
-  }
-
-  return children;
-};
-
 export const routes = [
   {
-    element: <App />,
+    element: (
+      // Uncomment the following line to enable the Suspense fallback for initial loading when using AuthGuard
+
+      // <Suspense fallback={<PageLoader />}>
+      <App />
+      // </Suspense>
+    ),
     children: [
       {
         path: '/',
-        element: isWorkbenchBundle ? (
-          <AuthGuard>
-            <MainLayout>
-              <Suspense fallback={<PageLoader sx={{ height: '100vh' }} />}>
-                <Workbench />
-              </Suspense>
-            </MainLayout>
-          </AuthGuard>
+        element: isWorkbenchBuild ? (
+          <Navigate to={paths.ecommerce} replace />
         ) : (
-          <Suspense fallback={<PageLoader sx={{ height: '100vh' }} />}>
-            <Showcase />
-          </Suspense>
+          <LandingLayout>
+            <LandingHomepage />
+          </LandingLayout>
         ),
       },
       {
         path: paths.showcase,
-        element: <Navigate to={rootPaths.root} replace />,
+        element: <Showcase />,
       },
       {
         path: '/',
@@ -211,7 +210,7 @@ export const routes = [
         children: [
           {
             path: paths.landingHomepage,
-            element: <Navigate to={rootPaths.root} replace />,
+            element: <LandingHomepage />,
           },
           {
             path: paths.landingAbout,
@@ -227,50 +226,30 @@ export const routes = [
           },
           {
             path: paths.landing404,
-            element: templatePreviewEnabled ? (
-              <Landing404 />
-            ) : (
-              <Navigate to={rootPaths.root} replace />
-            ),
+            element: <Landing404 />,
           },
           {
             path: paths.landingComingSoon,
-            element: templatePreviewEnabled ? (
-              <LandingComingSoon />
-            ) : (
-              <Navigate to={rootPaths.root} replace />
-            ),
+            element: <LandingComingSoon />,
           },
           {
             path: paths.landingMaintenance,
-            element: templatePreviewEnabled ? (
-              <LandingMaintenance />
-            ) : (
-              <Navigate to={rootPaths.root} replace />
-            ),
+            element: <LandingMaintenance />,
           },
         ],
       },
       {
         path: '/',
         element: (
-          <WorkbenchRouteBoundary>
-            <AuthGuard>
-              <MainLayout>
-                <SuspenseOutlet />
-              </MainLayout>
-            </AuthGuard>
-          </WorkbenchRouteBoundary>
+          // Uncomment the following line to activate the AuthGuard for protected routes
+
+          <AuthGuard>
+            <MainLayout>
+              <SuspenseOutlet />
+            </MainLayout>
+          </AuthGuard>
         ),
         children: [
-          {
-            path: paths.workbench,
-            element: isWorkbenchBundle ? (
-              <Navigate to={workbenchEntryPath} replace />
-            ) : (
-              <Workbench />
-            ),
-          },
           {
             path: paths.ecommerce,
             element: <ECommerce />,
@@ -330,11 +309,11 @@ export const routes = [
           },
           {
             path: paths.pricingColumn,
-            element: <Navigate to={paths.landingSubscriptions} replace />,
+            element: <PricingColumn />,
           },
           {
             path: paths.pricingTable,
-            element: <Navigate to={paths.landingSubscriptions} replace />,
+            element: <PricingTable />,
           },
           {
             path: paths.comingSoon,
@@ -345,7 +324,7 @@ export const routes = [
             children: [
               {
                 index: true,
-                element: <Navigate to="platform" replace />,
+                element: <Navigate to="aws" replace />,
               },
               {
                 path: ':category',
@@ -742,7 +721,6 @@ export const routes = [
       },
       {
         path: paths.ecommerceRoot,
-        element: templatePreviewEnabled ? <Outlet /> : <Navigate to={rootPaths.root} replace />,
         children: [
           {
             path: rootPaths.ecommerceCustomerRoot,
@@ -810,39 +788,92 @@ export const routes = [
       },
       {
         path: rootPaths.authRoot,
-        element: <AuthLayout />,
+        element: (
+          // Uncomment the following line to activate the GuestGurad for guest routes
+
+          // <GuestGurad>
+          <AuthLayout />
+          // </GuestGurad>
+        ),
         children: [
           {
             element: (
-              <ZitadelAuthLayout>
+              <DefaultAuthLayout>
                 <SuspenseOutlet />
-              </ZitadelAuthLayout>
+              </DefaultAuthLayout>
             ),
             children: [
+              {
+                path: rootPaths.authDefaultJwtRoot,
+                children: [
+                  {
+                    path: paths.defaultJwtLogin,
+                    element: <Login />,
+                  },
+                  {
+                    path: paths.defaultJwtSignup,
+                    element: <Signup />,
+                  },
+                  {
+                    path: paths.defaultJwtForgotPassword,
+                    element: <ForgotPassword />,
+                  },
+                  {
+                    path: paths.defaultJwt2FA,
+                    element: <TwoFA />,
+                  },
+                  {
+                    path: paths.defaultJwtSetPassword,
+                    element: <SetPassword />,
+                  },
+                ],
+              },
+              {
+                path: rootPaths.authDefaultFirebaseRoot,
+                children: [
+                  {
+                    path: paths.defaultFirebaseLogin,
+                    element: <FirebaseLogin />,
+                  },
+                  {
+                    path: paths.defaultFirebaseSignup,
+                    element: <FirebaseSignup />,
+                  },
+                  {
+                    path: paths.defaultFirebaseForgotPassword,
+                    element: <FirebaseForgotPassword />,
+                  },
+                ],
+              },
+              {
+                path: rootPaths.authDefaultAuth0Root,
+                children: [
+                  {
+                    path: paths.defaultAuth0Login,
+                    element: <Auth0Login />,
+                  },
+                ],
+              },
               {
                 path: rootPaths.authZitadelRoot,
                 children: [
                   {
                     path: paths.zitadelLogin,
-                    element: <Login />,
+                    element: <ZitadelLogin />,
                   },
                   {
-                    path: paths.zitadelSignup,
-                    element: <Signup />,
-                  },
-                  {
-                    path: paths.zitadelVerifyEmail,
-                    element: <VerifyEmail />,
+                    path: paths.zitadelLoggedOut,
+                    element: <LoggedOut />,
                   },
                 ],
               },
               {
-                path: paths.zitadelLoggedOut,
-                element: <LoggedOut />,
-              },
-              {
                 path: paths.zitadelCallback,
                 element: <PageLoader sx={{ height: '100vh' }} />,
+              },
+              {
+                path: paths.defaultLoggedOut,
+                element: <LoggedOut />,
               },
             ],
           },
@@ -857,6 +888,8 @@ export const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes, { basename });
+const router = createBrowserRouter(routes, {
+  basename: (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/',
+});
 
 export default router;

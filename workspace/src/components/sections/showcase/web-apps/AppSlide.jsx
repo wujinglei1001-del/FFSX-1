@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Grow, keyframes } from '@mui/material';
 import { showcaseAssets } from 'data/showcase';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -49,7 +48,6 @@ const createGlowLayer = (inset, colors) => ({
 });
 
 const AppSlide = ({ data, index, active }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const isMdUp = up('md');
   const [isHovered, setIsHovered] = useState(false);
@@ -106,7 +104,7 @@ const AppSlide = ({ data, index, active }) => {
         <Grow in={isHovered} timeout={400}>
           <div>
             <GradientButton href={data.link} target="_blank" rel="noopener noreferrer" mode="light">
-              {translateUi('ui.sections.showcase.web_apps.appslide.live_preview_a62da901')}
+              Live Preview
             </GradientButton>
           </div>
         </Grow>

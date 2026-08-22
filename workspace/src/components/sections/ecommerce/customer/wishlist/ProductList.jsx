@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { FormProvider, useForm, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Checkbox, InputAdornment, Stack, Tooltip } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -8,7 +7,6 @@ import StyledTextField from 'components/styled/StyledTextField';
 import WishlistedProduct from './WishlistedProduct';
 
 const ProductList = ({ wishlistedProducts, handleRemoveProduct }) => {
-  const { t: translateUi } = useTranslation();
   const methods = useForm({
     defaultValues: {
       products: [],
@@ -62,9 +60,7 @@ const ProductList = ({ wishlistedProducts, handleRemoveProduct }) => {
         >
           <StyledTextField
             id="search-box"
-            placeholder={translateUi(
-              'ui.sections.ecommerce.customer.wishlist.search_for_an_item_d48fca59',
-            )}
+            placeholder="Search for an item"
             sx={{ flex: 1, maxWidth: { sm: 276 }, order: { sm: 1 } }}
             slotProps={{
               input: {
@@ -92,9 +88,7 @@ const ProductList = ({ wishlistedProducts, handleRemoveProduct }) => {
             />
 
             <Stack direction="row" sx={{ flex: 1, gap: 1 }}>
-              <Tooltip
-                title={translateUi('ui.sections.ecommerce.customer.wishlist.add_to_cart_f8893b91')}
-              >
+              <Tooltip title="Add to cart">
                 <span>
                   <Button
                     fullWidth={downSm}
@@ -114,11 +108,7 @@ const ProductList = ({ wishlistedProducts, handleRemoveProduct }) => {
                   </Button>
                 </span>
               </Tooltip>
-              <Tooltip
-                title={translateUi(
-                  'ui.sections.ecommerce.customer.wishlist.compare_items_04e732c8',
-                )}
-              >
+              <Tooltip title="Compare items">
                 <span>
                   <Button
                     fullWidth={downSm}
@@ -135,9 +125,7 @@ const ProductList = ({ wishlistedProducts, handleRemoveProduct }) => {
                   </Button>
                 </span>
               </Tooltip>
-              <Tooltip
-                title={translateUi('ui.sections.ecommerce.customer.wishlist.delete_items_fa0574cd')}
-              >
+              <Tooltip title="Delete items">
                 <span>
                   <Button
                     fullWidth={downSm}

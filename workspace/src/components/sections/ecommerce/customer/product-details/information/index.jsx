@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Divider, Paper, Tab, Tabs, Toolbar } from '@mui/material';
 import { productDescriptions, productSpecifications } from 'data/e-commerce/products';
 import ProductFeedback from '../feedback';
@@ -7,7 +6,6 @@ import ProductDescription from './ProductDescription';
 import ProductSpecification from './ProductSpecification';
 
 const ProductInformation = () => {
-  const { t: translateUi } = useTranslation();
   const [activeTab, setActiveTab] = useState('desc');
 
   const refs = {
@@ -56,31 +54,10 @@ const ProductInformation = () => {
           bgcolor: 'background.default',
         })}
       >
-        <Tabs
-          value={activeTab}
-          onChange={handleTabChange}
-          aria-label={translateUi(
-            'ui.sections.ecommerce.customer.product_details.product_information_tabs_c60701d9',
-          )}
-        >
-          <Tab
-            value="desc"
-            label={translateUi(
-              'ui.sections.ecommerce.customer.product_details.description_55f8ebc8',
-            )}
-          />
-          <Tab
-            value="specs"
-            label={translateUi(
-              'ui.sections.ecommerce.customer.product_details.specification_1ccf5d25',
-            )}
-          />
-          <Tab
-            value="feedback"
-            label={translateUi(
-              'ui.sections.ecommerce.customer.product_details.ratings_reviews_79cced2f',
-            )}
-          />
+        <Tabs value={activeTab} onChange={handleTabChange} aria-label="product information tabs">
+          <Tab value="desc" label="Description" />
+          <Tab value="specs" label="Specification" />
+          <Tab value="feedback" label="Ratings & Reviews" />
         </Tabs>
       </Box>
       <Toolbar sx={{ minHeight: { xs: 40 } }} />

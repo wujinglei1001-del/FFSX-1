@@ -1,8 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Autocomplete, Box, Button, Chip, Stack, TextField, Typography } from '@mui/material';
 
 const Tags = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={{
@@ -23,11 +21,11 @@ const Tags = () => {
             fontWeight: 700,
           }}
         >
-          {translateUi('ui.sections.ecommerce.admin.order.tags_848eed0f')}
+          Tags
         </Typography>
 
         <Button variant="text" size="small" sx={{ flexShrink: 0, minWidth: 0 }}>
-          {translateUi('ui.sections.ecommerce.admin.order.view_all_tags_fe468f67')}
+          View all tags
         </Button>
       </Stack>
       <Autocomplete
@@ -52,12 +50,7 @@ const Tags = () => {
           })
         }
         renderInput={(params) => (
-          <TextField
-            {...params}
-            variant="filled"
-            label={translateUi('ui.sections.ecommerce.admin.order.tags_848eed0f')}
-            placeholder={translateUi('ui.sections.ecommerce.admin.order.add_tags_1dd02add')}
-          />
+          <TextField {...params} variant="filled" label="Tags" placeholder="Add tags" />
         )}
       />
     </Box>

@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Button, ListItemIcon, ListItemText, MenuItem } from '@mui/material';
+import { Button, ListItemIcon, ListItemText, MenuItem, Typography } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import { languages } from 'locales/languages';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -8,7 +7,6 @@ import { SET_LOCALE } from 'reducers/SettingsReducer';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const LanguageMenu = ({ type = 'default' }) => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const {
     config: { locale },
@@ -42,14 +40,8 @@ const LanguageMenu = ({ type = 'default' }) => {
         variant="text"
         shape="circle"
         onClick={handleClick}
-        aria-label={translateUi('ffax.navigation.language')}
-        title={translateUi('ffax.navigation.language')}
       >
-        {locale === 'zh-CN' ? (
-          'CN'
-        ) : (
-          <IconifyIcon icon={selectedLanguage.icon} sx={{ fontSize: type === 'slim' ? 20 : 24 }} />
-        )}
+        <IconifyIcon icon={selectedLanguage.icon} sx={{ fontSize: type === 'slim' ? 20 : 24 }} />
       </Button>
       <Menu
         anchorEl={anchorEl}
@@ -70,11 +62,7 @@ const LanguageMenu = ({ type = 'default' }) => {
             sx={{ minWidth: 200 }}
           >
             <ListItemIcon>
-              {language.locale === 'zh-CN' ? (
-                'CN'
-              ) : (
-                <IconifyIcon icon={language.icon} sx={{ fontSize: 24 }} />
-              )}
+              <IconifyIcon icon={language.icon} sx={{ fontSize: 24 }} />
             </ListItemIcon>
             <ListItemText
               primary={language.label}
@@ -82,6 +70,15 @@ const LanguageMenu = ({ type = 'default' }) => {
                 primary: { sx: { fontSize: 14 } },
               }}
             />
+            <Typography
+              variant="subtitle2"
+              sx={{
+                color: 'text.secondary',
+                fontWeight: 'normal',
+              }}
+            >
+              {language.currencySymbol}
+            </Typography>
           </MenuItem>
         ))}
       </Menu>

@@ -1,12 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormControl, FormHelperText, InputAdornment, Stack, TextField } from '@mui/material';
 import DateRangePicker from 'components/base/DateRangePicker';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EventDayTimePicker from 'components/sections/events/create-event/main/EventDayTimePicker';
 
 const EventOverview = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -20,7 +18,7 @@ const EventOverview = () => {
         rows={3}
         id="name"
         type="text"
-        label={translateUi('ui.sections.events.create_event.main.event_name_8269fa26')}
+        label="Event Name"
         error={!!errors.name}
         helperText={errors.name?.message}
         {...register('name')}
@@ -31,7 +29,7 @@ const EventOverview = () => {
         fullWidth
         id="address"
         type="text"
-        label={translateUi('ui.sections.events.create_event.main.location_d219c681')}
+        label="Location"
         variant="filled"
         error={!!errors.address}
         slotProps={{
@@ -61,9 +59,7 @@ const EventOverview = () => {
               isClearable
               customInput={
                 <TextField
-                  label={translateUi(
-                    'ui.sections.events.create_event.main.select_date_range_de6472b8',
-                  )}
+                  label="Select Date Range"
                   fullWidth
                   slotProps={{
                     input: {

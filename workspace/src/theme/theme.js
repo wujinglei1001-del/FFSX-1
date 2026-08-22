@@ -1,6 +1,5 @@
 import { createTheme as muiCreateTheme } from '@mui/material';
 import * as locales from '@mui/material/locale';
-import * as dataGridLocales from '@mui/x-data-grid/locales';
 import Accordion, { AccordionDetails, AccordionSummary } from './components/Accordion';
 import Alert from './components/Alert';
 import AppBar from './components/AppBar';
@@ -102,14 +101,13 @@ export const createTheme = ({
   fontSize,
   typography,
   primaryColor,
-  cssVarPrefix = 'ffax',
+  cssVarPrefix = 'aurora',
 }) => {
   const muiLocales = getMuiLocale(locale);
-  const dataGridLocale = dataGridLocales[locale.split('-').join('')];
 
   const theme = muiCreateTheme(
     {
-      cssVariables: { colorSchemeSelector: 'data-ffax-color-scheme', cssVarPrefix },
+      cssVariables: { colorSchemeSelector: 'data-aurora-color-scheme', cssVarPrefix },
       colorSchemes: {
         light: {
           palette: applyPrimaryOverride(
@@ -232,7 +230,6 @@ export const createTheme = ({
       },
     },
     muiLocales,
-    dataGridLocale,
   );
 
   return theme;

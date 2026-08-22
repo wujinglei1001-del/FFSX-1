@@ -2,7 +2,6 @@ import banner from 'assets/images/background/12.webp';
 import { initialConfig } from 'config';
 import dayjs from 'dayjs';
 import { generateUniqueId } from 'lib/utils';
-import i18n from 'locales/i18n';
 import { users } from './users';
 
 const image = (index) => `${initialConfig.assetsDir}/images/social/photos/${index}.webp`;
@@ -30,11 +29,7 @@ export const profileData = {
       type: 'post',
       author: users[3],
       message: {
-        get text() {
-          return i18n.t(
-            'ui.data.social.this_image_captures_the_essence_of_tranquility_with__b5261e00',
-          );
-        },
+        text: 'This image captures the essence of tranquility, with soft hues blending seamlessly. The gentle waves and the serene sky create a perfect backdrop for reflection.',
         attachments: [{ src: image(18), type: 'image' }],
       },
       createdAt: dayjs().subtract(1, 'month').subtract(5, 'day').toISOString(),
@@ -49,11 +44,7 @@ export const profileData = {
           type: 'comment',
           author: users[4],
           message: {
-            get text() {
-              return i18n.t(
-                'ui.data.social.hey_there_thanks_for_sharing_your_thoughts_it_s_grea_347e92ad',
-              );
-            },
+            text: "Hey there! Thanks for sharing your thoughts. It's great to see such engagement. Let's keep the conversation going!",
           },
           createdAt: dayjs()
             .subtract(1, 'month')
@@ -70,11 +61,7 @@ export const profileData = {
               type: 'reply',
               author: users[5],
               message: {
-                get text() {
-                  return i18n.t(
-                    'ui.data.social.join_us_on_this_journey_our_community_is_filled_with_fadd0e04',
-                  );
-                },
+                text: "Join us on this journey! Our community is filled with passionate individuals eager to share insights and support each other. Don't hesitate to connect and collaborate!",
               },
               createdAt: dayjs()
                 .subtract(1, 'month')
@@ -91,11 +78,7 @@ export const profileData = {
               type: 'reply',
               author: users[6],
               message: {
-                get text() {
-                  return i18n.t(
-                    'ui.data.social.welcome_to_our_platform_here_you_can_explore_a_varie_f50e2096',
-                  );
-                },
+                text: 'Welcome to our platform! Here, you can explore a variety of features designed to enhance your experience. Dive into the tools we offer and discover how they can help you achieve your goals.',
               },
               createdAt: dayjs()
                 .subtract(1, 'month')
@@ -112,11 +95,7 @@ export const profileData = {
               type: 'reply',
               author: users[7],
               message: {
-                get text() {
-                  return i18n.t(
-                    'ui.data.social.get_ready_to_unlock_new_possibilities_with_our_innov_aa529c3a',
-                  );
-                },
+                text: "Get ready to unlock new possibilities! With our innovative solutions, you'll find everything you need to succeed right at your fingertips.",
               },
               createdAt: dayjs()
                 .subtract(1, 'month')
@@ -135,11 +114,7 @@ export const profileData = {
           type: 'comment',
           author: users[8],
           message: {
-            get text() {
-              return i18n.t(
-                'ui.data.social.thanks_for_sharing_your_thoughts_on_the_image_i_real_9f329b49',
-              );
-            },
+            text: 'Thanks for sharing your thoughts on the image! I really appreciate your perspective. What do you think about the colors used?',
           },
           createdAt: dayjs()
             .subtract(1, 'month')
@@ -157,11 +132,7 @@ export const profileData = {
           type: 'comment',
           author: users[9],
           message: {
-            get text() {
-              return i18n.t(
-                'ui.data.social.i_love_how_you_interpreted_the_image_it_really_captu_81575762',
-              );
-            },
+            text: 'I love how you interpreted the image! It really captures the essence of the moment. Do you have any favorite details that stand out to you?',
           },
           createdAt: dayjs()
             .subtract(1, 'month')
@@ -179,11 +150,7 @@ export const profileData = {
           type: 'comment',
           author: users[10],
           message: {
-            get text() {
-              return i18n.t(
-                'ui.data.social.this_image_beautifully_captures_the_essence_of_tranq_58a48d92',
-              );
-            },
+            text: "This image beautifully captures the essence of tranquility and nature's charm.",
           },
           createdAt: dayjs()
             .subtract(1, 'month')
@@ -200,11 +167,7 @@ export const profileData = {
               type: 'reply',
               author: users[5],
               message: {
-                get text() {
-                  return i18n.t(
-                    'ui.data.social.you_re_absolutely_right_that_picture_is_amazing_the__8bf66d68',
-                  );
-                },
+                text: "You're absolutely right, that picture is amazing! The quick brown fox jumps over the lazy dog, and the sunset in the west paints the sky with beautiful shades of orange and pink. The gentle breeze rustles the leaves, creating a calming melody.",
               },
               createdAt: dayjs().subtract(25, 'day').subtract(8, 'hour').toISOString(),
               engagement: {
@@ -220,11 +183,7 @@ export const profileData = {
       id: generateUniqueId(),
       type: 'post',
       message: {
-        get text() {
-          return i18n.t(
-            'ui.data.social.this_tour_features_stunning_views_that_highlight_nat_2befd21b',
-          );
-        },
+        text: "This tour features stunning views that highlight nature's beauty. The vibrant landscapes and serene settings create memorable moments, inviting you to explore the world's wonders.",
         attachments: [
           { src: image(19), type: 'image' },
           { src: image(20), type: 'image' },
@@ -251,11 +210,7 @@ export const profileData = {
       id: generateUniqueId(),
       type: 'post',
       message: {
-        get text() {
-          return i18n.t(
-            'ui.data.social.our_tour_was_incredible_from_stunning_landscapes_to__0d1b0864',
-          );
-        },
+        text: 'Our tour was incredible! From stunning landscapes to vibrant cultures, every moment was an adventure. We began in Eldoria, a lively city full of music and laughter. The highlight was hiking the Misty Mountains, where breathtaking views awaited us. Each stop offered unique experiences, from local delicacies to friendly locals sharing their stories.',
       },
       createdAt: dayjs()
         .subtract(6, 'year')
@@ -275,11 +230,7 @@ export const profileData = {
       id: generateUniqueId(),
       type: 'post',
       message: {
-        get text() {
-          return i18n.t(
-            'ui.data.social.this_place_is_a_captivating_hidden_gem_its_lush_gree_5e534e41',
-          );
-        },
+        text: 'This place is a captivating hidden gem. Its lush greenery and vibrant flowers, along with the gentle breeze and rustling leaves, create a peaceful ambiance perfect for relaxation.',
       },
       createdAt: dayjs()
         .subtract(4, 'year')
@@ -298,11 +249,7 @@ export const profileData = {
           type: 'comment',
           author: users[10],
           message: {
-            get text() {
-              return i18n.t(
-                'ui.data.social.i_also_visited_that_place_here_s_a_picture_i_took_wh_b1eae1ca',
-              );
-            },
+            text: 'I also visited that place! Here’s a picture I took while I was there. The scenery was stunning, with vibrant colors and a peaceful atmosphere.',
             attachments: [{ src: image(17), type: 'image' }],
           },
           createdAt: dayjs().subtract(30, 'day').subtract(8, 'hour').toISOString(),

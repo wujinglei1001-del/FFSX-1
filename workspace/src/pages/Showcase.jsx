@@ -1,19 +1,26 @@
-import { Suspense, useMemo } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
-import { CssBaseline, ThemeProvider as MuiThemeProvider } from '@mui/material';
-import { publicShowcaseAssets } from 'data/ffax-public';
+import { CssBaseline, ThemeProvider as MuiThemeProvider, Stack } from '@mui/material';
+import { prefixedLayouts, preloadAssets, webApps } from 'data/showcase';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import RTLMode from 'theme/RTLMode';
 import { createTheme } from 'theme/theme';
 import PageLoader from 'components/loading/PageLoader';
-import Team from 'components/sections/landing/about-us/Team';
 import { usePreloadAssets } from 'components/sections/showcase/common';
+import CustomizeLayout from 'components/sections/showcase/customize-layout';
 import ShowcaseHero from 'components/sections/showcase/hero';
 import ShowcaseLayout from 'components/sections/showcase/layout';
 
+const ThemePresetsShowcase = lazy(() => import('components/sections/showcase/theme-presets'));
+const PrefixedLayouts = lazy(() => import('components/sections/showcase/prefixed-layouts'));
+const ElegantCards = lazy(() => import('components/sections/showcase/elegant-cards'));
+const WebApps = lazy(() => import('components/sections/showcase/web-apps/WebApps'));
+const FigmaCTA = lazy(() => import('components/sections/showcase/cta/figma/FigmaCTA'));
+const ShowcaseCTA = lazy(() => import('components/sections/showcase/cta/showcase/ShowcaseCTA'));
+
 const ltrCache = createCache({
-  key: 'ffaxltr',
+  key: 'auroraltr',
 });
 
 const ShowcaseThemeProvider = ({ children }) => {
@@ -27,7 +34,7 @@ const ShowcaseThemeProvider = ({ children }) => {
         direction: textDirection,
         locale,
         preset: 'default-dark',
-        cssVarPrefix: 'ffax-showcase',
+        cssVarPrefix: 'aurora-showcase',
       }),
     [textDirection, locale],
   );
@@ -36,7 +43,7 @@ const ShowcaseThemeProvider = ({ children }) => {
     <MuiThemeProvider
       disableTransitionOnChange
       theme={showcaseTheme}
-      modeStorageKey="ffax-mode-showcase"
+      modeStorageKey="aurora-mode-showcase"
     >
       <CssBaseline enableColorScheme />
       <RTLMode>{children}</RTLMode>
@@ -46,7 +53,7 @@ const ShowcaseThemeProvider = ({ children }) => {
 
 const ShowcaseWrapper = ({ children }) => (
   <CacheProvider value={ltrCache}>
-    <div dir="ltr" data-ffax-color-scheme="dark">
+    <div dir="ltr" data-aurora-color-scheme="dark">
       <ShowcaseThemeProvider>{children}</ShowcaseThemeProvider>
     </div>
   </CacheProvider>
@@ -55,12 +62,24 @@ const ShowcaseWrapper = ({ children }) => (
 const ShowcaseContent = () => (
   <ShowcaseLayout>
     <ShowcaseHero />
-    <Team />
+    <Stack
+      sx={{
+        pt: 14,
+      }}
+    >
+      <CustomizeLayout />
+      <ThemePresetsShowcase />
+      <PrefixedLayouts data={prefixedLayouts} />
+      <ElegantCards />
+      <WebApps data={webApps} />
+      <FigmaCTA />
+      <ShowcaseCTA />
+    </Stack>
   </ShowcaseLayout>
 );
 
 const Showcase = () => {
-  usePreloadAssets([publicShowcaseAssets.hero.video, publicShowcaseAssets.hero.planet]);
+  usePreloadAssets(preloadAssets);
 
   return (
     <ShowcaseWrapper>

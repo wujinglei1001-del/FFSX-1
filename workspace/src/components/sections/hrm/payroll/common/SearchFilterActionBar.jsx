@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -15,7 +14,6 @@ const SearchFilterActionBar = ({
   sx,
   ...rest
 }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Grid
       container
@@ -57,7 +55,7 @@ const SearchFilterActionBar = ({
             onClick={onFilterClick}
             sx={{ textWrap: 'nowrap', flexShrink: 0 }}
           >
-            {translateUi('ui.sections.hrm.payroll.common.filter_d7decf1a')}
+            Filter
           </Button>
         </Stack>
       </Grid>

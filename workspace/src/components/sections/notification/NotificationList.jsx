@@ -1,6 +1,6 @@
-import { Link as RouterLink } from 'react-router';
 import {
   Box,
+  Button,
   List,
   ListItem,
   ListItemButton,
@@ -12,6 +12,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import paths from 'routes/paths';
 import Image from 'components/base/Image';
+import NotificationActionMenu from './NotificationActionMenu';
 import NotificationListItemAvatar from './NotificationListItemAvatar';
 
 dayjs.extend(relativeTime);
@@ -39,12 +40,21 @@ const NotificationList = ({ title, notifications, sx, variant = 'default', onIte
         sx={sx}
       >
         {notifications.map((notification) => (
-          <ListItem key={notification.id} disablePadding>
+          <ListItem
+            key={notification.id}
+            disablePadding
+            secondaryAction={<NotificationActionMenu />}
+            sx={{
+              '& .MuiListItemSecondaryAction-root': {
+                top: 16,
+                transform: 'none',
+              },
+            }}
+          >
             <ListItemButton
-              component={RouterLink}
-              to={notification.href || paths.notifications}
+              href={paths.notifications}
               disableRipple
-              onClick={(event) => onItemClick?.(notification, event)}
+              onClick={onItemClick}
               sx={[
                 {
                   flexDirection: 'column',
@@ -141,6 +151,42 @@ const NotificationList = ({ title, notifications, sx, variant = 'default', onIte
                       sx={{ borderRadius: 2 }}
                     />
                   ))}
+                </Stack>
+              )}
+              {['friend_request', 'group_invitation'].includes(notification.type) && (
+                <Stack
+                  direction="row"
+                  sx={[
+                    {
+                      gap: 1,
+                      ml: 12,
+                      pointerEvents: 'auto',
+                    },
+                    variant === 'small' && {
+                      ml: 10,
+                    },
+                  ]}
+                >
+                  <Button
+                    variant="soft"
+                    color="primary"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                    }}
+                  >
+                    Accept
+                  </Button>
+                  <Button
+                    variant="soft"
+                    color="neutral"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      e.preventDefault();
+                    }}
+                  >
+                    Delete
+                  </Button>
                 </Stack>
               )}
             </ListItemButton>

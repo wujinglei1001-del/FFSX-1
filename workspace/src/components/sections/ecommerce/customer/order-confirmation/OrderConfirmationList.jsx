@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -18,7 +17,6 @@ import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const OrderConfirmationList = () => {
-  const { t: translateUi } = useTranslation();
   const { cartItems } = useEcommerce();
 
   return (
@@ -70,9 +68,7 @@ const OrderConfirmationList = () => {
                     mb: 2,
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.ecommerce.customer.order_confirmation.will_be_delivered_to_61d30d75',
-                  )}{' '}
+                  will be delivered to &nbsp;&nbsp;{' '}
                   <Box
                     component="strong"
                     sx={{
@@ -80,9 +76,7 @@ const OrderConfirmationList = () => {
                       ml: 0.5,
                     }}
                   >
-                    {translateUi(
-                      'ui.sections.ecommerce.customer.order_confirmation.captain_haddock_b801c768',
-                    )}
+                    Captain Haddock
                   </Box>
                 </Typography>
               </>
@@ -103,9 +97,7 @@ const OrderConfirmationList = () => {
                     fontWeight: 400,
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.ecommerce.customer.order_confirmation.estimated_date_of_delivery_964b8d8f',
-                  )}{' '}
+                  Estimated date of delivery : &nbsp;&nbsp;{' '}
                   <Box
                     component="strong"
                     sx={{

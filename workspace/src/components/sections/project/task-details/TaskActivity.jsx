@@ -13,7 +13,6 @@ import Typography from '@mui/material/Typography';
 import { taskDetailsData } from 'data/project/task-details';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import i18n from 'locales/i18n';
 
 dayjs.extend(relativeTime);
 
@@ -35,7 +34,7 @@ const TaskActivity = () => (
         mb: 2,
       }}
     >
-      {i18n.t('ui.sections.project.task_details.taskactivity.activity_log_a3abad3d')}
+      Activity Log
     </Typography>
     <Timeline
       sx={{

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
@@ -7,7 +6,6 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { getStatusChipColor } from 'data/hrm/performance-management';
 import dayjs from 'dayjs';
-import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
 
 const AppraisalCycleCard = ({
@@ -20,11 +18,10 @@ const AppraisalCycleCard = ({
   sx,
   ...props
 }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       component={Link}
-      href={paths.hrmPerformanceAppraisalList}
+      href="#!"
       underline="none"
       background={1}
       {...props}
@@ -57,10 +54,7 @@ const AppraisalCycleCard = ({
           mb: 3,
         }}
       >
-        {translateUi(
-          'ui.sections.hrm.performance_management.appraisal_cycle.review_period_9a6ebbbc',
-        )}
-        {`  `}
+        Review Period{`  `}
         <Box
           component="span"
           sx={{
@@ -90,8 +84,7 @@ const AppraisalCycleCard = ({
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.hrm.performance_management.appraisal_cycle.start_952f3754')}
-            {` `}
+            Start{` `}
             <Box
               component="strong"
               sx={{
@@ -108,8 +101,7 @@ const AppraisalCycleCard = ({
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.hrm.performance_management.appraisal_cycle.end_a2bb9d34')}
-            {` `}
+            End{` `}
             <Box
               component="strong"
               sx={{

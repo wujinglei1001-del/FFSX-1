@@ -1,7 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import CurrentPayrollRun from 'components/sections/hrm/payroll/dashboard/current-payroll-run';
@@ -10,18 +8,14 @@ import PayrollCostSummary from 'components/sections/hrm/payroll/dashboard/payrol
 import PayrollHistory from 'components/sections/hrm/payroll/dashboard/payroll-history';
 
 const PayrollDashboard = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.hrm.payroll.payroll_d4598744')}
+          title="Payroll"
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.hrm.payroll.home_70f8bb9a'),
-              url: paths.workbench,
-            },
-            { label: translateUi('ui.pages.apps.hrm.payroll.payroll_d4598744'), active: true },
+            { label: 'Home', url: '#!' },
+            { label: 'Payroll', active: true },
           ]}
           actionComponent={
             <Button
@@ -29,7 +23,7 @@ const PayrollDashboard = () => {
               color="neutral"
               startIcon={<IconifyIcon icon="material-symbols:settings-outline" />}
             >
-              {translateUi('ui.pages.apps.hrm.payroll.settings_c7f73bb5')}
+              Settings
             </Button>
           }
           sx={{

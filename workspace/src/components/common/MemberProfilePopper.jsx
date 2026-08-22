@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -20,7 +19,6 @@ import StyledTextField from 'components/styled/StyledTextField';
 export const MEMBER_PROFILE_WIDTH = 375;
 
 const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave }) => {
-  const { t: translateUi } = useTranslation();
   const [quickMessage, setQuickMessage] = useState('');
 
   if (!user || !anchorEl) return null;
@@ -103,7 +101,7 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
               </Stack>
 
               <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                {translateUi('ui.components.common.memberprofilepopper.software_engineer_84f982e5')}
+                Software Engineer
               </Typography>
 
               <Stack direction="row" sx={{ gap: 2, mt: 1 }}>
@@ -113,12 +111,12 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
                     variant="subtitle2"
                     sx={{ fontWeight: 500, mr: 0.5, color: 'text.primary' }}
                   >
-                    {translateUi('ui.components.common.memberprofilepopper.id_d789a1e9')}
+                    ID:
                   </Typography>
                   {user.id ?? '—'}
                 </Typography>
                 <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                  {translateUi('ui.components.common.memberprofilepopper.full_time_c8a83b01')}
+                  Full Time
                 </Typography>
               </Stack>
             </Box>
@@ -139,9 +137,7 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center', mb: 3 }}>
             <StyledTextField
               hiddenLabel
-              placeholder={translateUi(
-                'ui.components.common.memberprofilepopper.send_a_quick_message_764e9d7c',
-              )}
+              placeholder="Send a quick message"
               value={quickMessage}
               onChange={(event) => setQuickMessage(event.target.value)}
               variant="filled"
@@ -159,9 +155,7 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
               sx={{ flexShrink: 0 }}
               shape="square"
               onClick={() => setQuickMessage('')}
-              aria-label={translateUi(
-                'ui.components.common.memberprofilepopper.send_quick_message_90cced8b',
-              )}
+              aria-label="Send quick message"
             >
               <IconifyIcon icon="material-symbols:send-outline-rounded" fontSize={20} />
             </Button>
@@ -186,24 +180,19 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
             </Stack>
             <Stack direction="row" sx={{ gap: 1.5, alignItems: 'center' }}>
               <IconifyIcon icon="material-symbols:call-outline-rounded" />
-              {user.phone ? (
-                <Link
-                  href={`tel:${user.phone}`}
-                  underline="hover"
-                  sx={{ typography: 'subtitle2', color: 'text.secondary' }}
-                >
-                  {user.phone}
-                </Link>
-              ) : (
-                <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                  —
-                </Typography>
-              )}
+              <Link
+                href="tel:+19234657890"
+                underline="hover"
+                sx={{ typography: 'subtitle2', color: 'text.secondary' }}
+              >
+                +1-923-465-7890
+              </Link>
             </Stack>
             <Stack direction="row" sx={{ gap: 1.5, alignItems: 'flex-start' }}>
               <IconifyIcon icon="material-symbols:location-on-outline-rounded" />
               <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-                {user.location || '—'}
+                New York
+                <br />( Current time: 10:45 PM )
               </Typography>
             </Stack>
           </Stack>
@@ -218,7 +207,7 @@ const MemberProfilePopper = ({ open, user, anchorEl, onMouseEnter, onMouseLeave 
               />
             }
           >
-            {translateUi('ui.components.common.memberprofilepopper.view_details_badd3851')}
+            View details
           </Button>
         </Paper>
       </Fade>

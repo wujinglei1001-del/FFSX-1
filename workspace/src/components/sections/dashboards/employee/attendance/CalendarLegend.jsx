@@ -1,31 +1,22 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import i18n from 'locales/i18n';
 
 const legends = [
   {
-    get label() {
-      return i18n.t('ui.sections.dashboards.employee.attendance.on_time_1f003f21');
-    },
+    label: 'On Time',
     color: 'chGreen.100',
   },
   {
-    get label() {
-      return i18n.t('ui.sections.dashboards.employee.attendance.delay_b4c200bb');
-    },
+    label: 'Delay',
     color: 'chOrange.100',
   },
   {
-    get label() {
-      return i18n.t('ui.sections.dashboards.employee.attendance.absent_e92452c8');
-    },
+    label: 'Absent',
     color: 'chRed.100',
   },
   {
-    get label() {
-      return i18n.t('ui.sections.dashboards.employee.attendance.leave_7e3520a9');
-    },
+    label: 'Leave',
     color: 'chBlue.100',
   },
 ];

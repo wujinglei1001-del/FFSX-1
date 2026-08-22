@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Chip, Paper, Stack, Typography } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const TaskSummaryCard = ({ task }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ flex: 1, px: { xs: 3, md: 5 }, py: 3 }}>
       <Stack
@@ -49,7 +47,7 @@ const TaskSummaryCard = ({ task }) => {
                 color={task.change.direction === 'less' ? 'neutral' : 'success'}
               />
               <Typography variant="caption" sx={{ lineHeight: 1.3 }}>
-                {translateUi('common.than')} {task.change.timeFrame}
+                than {task.change.timeFrame}
               </Typography>
             </Stack>
           ) : (
@@ -59,7 +57,7 @@ const TaskSummaryCard = ({ task }) => {
                 component="p"
                 sx={{ color: 'text.secondary', lineHeight: 1.3 }}
               >
-                {translateUi('ui.sections.dashboards.project.task_summary.deadline_e60f518e')}
+                Deadline :
                 <Box
                   component="span"
                   sx={{

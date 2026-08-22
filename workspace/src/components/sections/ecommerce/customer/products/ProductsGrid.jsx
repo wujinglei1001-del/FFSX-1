@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Pagination, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/1-dark.webp';
 import illustration from 'assets/images/illustrations/1.webp';
@@ -7,7 +6,6 @@ import Image from 'components/base/Image';
 import ProductCard from '../common/ProductCard';
 
 const ProductsGrid = ({ products }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upSm = up('sm');
 
@@ -39,9 +37,7 @@ const ProductsGrid = ({ products }) => {
           >
             <Image
               src={{ light: illustration, dark: illustrationDark }}
-              alt={translateUi(
-                'ui.sections.ecommerce.customer.products.products_fallback_408585b2',
-              )}
+              alt="Products Fallback"
               height={340}
               width={340}
             />
@@ -52,9 +48,8 @@ const ProductsGrid = ({ products }) => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi(
-                'ui.sections.ecommerce.customer.products.whoops_looks_like_we_didn_t_find_any_matches_for_you_530fa1e2',
-              )}
+              Whoops, looks like we didn't find any matches for your search, so here’s a dinosaur in
+              a box.
             </Typography>
           </Stack>
         )}

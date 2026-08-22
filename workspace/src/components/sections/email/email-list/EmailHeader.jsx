@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Box, Button, Stack } from '@mui/material';
 import { useEmailContext } from 'providers/EmailProvider';
@@ -10,7 +9,6 @@ import EmailComposeDialog from 'components/sections/email/common/EmailComposeDia
 import EmailFilterDialog from 'components/sections/email/common/EmailFilterDialog';
 
 const EmailHeader = ({ toggleDrawer }) => {
-  const { t: translateUi } = useTranslation();
   const [searchText, setSearchText] = useState('');
   const [openFilterDialog, setOpenFilterDialog] = useState(false);
   const [openComposeDialog, setOpenComposeDialog] = useState(false);
@@ -63,14 +61,12 @@ const EmailHeader = ({ toggleDrawer }) => {
           sx={[{ flex: 1 }, (!id || resizableWidth > 500) && { flex: { sm: 'unset' } }]}
           startIcon={<IconifyIcon icon="material-symbols:add-2-rounded" sx={{ fontSize: 20 }} />}
         >
-          {translateUi('ui.sections.email.email_list.emailheader.compose_47da6f08')}
+          Compose
         </Button>
         <SearchTextField
           value={searchText}
           onChange={handleSearch}
-          placeholder={translateUi(
-            'ui.sections.email.email_list.emailheader.search_email_2df2746c',
-          )}
+          placeholder="Search email"
           slotProps={{ input: undefined }}
           sx={[
             { order: 1, width: 1 },

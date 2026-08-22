@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Grow, Stack, Typography } from '@mui/material';
 import { podcastPlaylist } from 'data/content/podcast';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -18,7 +17,6 @@ const formatEpisodeDuration = (time) => {
 const podcast = podcastPlaylist[0];
 
 const PodcastEpisodes = ({ onEpisodePlay, currentPlayingEpisodeNumber, isPlaying }) => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -36,7 +34,7 @@ const PodcastEpisodes = ({ onEpisodePlay, currentPlayingEpisodeNumber, isPlaying
   return (
     <div>
       <Typography variant="h6" sx={{ mb: 2 }}>
-        {translateUi('ui.sections.content.details.podcast.episodes_bf30b28f')}
+        Episodes (
         {numberFormat(podcast.totalEpisodes, { notation: 'compact', compactDisplay: 'short' })})
       </Typography>
       <Stack sx={{ gap: 1, mb: 2 }}>
@@ -76,7 +74,7 @@ const PodcastEpisodes = ({ onEpisodePlay, currentPlayingEpisodeNumber, isPlaying
                     ? item.imageSrc
                     : `${assetsDir}/images/sections/blogs/podcast/24.webp`
                 }
-                alt={translateUi('ui.sections.content.details.podcast.podcast_image_db662553')}
+                alt="podcast image"
                 sx={{
                   width: 1,
                   height: 1,
@@ -142,8 +140,7 @@ const PodcastEpisodes = ({ onEpisodePlay, currentPlayingEpisodeNumber, isPlaying
 
                 <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
                   <Typography variant="caption" sx={{ fontWeight: 'medium' }}>
-                    {translateUi('ui.sections.content.details.podcast.ep_91954275')}
-                    {item.episodeNumber}
+                    Ep {item.episodeNumber}
                   </Typography>
                   <Typography variant="caption" sx={{ fontWeight: 'medium' }}>
                     {formatEpisodeDuration(item.duration)}
@@ -166,8 +163,7 @@ const PodcastEpisodes = ({ onEpisodePlay, currentPlayingEpisodeNumber, isPlaying
               justifyContent: 'flex-start',
             }}
           >
-            {translateUi('ui.sections.content.details.podcast.load_ddcb77ff')}
-            {currentLength === 7 ? 'More' : 'Less'}
+            Load {currentLength === 7 ? 'More' : 'Less'}
           </Button>
         </Stack>
       )}

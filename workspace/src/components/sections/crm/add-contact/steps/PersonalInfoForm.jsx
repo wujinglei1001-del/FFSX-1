@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Divider,
@@ -12,7 +11,6 @@ import {
 import Grid from '@mui/material/Grid';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import AvatarDropBox from 'components/base/AvatarDropBox';
 import NumberTextField from 'components/base/NumberTextField';
@@ -21,42 +19,21 @@ import ControlledSelect from 'components/sections/crm/add-contact/ControlledSele
 
 export const personalInfoSchema = yup.object({
   personalInfo: yup.object({
-    profileImage: yup
-      .mixed()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.profile_picture_is_required_354e882a')),
-    firstName: yup
-      .string()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
-    lastName: yup
-      .string()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
-    workEmail: yup
-      .string()
-      .email(i18n.t('ui.sections.crm.add_contact.steps.invalid_email_format_789ec25c'))
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
-    personalEmail: yup
-      .string()
-      .email(i18n.t('ui.sections.crm.add_contact.steps.invalid_email_format_789ec25c'))
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
-    phoneNumber: yup
-      .string()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.phone_number_is_required_51a25ff7')),
+    profileImage: yup.mixed().required('Profile picture is required'),
+    firstName: yup.string().required('This field is required'),
+    lastName: yup.string().required('This field is required'),
+    workEmail: yup.string().email('Invalid email format').required('This field is required'),
+    personalEmail: yup.string().email('Invalid email format').required('This field is required'),
+    phoneNumber: yup.string().required('Phone Number is required'),
     alternatePhoneNumber: yup.string().notRequired(),
-    dateOfBirth: yup
-      .string()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
-    jobTitle: yup
-      .string()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
-    status: yup
-      .string()
-      .required(i18n.t('ui.sections.crm.add_contact.steps.this_field_is_required_dedbaded')),
+    dateOfBirth: yup.string().required('This field is required'),
+    jobTitle: yup.string().required('This field is required'),
+    status: yup.string().required('This field is required'),
     linkedInUrl: yup.string().url('Invalid URL').optional(),
     note: yup.string().optional(),
   }),
 });
 const PersonalInfoForm = ({ label }) => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -71,9 +48,7 @@ const PersonalInfoForm = ({ label }) => {
         <Divider />
       </Box>
       <Stack sx={{ gap: 4 }}>
-        <ContactFormSection
-          title={translateUi('ui.sections.crm.add_contact.steps.profile_picture_ea918c42')}
-        >
+        <ContactFormSection title="Profile Picture">
           <Controller
             control={control}
             name="personalInfo.profileImage"
@@ -105,19 +80,15 @@ const PersonalInfoForm = ({ label }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi(
-              'ui.sections.crm.add_contact.steps.jpg_or_png_recommended_size_1_1_up_to_10mb_f6dd99f5',
-            )}
+            JPG or PNG, Recommended size 1:1, Up to 10MB.
           </Typography>
         </ContactFormSection>
-        <ContactFormSection
-          title={translateUi('ui.sections.crm.add_contact.steps.basic_information_b0d5be39')}
-        >
+        <ContactFormSection title="Basic Information">
           <Grid container spacing={2} sx={{ width: 1 }}>
             <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 fullWidth
-                label={translateUi('ui.sections.crm.add_contact.steps.first_name_b6ea992a')}
+                label="First Name"
                 error={!!errors.personalInfo?.firstName}
                 helperText={errors.personalInfo?.firstName?.message}
                 {...register('personalInfo.firstName')}
@@ -126,7 +97,7 @@ const PersonalInfoForm = ({ label }) => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 fullWidth
-                label={translateUi('ui.sections.crm.add_contact.steps.last_name_863cb39f')}
+                label="Last Name"
                 error={!!errors.personalInfo?.lastName}
                 helperText={errors.personalInfo?.lastName?.message}
                 {...register('personalInfo.lastName')}
@@ -135,7 +106,7 @@ const PersonalInfoForm = ({ label }) => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 fullWidth
-                label={translateUi('ui.sections.crm.add_contact.steps.work_email_f6c07b41')}
+                label="Work Email"
                 type="email"
                 error={!!errors.personalInfo?.workEmail}
                 helperText={errors.personalInfo?.workEmail?.message}
@@ -145,7 +116,7 @@ const PersonalInfoForm = ({ label }) => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <TextField
                 fullWidth
-                label={translateUi('ui.sections.crm.add_contact.steps.personal_email_71f7b5ad')}
+                label="Personal Email"
                 type="email"
                 error={!!errors.personalInfo?.personalEmail}
                 helperText={errors.personalInfo?.personalEmail?.message}
@@ -155,7 +126,7 @@ const PersonalInfoForm = ({ label }) => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <NumberTextField
                 fullWidth
-                label={translateUi('ui.sections.crm.add_contact.steps.phone_number_ab25d61b')}
+                label="Phone Number"
                 error={!!errors.personalInfo?.phoneNumber}
                 helperText={errors.personalInfo?.phoneNumber?.message}
                 {...register('personalInfo.phoneNumber')}
@@ -164,9 +135,7 @@ const PersonalInfoForm = ({ label }) => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <NumberTextField
                 fullWidth
-                label={translateUi(
-                  'ui.sections.crm.add_contact.steps.alternate_phone_number_145953a1',
-                )}
+                label="Alternate Phone Number"
                 error={!!errors.personalInfo?.alternatePhoneNumber}
                 helperText={errors.personalInfo?.alternatePhoneNumber?.message}
                 {...register('personalInfo.alternatePhoneNumber')}
@@ -180,9 +149,7 @@ const PersonalInfoForm = ({ label }) => {
                   render={({ field }) => {
                     return (
                       <DatePicker
-                        label={translateUi(
-                          'ui.sections.crm.add_contact.steps.date_of_birth_13316059',
-                        )}
+                        label="Date of Birth"
                         disableFuture
                         format="DD/MM/YYYY"
                         value={field.value ? dayjs(field.value, 'DD/MM/YYYY') : null}
@@ -205,14 +172,12 @@ const PersonalInfoForm = ({ label }) => {
           </Grid>
         </ContactFormSection>
 
-        <ContactFormSection
-          title={translateUi('ui.sections.crm.add_contact.steps.professional_details_5970ab1c')}
-        >
+        <ContactFormSection title="Professional Details">
           <Grid container spacing={2} sx={{ width: 1 }}>
             <Grid size={6}>
               <TextField
                 fullWidth
-                label={translateUi('ui.sections.crm.add_contact.steps.job_title_d4297792')}
+                label="Job Title"
                 error={!!errors.personalInfo?.jobTitle}
                 helperText={errors.personalInfo?.jobTitle?.message}
                 {...register('personalInfo.jobTitle')}
@@ -221,24 +186,11 @@ const PersonalInfoForm = ({ label }) => {
             <Grid size={6}>
               <ControlledSelect
                 name="personalInfo.status"
-                label={translateUi('ui.sections.crm.add_contact.steps.status_bae7d5be')}
+                label="Status"
                 options={[
-                  {
-                    value: 'currentlyWorking',
-                    label: translateUi(
-                      'ui.sections.crm.add_contact.steps.currently_working_23fd7840',
-                    ),
-                  },
-                  {
-                    value: 'notWorking',
-                    label: translateUi('ui.sections.crm.add_contact.steps.not_working_0ed7565a'),
-                  },
-                  {
-                    value: 'seekingOpportunities',
-                    label: translateUi(
-                      'ui.sections.crm.add_contact.steps.seeking_opportunities_aced9268',
-                    ),
-                  },
+                  { value: 'currentlyWorking', label: 'Currently Working' },
+                  { value: 'notWorking', label: 'Not Working' },
+                  { value: 'seekingOpportunities', label: 'Seeking Opportunities' },
                 ]}
                 control={control}
                 error={errors.personalInfo?.status?.message}
@@ -247,9 +199,7 @@ const PersonalInfoForm = ({ label }) => {
           </Grid>
         </ContactFormSection>
 
-        <ContactFormSection
-          title={translateUi('ui.sections.crm.add_contact.steps.additional_information_ecfe29ef')}
-        >
+        <ContactFormSection title="Additional Information">
           <TextField
             fullWidth
             label={
@@ -259,9 +209,9 @@ const PersonalInfoForm = ({ label }) => {
                   fontWeight: 400,
                 }}
               >
-                {translateUi('ui.sections.crm.add_contact.steps.linkedin_url_05ef943f')}
+                LinkedIn URL
                 <Box component="span" sx={{ color: 'text.disabled', ml: 0.5 }}>
-                  {translateUi('ui.sections.crm.add_contact.steps.optional_d2bb786c')}
+                  ( optional )
                 </Box>
               </Typography>
             }
@@ -279,9 +229,9 @@ const PersonalInfoForm = ({ label }) => {
                   fontWeight: 400,
                 }}
               >
-                {translateUi('ui.sections.crm.add_contact.steps.add_note_757092db')}
+                Add note
                 <Box component="span" sx={{ color: 'text.disabled', ml: 0.5 }}>
-                  {translateUi('ui.sections.crm.add_contact.steps.optional_d2bb786c')}
+                  ( optional )
                 </Box>
               </Typography>
             }

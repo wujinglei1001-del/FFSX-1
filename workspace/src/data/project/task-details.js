@@ -1,6 +1,5 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 
 const detailsImage = (index) => `${initialConfig.assetsDir}/images/project/details/${index}.webp`;
 
@@ -11,51 +10,15 @@ const createdByAvatar = `${initialConfig.assetsDir}/images/avatar/11.webp`;
 // ---------------------------------------------------------------------------
 
 export const statusOptions = [
-  {
-    get label() {
-      return i18n.t('ui.data.project.task_details.to_do_8665aed3');
-    },
-    value: 'To do',
-    color: 'neutral',
-  },
-  {
-    get label() {
-      return i18n.t('ui.data.project.task_details.doing_9f1ffa41');
-    },
-    value: 'Doing',
-    color: 'info',
-  },
-  {
-    get label() {
-      return i18n.t('ui.data.project.task_details.done_e9b450d1');
-    },
-    value: 'Done',
-    color: 'success',
-  },
+  { label: 'To do', value: 'To do', color: 'neutral' },
+  { label: 'Doing', value: 'Doing', color: 'info' },
+  { label: 'Done', value: 'Done', color: 'success' },
 ];
 
 export const priorityOptions = [
-  {
-    value: 'Normal',
-    get label() {
-      return i18n.t('ui.data.project.task_details.normal_45e118d0');
-    },
-    dotColor: 'primary.main',
-  },
-  {
-    value: 'High',
-    get label() {
-      return i18n.t('ui.data.project.task_details.high_b1a5954a');
-    },
-    dotColor: 'warning.main',
-  },
-  {
-    value: 'Urgent',
-    get label() {
-      return i18n.t('ui.data.project.task_details.urgent_ecb26f46');
-    },
-    dotColor: 'error.main',
-  },
+  { value: 'Normal', label: 'Normal', dotColor: 'primary.main' },
+  { value: 'High', label: 'High', dotColor: 'warning.main' },
+  { value: 'Urgent', label: 'Urgent', dotColor: 'error.main' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -67,65 +30,23 @@ const defaultDescription =
 
 export const taskDetailsData = {
   id: 'task-1',
-  get title() {
-    return i18n.t(
-      'ui.data.project.task_details.find_joy_in_the_little_things_that_happen_every_sing_80f71848',
-    );
-  },
+  title: 'Find joy in the little things that happen every single day.',
   status: 'Done',
   bannerImage: detailsImage(1),
-  createdBy: {
-    name: 'Mary Ann',
-    avatar: createdByAvatar,
-  },
+  createdBy: { name: 'Mary Ann', avatar: createdByAvatar },
   description: defaultDescription,
   descriptionHtml: `<p>${defaultDescription}</p>`,
   priority: 'Normal',
   startDate: null,
   dueDate: null,
   labels: [
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.admin_4e7afebc');
-      },
-      color: 'primary',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.modification_e3ea079d');
-      },
-      color: 'warning',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.bug_271befc0');
-      },
-      color: 'error',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.feature_ad565d9d');
-      },
-      color: 'success',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.documentation_9e9cf322');
-      },
-      color: 'info',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.review_e29a79fe');
-      },
-      color: 'primary',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.project.task_details.urgent_ecb26f46');
-      },
-      color: 'error',
-    },
+    { label: 'Admin', color: 'primary' },
+    { label: 'Modification', color: 'warning' },
+    { label: 'Bug', color: 'error' },
+    { label: 'Feature', color: 'success' },
+    { label: 'Documentation', color: 'info' },
+    { label: 'Review', color: 'primary' },
+    { label: 'Urgent', color: 'error' },
   ],
   collaborators: users.map((user, index) => ({
     id: String(user.id),
@@ -136,73 +57,43 @@ export const taskDetailsData = {
   subtasks: [
     {
       id: 'subtask-1',
-      get title() {
-        return i18n.t('ui.data.project.task_details.quick_fix_af7476af');
-      },
-      get description() {
-        return i18n.t(
-          'ui.data.project.task_details.a_fast_way_to_tackle_issues_effectively_7275ec88',
-        );
-      },
+      title: 'Quick Fix',
+      description: 'A fast way to tackle issues effectively.',
       checked: false,
       assignees: users.slice(0, 4).map((u) => ({ id: u.id, name: u.name, avatar: u.avatar })),
     },
     {
       id: 'subtask-2',
-      get title() {
-        return i18n.t('ui.data.project.task_details.team_meeting_02acb0c2');
-      },
-      get description() {
-        return i18n.t('ui.data.project.task_details.sync_on_progress_and_blockers_af12cccb');
-      },
+      title: 'Team Meeting',
+      description: 'Sync on progress and blockers.',
       checked: false,
       assignees: users.slice(1, 2).map((u) => ({ id: u.id, name: u.name, avatar: u.avatar })),
     },
     {
       id: 'subtask-3',
-      get title() {
-        return i18n.t('ui.data.project.task_details.wrap_up_32569458');
-      },
-      get description() {
-        return i18n.t('ui.data.project.task_details.finalize_and_document_decisions_0218ee1a');
-      },
+      title: 'Wrap-Up',
+      description: 'Finalize and document decisions.',
       checked: false,
       assignees: users.slice(2, 4).map((u) => ({ id: u.id, name: u.name, avatar: u.avatar })),
     },
     {
       id: 'subtask-4',
-      get title() {
-        return i18n.t('ui.data.project.task_details.feedback_cycle_66f3af04');
-      },
-      get description() {
-        return i18n.t('ui.data.project.task_details.collect_and_incorporate_feedback_95785e4d');
-      },
+      title: 'Feedback Cycle',
+      description: 'Collect and incorporate feedback.',
       checked: false,
       assignees: [],
     },
     {
       id: 'subtask-5',
-      get title() {
-        return i18n.t('ui.data.project.task_details.daily_check_in_114047ef');
-      },
-      get description() {
-        return i18n.t(
-          'ui.data.project.task_details.a_quick_look_at_our_progress_and_daily_challenges_b60c7b4d',
-        );
-      },
+      title: 'Daily Check-In',
+      description: 'A quick look at our progress and daily challenges.',
       checked: true,
       assignees: users.slice(5, 6).map((u) => ({ id: u.id, name: u.name, avatar: u.avatar })),
     },
     {
       id: 'subtask-6',
-      get title() {
-        return i18n.t('ui.data.project.task_details.project_launch_643c883c');
-      },
-      get description() {
-        return i18n.t(
-          'ui.data.project.task_details.the_kickoff_event_where_we_share_our_goals_and_plans_d2c23c37',
-        );
-      },
+      title: 'Project Launch',
+      description: 'The kickoff event where we share our goals and plans.',
       checked: true,
       assignees: users.slice(6, 8).map((u) => ({ id: u.id, name: u.name, avatar: u.avatar })),
     },
@@ -270,11 +161,7 @@ export const taskDetailsData = {
       id: '1',
       name: users[2].name,
       time: new Date().toISOString(),
-      get text() {
-        return i18n.t(
-          'ui.data.project.task_details.this_project_is_going_exceptionally_well_and_i_can_t_f2be61d1',
-        );
-      },
+      text: "This project is going exceptionally well, and I can't wait to see how it continues to thrive. The potential for growth is limitless!",
       likeCount: 2,
       liked: false,
       author: users[2],
@@ -285,11 +172,7 @@ export const taskDetailsData = {
       id: '2',
       name: users[1].name,
       time: new Date().toISOString(),
-      get text() {
-        return i18n.t(
-          'ui.data.project.task_details.i_m_thrilled_about_the_upcoming_steps_in_this_projec_c3d9cce6',
-        );
-      },
+      text: "I'm thrilled about the upcoming steps in this project; it's a wonderful opportunity for us to create a positive impact.",
       likeCount: 4,
       liked: false,
       author: users[3],
@@ -300,11 +183,7 @@ export const taskDetailsData = {
       id: '3',
       name: users[4].name,
       time: new Date().toISOString(),
-      get text() {
-        return i18n.t(
-          'ui.data.project.task_details.the_initial_phases_went_smoothly_and_now_we_re_gaini_95b43902',
-        );
-      },
+      text: "The initial phases went smoothly, and now we're gaining incredible momentum and achieving remarkable results.",
       likeCount: 2,
       liked: false,
       author: users[2],
@@ -314,11 +193,7 @@ export const taskDetailsData = {
       id: '4',
       name: users[2].name,
       time: new Date().toISOString(),
-      get text() {
-        return i18n.t(
-          'ui.data.project.task_details.the_progress_has_been_outstanding_and_we_re_continuo_32d47e22',
-        );
-      },
+      text: "The progress has been outstanding, and we're continuously learning and adapting to ensure we keep advancing effortlessly.",
       likeCount: 4,
       liked: false,
       author: users[1],
@@ -328,11 +203,7 @@ export const taskDetailsData = {
       id: '5',
       name: users[1].name,
       time: new Date().toISOString(),
-      get text() {
-        return i18n.t(
-          'ui.data.project.task_details.i_m_very_confident_about_the_current_direction_and_i_fb29b186',
-        );
-      },
+      text: "I'm very confident about the current direction, and I have complete faith in the team to manage the workload seamlessly.",
       likeCount: 3,
       liked: true,
       author: users[4],

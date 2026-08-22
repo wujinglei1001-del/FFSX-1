@@ -1,11 +1,9 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { IconButton, Stack, TextField, Typography, formHelperTextClasses } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const OptionalInfo = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -27,9 +25,7 @@ const OptionalInfo = () => {
             alignItems: 'center',
           }}
         >
-          <Typography variant="subtitle2">
-            {translateUi('ui.sections.ecommerce.admin.product_listing.optional_0c6c4102')}
-          </Typography>
+          <Typography variant="subtitle2">Optional</Typography>
           <IconButton onClick={() => append({ label: '', value: '' })}>
             <IconifyIcon icon="material-symbols:add-rounded" color="neutral.main" fontSize={18} />
           </IconButton>
@@ -67,9 +63,7 @@ const OptionalInfo = () => {
               />
 
               <TextField
-                label={translateUi(
-                  'ui.sections.ecommerce.admin.product_listing.information_0eb5ed50',
-                )}
+                label="Information"
                 type="text"
                 sx={{
                   flex: 1,

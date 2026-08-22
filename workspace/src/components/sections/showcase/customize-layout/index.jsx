@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Container, Stack, keyframes } from '@mui/material';
 import { layoutConfigs } from 'data/showcase';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -23,7 +22,6 @@ const float = keyframes`
 `;
 
 const CustomizeLayout = () => {
-  const { t: translateUi } = useTranslation();
   const [isDark, setIsDark] = useState(true);
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -40,7 +38,7 @@ const CustomizeLayout = () => {
 
   return (
     <FormProvider {...methods}>
-      <Box id="templates" sx={{ position: 'relative', mb: { xs: 15, sm: 35 } }}>
+      <Box sx={{ position: 'relative', mb: { xs: 15, sm: 35 } }}>
         <Container maxWidth={false} sx={{ maxWidth: 966, textAlign: 'center' }}>
           <Stack
             sx={{
@@ -51,9 +49,7 @@ const CustomizeLayout = () => {
           >
             <RevealText animateOnScroll={false} delay={1}>
               <GradientText variant="h3" sx={{ textAlign: 'center' }}>
-                {translateUi(
-                  'ui.sections.showcase.customize_layout.customize_your_own_layout_aec7e538',
-                )}
+                Customize your own layout
               </GradientText>
             </RevealText>
 

@@ -1,10 +1,8 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { MenuItem, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const FromToSelectConditionFields = ({ index, options, renderOption, renderValue }) => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -14,7 +12,7 @@ const FromToSelectConditionFields = ({ index, options, renderOption, renderValue
     <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
       <Stack direction="row" sx={{ gap: 1, alignItems: 'center', flex: 1 }}>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {translateUi('ui.sections.project.automation.condition_fields.from_3f66052a')}
+          From
         </Typography>
         <Controller
           control={control}
@@ -41,7 +39,7 @@ const FromToSelectConditionFields = ({ index, options, renderOption, renderValue
       </Stack>
       <Stack direction="row" sx={{ gap: 1, alignItems: 'center', flex: 1 }}>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {translateUi('ui.sections.project.automation.condition_fields.to_ae79ea1e')}
+          To
         </Typography>
         <Controller
           control={control}

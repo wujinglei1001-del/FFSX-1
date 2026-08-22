@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Container, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import i18n from 'locales/i18n';
-import paths, { publicAuthPaths, rootPaths, workbenchEntryPath } from 'routes/paths';
+import paths from 'routes/paths';
 import Logo from 'components/common/Logo';
 import NavList from './NavList';
 import NewsLetter from './NewsLetter';
@@ -13,95 +11,66 @@ import SocialIcons from './SocialIcons';
 
 const footerLinks = [
   {
-    get title() {
-      return i18n.t('ffax.public.footer.brand');
-    },
+    title: 'Aurora',
     items: [
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.about');
-        },
+        label: 'About Us',
         href: paths.landingAbout,
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.workbench');
-        },
-        href: workbenchEntryPath,
+        label: 'Careers',
+        href: '#!',
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.subscriptions');
-        },
-        href: paths.landingSubscriptions,
+        label: 'Blog',
+        href: '#!',
       },
     ],
   },
   {
-    get title() {
-      return i18n.t('ffax.public.footer.support');
-    },
+    title: 'Support',
     items: [
       {
-        get label() {
-          return i18n.t('ffax.public.footer.help_center');
-        },
-        href: paths.landingFaq,
+        label: 'Help Center',
+        href: '#!',
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.contact');
-        },
+        label: 'Contact Us',
         href: paths.landingContact,
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.subscriptions');
-        },
-        href: paths.landingSubscriptions,
+        label: 'Pricing',
+        href: '#!',
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.faq');
-        },
+        label: 'FAQs',
         href: paths.landingFaq,
       },
     ],
   },
   {
-    get title() {
-      return i18n.t('ffax.public.footer.access');
-    },
+    title: 'Legal',
     items: [
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.login');
-        },
-        href: publicAuthPaths.login,
+        label: 'Privacy',
+        href: '#!',
       },
       {
-        get label() {
-          return i18n.t('ffax.public.footer.create_account');
-        },
-        href: publicAuthPaths.signup,
+        label: 'Cookie',
+        href: '#!',
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.faq');
-        },
-        href: paths.landingFaq,
+        label: 'Terms',
+        href: '#!',
       },
       {
-        get label() {
-          return i18n.t('ffax.public.navigation.contact');
-        },
-        href: paths.landingContact,
+        label: 'Security',
+        href: '#!',
       },
     ],
   },
 ];
 const NavSection = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Container maxWidth={false} sx={{ maxWidth: 1448, px: { xs: 3, md: 5 } }}>
       <Stack divider={<Divider flexItem />}>
@@ -113,13 +82,14 @@ const NavSection = () => {
           }}
         >
           <Grid size={{ xs: 12, md: 6, lg: 4 }}>
-            <Logo href={rootPaths.root} />
+            <Logo />
 
             <Typography
               variant="body2"
               sx={{ maxWidth: { xs: 400, xl: 270 }, mt: 3, color: 'text.secondary' }}
             >
-              {translateUi('ffax.public.footer.description')}
+              Aurora is a complete platform with a user-friendly interface. It offers tools for
+              seamless collaboration and easy integration with your workflow.
             </Typography>
           </Grid>
 
@@ -149,7 +119,7 @@ const NavSection = () => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ffax.public.footer.rights')}
+            Aurora Ltd © 2025, all rights reserved
           </Typography>
         </Box>
       </Stack>

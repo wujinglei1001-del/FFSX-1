@@ -1,5 +1,4 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SortableDnd from 'components/base/SortableDnd';
@@ -9,7 +8,6 @@ import { ACTION_TYPE_OPTIONS } from './common/constants';
 import { getUnusedOptions } from './common/helpers';
 
 const ThenThisHappensForm = () => {
-  const { t: translateUi } = useTranslation();
   const { control, getValues } = useFormContext();
 
   const { fields, append, remove, move, update } = useFieldArray({
@@ -35,9 +33,7 @@ const ThenThisHappensForm = () => {
         variant="h6"
         sx={{ color: 'text.secondary', fontWeight: 600, textAlign: 'center' }}
       >
-        {translateUi(
-          'ui.sections.project.automation.thenthishappensform.then_this_will_happen_afterwards_181f0708',
-        )}
+        Then this will happen afterwards
       </Typography>
       <SortableDnd
         items={fields}

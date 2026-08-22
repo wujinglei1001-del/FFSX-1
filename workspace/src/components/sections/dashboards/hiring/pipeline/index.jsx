@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
 import { useGridApiRef } from '@mui/x-data-grid';
@@ -12,7 +11,6 @@ import SectionWrapper from '../common/SectionWrapper';
 import PipelineTable from './PipelineTable';
 
 const Pipeline = () => {
-  const { t: translateUi } = useTranslation();
   const apiRef = useGridApiRef();
 
   const handleSearch = useCallback(
@@ -23,7 +21,7 @@ const Pipeline = () => {
   return (
     <SectionWrapper>
       <SectionHeader
-        title={translateUi('ui.sections.dashboards.hiring.pipeline.pipeline_32b1d5a7')}
+        title="Pipeline"
         subTitle="Current status of all hiring pipelines"
         direction={{ xs: 'column', sm: 'row' }}
         actionComponent={
@@ -36,9 +34,7 @@ const Pipeline = () => {
             }}
           >
             <StyledTextField
-              placeholder={translateUi(
-                'ui.sections.dashboards.hiring.pipeline.search_positions_683761b6',
-              )}
+              placeholder="Search Positions"
               fullWidth
               onChange={handleSearch}
               slotProps={{
@@ -61,17 +57,15 @@ const Pipeline = () => {
               options={[
                 {
                   value: 7,
-                  label: translateUi('ui.sections.dashboards.hiring.pipeline.last_day_d85ff84f'),
+                  label: 'Last Day',
                 },
                 {
                   value: 15,
-                  label: translateUi('ui.sections.dashboards.hiring.pipeline.last_6_days_300823a2'),
+                  label: 'Last 6 Days',
                 },
                 {
                   value: 30,
-                  label: translateUi(
-                    'ui.sections.dashboards.hiring.pipeline.last_30_days_6118867f',
-                  ),
+                  label: 'Last 30 Days',
                 },
               ]}
               sx={{ maxWidth: { sm: 150 }, width: 1 }}

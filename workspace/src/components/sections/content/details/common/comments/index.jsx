@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Drawer, Stack, Typography, drawerClasses } from '@mui/material';
 import { comments } from 'data/content/homepage';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -10,7 +9,6 @@ import CommentThread from './thread';
 const TOTAL_COMMENTS = 100;
 
 const ContentComments = ({ isDrawer = false }) => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const { numberFormat } = useNumberFormat();
 
@@ -22,8 +20,7 @@ const ContentComments = ({ isDrawer = false }) => {
     <>
       <Stack direction="row" sx={{ mb: 4, justifyContent: 'space-between', alignItems: 'center' }}>
         <Typography variant="h6" id="comments">
-          {translateUi('ui.sections.content.details.common.comments_a26937ce')}
-          {TOTAL_COMMENTS})
+          Comments({TOTAL_COMMENTS})
         </Typography>
 
         {isDrawer && (

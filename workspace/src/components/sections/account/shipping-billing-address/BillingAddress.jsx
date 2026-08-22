@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Stack, TextField } from '@mui/material';
 import { countries } from 'data/countries';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -11,7 +10,6 @@ import InfoCard from '../common/InfoCard';
 import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const BillingAddress = ({ defaultShippingAddress }) => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const {
     watch,
@@ -48,55 +46,15 @@ const BillingAddress = ({ defaultShippingAddress }) => {
     <>
       <InfoCard setOpen={!defaultShippingAddress ? setOpen : null} sx={{ mb: 5 }}>
         <Stack sx={{ gap: 2 }}>
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.name_709a2322',
-            )}
-            value={currentAddress.name}
-          />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.phone_number_ab25d61b',
-            )}
-            value={currentAddress.phoneNumber}
-          />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.email_address_09ba557f',
-            )}
-            value={currentAddress.emailAddress}
-          />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.country_d523ebbd',
-            )}
-            value={currentAddress.country}
-          />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.state_a7250206',
-            )}
-            value={currentAddress.state}
-          />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.city_4271627f',
-            )}
-            value={currentAddress.city}
-          />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.street_b4541099',
-            )}
-            value={currentAddress.street}
-          />
+          <InfoCardAttribute label="Name" value={currentAddress.name} />
+          <InfoCardAttribute label="Phone Number" value={currentAddress.phoneNumber} />
+          <InfoCardAttribute label="Email Address" value={currentAddress.emailAddress} />
+          <InfoCardAttribute label="Country" value={currentAddress.country} />
+          <InfoCardAttribute label="State" value={currentAddress.state} />
+          <InfoCardAttribute label="City" value={currentAddress.city} />
+          <InfoCardAttribute label="Street" value={currentAddress.street} />
           <InfoCardAttribute label="ZIP" value={currentAddress.zip} />
-          <InfoCardAttribute
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.type_of_address_23f97dc3',
-            )}
-            value={currentAddress.addressType}
-          />
+          <InfoCardAttribute label="Type of Address" value={currentAddress.addressType} />
         </Stack>
         <IconifyIcon
           icon="material-symbols-light:edit-outline"
@@ -106,23 +64,15 @@ const BillingAddress = ({ defaultShippingAddress }) => {
       <AccountDialog
         open={open}
         handleDialogClose={() => setOpen(false)}
-        title={translateUi(
-          'ui.sections.account.shipping_billing_address.billingaddress.billing_address_48af96f6',
-        )}
-        subtitle={translateUi(
-          'ui.sections.account.shipping_billing_address.billingaddress.enter_your_updated_address_to_ensure_we_have_your_la_f0123212',
-        )}
+        title="Billing Address"
+        subtitle="Enter your updated address to ensure we have your latest location information."
         handleConfirm={handleConfirm}
         handleDiscard={handleDiscard}
       >
         <Stack sx={{ gap: 2, p: 0.125 }}>
           <TextField
-            placeholder={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.name_709a2322',
-            )}
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.name_709a2322',
-            )}
+            placeholder="Name"
+            label="Name"
             error={!!errors.billingAddress?.name}
             helperText={errors.billingAddress?.name?.message}
             fullWidth
@@ -142,12 +92,8 @@ const BillingAddress = ({ defaultShippingAddress }) => {
             )}
           />
           <TextField
-            placeholder={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.email_84add5b2',
-            )}
-            label={translateUi(
-              'ui.sections.account.shipping_billing_address.billingaddress.email_address_c94d3175',
-            )}
+            placeholder="Email"
+            label="Email address"
             error={!!errors.billingAddress?.emailAddress}
             helperText={errors.billingAddress?.emailAddress?.message}
             fullWidth
@@ -164,9 +110,7 @@ const BillingAddress = ({ defaultShippingAddress }) => {
                 value={countries.find((country) => country.label === value) || null}
                 renderInput={(params) => (
                   <TextField
-                    label={translateUi(
-                      'ui.sections.account.shipping_billing_address.billingaddress.country_d523ebbd',
-                    )}
+                    label="Country"
                     error={!!errors.billingAddress?.country?.message}
                     helperText={errors.billingAddress?.country?.message}
                     {...params}
@@ -177,24 +121,16 @@ const BillingAddress = ({ defaultShippingAddress }) => {
           />
           <Stack sx={{ gap: 1, p: 0.125 }}>
             <TextField
-              placeholder={translateUi(
-                'ui.sections.account.shipping_billing_address.billingaddress.state_a7250206',
-              )}
-              label={translateUi(
-                'ui.sections.account.shipping_billing_address.billingaddress.state_a7250206',
-              )}
+              placeholder="State"
+              label="State"
               error={!!errors.billingAddress?.state}
               helperText={errors.billingAddress?.state?.message}
               fullWidth
               {...register('billingAddress.state')}
             />
             <TextField
-              placeholder={translateUi(
-                'ui.sections.account.shipping_billing_address.billingaddress.city_4271627f',
-              )}
-              label={translateUi(
-                'ui.sections.account.shipping_billing_address.billingaddress.city_4271627f',
-              )}
+              placeholder="City"
+              label="City"
               error={!!errors.billingAddress?.city}
               helperText={errors.billingAddress?.city?.message}
               fullWidth
@@ -203,12 +139,8 @@ const BillingAddress = ({ defaultShippingAddress }) => {
           </Stack>
           <Stack sx={{ gap: 1, p: 0.125 }}>
             <TextField
-              placeholder={translateUi(
-                'ui.sections.account.shipping_billing_address.billingaddress.street_b4541099',
-              )}
-              label={translateUi(
-                'ui.sections.account.shipping_billing_address.billingaddress.street_b4541099',
-              )}
+              placeholder="Street"
+              label="Street"
               error={!!errors.billingAddress?.street}
               helperText={errors.billingAddress?.street?.message}
               fullWidth

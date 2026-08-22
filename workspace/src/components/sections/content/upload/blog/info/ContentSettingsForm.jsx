@@ -1,5 +1,4 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Grid, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import Accessibility from '../../common/form-fields/Accessibility';
@@ -9,7 +8,6 @@ import TargetAudience from '../../common/form-fields/TargetAudience';
 import Topics from '../../common/form-fields/Topics';
 
 const ContentSettingsForm = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -30,13 +28,13 @@ const ContentSettingsForm = () => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.content.upload.blog.canonical_link_b78af068')}
+          Canonical link
         </Typography>
 
         <StyledTextField
           {...register('canonicalLink')}
           fullWidth
-          placeholder={translateUi('ui.sections.content.upload.blog.link_d0517071')}
+          placeholder="Link"
           error={!!errors.canonicalLink}
           helperText={errors.canonicalLink?.message}
         />

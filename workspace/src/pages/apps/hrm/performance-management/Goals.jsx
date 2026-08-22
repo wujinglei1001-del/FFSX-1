@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
@@ -11,20 +10,13 @@ import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import GoalsGrid from 'components/sections/hrm/performance-management/goals/GoalsGrid';
 
 const Goals = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper>
       <PageHeader
-        title={translateUi('ui.pages.apps.hrm.performance_management.goals_48d8c627')}
+        title="Goals"
         breadcrumb={[
-          {
-            label: translateUi('ui.pages.apps.hrm.performance_management.home_70f8bb9a'),
-            url: paths.workbench,
-          },
-          {
-            label: translateUi('ui.pages.apps.hrm.performance_management.goals_48d8c627'),
-            active: true,
-          },
+          { label: 'Home', url: '#!' },
+          { label: 'Goals', active: true },
         ]}
         actionComponent={
           <Button
@@ -32,7 +24,7 @@ const Goals = () => {
             variant="contained"
             startIcon={<IconifyIcon icon="material-symbols:add" />}
           >
-            {translateUi('ui.pages.apps.hrm.performance_management.create_goals_abcbd447')}
+            Create Goals
           </Button>
         }
         paperProps={{

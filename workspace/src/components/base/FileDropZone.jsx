@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -29,7 +28,6 @@ const FileDropZone = ({
   sx,
   ...rest
 }) => {
-  const { t: translateUi } = useTranslation();
   const [files, setFiles] = useState([]);
   const [previews, setPreviews] = useState([]);
 
@@ -89,12 +87,12 @@ const FileDropZone = ({
         }}
       />
       <Typography variant="caption" component="p" sx={{ alignSelf: 'center' }}>
-        {translateUi('ui.components.base.filedropzone.drag_drop_files_here_90286c1b')}{' '}
+        Drag & Drop files here{' '}
         <Box component="span" sx={{ color: 'text.disabled', mx: 1 }}>
-          {translateUi('common.or')}
+          or
         </Box>
         <Box component="span" sx={{ color: 'primary.main' }}>
-          {translateUi('ui.components.base.filedropzone.browse_from_device_ebaeb8e8')}
+          browse from device
         </Box>
       </Typography>
     </Stack>
@@ -163,7 +161,7 @@ const FileDropZone = ({
                 e.stopPropagation();
                 handleRemoveFile(0);
               }}
-              aria-label={translateUi('ui.components.base.filedropzone.remove_file_304b14ba')}
+              aria-label="Remove file"
             >
               <IconifyIcon icon="material-symbols:close" fontSize={12} />
             </Button>
@@ -185,7 +183,7 @@ const FileDropZone = ({
                 secondaryAction={
                   <IconButton
                     edge="end"
-                    aria-label={translateUi('ui.components.base.filedropzone.delete_9485989f')}
+                    aria-label="delete"
                     onClick={() => handleRemoveFile(index)}
                   >
                     <IconifyIcon

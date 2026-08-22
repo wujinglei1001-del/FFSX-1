@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useEcommerce } from 'providers/EcommerceProvider';
 
 const PaymentBottomBar = () => {
-  const { t: translateUi } = useTranslation();
   const { cartItems, cartTotal } = useEcommerce();
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -27,10 +25,7 @@ const PaymentBottomBar = () => {
               flex: 1,
             }}
           >
-            {cartItems.length}
-            {translateUi('ui.sections.ecommerce.customer.payment.item_3a7d9767')}
-            {cartItems.length > 1 ? 's' : ''}
-            {translateUi('ui.sections.ecommerce.customer.payment.selected_835f3b50')}
+            {cartItems.length} item{cartItems.length > 1 ? 's' : ''} selected
           </Typography>
         )}
         <Stack
@@ -57,7 +52,7 @@ const PaymentBottomBar = () => {
                 display: { xs: 'none', sm: 'block' },
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.payment.total_b25928c6')}
+              Total
             </Typography>
             <Typography variant="h4">{currencyFormat(cartTotal)}</Typography>
           </Stack>
@@ -71,7 +66,7 @@ const PaymentBottomBar = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.payment.submit_order_04c254bf')}
+            Submit order
           </Button>
         </Stack>
       </Stack>

@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { useConfigFromQuery } from 'hooks/useConfigFromQuery';
 import AuthProvider from 'providers/AuthProvider';
-import { rootPaths } from 'routes/paths';
 import SettingPanelToggler from 'components/settings-panel/SettingPanelToggler';
 import SettingsPanel from 'components/settings-panel/SettingsPanel';
 
@@ -11,10 +10,7 @@ const App = () => {
 
   useConfigFromQuery();
 
-  const runtimeBasePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
-  const isWorkbenchBundle = runtimeBasePath === '/workbench';
-  const isShowcase = !isWorkbenchBundle && pathname === '/';
-  const isAuthentication = pathname.startsWith(`/${rootPaths.authRoot}`);
+  const isShowcase = pathname === '/' || pathname.startsWith('/showcase');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +30,7 @@ const App = () => {
     <AuthProvider>
       <Outlet />
 
-      {!isShowcase && !isAuthentication && (
+      {!isShowcase && (
         <>
           <SettingsPanel />
           <SettingPanelToggler />

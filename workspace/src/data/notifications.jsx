@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material';
 import { initialConfig } from 'config';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { users } from './users';
 
 export const notificationBadge = {
@@ -30,9 +29,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.jolyon_wagg_a9a74599')}
+          Jolyon Wagg
         </Typography>{' '}
-        {i18n.t('common.and')}{' '}
+        and{' '}
         <Typography
           variant="body2"
           component="span"
@@ -41,11 +40,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.1_other_841be999')}
+          1 other
         </Typography>{' '}
-        {i18n.t(
-          'ui.data.notifications.friend_have_birthdays_today_wish_them_to_celebrate_t_b953d63b',
-        )}
+        friend have birthdays today. Wish them to celebrate together 🎉
       </>
     ),
     readAt: null,
@@ -65,9 +62,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.bianca_castapheore_0389f593')}
+          Bianca Castapheore
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.commented_on_your_photo_snowy_looks_amazing_here_791940d3')}
+        commented on your photo: “Snowy looks amazing here! 🐶”
       </>
     ),
     readAt: null,
@@ -88,9 +85,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.nestor_702e79af')}
+          Nestor
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.sent_you_a_friend_request_ac72c5eb')}
+        sent you a friend request
       </>
     ),
     readAt: new Date(),
@@ -110,9 +107,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.cuthbert_calculus_5f8406b6')}
+          Cuthbert Calculus
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.started_following_you_fe780beb')}
+        started following you
       </>
     ),
     readAt: new Date(),
@@ -132,9 +129,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.irma_4d607b38')}
+          Irma
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.reacted_to_your_post_happy_birthday_buddy_6136f1ee')}
+        reacted to your post: “Happy birthday buddy! 🥳🥳🎂”
       </>
     ),
     readAt: new Date(),
@@ -154,9 +151,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.irma_4d607b38')}
+          Irma
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.commented_on_your_post_thank_you_3017c110')}
+        commented on your post:“Thank you!! 😄”
       </>
     ),
     readAt: new Date(),
@@ -176,9 +173,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.thomson_thompson_53be4bc4')}
+          Thomson & Thompson
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.reacted_to_your_photo_f3be017b')}
+        reacted to your photo
       </>
     ),
     readAt: new Date(),
@@ -198,9 +195,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.fushiguro_megumi_9933c8d7')}
+          Fushiguro Megumi
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.sent_you_a_friend_request_ac72c5eb')}
+        sent you a friend request
       </>
     ),
     readAt: new Date(),
@@ -220,9 +217,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.general_alcazar_d8065bce')}
+          General Alcazar
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.added_6_new_photos_cc8eb2c2')}
+        added 6 new photos
       </>
     ),
     readAt: new Date(),
@@ -242,9 +239,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.jolyon_wagg_a9a74599')}
+          Jolyon Wagg
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.invited_you_to_the_join_the_group_best_comics_7399210c')}
+        invited you to the join the group: Best comics
       </>
     ),
     readAt: new Date(),
@@ -264,11 +261,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.bianca_castapheore_0389f593')}
+          Bianca Castapheore
         </Typography>{' '}
-        {i18n.t(
-          'ui.data.notifications.tagged_you_in_a_post_these_are_couple_of_photos_from_c6a274d0',
-        )}
+        tagged you in a post:“These are couple of photos from the last trip of our group”
       </>
     ),
     readAt: new Date(),
@@ -288,9 +283,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.peggy_alcazar_a0b37b2f')}
+          Peggy Alcazar
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.reacted_to_your_photo_f3be017b')}
+        reacted to your photo
       </>
     ),
     readAt: new Date(),
@@ -311,9 +306,9 @@ export const notifications = [
             color: 'text.primary',
           }}
         >
-          {i18n.t('ui.data.notifications.tsukumo_yuki_f38524e3')}
+          Tsukumo Yuki
         </Typography>{' '}
-        {i18n.t('ui.data.notifications.sent_you_a_friend_request_ac72c5eb')}
+        sent you a friend request
       </>
     ),
     readAt: new Date(),

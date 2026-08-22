@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   List,
@@ -11,39 +10,37 @@ import {
   Typography,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const OrderStatus = ({ stats }) => {
-  const { t: translateUi } = useTranslation();
   const orderStatusItems = useMemo(() => {
     return [
       {
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_pay_27dea2d7'),
+        label: 'To Pay',
         icon: 'material-symbols:credit-card-outline',
         field: 'toPay',
-        url: paths.orderList,
+        url: '#!',
         count: stats.toPay,
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_ship_b873c706'),
+        label: 'To Ship',
         icon: 'material-symbols:local-shipping-outline-rounded',
         field: 'toShip',
-        url: paths.orderList,
+        url: '#!',
         count: stats.toShip,
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_receive_c96c6a60'),
+        label: 'To Receive',
         field: 'toReceive',
         icon: 'material-symbols:package-2-outline',
-        url: paths.orderList,
+        url: '#!',
         count: stats.toReceive,
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.to_review_9b44cea8'),
+        label: 'To Review',
         field: 'toReview',
         icon: 'material-symbols:reviews-outline-rounded',
-        url: paths.orderList,
+        url: '#!',
         count: stats.toReview,
       },
     ];
@@ -57,13 +54,9 @@ const OrderStatus = ({ stats }) => {
           mb: 3,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.customer_account.order_status_22edd6c1')}
+        Order status
       </Typography>
-      <nav
-        aria-label={translateUi(
-          'ui.sections.ecommerce.customer.customer_account.order_status_22edd6c1',
-        )}
-      >
+      <nav aria-label="Order status">
         <Grid container component={List} disablePadding spacing={2}>
           {orderStatusItems.map(({ label, icon, url, count }) => (
             <Grid

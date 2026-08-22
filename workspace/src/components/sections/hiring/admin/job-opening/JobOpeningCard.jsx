@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import Link from '@mui/material/Link';
@@ -10,7 +9,6 @@ import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
 
 const JobOpeningCard = ({ job }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       component={Link}
@@ -82,8 +80,7 @@ const JobOpeningCard = ({ job }) => {
                     fontWeight: 400,
                   }}
                 >
-                  {job.branch}
-                  {translateUi('ui.sections.hiring.admin.job_opening.branch_10d735e5')}
+                  {job.branch} branch
                 </Typography>
               </Stack>
             </Stack>
@@ -113,8 +110,7 @@ const JobOpeningCard = ({ job }) => {
               >
                 {job.vacancy}
               </Box>
-              {` `}
-              {translateUi('ui.sections.hiring.admin.job_opening.vacancy_fec3f6d9')}
+              {` `}Vacancy
             </Typography>
             <Typography
               variant="body2"
@@ -131,8 +127,7 @@ const JobOpeningCard = ({ job }) => {
               >
                 {job.candidates}
               </Box>
-              {` `}
-              {translateUi('ui.sections.hiring.admin.job_opening.candidates_b5bf8067')}
+              {` `}Candidates
             </Typography>
             <Typography
               variant="body2"
@@ -149,8 +144,7 @@ const JobOpeningCard = ({ job }) => {
               >
                 {job.hiringLead}
               </Box>
-              {` `}
-              {translateUi('ui.sections.hiring.admin.job_opening.hiring_lead_682b3ad5')}
+              {` `}Hiring Lead
             </Typography>
           </Stack>
         </Stack>

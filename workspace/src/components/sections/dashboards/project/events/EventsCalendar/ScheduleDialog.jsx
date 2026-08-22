@@ -1,5 +1,4 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
@@ -16,7 +15,6 @@ import {
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import objectSupport from 'dayjs/plugin/objectSupport';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -28,56 +26,36 @@ dayjs.extend(objectSupport);
 dayjs.extend(customParseFormat);
 
 const scheduleFormSchema = yup.object().shape({
-  title: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
+  title: yup.string().required('Field is required'),
   allDayEvent: yup.boolean().required(),
   category: yup.string().required(),
-  startDate: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
-  startTime: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
-  endDate: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
-  endTime: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
-  eventType: yup
-    .string()
-    .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
+  startDate: yup.string().required('Field is required'),
+  startTime: yup.string().required('Field is required'),
+  endDate: yup.string().required('Field is required'),
+  endTime: yup.string().required('Field is required'),
+  eventType: yup.string().required('Field is required'),
   virtualLink: yup
     .string()
     .when('eventType', {
       is: 'hybrid',
-      then: (schema) =>
-        schema
-          .url()
-          .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
+      then: (schema) => schema.url().required('Field is required'),
       otherwise: (schema) => schema.nullable(),
     })
     .when('eventType', {
       is: 'online',
-      then: (schema) =>
-        schema
-          .url()
-          .required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
+      then: (schema) => schema.url().required('Field is required'),
       otherwise: (schema) => schema.nullable(),
     }),
   physical: yup
     .string()
     .when('eventType', {
       is: 'hybrid',
-      then: (schema) =>
-        schema.required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
+      then: (schema) => schema.required('Field is required'),
       otherwise: (schema) => schema.nullable(),
     })
     .when('eventType', {
       is: 'physical',
-      then: (schema) =>
-        schema.required(i18n.t('ui.sections.dashboards.project.events.field_is_required_79829e87')),
+      then: (schema) => schema.required('Field is required'),
       otherwise: (schema) => schema.nullable(),
     }),
   members: yup.array().of(yup.mixed().required()).required(),
@@ -95,7 +73,6 @@ const ScheduleDialog = ({
   selectedDates,
   ...rest
 }) => {
-  const { t: translateUi } = useTranslation();
   const methods = useForm({
     defaultValues: {
       title: selectedEvent?.title ? selectedEvent?.title : '',
@@ -156,7 +133,7 @@ const ScheduleDialog = ({
         sx={{
           [`& .${dialogClasses.container}`]: {
             '&::after': {
-              content: translateUi('ui.sections.dashboards.project.events.none_71f8e797'),
+              content: 'none',
             },
           },
           [`& .${dialogClasses.scrollPaper} > .${dialogClasses.paper}`]: {
@@ -175,7 +152,7 @@ const ScheduleDialog = ({
           }}
         >
           <Typography variant="h6" component="span">
-            {translateUi('ui.sections.dashboards.project.events.create_schedule_cf797357')}
+            Create schedule
           </Typography>
           <IconButton onClick={handleClose}>
             <IconifyIcon
@@ -195,10 +172,10 @@ const ScheduleDialog = ({
         </DialogContent>
         <DialogActions sx={{ justifyContent: 'space-between', p: 5, pt: 3 }}>
           <Button color="neutral" onClick={dialogClose}>
-            {translateUi('ui.sections.dashboards.project.events.discard_36fff63c')}
+            Discard
           </Button>
           <Button type="submit" variant="contained" color="primary">
-            {translateUi('ui.sections.dashboards.project.events.save_efc007a3')}
+            Save
           </Button>
         </DialogActions>
       </Dialog>

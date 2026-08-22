@@ -18,7 +18,7 @@ export const themeListRowSx = (variant = 'default', isNested = false) => ({
   [`&.${listItemButtonClasses.selected}`]: {
     bgcolor:
       variant === 'menu'
-        ? 'rgba(var(--ffax-palette-primary-mainChannel) / calc(var(--ffax-palette-action-selectedOpacity)))'
+        ? 'rgba(var(--aurora-palette-primary-mainChannel) / calc(var(--aurora-palette-action-selectedOpacity)))'
         : 'action.focused',
   },
 

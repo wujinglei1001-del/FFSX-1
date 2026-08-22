@@ -1,11 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Link, Stack, Typography } from '@mui/material';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const Customer = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { customer } = order;
 
@@ -30,11 +27,11 @@ const Customer = ({ sx }) => {
             fontWeight: 700,
           }}
         >
-          {translateUi('ui.sections.ecommerce.admin.order.customer_0e85749a')}
+          Customer
         </Typography>
 
         <Button variant="text" size="small" sx={{ flexShrink: 0, minWidth: 0 }}>
-          {translateUi('ui.sections.ecommerce.admin.order.edit_5301648d')}
+          Edit
         </Button>
       </Stack>
       <Box
@@ -44,10 +41,10 @@ const Customer = ({ sx }) => {
       >
         <Avatar
           src={customer?.avatar}
-          alt={translateUi('ui.sections.ecommerce.admin.order.captain_haddock_b801c768')}
+          alt="Captain Haddock"
           sx={{ width: 54, height: 54, mb: 1 }}
         />
-        <Link href={paths.customerAccount} variant="body2">
+        <Link href="#!" variant="body2">
           {customer?.name}
         </Link>
       </Box>

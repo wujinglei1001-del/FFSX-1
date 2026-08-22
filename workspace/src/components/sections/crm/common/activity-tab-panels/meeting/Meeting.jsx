@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Avatar, { avatarClasses } from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
@@ -12,7 +11,6 @@ import isToday from 'dayjs/plugin/isToday';
 dayjs.extend(isToday);
 
 const Meeting = ({ date, meeting, isToday }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       direction="row"
@@ -60,22 +58,21 @@ const Meeting = ({ date, meeting, isToday }) => {
             }}
           >
             <Typography variant="subtitle1">
-              {translateUi('ui.sections.crm.common.activity_tab_panels.meeting_at_bd56a7fb')}{' '}
+              Meeting at{' '}
               <Box component="span" sx={{ fontWeight: 500 }}>
                 {dayjs(meeting.scheduledDate).format('h:mm a')}
               </Box>{' '}
-              {translateUi('common.with')}{' '}
+              with{' '}
               <Box component="span" sx={{ fontWeight: 500 }}>
                 {meeting.participant}
               </Box>
             </Typography>
             <Typography variant="caption" sx={{ color: 'text.secondary', lineHeight: '18px' }}>
-              {translateUi('ui.sections.crm.common.activity_tab_panels.scheduled_by_d8d0d1b3')}{' '}
+              Scheduled by{' '}
               <Box component="span" sx={{ fontWeight: 700 }}>
                 {meeting.scheduledBy}
               </Box>{' '}
-              {translateUi('common.at')}{' '}
-              {dayjs(meeting.scheduledDate).format('DD MMM, YYYY h:mm a')}
+              at {dayjs(meeting.scheduledDate).format('DD MMM, YYYY h:mm a')}
             </Typography>
           </Stack>
           <AvatarGroup
@@ -92,9 +89,9 @@ const Meeting = ({ date, meeting, isToday }) => {
             ))}
           </AvatarGroup>
         </Stack>
-        {isToday && meeting.joinUrl && (
-          <Button variant="soft" href={meeting.joinUrl} sx={{ alignSelf: 'flex-start' }}>
-            {translateUi('ui.sections.crm.common.activity_tab_panels.join_now_e1312e12')}
+        {isToday && (
+          <Button variant="soft" href="#!" sx={{ alignSelf: 'flex-start' }}>
+            Join now
           </Button>
         )}
       </Stack>

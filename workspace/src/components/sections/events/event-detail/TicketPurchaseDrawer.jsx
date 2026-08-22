@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Box,
@@ -43,7 +42,6 @@ const ticketOptions = [
 ];
 const CombinedEventFormSchema = EventTicketFormSchema.concat(EventPaymentMethodSchema);
 const TicketPurchaseDrawer = ({ open, handleClose }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { enqueueSnackbar } = useSnackbar();
   const methods = useForm({
@@ -110,11 +108,7 @@ const TicketPurchaseDrawer = ({ open, handleClose }) => {
                 direction="row"
                 sx={{ justifyContent: 'space-between', alignItems: 'center', mb: 3 }}
               >
-                <Typography variant="h6">
-                  {translateUi(
-                    'ui.sections.events.event_detail.ticketpurchasedrawer.ticket_price_da593559',
-                  )}
-                </Typography>
+                <Typography variant="h6">Ticket price</Typography>
                 <IconButton onClick={handleClose}>
                   <IconifyIcon icon="material-symbols:close" fontSize={20} />
                 </IconButton>
@@ -243,9 +237,7 @@ const TicketPurchaseDrawer = ({ open, handleClose }) => {
             }}
           >
             <Button type="submit" fullWidth variant="contained" color="primary">
-              {translateUi(
-                'ui.sections.events.event_detail.ticketpurchasedrawer.buy_tickets_029ab126',
-              )}
+              Buy tickets
             </Button>
           </Box>
         </Box>

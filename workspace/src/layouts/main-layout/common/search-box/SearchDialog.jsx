@@ -1,7 +1,7 @@
 import { Dialog, dialogClasses } from '@mui/material';
 import SearchResult from './SearchResult';
 
-const SearchDialog = ({ anchorEl, handleClose, navigation }) => {
+const SearchDialog = ({ anchorEl, handleClose }) => {
   const open = Boolean(anchorEl);
 
   return (
@@ -21,7 +21,7 @@ const SearchDialog = ({ anchorEl, handleClose, navigation }) => {
         },
       }}
     >
-      <SearchResult handleClose={handleClose} navigation={navigation} />
+      <SearchResult handleClose={handleClose} />
     </Dialog>
   );
 };

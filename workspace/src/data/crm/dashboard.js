@@ -1,21 +1,15 @@
-import i18n from 'locales/i18n';
-
 export const dealsData = [
   {
     icon: 'material-symbols:handshake-outline-rounded',
     count: 310,
-    get label() {
-      return i18n.t('ui.data.crm.dashboard.deals_created_3cb4261e');
-    },
+    label: 'Deals created',
     percentage: 4.3,
     trend: 'up',
   },
   {
     icon: 'material-symbols:payments-outline-rounded',
     count: 26,
-    get label() {
-      return i18n.t('ui.data.crm.dashboard.deals_closed_c1a87cf8');
-    },
+    label: 'Deals closed',
     percentage: 1.9,
     trend: 'down',
   },
@@ -23,87 +17,47 @@ export const dealsData = [
 
 export const kpisData = [
   {
-    get title() {
-      return i18n.t('ui.data.crm.dashboard.active_users_8f7c7500');
-    },
+    title: 'Active Users',
     value: 3050,
-    get subtitle() {
-      return i18n.t('ui.data.crm.dashboard.avg_daily_logins_e464dc24');
-    },
+    subtitle: 'Avg. daily logins',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.crm.dashboard.material_symbols_light_location_away_outline_rounded_aadffeea',
-        );
-      },
+      name: 'material-symbols-light:location-away-outline-rounded',
       color: 'primary.main',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.crm.dashboard.new_contacts_e1c7fc70');
-    },
+    title: 'New Contacts',
     value: 105,
-    get subtitle() {
-      return i18n.t('ui.data.crm.dashboard.accounts_opened_3af1dd3f');
-    },
+    subtitle: 'Accounts opened',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.crm.dashboard.material_symbols_light_verified_outline_rounded_3d167d67',
-        );
-      },
+      name: 'material-symbols-light:verified-outline-rounded',
       color: 'warning.main',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.crm.dashboard.renewal_rate_cf60f3f1');
-    },
+    title: 'Renewal Rate',
     value: '37%',
-    get subtitle() {
-      return i18n.t('ui.data.crm.dashboard.premium_accounts_d8b5bd31');
-    },
+    subtitle: 'Premium accounts',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.crm.dashboard.material_symbols_light_published_with_changes_rounde_029f7940',
-        );
-      },
+      name: 'material-symbols-light:published-with-changes-rounded',
       color: 'success.main',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.crm.dashboard.inventory_300d29fd');
-    },
+    title: 'Inventory',
     value: 13200,
-    get subtitle() {
-      return i18n.t('ui.data.crm.dashboard.units_in_stock_52688732');
-    },
+    subtitle: 'Units in stock',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.crm.dashboard.material_symbols_light_warehouse_outline_rounded_967f71ef',
-        );
-      },
+      name: 'material-symbols-light:warehouse-outline-rounded',
       color: 'secondary.main',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.crm.dashboard.delivered_eea956cd');
-    },
+    title: 'Delivered',
     value: 1920,
-    get subtitle() {
-      return i18n.t('ui.data.crm.dashboard.unit_products_bb83cbc0');
-    },
+    subtitle: 'Unit products',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.crm.dashboard.material_symbols_light_local_shipping_outline_rounde_c6bac67d',
-        );
-      },
+      name: 'material-symbols-light:local-shipping-outline-rounded',
       color: 'info.main',
     },
   },
@@ -116,22 +70,10 @@ export const crmGeneratedRevenueData = {
 };
 
 export const leadSoursesData = [
-  {
-    value: 1048,
-    name: 'Organic',
-  },
-  {
-    value: 735,
-    name: 'Marketing',
-  },
-  {
-    value: 580,
-    name: 'Social media',
-  },
-  {
-    value: 484,
-    name: 'Blog posts',
-  },
+  { value: 1048, name: 'Organic' },
+  { value: 735, name: 'Marketing' },
+  { value: 580, name: 'Social media' },
+  { value: 484, name: 'Blog posts' },
 ];
 
 export const acquisitionCostData = {

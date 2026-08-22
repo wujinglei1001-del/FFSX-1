@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   FormControl,
@@ -12,7 +11,6 @@ import {
   Typography,
 } from '@mui/material';
 import { countries } from 'data/countries';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useAccounts } from 'providers/AccountsProvider';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -24,27 +22,14 @@ import InfoCard from '../common/InfoCard';
 import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const addressSchema = yup.object().shape({
-  country: yup
-    .string()
-    .required(
-      i18n.t('ui.sections.account.personal_info.address.country_name_is_required_0c35a596'),
-    ),
-  state: yup
-    .string()
-    .required(i18n.t('ui.sections.account.personal_info.address.state_name_is_required_a579ea98')),
-  city: yup
-    .string()
-    .required(i18n.t('ui.sections.account.personal_info.address.city_name_is_required_858efac1')),
-  street: yup
-    .string()
-    .required(i18n.t('ui.sections.account.personal_info.address.street_name_is_required_d6b8efe8')),
-  zip: yup
-    .string()
-    .required(i18n.t('ui.sections.account.personal_info.address.zip_is_required_d31da32b')),
+  country: yup.string().required('Country name is required'),
+  state: yup.string().required('State name is required'),
+  city: yup.string().required('City name is required'),
+  street: yup.string().required('Street name is required'),
+  zip: yup.string().required('ZIP is required'),
 });
 
 const Address = () => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const { personalInfo } = useAccounts();
   const { up } = useBreakpoints();
@@ -94,22 +79,10 @@ const Address = () => {
     <FormProvider {...methods}>
       <InfoCard setOpen={setOpen} sx={{ mb: 3 }}>
         <Stack sx={{ gap: { xs: 2, sm: 1 } }}>
-          <InfoCardAttribute
-            label={translateUi('ui.sections.account.personal_info.address.country_d523ebbd')}
-            value={currentAddress.country}
-          />
-          <InfoCardAttribute
-            label={translateUi('ui.sections.account.personal_info.address.state_a7250206')}
-            value={currentAddress.state}
-          />
-          <InfoCardAttribute
-            label={translateUi('ui.sections.account.personal_info.address.city_4271627f')}
-            value={currentAddress.city}
-          />
-          <InfoCardAttribute
-            label={translateUi('ui.sections.account.personal_info.address.street_b4541099')}
-            value={currentAddress.street}
-          />
+          <InfoCardAttribute label="Country" value={currentAddress.country} />
+          <InfoCardAttribute label="State" value={currentAddress.state} />
+          <InfoCardAttribute label="City" value={currentAddress.city} />
+          <InfoCardAttribute label="Street" value={currentAddress.street} />
           <InfoCardAttribute label="ZIP" value={currentAddress.zip} />
         </Stack>
         <IconifyIcon
@@ -118,10 +91,8 @@ const Address = () => {
         />
       </InfoCard>
       <AccountFormDialog
-        title={translateUi('ui.sections.account.personal_info.address.address_d70f93df')}
-        subtitle={translateUi(
-          'ui.sections.account.personal_info.address.enter_your_updated_address_to_ensure_we_have_your_mo_fa3afdc5',
-        )}
+        title="Address"
+        subtitle="Enter your updated address to ensure we have your most recent and accurate location information."
         open={open}
         onSubmit={onSubmit}
         handleDialogClose={() => setOpen(false)}
@@ -142,9 +113,7 @@ const Address = () => {
                 value={countries.find((country) => country.label === value) || null}
                 renderInput={(params) => (
                   <TextField
-                    label={translateUi(
-                      'ui.sections.account.personal_info.address.country_d523ebbd',
-                    )}
+                    label="Country"
                     error={!!errors.country?.message}
                     helperText={errors.country?.message}
                     {...params}
@@ -154,24 +123,24 @@ const Address = () => {
             )}
           />
           <TextField
-            placeholder={translateUi('ui.sections.account.personal_info.address.state_a7250206')}
-            label={translateUi('ui.sections.account.personal_info.address.state_a7250206')}
+            placeholder="State"
+            label="State"
             error={!!errors.state}
             helperText={errors.state?.message}
             fullWidth
             {...register('state')}
           />
           <TextField
-            placeholder={translateUi('ui.sections.account.personal_info.address.city_4271627f')}
-            label={translateUi('ui.sections.account.personal_info.address.city_4271627f')}
+            placeholder="City"
+            label="City"
             error={!!errors.city}
             helperText={errors.city?.message}
             fullWidth
             {...register('city')}
           />
           <TextField
-            placeholder={translateUi('ui.sections.account.personal_info.address.street_b4541099')}
-            label={translateUi('ui.sections.account.personal_info.address.street_b4541099')}
+            placeholder="Street"
+            label="Street"
             error={!!errors.street}
             helperText={errors.street?.message}
             fullWidth
@@ -189,32 +158,16 @@ const Address = () => {
       </AccountFormDialog>
       <FormControl sx={{ gap: 2 }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
-          {translateUi(
-            'ui.sections.account.personal_info.address.who_can_see_your_address_62fb7ae8',
-          )}
+          Who can see your address?
         </Typography>
         <Controller
           control={control}
           name="visibility"
           render={({ field }) => (
             <RadioGroup row={upSm} aria-labelledby="address-visibility-radio-buttons" {...field}>
-              <FormControlLabel
-                value="only_me"
-                control={<Radio />}
-                label={translateUi('ui.sections.account.personal_info.address.only_me_7631b141')}
-              />
-              <FormControlLabel
-                value="followers_only"
-                control={<Radio />}
-                label={translateUi(
-                  'ui.sections.account.personal_info.address.followers_only_b8cf84c7',
-                )}
-              />
-              <FormControlLabel
-                value="everyone"
-                control={<Radio />}
-                label={translateUi('ui.sections.account.personal_info.address.everyone_c756f6af')}
-              />
+              <FormControlLabel value="only_me" control={<Radio />} label="Only me" />
+              <FormControlLabel value="followers_only" control={<Radio />} label="Followers only" />
+              <FormControlLabel value="everyone" control={<Radio />} label="Everyone" />
             </RadioGroup>
           )}
         />

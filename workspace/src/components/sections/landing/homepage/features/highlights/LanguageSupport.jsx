@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Stack } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import Image from 'components/base/Image';
 import { BentoCardHeader } from './BentoCard';
 
 const LanguageSupport = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -24,10 +22,8 @@ const LanguageSupport = () => {
         }}
       />
       <BentoCardHeader
-        title={translateUi('ui.sections.landing.homepage.features.10_supported_languages_82930d0d')}
-        subtitle={translateUi(
-          'ui.sections.landing.homepage.features.create_stunning_professional_quality_websites_2238d28a',
-        )}
+        title="10+ Supported Languages"
+        subtitle="Create stunning, professional quality websites"
         sx={{ textAlign: 'center', p: { xs: 2, md: 3 }, pt: 0, mt: -2 }}
       />
     </Stack>

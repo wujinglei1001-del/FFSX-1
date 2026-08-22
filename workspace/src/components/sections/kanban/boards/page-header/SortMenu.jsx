@@ -1,38 +1,27 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button, { buttonClasses } from '@mui/material/Button';
 import Menu, { menuClasses } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const menuItems = [
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.boards.page_header.last_edited_0c79adcf');
-    },
+    label: 'Last Edited',
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.boards.page_header.recently_added_66560f11');
-    },
+    label: 'Recently Added',
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.boards.page_header.date_created_dda2f80b');
-    },
+    label: 'Date Created',
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.boards.page_header.alphabetical_a_z_bb43281f');
-    },
+    label: 'Alphabetical (A-Z)',
   },
 ];
 
 const SortMenu = () => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedMenu, setSelectedMenu] = useState(menuItems[0]);
   const open = Boolean(anchorEl);
@@ -49,10 +38,7 @@ const SortMenu = () => {
 
   return (
     <>
-      <Tooltip
-        title={translateUi('ui.sections.kanban.boards.page_header.sort_by_a2a5bdec')}
-        disableHoverListener={upLg ? true : false}
-      >
+      <Tooltip title="Sort by" disableHoverListener={upLg ? true : false}>
         <Button
           id="kanban-sort-menu"
           aria-controls={open ? 'kanban-sort-menu' : undefined}

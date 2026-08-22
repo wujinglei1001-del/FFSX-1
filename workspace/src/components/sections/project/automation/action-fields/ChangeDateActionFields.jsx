@@ -1,11 +1,9 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormControlLabel, Radio, RadioGroup, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import DatePickerWithShortcuts from '../shared/DatePickerWithShortcuts';
 
 const ChangeDateActionFields = ({ index }) => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -45,9 +43,7 @@ const ChangeDateActionFields = ({ index }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.project.automation.action_fields.day_s_after_trigger_dac987f2',
-                  )}
+                  Day(s) after trigger
                 </Typography>
               </Stack>
 
@@ -76,9 +72,7 @@ const ChangeDateActionFields = ({ index }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.project.automation.action_fields.week_s_after_trigger_dee59302',
-                  )}
+                  Week(s) after trigger
                 </Typography>
               </Stack>
 
@@ -96,9 +90,7 @@ const ChangeDateActionFields = ({ index }) => {
                     color: 'text.secondary',
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.project.automation.action_fields.set_custom_date_90458e7d',
-                  )}
+                  Set custom date
                 </Typography>
               </Stack>
             </Stack>
@@ -107,9 +99,7 @@ const ChangeDateActionFields = ({ index }) => {
       />
       <DatePickerWithShortcuts
         name={`actions.${index}.params.customDate`}
-        placeholder={translateUi(
-          'ui.sections.project.automation.action_fields.change_start_end_date_a2003dc1',
-        )}
+        placeholder="Change start/end date"
         disabled={dateMode !== 'custom'}
       />
     </Stack>

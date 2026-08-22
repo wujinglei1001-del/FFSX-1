@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Navigate, useParams } from 'react-router';
 import { Stack, Typography } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -13,7 +12,6 @@ import EmailDetailsHeader from './EmailDetailsHeader';
 import EmailReply from './EmailReply';
 
 const EmailDetailsContainer = () => {
-  const { t: translateUi } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const {
     emailState: { email, initialEmails },
@@ -61,9 +59,7 @@ const EmailDetailsContainer = () => {
       ) : (
         <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'center', height: 1 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 500, mt: 5 }}>
-            {translateUi(
-              'ui.sections.email.email_details.emaildetailscontainer.no_conversations_selected_9497ab70',
-            )}
+            No conversations selected
           </Typography>
         </Stack>
       )}

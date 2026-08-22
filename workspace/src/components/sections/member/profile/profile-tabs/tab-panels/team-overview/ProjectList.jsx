@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   AvatarGroup,
@@ -12,7 +11,6 @@ import {
 } from '@mui/material';
 import { DataGrid, useGridApiRef } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
@@ -30,9 +28,7 @@ const getStatusChipColor = (status) => {
 const columnDefs = [
   {
     field: 'name',
-    get headerName() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.project_name_5f950764');
-    },
+    headerName: 'Project Name',
     headerClassName: 'name-header',
     cellClassName: 'name-cell',
     flex: 2.4,
@@ -42,9 +38,7 @@ const columnDefs = [
   },
   {
     field: 'team',
-    get headerName() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.team_21888726');
-    },
+    headerName: 'Team',
     headerClassName: 'team-header',
     cellClassName: 'team-cell',
     flex: 1.26,
@@ -54,9 +48,7 @@ const columnDefs = [
   },
   {
     field: 'collaborators',
-    get headerName() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.collaborators_6eb695e5');
-    },
+    headerName: 'Collaborators',
     headerClassName: 'collaborators-header',
     cellClassName: 'collaborators-cell',
     sortable: false,
@@ -80,9 +72,7 @@ const columnDefs = [
   },
   {
     field: 'status',
-    get headerName() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.status_bae7d5be');
-    },
+    headerName: 'Status',
     headerClassName: 'status-header',
     cellClassName: 'status-cell',
     flex: 1,
@@ -93,9 +83,7 @@ const columnDefs = [
   },
   {
     field: 'lastOpened',
-    get headerName() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.last_opened_6674c9e5');
-    },
+    headerName: 'Last opened',
     headerClassName: 'last-opened-header',
     cellClassName: 'last-opened-cell',
     sortable: false,
@@ -155,7 +143,9 @@ const ProjectList = ({ data }) => {
           }}
           pageSizeOptions={[7]}
           slots={{
-            basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
+            basePagination: (props) => (
+              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+            ),
           }}
           slotProps={{
             panel: {
@@ -177,11 +167,10 @@ const ProjectList = ({ data }) => {
   );
 };
 const TopSection = ({ handleToggleFilterPanel }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
       <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-        {translateUi('ui.sections.member.profile.profile_tabs.project_list_b80dd01f')}
+        Project List
       </Typography>
       <Button
         variant="soft"
@@ -189,7 +178,7 @@ const TopSection = ({ handleToggleFilterPanel }) => {
         startIcon={<IconifyIcon icon="material-symbols:filter-alt-outline" />}
         onClick={handleToggleFilterPanel}
       >
-        {translateUi('ui.sections.member.profile.profile_tabs.filter_d7decf1a')}
+        Filter
       </Button>
     </Stack>
   );

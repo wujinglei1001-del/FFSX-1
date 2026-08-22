@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link as RouterLink } from 'react-router';
+import { useEffect, useRef } from 'react';
 import {
+  Avatar,
   Box,
+  Breadcrumbs,
+  Chip,
   Divider,
   IconButton,
   InputAdornment,
@@ -13,127 +14,302 @@ import {
   ListItemIcon,
   ListItemText,
   Stack,
+  Tooltip,
   Typography,
   inputBaseClasses,
+  listItemSecondaryActionClasses,
 } from '@mui/material';
-import paths from 'routes/paths';
+import searchResult from 'data/search-result';
 import SimpleBar from 'simplebar-react';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SearchTextField from './SearchTextField';
 
-const collectNavigationItems = (items, section = '') =>
-  items.flatMap((item) => {
-    const itemSection = item.subheader || item.name || section;
-
-    if (item.items) {
-      return collectNavigationItems(item.items, itemSection);
-    }
-
-    if (!item.active || !item.path) return [];
-
-    return [
-      {
-        key: item.key || item.pathName || item.path,
-        name: item.name || item.pathName || item.path,
-        path: item.path,
-        icon: item.icon,
-        section,
-        external: item.external === true,
-      },
-    ];
-  });
-
-const SearchResult = ({ handleClose, navigation = [] }) => {
-  const { t: translateUi, i18n } = useTranslation();
-  const [query, setQuery] = useState('');
-  const navigationItems = useMemo(
-    () => collectNavigationItems(navigation),
-    [i18n.resolvedLanguage, navigation],
-  );
-  const normalizedQuery = query.trim().toLocaleLowerCase(i18n.resolvedLanguage);
-  const results = navigationItems.filter((item) =>
-    `${item.name} ${item.section} ${item.path}`
-      .toLocaleLowerCase(i18n.resolvedLanguage)
-      .includes(normalizedQuery),
-  );
-
+const SearchResult = ({ handleClose }) => {
+  const { breadcrumbs, contacts, files, tags } = searchResult;
   return (
     <>
-      <SearchField
-        handleClose={handleClose}
-        value={query}
-        onChange={(event) => setQuery(event.target.value)}
-      />
+      <SearchField handleClose={handleClose} />
       <SimpleBar style={{ maxHeight: 600, minHeight: 0, width: '100%' }}>
-        <Box sx={{ px: 3, py: 2 }}>
-          <Typography variant="caption" sx={{ color: 'text.disabled', fontWeight: 'medium' }}>
-            {translateUi('ffax.search.navigation')}
-          </Typography>
+        <Box sx={{ px: 3, py: 1.25 }}>
+          <Link
+            component="button"
+            variant="caption"
+            underline="none"
+            sx={{
+              fontWeight: 'medium',
+            }}
+          >
+            Advanced search
+          </Link>
         </Box>
         <Divider />
+        <Box>
+          <Stack
+            direction="row"
+            sx={{
+              justifyContent: 'space-between',
+              py: 2,
+              px: 3,
+            }}
+          >
+            <Typography
+              variant="caption"
+              sx={{
+                fontWeight: 'medium',
+                color: 'text.disabled',
+              }}
+            >
+              Recent
+            </Typography>
 
-        {results.length > 0 ? (
-          <List disablePadding sx={{ py: 1 }}>
-            {results.map((item) => (
-              <ListItem key={item.key} disablePadding>
-                <ListItemButton
-                  {...(item.external
-                    ? { component: 'a', href: item.path }
-                    : { component: RouterLink, to: item.path })}
-                  onClick={handleClose}
-                  sx={{ gap: 1, px: 3, py: 1.25, borderRadius: 0 }}
+            <Link
+              component="button"
+              variant="caption"
+              underline="none"
+              sx={{
+                fontWeight: 'medium',
+              }}
+            >
+              Clear history
+            </Link>
+          </Stack>
+
+          <List
+            dense
+            sx={{
+              pt: 0,
+              pb: 2,
+              listStyleType: 'disc',
+              listStylePosition: 'inside',
+              color: 'grey.300',
+            }}
+          >
+            {breadcrumbs.map((breadcrumb) => (
+              <ListItem
+                key={breadcrumb[0].label}
+                sx={{
+                  px: 3,
+                  display: 'list-item',
+                  '&:hover': {
+                    backgroundColor: 'background.menuElevation1',
+                  },
+                }}
+              >
+                <Breadcrumbs
+                  aria-label="breadcrumb"
+                  maxItems={2}
+                  sx={{
+                    py: 0.5,
+                    typography: 'caption',
+                    color: 'text.secondary',
+                    marginLeft: -0.5,
+                    display: 'inline-block',
+                    fontWeight: 'medium',
+                    '@supports (-moz-appearance:none)': {
+                      marginLeft: 0.5,
+                    },
+                  }}
                 >
-                  <ListItemIcon>
+                  {breadcrumb.map((breadcrumbItem) => (
+                    <div key={breadcrumbItem.label}>
+                      <Link
+                        underline="none"
+                        href={breadcrumbItem.active ? '#!' : breadcrumbItem.href}
+                        sx={[
+                          {
+                            color: 'inherit',
+                          },
+                          !!breadcrumbItem.active && {
+                            color: 'text.primary',
+                          },
+                        ]}
+                      >
+                        {breadcrumbItem.label}
+                      </Link>
+
+                      {breadcrumbItem.active && (
+                        <Link
+                          underline="none"
+                          href={breadcrumbItem.href}
+                          sx={{
+                            marginLeft: 0.5,
+                          }}
+                        >
+                          <IconifyIcon
+                            icon="material-symbols:open-in-new-rounded"
+                            fontSize={16}
+                            sx={{ verticalAlign: 'bottom' }}
+                          />
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </Breadcrumbs>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+        <Divider />
+        <ResultItemSection title="Files">
+          <List sx={{ pt: 0, pb: 2 }}>
+            {files.map((file) => (
+              <ListItem
+                disablePadding
+                key={file.name}
+                sx={{
+                  [`& .${listItemSecondaryActionClasses.root}`]: {
+                    display: 'none',
+                  },
+                  '&:hover': {
+                    [`& .${listItemSecondaryActionClasses.root}`]: {
+                      display: 'block',
+                    },
+                  },
+                }}
+                secondaryAction={
+                  <IconButton edge="end" aria-label="download" sx={{ mr: 1 }}>
                     <IconifyIcon
-                      icon={item.icon || 'material-symbols:arrow-forward-rounded'}
-                      fontSize={22}
+                      icon="material-symbols-light:download-rounded"
                       color="primary.main"
                     />
+                  </IconButton>
+                }
+              >
+                <ListItemButton
+                  sx={(theme) => ({
+                    gap: 1,
+                    py: 1,
+                    pl: 3,
+                    pr: `${theme.spacing(8)} !important`,
+                    borderRadius: 0,
+                    '&:hover': { bgcolor: 'background.menuElevation1' },
+                  })}
+                >
+                  <ListItemIcon>
+                    {file.icon && (
+                      <IconifyIcon icon={file.icon} fontSize={32} color="primary.main" />
+                    )}
+                    {file.image && <img src={file.image} alt={file.name} height={30} width={30} />}
                   </ListItemIcon>
-                  <ListItemText
-                    primary={item.name}
-                    secondary={item.path}
-                    slotProps={{
-                      primary: { variant: 'subtitle2', color: 'text.primary' },
-                      secondary: { variant: 'caption', color: 'text.disabled' },
-                    }}
-                  />
+                  <Tooltip title={file.name} placement="top-start">
+                    <ListItemText
+                      sx={{
+                        my: 0,
+                      }}
+                      secondary={file.path}
+                      slotProps={{
+                        primary: {
+                          variant: 'subtitle2',
+                          color: 'text.secondary',
+                          sx: {
+                            mb: 0.25,
+                            display: 'flex',
+                            lineClamp: 1,
+                            wordBreak: 'break-all',
+                          },
+                        },
+                        secondary: {
+                          variant: 'caption',
+                          color: 'text.disabled',
+                          component: 'p',
+                          sx: {
+                            fontWeight: 'medium',
+                          },
+                        },
+                      }}
+                    >
+                      {file.name}
+                    </ListItemText>
+                  </Tooltip>
                 </ListItemButton>
               </ListItem>
             ))}
           </List>
-        ) : (
-          <Typography variant="body2" color="text.secondary" sx={{ px: 3, py: 4 }}>
-            {translateUi('ffax.search.no_results')}
-          </Typography>
-        )}
+        </ResultItemSection>
 
-        <Divider />
-        <Stack direction="row" sx={{ gap: 2, px: 3, py: 2 }}>
-          <Link href={paths.landingContact} underline="none" onClick={handleClose}>
-            {translateUi('ffax.public.navigation.contact')}
-          </Link>
-          <Link href={paths.landingAbout} underline="none" onClick={handleClose}>
-            {translateUi('ffax.public.navigation.about')}
-          </Link>
-        </Stack>
+        <ResultItemSection title="Contacts">
+          <Box sx={{ px: 3, mb: 2 }}>
+            <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
+              {contacts.map((contact) => (
+                <Chip
+                  key={contact.name}
+                  avatar={<Avatar alt={contact.name} src={contact.avatar} />}
+                  label={contact.name}
+                  variant="soft"
+                  color="neutral"
+                  component={Link}
+                  underline="none"
+                  href="#!"
+                  sx={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    console.log(`Clicked on contact: ${contact.name}`);
+                  }}
+                />
+              ))}
+              <Link
+                href="#!"
+                variant="caption"
+                underline="none"
+                sx={{
+                  fontWeight: 600,
+                  lineHeight: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                See All Contacts{' '}
+                <IconifyIcon icon="material-symbols:chevron-right-rounded" sx={{ fontSize: 16 }} />
+              </Link>
+            </Stack>
+          </Box>
+        </ResultItemSection>
+
+        <ResultItemSection title="Popular tags">
+          <Box sx={{ px: 3, mb: 2 }}>
+            <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>
+              {tags.map((tag) => (
+                <Chip
+                  key={tag}
+                  label={tag}
+                  variant="soft"
+                  color="neutral"
+                  component={Link}
+                  underline="none"
+                  href="#!"
+                  sx={{ cursor: 'pointer' }}
+                  onClick={() => {
+                    console.log(`Clicked on contact: ${tag}`);
+                  }}
+                />
+              ))}
+            </Stack>
+          </Box>
+        </ResultItemSection>
+        <Box sx={{ px: 3, py: 2 }}>
+          <Typography
+            component="p"
+            variant="caption"
+            sx={{
+              fontWeight: 'medium',
+              color: 'text.disabled',
+            }}
+          >
+            Not the results you expected? <Link href="#!">Give feedback</Link> or{' '}
+            <Link href="#!">learn more</Link>
+          </Typography>
+        </Box>
       </SimpleBar>
     </>
   );
 };
-
-export const SearchField = ({ handleClose, value, onChange }) => {
+export const SearchField = ({ handleClose }) => {
   const initialFocusRef = useRef(null);
-
   useEffect(() => {
     initialFocusRef.current?.focus({ preventScroll: true });
   }, []);
-
   return (
     <SearchTextField
       fullWidth
-      value={value}
-      onChange={onChange}
       sx={{
         [`& .${inputBaseClasses.root}`]: {
           borderRadius: '4px 4px 0 0',
@@ -153,7 +329,6 @@ export const SearchField = ({ handleClose, value, onChange }) => {
         input: {
           inputProps: {
             ref: initialFocusRef,
-            autoComplete: 'off',
           },
           endAdornment: (
             <InputAdornment position="end">
@@ -167,5 +342,24 @@ export const SearchField = ({ handleClose, value, onChange }) => {
     />
   );
 };
-
+const ResultItemSection = ({ title, children, bottomDivider = true }) => {
+  return (
+    <Box>
+      <Box sx={{ my: 2, px: 3 }}>
+        <Typography
+          variant="caption"
+          component="h6"
+          sx={{
+            fontWeight: 'medium',
+            color: 'text.disabled',
+          }}
+        >
+          {title}
+        </Typography>
+      </Box>
+      {children}
+      {bottomDivider && <Divider />}
+    </Box>
+  );
+};
 export default SearchResult;

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -14,11 +13,9 @@ import {
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYearly, sx }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { down } = useBreakpoints();
   const { isDark } = useThemeMode();
@@ -37,7 +34,7 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
     >
       {recommended && !downSm && (
         <Chip
-          label={translateUi('ui.sections.pricing.table.pricingplancard.best_value_ca89f1f7')}
+          label="Best Value"
           size={downMd ? 'small' : 'large'}
           color="warning"
           sx={{
@@ -50,7 +47,7 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
       <CardMedia
         component="img"
         image={isDark ? image.dark : image.light}
-        alt={translateUi('common.accessibility.card_image')}
+        alt="card_image"
         sx={{
           mb: 4,
           mx: 'auto',
@@ -94,19 +91,19 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
                 gap: 1,
               }}
             >
-              {translateUi('ui.sections.pricing.table.pricingplancard.free_75f52718')}
+              Free
               <Typography
                 component="span"
                 variant="caption"
                 sx={{ opacity: 0, display: { xs: 'inline', sm: 'none' } }}
               >
-                {translateUi('ui.sections.pricing.table.pricingplancard.m_988ae11e')}
+                / m
               </Typography>
             </Stack>
           )}
           {price && (
             <Typography component="span" variant="caption">
-              / {isYearly ? '年' : '月'}
+              / {isYearly ? 'y' : 'm'}
             </Typography>
           )}
         </Typography>
@@ -117,14 +114,13 @@ const PricingPlanCard = ({ tableTitle, price, image, recommended = false, isYear
             variant={recommended ? 'contained' : 'soft'}
             startIcon={downMd ? <IconifyIcon icon="material-symbols:shopping-cart" /> : undefined}
             color="primary"
-            href={paths.zitadelSignup}
             fullWidth
             sx={{
               minWidth: { xs: 0, sm: 0 },
               [`& .${buttonClasses.startIcon}`]: { m: 0 },
             }}
           >
-            {downMd ? '' : '注册选择'}
+            {downMd ? '' : 'Sign up'}
           </Button>
         </Box>
       </CardContent>

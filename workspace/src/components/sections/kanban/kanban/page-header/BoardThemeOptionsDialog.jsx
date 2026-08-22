@@ -1,5 +1,4 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
@@ -12,7 +11,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Background from 'components/sections/kanban/create-board/steps/Background/Background';
 
 const BoardThemeOptionsDialog = ({ open, handleClose }) => {
-  const { t: translateUi } = useTranslation();
   const { kanbanDispatch } = useKanbanContext();
   const methods = useForm({
     defaultValues: {
@@ -58,9 +56,7 @@ const BoardThemeOptionsDialog = ({ open, handleClose }) => {
             direction="row"
             sx={{ py: 3, alignItems: 'center', justifyContent: 'space-between' }}
           >
-            <Typography variant="subtitle1">
-              {translateUi('ui.sections.kanban.kanban.page_header.change_background_a302154d')}
-            </Typography>
+            <Typography variant="subtitle1">Change Background</Typography>
             <Button
               variant="text"
               color="neutral"
@@ -77,7 +73,7 @@ const BoardThemeOptionsDialog = ({ open, handleClose }) => {
           <Background
             actionButton={
               <Button onClick={handleClose} type="submit">
-                {translateUi('ui.sections.kanban.kanban.page_header.confirm_04a21221')}
+                Confirm
               </Button>
             }
           />

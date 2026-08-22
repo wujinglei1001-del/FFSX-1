@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -9,13 +8,10 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import Deal from './Deal';
 
 const OngoingDeals = ({ ongoingDeals }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ px: { xs: 3, md: 5 }, py: 5, flex: 1, height: 1 }}>
       <Stack direction="row" sx={{ mb: 4, justifyContent: 'space-between' }}>
-        <Typography variant="h6">
-          {translateUi('ui.sections.crm.lead_details.ongoingdeals.ongoing_deals_27f40682')}
-        </Typography>
+        <Typography variant="h6">Ongoing Deals</Typography>
         <Stack
           direction="row"
           sx={{
@@ -27,7 +23,7 @@ const OngoingDeals = ({ ongoingDeals }) => {
             href={paths.addContact}
             startIcon={<IconifyIcon icon="material-symbols:add" />}
           >
-            {translateUi('ui.sections.crm.lead_details.ongoingdeals.new_deal_adff16d2')}
+            New Deal
           </Button>
           <DashboardMenu size="medium" />
         </Stack>

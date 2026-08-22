@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import Table from '@mui/material/Table';
@@ -14,7 +13,6 @@ import FMDropdownMenu from 'components/sections/file-manager/common/FMDropdownMe
 import FileRowItem from './FileRowItem';
 
 const ListView = ({ allFiles, selectedFiles }) => {
-  const { t: translateUi } = useTranslation();
   const { fileManagerDispatch } = useFileManager();
   const { openLightbox, ...lightboxProps } = useLightbox();
 
@@ -69,9 +67,7 @@ const ListView = ({ allFiles, selectedFiles }) => {
                 py: 1.5,
               },
             }}
-            aria-label={translateUi(
-              'ui.sections.file_manager.main.all_files.file_manager_list_view_table_e58ea8fa',
-            )}
+            aria-label="file manager list view table"
             className="disable-edge-padding"
           >
             <TableHead>
@@ -98,23 +94,13 @@ const ListView = ({ allFiles, selectedFiles }) => {
                       bgcolor: 'transparent',
                     }}
                   />
-                  {translateUi('ui.sections.file_manager.main.all_files.name_709a2322')}
+                  Name
                 </TableCell>
-                <TableCell align="left">
-                  {translateUi('ui.sections.file_manager.main.all_files.type_3deb7456')}
-                </TableCell>
-                <TableCell align="center">
-                  {translateUi('ui.sections.file_manager.main.all_files.favorite_6b90b6a1')}
-                </TableCell>
-                <TableCell align="left">
-                  {translateUi('ui.sections.file_manager.main.all_files.shared_50d0d8dd')}
-                </TableCell>
-                <TableCell align="left">
-                  {translateUi('ui.sections.file_manager.main.all_files.modified_19a532c8')}
-                </TableCell>
-                <TableCell align="left">
-                  {translateUi('ui.sections.file_manager.main.all_files.file_size_0fce4167')}
-                </TableCell>
+                <TableCell align="left">Type</TableCell>
+                <TableCell align="center">Favorite</TableCell>
+                <TableCell align="left">Shared</TableCell>
+                <TableCell align="left">Modified</TableCell>
+                <TableCell align="left">File Size</TableCell>
                 <TableCell align="center">
                   <FMDropdownMenu />
                 </TableCell>

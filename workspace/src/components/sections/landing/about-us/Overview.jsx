@@ -1,9 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Container, Grid, Typography } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashedLine from '../common/DashedLine';
 import RevealItems from '../common/RevealItems';
@@ -27,40 +24,27 @@ const createGradientBg = (direction) => ({
 const stats = [
   {
     id: 1,
-    get label() {
-      return i18n.t('ffax.public.about.overview.network_label');
-    },
-    get content() {
-      return i18n.t('ffax.public.about.overview.network_value');
-    },
+    label: 'Design',
+    content: '105+ Project Delivered',
     color: 'primary',
     icon: 'material-symbols:format-shapes-outline-rounded',
   },
   {
     id: 2,
-    get label() {
-      return i18n.t('ffax.public.about.overview.capabilities_label');
-    },
-    get content() {
-      return i18n.t('ffax.public.about.overview.capabilities_value');
-    },
+    label: 'Development',
+    content: '200+ Applications Built',
     color: 'info',
     icon: 'material-symbols:code-rounded',
   },
   {
     id: 3,
-    get label() {
-      return i18n.t('ffax.public.about.overview.fulfillment_label');
-    },
-    get content() {
-      return i18n.t('ffax.public.about.overview.fulfillment_value');
-    },
+    label: 'Growth Marketing',
+    content: '300%',
     color: 'success',
     icon: 'material-symbols:show-chart-rounded',
   },
 ];
 const Overview = () => {
-  const { t: translateUi } = useTranslation();
   const { currentBreakpoint } = useBreakpoints();
   const isSm = currentBreakpoint === 'sm';
   return (
@@ -97,11 +81,7 @@ const Overview = () => {
             }}
           >
             <Box sx={{ mb: 4 }}>
-              <SectionHeader
-                title={translateUi('ffax.public.about.overview.title')}
-                subtitle={translateUi('ffax.public.about.overview.subtitle')}
-                sx={{ mb: 1 }}
-              />
+              <SectionHeader title="About aurora" subtitle="What is Aurora" sx={{ mb: 1 }} />
 
               <RevealText delay={0.2}>
                 <Typography
@@ -112,7 +92,9 @@ const Overview = () => {
                     mx: 'auto',
                   }}
                 >
-                  {translateUi('ffax.public.about.overview.description')}
+                  Aurora, an intuitive admin dashboard designed for seamless management, is
+                  celebrated for its user-friendly interface, powerful analytics, and a community
+                  that fosters collaboration and growth.
                 </Typography>
               </RevealText>
             </Box>
@@ -201,16 +183,16 @@ const Overview = () => {
 
               {isSm && (
                 <Grid size={6} sx={{ alignSelf: 'center' }}>
-                  <Button variant="soft" color="neutral" size="medium" href={paths.landingContact}>
-                    {translateUi('ffax.public.about.hero.contact')}
+                  <Button variant="soft" color="neutral" size="medium">
+                    Our Works
                   </Button>
                 </Grid>
               )}
             </RevealItems>
 
             {!isSm && (
-              <Button variant="soft" color="neutral" size="medium" href={paths.landingContact}>
-                {translateUi('ffax.public.about.hero.contact')}
+              <Button variant="soft" color="neutral" size="medium">
+                Our Works
               </Button>
             )}
           </Box>

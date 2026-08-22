@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Paper, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useCalendarContext } from 'providers/CalendarProvider';
 import { INITIALIZE_SCHEDULER } from 'reducers/CalendarReducer';
@@ -37,9 +35,7 @@ export const createRecurringEventsForSlot = (
 
     events.push({
       id: `${uniqueId}-${weekOffset}`,
-      get title() {
-        return i18n.t('ui.pages.apps.calendar.scheduler.appointment_slot_09121f0b');
-      },
+      title: 'Appointment Slot',
       start: eventStart.toISOString(),
       end: eventEnd.toISOString(),
       backgroundColor: color,
@@ -57,7 +53,6 @@ export const createRecurringEventsForSlot = (
 };
 
 const Scheduler = () => {
-  const { t: translateUi } = useTranslation();
   const [appointments, setAppointments] = useState([]);
   const { calendarDispatch } = useCalendarContext();
   const [isDrawerOpen, setIsDrawerOpen] = useState(true);
@@ -194,7 +189,7 @@ const Scheduler = () => {
                     variant="subtitle1"
                     sx={{ fontSize: { xs: 'unset', sm: 'subtitle1.fontSize' } }}
                   >
-                    <strong>{translateUi('ui.pages.apps.calendar.scheduler.week_f82be68a')}</strong>
+                    <strong>Week </strong>
                     {arg.num}
                   </Typography>
                 </Stack>

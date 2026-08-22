@@ -1,30 +1,15 @@
-import { useTranslation } from 'react-i18next';
 import { typographyClasses } from '@mui/material/Typography';
-import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import SearchFilterActionBar from 'components/sections/hrm/payroll/common/SearchFilterActionBar';
 import NewAppraisalCycle from './new-appraisal-cycle';
 
 const AppraisalCycleHeader = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <PageHeader
-      title={translateUi(
-        'ui.sections.hrm.performance_management.appraisal_cycle.appraisal_cycle_176cc519',
-      )}
+      title="Appraisal Cycle"
       breadcrumb={[
-        {
-          label: translateUi(
-            'ui.sections.hrm.performance_management.appraisal_cycle.home_70f8bb9a',
-          ),
-          url: paths.workbench,
-        },
-        {
-          label: translateUi(
-            'ui.sections.hrm.performance_management.appraisal_cycle.appraisal_cycle_176cc519',
-          ),
-          active: true,
-        },
+        { label: 'Home', url: '#!' },
+        { label: 'Appraisal Cycle', active: true },
       ]}
       actionComponent={
         <SearchFilterActionBar

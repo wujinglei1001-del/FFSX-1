@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormControl, FormControlLabel, Stack, Switch } from '@mui/material';
 import { MobileDateTimePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -14,11 +12,7 @@ import InfoCard from '../common/InfoCard';
 import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const dateTimeSchema = yup.object().shape({
-  dateTime: yup
-    .string()
-    .required(
-      i18n.t('ui.sections.account.date_time.dateandtime.date_and_time_is_required_2db858c4'),
-    ),
+  dateTime: yup.string().required('Date and time is required'),
   options: yup.object().shape({
     setAutomatically: yup.boolean().required(),
     _24hoursTime: yup.boolean().required(),
@@ -26,7 +20,6 @@ const dateTimeSchema = yup.object().shape({
   }),
 });
 const DateAndTime = () => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
   const methods = useForm({
@@ -56,7 +49,7 @@ const DateAndTime = () => {
       <InfoCard setOpen={setOpen} sx={{ mb: 3 }}>
         <Stack sx={{ gap: 1 }}>
           <InfoCardAttribute
-            label={translateUi('ui.sections.account.date_time.dateandtime.date_and_time_07c9c3a5')}
+            label="Date and time"
             value={dayjs(dateTime).format('MMM D, YYYY [a]t h:mm:ss A')}
           />
         </Stack>
@@ -66,10 +59,8 @@ const DateAndTime = () => {
         />
       </InfoCard>
       <AccountFormDialog
-        title={translateUi('ui.sections.account.date_time.dateandtime.set_date_and_time_4caf4eb2')}
-        subtitle={translateUi(
-          'ui.sections.account.date_time.dateandtime.adjust_date_time_and_time_zone_settings_to_ensure_ac_309409b9',
-        )}
+        title="Set Date and Time"
+        subtitle="Adjust date, time, and time zone settings to ensure accurate system timestamps."
         open={open}
         onSubmit={onSubmit}
         handleDialogClose={() => setOpen(false)}
@@ -83,9 +74,7 @@ const DateAndTime = () => {
             name="dateTime"
             render={({ field: { value, onChange, ...rest } }) => (
               <MobileDateTimePicker
-                label={translateUi(
-                  'ui.sections.account.date_time.dateandtime.select_date_time_eba09500',
-                )}
+                label="Select Date & Time"
                 value={dayjs(value)}
                 onChange={(value) => onChange(value?.format('YYYY-MM-DD H:mm:ss'))}
                 slotProps={{
@@ -110,9 +99,7 @@ const DateAndTime = () => {
           render={({ field }) => (
             <FormControlLabel
               control={<Switch checked={field.value} {...field} />}
-              label={translateUi(
-                'ui.sections.account.date_time.dateandtime.set_time_and_date_automatically_2365972a',
-              )}
+              label="Set time and date automatically"
               sx={{ gap: 2, ml: 0 }}
             />
           )}
@@ -123,9 +110,7 @@ const DateAndTime = () => {
           render={({ field }) => (
             <FormControlLabel
               control={<Switch checked={field.value} {...field} />}
-              label={translateUi(
-                'ui.sections.account.date_time.dateandtime.24_hours_time_5fcae762',
-              )}
+              label="24-Hours Time"
               sx={{ gap: 2, ml: 0 }}
             />
           )}
@@ -136,9 +121,7 @@ const DateAndTime = () => {
           render={({ field }) => (
             <FormControlLabel
               control={<Switch checked={field.value} {...field} />}
-              label={translateUi(
-                'ui.sections.account.date_time.dateandtime.show_24_hour_time_on_lock_screen_b86eb6f8',
-              )}
+              label="Show 24-hour time on Lock Screen"
               sx={{ gap: 2, ml: 0 }}
             />
           )}

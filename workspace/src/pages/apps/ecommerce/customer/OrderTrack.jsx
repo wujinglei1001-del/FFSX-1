@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Container, Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { orderTrackDetails } from 'data/e-commerce/orders';
@@ -10,24 +9,17 @@ import OrderTrackAside from 'components/sections/ecommerce/customer/order-track/
 import OrderTrackStepper from 'components/sections/ecommerce/customer/order-track/OrderTrackStepper';
 
 const OrderTrack = () => {
-  const { t: translateUi } = useTranslation();
   const order = orderTrackDetails;
 
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.ecommerce.customer.track_order_51e971d9')}
+          title="Track order"
           userLoggedIn
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.order_1d75774c'),
-              url: paths.orderList,
-            },
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.order_track_9e6ebc2a'),
-              active: true,
-            },
+            { label: 'Order', url: paths.orderList },
+            { label: 'Order track', active: true },
           ]}
         />
       </Grid>

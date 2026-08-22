@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Container, Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import illustrationDark from 'assets/images/illustrations/5-dark.webp';
@@ -11,22 +10,15 @@ import SuggestedProducts from 'components/sections/ecommerce/customer/common/Sug
 import OrderConfirmationPreview from 'components/sections/ecommerce/customer/order-confirmation/OrderConfirmationPreview';
 
 const OrderConfirmation = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.ecommerce.customer.order_confirmed_eb72fb61')}
+          title="Order confirmed"
           userLoggedIn
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.home_70f8bb9a'),
-              url: paths.ecommerceHomepage,
-            },
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.order_confirmation_492dca19'),
-              active: true,
-            },
+            { label: 'Home', url: paths.ecommerceHomepage },
+            { label: 'Order confirmation', active: true },
           ]}
         />
       </Grid>
@@ -57,7 +49,7 @@ const OrderConfirmation = () => {
                     light: illustration,
                     dark: illustrationDark,
                   }}
-                  alt={translateUi('common.accessibility.order_confirmed_illustration')}
+                  alt="order-confirmed-illustration"
                   sx={{ width: 1, objectFit: 'contain' }}
                 />
               </Grid>
@@ -78,9 +70,7 @@ const OrderConfirmation = () => {
       <Grid size={12}>
         <Paper sx={{ p: { xs: 3, md: 5 } }}>
           <SuggestedProducts
-            title={translateUi(
-              'ui.pages.apps.ecommerce.customer.recommendations_based_on_your_order_5ffe4926',
-            )}
+            title="Recommendations based on your order"
             products={suggestedProducts}
           />
         </Paper>

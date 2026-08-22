@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router';
 import {
   Backdrop,
@@ -20,8 +20,8 @@ import { mainDrawerWidth } from 'lib/constants';
 import { cssVarRgba } from 'lib/utils';
 import { useAuth } from 'providers/AuthProvider';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
 import { useSettingsContext } from 'providers/SettingsProvider';
+import { demoUser } from 'providers/auth-provider/AuthJwtProvider';
 import sitemap from 'routes/sitemap';
 import { sidenavVibrantStyle } from 'theme/styles/vibrantNav';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -42,7 +42,6 @@ const StackedSidenav = () => {
   const { sidenavAppbarVariant } = useNavContext();
   const { currentBreakpoint } = useBreakpoints();
   const { isDark } = useThemeMode();
-  const { setSettingsPanelConfig } = useSettingsPanelContext();
 
   const isMenuActive = (item) => {
     const checkLink = (subMenuItem) => {
@@ -61,7 +60,8 @@ const StackedSidenav = () => {
 
   const { sessionUser } = useAuth();
 
-  const user = sessionUser || { name: 'FFA-X' };
+  // Demo user data used for development purposes
+  const user = useMemo(() => sessionUser || demoUser, [sessionUser]);
 
   const drawer = (
     <Box sx={{ flex: 1, overflow: 'hidden' }}>
@@ -224,10 +224,7 @@ const StackedSidenav = () => {
                 >
                   {user.name}
                 </Typography>
-                <IconButton
-                  sx={{ ml: 'auto' }}
-                  onClick={() => setSettingsPanelConfig({ openSettingPanel: true })}
-                >
+                <IconButton sx={{ ml: 'auto' }}>
                   <IconifyIcon icon="material-symbols:settings-outline" />
                 </IconButton>
               </Stack>

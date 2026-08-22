@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonBase, Grow, Stack, Typography } from '@mui/material';
 import useLightbox from 'hooks/useLightbox';
 import { cssVarRgba } from 'lib/utils';
@@ -67,7 +66,6 @@ const Media = ({ item, index, openLightbox }) => {
 };
 
 const MediaGallery = () => {
-  const { t: translateUi } = useTranslation();
   const { currentConversation } = useChatContext();
   const { openLightbox, ...lightboxProps } = useLightbox();
 
@@ -100,12 +98,10 @@ const MediaGallery = () => {
         direction="row"
         sx={{ justifyContent: 'space-between', alignItems: 'center', mb: media.length > 0 ? 4 : 2 }}
       >
-        <Typography variant="h6">
-          {translateUi('ui.sections.chat.conversation.aside.media_0c77aeec')}
-        </Typography>
+        <Typography variant="h6">Media</Typography>
 
         <Button variant="text" disabled={!media.length} onClick={() => openLightbox(0)}>
-          {translateUi('ui.sections.chat.conversation.aside.view_all_931e1a4b')}
+          View all
         </Button>
       </Stack>
       {media.length > 0 ? (
@@ -135,7 +131,7 @@ const MediaGallery = () => {
             color: 'text.disabled',
           }}
         >
-          {translateUi('ui.sections.chat.conversation.aside.no_media_shared_yet_07fe3182')}
+          No media shared yet.
         </Typography>
       )}
     </Box>

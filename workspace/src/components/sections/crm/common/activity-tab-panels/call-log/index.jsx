@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
@@ -8,7 +7,6 @@ import SimpleBar from 'components/base/SimpleBar';
 import CallRecord from './CallRecord';
 
 const CallLogTabPanel = ({ callLogData }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Container maxWidth={false} sx={{ maxWidth: 800, px: { xs: 0 } }}>
       <SimpleBar sx={{ maxHeight: 504 }}>
@@ -40,9 +38,7 @@ const CallLogTabPanel = ({ callLogData }) => {
           ))}
         </Stack>
       </SimpleBar>
-      <Button sx={{ mt: 3 }}>
-        {translateUi('ui.sections.crm.common.activity_tab_panels.load_more_notifications_160c9a66')}
-      </Button>
+      <Button sx={{ mt: 3 }}>Load more notifications</Button>
     </Container>
   );
 };

@@ -1,6 +1,14 @@
 import { Fragment, useEffect, useState } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router';
-import { Box, List, ListItemButton, ListItemText, Popover, popoverClasses } from '@mui/material';
+import { useLocation } from 'react-router';
+import {
+  Box,
+  Link,
+  List,
+  ListItemButton,
+  ListItemText,
+  Popover,
+  popoverClasses,
+} from '@mui/material';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useNavContext } from '../NavProvider';
@@ -62,8 +70,8 @@ const NavitemPopover = ({ anchorEl, open, handleClose, items, level }) => {
           {items.map((item) => (
             <Fragment key={item.pathName}>
               <ListItemButton
-                component={item.items ? 'div' : RouterLink}
-                to={item.items ? undefined : item.path}
+                component={item.items ? 'div' : Link}
+                href={item.items ? undefined : item.path}
                 onClick={(e) => {
                   if (item.items) {
                     setItemAnchorEl(e.currentTarget);

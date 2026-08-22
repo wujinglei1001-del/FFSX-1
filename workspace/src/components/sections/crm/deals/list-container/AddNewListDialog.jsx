@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -17,7 +16,6 @@ import { ADD_NEW_LIST } from 'reducers/DealsReducer';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const AddNewListDialog = ({ isDialogOpen, handleDialogClose }) => {
-  const { t: translateUi } = useTranslation();
   const { listItems, dealsDispatch } = useDealsContext();
   const [newList, setNewList] = useState({ title: '', columnNo: 0 });
 
@@ -53,22 +51,20 @@ const AddNewListDialog = ({ isDialogOpen, handleDialogClose }) => {
       sx={{ [`& .${dialogClasses.paper}`]: { p: 3, borderRadius: 6, position: 'relative' } }}
     >
       <DialogTitle id="dialog-title" sx={{ p: 0, mb: 1, typography: 'h6' }}>
-        {translateUi('ui.sections.crm.deals.list_container.add_new_list_c375c023')}
+        Add new list
       </DialogTitle>
       <DialogContent sx={{ p: 0, mb: 3, overflow: 'visible' }}>
         <DialogContentText
           id="dialog-description"
           sx={{ mb: 2, color: 'text.secondary', typography: 'body2' }}
         >
-          {translateUi(
-            'ui.sections.crm.deals.list_container.create_a_new_list_to_organize_your_deals_2a9ae5b0',
-          )}
+          Create a new list to organize your deals.
         </DialogContentText>
 
         <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ gap: 2 }}>
           <TextField
             id="filled-basic"
-            label={translateUi('ui.sections.crm.deals.list_container.list_name_bb5453db')}
+            label="List Name"
             variant="filled"
             name="title"
             value={newList.title}
@@ -76,11 +72,9 @@ const AddNewListDialog = ({ isDialogOpen, handleDialogClose }) => {
             sx={{ minWidth: 270 }}
           />
           <FormControl sx={{ minWidth: 128 }}>
-            <InputLabel id="select-filled-label">
-              {translateUi('ui.sections.crm.deals.list_container.column_no_1f9c1abd')}
-            </InputLabel>
+            <InputLabel id="select-filled-label">Column No</InputLabel>
             <Select
-              label={translateUi('ui.sections.crm.deals.list_container.column_no_1f9c1abd')}
+              label="Column No"
               labelId="select-filled-label"
               id="select-filled"
               name="columnNo"
@@ -98,10 +92,10 @@ const AddNewListDialog = ({ isDialogOpen, handleDialogClose }) => {
       </DialogContent>
       <DialogActions sx={{ p: 0 }}>
         <Button variant="soft" color="neutral" onClick={handleDiscardChanges}>
-          {translateUi('ui.sections.crm.deals.list_container.discard_36fff63c')}
+          Discard
         </Button>
         <Button type="submit" variant="contained" autoFocus>
-          {translateUi('ui.sections.crm.deals.list_container.confirm_04a21221')}
+          Confirm
         </Button>
       </DialogActions>
       <Button

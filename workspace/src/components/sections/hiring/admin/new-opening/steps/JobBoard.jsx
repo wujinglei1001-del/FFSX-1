@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -22,7 +21,6 @@ export const jobBoardSchema = yup.object({
 });
 
 const JobBoard = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { up } = useBreakpoints();
   const {
@@ -42,7 +40,7 @@ const JobBoard = () => {
           >
             <Avatar
               src={`${assetsDir}/images/logo/29.svg`}
-              alt={translateUi('ui.sections.hiring.admin.new_opening.linkedin_logo_ace0db17')}
+              alt="linkedIn logo"
               sx={{ width: 40, height: 40, bgcolor: 'transparent' }}
             />
             <Stack
@@ -88,7 +86,7 @@ const JobBoard = () => {
           >
             <Avatar
               src={`${assetsDir}/images/logo/28.svg`}
-              alt={translateUi('ui.sections.hiring.admin.new_opening.indeed_logo_e72bb5d1')}
+              alt="indeed logo"
               sx={{ width: 40, height: 40, bgcolor: 'transparent' }}
             />
             <Stack
@@ -106,7 +104,7 @@ const JobBoard = () => {
                     fontWeight: 700,
                   }}
                 >
-                  {translateUi('ui.sections.hiring.admin.new_opening.indeed_52186fa5')}
+                  Indeed
                 </Typography>
               )}
               <Controller
@@ -134,7 +132,7 @@ const JobBoard = () => {
           >
             <Avatar
               src={`${assetsDir}/images/logo/27.svg`}
-              alt={translateUi('ui.sections.hiring.admin.new_opening.facebook_logo_f72dc2bb')}
+              alt="facebook logo"
               sx={{ width: 40, height: 40, bgcolor: 'transparent' }}
             />
             <Stack

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Checkbox,
@@ -19,7 +18,6 @@ import Image from 'components/base/Image';
 import QuantityButtons from 'components/sections/ecommerce/customer/common/QuantityButtons';
 
 const CartItem = ({ item, handleRemove }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const { updateCartItem } = useEcommerce();
   const { id, price, images, name, quantity } = item;
@@ -99,7 +97,7 @@ const CartItem = ({ item, handleRemove }) => {
                         display: 'inline-block',
                       }}
                     >
-                      {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.size_b7152342')}
+                      Size
                     </Box>
                     :
                     <Box
@@ -135,7 +133,7 @@ const CartItem = ({ item, handleRemove }) => {
                         display: 'inline-block',
                       }}
                     >
-                      {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.color_1d0c8304')}
+                      Color
                     </Box>
                     :
                     <Box
@@ -146,9 +144,7 @@ const CartItem = ({ item, handleRemove }) => {
                         ml: 1,
                       }}
                     >
-                      {translateUi(
-                        'ui.layouts.ecommerce_layout.app_bar.primary.satin_linen_d651f57e',
-                      )}
+                      Satin linen
                     </Box>
                   </Typography>
                 }
@@ -166,7 +162,7 @@ const CartItem = ({ item, handleRemove }) => {
               flexWrap: 'wrap',
             }}
           >
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.each_3633746b')}
+            Each
             <span>
               <Box
                 component="span"
@@ -203,17 +199,13 @@ const CartItem = ({ item, handleRemove }) => {
                 mb: 2,
               }}
             >
-              {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.quantity_44f6af69')}
+              Quantity
             </Typography>
             <QuantityButtons defaultValue={quantity} handleChange={handleQuantityChange} />
           </Box>
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center', flexWrap: 'wrap' }}>
             <Typography variant="h5">{currencyFormat(price.discounted * quantity)}</Typography>
-            <Chip
-              variant="soft"
-              color="success"
-              label={translateUi('ui.layouts.ecommerce_layout.app_bar.primary.save_40_e72c816a')}
-            />
+            <Chip variant="soft" color="success" label="Save 40%" />
           </Stack>
         </div>
       </Stack>

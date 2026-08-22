@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Link, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -9,7 +8,6 @@ import { statusColorMap } from '../order-list/OrderedItem';
 import ProductAttributeRow from './ProductAttributeRow';
 
 const OrderedItem = ({ product, customer }) => {
-  const { t: translateUi } = useTranslation();
   const { id, name, price, images, status, quantity, vendor } = product;
   const { currencyFormat } = useNumberFormat();
 
@@ -68,7 +66,7 @@ const OrderedItem = ({ product, customer }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.sold_by_12c71f0a')}
+            Sold by
             <Box
               component="span"
               sx={{
@@ -107,7 +105,7 @@ const OrderedItem = ({ product, customer }) => {
               />
             }
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.write_a_review_d2684e62')}
+            Write a review
           </Button>
           <Button
             variant="soft"
@@ -119,9 +117,7 @@ const OrderedItem = ({ product, customer }) => {
               />
             }
           >
-            {translateUi(
-              'ui.sections.ecommerce.customer.order_details.get_product_support_2cff7f87',
-            )}
+            Get product support
           </Button>
         </Stack>
 
@@ -133,7 +129,7 @@ const OrderedItem = ({ product, customer }) => {
               mb: 1,
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.each_3633746b')}{' '}
+            Each{' '}
             <Box
               component="strong"
               sx={{
@@ -151,7 +147,7 @@ const OrderedItem = ({ product, customer }) => {
               mb: 2,
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.quantity_fe2c3f97')}{' '}
+            Quantity:{' '}
             <Box
               component="strong"
               sx={{
@@ -175,7 +171,7 @@ const OrderedItem = ({ product, customer }) => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.order_details.total_b25928c6')}
+              Total
             </Typography>
             <Typography variant="h5">{currencyFormat(price.discounted * quantity)}</Typography>
           </Stack>
@@ -184,18 +180,11 @@ const OrderedItem = ({ product, customer }) => {
         <Grid container spacing={4}>
           <Grid size={12} container spacing={0.5}>
             <Grid size={12}>
-              <ProductAttributeRow
-                label={translateUi(
-                  'ui.sections.ecommerce.customer.order_details.category_a3c686e7',
-                )}
-                value={product.category?.join(',') || ''}
-              />
+              <ProductAttributeRow label="Category" value={product.category?.join(',') || ''} />
             </Grid>
             <Grid size={12}>
               <ProductAttributeRow
-                label={translateUi(
-                  'ui.sections.ecommerce.customer.order_details.fabric_material_f893dc86',
-                )}
+                label="Fabric Material"
                 value={product.material?.join(',') || ''}
               />
             </Grid>
@@ -212,29 +201,14 @@ const OrderedItem = ({ product, customer }) => {
 
           <Grid size={12} container spacing={0.5}>
             <Grid size={12}>
-              <ProductAttributeRow
-                label={translateUi(
-                  'ui.sections.ecommerce.customer.order_details.shipping_address_dbd7c38d',
-                )}
-                value={product.shippingAddress}
-              />
+              <ProductAttributeRow label="Shipping Address" value={product.shippingAddress} />
             </Grid>
             <Grid size={12}>
-              <ProductAttributeRow
-                label={translateUi(
-                  'ui.sections.ecommerce.customer.order_details.billing_address_48af96f6',
-                )}
-                value={product.billlingAddress}
-              />
+              <ProductAttributeRow label="Billing Address" value={product.billlingAddress} />
             </Grid>
             {customer && (
               <Grid size={12}>
-                <ProductAttributeRow
-                  label={translateUi(
-                    'ui.sections.ecommerce.customer.order_details.phone_number_ab25d61b',
-                  )}
-                  value={customer?.contactInfo.phone}
-                />
+                <ProductAttributeRow label="Phone Number" value={customer?.contactInfo.phone} />
               </Grid>
             )}
           </Grid>

@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem, menuClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FilterMenu = ({ label, field, handleFilter, menuItems }) => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const open = Boolean(anchorEl);
@@ -64,7 +62,7 @@ const FilterMenu = ({ label, field, handleFilter, menuItems }) => {
         }}
       >
         <MenuItem disableRipple onClick={() => handleMenuItemClick('All')}>
-          {translateUi('ui.sections.ecommerce.admin.product_list.all_6a720856')}
+          All
         </MenuItem>
         {menuItems.map((item) => (
           <MenuItem

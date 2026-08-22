@@ -1,19 +1,15 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, ButtonGroup, Stack, toggleButtonClasses } from '@mui/material';
 import Editor, { editorDefaultToolbar } from 'components/base/Editor';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EmailComposeEditor = ({ onChange, content, isValid }) => {
-  const { t: translateUi } = useTranslation();
   const rteRef = useRef(null);
 
   return (
     <Editor
       ref={rteRef}
-      placeholder={translateUi(
-        'ui.sections.email.common.emailcomposeeditor.write_a_message_46bfc6e8',
-      )}
+      placeholder="Write a message"
       onChange={onChange}
       content={content}
       renderControls={() => (
@@ -38,7 +34,7 @@ const EmailComposeEditor = ({ onChange, content, isValid }) => {
           </Box>
           <ButtonGroup variant="contained" sx={{ ml: 'auto' }}>
             <Button sx={{ borderRight: '0 !important' }} type="submit">
-              {translateUi('ui.sections.email.common.emailcomposeeditor.send_9bc2575c')}
+              Send
             </Button>
             <Button size="small">
               <IconifyIcon

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Chip, Paper, Stack, Typography } from '@mui/material';
 import { taskDetailsData } from 'data/project/task-details';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -10,7 +9,6 @@ import {
 } from 'components/sections/project/common/labels/labelConfig';
 
 const LabelSection = () => {
-  const { t: translateUi } = useTranslation();
   const [labels, setLabels] = useState(() => taskDetailsData.labels);
   const [availableLabels, setAvailableLabels] = useState(() =>
     mergeAvailableLabelOptions(defaultLabelOptions, taskDetailsData.labels),
@@ -34,7 +32,7 @@ const LabelSection = () => {
           mb: 1.5,
         }}
       >
-        {translateUi('ui.sections.project.task_details.taskdetailssection.label_74341e3c')}
+        Label
       </Typography>
       <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap', mb: 1 }}>
         {labels.map(({ label, color }) => (
@@ -60,7 +58,7 @@ const LabelSection = () => {
           alignSelf: 'flex-start',
         }}
       >
-        {translateUi('ui.sections.project.task_details.taskdetailssection.add_more_15e4e306')}
+        Add more
       </Button>
       <AddLabelDialog
         open={addDialogOpen}

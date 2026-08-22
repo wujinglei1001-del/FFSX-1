@@ -6,16 +6,12 @@ import {
   Stack,
   Switch,
 } from '@mui/material';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import TogglePanel from 'components/sections/calendar/CalendarSidebar/TogglePanel';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const CalendarFilters = () => (
-  <TogglePanel
-    title={i18n.t('ui.sections.calendar.calendarsidebar.calendarfilters.search_filters_45551ab2')}
-    defaultOpen
-  >
+  <TogglePanel title="Search Filters" defaultOpen>
     <FormGroup sx={{ gap: 3 }}>
       <Stack
         sx={{
@@ -24,16 +20,12 @@ const CalendarFilters = () => (
       >
         <FormControlLabel
           control={<Switch defaultChecked size="small" />}
-          label={i18n.t(
-            'ui.sections.calendar.calendarsidebar.calendarfilters.online_events_only_ab68ab7e',
-          )}
+          label="Online events only"
           sx={{ gap: 1.5, mx: 0, color: 'text.secondary' }}
         />
         <FormControlLabel
           control={<Switch size="small" />}
-          label={i18n.t(
-            'ui.sections.calendar.calendarsidebar.calendarfilters.repeated_events_7a462a2a',
-          )}
+          label="Repeated events"
           sx={{ gap: 1.5, mx: 0, color: 'text.secondary' }}
         />
       </Stack>
@@ -60,30 +52,14 @@ const CalendarFilters = () => (
             },
           }}
         >
-          <MenuItem value="personal">
-            {i18n.t(
-              'ui.sections.calendar.calendarsidebar.calendarfilters.hosted_by_anyone_d681acd3',
-            )}
-          </MenuItem>
-          <MenuItem value="me">
-            {i18n.t('ui.sections.calendar.calendarsidebar.calendarfilters.hosted_by_me_ad34d28d')}
-          </MenuItem>
-          <MenuItem value="team">
-            {i18n.t(
-              'ui.sections.calendar.calendarsidebar.calendarfilters.hosted_by_my_team_8c34b9a1',
-            )}
-          </MenuItem>
-          <MenuItem value="organization">
-            {i18n.t(
-              'ui.sections.calendar.calendarsidebar.calendarfilters.hosted_by_my_organization_3581cce6',
-            )}
-          </MenuItem>
+          <MenuItem value="personal">Hosted by: Anyone</MenuItem>
+          <MenuItem value="me">Hosted by: Me</MenuItem>
+          <MenuItem value="team">Hosted by: My Team</MenuItem>
+          <MenuItem value="organization">Hosted by: My Organization</MenuItem>
         </StyledTextField>
         <StyledTextField
           fullWidth
-          placeholder={i18n.t(
-            'ui.sections.calendar.calendarsidebar.calendarfilters.guest_id_f5f4d126',
-          )}
+          placeholder="Guest ID"
           slotProps={{
             input: {
               startAdornment: (
@@ -99,9 +75,7 @@ const CalendarFilters = () => (
         />
         <StyledTextField
           fullWidth
-          placeholder={i18n.t(
-            'ui.sections.calendar.calendarsidebar.calendarfilters.location_d219c681',
-          )}
+          placeholder="Location"
           slotProps={{
             input: {
               startAdornment: (

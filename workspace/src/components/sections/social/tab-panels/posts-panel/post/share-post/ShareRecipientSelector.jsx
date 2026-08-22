@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   InputAdornment,
@@ -13,7 +12,6 @@ import SimpleBar from 'components/base/SimpleBar';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ShareRecipientSelector = ({ shareOption }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -42,17 +40,11 @@ const ShareRecipientSelector = ({ shareOption }) => {
       />
       <SimpleBar>
         <ToggleButtonGroup
-          aria-label={translateUi(
-            'ui.sections.social.tab_panels.posts_panel.text_formatting_2be4e65b',
-          )}
+          aria-label="text formatting"
           sx={{ bgcolor: 'transparent', p: 0, gap: 0.5 }}
         >
           {users.slice(0, 5).map((user) => (
-            <ToggleButton
-              key={user.id}
-              value="bold"
-              aria-label={translateUi('ui.sections.social.tab_panels.posts_panel.bold_c9b76ae7')}
-            >
+            <ToggleButton key={user.id} value="bold" aria-label="bold">
               <Stack
                 sx={{
                   gap: 0.5,

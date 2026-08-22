@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -19,7 +18,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import DescriptionEditorToolbar from 'components/sections/project/common/DescriptionEditorToolbar';
 
 const Description = () => {
-  const { t: translateUi } = useTranslation();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [descriptionContent, setDescriptionContent] = useState(
     () => taskDetailsData.descriptionHtml,
@@ -65,16 +63,12 @@ const Description = () => {
               fontWeight: 700,
             }}
           >
-            {translateUi(
-              'ui.sections.project.task_details.taskdetailssection.description_55f8ebc8',
-            )}
+            Description
           </Typography>
           <IconButton
             size="small"
             onClick={handleOpenEdit}
-            aria-label={translateUi(
-              'ui.sections.project.task_details.taskdetailssection.edit_description_2ebe5b37',
-            )}
+            aria-label="Edit description"
             sx={{ color: 'text.secondary' }}
           >
             <IconifyIcon icon="material-symbols:edit-outline-rounded" fontSize={20} />
@@ -123,16 +117,12 @@ const Description = () => {
           },
         }}
       >
-        <DialogTitle sx={{ fontWeight: 600 }}>
-          {translateUi('ui.sections.project.task_details.taskdetailssection.description_55f8ebc8')}
-        </DialogTitle>
+        <DialogTitle sx={{ fontWeight: 600 }}>Description</DialogTitle>
         <DialogContent>
           <Editor
             ref={editorRef}
             content={descriptionContent}
-            placeholder={translateUi(
-              'ui.sections.project.task_details.taskdetailssection.add_a_description_for_your_task_039d61af',
-            )}
+            placeholder="Add a description for your task"
             renderControls={() => <DescriptionEditorToolbar />}
             sx={{
               '& .MuiTiptap-RichTextContent-root .tiptap': {
@@ -145,10 +135,10 @@ const Description = () => {
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 2 }}>
           <Button variant="outlined" color="neutral" onClick={handleCloseDialog}>
-            {translateUi('ui.sections.project.task_details.taskdetailssection.cancel_77dfd213')}
+            Cancel
           </Button>
           <Button variant="contained" onClick={handleSave}>
-            {translateUi('ui.sections.project.task_details.taskdetailssection.save_efc007a3')}
+            Save
           </Button>
         </DialogActions>
       </Dialog>

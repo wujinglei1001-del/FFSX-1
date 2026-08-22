@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -17,7 +16,6 @@ const formatAppraisalType = (value) =>
   value.replace(/\s+for\s+\d{4}$/i, '').replace(/(?:^|\s)\S/g, (c) => c.toUpperCase());
 
 const FeedbackCard = ({ feedback, sx, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   const { user, date, message, rating, assessment } = feedback;
   const [dialogOpen, setDialogOpen] = useState(false);
   const [formDialogOpen, setFormDialogOpen] = useState(false);
@@ -70,18 +68,12 @@ const FeedbackCard = ({ feedback, sx, ...rest }) => {
                 {assessment === 'Received' && (
                   <Typography variant="subtitle1" sx={{ mb: 0.25 }}>
                     <Box component="strong">{user.name}</Box>
-                    {` `}
-                    {translateUi(
-                      'ui.sections.hrm.performance_management.feedback.gave_feedback_8d40c145',
-                    )}
+                    {` `}gave feedback
                   </Typography>
                 )}
                 {assessment === 'Given' && (
                   <Typography variant="subtitle1" sx={{ mb: 0.25 }}>
-                    {translateUi(
-                      'ui.sections.hrm.performance_management.feedback.you_gave_feedback_to_792768ab',
-                    )}
-                    {` `}
+                    You gave feedback to{` `}
                     <Box component="strong">{user.name}</Box>
                   </Typography>
                 )}
@@ -93,9 +85,7 @@ const FeedbackCard = ({ feedback, sx, ...rest }) => {
                       mb: 0.25,
                     }}
                   >
-                    {translateUi(
-                      'ui.sections.hrm.performance_management.feedback.self_assessment_97b6ec53',
-                    )}
+                    Self Assessment
                   </Typography>
                 )}
                 <Typography variant="caption" sx={{ lineHeight: 1.5 }}>

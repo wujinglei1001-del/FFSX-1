@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Divider, Grid, Stack, Typography } from '@mui/material';
 import { blogRecommendations } from 'data/content/blog';
 import { SwiperSlide } from 'swiper/react';
@@ -8,7 +7,6 @@ import Swiper from 'components/base/Swiper';
 import RecommendedBlog from './RecommendedBlog';
 
 const RecommendedBlogs = () => {
-  const { t: translateUi } = useTranslation();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -19,9 +17,7 @@ const RecommendedBlogs = () => {
       <Stack sx={{ gap: 3, p: { xs: 3, md: 5 } }}>
         <Grid container spacing={2}>
           <Grid size={{ xs: 12, sm: 7 }}>
-            <Typography variant="h4">
-              {translateUi('ui.sections.content.details.blog.recommendations_4faa65b5')}
-            </Typography>
+            <Typography variant="h4">Recommendations</Typography>
           </Grid>
 
           <Grid size={{ xs: 12, sm: 5 }} sx={{ ml: { sm: 'auto' } }}>
@@ -57,7 +53,7 @@ const RecommendedBlogs = () => {
                   />
                 </Button>
               </Stack>
-              <Button>{translateUi('ui.sections.content.details.blog.view_more_e3c5fa89')}</Button>
+              <Button>View more</Button>
             </Stack>
           </Grid>
         </Grid>

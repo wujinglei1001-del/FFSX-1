@@ -1,5 +1,4 @@
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 
 export const earningsDeductions = [
   {
@@ -7,38 +6,13 @@ export const earningsDeductions = [
     employee: { ...users[0], wage: '$12,500/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 10,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 10 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 1000,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 1000 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -47,50 +21,15 @@ export const earningsDeductions = [
     employee: { ...users[1], wage: '$15,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 50,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 35,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 35,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 50 },
+      { label: 'Housing allowance', amount: 35 },
+      { label: 'Housing allowance', amount: 35 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 500,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 200,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 500 },
+      { label: 'Benefit', amount: 200 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -99,27 +38,10 @@ export const earningsDeductions = [
     employee: { ...users[2], wage: '$18,000/yr' },
     hours: { regular: 40, overtime: 0 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
     ],
-    deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-    ],
+    deduction: [{ label: 'Tax', amount: 1000 }],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
   {
@@ -127,44 +49,14 @@ export const earningsDeductions = [
     employee: { ...users[3], wage: '$25,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 1000 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 500,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 100,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 500 },
+      { label: 'Benefit', amount: 100 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -173,49 +65,18 @@ export const earningsDeductions = [
     employee: { ...users[4], wage: '$22,500/yr' },
     hours: { regular: 40, overtime: 0 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 200,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 200 },
+      { label: 'Commission', amount: 1000 },
     ],
-    deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-    ],
+    deduction: [{ label: 'Tax', amount: 1000 }],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
   {
     id: 6,
     employee: { ...users[5], wage: '$30.00/hr' },
     hours: { regular: 40, overtime: 10 },
-    extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-    ],
-    deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 1000,
-      },
-    ],
+    extraPay: [{ label: 'Bonus', amount: 1000 }],
+    deduction: [{ label: 'Benefit', amount: 1000 }],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
   {
@@ -223,44 +84,14 @@ export const earningsDeductions = [
     employee: { ...users[6], wage: '$20,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 1000 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 1000,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 1000 },
+      { label: 'Benefit', amount: 1000 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -269,38 +100,13 @@ export const earningsDeductions = [
     employee: { ...users[7], wage: '$12,500/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 10,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 10 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 1000,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 1000 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -309,50 +115,15 @@ export const earningsDeductions = [
     employee: { ...users[8], wage: '$15,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 50,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 35,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 35,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 50 },
+      { label: 'Housing allowance', amount: 35 },
+      { label: 'Housing allowance', amount: 35 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 500,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 200,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 500 },
+      { label: 'Benefit', amount: 200 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -361,27 +132,10 @@ export const earningsDeductions = [
     employee: { ...users[9], wage: '$18,000/yr' },
     hours: { regular: 40, overtime: 0 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
     ],
-    deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-    ],
+    deduction: [{ label: 'Tax', amount: 1000 }],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
   {
@@ -389,44 +143,14 @@ export const earningsDeductions = [
     employee: { ...users[10], wage: '$25,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 1000 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 500,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 100,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 500 },
+      { label: 'Benefit', amount: 100 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -435,49 +159,18 @@ export const earningsDeductions = [
     employee: { ...users[11], wage: '$22,500/yr' },
     hours: { regular: 40, overtime: 0 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 200,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 200 },
+      { label: 'Commission', amount: 1000 },
     ],
-    deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-    ],
+    deduction: [{ label: 'Tax', amount: 1000 }],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
   {
     id: 13,
     employee: { ...users[12], wage: '$30.00/hr' },
     hours: { regular: 40, overtime: 10 },
-    extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-    ],
-    deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 1000,
-      },
-    ],
+    extraPay: [{ label: 'Bonus', amount: 1000 }],
+    deduction: [{ label: 'Benefit', amount: 1000 }],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
   {
@@ -485,44 +178,14 @@ export const earningsDeductions = [
     employee: { ...users[13], wage: '$20,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 1000,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 1000 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 1000,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 1000 },
+      { label: 'Benefit', amount: 1000 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -531,38 +194,13 @@ export const earningsDeductions = [
     employee: { ...users[14], wage: '$12,500/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 10,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 1000 },
+      { label: 'Housing allowance', amount: 10 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 1000,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 1000 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },
@@ -571,50 +209,15 @@ export const earningsDeductions = [
     employee: { ...users[15], wage: '$15,000/yr' },
     hours: { regular: 40, overtime: 10 },
     extraPay: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.bonus_4d963cfa');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.commission_4bfc46bc');
-        },
-        amount: 50,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 35,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.housing_allowance_518fa332');
-        },
-        amount: 35,
-      },
+      { label: 'Bonus', amount: 1000 },
+      { label: 'Commission', amount: 50 },
+      { label: 'Housing allowance', amount: 35 },
+      { label: 'Housing allowance', amount: 35 },
     ],
     deduction: [
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.tax_9be70f66');
-        },
-        amount: 1000,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.home_loan_fafa93da');
-        },
-        amount: 500,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.hrm.payroll.earnings_deductions.benefit_0e7fd98b');
-        },
-        amount: 200,
-      },
+      { label: 'Tax', amount: 1000 },
+      { label: 'Home loan', amount: 500 },
+      { label: 'Benefit', amount: 200 },
     ],
     netPayType: { amount: 20000, type: 'Direct Deposit' },
   },

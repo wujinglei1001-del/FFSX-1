@@ -1,35 +1,26 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem, Stack, Typography } from '@mui/material';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const privacyOptions = [
   {
     value: 'public',
-    get label() {
-      return i18n.t('ui.sections.social.tab_panels.posts_panel.public_dc5eb704');
-    },
+    label: 'Public',
     icon: <IconifyIcon icon="material-symbols:globe" fontSize={20} />,
   },
   {
     value: 'friends',
-    get label() {
-      return i18n.t('ui.sections.social.tab_panels.posts_panel.friends_c11d5e1d');
-    },
+    label: 'Friends',
     icon: <IconifyIcon icon="material-symbols:group-outline-rounded" fontSize={20} />,
   },
   {
     value: 'private',
-    get label() {
-      return i18n.t('ui.sections.social.tab_panels.posts_panel.private_237dfa0a');
-    },
+    label: 'Private',
     icon: <IconifyIcon icon="material-symbols:lock-outline" fontSize={20} />,
   },
 ];
 
 const SharePrivacy = () => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedPrivacy, setSelectedPrivacy] = useState(privacyOptions[0]);
 
@@ -61,7 +52,7 @@ const SharePrivacy = () => {
           color: 'text.secondary',
         }}
       >
-        {translateUi('ui.sections.social.tab_panels.posts_panel.set_privacy_ac0502e2')}
+        Set privacy:
       </Typography>
       <Button
         onClick={handleClick}

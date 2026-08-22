@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -14,7 +13,6 @@ import {
   stepConnectorClasses,
   stepLabelClasses,
 } from '@mui/material';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import Background from 'components/sections/kanban/create-board/steps/Background/Background';
 import BasicInfo from 'components/sections/kanban/create-board/steps/BasicInfo';
@@ -25,35 +23,23 @@ import useCreateBoardForm from 'components/sections/kanban/create-board/useCreat
 
 const steps = [
   {
-    get label() {
-      return i18n.t(
-        'ui.sections.kanban.create_board.createboardstepper.basic_information_b0d5be39',
-      );
-    },
+    label: 'Basic Information',
     content: <BasicInfo />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.create_board.createboardstepper.column_stages_611b6221');
-    },
+    label: 'Column/Stages',
     content: <ColumnStage />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.create_board.createboardstepper.background_64dd60fe');
-    },
+    label: 'Background',
     content: <Background />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.create_board.createboardstepper.tag_label_dbd33c23');
-    },
+    label: 'Tag/Label',
     content: <LabelInfo />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.kanban.create_board.createboardstepper.invite_your_team_722fe78c');
-    },
+    label: 'Invite your team',
     content: <TeamInvite />,
   },
 ];
@@ -70,7 +56,6 @@ const getBorderColor = (index, activeStep, completedSteps) => {
 };
 
 const CreateBoardStepper = () => {
-  const { t: translateUi } = useTranslation();
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
@@ -155,21 +140,15 @@ const CreateBoardStepper = () => {
                 <Stack direction="row" sx={{ gap: 2, mb: 0, pb: 3 }}>
                   {steps.length - 1 === activeStep ? (
                     <Button variant="contained" type="submit">
-                      {translateUi(
-                        'ui.sections.kanban.create_board.createboardstepper.create_board_fc6965dc',
-                      )}
+                      Create Board
                     </Button>
                   ) : (
                     <>
                       <Button variant="soft" onClick={handleSaveAndContinue} type="button">
-                        {translateUi(
-                          'ui.sections.kanban.create_board.createboardstepper.save_continue_98329f93',
-                        )}
+                        Save & Continue
                       </Button>
                       <Button variant="text" color="neutral" onClick={handleSkip} type="button">
-                        {translateUi(
-                          'ui.sections.kanban.create_board.createboardstepper.skip_3da47453',
-                        )}
+                        Skip
                       </Button>
                     </>
                   )}

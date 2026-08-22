@@ -1,5 +1,4 @@
 import { useCallback, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Paper } from '@mui/material';
 import { ganttTasks } from 'data/project/gantt-data';
 import 'dhtmlx-gantt/codebase/dhtmlxgantt.css';
@@ -19,7 +18,6 @@ import { useChartTaskDialog } from 'components/sections/project/hooks/useChartTa
 import { useGanttChart } from 'components/sections/project/hooks/useGanttChart';
 
 const GanttChart = () => {
-  const { t: translateUi } = useTranslation();
   const [view, setView] = useState('dayGridMonth');
   const taskClickBridge = useRef(() => {});
 
@@ -89,7 +87,7 @@ const GanttChart = () => {
   return (
     <Box>
       <ProjectHeader
-        title={translateUi('ui.pages.apps.project.ganttchart.name_of_the_project_29b9c982')}
+        title="Name of the Project"
         subtitle=""
         onTaskSubmit={handleTaskSubmit}
         topActions={<ProjectTopRightActions onShare={handleShare} />}

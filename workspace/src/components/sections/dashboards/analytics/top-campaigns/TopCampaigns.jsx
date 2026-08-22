@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
@@ -6,7 +5,6 @@ import SectionHeader from 'components/common/SectionHeader';
 import TopCampaignsChart from './TopCampaignsChart';
 
 const TopCampaigns = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{
@@ -17,7 +15,7 @@ const TopCampaigns = ({ data }) => {
       }}
     >
       <SectionHeader
-        title={translateUi('ui.sections.dashboards.analytics.top_campaigns.top_campaigns_8ce64455')}
+        title="Top Campaigns"
         subTitle="Users across different sources"
         actionComponent={
           <DashboardSelectMenu
@@ -25,21 +23,15 @@ const TopCampaigns = ({ data }) => {
             options={[
               {
                 value: 'this-week',
-                label: translateUi(
-                  'ui.sections.dashboards.analytics.top_campaigns.this_week_4e68dca8',
-                ),
+                label: 'This Week',
               },
               {
                 value: 'last-week',
-                label: translateUi(
-                  'ui.sections.dashboards.analytics.top_campaigns.last_week_bc159a56',
-                ),
+                label: 'Last Week',
               },
               {
                 value: 'this-month',
-                label: translateUi(
-                  'ui.sections.dashboards.analytics.top_campaigns.this_month_0f6cc3a8',
-                ),
+                label: 'This Month',
               },
             ]}
           />
@@ -60,7 +52,7 @@ const TopCampaigns = ({ data }) => {
             />
           }
         >
-          {translateUi('ui.sections.dashboards.analytics.top_campaigns.all_countries_0b313a76')}
+          All Countries
         </Button>
 
         <Button
@@ -73,7 +65,7 @@ const TopCampaigns = ({ data }) => {
             />
           }
         >
-          {translateUi('ui.sections.dashboards.analytics.top_campaigns.see_report_db1d7587')}
+          See Report
         </Button>
       </Stack>
     </Paper>

@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormControl, MenuItem } from '@mui/material';
 import dayjs from 'dayjs';
 import AvailabilityDayRow from 'components/sections/scheduler/SchedulePanel/AvaibilityDayRow';
@@ -8,7 +7,6 @@ import SettingsToggle from 'components/sections/scheduler/SettingsToggle';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const AvailabilityConfig = ({ onAddSlot, onUpdateSlot, onRemoveSlot }) => {
-  const { t: translateUi } = useTranslation();
   const { availabilityFields, handleToggleDay, handleAddSlot, handleRemoveSlot, handleTimeChange } =
     useAvailabilityConfig(onAddSlot, onUpdateSlot, onRemoveSlot);
 
@@ -29,9 +27,7 @@ const AvailabilityConfig = ({ onAddSlot, onUpdateSlot, onRemoveSlot }) => {
 
   return (
     <SettingsToggle
-      title={translateUi(
-        'ui.sections.scheduler.schedulepanel.availabilityconfig.general_availability_0df031b8',
-      )}
+      title="General Availability"
       icon="material-symbols:work-history-outline"
       defaultOpen
     >
@@ -40,34 +36,11 @@ const AvailabilityConfig = ({ onAddSlot, onUpdateSlot, onRemoveSlot }) => {
           name="repeatedAppointment"
           control={control}
           render={({ field }) => (
-            <StyledTextField
-              {...field}
-              fullWidth
-              label={translateUi(
-                'ui.sections.scheduler.schedulepanel.availabilityconfig.repeated_appointment_5730d091',
-              )}
-              select
-            >
-              <MenuItem value="none">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.availabilityconfig.does_not_repeat_69f96c81',
-                )}
-              </MenuItem>
-              <MenuItem value="daily">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.availabilityconfig.repeated_daily_c46b884b',
-                )}
-              </MenuItem>
-              <MenuItem value="weekly">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.availabilityconfig.repeated_weekly_c12749de',
-                )}
-              </MenuItem>
-              <MenuItem value="monthly">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.availabilityconfig.repeated_monthly_909a6bbd',
-                )}
-              </MenuItem>
+            <StyledTextField {...field} fullWidth label="Repeated Appointment" select>
+              <MenuItem value="none">Does not repeat</MenuItem>
+              <MenuItem value="daily">Repeated Daily</MenuItem>
+              <MenuItem value="weekly">Repeated Weekly</MenuItem>
+              <MenuItem value="monthly">Repeated Monthly</MenuItem>
             </StyledTextField>
           )}
         />

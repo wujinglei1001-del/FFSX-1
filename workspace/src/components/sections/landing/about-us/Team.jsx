@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { initialConfig } from 'config';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -9,18 +8,9 @@ import SectionHeader from '../common/SectionHeader';
 const members = [
   {
     id: 1,
-    name: 'JINGLEI WU',
+    name: 'Madeline Wuntch',
     designation: 'CEO & Founder',
-    image: '/images/landing/team/jinglei-wu.png',
-    imageSx: {
-      position: 'absolute',
-      width: '163.76%',
-      height: '117.69%',
-      left: '53.76%',
-      top: '49.86%',
-      transform: 'translate(-50%, -50%)',
-      objectFit: 'cover',
-    },
+    image: `${initialConfig.assetsDir}/images/landing/team/1.webp`,
   },
   {
     id: 2,
@@ -78,7 +68,6 @@ const members = [
   },
 ];
 const Team = ({ diamond = false, sx }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
   return (
@@ -89,10 +78,7 @@ const Team = ({ diamond = false, sx }) => {
             gap: 3,
           }}
         >
-          <SectionHeader
-            subtitle={translateUi('ffax.public.about.team.subtitle')}
-            title={translateUi('ffax.public.about.team.title')}
-          />
+          <SectionHeader subtitle="Our brilliant teammates" title="TEAM" />
 
           {diamond ? (
             upMd ? (
@@ -191,7 +177,6 @@ const Member = ({ member }) => {
       >
         <Box
           sx={{
-            ...(member.imageSx && { position: 'absolute', inset: 0 }),
             filter: 'grayscale(100%)',
             transition: (theme) =>
               theme.transitions.create('filter', {
@@ -208,7 +193,6 @@ const Member = ({ member }) => {
             sx={{
               width: 1,
               height: 1,
-              ...member.imageSx,
             }}
           />
         </Box>

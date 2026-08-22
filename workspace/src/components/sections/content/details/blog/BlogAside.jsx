@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { List, ListItemButton, ListItemText, ListSubheader, Paper } from '@mui/material';
 import { blogTableOfContents } from 'data/content/blog';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -6,7 +5,6 @@ import { HashLinkBehavior } from 'theme/components/Link';
 import useScrollSpy from './useScollSpy';
 
 const BlogAside = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { topnavType },
   } = useSettingsContext();
@@ -39,7 +37,7 @@ const BlogAside = () => {
               mb: 2,
             }}
           >
-            {translateUi('ui.sections.content.details.blog.table_of_contents_9730d432')}
+            Table of Contents
           </ListSubheader>
         }
       >

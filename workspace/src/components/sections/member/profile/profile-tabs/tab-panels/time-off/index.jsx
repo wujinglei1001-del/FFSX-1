@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Divider, Grid, Stack } from '@mui/material';
 import PanelWrapper from '../PanelWrapper';
 import AppliedLeave from './AppliedLeave';
@@ -6,9 +5,8 @@ import BasicInfo from './BasicInfo';
 import History from './History';
 
 export const TimeOffTabPanel = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
-    <PanelWrapper title={translateUi('ui.sections.member.profile.profile_tabs.time_off_2c257456')}>
+    <PanelWrapper title="Time Off">
       <Stack divider={<Divider flexItem />}>
         <Grid container columns={20} spacing={5} sx={{ pb: 3 }}>
           <Grid size={{ xs: 20, sm: 8 }}>

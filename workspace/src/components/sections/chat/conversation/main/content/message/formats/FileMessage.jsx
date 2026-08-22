@@ -1,6 +1,5 @@
 import { Link, Stack, Tooltip, Typography } from '@mui/material';
 import { cssVarRgba, getFileIcon } from 'lib/utils';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FileMessage = ({ messageType, files, sx }) => {
@@ -14,7 +13,7 @@ const FileMessage = ({ messageType, files, sx }) => {
         <Stack
           key={file.name}
           component={Link}
-          href={file.url || paths.fileManager}
+          href="#!"
           underline="none"
           direction="row"
           sx={{

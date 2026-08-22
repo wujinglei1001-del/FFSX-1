@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
@@ -33,7 +32,6 @@ export const applicationDetailsSchema = yup.object({
 });
 
 const ApplicationDetails = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
 
   return (
@@ -49,7 +47,7 @@ const ApplicationDetails = () => {
         color="neutral"
         startIcon={<IconifyIcon icon="material-symbols:preview" />}
       >
-        {translateUi('ui.sections.hiring.admin.new_opening.preview_f1fbb2b4')}
+        Preview
       </Button>
       <Box sx={{ width: 1 }}>
         <Typography
@@ -58,7 +56,7 @@ const ApplicationDetails = () => {
             mb: 2,
           }}
         >
-          {translateUi('ui.sections.hiring.admin.new_opening.candidate_data_2a98fdee')}
+          Candidate Data
         </Typography>
         <Grid
           container
@@ -81,7 +79,7 @@ const ApplicationDetails = () => {
                   textWrap: 'nowrap',
                 }}
               >
-                {translateUi('ui.sections.hiring.admin.new_opening.name_709a2322')}
+                Name
               </Typography>
               <Controller
                 control={control}
@@ -89,7 +87,7 @@ const ApplicationDetails = () => {
                 render={({ field }) => (
                   <FormControlLabel
                     control={<Checkbox checked={field.value} {...field} />}
-                    label={translateUi('ui.sections.hiring.admin.new_opening.required_eed6bfb4')}
+                    label="Required"
                     sx={{
                       ml: 0,
                       [`& .${formControlLabelClasses.label}`]: { color: 'text.secondary' },
@@ -114,7 +112,7 @@ const ApplicationDetails = () => {
                   textWrap: 'nowrap',
                 }}
               >
-                {translateUi('ui.sections.hiring.admin.new_opening.email_84add5b2')}
+                Email
               </Typography>
               <Controller
                 control={control}
@@ -122,7 +120,7 @@ const ApplicationDetails = () => {
                 render={({ field }) => (
                   <FormControlLabel
                     control={<Checkbox checked={field.value} {...field} />}
-                    label={translateUi('ui.sections.hiring.admin.new_opening.required_eed6bfb4')}
+                    label="Required"
                     sx={{
                       ml: 0,
                       [`& .${formControlLabelClasses.label}`]: { color: 'text.secondary' },
@@ -147,7 +145,7 @@ const ApplicationDetails = () => {
                   textWrap: 'nowrap',
                 }}
               >
-                {translateUi('ui.sections.hiring.admin.new_opening.phone_no_8578b945')}
+                Phone No
               </Typography>
               <Controller
                 control={control}
@@ -155,7 +153,7 @@ const ApplicationDetails = () => {
                 render={({ field }) => (
                   <FormControlLabel
                     control={<Checkbox checked={field.value} {...field} />}
-                    label={translateUi('ui.sections.hiring.admin.new_opening.required_eed6bfb4')}
+                    label="Required"
                     sx={{
                       ml: 0,
                       [`& .${formControlLabelClasses.label}`]: { color: 'text.secondary' },
@@ -191,8 +189,21 @@ const ApplicationDetails = () => {
                 flexGrow: 1,
               }}
             >
-              <Typography variant="subtitle2">
-                {translateUi('ui.sections.hiring.admin.new_opening.option_e31d9722')}
+              <Typography variant="subtitle2">Option</Typography>
+            </Stack>
+            <Stack
+              sx={{
+                justifyContent: 'center',
+                flexBasis: { xs: '17.5%', sm: '20%' },
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  textAlign: 'center',
+                }}
+              >
+                Required
               </Typography>
             </Stack>
             <Stack
@@ -207,7 +218,7 @@ const ApplicationDetails = () => {
                   textAlign: 'center',
                 }}
               >
-                {translateUi('ui.sections.hiring.admin.new_opening.required_eed6bfb4')}
+                Optional
               </Typography>
             </Stack>
             <Stack
@@ -222,116 +233,54 @@ const ApplicationDetails = () => {
                   textAlign: 'center',
                 }}
               >
-                {translateUi('ui.sections.hiring.admin.new_opening.optional_0c6c4102')}
-              </Typography>
-            </Stack>
-            <Stack
-              sx={{
-                justifyContent: 'center',
-                flexBasis: { xs: '17.5%', sm: '20%' },
-              }}
-            >
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  textAlign: 'center',
-                }}
-              >
-                {translateUi('ui.sections.hiring.admin.new_opening.disabled_f4f4473d')}
+                Disabled
               </Typography>
             </Stack>
           </Stack>
           <Controller
             control={control}
             name="options.image"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.image_50e19fda')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Image" />}
           />
           <Controller
             control={control}
             name="options.address"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.address_d70f93df')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Address" />}
           />
           <Controller
             control={control}
             name="options.referredBy"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.referred_by_433a5789')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Referred by" />}
           />
           <Controller
             control={control}
             name="options.desiredSalary"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.desired_salary_f683579b')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Desired Salary" />}
           />
           <Controller
             control={control}
             name="options.resume"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.resume_b3bd0b5a')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Resume" />}
           />
           <Controller
             control={control}
             name="options.coverLetter"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.cover_letter_80c40a5c')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Cover letter" />}
           />
           <Controller
             control={control}
             name="options.websitePortfolio"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi(
-                  'ui.sections.hiring.admin.new_opening.website_portfolio_3b8f63bd',
-                )}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Website/Portfolio" />}
           />
           <Controller
             control={control}
             name="options.education"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.education_aaf87fe5')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Education" />}
           />
           <Controller
             control={control}
             name="options.workExperience"
-            render={({ field }) => (
-              <OptionRow
-                field={field}
-                label={translateUi('ui.sections.hiring.admin.new_opening.work_experience_dfcdb446')}
-              />
-            )}
+            render={({ field }) => <OptionRow field={field} label="Work Experience" />}
           />
         </Stack>
 

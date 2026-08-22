@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Button, IconButton, Stack, Tab } from '@mui/material';
 import { useGridApiRef } from '@mui/x-data-grid';
@@ -16,7 +15,6 @@ const emptySelection = {
 };
 
 const InvoiceListContainer = () => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
   const apiRef = useGridApiRef();
@@ -73,42 +71,12 @@ const InvoiceListContainer = () => {
       >
         <Box sx={{ order: { xs: 1, sm: 0 } }}>
           <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-            <TabList
-              onChange={handleChange}
-              aria-label={translateUi(
-                'ui.sections.invoice.invoice_list.invoicelistcontainer.invoice_list_tab_30800b28',
-              )}
-            >
-              <Tab
-                label={translateUi(
-                  'ui.sections.invoice.invoice_list.invoicelistcontainer.all_invoice_877a2589',
-                )}
-                value="all"
-              />
-              <Tab
-                label={translateUi(
-                  'ui.sections.invoice.invoice_list.invoicelistcontainer.paid_dc9d4584',
-                )}
-                value="paid"
-              />
-              <Tab
-                label={translateUi(
-                  'ui.sections.invoice.invoice_list.invoicelistcontainer.late_4310ed54',
-                )}
-                value="late"
-              />
-              <Tab
-                label={translateUi(
-                  'ui.sections.invoice.invoice_list.invoicelistcontainer.sent_35f49dcf',
-                )}
-                value="sent"
-              />
-              <Tab
-                label={translateUi(
-                  'ui.sections.invoice.invoice_list.invoicelistcontainer.draft_23d33e22',
-                )}
-                value="draft"
-              />
+            <TabList onChange={handleChange} aria-label="invoice list tab">
+              <Tab label="All Invoice" value="all" />
+              <Tab label="Paid" value="paid" />
+              <Tab label="Late" value="late" />
+              <Tab label="Sent" value="sent" />
+              <Tab label="Draft" value="draft" />
             </TabList>
           </Stack>
         </Box>
@@ -127,20 +95,12 @@ const InvoiceListContainer = () => {
                 marginRight: { xs: 0, md: '4px' },
               }}
             />
-            {upMd && (
-              <Box component="span">
-                {translateUi(
-                  'ui.sections.invoice.invoice_list.invoicelistcontainer.filter_d7decf1a',
-                )}
-              </Box>
-            )}
+            {upMd && <Box component="span">Filter</Box>}
           </Button>
           <SearchTextField
             fullWidth
             onChange={handleSearch}
-            placeholder={translateUi(
-              'ui.sections.invoice.invoice_list.invoicelistcontainer.search_invoice_deb3d5e6',
-            )}
+            placeholder="Search invoice"
             sx={{
               maxWidth: { sm: 200, md: 240 },
               flexGrow: { xs: 1, sm: 0 },

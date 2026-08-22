@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { FormControl, MenuItem, Stack, Tab, Tabs, tabClasses } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import OrderedItemList from './OrderedItemList';
 
 const OrderListContainer = ({ orders }) => {
-  const { t: translateUi } = useTranslation();
   const [selectedTab, setSelectedTab] = useState(0);
   const [sortBy, setSortBy] = useState('last6Months');
 
@@ -39,18 +37,10 @@ const OrderListContainer = ({ orders }) => {
               setSortBy(e.target.value);
             }}
           >
-            <MenuItem value="last6Months">
-              {translateUi('ui.sections.ecommerce.customer.order_list.last_6_months_14d5436c')}
-            </MenuItem>
-            <MenuItem value="last3Months">
-              {translateUi('ui.sections.ecommerce.customer.order_list.last_3_months_9f796848')}
-            </MenuItem>
-            <MenuItem value="lastMonth">
-              {translateUi('ui.sections.ecommerce.customer.order_list.last_month_9cce45bf')}
-            </MenuItem>
-            <MenuItem value="lastWeek">
-              {translateUi('ui.sections.ecommerce.customer.order_list.last_week_76c1ed93')}
-            </MenuItem>
+            <MenuItem value="last6Months">Last 6 months</MenuItem>
+            <MenuItem value="last3Months">Last 3 months</MenuItem>
+            <MenuItem value="lastMonth">Last month</MenuItem>
+            <MenuItem value="lastWeek">Last week</MenuItem>
           </StyledTextField>
         </FormControl>
 
@@ -58,7 +48,7 @@ const OrderListContainer = ({ orders }) => {
           variant="scrollable"
           value={selectedTab}
           onChange={handleTabChange}
-          aria-label={translateUi('common.accessibility.order_list_tab')}
+          aria-label="order-list-tab"
           sx={{
             flexShrink: 0,
             [`& .${tabClasses.root}`]: {
@@ -66,58 +56,30 @@ const OrderListContainer = ({ orders }) => {
             },
           }}
         >
-          <Tab label={translateUi('ui.sections.ecommerce.customer.order_list.all_6a720856')} />
-          <Tab label={translateUi('ui.sections.ecommerce.customer.order_list.to_pay_58d1265e')} />
-          <Tab label={translateUi('ui.sections.ecommerce.customer.order_list.to_ship_fbd8eebc')} />
-          <Tab
-            label={translateUi('ui.sections.ecommerce.customer.order_list.to_recieve_00ca6d1c')}
-          />
-          <Tab
-            label={translateUi('ui.sections.ecommerce.customer.order_list.to_review_066f77ce')}
-          />
+          <Tab label="All" />
+          <Tab label="To pay" />
+          <Tab label="To ship" />
+          <Tab label="To recieve" />
+          <Tab label="To review" />
         </Tabs>
       </Stack>
       <TabPanel value={selectedTab} index={0}>
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_pay_58d1265e')}
-          products={filterProducts('Pending')}
-        />
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_ship_fbd8eebc')}
-          products={filterProducts('Processing')}
-        />
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_recieve_00ca6d1c')}
-          products={filterProducts('Shipped')}
-        />
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_review_066f77ce')}
-          products={filterProducts('Delivered')}
-        />
+        <OrderedItemList title="To pay" products={filterProducts('Pending')} />
+        <OrderedItemList title="To ship" products={filterProducts('Processing')} />
+        <OrderedItemList title="To recieve" products={filterProducts('Shipped')} />
+        <OrderedItemList title="To review" products={filterProducts('Delivered')} />
       </TabPanel>
       <TabPanel value={selectedTab} index={1}>
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_pay_58d1265e')}
-          products={filterProducts('Pending')}
-        />
+        <OrderedItemList title="To pay" products={filterProducts('Pending')} />
       </TabPanel>
       <TabPanel value={selectedTab} index={2}>
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_ship_fbd8eebc')}
-          products={filterProducts('Processing')}
-        />
+        <OrderedItemList title="To ship" products={filterProducts('Processing')} />
       </TabPanel>
       <TabPanel value={selectedTab} index={3}>
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_recieve_00ca6d1c')}
-          products={filterProducts('Shipped')}
-        />
+        <OrderedItemList title="To recieve" products={filterProducts('Shipped')} />
       </TabPanel>
       <TabPanel value={selectedTab} index={4}>
-        <OrderedItemList
-          title={translateUi('ui.sections.ecommerce.customer.order_list.to_review_066f77ce')}
-          products={filterProducts('Delivered')}
-        />
+        <OrderedItemList title="To review" products={filterProducts('Delivered')} />
       </TabPanel>
     </div>
   );

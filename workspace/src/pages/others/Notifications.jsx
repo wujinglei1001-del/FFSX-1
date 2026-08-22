@@ -1,34 +1,16 @@
-import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link as RouterLink } from 'react-router';
+import { useState } from 'react';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import { Alert, Breadcrumbs, Button, Link, Stack, Typography } from '@mui/material';
+import { Breadcrumbs, Button, Link, Stack, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab, { tabClasses } from '@mui/material/Tab';
-import { normalizeNotifications } from 'lib/notifications';
-import { useSnackbar } from 'notistack';
+import { notifications } from 'data/notifications';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import { apiEndpoints, workbenchEntryPath } from 'routes/paths';
-import axiosInstance from 'services/axios/axiosInstance';
-import useSWR from 'swr';
 import IconifyIcon from 'components/base/IconifyIcon';
 import NotificationTabPanel from 'components/sections/notification/NotificationTabPanel';
 
 const Notifications = () => {
-  const { t: translateUi } = useTranslation();
-  const { enqueueSnackbar } = useSnackbar();
   const [currentTab, setCurrentTab] = useState('all');
-  const [markingAllRead, setMarkingAllRead] = useState(false);
-  const { data, error, isLoading, mutate } = useSWR(apiEndpoints.notifications);
-  const notifications = useMemo(
-    () => normalizeNotifications(data, translateUi),
-    [data, translateUi],
-  );
-  const unreadNotifications = useMemo(
-    () => notifications.filter((notification) => !notification.readAt),
-    [notifications],
-  );
 
   const { up } = useBreakpoints();
 
@@ -38,34 +20,14 @@ const Notifications = () => {
     setCurrentTab(newValue);
   };
 
-  const handleMarkAllRead = async () => {
-    if (!unreadNotifications.length) return;
-    setMarkingAllRead(true);
-
-    try {
-      await Promise.all(
-        unreadNotifications.map((notification) =>
-          axiosInstance.put(apiEndpoints.notificationRead(notification.id)),
-        ),
-      );
-      await mutate();
-    } catch {
-      enqueueSnackbar(translateUi('ffax.notifications.mark_failed'), { variant: 'error' });
-    } finally {
-      setMarkingAllRead(false);
-    }
-  };
-
   return (
     <Box
       sx={{
         p: { xs: 3, md: 5 },
       }}
     >
-      <Breadcrumbs aria-label={translateUi('ffax.notifications.breadcrumb')} sx={{ mb: 2 }}>
-        <Link component={RouterLink} to={workbenchEntryPath}>
-          {translateUi('ffax.navigation.workbench')}
-        </Link>
+      <Breadcrumbs aria-label="breadcrumb" sx={{ mb: 2 }}>
+        <Link href="#!">Pages</Link>
         <Typography
           variant="body2"
           sx={{
@@ -73,7 +35,7 @@ const Notifications = () => {
             color: 'text.primary',
           }}
         >
-          {translateUi('ffax.navigation.notifications')}
+          Notifications
         </Typography>
       </Breadcrumbs>
       <Typography
@@ -82,16 +44,13 @@ const Notifications = () => {
           mb: 3,
         }}
       >
-        {translateUi('ffax.navigation.notifications')}
+        Notifications
       </Typography>
       <TabContext value={currentTab}>
         <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
-          <TabList
-            onChange={handleChange}
-            aria-label={translateUi('ffax.notifications.tabs_label')}
-          >
+          <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab
-              label={upSm ? translateUi('ffax.notifications.all') : undefined}
+              label={upSm ? 'All notifications' : undefined}
               value="all"
               icon={
                 <IconifyIcon icon="material-symbols:notifications-outline-rounded" fontSize={20} />
@@ -104,13 +63,10 @@ const Notifications = () => {
               }}
             />
             <Tab
-              label={upSm ? translateUi('ffax.notifications.unread') : undefined}
-              value="unread"
+              label={upSm ? 'Friend requests' : undefined}
+              value="friend_requests"
               icon={
-                <IconifyIcon
-                  icon="material-symbols:mark-email-unread-outline-rounded"
-                  fontSize={20}
-                />
+                <IconifyIcon icon="material-symbols:person-add-outline-rounded" fontSize={20} />
               }
               iconPosition="start"
             />
@@ -120,24 +76,17 @@ const Notifications = () => {
             variant="soft"
             color="neutral"
             startIcon={<IconifyIcon icon="material-symbols:check-rounded" />}
-            disabled={!unreadNotifications.length || markingAllRead}
-            onClick={handleMarkAllRead}
           >
-            {translateUi('ffax.notifications.mark_all_read')}
+            Mark all as read
           </Button>
         </Stack>
-        {error && (
-          <Alert severity="error" sx={{ mt: 2 }}>
-            {translateUi('ffax.notifications.load_failed')}
-          </Alert>
-        )}
-        {!error && !isLoading && notifications.length === 0 && (
-          <Alert severity="info" sx={{ mt: 2 }}>
-            {translateUi('ffax.notifications.empty')}
-          </Alert>
-        )}
         <NotificationTabPanel value="all" notificationsData={notifications} />
-        <NotificationTabPanel value="unread" notificationsData={unreadNotifications} />
+        <NotificationTabPanel
+          value="friend_requests"
+          notificationsData={notifications.filter(
+            (notification) => notification.type === 'friend_request',
+          )}
+        />
       </TabContext>
     </Box>
   );

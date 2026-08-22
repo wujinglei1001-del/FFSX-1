@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -11,7 +10,7 @@ import { SplitText } from 'gsap/SplitText';
 import { cssVarRgba } from 'lib/utils';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useSettingsContext } from 'providers/SettingsProvider';
-import paths, { rootPaths } from 'routes/paths';
+import paths from 'routes/paths';
 import Image from 'components/base/Image';
 import DashedLine from '../common/DashedLine';
 import { Dot } from '../common/PageHeader';
@@ -21,14 +20,13 @@ import { StripedBackground } from '../common/StripedBackground';
 
 gsap.registerPlugin(SplitText);
 const Hero = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
   const { up } = useBreakpoints();
   const slidesListRef = useRef(null);
   const upLg = up('lg');
-  const words = ['真实需求', '贸易角色', '服务能力', '履约网络'];
+  const words = ['productivity', 'efficiency', 'collaboration', 'innovation'];
   useGSAP(() => {
     const container = slidesListRef.current;
     if (!container) return;
@@ -189,14 +187,14 @@ const Hero = () => {
                   mb: 2,
                 }}
               >
-                {translateUi('ui.sections.landing.homepage.hero.ultimate_web_app_to_29a1fcff')}{' '}
+                Ultimate web app to{' '}
                 <Box
                   component="span"
                   sx={{
                     whiteSpace: { sm: 'nowrap' },
                   }}
                 >
-                  {translateUi('ui.sections.landing.homepage.hero.enhances_69ee45bb')}{' '}
+                  enhances{' '}
                   <Box
                     component="span"
                     sx={{
@@ -247,9 +245,7 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                {translateUi(
-                  'ui.sections.landing.homepage.hero.try_our_app_for_a_simpler_organized_workflow_0acaf354',
-                )}
+                Try our app for a simpler, organized workflow.
               </Typography>
 
               <Typography
@@ -260,9 +256,8 @@ const Hero = () => {
                   color: 'text.secondary',
                 }}
               >
-                {translateUi(
-                  'ui.sections.landing.homepage.hero.our_web_app_offers_a_seamless_experience_allowing_yo_c11cee63',
-                )}
+                Our web app offers a seamless experience, allowing you to manage projects
+                effortlessly while collaborating with your team in real-time.
               </Typography>
 
               <Stack
@@ -271,11 +266,9 @@ const Hero = () => {
                   gap: 1,
                 }}
               >
-                <Button variant="contained" href={rootPaths.root}>
-                  {translateUi('ui.sections.landing.homepage.hero.start_today_d83f167a')}
-                </Button>
+                <Button variant="contained">Start today</Button>
                 <Button variant="soft" color="neutral" href={paths.landingContact}>
-                  {translateUi('ui.sections.landing.homepage.hero.contact_us_4832e458')}
+                  Contact us
                 </Button>
               </Stack>
             </RevealItems>

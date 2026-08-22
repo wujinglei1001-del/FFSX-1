@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Container, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { defaultInvoice } from 'data/e-commerce/orders';
@@ -8,18 +7,14 @@ import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import InvoiceContainer from 'components/sections/ecommerce/admin/invoice';
 
 const Invoice = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.ecommerce.admin.invoice_details_2325ca61')}
+          title="Invoice details"
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.ecommerce.admin.invoice_list_959018ff'),
-              url: paths.adminInvoiceList,
-            },
-            { label: translateUi('ui.pages.apps.ecommerce.admin.invoice_f9f38818'), active: true },
+            { label: 'Invoice list', url: paths.adminInvoiceList },
+            { label: 'Invoice', active: true },
           ]}
           actionComponent={
             <Stack direction="row" sx={{ gap: 1 }}>
@@ -29,7 +24,7 @@ const Invoice = () => {
                 sx={{ whiteSpace: 'nowrap' }}
                 startIcon={<IconifyIcon icon="mdi:edit-outline" fontSize="20px !important" />}
               >
-                {translateUi('ui.pages.apps.ecommerce.admin.edit_invoice_840fa121')}
+                Edit invoice
               </Button>
               <Button
                 variant="soft"
@@ -42,7 +37,7 @@ const Invoice = () => {
                   />
                 }
               >
-                {translateUi('ui.pages.apps.ecommerce.admin.download_a479c9c3')}
+                Download
               </Button>
               <Button
                 variant="soft"
@@ -55,7 +50,7 @@ const Invoice = () => {
                   />
                 }
               >
-                {translateUi('ui.pages.apps.ecommerce.admin.print_5b221e9c')}
+                Print
               </Button>
             </Stack>
           }

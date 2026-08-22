@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Collapse from '@mui/material/Collapse';
@@ -15,7 +14,6 @@ import Lightbox from 'components/base/Lightbox';
 import FileItem from './FileItem';
 
 const RecentFiles = () => {
-  const { t: translateUi } = useTranslation();
   const { recentFiles } = useFileManager();
   const { openLightbox, ...lightboxProps } = useLightbox();
   const [expanded, setExpanded] = useState(false);
@@ -102,9 +100,7 @@ const RecentFiles = () => {
       <Paper ref={containerRef} sx={{ p: { xs: 3, md: 5 } }}>
         <Container maxWidth={false} sx={{ maxWidth: 1, p: '0 !important' }}>
           <Stack direction="row" sx={{ justifyContent: 'space-between', mb: 3 }}>
-            <Typography variant="h5">
-              {translateUi('ui.sections.file_manager.main.recent_files.recent_files_8d579982')}
-            </Typography>
+            <Typography variant="h5">Recent Files</Typography>
             {showToggle && (
               <Button
                 variant="soft"

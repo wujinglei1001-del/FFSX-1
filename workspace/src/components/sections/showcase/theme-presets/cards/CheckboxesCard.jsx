@@ -2,36 +2,12 @@ import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import { Paper } from '@mui/material';
 
 const checkboxes = [
-  {
-    name: 'Chair',
-    count: 65,
-    selected: true,
-  },
-  {
-    name: 'Divan',
-    count: 20,
-    selected: true,
-  },
-  {
-    name: 'Sofa',
-    count: 31,
-    selected: false,
-  },
-  {
-    name: 'Recliner',
-    count: 22,
-    selected: false,
-  },
-  {
-    name: 'Sectional',
-    count: 15,
-    selected: false,
-  },
-  {
-    name: 'Accent',
-    count: 8,
-    selected: false,
-  },
+  { name: 'Chair', count: 65, selected: true },
+  { name: 'Divan', count: 20, selected: true },
+  { name: 'Sofa', count: 31, selected: false },
+  { name: 'Recliner', count: 22, selected: false },
+  { name: 'Sectional', count: 15, selected: false },
+  { name: 'Accent', count: 8, selected: false },
 ];
 
 const CheckboxesCard = () => {

@@ -1,13 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import animation404Dark from 'assets/json/404-dark.json';
 import animation404 from 'assets/json/404.json';
 import { useThemeMode } from 'hooks/useThemeMode';
 import Lottie from 'lottie-react';
-import { rootPaths } from 'routes/paths';
+import paths from 'routes/paths';
 
 const Page404 = () => {
-  const { t: translateUi } = useTranslation();
   const { isDark } = useThemeMode();
 
   return (
@@ -57,7 +55,7 @@ const Page404 = () => {
               mb: 2,
             }}
           >
-            {translateUi('ffax.errors.not_found.title')}
+            Page not found
           </Typography>
           <Typography
             variant="h5"
@@ -67,11 +65,21 @@ const Page404 = () => {
               mb: 5,
             }}
           >
-            {translateUi('ffax.errors.not_found.description')}
+            No worries! Let’s take you back{' '}
+            <Box
+              component="br"
+              sx={{
+                display: {
+                  xs: 'none',
+                  sm: 'block',
+                },
+              }}
+            />
+            while our bear is searching everywhere
           </Typography>
 
-          <Button variant="contained" href={rootPaths.root} size="large" sx={{ px: 7 }}>
-            {translateUi('ffax.errors.not_found.home')}
+          <Button variant="contained" href={paths.ecommerce} size="large" sx={{ px: 7 }}>
+            Go Back Home{' '}
           </Button>
         </Box>
       </Stack>

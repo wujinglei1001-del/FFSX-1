@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/7-dark.webp';
@@ -15,7 +14,6 @@ import EmailList from './EmailList';
 import EmailListHeader from './email-list-header/EmailListHeader';
 
 const EmailListContainer = ({ toggleDrawer }) => {
-  const { t: translateUi } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const {
     emailState: { emails, initialEmails },
@@ -93,10 +91,7 @@ const EmailListContainer = ({ toggleDrawer }) => {
             <Stack sx={{ alignItems: 'center', flex: 1, justifyContent: 'center' }}>
               <Image src={{ light: illustration, dark: illustrationDark }} width={100} />
               <Typography variant="subtitle1" sx={{ fontWeight: 500, mt: 2 }}>
-                {translateUi(
-                  'ui.sections.email.email_list.emaillistcontainer.no_conversations_in_db0233b6',
-                )}
-                {params.label}.
+                No conversations in {params.label}.
               </Typography>
             </Stack>
           )}

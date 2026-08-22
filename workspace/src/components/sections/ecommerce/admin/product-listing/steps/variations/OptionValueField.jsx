@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Button, IconButton, Stack, TextField, Typography } from '@mui/material';
@@ -10,7 +9,6 @@ import ColorPicker from 'components/base/color-picker/ColorPicker';
 import ImagesDialog from './ImagesDialog';
 
 const OptionValueField = (props) => {
-  const { t: translateUi } = useTranslation();
   const { itemsFiledArray, variantIndex, valueIndex, id } = props;
 
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id });
@@ -80,7 +78,7 @@ const OptionValueField = (props) => {
           />
         )}
         <TextField
-          label={translateUi('ui.sections.ecommerce.admin.product_listing.value_8dce170d')}
+          label="Value"
           type="text"
           {...register(`variants.${variantIndex}.items.${valueIndex}.value`, {
             required: 'This field is required',
@@ -96,8 +94,7 @@ const OptionValueField = (props) => {
             display: { xs: 'none', md: 'block' },
           }}
         >
-          {variants?.[variantIndex]?.items?.[valueIndex]?.images?.length ?? 0}
-          {translateUi('ui.sections.ecommerce.admin.product_listing.images_linked_a4b79f87')}
+          {variants?.[variantIndex]?.items?.[valueIndex]?.images?.length ?? 0} images linked
         </Typography>
         <IconButton
           onClick={() => {

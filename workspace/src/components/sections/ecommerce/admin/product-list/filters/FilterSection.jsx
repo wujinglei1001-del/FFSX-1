@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack } from '@mui/material';
 import { productListAdmin } from 'data/e-commerce/products';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -11,7 +10,6 @@ const categories = Array.from(new Set(productListAdmin.map((item) => item.catego
 const statuses = ['active', 'inactive', 'draft', 'archive'];
 
 const FilterSection = ({ apiRef, handleToggleFilterPanel }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upSm = up('sm');
 
@@ -41,20 +39,15 @@ const FilterSection = ({ apiRef, handleToggleFilterPanel }) => {
         direction="row"
         sx={{ gap: 1, overflowX: { xs: 'auto', md: 'initial' }, scrollbarWidth: 'thin' }}
       >
+        <FilterMenu label="Vendor" field="vendor" handleFilter={handleFilter} menuItems={vendors} />
         <FilterMenu
-          label={translateUi('ui.sections.ecommerce.admin.product_list.vendor_d96159ff')}
-          field="vendor"
-          handleFilter={handleFilter}
-          menuItems={vendors}
-        />
-        <FilterMenu
-          label={translateUi('ui.sections.ecommerce.admin.product_list.tagged_with_6a065937')}
+          label="Tagged With"
           field="category"
           handleFilter={handleFilter}
           menuItems={categories}
         />
         <FilterMenu
-          label={translateUi('ui.sections.ecommerce.admin.product_list.status_bae7d5be')}
+          label="Status"
           field="status"
           handleFilter={handleFilter}
           menuItems={statuses}
@@ -70,11 +63,7 @@ const FilterSection = ({ apiRef, handleToggleFilterPanel }) => {
           sx={{ ml: { md: 'auto' }, flexShrink: 0, minWidth: 0 }}
         >
           <IconifyIcon icon="material-symbols:star-rounded" fontSize={20} />
-          {upSm && (
-            <Box component="span">
-              {translateUi('ui.sections.ecommerce.admin.product_list.saved_c0ae8f6e')}
-            </Box>
-          )}
+          {upSm && <Box component="span">Saved</Box>}
         </Button>
 
         <Button
@@ -90,11 +79,7 @@ const FilterSection = ({ apiRef, handleToggleFilterPanel }) => {
           {!upSm && (
             <IconifyIcon icon="material-symbols:filter-alt-outline" fontSize={'20px !important'} />
           )}
-          {upSm && (
-            <Box component="span">
-              {translateUi('ui.sections.ecommerce.admin.product_list.more_filters_bf7117ef')}
-            </Box>
-          )}
+          {upSm && <Box component="span">More filters</Box>}
         </Button>
       </Stack>
     </Stack>

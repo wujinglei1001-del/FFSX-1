@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Chip, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -9,7 +8,6 @@ import InfoCard from '../common/InfoCard';
 import DeviceDialog from './DeviceDialog';
 
 const LoggedDevice = ({ loggedinDevice }) => {
-  const { t: translateUi } = useTranslation();
   const { name, icon, location, currentlyLoggedIn, lastLoggedTime } = loggedinDevice;
   const { up, down } = useBreakpoints();
 
@@ -34,13 +32,7 @@ const LoggedDevice = ({ loggedinDevice }) => {
               {location}
             </Typography>
             {downSm && currentlyLoggedIn && (
-              <Chip
-                label={translateUi(
-                  'ui.sections.account.privacy_protection.loggeddevice.currently_logged_in_05e7f417',
-                )}
-                color="info"
-                sx={{ mb: 1 }}
-              />
+              <Chip label="Currently logged in" color="info" sx={{ mb: 1 }} />
             )}
             <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
               {currentlyLoggedIn
@@ -50,14 +42,7 @@ const LoggedDevice = ({ loggedinDevice }) => {
           </Stack>
         </Stack>
         <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
-          {upSm && currentlyLoggedIn && (
-            <Chip
-              label={translateUi(
-                'ui.sections.account.privacy_protection.loggeddevice.currently_logged_in_05e7f417',
-              )}
-              color="info"
-            />
-          )}
+          {upSm && currentlyLoggedIn && <Chip label="Currently logged in" color="info" />}
 
           <IconifyIcon
             icon="material-symbols:arrow-forward-ios"

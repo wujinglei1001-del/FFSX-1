@@ -1,5 +1,4 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { filledInputClasses } from '@mui/material/FilledInput';
 import { formHelperTextClasses } from '@mui/material/FormHelperText';
 import Stack from '@mui/material/Stack';
@@ -8,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FinalAssessment = ({ assessment, sx }) => {
-  const { t: translateUi } = useTranslation();
   const methods = useFormContext();
   return (
     <Stack
@@ -17,9 +15,7 @@ const FinalAssessment = ({ assessment, sx }) => {
         ...sx,
       }}
     >
-      <Typography sx={{ fontWeight: 700 }}>
-        {translateUi('ui.sections.hrm.performance_management.feedback.final_assessment_b88c2c33')}
-      </Typography>
+      <Typography sx={{ fontWeight: 700 }}>Final Assessment</Typography>
       {assessment ? (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           {assessment}
@@ -29,16 +25,12 @@ const FinalAssessment = ({ assessment, sx }) => {
           multiline
           fullWidth
           rows={2}
-          placeholder={translateUi(
-            'ui.sections.hrm.performance_management.feedback.add_comment_d89450c8',
-          )}
+          placeholder="Add Comment"
           helperText={
             <>
               <IconifyIcon icon="material-symbols:info-outline-rounded" sx={{ fontSize: 16 }} />
               <Typography variant="caption">
-                {translateUi(
-                  'ui.sections.hrm.performance_management.feedback.type_your_comment_and_press_enter_to_add_it_5929a481',
-                )}
+                Type your comment and press Enter to add it.
               </Typography>
             </>
           }

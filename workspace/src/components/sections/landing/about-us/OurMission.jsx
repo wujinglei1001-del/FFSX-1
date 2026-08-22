@@ -2,12 +2,17 @@ import { useState } from 'react';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { Box, Container, Grid, Stack, Tab, Typography } from '@mui/material';
 import bg from 'assets/images/background/4.webp';
+import { useThemeMode } from 'hooks/useThemeMode';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import RevealImage from '../common/RevealImage';
 import SectionHeader from '../common/SectionHeader';
 
 const tabContent = (
-  <Stack sx={{ gap: 2 }}>
+  <Stack
+    sx={{
+      gap: 2,
+    }}
+  >
     <Typography variant="h6">Our Goal</Typography>
 
     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -58,6 +63,7 @@ const OurMission = ({ sx }) => {
   const {
     config: { assetsDir },
   } = useSettingsContext();
+  const { isDark } = useThemeMode();
   const [value, setValue] = useState('1');
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -86,7 +92,7 @@ const OurMission = ({ sx }) => {
                   borderTopLeftRadius: 8,
                   borderBottomLeftRadius: 8,
                   boxShadow: (theme) => theme.vars.shadows[4],
-                  background: `url(${assetsDir}/images/showcase/16.webp)`,
+                  background: `url(${isDark ? `${assetsDir}/images/landing/hero/1-dark.webp` : `${assetsDir}/images/landing/hero/1.webp`})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'top left',
                 }}

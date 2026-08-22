@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Typography, buttonClasses } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -6,7 +5,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const ExpressCheckout = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -19,7 +17,7 @@ const ExpressCheckout = ({ sx }) => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.checkout.express_checkout_f0e6a404')}
+        Express checkout
       </Typography>
       <Grid container spacing={1} columns={{ xs: 2, sm: 4 }}>
         <Grid size={1}>
@@ -32,15 +30,9 @@ const ExpressCheckout = ({ sx }) => {
                 mr: 0.5,
               },
             }}
-            startIcon={
-              <Image
-                src={`${assetsDir}/images/logo/1.svg`}
-                height={18}
-                alt={translateUi('ui.sections.ecommerce.customer.checkout.icon_f8995ba5')}
-              />
-            }
+            startIcon={<Image src={`${assetsDir}/images/logo/1.svg`} height={18} alt="icon" />}
           >
-            {translateUi('ui.sections.ecommerce.customer.checkout.pay_80c37573')}
+            Pay
           </Button>
         </Grid>
         <Grid size={1}>
@@ -49,13 +41,7 @@ const ExpressCheckout = ({ sx }) => {
             variant="soft"
             color="neutral"
             sx={{ height: 1 }}
-            startIcon={
-              <Image
-                src={`${assetsDir}/images/logo/11.svg`}
-                height={12}
-                alt={translateUi('ui.sections.ecommerce.customer.checkout.icon_f8995ba5')}
-              />
-            }
+            startIcon={<Image src={`${assetsDir}/images/logo/11.svg`} height={12} alt="icon" />}
           />
         </Grid>
         <Grid size={1}>
@@ -71,7 +57,7 @@ const ExpressCheckout = ({ sx }) => {
             }}
             startIcon={<IconifyIcon icon="fa6-brands:amazon" fontSize="18px !important" />}
           >
-            {translateUi('ui.sections.ecommerce.customer.checkout.pay_80c37573')}
+            Pay
           </Button>
         </Grid>
         <Grid size={1}>
@@ -86,7 +72,7 @@ const ExpressCheckout = ({ sx }) => {
             }}
             startIcon={<IconifyIcon icon="mdi:apple" fontSize="18px !important" />}
           >
-            {translateUi('ui.sections.ecommerce.customer.checkout.pay_80c37573')}
+            Pay
           </Button>
         </Grid>
       </Grid>

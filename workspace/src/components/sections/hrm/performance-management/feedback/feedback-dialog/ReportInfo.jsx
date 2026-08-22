@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import ControlledRatingCard from './ControlledRatingCard';
 import RatingCard from './RatingCard';
 
 const ReportInfo = ({ title, ratingList, fieldPrefix, comment, formField }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -39,7 +37,7 @@ const ReportInfo = ({ title, ratingList, fieldPrefix, comment, formField }) => {
           }}
         >
           <Typography variant="body2" sx={{ fontWeight: 600 }}>
-            {translateUi('ui.sections.hrm.performance_management.feedback.comment_153d7a58')}
+            Comment
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             {comment}

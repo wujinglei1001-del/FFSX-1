@@ -1,5 +1,4 @@
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { inputBaseClasses } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 
@@ -10,7 +9,6 @@ const isOnlyEmojis = (text) => {
 };
 
 const TextInput = ({ onSubmit }) => {
-  const { t: translateUi } = useTranslation();
   const { register, control, handleSubmit } = useFormContext();
 
   const handleKeyDown = (e) => {
@@ -27,7 +25,7 @@ const TextInput = ({ onSubmit }) => {
       fullWidth
       multiline
       maxRows={3}
-      placeholder={translateUi('ui.sections.chat.conversation.main.write_a_message_46bfc6e8')}
+      placeholder="Write a message"
       {...register('text')}
       onKeyDown={handleKeyDown}
       sx={{

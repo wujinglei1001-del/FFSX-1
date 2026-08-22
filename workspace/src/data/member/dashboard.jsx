@@ -3,7 +3,6 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 
 export const timeOffData = [
   { id: 1, leaveType: 'Paid Leave', left: 3, total: 4 },
@@ -36,13 +35,12 @@ export const toDoListsData = [
       >
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           <Box component="strong" sx={{ fontWeight: 700, color: 'text.primary' }}>
-            {i18n.t('ui.data.member.dashboard.albus_dumbldore_69bd1056')}
+            Albus Dumbldore
           </Box>
-          {` `}
-          {i18n.t('ui.data.member.dashboard.requested_a_meeting_6c25314f')}
+          {` `}requested a meeting
         </Typography>
         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-          {i18n.t('ui.data.member.dashboard.in_1_month_ff6cb28d')}
+          in 1 month
         </Typography>
       </Stack>
     ),
@@ -60,10 +58,9 @@ export const toDoListsData = [
           <Box component="strong" sx={{ fontWeight: 700, color: 'text.primary' }}>
             w-8ben
           </Box>
-          {` `}
-          {i18n.t('ui.data.member.dashboard.is_waiting_for_your_signature_a7491ce4')}
+          {` `}is waiting for your signature
         </Typography>
-        <Chip color="warning" label={i18n.t('ui.data.member.dashboard.due_145caf29')} />
+        <Chip color="warning" label="Due" />
       </Stack>
     ),
   },
@@ -78,12 +75,11 @@ export const toDoListsData = [
       >
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
           <Box component="strong" sx={{ fontWeight: 700, color: 'text.primary' }}>
-            {i18n.t('ui.data.member.dashboard.albus_dumbldore_69bd1056')}
+            Albus Dumbldore
           </Box>
-          {` `}
-          {i18n.t('ui.data.member.dashboard.requested_a_meeting_6c25314f')}
+          {` `}requested a meeting
         </Typography>
-        <Chip color="neutral" label={i18n.t('ui.data.member.dashboard.cancelled_a1bf92ef')} />
+        <Chip color="neutral" label="Cancelled" />
       </Stack>
     ),
   },
@@ -97,14 +93,12 @@ export const toDoListsData = [
         }}
       >
         <Typography variant="body2" sx={{ fontWeight: 700 }}>
-          {i18n.t('ui.data.member.dashboard.redrafted_benefit_form_e4452c51')}
+          Redrafted Benefit Form
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {i18n.t(
-            'ui.data.member.dashboard.of_jacob_kowalski_is_waiting_for_your_signature_a9f0cdc6',
-          )}
+          of Jacob Kowalski is waiting for your signature
         </Typography>
-        <Chip color="warning" label={i18n.t('ui.data.member.dashboard.due_145caf29')} />
+        <Chip color="warning" label="Due" />
       </Stack>
     ),
   },
@@ -118,12 +112,12 @@ export const toDoListsData = [
         }}
       >
         <Typography variant="body2" sx={{ fontWeight: 700 }}>
-          {i18n.t('ui.data.member.dashboard.performance_review_52bcf8ac')}
+          Performance review
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {i18n.t('ui.data.member.dashboard.of_arthur_weasley_in_is_ready_for_you_1e16fecc')}
+          of Arthur Weasley in is ready for you
         </Typography>
-        <Chip color="warning" label={i18n.t('ui.data.member.dashboard.due_145caf29')} />
+        <Chip color="warning" label="Due" />
       </Stack>
     ),
   },
@@ -137,12 +131,12 @@ export const toDoListsData = [
         }}
       >
         <Typography variant="body2" sx={{ fontWeight: 700 }}>
-          {i18n.t('ui.data.member.dashboard.onboarding_checklist_ad4f37eb')}
+          Onboarding checklist
         </Typography>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {i18n.t('ui.data.member.dashboard.of_hermione_granger_is_incomplete_e66c61e2')}
+          of Hermione Granger is incomplete
         </Typography>
-        <Chip color="error" label={i18n.t('ui.data.member.dashboard.overdue_07217c77')} />
+        <Chip color="error" label="Overdue" />
       </Stack>
     ),
   },

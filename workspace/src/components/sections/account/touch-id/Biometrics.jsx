@@ -1,19 +1,17 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import AccountDialog from '../common/AccountDialog';
 import InfoCard from '../common/InfoCard';
 
 const Biometrics = () => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <Stack sx={{ gap: 2 }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.account.touch_id.biometrics.manage_touch_id_features_6ff4a848')}
+          Manage Touch ID Features
         </Typography>
         <Stack sx={{ gap: 1 }}>
           {Array.from({ length: 3 }).map((_, index) => (
@@ -33,8 +31,7 @@ const Biometrics = () => {
               <Stack direction="row" sx={{ gap: 2, alignItems: 'center' }}>
                 <IconifyIcon icon="material-symbols-light:fingerprint" sx={{ fontSize: 40 }} />
                 <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                  {translateUi('ui.sections.account.touch_id.biometrics.fingerprint_fed4c905')}
-                  {index + 1}
+                  Fingerprint {index + 1}
                 </Typography>
               </Stack>
               <IconifyIcon
@@ -51,16 +48,14 @@ const Biometrics = () => {
           startIcon={<IconifyIcon icon="material-symbols:add" sx={{ fontSize: 20 }} />}
           onClick={() => setOpen(true)}
         >
-          {translateUi('ui.sections.account.touch_id.biometrics.add_fingerprint_997ff7eb')}
+          Add Fingerprint
         </Button>
       </Stack>
       <AccountDialog
         open={open}
         handleDialogClose={() => setOpen(false)}
-        title={translateUi('ui.sections.account.touch_id.biometrics.add_fingerprint_997ff7eb')}
-        subtitle={translateUi(
-          'ui.sections.account.touch_id.biometrics.touch_id_enrollment_was_interrupted_1b996e9f',
-        )}
+        title="Add Fingerprint"
+        subtitle="Touch ID enrollment was interrupted"
         handleDiscard={() => setOpen(false)}
         handleConfirm={() => setOpen(false)}
         sx={{ width: 1 }}
@@ -93,9 +88,7 @@ const Biometrics = () => {
             />
           </Box>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            {translateUi(
-              'ui.sections.account.touch_id.biometrics.your_fingerprint_can_be_used_to_unlock_your_account_01df0a77',
-            )}
+            Your fingerprint can be used to unlock your account
           </Typography>
         </Stack>
       </AccountDialog>

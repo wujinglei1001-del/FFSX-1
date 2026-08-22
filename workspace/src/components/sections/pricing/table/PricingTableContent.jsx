@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Button,
   Stack,
@@ -29,7 +28,6 @@ const getFeatureActiveState = (pricingItem, category, feature) => {
 };
 
 const PricingTableContent = ({ isYearly }) => {
-  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const downXl = down('xl');
   const { topbarHeight } = useNavContext();
@@ -39,17 +37,14 @@ const PricingTableContent = ({ isYearly }) => {
       {downXl && (
         <Stack sx={{ gap: 3, p: { xs: 3, md: 5 }, backgroundColor: 'background.elevation2' }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            {translateUi(
-              'ui.sections.pricing.table.pricingtablecontent.not_sure_which_plan_is_for_you_5e591ce6',
-            )}
+            Not sure which plan is for you?
           </Typography>
           <Typography variant="body2">
-            {translateUi(
-              'ui.sections.pricing.table.pricingtablecontent.take_our_short_and_engaging_quiz_to_save_the_guesswo_d34a023c',
-            )}
+            Take our short and engaging quiz to save the guesswork and personalize our
+            recommendations just for you.
           </Typography>
           <Button color="neutral" variant="contained" sx={{ alignSelf: 'start' }}>
-            {translateUi('ui.sections.pricing.table.pricingtablecontent.take_a_test_6464ef5f')}
+            Take a test
           </Button>
         </Stack>
       )}
@@ -92,19 +87,14 @@ const PricingTableContent = ({ isYearly }) => {
                 >
                   <Stack sx={{ gap: 3 }}>
                     <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                      {translateUi(
-                        'ui.sections.pricing.table.pricingtablecontent.not_sure_which_plan_is_for_you_5e591ce6',
-                      )}
+                      Not sure which plan is for you?
                     </Typography>
                     <Typography variant="body2">
-                      {translateUi(
-                        'ui.sections.pricing.table.pricingtablecontent.take_our_short_and_engaging_quiz_to_save_the_guesswo_d34a023c',
-                      )}
+                      Take our short and engaging quiz to save the guesswork and personalize our
+                      recommendations just for you.
                     </Typography>
                     <Button color="neutral" variant="contained" sx={{ alignSelf: 'start' }}>
-                      {translateUi(
-                        'ui.sections.pricing.table.pricingtablecontent.take_a_test_6464ef5f',
-                      )}
+                      Take a test
                     </Button>
                   </Stack>
                 </TableCell>

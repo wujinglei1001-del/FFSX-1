@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, LinearProgress, Link, Paper, Stack, Typography } from '@mui/material';
 import { secondsToHms } from 'lib/utils';
 
 const SiteDataCard = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ outline: 0, p: 3, borderRadius: 6 }}>
       <Stack sx={{ gap: 1 }}>
@@ -17,7 +15,7 @@ const SiteDataCard = ({ data }) => {
               variant="subtitle2"
               sx={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}
             >
-              {translateUi('ui.sections.time_tracker.apps_sites.sitedatacard.link_363c7e58')}{' '}
+              Link:{' '}
               <Link href={data.link} target="_blank" sx={{ fontWeight: 400 }}>
                 {data.link}
               </Link>
@@ -33,8 +31,7 @@ const SiteDataCard = ({ data }) => {
           }}
         >
           <Typography variant="body2" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-            {secondsToHms(data.hours, true)}
-            {translateUi('ui.sections.time_tracker.apps_sites.sitedatacard.hrs_a23c4292')}
+            {secondsToHms(data.hours, true)} hrs
           </Typography>
           <Stack direction="row" sx={{ gap: 1, alignItems: 'center', flexGrow: 1 }}>
             <LinearProgress

@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const BottomBar = ({ handleAsideOpen }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={(theme) => ({
@@ -36,9 +34,7 @@ const BottomBar = ({ handleAsideOpen }) => {
               fontWeight: 400,
             }}
           >
-            {translateUi(
-              'ui.sections.events.create_event.bottombar.please_provide_additional_details_4b5a6dac',
-            )}
+            Please provide additional details
           </Typography>
         </Stack>
 
@@ -49,7 +45,7 @@ const BottomBar = ({ handleAsideOpen }) => {
           onClick={handleAsideOpen}
           endIcon={<IconifyIcon icon="material-symbols:chevron-right-rounded" />}
         >
-          {translateUi('ui.sections.events.create_event.bottombar.proceed_02ed4a4a')}
+          Proceed
         </Button>
       </Stack>
     </Paper>

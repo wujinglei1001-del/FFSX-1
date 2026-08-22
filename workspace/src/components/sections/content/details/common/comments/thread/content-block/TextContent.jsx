@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link, Typography } from '@mui/material';
 
 const TextContent = ({ content }) => {
-  const { t: translateUi } = useTranslation();
   const [showMore, setShowMore] = useState(content.length < 250);
 
   return (
@@ -11,13 +9,8 @@ const TextContent = ({ content }) => {
       {content.slice(0, showMore ? content.length : 250)}
       {!showMore && '... '}
       {!showMore && (
-        <Link
-          component="button"
-          type="button"
-          onClick={() => setShowMore(true)}
-          sx={{ fontWeight: 700 }}
-        >
-          {translateUi('ui.sections.content.details.common.show_more_25911d48')}
+        <Link onClick={() => setShowMore(true)} href="#!" sx={{ fontWeight: 700 }}>
+          Show more
         </Link>
       )}
     </Typography>

@@ -1,6 +1,5 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 import { comments } from './homepage';
 
 const thumbnail = (index) =>
@@ -9,11 +8,8 @@ const thumbnail = (index) =>
 const videoDetails = [
   {
     id: 1,
-    get description() {
-      return i18n.t(
-        'ui.data.content.video.discover_the_fascinating_world_of_modern_architectur_96e73320',
-      );
-    },
+    description:
+      'Discover the fascinating world of modern architecture! In this video, we explore cutting-edge designs, innovative materials, and groundbreaking ideas shaping the skylines of today and the future. From iconic landmarks to sustainable structures, see how architecture is redefining the way we live, work, and connect with our surroundings. Watch now to get inspired!',
     team: [
       {
         role: 'Educator & Narrator',
@@ -69,11 +65,8 @@ const videoDetails = [
   },
   {
     id: 2,
-    get description() {
-      return i18n.t(
-        'ui.data.content.video.step_into_the_world_of_sustainable_living_this_video_e9895ea2',
-      );
-    },
+    description:
+      "Step into the world of sustainable living! This video showcases how 'green' architecture and design are transforming the planet. We explore eco-friendly materials, energy-efficient systems, and innovative building practices that are reducing our carbon footprint. From living roofs to passive solar designs, discover how we can build a better, healthier future. Get ready to be inspired by the fusion of nature and design.",
     team: [
       {
         role: 'Host & Presenter',
@@ -129,11 +122,8 @@ const videoDetails = [
   },
   {
     id: 3,
-    get description() {
-      return i18n.t(
-        'ui.data.content.video.journey_back_in_time_to_explore_the_incredible_histo_85d8a5ef',
-      );
-    },
+    description:
+      'Journey back in time to explore the incredible history of iconic skyscrapers. This video takes you on a visual tour of architectural marvels that have shaped city skylines for over a century. We reveal the engineering breakthroughs, the cultural significance, and the stories behind these towering giants. From the Empire State Building to the Burj Khalifa, learn how human ambition and ingenuity have reached for the skies. A must-watch for history and architecture enthusiasts!',
     team: [
       {
         role: 'Historian & Narrator',
@@ -193,14 +183,10 @@ export const videos = [
   {
     id: 1,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_future_of_architecture_smart_homes_and_sustainab_32e888cf',
-      );
-    },
+    title: 'The Future of Architecture: Smart Homes and Sustainable Cities',
     duration: '23:34',
     thumbnail: thumbnail(1),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Architecture',
     author: users[0],
     uploaderInfo: {
@@ -218,14 +204,10 @@ export const videos = [
   {
     id: 2,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.breaking_the_mold_unconventional_building_materials_bf39f1a5',
-      );
-    },
+    title: 'Breaking the Mold: Unconventional Building Materials',
     duration: '1:22:04',
     thumbnail: thumbnail(2),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Modern',
     author: users[1],
     uploaderInfo: {
@@ -243,14 +225,10 @@ export const videos = [
   {
     id: 3,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.how_minimalist_architecture_is_redefining_urban_spac_de3c3ab6',
-      );
-    },
+    title: 'How Minimalist Architecture Is Redefining Urban Spaces',
     duration: '3:34',
     thumbnail: thumbnail(3),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Design',
     author: users[3],
     uploaderInfo: {
@@ -268,14 +246,10 @@ export const videos = [
   {
     id: 4,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.top_10_most_adorable_animal_habitats_built_by_humans_5c51b6ef',
-      );
-    },
+    title: 'Top 10 Most Adorable Animal Habitats Built by Humans',
     duration: '10:23:34',
     thumbnail: thumbnail(4),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[4],
     uploaderInfo: {
@@ -293,14 +267,10 @@ export const videos = [
   {
     id: 5,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.blending_nature_with_design_the_principles_of_biophi_7d7f51d1',
-      );
-    },
+    title: 'Blending Nature with Design: The Principles of Biophilic Architecture',
     duration: '10:23:34',
     thumbnail: thumbnail(5),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[5],
     uploaderInfo: {
@@ -318,14 +288,10 @@ export const videos = [
   {
     id: 6,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.cultural_influence_in_modern_architecture_a_global_p_c3864f3c',
-      );
-    },
+    title: 'Cultural Influence in Modern Architecture: A Global Perspective',
     duration: '10:23:34',
     thumbnail: thumbnail(6),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[6],
     uploaderInfo: {
@@ -343,14 +309,10 @@ export const videos = [
   {
     id: 7,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.revolutionary_skyscrapers_engineering_marvels_of_the_13f42e17',
-      );
-    },
+    title: 'Revolutionary Skyscrapers: Engineering Marvels of the 21st Century',
     duration: '2:00:09',
     thumbnail: thumbnail(7),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[8],
     uploaderInfo: {
@@ -368,14 +330,10 @@ export const videos = [
   {
     id: 8,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_power_of_adaptive_reuse_transforming_old_structu_475f829c',
-      );
-    },
+    title: 'The Power of Adaptive Reuse: Transforming Old Structures into New',
     duration: '1:00:10',
     thumbnail: thumbnail(8),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[4],
     uploaderInfo: {
@@ -393,14 +351,10 @@ export const videos = [
   {
     id: 9,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.sustainable_design_innovations_building_a_greener_to_90aec673',
-      );
-    },
+    title: 'Sustainable Design Innovations: Building a Greener Tomorrow',
     duration: '5:45',
     thumbnail: thumbnail(16),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[12],
     uploaderInfo: {
@@ -418,14 +372,10 @@ export const videos = [
   {
     id: 10,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.urban_planning_for_the_future_creating_livable_and_e_5de50da2',
-      );
-    },
+    title: 'Urban Planning for the Future: Creating Livable and Equitable Cities',
     duration: '15:20',
     thumbnail: thumbnail(18),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[11],
     uploaderInfo: {
@@ -443,14 +393,10 @@ export const videos = [
   {
     id: 11,
     type: 'playlist',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.historic_buildings_reimagined_preservation_and_moder_88258b98',
-      );
-    },
+    title: 'Historic Buildings Reimagined: Preservation and Modernization',
     duration: '8:30',
     thumbnail: thumbnail(23),
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     category: 'Sustainable',
     author: users[5],
     uploaderInfo: {
@@ -468,15 +414,11 @@ export const videos = [
   {
     id: 12,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_evolution_of_skyscrapers_from_past_to_present_53686d73',
-      );
-    },
+    title: 'The Evolution of Skyscrapers: From Past to Present',
     duration: '10:23:34',
     thumbnail: thumbnail(9),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-10',
@@ -493,15 +435,11 @@ export const videos = [
   {
     id: 13,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.sustainable_architecture_how_green_buildings_shape_t_ca0bba36',
-      );
-    },
+    title: 'Sustainable Architecture: How Green Buildings Shape the Future',
     duration: '22:34',
     thumbnail: thumbnail(10),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-12',
@@ -518,15 +456,11 @@ export const videos = [
   {
     id: 14,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.lights_colors_and_music_the_magic_of_global_festival_ec018fc9',
-      );
-    },
+    title: 'Lights, Colors, and Music: The Magic of Global Festivals',
     duration: '56:33',
     thumbnail: thumbnail(11),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-08',
@@ -543,15 +477,11 @@ export const videos = [
   {
     id: 15,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.inside_the_world_s_most_stunning_modern_architectura_f7d2d466',
-      );
-    },
+    title: "Inside the World's Most Stunning Modern Architectural Wonders",
     duration: '1:21:04',
     thumbnail: thumbnail(12),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-05',
@@ -568,15 +498,11 @@ export const videos = [
   {
     id: 16,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.ancient_vs_modern_how_architecture_has_transformed_o_447bd64e',
-      );
-    },
+    title: 'Ancient vs. Modern: How Architecture Has Transformed Over Time',
     duration: '8:20:13',
     thumbnail: thumbnail(13),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-09-01',
@@ -593,15 +519,11 @@ export const videos = [
   {
     id: 17,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.10_iconic_buildings_that_redefined_architectural_inn_8cbe4db5',
-      );
-    },
+    title: '10 Iconic Buildings That Redefined Architectural Innovation',
     duration: '2:23:45',
     thumbnail: thumbnail(14),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-28',
@@ -618,15 +540,11 @@ export const videos = [
   {
     id: 18,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_art_of_minimalist_architecture_less_is_more_in_d_1101ba8b',
-      );
-    },
+    title: 'The Art of Minimalist Architecture: Less Is More in Design',
     duration: '25:34',
     thumbnail: thumbnail(15),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-25',
@@ -643,15 +561,11 @@ export const videos = [
   {
     id: 19,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.exploring_futuristic_architecture_cities_of_tomorrow_f3d20c8c',
-      );
-    },
+    title: 'Exploring Futuristic Architecture: Cities of Tomorrow Today',
     duration: '10:25',
     thumbnail: thumbnail(16),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-20',
@@ -668,15 +582,11 @@ export const videos = [
   {
     id: 20,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.how_technology_is_transforming_the_future_of_sculptu_8916a9ab',
-      );
-    },
+    title: 'How Technology Is Transforming the Future of Sculpture Art',
     duration: '3:39:21',
     thumbnail: thumbnail(17),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-15',
@@ -693,15 +603,11 @@ export const videos = [
   {
     id: 21,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.top_5_smart_homes_that_blend_technology_with_modern__cc505466',
-      );
-    },
+    title: 'Top 5 Smart Homes That Blend Technology with Modern Design',
     duration: '9:11',
     thumbnail: thumbnail(18),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-10',
@@ -718,15 +624,11 @@ export const videos = [
   {
     id: 22,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_evolution_of_sculpture_from_ancient_to_modern_ma_a52d1ab0',
-      );
-    },
+    title: 'The Evolution of Sculpture: From Ancient to Modern Masterpieces',
     duration: '1:26:34',
     thumbnail: thumbnail(19),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-05',
@@ -743,15 +645,11 @@ export const videos = [
   {
     id: 23,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.why_brutalist_architecture_is_making_a_bold_comeback_ff90d0b6',
-      );
-    },
+    title: 'Why Brutalist Architecture Is Making a Bold Comeback',
     duration: '2:01',
     thumbnail: thumbnail(20),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-01',
@@ -768,15 +666,11 @@ export const videos = [
   {
     id: 24,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.architectural_marvels_how_engineering_shapes_urban_s_5eab3d7e',
-      );
-    },
+    title: 'Architectural Marvels: How Engineering Shapes Urban Skylines',
     duration: '1:45:04',
     thumbnail: thumbnail(21),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-28',
@@ -793,15 +687,11 @@ export const videos = [
   {
     id: 25,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.how_traditional_architecture_inspires_modern_city_de_0595049d',
-      );
-    },
+    title: 'How Traditional Architecture Inspires Modern City Designs',
     duration: '47:14',
     thumbnail: thumbnail(22),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-25',
@@ -818,15 +708,11 @@ export const videos = [
   {
     id: 26,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.biophilic_design_bringing_nature_into_urban_architec_b242a6af',
-      );
-    },
+    title: 'Biophilic Design: Bringing Nature into Urban Architecture',
     duration: '32:35',
     thumbnail: thumbnail(23),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-20',
@@ -843,15 +729,11 @@ export const videos = [
   {
     id: 27,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.gothic_to_contemporary_tracing_the_styles_of_archite_c9b03e26',
-      );
-    },
+    title: 'Gothic to Contemporary: Tracing the Styles of Architecture',
     duration: '44:04',
     thumbnail: thumbnail(24),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-15',
@@ -868,15 +750,11 @@ export const videos = [
   {
     id: 28,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.adaptive_reuse_turning_old_buildings_into_modern_mas_4a3b015b',
-      );
-    },
+    title: 'Adaptive Reuse: Turning Old Buildings into Modern Masterpieces',
     duration: '56:00',
     thumbnail: thumbnail(25),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-10',
@@ -893,15 +771,11 @@ export const videos = [
   {
     id: 29,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_history_behind_famous_cultural_and_religious_fes_c4c50e06',
-      );
-    },
+    title: 'The History Behind Famous Cultural and Religious Festivals',
     duration: '14:55',
     thumbnail: thumbnail(26),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-07-05',
@@ -918,15 +792,11 @@ export const videos = [
   {
     id: 30,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.modern_bridges_engineering_wonders_of_the_21st_centu_3356016a',
-      );
-    },
+    title: 'Modern Bridges: Engineering Wonders of the 21st Century',
     duration: '12:45',
     thumbnail: thumbnail(19),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[4],
     uploaderInfo: {
       uploadedDate: '2025-09-14',
@@ -943,13 +813,11 @@ export const videos = [
   {
     id: 31,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.famous_sculptures_that_changed_the_art_world_e743ecf2');
-    },
+    title: 'Famous Sculptures That Changed the Art World',
     duration: '8:23',
     thumbnail: thumbnail(7),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[11],
     uploaderInfo: {
       uploadedDate: '2025-09-11',
@@ -966,13 +834,11 @@ export const videos = [
   {
     id: 32,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.the_secret_behind_ancient_temples_5e101b10');
-    },
+    title: 'The Secret Behind Ancient Temples',
     duration: '1:05:12',
     thumbnail: thumbnail(23),
     category: 'History',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[2],
     uploaderInfo: {
       uploadedDate: '2025-09-09',
@@ -989,13 +855,11 @@ export const videos = [
   {
     id: 33,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.10_festivals_around_the_world_you_must_see_ca54d6af');
-    },
+    title: '10 Festivals Around the World You Must See',
     duration: '33:55',
     thumbnail: thumbnail(2),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[7],
     uploaderInfo: {
       uploadedDate: '2025-09-07',
@@ -1012,15 +876,11 @@ export const videos = [
   {
     id: 34,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_rise_of_smart_cities_future_living_explained_2cef1d7c',
-      );
-    },
+    title: 'The Rise of Smart Cities: Future Living Explained',
     duration: '22:14',
     thumbnail: thumbnail(14),
     category: 'Technology',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[15],
     uploaderInfo: {
       uploadedDate: '2025-09-03',
@@ -1037,13 +897,11 @@ export const videos = [
   {
     id: 35,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.renaissance_art_explained_in_15_minutes_8015d460');
-    },
+    title: 'Renaissance Art Explained in 15 Minutes',
     duration: '15:00',
     thumbnail: thumbnail(5),
     category: 'Art',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[10],
     uploaderInfo: {
       uploadedDate: '2025-08-31',
@@ -1060,13 +918,11 @@ export const videos = [
   {
     id: 36,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.the_tallest_buildings_completed_in_2025_88f18260');
-    },
+    title: 'The Tallest Buildings Completed in 2025',
     duration: '10:29',
     thumbnail: thumbnail(26),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[6],
     uploaderInfo: {
       uploadedDate: '2025-08-29',
@@ -1083,13 +939,11 @@ export const videos = [
   {
     id: 37,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.exploring_futuristic_transport_systems_dcaebf59');
-    },
+    title: 'Exploring Futuristic Transport Systems',
     duration: '19:35',
     thumbnail: thumbnail(11),
     category: 'Technology',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[13],
     uploaderInfo: {
       uploadedDate: '2025-08-27',
@@ -1106,13 +960,11 @@ export const videos = [
   {
     id: 38,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.hidden_stories_of_medieval_castles_a97123ea');
-    },
+    title: 'Hidden Stories of Medieval Castles',
     duration: '48:02',
     thumbnail: thumbnail(3),
     category: 'History',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[9],
     uploaderInfo: {
       uploadedDate: '2025-08-24',
@@ -1129,13 +981,11 @@ export const videos = [
   {
     id: 39,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.unveiling_the_secrets_of_ancient_sculptors_b3671264');
-    },
+    title: 'Unveiling the Secrets of Ancient Sculptors',
     duration: '28:54',
     thumbnail: thumbnail(17),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[5],
     uploaderInfo: {
       uploadedDate: '2025-08-21',
@@ -1152,13 +1002,11 @@ export const videos = [
   {
     id: 40,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.festivals_that_celebrate_human_creativity_c06a2841');
-    },
+    title: 'Festivals That Celebrate Human Creativity',
     duration: '1:15:09',
     thumbnail: thumbnail(8),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[12],
     uploaderInfo: {
       uploadedDate: '2025-08-18',
@@ -1175,13 +1023,11 @@ export const videos = [
   {
     id: 41,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.revolutionary_architecture_of_the_future_d89a4dff');
-    },
+    title: 'Revolutionary Architecture of the Future',
     duration: '42:18',
     thumbnail: thumbnail(1),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[8],
     uploaderInfo: {
       uploadedDate: '2025-08-14',
@@ -1198,13 +1044,11 @@ export const videos = [
   {
     id: 42,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.the_artistic_journey_of_marble_sculptures_e0e3a079');
-    },
+    title: 'The Artistic Journey of Marble Sculptures',
     duration: '9:37',
     thumbnail: thumbnail(25),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[1],
     uploaderInfo: {
       uploadedDate: '2025-08-10',
@@ -1221,13 +1065,11 @@ export const videos = [
   {
     id: 43,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.cultural_festivals_that_unite_the_world_b6322009');
-    },
+    title: 'Cultural Festivals That Unite the World',
     duration: '2:01:45',
     thumbnail: thumbnail(9),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[14],
     uploaderInfo: {
       uploadedDate: '2025-08-07',
@@ -1244,13 +1086,11 @@ export const videos = [
   {
     id: 44,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.iconic_cathedrals_through_the_ages_9a2e1325');
-    },
+    title: 'Iconic Cathedrals Through the Ages',
     duration: '57:08',
     thumbnail: thumbnail(20),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[3],
     uploaderInfo: {
       uploadedDate: '2025-08-03',
@@ -1267,15 +1107,11 @@ export const videos = [
   {
     id: 45,
     type: 'related',
-    get title() {
-      return i18n.t(
-        'ui.data.content.video.the_transformation_of_city_skylines_in_50_years_cd6e1ede',
-      );
-    },
+    title: 'The Transformation of City Skylines in 50 Years',
     duration: '36:21',
     thumbnail: thumbnail(13),
     category: 'Architecture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[2],
     uploaderInfo: {
       uploadedDate: '2025-07-30',
@@ -1292,13 +1128,11 @@ export const videos = [
   {
     id: 46,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.the_hidden_symbolism_in_ancient_festivals_2b037d2f');
-    },
+    title: 'The Hidden Symbolism in Ancient Festivals',
     duration: '18:09',
     thumbnail: thumbnail(6),
     category: 'Festive',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[7],
     uploaderInfo: {
       uploadedDate: '2025-07-27',
@@ -1315,13 +1149,11 @@ export const videos = [
   {
     id: 47,
     type: 'related',
-    get title() {
-      return i18n.t('ui.data.content.video.famous_sculptures_and_the_stories_they_tell_50bb8f23');
-    },
+    title: 'Famous Sculptures and the Stories They Tell',
     duration: '1:02:48',
     thumbnail: thumbnail(21),
     category: 'Sculpture',
-    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`,
+    videoSrc: `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`,
     author: users[10],
     uploaderInfo: {
       uploadedDate: '2025-07-22',

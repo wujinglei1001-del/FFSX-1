@@ -1,5 +1,4 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import Button from '@mui/material/Button';
@@ -16,7 +15,6 @@ import SortableDnd from 'components/base/SortableDnd';
 import ApplicationFormSection from '../common/ApplicationFormSection';
 
 const ExperienceInfo = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { fields, move, remove, append } = useFieldArray({
     control,
@@ -59,7 +57,7 @@ const ExperienceInfo = () => {
             }}
             sx={{ alignSelf: 'flex-start' }}
           >
-            {translateUi('ui.sections.hiring.candidate.job_application.add_more_dcb8fa93')}
+            Add More
           </Button>
         </Stack>
       </SortableDnd>
@@ -68,7 +66,6 @@ const ExperienceInfo = () => {
 };
 export default ExperienceInfo;
 const ExperienceFormItem = ({ index, field, remove }) => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     control,
@@ -98,9 +95,7 @@ const ExperienceFormItem = ({ index, field, remove }) => {
       <Grid container spacing={1}>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label={translateUi(
-              'ui.sections.hiring.candidate.job_application.institution_name_b6544303',
-            )}
+            label="Institution Name"
             fullWidth
             error={!!errors.personalInfo?.experience?.[index]?.institutionName}
             helperText={errors.personalInfo?.experience?.[index]?.institutionName?.message}
@@ -109,7 +104,7 @@ const ExperienceFormItem = ({ index, field, remove }) => {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label={translateUi('ui.sections.hiring.candidate.job_application.position_cf1c85ad')}
+            label="Position"
             fullWidth
             error={!!errors.personalInfo?.experience?.[index]?.position}
             helperText={errors.personalInfo?.experience?.[index]?.position?.message}
@@ -118,7 +113,7 @@ const ExperienceFormItem = ({ index, field, remove }) => {
         </Grid>
         <Grid size={{ xs: 12, sm: 6 }}>
           <TextField
-            label={translateUi('ui.sections.hiring.candidate.job_application.location_d219c681')}
+            label="Location"
             fullWidth
             error={!!errors.personalInfo?.experience?.[index]?.location}
             helperText={errors.personalInfo?.experience?.[index]?.location?.message}
@@ -145,9 +140,7 @@ const ExperienceFormItem = ({ index, field, remove }) => {
                   isClearable
                   customInput={
                     <TextField
-                      label={translateUi(
-                        'ui.sections.hiring.candidate.job_application.time_period_749975a9',
-                      )}
+                      label="Time period"
                       fullWidth
                       slotProps={{
                         input: {

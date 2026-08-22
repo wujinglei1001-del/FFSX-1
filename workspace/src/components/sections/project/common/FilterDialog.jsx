@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -31,7 +30,6 @@ import StyledTextField from 'components/styled/StyledTextField';
 const options = ['Within 1 week', 'Within 1 month', 'Within 2 months', 'Within 6 months'];
 
 const FilterDialog = ({ open, onClose }) => {
-  const { t: translateUi } = useTranslation();
   const [customDateRange, setCustomDateRange] = useState([null, null]);
   const [selected, setSelected] = useState(null);
   const [selectedCollaborators, setSelectedCollaborators] = useState([]);
@@ -95,7 +93,7 @@ const FilterDialog = ({ open, onClose }) => {
         }}
       >
         <Typography variant="subtitle1" component="span" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.project.common.filterdialog.filter_d7decf1a')}
+          Filter
         </Typography>
         <IconButton onClick={onClose} size="small">
           <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20, color: 'neutral.dark' }} />
@@ -106,13 +104,11 @@ const FilterDialog = ({ open, onClose }) => {
       <Box sx={{ overflow: 'auto', flex: 1, minHeight: 0 }}>
         <DialogContent sx={{ py: { xs: 3 }, px: 0 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2, px: 3 }}>
-            {translateUi('ui.sections.project.common.filterdialog.collaborators_6eb695e5')}
+            Collaborators
           </Typography>
 
           <StyledTextField
-            placeholder={translateUi(
-              'ui.sections.project.common.filterdialog.search_with_a_keyword_1695163b',
-            )}
+            placeholder="Search with a keyword"
             fullWidth
             slotProps={{
               input: {
@@ -176,7 +172,7 @@ const FilterDialog = ({ open, onClose }) => {
         <Divider />
         <DialogContent sx={{ py: { xs: 3 }, px: 0 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2, px: 3 }}>
-            {translateUi('ui.sections.project.common.filterdialog.due_date_4c1aeebc')}
+            Due date
           </Typography>
           <List
             disablePadding
@@ -217,7 +213,7 @@ const FilterDialog = ({ open, onClose }) => {
                 />
               </ListItemIcon>
               <ListItemText
-                primary={translateUi('ui.sections.project.common.filterdialog.custom_081ae3fd')}
+                primary="Custom"
                 slotProps={{
                   primary: { variant: 'body2' },
                 }}
@@ -269,7 +265,7 @@ const FilterDialog = ({ open, onClose }) => {
         <Divider />
         <DialogContent sx={{ p: { xs: 3 } }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2 }}>
-            {translateUi('ui.sections.project.common.filterdialog.status_bae7d5be')}
+            Status
           </Typography>
           <Stack sx={{ gap: 1 }}>
             {filterStatuses.map((status) => (
@@ -280,7 +276,7 @@ const FilterDialog = ({ open, onClose }) => {
         <Divider />
         <DialogContent sx={{ py: { xs: 3 }, px: 0 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 2, px: 3 }}>
-            {translateUi('ui.sections.project.common.filterdialog.priority_886cbff9')}
+            Priority
           </Typography>
 
           <List
@@ -343,14 +339,14 @@ const FilterDialog = ({ open, onClose }) => {
         }}
       >
         <Button color="neutral" variant="text" onClick={handleResetAll}>
-          {translateUi('ui.sections.project.common.filterdialog.reset_all_a21b0fec')}
+          Reset all
         </Button>
         <Stack direction="row" sx={{ justifyContent: 'flex-end' }}>
           <Button onClick={onClose} color="neutral">
-            {translateUi('ui.sections.project.common.filterdialog.cancel_77dfd213')}
+            Cancel
           </Button>
           <Button color="primary" variant="text">
-            {translateUi('ui.sections.project.common.filterdialog.confirm_04a21221')}
+            Confirm
           </Button>
         </Stack>
       </DialogActions>

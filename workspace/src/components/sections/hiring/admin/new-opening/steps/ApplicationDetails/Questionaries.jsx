@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EditDeleteMenu from '../common/EditDeleteMenu';
@@ -11,42 +9,13 @@ import QuestionItem from './Question';
 import QuestionDialog from './QuestionDialog';
 
 const initialQuestions = [
-  {
-    isMandatory: false,
-    get question() {
-      return i18n.t(
-        'ui.sections.hiring.admin.new_opening.why_did_you_choose_to_apply_to_this_company_5d144e5a',
-      );
-    },
-  },
-  {
-    isMandatory: false,
-    get question() {
-      return i18n.t(
-        'ui.sections.hiring.admin.new_opening.what_are_your_greatest_strengths_f7d073d3',
-      );
-    },
-  },
-  {
-    isMandatory: false,
-    get question() {
-      return i18n.t(
-        'ui.sections.hiring.admin.new_opening.how_do_you_prefer_to_work_on_tasks_3cf3f8ff',
-      );
-    },
-  },
-  {
-    isMandatory: false,
-    get question() {
-      return i18n.t(
-        'ui.sections.hiring.admin.new_opening.have_you_worked_remotely_before_9bb00888',
-      );
-    },
-  },
+  { isMandatory: false, question: 'Why did you choose to apply to this company?' },
+  { isMandatory: false, question: 'What are your greatest strengths?' },
+  { isMandatory: false, question: 'How do you prefer to work on tasks?' },
+  { isMandatory: false, question: 'Have you worked remotely before?' },
 ];
 
 const Questionaries = () => {
-  const { t: translateUi } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const [open, setOpen] = useState(false);
   const [questions, setQuestions] = useState(initialQuestions);
@@ -107,7 +76,7 @@ const Questionaries = () => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.hiring.admin.new_opening.questionaries_c61f723a')}
+        Questionaries
       </Typography>
       <Stack
         sx={{
@@ -120,7 +89,7 @@ const Questionaries = () => {
         ))}
       </Stack>
       <Button onClick={handleOpenAdd} startIcon={<IconifyIcon icon="material-symbols:add" />}>
-        {translateUi('ui.sections.hiring.admin.new_opening.add_question_b86c7f05')}
+        Add Question
       </Button>
       <QuestionDialog
         open={open}

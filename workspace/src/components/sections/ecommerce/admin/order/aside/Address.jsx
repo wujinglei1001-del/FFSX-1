@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useOrderDetails } from '../OrderDetailsProvider';
 
 const Address = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { customer } = order;
 
@@ -33,11 +31,11 @@ const Address = ({ sx }) => {
               fontWeight: 700,
             }}
           >
-            {translateUi('ui.sections.ecommerce.admin.order.1_shipping_address_0833d141')}
+            1 Shipping address
           </Typography>
 
           <Button variant="text" size="small" sx={{ flexShrink: 0, minWidth: 0 }}>
-            {translateUi('ui.sections.ecommerce.admin.order.edit_5301648d')}
+            Edit
           </Button>
         </Stack>
 
@@ -65,11 +63,11 @@ const Address = ({ sx }) => {
               fontWeight: 700,
             }}
           >
-            {translateUi('ui.sections.ecommerce.admin.order.1_billing_address_ef220ca5')}
+            1 Billing address
           </Typography>
 
           <Button variant="text" size="small" sx={{ flexShrink: 0, minWidth: 0 }}>
-            {translateUi('ui.sections.ecommerce.admin.order.edit_5301648d')}
+            Edit
           </Button>
         </Stack>
 

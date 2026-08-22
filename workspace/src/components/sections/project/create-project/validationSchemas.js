@@ -1,14 +1,7 @@
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 const projectTitleSchema = yup.object({
-  projectTitle: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.project.create_project.validationschemas.project_title_is_required_b5406b5d',
-      ),
-    ),
+  projectTitle: yup.string().required('Project title is required'),
 });
 
 const tasksSchema = yup.object({

@@ -1,74 +1,45 @@
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
-
 export const analyticKPIs = [
   {
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.total_visitors_af51227e');
-    },
+    title: 'Total Visitors',
     value: 5921649,
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.analytics.dashboard.material_symbols_attribution_outline_rounded_70030498',
-        );
-      },
+      name: 'material-symbols:attribution-outline-rounded',
       color: 'primary',
     },
     link: {
       prefix: 'See in-depth',
-      get text() {
-        return i18n.t('ui.data.analytics.dashboard.traffic_sources_a1494150');
-      },
-      url: paths.members,
+      text: 'Traffic sources',
+      url: '#!',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.bounce_rate_c7ba2e2c');
-    },
+    title: 'Bounce Rate',
     value: '62.11%',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.analytics.dashboard.material_symbols_call_missed_outgoing_rounded_6bcf3bc7',
-        );
-      },
+      name: 'material-symbols:call-missed-outgoing-rounded',
       color: 'warning',
     },
     link: {
       prefix: 'See page-wise',
-      get text() {
-        return i18n.t('ui.data.analytics.dashboard.performance_63c90455');
-      },
-      url: paths.analytics,
+      text: 'Performance',
+      url: '#!',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.conversion_9151f843');
-    },
+    title: 'Conversion',
     value: '21.91%',
     icon: {
-      get name() {
-        return i18n.t(
-          'ui.data.analytics.dashboard.material_symbols_credit_score_outline_rounded_c9513cfe',
-        );
-      },
+      name: 'material-symbols:credit-score-outline-rounded',
       color: 'success',
     },
     link: {
       prefix: "See last week's",
-      get text() {
-        return i18n.t('ui.data.analytics.dashboard.top_products_2ebf4b36');
-      },
-      url: paths.adminProductList,
+      text: 'Top Products',
+      url: '#!',
     },
   },
   {
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.active_referrals_a13f0e04');
-    },
+    title: 'Active Referrals',
     value: 470,
     icon: {
       name: 'material-symbols:conversion-path',
@@ -76,10 +47,8 @@ export const analyticKPIs = [
     },
     link: {
       prefix: 'See all inbound',
-      get text() {
-        return i18n.t('ui.data.analytics.dashboard.referral_links_3bf97c2f');
-      },
-      url: paths.crm,
+      text: 'Referral links',
+      url: '#!',
     },
   },
 ];
@@ -87,30 +56,22 @@ export const analyticKPIs = [
 export const userEngagementTabs = [
   {
     key: 'newUser',
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.new_users_3a6d4455');
-    },
+    title: 'New Users',
     value: '275K',
   },
   {
     key: 'avgSession',
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.avg_session_48116edd');
-    },
+    title: 'Avg. Session',
     value: '3m 12s',
   },
   {
     key: 'subscribers',
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.subscribers_6f13df39');
-    },
+    title: 'Subscribers',
     value: '3.72 M',
   },
   {
     key: 'pageViews',
-    get title() {
-      return i18n.t('ui.data.analytics.dashboard.page_view_3a757c84');
-    },
+    title: 'Page View',
     value: '523K',
   },
 ];
@@ -271,50 +232,26 @@ export const userByOSData = [
     name: 'Mobile',
     value: 10,
     children: [
-      {
-        name: 'iOS',
-        value: 8,
-      },
-      {
-        name: 'Android',
-        value: 2,
-      },
+      { name: 'iOS', value: 8 },
+      { name: 'Android', value: 2 },
     ],
   },
   {
     name: 'Tablet',
     value: 20,
     children: [
-      {
-        name: 'iPadOS',
-        value: 14,
-      },
-      {
-        name: 'Android',
-        value: 6,
-      },
+      { name: 'iPadOS', value: 14 },
+      { name: 'Android', value: 6 },
     ],
   },
   {
     name: 'Desktop',
     value: 70,
     children: [
-      {
-        name: 'Windows',
-        value: 35,
-      },
-      {
-        name: 'Linux',
-        value: 21,
-      },
-      {
-        name: 'MacOS',
-        value: 9.1,
-      },
-      {
-        name: 'ChromeOS',
-        value: 4.9,
-      },
+      { name: 'Windows', value: 35 },
+      { name: 'Linux', value: 21 },
+      { name: 'MacOS', value: 9.1 },
+      { name: 'ChromeOS', value: 4.9 },
     ],
   },
 ];
@@ -334,36 +271,12 @@ export const userByCohortData = [
 ];
 
 export const userLocations = [
-  {
-    name: 'Japan',
-    value: 44000,
-  },
-  {
-    name: 'Greenland',
-    value: 41000,
-  },
-  {
-    name: 'India',
-    value: 38000,
-  },
-  {
-    name: 'Egypt',
-    value: 27000,
-  },
-  {
-    name: 'Mexico',
-    value: 19000,
-  },
-  {
-    name: 'Angola',
-    value: 13000,
-  },
-  {
-    name: 'Colombia',
-    value: 11000,
-  },
-  {
-    name: 'Finland',
-    value: 7000,
-  },
+  { name: 'Japan', value: 44000 },
+  { name: 'Greenland', value: 41000 },
+  { name: 'India', value: 38000 },
+  { name: 'Egypt', value: 27000 },
+  { name: 'Mexico', value: 19000 },
+  { name: 'Angola', value: 13000 },
+  { name: 'Colombia', value: 11000 },
+  { name: 'Finland', value: 7000 },
 ];

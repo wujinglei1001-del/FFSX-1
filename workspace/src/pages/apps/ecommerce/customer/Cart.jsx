@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Paper } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { suggestedProducts } from 'data/e-commerce/products';
@@ -12,20 +11,16 @@ import PaymentSummary from 'components/sections/ecommerce/customer/common/Paymen
 import SuggestedProducts from 'components/sections/ecommerce/customer/common/SuggestedProducts';
 
 const Cart = () => {
-  const { t: translateUi } = useTranslation();
   const { cartItems } = useEcommerce();
 
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.ecommerce.customer.cart_44656820')}
+          title="Cart"
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.home_70f8bb9a'),
-              url: paths.ecommerceHomepage,
-            },
-            { label: translateUi('ui.pages.apps.ecommerce.customer.cart_44656820'), active: true },
+            { label: 'Home', url: paths.ecommerceHomepage },
+            { label: 'Cart', active: true },
           ]}
         />
       </Grid>
@@ -75,10 +70,7 @@ const Cart = () => {
       )}
       <Grid size={12}>
         <Paper sx={{ p: { xs: 3, md: 5 } }}>
-          <SuggestedProducts
-            products={suggestedProducts}
-            title={translateUi('ui.pages.apps.ecommerce.customer.you_may_also_love_these_b5ebae18')}
-          />
+          <SuggestedProducts products={suggestedProducts} title="You may also love these..." />
         </Paper>
       </Grid>
     </Grid>

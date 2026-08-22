@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
@@ -9,13 +8,10 @@ import SearchTextField from 'components/common/SearchTextField';
 import SectionHeader from 'components/common/SectionHeader';
 
 const TaskTrackHeader = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <SectionHeader
       direction={{ xs: 'column', sm: 'row' }}
-      title={translateUi(
-        'ui.sections.dashboards.time_tracker.daily_task_track.daily_task_track_b2c40701',
-      )}
+      title="Daily task track"
       subTitle=""
       actionComponent={<Actions />}
       sx={{ gap: { xs: 1, sm: 2 } }}
@@ -23,7 +19,6 @@ const TaskTrackHeader = () => {
   );
 };
 const Actions = () => {
-  const { t: translateUi } = useTranslation();
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const buttonRef = useRef(null);
   const [open, setOpen] = useState(false);
@@ -38,9 +33,7 @@ const Actions = () => {
   return (
     <Stack direction="row" sx={{ gap: 1, alignItems: 'center', width: { xs: 1, sm: 'auto' } }}>
       <SearchTextField
-        placeholder={translateUi(
-          'ui.sections.dashboards.time_tracker.daily_task_track.search_member_533b9da8',
-        )}
+        placeholder="Search member"
         onChange={handleSearch}
         fullWidth
         sx={{ ml: 'auto', maxWidth: { xs: 1, sm: 220 } }}

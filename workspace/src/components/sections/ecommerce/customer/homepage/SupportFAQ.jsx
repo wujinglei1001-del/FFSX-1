@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/20-dark.webp';
 import illustration from 'assets/images/illustrations/20.webp';
@@ -6,7 +5,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const SupportFAQ = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, py: 7 }}>
       <Stack
@@ -19,7 +17,7 @@ const SupportFAQ = () => {
       >
         <Image
           src={{ dark: illustrationDark, light: illustration }}
-          alt={translateUi('ui.sections.ecommerce.customer.homepage.supportfaqbot_3f4e88c3')}
+          alt="supportFAQBot"
           width={336}
           sx={{ objectFit: 'contain' }}
         />
@@ -30,7 +28,7 @@ const SupportFAQ = () => {
               mb: 1,
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.homepage.have_questions_f033a687')}
+            Have questions?
           </Typography>
           <Typography
             variant="subtitle1"
@@ -40,9 +38,7 @@ const SupportFAQ = () => {
               maxWidth: 'sm',
             }}
           >
-            {translateUi(
-              'ui.sections.ecommerce.customer.homepage.feel_no_hesitation_in_knocking_us_a9274faf',
-            )}
+            Feel no hesitation in knocking us
           </Typography>
           <Button
             variant="soft"
@@ -54,7 +50,7 @@ const SupportFAQ = () => {
               />
             }
           >
-            {translateUi('ui.sections.ecommerce.customer.homepage.chat_with_our_support_6a7544aa')}
+            Chat with our support
           </Button>
         </Box>
       </Stack>

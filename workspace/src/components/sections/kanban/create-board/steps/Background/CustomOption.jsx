@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Input, Stack, Typography } from '@mui/material';
 
 const CustomOption = ({ type, onChange, actionButton }) => {
-  const { t: translateUi } = useTranslation();
   const [value, setValue] = useState(null);
 
   const handleInputChange = (event) => {
@@ -24,9 +22,7 @@ const CustomOption = ({ type, onChange, actionButton }) => {
     <Box sx={{ mt: 2, width: 1 }}>
       <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
         <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
-          <Typography variant="body2">
-            {translateUi('ui.sections.kanban.create_board.steps.or_6ae2dc2a')}
-          </Typography>
+          <Typography variant="body2">or,</Typography>
           <Box sx={{ position: 'relative' }}>
             <Button
               variant="text"
@@ -44,9 +40,7 @@ const CustomOption = ({ type, onChange, actionButton }) => {
                 },
               }}
             >
-              {value ? 'Change' : 'Add'}
-              {translateUi('ui.sections.kanban.create_board.steps.custom_081ae3fd')}
-              {type === 'color' ? 'Color' : 'Image'}
+              {value ? 'Change' : 'Add'} Custom {type === 'color' ? 'Color' : 'Image'}
               <Input
                 type={type === 'color' ? 'color' : 'file'}
                 inputProps={{

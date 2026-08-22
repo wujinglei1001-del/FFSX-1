@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import dayjs from 'dayjs';
@@ -9,7 +8,6 @@ import AttendanceChart from './AttendanceChart';
 import HeaderActions from './HeaderActions';
 
 const Attendance = ({ attendance }) => {
-  const { t: translateUi } = useTranslation();
   const [currentDate, setCurrentDate] = useState(dayjs());
   const calendarRef = useRef(null);
 
@@ -17,7 +15,7 @@ const Attendance = ({ attendance }) => {
     <Paper sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, height: 1 }}>
       <SectionHeader
         direction={{ xs: 'column', sm: 'row' }}
-        title={translateUi('ui.sections.dashboards.hrm.attendance.attendance_sheet_2159ae62')}
+        title="Attendance Sheet"
         subTitle="Keep track of attendance"
         actionComponent={<HeaderActions calendarRef={calendarRef} currentDate={currentDate} />}
         sx={{ gap: { xs: 3, sm: 2, lg: 3, xl: 2 } }}

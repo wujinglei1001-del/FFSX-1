@@ -1,13 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { Stack, Switch, Typography, switchClasses } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
 
 const SectionModeToggle = ({ checked, onChange }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
       <Typography variant="subtitle2" sx={{ color: 'common.white', fontWeight: 700 }}>
-        {translateUi('ui.sections.showcase.common.sectionmodetoggle.light_a36ef8ab')}
+        Light
       </Typography>
       <Switch
         disableRipple
@@ -45,7 +43,7 @@ const SectionModeToggle = ({ checked, onChange }) => {
           color: 'common.white',
         }}
       >
-        {translateUi('ui.sections.showcase.common.sectionmodetoggle.dark_ae1ef014')}
+        Dark
       </Typography>
     </Stack>
   );

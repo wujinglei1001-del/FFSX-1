@@ -1,5 +1,4 @@
 import { Stack, Typography } from '@mui/material';
-import i18n from 'locales/i18n';
 import LabelConditionFields from '../condition-fields/LabelConditionFields';
 
 const ChangeLabelActionFields = ({ index }) => (
@@ -11,12 +10,12 @@ const ChangeLabelActionFields = ({ index }) => (
           color: 'text.secondary',
         }}
       >
-        {i18n.t('ui.sections.project.automation.action_fields.add_label_591203a2')}
+        Add Label
       </Typography>
       <LabelConditionFields
         name={`actions.${index}.params.addLabels`}
         textFieldLabel=""
-        placeholder={i18n.t('ui.sections.project.automation.action_fields.select_a_label_65a33e38')}
+        placeholder="Select a label"
         hideSearch
       />
     </Stack>
@@ -28,12 +27,12 @@ const ChangeLabelActionFields = ({ index }) => (
           color: 'text.secondary',
         }}
       >
-        {i18n.t('ui.sections.project.automation.action_fields.remove_label_57817546')}
+        Remove Label
       </Typography>
       <LabelConditionFields
         name={`actions.${index}.params.removeLabels`}
         textFieldLabel=""
-        placeholder={i18n.t('ui.sections.project.automation.action_fields.select_a_label_65a33e38')}
+        placeholder="Select a label"
         hideSearch
       />
     </Stack>

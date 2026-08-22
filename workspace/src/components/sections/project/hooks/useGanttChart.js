@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTheme } from '@mui/material';
 import { ganttLinks } from 'data/project/gantt-data';
 import gantt from 'dhtmlx-gantt';
-import { useSettingsContext } from 'providers/SettingsProvider';
 import {
   bindTaskCompleteCheckbox,
   configureGanttChart,
@@ -18,9 +17,6 @@ export const useGanttChart = (initialTasks, options) => {
   const onTaskClickRef = useRef(options?.onTaskClick);
   onTaskClickRef.current = options?.onTaskClick;
   const theme = useTheme();
-  const {
-    config: { locale },
-  } = useSettingsContext();
   const [tasks, setTasks] = useState(initialTasks);
   const [originalTasks, setOriginalTasks] = useState(initialTasks);
   const [isChartReady, setIsChartReady] = useState(false);
@@ -38,7 +34,6 @@ export const useGanttChart = (initialTasks, options) => {
 
     const container = ganttContainer.current;
 
-    gantt.i18n.setLocale(locale === 'zh-CN' ? 'cn' : 'en');
     configureGanttChart(gantt, theme, expandedGridWidth);
     initGanttOnContainer(container);
     gantt.parse({ data: tasks, links: ganttLinks });
@@ -64,7 +59,7 @@ export const useGanttChart = (initialTasks, options) => {
       isGanttReady.current = false;
       setIsChartReady(false);
     };
-  }, [theme.direction, locale]);
+  }, [theme.direction]);
 
   useEffect(() => {
     if (!isGanttReady.current) return;

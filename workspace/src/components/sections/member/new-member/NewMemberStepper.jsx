@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,7 +11,6 @@ import StepContent from '@mui/material/StepContent';
 import { stepLabelClasses } from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -25,63 +23,32 @@ import useNewMemberForm from './useNewMemberForm';
 
 const steps = [
   {
-    get label() {
-      return i18n.t('ui.sections.member.new_member.newmemberstepper.personal_information_ad12e422');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.member.new_member.newmemberstepper.please_fill_out_all_the_required_fields_to_continue_d5cd4c4a',
-      );
-    },
+    label: 'Personal Information',
+    subtitle: 'Please fill out all the required fields to continue',
     content: <PersonalInformation />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.member.new_member.newmemberstepper.job_information_3e131dd2');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.member.new_member.newmemberstepper.please_fill_out_all_the_required_fields_to_continue_d5cd4c4a',
-      );
-    },
+    label: 'Job Information',
+    subtitle: 'Please fill out all the required fields to continue',
     content: <JobInformation />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.member.new_member.newmemberstepper.address_d70f93df');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.member.new_member.newmemberstepper.please_fill_out_all_the_required_fields_to_continue_d5cd4c4a',
-      );
-    },
+    label: 'Address',
+    subtitle: 'Please fill out all the required fields to continue',
     content: <Address />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.member.new_member.newmemberstepper.contract_5a0ba3bb');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.member.new_member.newmemberstepper.please_fill_out_all_the_required_fields_to_continue_d5cd4c4a',
-      );
-    },
+    label: 'Contract',
+    subtitle: 'Please fill out all the required fields to continue',
     content: <Contract />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.member.new_member.newmemberstepper.pay_80c37573');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.member.new_member.newmemberstepper.please_fill_out_all_the_required_fields_to_continue_d5cd4c4a',
-      );
-    },
+    label: 'Pay',
+    subtitle: 'Please fill out all the required fields to continue',
     content: <Pay />,
   },
 ];
 const NewMemberStepper = () => {
-  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const [activeStep, setActiveStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState([]);
@@ -176,9 +143,7 @@ const NewMemberStepper = () => {
                         sx={{ alignSelf: 'flex-start' }}
                         onClick={handlePreviousStep}
                       >
-                        {translateUi(
-                          'ui.sections.member.new_member.newmemberstepper.previous_50f94286',
-                        )}
+                        Previous
                       </Button>
                     )}
                     {!isLastStep ? (
@@ -191,9 +156,7 @@ const NewMemberStepper = () => {
                         }}
                         endIcon={<IconifyIcon icon="material-symbols:chevron-right-rounded" />}
                       >
-                        {translateUi(
-                          'ui.sections.member.new_member.newmemberstepper.continue_2e026239',
-                        )}
+                        Continue
                       </Button>
                     ) : (
                       <Button
@@ -202,9 +165,7 @@ const NewMemberStepper = () => {
                         variant="contained"
                         sx={{ whiteSpace: 'nowrap' }}
                       >
-                        {translateUi(
-                          'ui.sections.member.new_member.newmemberstepper.save_efc007a3',
-                        )}
+                        Save
                       </Button>
                     )}
                   </Stack>

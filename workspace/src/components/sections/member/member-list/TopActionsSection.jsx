@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Tab, Tabs, styled, tabClasses, tabsClasses } from '@mui/material';
 import { cssVarRgba } from 'lib/utils';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -6,7 +5,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import SearchTextField from 'components/common/SearchTextField';
 
 const TopActionsSection = ({ tab, handleChange, toggleDrawer }) => {
-  const { t: translateUi } = useTranslation();
   const { only } = useBreakpoints();
   const onlyXs = only('xs');
   return (
@@ -20,9 +18,7 @@ const TopActionsSection = ({ tab, handleChange, toggleDrawer }) => {
       }}
     >
       <SearchTextField
-        placeholder={translateUi(
-          'ui.sections.member.member_list.topactionssection.search_member_533b9da8',
-        )}
+        placeholder="Search member"
         fullWidth
         sx={{
           maxWidth: { sm: 300, md: 255, xl: 230 },
@@ -53,11 +49,7 @@ const TopActionsSection = ({ tab, handleChange, toggleDrawer }) => {
           }}
         >
           <IconifyIcon icon="material-symbols:filter-alt-outline" sx={{ fontSize: 20 }} />
-          {!onlyXs && (
-            <Box component="span">
-              {translateUi('ui.sections.member.member_list.topactionssection.filter_d7decf1a')}
-            </Box>
-          )}
+          {!onlyXs && <Box component="span">Filter</Box>}
         </Button>
         <StyledTabs value={tab} onChange={handleChange}>
           <Tab
@@ -94,7 +86,7 @@ const TopActionsSection = ({ tab, handleChange, toggleDrawer }) => {
         </StyledTabs>
 
         <Button variant="soft" color="neutral" sx={{ flexShrink: 0 }}>
-          {translateUi('ui.sections.member.member_list.topactionssection.export_f3e4fadb')}
+          Export
         </Button>
       </Stack>
     </Stack>

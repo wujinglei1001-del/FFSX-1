@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   List,
   ListItem,
@@ -10,32 +9,30 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Summary = ({ stats }) => {
-  const { t: translateUi } = useTranslation();
   const listItems = useMemo(() => {
     return [
       {
         id: 1,
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.wishlist_6ff33102'),
+        label: 'Wishlist',
         icon: 'material-symbols:favorite-outline-rounded',
-        url: paths.wishlist,
+        url: '#!',
         value: stats.wishlist,
       },
       {
         id: 2,
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.favourites_e6ccc0fd'),
+        label: 'Favourites',
         icon: 'material-symbols:store-outline-rounded',
-        url: paths.wishlist,
+        url: '#!',
         value: stats.favourites,
       },
       {
         id: 3,
-        label: translateUi('ui.sections.ecommerce.customer.customer_account.vouchers_ffaa62ec'),
+        label: 'Vouchers',
         icon: 'material-symbols:sell-outline',
-        url: paths.customerAccount,
+        url: '#!',
         value: stats.vouchers,
       },
     ];
@@ -48,7 +45,7 @@ const Summary = ({ stats }) => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.customer_account.summary_12b71c3e')}
+        Summary
       </Typography>
       <List
         disablePadding

@@ -8,29 +8,7 @@ import SelectedCategory from './SelectedCategory';
 
 gsap.registerPlugin(useGSAP);
 
-const normalizeSearchValue = (value) =>
-  String(value || '')
-    .trim()
-    .toLocaleLowerCase();
-
-const filterCategory = (category, normalizedQuery) => {
-  if (!category) return null;
-  if (!normalizedQuery) return category;
-
-  const categoryMatches = [category.title, category.description].some((value) =>
-    normalizeSearchValue(value).includes(normalizedQuery),
-  );
-  const matchingItems = category.items.filter((item) =>
-    [item.question, item.answer].some((value) =>
-      normalizeSearchValue(value).includes(normalizedQuery),
-    ),
-  );
-
-  if (!categoryMatches && matchingItems.length === 0) return null;
-  return categoryMatches ? category : { ...category, items: matchingItems };
-};
-
-const FAQMain = ({ searchQuery }) => {
+const FAQMain = () => {
   const [categoryType, setCategoryType] = useState('popular');
   const [selectedCategory, setSelectedCategory] = useState('');
 
@@ -39,16 +17,8 @@ const FAQMain = ({ searchQuery }) => {
   const selectedCategoryRef = useRef(null);
   const accordionListRef = useRef(null);
 
-  const normalizedQuery = normalizeSearchValue(searchQuery);
-  const categoryPool =
+  const displayedCategories =
     categoryType === 'popular' ? faqCategories.filter((c) => c.isPopular) : faqCategories;
-  const displayedCategories = normalizedQuery
-    ? faqCategories.map((category) => filterCategory(category, normalizedQuery)).filter(Boolean)
-    : categoryPool;
-  const rawSelectedCategory = faqCategories.find((category) => category.id === selectedCategory);
-  const selectedCategoryData =
-    filterCategory(rawSelectedCategory, normalizedQuery) ||
-    (rawSelectedCategory ? { ...rawSelectedCategory, items: [] } : null);
 
   const animateElements = (elements, props, onComplete) => {
     if (!elements) return;
@@ -124,7 +94,7 @@ const FAQMain = ({ searchQuery }) => {
       <Container maxWidth={false} sx={{ maxWidth: 1000, px: 0, pt: 2, pb: 4 }}>
         {selectedCategory ? (
           <SelectedCategory
-            selectedCategory={selectedCategoryData}
+            selectedCategory={faqCategories.find((cat) => cat.id === selectedCategory)}
             handleResetCategory={handleResetCategory}
             selectedCategoryRef={selectedCategoryRef}
             accordionListRef={accordionListRef}

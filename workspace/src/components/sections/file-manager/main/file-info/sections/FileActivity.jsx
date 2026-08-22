@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Timeline from '@mui/lab/Timeline';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent, { timelineContentClasses } from '@mui/lab/TimelineContent';
@@ -14,7 +13,6 @@ import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FileActivity = ({ file }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ p: { xs: 3, md: 5 } }}>
       <Stack
@@ -22,9 +20,7 @@ const FileActivity = ({ file }) => {
           gap: 3,
         }}
       >
-        <Typography variant="h6">
-          {translateUi('ui.sections.file_manager.main.file_info.file_activity_0d4673e8')}
-        </Typography>
+        <Typography variant="h6">File Activity</Typography>
         <Stack
           sx={{
             gap: 2,
@@ -71,11 +67,7 @@ const FileActivity = ({ file }) => {
                     gap: 1,
                   }}
                 >
-                  <Typography variant="subtitle1">
-                    {translateUi(
-                      'ui.sections.file_manager.main.file_info.you_shared_this_file_with_35c79526',
-                    )}
-                  </Typography>
+                  <Typography variant="subtitle1">You shared this file with</Typography>
                   <Stack
                     direction="row"
                     sx={{ justifyContent: 'space-between', alignItems: 'center' }}
@@ -122,11 +114,7 @@ const FileActivity = ({ file }) => {
                     alignItems: 'center',
                   }}
                 >
-                  <Typography variant="subtitle1">
-                    {translateUi(
-                      'ui.sections.file_manager.main.file_info.you_modified_this_file_5cfcb055',
-                    )}
-                  </Typography>
+                  <Typography variant="subtitle1">You modified this file</Typography>
                   <Typography variant="body2" sx={{ color: 'text.disabled', fontWeight: 500 }}>
                     {dayjs(file.modifiedAt).format('h:mm A')}
                   </Typography>
@@ -180,11 +168,7 @@ const FileActivity = ({ file }) => {
                     gap: 1,
                   }}
                 >
-                  <Typography variant="subtitle1">
-                    {translateUi(
-                      'ui.sections.file_manager.main.file_info.you_uploaded_this_file_e2e821ca',
-                    )}
-                  </Typography>
+                  <Typography variant="subtitle1">You uploaded this file</Typography>
                   <Stack
                     direction="row"
                     sx={{ justifyContent: 'space-between', alignItems: 'center' }}

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -15,7 +14,6 @@ import RatingCard from './RatingCard';
 import ReportInfo from './ReportInfo';
 
 const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Dialog
       scroll="body"
@@ -76,9 +74,7 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
         >
           <Box sx={{ textAlign: 'left' }}>
             <Typography variant="caption" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-              {translateUi(
-                'ui.sections.hrm.performance_management.feedback.appraisal_type_faa94102',
-              )}
+              Appraisal Type
             </Typography>
             <Typography variant="body2" sx={{ fontWeight: 600 }}>
               {feedback.appraisalType}
@@ -86,7 +82,7 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
           </Box>
           <Box sx={{ textAlign: 'right' }}>
             <Typography variant="caption" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-              {translateUi('ui.sections.hrm.performance_management.feedback.submitted_2e00359b')}
+              Submitted
             </Typography>
             <Typography variant="body2" sx={{ fontWeight: 600 }}>
               {dayjs(feedback.date).format('MMM D, YYYY')}
@@ -95,9 +91,7 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
         </Stack>
 
         <RatingCard
-          title={translateUi(
-            'ui.sections.hrm.performance_management.feedback.average_rating_3843a4b5',
-          )}
+          title="Average Rating"
           value={feedback.rating}
           paperProps={{
             background: 2,
@@ -118,26 +112,18 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
           }}
         >
           <ReportInfo
-            title={translateUi(
-              'ui.sections.hrm.performance_management.feedback.communication_ade0d50c',
-            )}
+            title="Communication"
             ratingList={[
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.clarity_03543111',
-                ),
+                label: 'Clarity',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.listening_dc353487',
-                ),
+                label: 'Listening',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.speaking_a771fe66',
-                ),
+                label: 'Speaking',
                 rating: 5,
               },
             ]}
@@ -145,30 +131,22 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
           />
 
           <ReportInfo
-            title={translateUi('ui.sections.hrm.performance_management.feedback.teamwork_d1f2c905')}
+            title="Teamwork"
             ratingList={[
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.cooperation_c2057e30',
-                ),
+                label: 'Cooperation',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.supportiveness_a51f0c5a',
-                ),
+                label: 'Supportiveness',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.conflict_resolution_18f5e901',
-                ),
+                label: 'Conflict Resolution',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.respect_for_others_a36d3800',
-                ),
+                label: 'Respect for Others',
                 rating: 5,
               },
             ]}
@@ -176,26 +154,18 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
           />
 
           <ReportInfo
-            title={translateUi(
-              'ui.sections.hrm.performance_management.feedback.problem_solving_531c2fd0',
-            )}
+            title="Problem Solving"
             ratingList={[
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.analytical_thinking_b08753b9',
-                ),
+                label: 'Analytical Thinking',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.decision_making_9594d42d',
-                ),
+                label: 'Decision Making',
                 rating: 5,
               },
               {
-                label: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.creativity_1bcd331b',
-                ),
+                label: 'Creativity',
                 rating: 5,
               },
             ]}
@@ -204,20 +174,14 @@ const ReportDialog = ({ feedback, onClose, sx, ...rest }) => {
           <Questions
             questions={[
               {
-                question: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.how_does_the_employee_handle_communication_challenge_4ecbe7e3',
-                ),
-                answer: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.communicates_clearly_listens_well_and_resolves_misun_6acc2729',
-                ),
+                question: 'How does the employee handle communication challenges?',
+                answer:
+                  'Communicates clearly, listens well, and resolves misunderstandings quickly to keep the team aligned.',
               },
               {
-                question: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.how_does_the_employee_demonstrated_teamwork_7fd7742d',
-                ),
-                answer: translateUi(
-                  'ui.sections.hrm.performance_management.feedback.collaborated_effectively_during_a_key_project_helpin_6205af0e',
-                ),
+                question: 'How does the employee demonstrated teamwork?',
+                answer:
+                  'Collaborated effectively during a key project, helping the team meet deadlines through strong coordination.',
               },
             ]}
           />

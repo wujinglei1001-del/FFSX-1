@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import SvgIcon from '@mui/material/SvgIcon';
 import Typography from '@mui/material/Typography';
@@ -7,7 +6,6 @@ import { cssVarRgba } from 'lib/utils';
 import RevealItems from '../common/RevealItems';
 
 const WhoWeAre = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ pt: 5, pb: { xs: 5, sm: 8 } }}>
       <Box
@@ -51,7 +49,7 @@ const WhoWeAre = () => {
             variant="overline"
             sx={{ fontWeight: 700, mb: 3, color: 'text.secondary' }}
           >
-            {translateUi('ui.sections.landing.homepage.whoweare.who_are_we_c89b849f')}
+            Who are we
           </Typography>
 
           <Typography
@@ -61,9 +59,7 @@ const WhoWeAre = () => {
               mb: 0.5,
             }}
           >
-            {translateUi(
-              'ui.sections.landing.homepage.whoweare.we_are_a_team_of_professionals_with_an_aim_to_ea90346c',
-            )}
+            We are a team of professionals with an aim to
           </Typography>
 
           <Typography
@@ -73,7 +69,7 @@ const WhoWeAre = () => {
               color: 'primary.main',
             }}
           >
-            {translateUi('ui.sections.landing.homepage.whoweare.make_your_life_faster_18679753')}{' '}
+            make your life faster{' '}
             <Box
               component="span"
               sx={{

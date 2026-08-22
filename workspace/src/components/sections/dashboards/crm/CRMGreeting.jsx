@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Divider,
@@ -18,7 +17,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const CRMGreeting = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ px: { xs: 3, md: 5 }, py: 3 }}>
       <Stack
@@ -28,7 +26,7 @@ const CRMGreeting = ({ data }) => {
       >
         <div>
           <Typography variant="h4" sx={{ mb: 1 }}>
-            {translateUi('ui.sections.dashboards.crm.crmgreeting.good_evening_captain_7ea189af')}
+            Good Evening, Captain!
           </Typography>
           <Typography
             variant="subtitle1"
@@ -37,9 +35,7 @@ const CRMGreeting = ({ data }) => {
               pb: 1,
             }}
           >
-            {translateUi(
-              'ui.sections.dashboards.crm.crmgreeting.see_what_s_happening_in_real_time_bfe432b7',
-            )}
+            See what's happening in real-time
           </Typography>
         </div>
 

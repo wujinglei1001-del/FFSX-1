@@ -1,5 +1,4 @@
 import { Controller, useForm, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Box,
@@ -15,7 +14,6 @@ import {
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { DateField } from '@mui/x-date-pickers';
-import i18n from 'locales/i18n';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import * as yup from 'yup';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -25,40 +23,23 @@ const paymentMethodsSchema = yup
   .object({
     method: yup
       .string()
-      .oneOf(
-        ['cod', 'card', 'bkash'],
-        i18n.t(
-          'ui.sections.ecommerce.customer.payment.please_select_a_valid_payment_method_e5cb14f0',
-        ),
-      )
-      .required(i18n.t('ui.sections.ecommerce.customer.payment.this_field_is_required_dedbaded')),
+      .oneOf(['cod', 'card', 'bkash'], 'Please select a valid payment method.')
+      .required('This field is required'),
     cardNumber: yup.string().when('method', {
       is: 'card',
-      then: (schema) =>
-        schema.required(
-          i18n.t('ui.sections.ecommerce.customer.payment.this_field_is_required_dedbaded'),
-        ),
+      then: (schema) => schema.required('This field is required'),
     }),
     fullName: yup.string().when('method', {
       is: 'card',
-      then: (schema) =>
-        schema.required(
-          i18n.t('ui.sections.ecommerce.customer.payment.this_field_is_required_dedbaded'),
-        ),
+      then: (schema) => schema.required('This field is required'),
     }),
     expiryDate: yup.string().when('method', {
       is: 'card',
-      then: (schema) =>
-        schema.required(
-          i18n.t('ui.sections.ecommerce.customer.payment.this_field_is_required_dedbaded'),
-        ),
+      then: (schema) => schema.required('This field is required'),
     }),
     cvc: yup.string().when('method', {
       is: 'card',
-      then: (schema) =>
-        schema.required(
-          i18n.t('ui.sections.ecommerce.customer.payment.this_field_is_required_dedbaded'),
-        ),
+      then: (schema) => schema.required('This field is required'),
     }),
   })
   .required();
@@ -66,30 +47,17 @@ const paymentMethods = [
   {
     id: 'card',
     icon: 'material-symbols-light:credit-card-outline',
-    get title() {
-      return i18n.t('ui.sections.ecommerce.customer.payment.pay_via_card_dbb485c3');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.ecommerce.customer.payment.pay_with_your_debit_or_credit_card_89ccb9b6',
-      );
-    },
+    title: 'Pay via Card',
+    subtitle: 'Pay with your debit or credit card',
   },
   {
     id: 'cod',
     icon: 'material-symbols-light:payments-outline-rounded',
-    get title() {
-      return i18n.t('ui.sections.ecommerce.customer.payment.cash_on_delivery_eda24c69');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.sections.ecommerce.customer.payment.pay_when_you_receive_your_product_a1d752d8',
-      );
-    },
+    title: 'Cash on delivery',
+    subtitle: 'Pay when you receive your product',
   },
 ];
 const PaymentMethods = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -117,9 +85,7 @@ const PaymentMethods = () => {
           mb: 3,
         }}
       >
-        {translateUi(
-          'ui.sections.ecommerce.customer.payment.please_choose_a_payment_method_1e12d895',
-        )}
+        Please choose a payment method
       </Typography>
       <Box
         sx={{
@@ -195,7 +161,7 @@ const PaymentMethods = () => {
                   fontWeight: 700,
                 }}
               >
-                {translateUi('ui.sections.ecommerce.customer.payment.supported_cards_7ccc3a06')}
+                Supported cards
               </Typography>
               <Stack direction="row" sx={{ gap: 1 }}>
                 <Image src={`${assetsDir}/images/logo/10.svg`} height={24} />
@@ -209,7 +175,7 @@ const PaymentMethods = () => {
             <TextField
               fullWidth
               id="cardNumber"
-              label={translateUi('ui.sections.ecommerce.customer.payment.card_number_6747e707')}
+              label="Card number"
               type="text"
               variant="filled"
               error={!!errors.cardNumber}
@@ -221,7 +187,7 @@ const PaymentMethods = () => {
             <TextField
               fullWidth
               id="fullName"
-              label={translateUi('ui.sections.ecommerce.customer.payment.full_name_eeb69208')}
+              label="Full name"
               type="text"
               variant="filled"
               error={!!errors.fullName}
@@ -236,7 +202,7 @@ const PaymentMethods = () => {
               render={({ field: { onChange } }) => (
                 <DateField
                   fullWidth
-                  label={translateUi('ui.sections.ecommerce.customer.payment.expiry_date_6b440cd5')}
+                  label="Expiry date"
                   format="MM/YY"
                   onChange={(date) => onChange(date?.format('MM/YY'))}
                 />

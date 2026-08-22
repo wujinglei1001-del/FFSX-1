@@ -1,139 +1,64 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import { initialConfig } from 'config';
-import i18n from 'locales/i18n';
 import CollapsibleSection from './CollapsibleSection';
 import QuestionItem from './QuestionItem';
 
-const videoResponse = `${initialConfig.assetsDir}/videos/file-manager/ffax.mp4`;
+const aurora = `${initialConfig.assetsDir}/videos/file-manager/aurora.mp4`;
 
 const questionaries = {
   preScreenQuestions: [
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.why_did_you_choose_to_apply_to_this_company_5d144e5a',
-        );
-      },
-      get answer() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.i_applied_to_this_company_because_of_its_strong_repu_e6167dc5',
-        );
-      },
+      question: 'Why did you choose to apply to this company?',
+      answer:
+        "I applied to this company because of its strong reputation for innovation and quality in content creation. The company's values align with my passion for storytelling and delivering engaging content. I am excited about the opportunity to contribute my writing expertise to a team that values creativity and impact.",
     },
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.what_are_your_greatest_strengths_f7d073d3',
-        );
-      },
-      get answer() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.strong_research_skills_adaptability_in_writing_style_e9afeb99',
-        );
-      },
+      question: 'What are your greatest strengths?',
+      answer:
+        'Strong research skills, adaptability in writing styles, SEO expertise, and the ability to create engaging, audience-focused content.',
     },
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.how_do_you_prefer_to_work_on_tasks_3cf3f8ff',
-        );
-      },
-      get answer() {
-        return i18n.t('ui.sections.hiring.admin.candidate_details.independently_79303d16');
-      },
+      question: 'How do you prefer to work on tasks?',
+      answer: 'independently',
       type: 'radio',
       options: [
-        {
-          value: 'independently',
-          get label() {
-            return i18n.t('ui.sections.hiring.admin.candidate_details.independently_1a7e41be');
-          },
-        },
-        {
-          value: 'collaboratively',
-          get label() {
-            return i18n.t('ui.sections.hiring.admin.candidate_details.collaboratively_5d7ee0c5');
-          },
-        },
-        {
-          value: 'deadlines',
-          get label() {
-            return i18n.t(
-              'ui.sections.hiring.admin.candidate_details.with_clear_deadlines_357fb1d3',
-            );
-          },
-        },
-        {
-          value: 'freedom',
-          get label() {
-            return i18n.t(
-              'ui.sections.hiring.admin.candidate_details.with_creative_freedom_9e88c503',
-            );
-          },
-        },
+        { value: 'independently', label: 'Independently' },
+        { value: 'collaboratively', label: 'Collaboratively' },
+        { value: 'deadlines', label: 'With clear deadlines' },
+        { value: 'freedom', label: 'With creative freedom' },
       ],
     },
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.have_you_worked_remotely_before_9bb00888',
-        );
-      },
-      get answer() {
-        return i18n.t('ui.sections.hiring.admin.candidate_details.yes_fb360f9c');
-      },
+      question: 'Have you worked remotely before?',
+      answer: 'yes',
       type: 'checkbox',
       options: [
-        {
-          value: 'yes',
-          get label() {
-            return i18n.t('ui.sections.hiring.admin.candidate_details.yes_5397e058');
-          },
-        },
-        {
-          value: 'no',
-          get label() {
-            return i18n.t('ui.sections.hiring.admin.candidate_details.no_816c52fd');
-          },
-        },
+        { value: 'yes', label: 'Yes' },
+        { value: 'no', label: 'No' },
       ],
     },
   ],
   videoResponse: [
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.why_did_you_choose_to_apply_to_this_company_5d144e5a',
-        );
-      },
-      answer: videoResponse,
+      question: 'Why did you choose to apply to this company?',
+      answer: aurora,
       type: 'video',
     },
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.what_are_your_greatest_strengths_f7d073d3',
-        );
-      },
-      answer: videoResponse,
+      question: 'What are your greatest strengths?',
+      answer: aurora,
       type: 'video',
     },
     {
-      get question() {
-        return i18n.t(
-          'ui.sections.hiring.admin.candidate_details.how_do_you_prefer_to_work_on_tasks_3cf3f8ff',
-        );
-      },
-      answer: videoResponse,
+      question: 'How do you prefer to work on tasks?',
+      answer: aurora,
       type: 'video',
     },
   ],
 };
 
 const Questionaries = () => {
-  const { t: translateUi } = useTranslation();
   const [openSections, setOpenSections] = useState({
     preScreen: true,
     videoResponse: true,
@@ -154,9 +79,7 @@ const Questionaries = () => {
       }}
     >
       <CollapsibleSection
-        title={translateUi(
-          'ui.sections.hiring.admin.candidate_details.pre_screen_questions_f97a476c',
-        )}
+        title="Pre-Screen Questions"
         isOpen={openSections.preScreen}
         onToggle={() => handleToggle('preScreen')}
       >
@@ -172,7 +95,7 @@ const Questionaries = () => {
         ))}
       </CollapsibleSection>
       <CollapsibleSection
-        title={translateUi('ui.sections.hiring.admin.candidate_details.video_response_d2c70c1d')}
+        title="Video Response"
         isOpen={openSections.videoResponse}
         onToggle={() => handleToggle('videoResponse')}
         sx={{ mb: 0 }}

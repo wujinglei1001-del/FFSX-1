@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -10,7 +9,6 @@ import RevealItems from '../../../common/RevealItems';
 import SectionHeader from '../../../common/SectionHeader';
 
 const FeaturesOverview = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={{
@@ -40,12 +38,7 @@ const FeaturesOverview = ({ data }) => {
             gap: 3,
           }}
         >
-          <SectionHeader
-            title={translateUi('ui.sections.landing.homepage.features.features_fc338f87')}
-            subtitle={translateUi(
-              'ui.sections.landing.homepage.features.packed_with_essential_abilities_bd8cf959',
-            )}
-          />
+          <SectionHeader title="Features" subtitle="Packed with essential abilities" />
 
           <RevealItems component={Grid} container columns={12}>
             {data.map((feature, i) => (

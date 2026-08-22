@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Collapse, { collapseClasses } from '@mui/material/Collapse';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -9,7 +8,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import TaskTable from './TaskTable';
 
 const TaskList = ({ tasksData }) => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const [taskList, setTaskList] = useState(tasksData.taskList);
 
@@ -98,7 +96,7 @@ const TaskList = ({ tasksData }) => {
           startIcon={<IconifyIcon icon="material-symbols:add" />}
           sx={{ mt: 2 }}
         >
-          {translateUi('ui.sections.crm.common.activity_tab_panels.add_task_44e578a5')}
+          Add Task
         </Button>
       </Collapse>
     </Stack>

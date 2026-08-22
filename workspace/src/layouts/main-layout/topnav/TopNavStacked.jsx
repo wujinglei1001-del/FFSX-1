@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Divider, IconButton, paperClasses } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,11 +8,10 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Logo from 'components/common/Logo';
 import VibrantBackground from 'components/common/VibrantBackground';
 import AppbarActionItems from '../common/AppbarActionItems';
-import SearchBox from '../common/search-box/WorkspaceSearchBox';
+import SearchBox from '../common/search-box/SearchBox';
 import TopnavItems from './TopnavItems';
 
 const TopNavStacked = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { navColor },
     handleDrawerToggle,
@@ -52,9 +50,7 @@ const TopNavStacked = () => {
           >
             <IconButton
               color="inherit"
-              aria-label={translateUi(
-                'ui.layouts.main_layout.topnav.topnavstacked.open_drawer_fe4563aa',
-              )}
+              aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
               sx={{

@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import {
   Collapse,
@@ -33,7 +32,6 @@ function organizeThemes() {
 }
 
 const ThemeList = ({ variant = 'default' }) => {
-  const { t: translateUi } = useTranslation();
   const { setThemePreset, setThemeMode, themePreset, mode } = useThemeMode();
   const [, setSearchParams] = useSearchParams();
   const [isDefaultSectionOpen, setIsDefaultSectionOpen] = useState(true);
@@ -90,9 +88,7 @@ const ThemeList = ({ variant = 'default' }) => {
             <ListItemIcon>
               <ThemeRadio checked={isDefaultThemeActive} />
             </ListItemIcon>
-            <ListItemText
-              primary={translateUi('ui.components.settings_panel.theme_preset.default_808d7dca')}
-            />
+            <ListItemText primary="Default" />
           </ListItemButton>
         </ListItem>
 
@@ -139,9 +135,7 @@ const ThemeList = ({ variant = 'default' }) => {
                 <ListItemIcon>
                   <ThemeRadio checked={isSystemSelected} />
                 </ListItemIcon>
-                <ListItemText
-                  primary={translateUi('ui.components.settings_panel.theme_preset.system_bc0792d8')}
-                />
+                <ListItemText primary="System" />
               </ListItemButton>
             </ListItem>
           </List>

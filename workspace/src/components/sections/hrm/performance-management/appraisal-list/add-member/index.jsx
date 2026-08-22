@@ -1,12 +1,10 @@
 import { Fragment, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import AddMemberDialog from './AddMemberDialog';
 
 const AddMember = () => {
-  const { t: translateUi } = useTranslation();
   const { only } = useBreakpoints();
   const [open, setOpen] = useState(false);
 
@@ -25,7 +23,7 @@ const AddMember = () => {
         startIcon={<IconifyIcon icon="material-symbols:add" />}
         sx={{ ml: { md: 1 }, flexGrow: 1 }}
       >
-        {translateUi('ui.sections.hrm.performance_management.appraisal_list.add_member_fbe4f901')}
+        Add Member
       </Button>
       <AddMemberDialog open={open} onClose={handleClose} handleClose={handleClose} />
     </Fragment>

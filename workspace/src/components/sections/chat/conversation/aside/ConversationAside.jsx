@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Box, Button, Divider, Drawer, Paper, Stack, drawerClasses } from '@mui/material';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
@@ -14,7 +13,6 @@ import MediaGallery from './partials/MediaGallery';
 import RecipientsInfo from './partials/RecipientsInfo';
 
 const ConversationAside = ({ isOpen, handleClose, drawerWidth }) => {
-  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const { up } = useBreakpoints();
   const { topbarHeight } = useNavContext();
@@ -59,7 +57,7 @@ const ConversationAside = ({ isOpen, handleClose, drawerWidth }) => {
                 sx={{ width: { xs: 1, sm: '50%', xl: 1 } }}
                 onClick={() => setIsConfirmationOpen(true)}
               >
-                {translateUi('ui.sections.chat.conversation.aside.delete_conversation_81f08f28')}
+                Delete Conversation
               </Button>
             </Paper>
           </Stack>

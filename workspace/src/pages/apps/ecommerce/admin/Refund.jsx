@@ -1,11 +1,9 @@
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { orderDetailsList } from 'data/e-commerce/orders';
-import i18n from 'locales/i18n';
 import paths from 'routes/paths';
 import * as yup from 'yup';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
@@ -21,18 +19,9 @@ export const refundFormValuesSchema = yup.object({
     .array()
     .of(
       yup.object({
-        product: yup
-          .number()
-          .min(0, i18n.t('ui.pages.apps.ecommerce.admin.value_must_be_a_positive_number_3a3dbbda'))
-          .required(),
-        shipping: yup
-          .number()
-          .min(0, i18n.t('ui.pages.apps.ecommerce.admin.value_must_be_a_positive_number_3a3dbbda'))
-          .required(),
-        concession: yup
-          .number()
-          .min(0, i18n.t('ui.pages.apps.ecommerce.admin.value_must_be_a_positive_number_3a3dbbda'))
-          .required(),
+        product: yup.number().min(0, 'Value must be a positive number').required(),
+        shipping: yup.number().min(0, 'Value must be a positive number').required(),
+        concession: yup.number().min(0, 'Value must be a positive number').required(),
       }),
     )
     .required(),
@@ -47,7 +36,6 @@ const index = () => {
 };
 
 const Refund = () => {
-  const { t: translateUi } = useTranslation();
   const { order, setSetselectedOrder } = useOrderDetails();
 
   const methods = useForm({
@@ -76,18 +64,12 @@ const Refund = () => {
             <PageHeader
               title={`Refund Order ${order.id}`}
               breadcrumb={[
-                {
-                  label: translateUi('ui.pages.apps.ecommerce.admin.order_list_86e684a4'),
-                  url: paths.orderList,
-                },
-                {
-                  label: translateUi('ui.pages.apps.ecommerce.admin.refund_e17c8ad0'),
-                  active: true,
-                },
+                { label: 'Order list', url: paths.orderList },
+                { label: 'Refund', active: true },
               ]}
               actionComponent={
                 <Button variant="soft" color="neutral" sx={{ flexShrink: 0, whiteSpace: 'nowrap' }}>
-                  {translateUi('ui.pages.apps.ecommerce.admin.edit_refunds_settings_1e2bcc86')}
+                  Edit refunds settings
                 </Button>
               }
             />

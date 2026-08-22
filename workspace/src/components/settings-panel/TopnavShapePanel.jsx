@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import { FormControlLabel, Radio } from '@mui/material';
 import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
@@ -10,7 +9,6 @@ import { TopnavSlimIllustration } from './panel-illustrations/TopnavSlimIllustra
 import { TopnavStackedIllustration } from './panel-illustrations/TopnavStackedIllustration';
 
 const TopnavShapePanel = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { topnavType },
     setConfig,
@@ -37,7 +35,7 @@ const TopnavShapePanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label={translateUi('ui.components.settings_panel.topnavshapepanel.default_808d7dca')}
+            label="Default"
             image={<TopnavDefaultIllustration active={topnavType === 'default'} />}
             active={!disableTopShapeSection && topnavType === 'default'}
           />
@@ -48,7 +46,7 @@ const TopnavShapePanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label={translateUi('ui.components.settings_panel.topnavshapepanel.slim_5ee371a1')}
+            label="Slim"
             image={<TopnavSlimIllustration active={topnavType === 'slim'} />}
             active={!disableTopShapeSection && topnavType === 'slim'}
           />
@@ -59,7 +57,7 @@ const TopnavShapePanel = () => {
         control={<Radio />}
         label={
           <SettingsItem
-            label={translateUi('ui.components.settings_panel.topnavshapepanel.stacked_9eafca46')}
+            label="Stacked"
             image={<TopnavStackedIllustration active={topnavType === 'stacked'} />}
             active={!disableTopShapeSection && topnavType === 'stacked'}
           />

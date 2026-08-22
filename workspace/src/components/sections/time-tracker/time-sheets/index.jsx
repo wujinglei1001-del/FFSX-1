@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useGridApiRef } from '@mui/x-data-grid';
 import { timeSheets } from 'data/time-tracker/time-sheets';
@@ -18,7 +17,6 @@ const getRowSelectionCount = (selectionModel, totalRowCount) => {
 };
 
 const TimeSheetsTableContainer = () => {
-  const { t: translateUi } = useTranslation();
   const { only } = useBreakpoints();
   const [tab, setTab] = useState('daily');
   const apiRef = useGridApiRef();
@@ -59,9 +57,7 @@ const TimeSheetsTableContainer = () => {
           selectedCount={selectedCount}
           customLabel={
             <Typography variant="subtitle2" sx={{ whiteSpace: 'nowrap', color: 'text.secondary' }}>
-              <strong>{selectedCount}</strong> {translateUi('common.of')}{' '}
-              <strong>{timeSheets.length}</strong>
-              {translateUi('ui.sections.time_tracker.time_sheets.selected_835f3b50')}
+              <strong>{selectedCount}</strong> of <strong>{timeSheets.length}</strong> selected
             </Typography>
           }
         >
@@ -75,7 +71,7 @@ const TimeSheetsTableContainer = () => {
               <IconifyIcon icon="material-symbols:edit-outline" sx={{ fontSize: 18 }} />
               {!onlyXs && (
                 <Typography variant="button" sx={{ fontWeight: 600 }}>
-                  {translateUi('ui.sections.time_tracker.time_sheets.edit_5301648d')}
+                  Edit
                 </Typography>
               )}
             </Button>
@@ -88,7 +84,7 @@ const TimeSheetsTableContainer = () => {
               <IconifyIcon icon="material-symbols:ios-share-rounded" sx={{ fontSize: 18 }} />
               {!onlyXs && (
                 <Typography variant="button" sx={{ fontWeight: 600 }}>
-                  {translateUi('ui.sections.time_tracker.time_sheets.export_f3e4fadb')}
+                  Export
                 </Typography>
               )}
             </Button>
@@ -102,7 +98,7 @@ const TimeSheetsTableContainer = () => {
               <IconifyIcon icon="material-symbols:delete-outline" sx={{ fontSize: 18 }} />
               {!onlyXs && (
                 <Typography variant="button" sx={{ fontWeight: 600 }}>
-                  {translateUi('ui.sections.time_tracker.time_sheets.delete_f6fdbe48')}
+                  Delete
                 </Typography>
               )}
             </Button>

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Paper } from '@mui/material';
 import { activeUsersData } from 'data/crm/dashboard';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
@@ -6,7 +5,6 @@ import SectionHeader from 'components/common/SectionHeader';
 import ActiveUsersChart from './ActiveUsersChart';
 
 const ActiveUsers = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{
@@ -18,7 +16,7 @@ const ActiveUsers = () => {
       }}
     >
       <SectionHeader
-        title={translateUi('ui.sections.dashboards.crm.active_users.monthly_active_users_4f992a68')}
+        title="Monthly Active Users"
         subTitle="Product categories occupying warehouse space"
         sx={{ mb: { xs: 2, md: 4 } }}
         actionComponent={
@@ -26,15 +24,15 @@ const ActiveUsers = () => {
             options={[
               {
                 value: 15,
-                label: translateUi('ui.sections.dashboards.crm.active_users.last_15_days_bf13fe6b'),
+                label: 'Last 15 days',
               },
               {
                 value: 7,
-                label: translateUi('ui.sections.dashboards.crm.active_users.last_7_days_df833fe8'),
+                label: 'Last 7 days',
               },
               {
                 value: 30,
-                label: translateUi('ui.sections.dashboards.crm.active_users.last_30_days_6b329852'),
+                label: 'Last 30 days',
               },
             ]}
             defaultValue={15}

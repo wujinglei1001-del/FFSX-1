@@ -1,5 +1,4 @@
 import { memo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Divider, Stack } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -16,7 +15,6 @@ const ProjectListMembersBar = ({
   onInvite,
   sx,
 }) => {
-  const { t: translateUi } = useTranslation();
   const [inviteDialogOpen, setInviteDialogOpen] = useState(false);
 
   const handleInviteClick = () => {
@@ -60,9 +58,7 @@ const ProjectListMembersBar = ({
           shape="circle"
           variant="soft"
           color="neutral"
-          aria-label={translateUi(
-            'ui.sections.project.project_list.projectlistmembersbar.invite_member_645d4af8',
-          )}
+          aria-label="Invite member"
           onClick={handleInviteClick}
         >
           <IconifyIcon icon={inviteButtonIcon} fontSize={20} />

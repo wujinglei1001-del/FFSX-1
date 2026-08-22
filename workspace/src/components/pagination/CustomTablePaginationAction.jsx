@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Pagination, Stack, buttonClasses } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -15,7 +14,6 @@ const CustomTablePaginationAction = ({
   showAllHref,
   showFullPagination,
 }) => {
-  const { t: translateUi } = useTranslation();
   const isShowingAll = useMemo(() => rowsPerPage === count, [rowsPerPage, count]);
   const { up } = useBreakpoints();
 
@@ -34,14 +32,12 @@ const CustomTablePaginationAction = ({
       }}
     >
       <Link
-        component={showAllHref ? 'a' : 'button'}
         variant="caption"
-        href={showAllHref || undefined}
-        type={showAllHref ? undefined : 'button'}
+        href={showAllHref}
         onClick={onShowAllClick}
         sx={{ fontWeight: 700, flexShrink: 0, mt: { sm: 0.5 } }}
       >
-        {isShowingAll ? '收起' : '显示全部'}
+        {isShowingAll ? 'View less' : 'Show all'}
       </Link>
 
       {showFullPagination ? (
@@ -79,9 +75,7 @@ const CustomTablePaginationAction = ({
             }}
           >
             <Box component="span" sx={{ display: { xs: 'none', sm: 'inline-block' } }}>
-              {translateUi(
-                'ui.components.pagination.customtablepaginationaction.previous_50f94286',
-              )}
+              Previous
             </Box>
           </Button>
           <Button
@@ -105,7 +99,7 @@ const CustomTablePaginationAction = ({
             }}
           >
             <Box component="span" sx={{ display: { xs: 'none', sm: 'inline-block' } }}>
-              {translateUi('ui.components.pagination.customtablepaginationaction.next_bc981983')}
+              Next
             </Box>
           </Button>
         </>

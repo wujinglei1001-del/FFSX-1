@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Paper, Stack, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import SimpleBar from 'components/base/SimpleBar';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
@@ -6,13 +5,10 @@ import SectionHeader from 'components/common/SectionHeader';
 import UserByCohortChart from './UserByCohortChart';
 
 const UserByCohort = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, height: 1, display: 'flex', flexDirection: 'column' }}>
       <SectionHeader
-        title={translateUi(
-          'ui.sections.dashboards.analytics.user_by_cohort.user_activity_by_cohort_c6ec4248',
-        )}
+        title="User activity by Cohort"
         subTitle="Detail information of the products"
         actionComponent={
           <DashboardSelectMenu
@@ -20,21 +16,15 @@ const UserByCohort = ({ data }) => {
             options={[
               {
                 value: 'count',
-                label: translateUi(
-                  'ui.sections.dashboards.analytics.user_by_cohort.count_per_user_85fcb73e',
-                ),
+                label: 'Count Per User',
               },
               {
                 value: 'retention',
-                label: translateUi(
-                  'ui.sections.dashboards.analytics.user_by_cohort.retention_rate_af314591',
-                ),
+                label: 'Retention Rate',
               },
               {
                 value: 'sessions',
-                label: translateUi(
-                  'ui.sections.dashboards.analytics.user_by_cohort.sessions_per_user_99e4ee99',
-                ),
+                label: 'Sessions Per User',
               },
             ]}
             sx={{ minWidth: 0 }}
@@ -53,14 +43,8 @@ const UserByCohort = ({ data }) => {
                   '& th': { bgcolor: 'transparent', fontWeight: 400, color: 'text.secondary' },
                 }}
               >
-                <TableCell sx={{ width: 140, pl: '0px !important' }}>
-                  {translateUi(
-                    'ui.sections.dashboards.analytics.user_by_cohort.acquisition_e85b4567',
-                  )}
-                </TableCell>
-                <TableCell sx={{ width: 72 }}>
-                  {translateUi('ui.sections.dashboards.analytics.user_by_cohort.users_57f2b181')}
-                </TableCell>
+                <TableCell sx={{ width: 140, pl: '0px !important' }}>Acquisition</TableCell>
+                <TableCell sx={{ width: 72 }}>Users</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

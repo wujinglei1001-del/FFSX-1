@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Grid, Stack, Typography, styled } from '@mui/material';
 import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -13,11 +12,8 @@ const lineClampSx = (lineCount) => ({
 });
 
 export const DocumentsTabPanel = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   return (
-    <PanelWrapper
-      title={translateUi('ui.sections.member.profile.profile_tabs.documentations_63673c36')}
-    >
+    <PanelWrapper title="Documentations">
       <Box sx={{ px: { xs: 0, md: 3 }, py: 2 }}>
         <Grid container rowSpacing={3} columnSpacing={{ xs: 2, sm: 1 }}>
           {data.map((item) => {

@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Paper, Stack, Tab, Tabs, Typography, tabsClasses } from '@mui/material';
 import { userEngagementTabs } from 'data/analytics/dashboard';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
@@ -30,7 +29,6 @@ const LegendButton = ({ active, onClick, icon, label }) => (
 );
 
 const UserEngagement = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const [tabIndex, setTabIndex] = useState(0);
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
@@ -111,9 +109,7 @@ const UserEngagement = ({ data }) => {
               }}
             />
           }
-          label={translateUi(
-            'ui.sections.dashboards.analytics.user_engagement.actual_value_27ead4b7',
-          )}
+          label="Actual Value"
         />
         <LegendButton
           active={legendState['Projected value']}
@@ -139,9 +135,7 @@ const UserEngagement = ({ data }) => {
               ))}
             </Stack>
           }
-          label={translateUi(
-            'ui.sections.dashboards.analytics.user_engagement.projected_value_de4cacf5',
-          )}
+          label="Projected Value"
         />
       </Stack>
       <UserEngagementChart

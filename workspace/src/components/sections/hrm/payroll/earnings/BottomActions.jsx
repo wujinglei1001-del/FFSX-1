@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -6,7 +5,6 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
 
 const BottomActions = () => {
-  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const { down } = useBreakpoints();
   const downSm = down('sm');
@@ -23,7 +21,7 @@ const BottomActions = () => {
       }}
     >
       <Button color="neutral" sx={{ flexShrink: 0 }}>
-        {translateUi('ui.sections.hrm.payroll.earnings.cancel_77dfd213')}
+        Cancel
       </Button>
       <Stack
         direction="row"

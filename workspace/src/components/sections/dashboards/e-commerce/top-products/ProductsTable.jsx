@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Avatar, AvatarGroup, Chip, Link, Stack, Tooltip, avatarClasses } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
@@ -36,14 +35,7 @@ const getStockBadge = (val) => {
   }
 };
 
-const stockLabels = {
-  'In Stock': '有现货',
-  'Low Stock': '库存不足',
-  Stockout: '已售罄',
-};
-
 const ProductsTable = ({ apiRef }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat, numberFormat } = useNumberFormat();
   const navigate = useNavigate();
   const columns = useMemo(
@@ -54,7 +46,7 @@ const ProductsTable = ({ apiRef }) => {
       },
       {
         field: 'product',
-        headerName: translateUi('ui.sections.dashboards.e_commerce.top_products.product_dd3b86d1'),
+        headerName: 'Product',
         headerClassName: 'product-header',
         cellClassName: 'product-cell',
         width: 300,
@@ -90,7 +82,7 @@ const ProductsTable = ({ apiRef }) => {
       },
       {
         field: 'vendor',
-        headerName: translateUi('ui.sections.dashboards.e_commerce.top_products.vendors_634d8941'),
+        headerName: 'Vendors',
         headerClassName: 'vendor-header',
         cellClassName: 'vendor-cell',
         minWidth: 150,
@@ -121,7 +113,7 @@ const ProductsTable = ({ apiRef }) => {
       },
       {
         field: 'margin',
-        headerName: translateUi('ui.sections.dashboards.e_commerce.top_products.margin_792fe4aa'),
+        headerName: 'Margin',
         headerClassName: 'margin-header',
         cellClassName: 'margin-cell',
         flex: 0.2,
@@ -132,7 +124,7 @@ const ProductsTable = ({ apiRef }) => {
       },
       {
         field: 'sold',
-        headerName: translateUi('ui.sections.dashboards.e_commerce.top_products.sold_e6560d9c'),
+        headerName: 'Sold',
         headerClassName: 'sold-header',
         cellClassName: 'sold-cell',
         minWidth: 110,
@@ -142,7 +134,7 @@ const ProductsTable = ({ apiRef }) => {
       },
       {
         field: 'stock',
-        headerName: translateUi('ui.sections.dashboards.e_commerce.top_products.stock_bcecf456'),
+        headerName: 'Stock',
         headerClassName: 'stock-header',
         cellClassName: 'stock-cell',
         minWidth: 120,
@@ -151,7 +143,7 @@ const ProductsTable = ({ apiRef }) => {
         headerAlign: 'right',
         renderCell: (params) => (
           <Chip
-            label={stockLabels[params.row.stock] || params.row.stock}
+            label={params.row.stock}
             color={getStockBadge(params.row.stock)?.color}
             variant="soft"
             size="small"
@@ -194,9 +186,7 @@ const ProductsTable = ({ apiRef }) => {
         pageSizeOptions={[6, topProducts.length]}
         checkboxSelection
         slots={{
-          basePagination: (props) => (
-            <DataGridPagination showAllHref={paths.adminProductList} {...props} />
-          ),
+          basePagination: (props) => <DataGridPagination showAllHref="#!" {...props} />,
         }}
         sx={({ spacing }) => ({
           [`& .${gridClasses.columnHeaders}`]: {
@@ -214,7 +204,7 @@ const ProductsTable = ({ apiRef }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

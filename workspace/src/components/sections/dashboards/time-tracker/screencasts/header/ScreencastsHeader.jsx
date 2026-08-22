@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
@@ -12,7 +11,6 @@ import TimeSelect from './TimeSelect';
 import TimeToggleTab from './TimeToggleTab';
 
 const ScreencastsHeader = () => {
-  const { t: translateUi } = useTranslation();
   const buttonRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(dayjs());
   const [open, setOpen] = useState(false);
@@ -28,7 +26,7 @@ const ScreencastsHeader = () => {
   return (
     <Box sx={{ mb: 4 }}>
       <SectionHeader
-        title={translateUi('ui.sections.dashboards.time_tracker.screencasts.screencasts_e86aae6b')}
+        title="Screencasts"
         subTitle=""
         actionComponent={<DashboardMenu />}
         sx={{ mb: 1 }}
@@ -37,9 +35,7 @@ const ScreencastsHeader = () => {
       <Stack direction="row" sx={{ gap: 1, alignItems: 'center' }}>
         {upSm ? <TimeToggleTab /> : <TimeSelect />}
         <SearchTextField
-          placeholder={translateUi(
-            'ui.sections.dashboards.time_tracker.screencasts.search_member_533b9da8',
-          )}
+          placeholder="Search member"
           onChange={handleSearch}
           fullWidth
           sx={{ ml: 'auto', maxWidth: { xs: 1, sm: 220 } }}

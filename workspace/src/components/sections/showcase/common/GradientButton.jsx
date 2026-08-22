@@ -17,8 +17,6 @@ const GradientButton = ({ variant = 'outlined', icon, mode = 'dark', sx, childre
     <Link
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      draggable={false}
-      onDragStart={(event) => event.preventDefault()}
       variant="subtitle2"
       sx={[
         {
@@ -39,9 +37,6 @@ const GradientButton = ({ variant = 'outlined', icon, mode = 'dark', sx, childre
           textAlign: 'center',
           transition: 'background 0.3s ease',
           fontWeight: 600,
-          userSelect: 'none',
-          WebkitUserSelect: 'none',
-          WebkitUserDrag: 'none',
 
           '&::before': {
             content: '""',

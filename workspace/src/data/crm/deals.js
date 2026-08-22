@@ -1,7 +1,5 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 
 const logo = (index) => `${initialConfig.assetsDir}/images/brands/${index}.webp`;
 
@@ -10,65 +8,63 @@ export const companies = [
     id: 1,
     name: 'Victory Outfitters Ltd.',
     logo: logo(1),
-    link: paths.dealDetails,
+    link: '#!',
   },
 
   {
     id: 2,
     name: 'Bean Brew Ltd.',
     logo: logo(2),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 3,
     name: 'BrightWave Media',
     logo: logo(3),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 4,
     name: 'CloudSync Systems',
     logo: logo(4),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 5,
     name: 'Waka Waka PLC',
     logo: logo(5),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 6,
     name: 'SwiftPay Systems',
     logo: logo(6),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 7,
     name: 'UrbanNest Holdings',
     logo: logo(7),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 8,
     name: 'O-Ecopower Innovations',
     logo: logo(8),
-    link: paths.dealDetails,
+    link: '#!',
   },
   {
     id: 9,
     name: 'ShieldNet Security',
     logo: logo(9),
-    link: paths.dealDetails,
+    link: '#!',
   },
 ];
 
 export const dealsData = [
   {
     id: 'column1',
-    get title() {
-      return i18n.t('ui.data.crm.deals.contact_b37456c4');
-    },
+    title: 'Contact',
     compactMode: false,
     deals: [
       {
@@ -83,7 +79,7 @@ export const dealsData = [
           email: users[0].email,
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -106,7 +102,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -129,7 +125,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -152,7 +148,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -182,7 +178,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -205,7 +201,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -228,7 +224,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -258,7 +254,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -281,7 +277,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -304,7 +300,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -319,9 +315,7 @@ export const dealsData = [
   },
   {
     id: 'column4',
-    get title() {
-      return i18n.t('ui.data.crm.deals.opportunity_ff325cb8');
-    },
+    title: 'Opportunity',
     compactMode: false,
     deals: [
       {
@@ -336,7 +330,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -359,7 +353,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -374,9 +368,7 @@ export const dealsData = [
   },
   {
     id: 'column5',
-    get title() {
-      return i18n.t('ui.data.crm.deals.won_lost_76eca01b');
-    },
+    title: 'Won/Lost',
     compactMode: false,
     deals: [
       {
@@ -391,7 +383,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -414,7 +406,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],
@@ -437,7 +429,7 @@ export const dealsData = [
           phone: '+14845211024',
           videoChat: '',
           address: '',
-          link: paths.memberProfile,
+          link: '#!',
         },
         priority: 'high',
         owner: users[3],

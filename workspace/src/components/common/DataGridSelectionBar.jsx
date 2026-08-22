@@ -1,8 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Grow, Paper, Stack, Typography } from '@mui/material';
 
 const DataGridSelectionBar = ({ selectedCount, customLabel, children }) => {
-  const { t: translateUi } = useTranslation();
   if (selectedCount === 0) {
     return null;
   }
@@ -41,8 +39,7 @@ const DataGridSelectionBar = ({ selectedCount, customLabel, children }) => {
         >
           {customLabel ?? (
             <Typography variant="subtitle2" sx={{ whiteSpace: 'nowrap', color: 'text.secondary' }}>
-              <strong>{selectedCount}</strong>
-              {translateUi('ui.components.common.datagridselectionbar.selected_835f3b50')}
+              <strong>{selectedCount}</strong> selected
             </Typography>
           )}
 

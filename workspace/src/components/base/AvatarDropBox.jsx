@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import { convertFileToAttachment, getFileNameFromUrl } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from './Image';
 
 const AvatarDropBox = ({ onDrop, error, defaultFile, size = 144, sx, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   const [preview, setPreview] = useState(null);
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -130,11 +128,7 @@ const AvatarDropBox = ({ onDrop, error, defaultFile, size = 144, sx, ...rest }) 
           }}
         />
 
-        {!(size < 100) && (
-          <Typography variant="caption">
-            {translateUi('ui.components.base.avatardropbox.upload_avatar_98b70012')}
-          </Typography>
-        )}
+        {!(size < 100) && <Typography variant="caption">Upload Avatar</Typography>}
       </Stack>
     </Box>
   );

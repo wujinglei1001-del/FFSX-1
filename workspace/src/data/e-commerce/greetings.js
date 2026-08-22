@@ -1,57 +1,42 @@
 import { topProducts } from 'data/e-commerce/dashboard';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 
 export const stats = [
   {
     icon: 'material-symbols-light:ads-click-rounded',
     value: '2,110',
-    get subtitle() {
-      return i18n.t('ui.data.e_commerce.greetings.visitors_f8f3b6f9');
-    },
+    subtitle: 'Visitors',
   },
   {
     icon: 'material-symbols-light:request-quote-outline-rounded',
     value: '$8.2M',
-    get subtitle() {
-      return i18n.t('ui.data.e_commerce.greetings.earnings_ad772fd4');
-    },
+    subtitle: 'Earnings',
   },
   {
     icon: 'material-symbols-light:shopping-cart-checkout-rounded',
     value: '1,124',
-    get subtitle() {
-      return i18n.t('ui.data.e_commerce.greetings.orders_cded0933');
-    },
+    subtitle: 'Orders',
   },
 ];
 
 export const meetingSchedules = [
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.greetings.collab_with_tintin_bca93de0');
-    },
+    title: 'Collab with Tintin',
     time: '1:30pm - 2:30pm',
     attendants: [users[9], users[0]],
   },
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.greetings.meeting_about_shipping_7e4d1dd9');
-    },
+    title: 'Meeting about shipping',
     time: '2:40pm - 4:30pm',
     attendants: [users[3], users[4], users[6], users[10]],
   },
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.greetings.greetings_for_marketing_877e1a3e');
-    },
+    title: 'Greetings for marketing',
     time: '9:45am - 11:30am',
     attendants: [users[5], users[7], users[12]],
   },
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.greetings.sales_pipeline_review_39a96181');
-    },
+    title: 'Sales pipeline review',
     time: '5:40pm - 6:30pm',
     attendants: [users[1], users[2], users[7], users[12], users[13]],
   },

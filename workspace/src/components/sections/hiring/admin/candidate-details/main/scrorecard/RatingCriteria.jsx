@@ -1,101 +1,32 @@
 import { Grid, Rating, Stack, Typography } from '@mui/material';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const criteriaRatings = [
   {
-    get title() {
-      return i18n.t('ui.sections.hiring.admin.candidate_details.professionalism_3a609283');
-    },
+    title: 'Professionalism',
     items: [
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.punctual_ef084839');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.courteous_bb316bad');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.communicator_af800ce6');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.articulate_98ac3704');
-        },
-        rating: 4,
-      },
+      { label: 'Punctual', rating: 5 },
+      { label: 'Courteous', rating: 5 },
+      { label: 'Communicator', rating: 5 },
+      { label: 'Articulate', rating: 4 },
     ],
   },
   {
-    get title() {
-      return i18n.t('ui.sections.hiring.admin.candidate_details.qualities_8a9b6130');
-    },
+    title: 'Qualities',
     items: [
-      {
-        get label() {
-          return i18n.t(
-            'ui.sections.hiring.admin.candidate_details.emotional_intelligence_417e25d6',
-          );
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.honesty_0e1a8292');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.positivity_6b3fa814');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.curiosity_1a0bff19');
-        },
-        rating: 4,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.self_motivated_dd855776');
-        },
-        rating: 5,
-      },
+      { label: 'Emotional Intelligence', rating: 5 },
+      { label: 'Honesty', rating: 5 },
+      { label: 'Positivity', rating: 5 },
+      { label: 'Curiosity', rating: 4 },
+      { label: 'Self-Motivated', rating: 5 },
     ],
   },
   {
-    get title() {
-      return i18n.t('ui.sections.hiring.admin.candidate_details.activities_e58f7f88');
-    },
+    title: 'Activities',
     items: [
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.event_management_980e58ee');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.speaker_7c23b0d9');
-        },
-        rating: 5,
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.hiring.admin.candidate_details.event_planning_81fed322');
-        },
-        rating: 5,
-      },
+      { label: 'Event Management', rating: 5 },
+      { label: 'Speaker', rating: 5 },
+      { label: 'Event Planning', rating: 5 },
     ],
   },
 ];

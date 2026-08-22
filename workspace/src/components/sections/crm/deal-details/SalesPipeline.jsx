@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Paper from '@mui/material/Paper';
@@ -8,14 +7,11 @@ import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const SalesPipeline = ({ salesPipelineData }) => {
-  const { t: translateUi } = useTranslation();
   const { currentBreakpoint } = useBreakpoints();
 
   return (
     <Paper sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, gap: 4 }}>
-      <Typography variant="h5">
-        {translateUi('ui.sections.crm.deal_details.salespipeline.sales_pipeline_80b2aa3d')}
-      </Typography>
+      <Typography variant="h5">Sales Pipeline</Typography>
       <ButtonGroup
         orientation={currentBreakpoint === 'xs' ? 'vertical' : 'horizontal'}
         sx={{ gap: 0.25 }}

@@ -1,33 +1,12 @@
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 
 export const payRunSummary = {
   payrollCost: '$8.2M',
   costDetails: [
-    {
-      get label() {
-        return i18n.t('ui.data.hrm.payroll.payroll_review.employee_pay_4b15b030');
-      },
-      value: '$ 7.2M',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.hrm.payroll.payroll_review.work_hours_1edc8434');
-      },
-      value: '1200 Hrs',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.hrm.payroll.payroll_review.employees_8c5b6be2');
-      },
-      value: '27',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.hrm.payroll.payroll_review.tax_paid_7ef56415');
-      },
-      value: '$ 2.2M',
-    },
+    { label: 'Employee Pay', value: '$ 7.2M' },
+    { label: 'Work Hours', value: '1200 Hrs' },
+    { label: 'Employees', value: '27' },
+    { label: 'Tax Paid', value: '$ 2.2M' },
   ],
 };
 

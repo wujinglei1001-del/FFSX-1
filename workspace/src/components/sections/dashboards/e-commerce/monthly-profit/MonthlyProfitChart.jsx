@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import { LineChart } from 'echarts/charts';
@@ -14,7 +13,6 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, LineChart, CanvasRenderer]);
 
 const MonthlyProfitChart = ({ data, sx }) => {
-  const { t: translateUi } = useTranslation();
   const { vars } = useTheme();
   const { getThemeColor } = useSettingsContext();
 
@@ -60,9 +58,7 @@ const MonthlyProfitChart = ({ data, sx }) => {
       },
       series: [
         {
-          name: translateUi(
-            'ui.sections.dashboards.e_commerce.monthly_profit.current_year_b3c92f9d',
-          ),
+          name: 'Current year',
           type: 'line',
           data: data.currentYear,
           showSymbol: false,
@@ -82,7 +78,7 @@ const MonthlyProfitChart = ({ data, sx }) => {
           },
         },
         {
-          name: translateUi('ui.sections.dashboards.e_commerce.monthly_profit.last_year_3cf4d8d7'),
+          name: 'Last year',
           type: 'line',
           data: data.lastYear,
           showSymbol: false,

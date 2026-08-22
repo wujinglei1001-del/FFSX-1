@@ -1,4 +1,3 @@
-import i18n from 'locales/i18n';
 import AccessibilityTabPanel from 'components/sections/account/accessibility/AccessibilityTabPanel';
 import AudioVideoTabPanel from 'components/sections/account/audio-video/AudioVideoTabPanel';
 import ChatPreferencesTabPanel from 'components/sections/account/chat-preferences/ChatPreferencesTabPanel';
@@ -17,12 +16,8 @@ import WorkEducationTabPanel from 'components/sections/account/work-education/Wo
 export const accountTabs = [
   {
     id: 1,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.personal_information_ad12e422');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.personal_info_87a403cb');
-    },
+    label: 'Personal Information',
+    title: 'Personal Info',
     value: 'personal_information',
     icon: 'material-symbols:person-outline',
     panelIcon: 'material-symbols:person-outline',
@@ -30,12 +25,8 @@ export const accountTabs = [
   },
   {
     id: 2,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.work_education_5db90158');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.work_education_5db90158');
-    },
+    label: 'Work & Education',
+    title: 'Work & Education',
     value: 'work_education',
     icon: 'material-symbols:school-outline',
     panelIcon: 'material-symbols:school-outline',
@@ -43,12 +34,8 @@ export const accountTabs = [
   },
   {
     id: 3,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.privacy_protection_a7b060ea');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.privacy_protection_a7b060ea');
-    },
+    label: 'Privacy & Protection',
+    title: 'Privacy & Protection',
     value: 'privacy_protection',
     icon: 'material-symbols:shield-outline',
     panelIcon: 'material-symbols:shield-outline',
@@ -56,12 +43,8 @@ export const accountTabs = [
   },
   {
     id: 4,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.language_region_618d2c41');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.language_region_618d2c41');
-    },
+    label: 'Language & Region',
+    title: 'Language & Region',
     value: 'language_region',
     icon: 'material-symbols:language',
     panelIcon: 'material-symbols:language',
@@ -69,12 +52,8 @@ export const accountTabs = [
   },
   {
     id: 5,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.notification_alerts_670eeebb');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.notification_alerts_670eeebb');
-    },
+    label: 'Notification & Alerts',
+    title: 'Notification & Alerts',
     value: 'notification_alerts',
     icon: 'material-symbols:notifications-outline-rounded',
     panelIcon: 'material-symbols:notifications-outline-rounded',
@@ -82,12 +61,8 @@ export const accountTabs = [
   },
   {
     id: 6,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.accessibility_d660049b');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.accessibility_d660049b');
-    },
+    label: 'Accessibility',
+    title: 'Accessibility',
     value: 'accessibility',
     icon: 'material-symbols:front-hand-outline-rounded',
     panelIcon: 'material-symbols:front-hand-outline-rounded',
@@ -95,12 +70,8 @@ export const accountTabs = [
   },
   {
     id: 7,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.credit_card_information_1e3e79a4');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.credit_card_information_1e3e79a4');
-    },
+    label: 'Credit Card Information',
+    title: 'Credit Card Information',
     value: 'credit_card_information',
     icon: 'material-symbols:credit-card-outline',
     panelIcon: 'material-symbols:credit-card-outline',
@@ -108,12 +79,8 @@ export const accountTabs = [
   },
   {
     id: 8,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.date_time_63ae7caf');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.date_and_time_e6a0d7eb');
-    },
+    label: 'Date & Time',
+    title: 'Date and Time',
     value: 'date_time',
     icon: 'material-symbols:calendar-month-outline-rounded',
     panelIcon: 'material-symbols:calendar-month-outline-rounded',
@@ -121,12 +88,8 @@ export const accountTabs = [
   },
   {
     id: 9,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.users_permissions_2dc9af22');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.users_permissions_2dc9af22');
-    },
+    label: 'Users & Permissions',
+    title: 'Users & Permissions',
     value: 'users_permissions',
     icon: 'material-symbols:manage-accounts-outline',
     panelIcon: 'material-symbols:manage-accounts-outline',
@@ -134,12 +97,8 @@ export const accountTabs = [
   },
   {
     id: 10,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.shipping_billing_address_00779369');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.shipping_billing_address_00779369');
-    },
+    label: 'Shipping & Billing Address',
+    title: 'Shipping & Billing Address',
     value: 'shipping_billing_address',
     icon: 'material-symbols:home-pin-outline',
     panelIcon: 'material-symbols:home-pin-outline',
@@ -147,12 +106,8 @@ export const accountTabs = [
   },
   {
     id: 11,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.storage_9e092dda');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.storage_9e092dda');
-    },
+    label: 'Storage',
+    title: 'Storage',
     value: 'storage',
     icon: 'material-symbols:data-usage',
     panelIcon: 'material-symbols:data-usage',
@@ -160,12 +115,8 @@ export const accountTabs = [
   },
   {
     id: 12,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.fingerprint_access_setup_c91512ff');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.fingerprint_access_setup_c91512ff');
-    },
+    label: 'Fingerprint Access Setup',
+    title: 'Fingerprint Access Setup',
     value: 'touch_id',
     icon: 'material-symbols:touch-app-outline',
     panelIcon: 'material-symbols:touch-app-outline',
@@ -173,12 +124,8 @@ export const accountTabs = [
   },
   {
     id: 13,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.audio_video_c1bb3f99');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.audio_video_c1bb3f99');
-    },
+    label: 'Audio & Video',
+    title: 'Audio & Video',
     value: 'audio_video',
     icon: 'material-symbols:video-settings-rounded',
     panelIcon: 'material-symbols:video-settings-rounded',
@@ -186,12 +133,8 @@ export const accountTabs = [
   },
   {
     id: 14,
-    get label() {
-      return i18n.t('ui.data.account.account_tabs.chat_preferences_663fe786');
-    },
-    get title() {
-      return i18n.t('ui.data.account.account_tabs.chat_preferences_663fe786');
-    },
+    label: 'Chat Preferences',
+    title: 'Chat Preferences',
     value: 'chat_preferences',
     icon: 'material-symbols:chat-outline-rounded',
     panelIcon: 'material-symbols:chat-outline-rounded',

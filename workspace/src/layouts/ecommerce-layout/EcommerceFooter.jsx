@@ -1,114 +1,79 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Link, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { externalLinks } from 'config';
 import { kebabCase } from 'lib/utils';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const footerLinks = {
   company: [
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.about_us_c887b9d3');
-      },
-      url: paths.landingAboutUs,
+      label: 'About Us',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.press_ea683ad6');
-      },
-      url: paths.contentSearch,
+      label: 'Press',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.sustainability_31bc1b17');
-      },
-      url: paths.landingAboutUs,
+      label: 'Sustainability',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.request_a_catalog_b01d6f07');
-      },
-      url: paths.products,
+      label: 'Request a Catalog',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.careers_68d70e59');
-      },
-      url: paths.hiringJobList,
+      label: 'Careers',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.blog_0b9d2b23');
-      },
-      url: paths.contentSearch,
+      label: 'Blog',
+      url: '#!',
     },
   ],
   help: [
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.help_center_11015825');
-      },
-      url: paths.landingFaq,
+      label: 'Help Center',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.track_your_order_57efbb02');
-      },
-      url: paths.orderTrack,
+      label: 'Track Your Order',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.shipping_694e6062');
-      },
-      url: paths.landingFaq,
+      label: 'Shipping',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.information_0eb5ed50');
-      },
-      url: paths.landingFaq,
+      label: 'Information',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.return_policy_63f82a94');
-      },
-      url: paths.landingFaq,
+      label: 'Return Policy',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.faqs_ab9dcd4a');
-      },
-      url: paths.landingFaq,
+      label: 'FAQs',
+      url: '#!',
     },
   ],
   contacts: [
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.contact_us_9ad0ccff');
-      },
-      url: paths.landingContact,
+      label: 'Contact Us',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.shops_outlets_9f448448');
-      },
-      url: paths.landingContact,
+      label: 'Shops & Outlets',
+      url: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.layouts.ecommerce_layout.ecommercefooter.feedback_c8d7677e');
-      },
-      url: paths.landingContact,
+      label: 'Feedback',
+      url: '#!',
     },
   ],
 };
 
 const EcommerceFooter = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper background={1} sx={{ position: 'relative', px: { xs: 3, md: 5 }, py: { xs: 5, md: 7 } }}>
       <Grid container columnSpacing={1}>
@@ -140,14 +105,10 @@ const EcommerceFooter = () => {
                   mb: 0.5,
                 }}
               >
-                {translateUi(
-                  'ui.layouts.ecommerce_layout.ecommercefooter.thoughtfully_designed_2c5fa4fe',
-                )}
+                Thoughtfully designed,
               </Box>
               <Box component="span" sx={{ display: 'block' }}>
-                {translateUi(
-                  'ui.layouts.ecommerce_layout.ecommercefooter.masterfully_coded_c7e80ef0',
-                )}
+                Masterfully coded
               </Box>
             </Typography>
 
@@ -170,9 +131,7 @@ const EcommerceFooter = () => {
                 <StyledTextField
                   id="email"
                   type="email"
-                  placeholder={translateUi(
-                    'ui.layouts.ecommerce_layout.ecommercefooter.your_email_3fa6f5fb',
-                  )}
+                  placeholder="Your email"
                   variant="filled"
                   sx={{
                     maxWidth: 260,
@@ -188,7 +147,7 @@ const EcommerceFooter = () => {
                   }}
                   endIcon={<IconifyIcon icon="material-symbols:arrow-right-alt-rounded" />}
                 >
-                  {translateUi('ui.layouts.ecommerce_layout.ecommercefooter.subscribe_d6981f74')}
+                  Subscribe
                 </Button>
               </Stack>
               <Typography
@@ -198,9 +157,7 @@ const EcommerceFooter = () => {
                   color: 'text.secondary',
                 }}
               >
-                {translateUi(
-                  'ui.layouts.ecommerce_layout.ecommercefooter.subscribe_to_our_newsletter_for_exclusive_deals_and__c9611e57',
-                )}
+                Subscribe to our newsletter for exclusive deals and promotions
               </Typography>
             </Box>
           </Stack>
@@ -299,12 +256,11 @@ const EcommerceFooter = () => {
                   mb: 2,
                 }}
               >
-                {translateUi('ui.layouts.ecommerce_layout.ecommercefooter.follow_us_at_cd0644d4')}
+                Follow us at
               </Typography>
               <Stack direction="row" sx={{ gap: 1, color: 'text.secondary' }}>
                 <Button
-                  href={externalLinks.social.facebook || undefined}
-                  disabled={!externalLinks.social.facebook}
+                  href="#!"
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -318,8 +274,7 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="eva:facebook-fill" fontSize={16} />
                 </Button>
                 <Button
-                  href={externalLinks.social.x || undefined}
-                  disabled={!externalLinks.social.x}
+                  href="#!"
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -333,8 +288,7 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="ri:twitter-x-fill" fontSize={16} />
                 </Button>
                 <Button
-                  href={externalLinks.social.pinterest || undefined}
-                  disabled={!externalLinks.social.pinterest}
+                  href="#!"
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -348,8 +302,7 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="entypo-social:pinterest" fontSize={16} />
                 </Button>
                 <Button
-                  href={externalLinks.social.instagram || undefined}
-                  disabled={!externalLinks.social.instagram}
+                  href="#!"
                   shape="circle"
                   variant="soft"
                   color="neutral"
@@ -363,8 +316,7 @@ const EcommerceFooter = () => {
                   <IconifyIcon icon="ri:instagram-line" fontSize={16} />
                 </Button>
                 <Button
-                  href={externalLinks.social.tiktok || undefined}
-                  disabled={!externalLinks.social.tiktok}
+                  href="#!"
                   shape="circle"
                   variant="soft"
                   color="neutral"

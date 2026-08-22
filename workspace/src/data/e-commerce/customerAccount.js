@@ -1,7 +1,5 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 import { products } from './products';
 
 const image = (index) => `${initialConfig.assetsDir}/images/ecommerce/products/${index}.webp`;
@@ -11,19 +9,19 @@ export const trackOrdersList = [
     id: 1,
     image: image(3),
     status: 'Delivered',
-    url: paths.orderTrack,
+    url: '#!',
   },
   {
     id: 2,
     image: image(4),
     status: 'Pending',
-    url: paths.orderTrack,
+    url: '#!',
   },
   {
     id: 3,
     image: image(5),
     status: 'Cancelled',
-    url: paths.orderTrack,
+    url: '#!',
   },
 ];
 
@@ -44,25 +42,17 @@ export const customerInfo = {
     {
       id: 1,
       icon: 'material-symbols:orders-outline-rounded',
-      get message() {
-        return i18n.t('ui.data.e_commerce.customeraccount.this_is_their_4th_order_ed4fc842');
-      },
+      message: 'This is their 4th order',
     },
     {
       id: 2,
       icon: 'material-symbols:looks-one-outline-rounded',
-      get message() {
-        return i18n.t(
-          'ui.data.e_commerce.customeraccount.1st_visit_was_direct_to_your_store_ba94927a',
-        );
-      },
+      message: '1st visit was direct to your store',
     },
     {
       id: 3,
       icon: 'material-symbols:storefront-outline-rounded',
-      get message() {
-        return i18n.t('ui.data.e_commerce.customeraccount.13_visits_over_4_days_4ba8853f');
-      },
+      message: '13 visits over 4 days',
     },
   ],
   stats: {
@@ -93,124 +83,96 @@ export const customerInfo = {
 export const summaryList = [
   {
     id: 1,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.wishlist_6ff33102');
-    },
+    label: 'Wishlist',
     icon: 'material-symbols:favorite-outline-rounded',
-    url: paths.wishlist,
+    url: '#!',
   },
   {
     id: 2,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.favourites_e6ccc0fd');
-    },
+    label: 'Favourites',
     icon: 'material-symbols:store-outline-rounded',
-    url: paths.wishlist,
+    url: '#!',
   },
   {
     id: 3,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.vouchers_ffaa62ec');
-    },
+    label: 'Vouchers',
     icon: 'material-symbols:sell-outline',
-    url: paths.customerAccount,
+    url: '#!',
   },
 ];
 
 export const customerServices = [
   {
     id: 1,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.login_security_f6cf96a8');
-    },
+    label: 'Login & Security',
     icon: 'material-symbols:lock-outline',
-    url: paths.account,
+    url: '#!',
   },
   {
     id: 2,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.gift_cards_b65882d3');
-    },
+    label: 'Gift cards',
     icon: 'material-symbols:redeem-rounded',
-    url: paths.products,
+    url: '#!',
   },
   {
     id: 3,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.my_payments_5f5c638c');
-    },
+    label: 'My payments',
     icon: 'material-symbols:payments-outline-rounded',
-    url: paths.payment,
+    url: '#!',
   },
   {
     id: 4,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.digital_support_7849a1ed');
-    },
+    label: 'Digital support',
     icon: 'material-symbols:support',
-    url: paths.landingContact,
+    url: '#!',
   },
   {
     id: 5,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.my_messages_d04104be');
-    },
+    label: 'My messages',
     icon: 'material-symbols:chat-outline-rounded',
-    url: paths.chat,
+    url: '#!',
   },
   {
     id: 6,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.my_lists_dc1d2989');
-    },
+    label: 'My lists',
     icon: 'material-symbols:list-rounded',
-    url: paths.wishlist,
+    url: '#!',
   },
   {
     id: 7,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.customer_service_1d0c9a65');
-    },
+    label: 'Customer service',
     icon: 'material-symbols:support-agent-rounded',
-    url: paths.landingContact,
+    url: '#!',
   },
 ];
 
 export const orderStatusList = [
   {
     id: 1,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.to_pay_58d1265e');
-    },
+    label: 'To pay',
     icon: 'material-symbols:credit-card-outline',
     count: 0,
-    url: paths.orderList,
+    url: '#!',
   },
   {
     id: 2,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.to_ship_fbd8eebc');
-    },
+    label: 'To ship',
     icon: 'material-symbols:local-shipping-outline-rounded',
     count: 0,
-    url: paths.orderList,
+    url: '#!',
   },
   {
     id: 3,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.to_receive_3184f080');
-    },
+    label: 'To receive',
     icon: 'material-symbols:package-2-outline',
     count: 2,
-    url: paths.orderList,
+    url: '#!',
   },
   {
     id: 4,
-    get label() {
-      return i18n.t('ui.data.e_commerce.customeraccount.to_review_066f77ce');
-    },
+    label: 'To review',
     icon: 'material-symbols:reviews-outline-rounded',
     count: 0,
-    url: paths.orderList,
+    url: '#!',
   },
 ];

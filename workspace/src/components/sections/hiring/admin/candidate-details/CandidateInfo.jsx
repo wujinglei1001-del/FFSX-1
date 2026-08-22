@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Grid,
   Link,
@@ -11,7 +10,6 @@ import {
 } from '@mui/material';
 
 const CandidateInfo = ({ contact, jobPreferences, experiences, education }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Grid container spacing={3}>
       <Grid
@@ -24,43 +22,26 @@ const CandidateInfo = ({ contact, jobPreferences, experiences, education }) => {
       >
         <Grid size={1}>
           <InfoItem
-            primary={translateUi('ui.sections.hiring.admin.candidate_details.email_84add5b2')}
+            primary="Email"
             secondary={<Link href={`mailto:${contact.email}`}>{contact.email}</Link>}
           />
         </Grid>
         <Grid size={1}>
-          <InfoItem
-            sx={{ flexBasis: '50%' }}
-            primary={translateUi('ui.sections.hiring.admin.candidate_details.phone_no_8578b945')}
-            secondary={contact.phone}
-          />
+          <InfoItem sx={{ flexBasis: '50%' }} primary="Phone No" secondary={contact.phone} />
+        </Grid>
+        <Grid size={1}>
+          <InfoItem primary="Address" secondary={contact.address} />
+        </Grid>
+        <Grid size={1}>
+          <InfoItem primary="Desired Salary" secondary={jobPreferences.desiredSalary} />
+        </Grid>
+        <Grid size={1}>
+          <InfoItem primary="Referred By" secondary={jobPreferences.referredBy} />
         </Grid>
         <Grid size={1}>
           <InfoItem
-            primary={translateUi('ui.sections.hiring.admin.candidate_details.address_d70f93df')}
-            secondary={contact.address}
-          />
-        </Grid>
-        <Grid size={1}>
-          <InfoItem
-            primary={translateUi(
-              'ui.sections.hiring.admin.candidate_details.desired_salary_f683579b',
-            )}
-            secondary={jobPreferences.desiredSalary}
-          />
-        </Grid>
-        <Grid size={1}>
-          <InfoItem
-            primary={translateUi('ui.sections.hiring.admin.candidate_details.referred_by_b47f7840')}
-            secondary={jobPreferences.referredBy}
-          />
-        </Grid>
-        <Grid size={1}>
-          <InfoItem
-            primary={translateUi(
-              'ui.sections.hiring.admin.candidate_details.website_portfolio_3b8f63bd',
-            )}
-            secondary={<Typography variant="body2">{contact.website}</Typography>}
+            primary="Website/Portfolio"
+            secondary={<Link href="#!">{contact.website}</Link>}
           />
         </Grid>
       </Grid>
@@ -77,7 +58,7 @@ const CandidateInfo = ({ contact, jobPreferences, experiences, education }) => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.hiring.admin.candidate_details.experiences_52271258')}
+              Experiences
             </Typography>
           </ListSubheader>
         }
@@ -128,7 +109,7 @@ const CandidateInfo = ({ contact, jobPreferences, experiences, education }) => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.hiring.admin.candidate_details.education_aaf87fe5')}
+              Education
             </Typography>
           </ListSubheader>
         }

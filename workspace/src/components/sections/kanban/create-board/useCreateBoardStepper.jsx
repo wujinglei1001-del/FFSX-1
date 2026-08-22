@@ -6,7 +6,6 @@ import {
   backgroundImageOptions,
   initialTeamTableData,
 } from 'data/kanban/createBoard';
-import i18n from 'locales/i18n';
 import { backgroundOptionFormSchema } from 'components/sections/kanban/create-board/steps/Background/Background';
 import { basicInfoFormSchema } from 'components/sections/kanban/create-board/steps/BasicInfo';
 import { columnInfoSchema } from 'components/sections/kanban/create-board/steps/ColumnStage/ColumnStage';
@@ -50,26 +49,9 @@ const useCreateBoardForm = (activeStep) => {
         selected: { ...backgroundImageOptions[0], type: 'image' },
       },
       labels: [
-        {
-          get label() {
-            return i18n.t('ui.sections.kanban.create_board.usecreateboardstepper.todo_fdebf667');
-          },
-          color: palette.success.lighter,
-        },
-        {
-          get label() {
-            return i18n.t(
-              'ui.sections.kanban.create_board.usecreateboardstepper.completed_1798b3ba',
-            );
-          },
-          color: palette.primary.lighter,
-        },
-        {
-          get label() {
-            return i18n.t('ui.sections.kanban.create_board.usecreateboardstepper.ongoing_2e0254c2');
-          },
-          color: palette.warning.lighter,
-        },
+        { label: 'Todo', color: palette.success.lighter },
+        { label: 'Completed', color: palette.primary.lighter },
+        { label: 'Ongoing', color: palette.warning.lighter },
       ],
       team: initialTeamTableData,
     },

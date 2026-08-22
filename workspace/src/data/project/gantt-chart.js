@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 
 const base = dayjs().startOf('day');
 export const time = (hhmm) => {
@@ -31,41 +30,31 @@ export const currentEnd = time('18:00');
 export const ganttRows = [
   {
     id: 10,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.accounting_2c1de79f');
-    },
+    label: 'Accounting',
     // class: 'row-group',
     iconClass: 'fas fa-calculator',
     // Parent rows (level-0) should not be draggable
     children: [
       {
         id: 11,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.petunia_mulliner_cd6b3e2e');
-        },
+        label: 'Petunia Mulliner',
         // classes: 'row-gradient',
         draggable: true,
       },
       {
         id: 12,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.temp_giacovetti_50d5ec48');
-        },
+        label: 'temp Giacovetti',
         draggable: true,
       },
       {
         id: 13,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.marl_ne_lasslett_8081ab3d');
-        },
+        label: 'Marlène Lasslett',
         classes: 'row-highlight',
         draggable: true,
       },
       {
         id: 14,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.adda_youell_52303480');
-        },
+        label: 'Adda Youell',
         draggable: true,
       },
       // {
@@ -78,63 +67,47 @@ export const ganttRows = [
   },
   {
     id: 20,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.business_development_c6704ed3');
-    },
+    label: 'Business Development',
     class: 'row-group',
     iconClass: 'fas fa-user-tie',
     // Parent rows (level-0) should not be draggable
     children: [
       {
         id: 21,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.pietra_fallow_1d5f1f62');
-        },
+        label: 'Pietra Fallow',
         draggable: true,
       },
       {
         id: 22,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.mariellen_torbard_6e7912b1');
-        },
+        label: 'Mariellen Torbard',
         draggable: true,
       },
       {
         id: 23,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.renate_humbee_0bd8d3ae');
-        },
+        label: 'Renate Humbee',
         draggable: true,
       },
     ],
   },
   {
     id: 30,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.engineering_4143d048');
-    },
+    label: 'Engineering',
     class: 'row-group',
     iconClass: 'fas fa-cogs',
     children: [
       {
         id: 31,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.alex_chen_78d482ed');
-        },
+        label: 'Alex Chen',
         draggable: true,
       },
       {
         id: 32,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.sarah_johnson_967892a2');
-        },
+        label: 'Sarah Johnson',
         draggable: true,
       },
       {
         id: 33,
-        get label() {
-          return i18n.t('ui.data.project.gantt_chart.mike_rodriguez_d10f4f59');
-        },
+        label: 'Mike Rodriguez',
         draggable: true,
       },
     ],
@@ -154,9 +127,7 @@ export const ganttTasks = [
   {
     id: 2,
     resourceId: 12,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.entrepreneurship_15e72747');
-    },
+    label: 'Entrepreneurship',
     from: time('10:00'),
     to: time('12:30'),
     draggable: true,
@@ -174,9 +145,7 @@ export const ganttTasks = [
   {
     id: 4,
     resourceId: 14,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.auditing_cb5cc8e2');
-    },
+    label: 'Auditing',
     from: time('9:30'),
     to: time('11:30'),
     draggable: true,
@@ -185,9 +154,7 @@ export const ganttTasks = [
   {
     id: 5,
     resourceId: 21,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.security_clearance_166cf452');
-    },
+    label: 'Security Clearance',
     from: time('15:15'),
     to: time('16:00'),
     draggable: true,
@@ -196,9 +163,7 @@ export const ganttTasks = [
   {
     id: 6,
     resourceId: 22,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.policy_analysis_07a632c3');
-    },
+    label: 'Policy Analysis',
     from: time('14:00'),
     to: time('17:00'),
     draggable: true,
@@ -207,9 +172,7 @@ export const ganttTasks = [
   {
     id: 7,
     resourceId: 23,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.xbox_360_9897a6aa');
-    },
+    label: 'Xbox 360',
     from: time('13:30'),
     to: time('14:30'),
     draggable: true,
@@ -218,9 +181,7 @@ export const ganttTasks = [
   {
     id: 8,
     resourceId: 31,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.code_review_33157d99');
-    },
+    label: 'Code Review',
     from: time('8:00'),
     to: time('10:00'),
     draggable: true,
@@ -229,9 +190,7 @@ export const ganttTasks = [
   {
     id: 9,
     resourceId: 32,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.api_development_b22c52ac');
-    },
+    label: 'API Development',
     from: time('10:30'),
     to: time('13:00'),
     draggable: true,
@@ -240,9 +199,7 @@ export const ganttTasks = [
   {
     id: 10,
     resourceId: 33,
-    get label() {
-      return i18n.t('ui.data.project.gantt_chart.testing_0820b32b');
-    },
+    label: 'Testing',
     from: time('13:30'),
     to: time('16:30'),
     draggable: true,

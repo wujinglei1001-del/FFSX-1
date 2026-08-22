@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -25,7 +24,6 @@ import QuantityButtons from '../common/QuantityButtons';
 import ProductGiftDialogue from './ProductGiftDialogue';
 
 const CartItem = ({ item }) => {
-  const { t: translateUi } = useTranslation();
   const [sendAsGift, setSendAsGift] = useState(false);
   const [openGiftDialog, setOpenGiftDialog] = useState(false);
   const { updateCartItem, removeItemFromCart } = useEcommerce();
@@ -155,9 +153,7 @@ const CartItem = ({ item }) => {
                             }}
                           />
                         }
-                        label={translateUi(
-                          'ui.sections.ecommerce.customer.cart.send_as_a_gift_e2552a37',
-                        )}
+                        label="Send as a gift"
                       />
                     </FormControl>
                     <ProductGiftDialogue
@@ -172,7 +168,7 @@ const CartItem = ({ item }) => {
                       disabled={!sendAsGift}
                       onClick={() => setOpenGiftDialog(true)}
                     >
-                      {translateUi('ui.sections.ecommerce.customer.cart.details_dc3decbb')}
+                      Details
                     </Button>
                   </Stack>
                 </Stack>
@@ -207,7 +203,7 @@ const CartItem = ({ item }) => {
                       color: 'text.secondary',
                     }}
                   >
-                    {translateUi('ui.sections.ecommerce.customer.cart.each_3633746b')}
+                    Each
                     <Box
                       component="strong"
                       sx={{
@@ -258,7 +254,7 @@ const CartItem = ({ item }) => {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  {translateUi('ui.sections.ecommerce.customer.cart.quantity_017f1a95')}
+                  Quantity :
                 </Typography>
                 <QuantityButtons defaultValue={quantity} handleChange={handleQuantityChange} />
               </Stack>
@@ -287,10 +283,10 @@ const CartItem = ({ item }) => {
                 size="small"
                 sx={{ whiteSpace: 'nowrap', minWidth: 0 }}
               >
-                {translateUi('ui.sections.ecommerce.customer.cart.edit_5301648d')}
+                Edit
               </Button>
               <Button variant="text" color="neutral" size="small" sx={{ whiteSpace: 'nowrap' }}>
-                {translateUi('ui.sections.ecommerce.customer.cart.move_to_wishlist_82966227')}
+                Move to wishlist
               </Button>
             </Stack>
 

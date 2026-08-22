@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Button,
   Dialog,
@@ -12,7 +11,6 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const AccountDialog = (props) => {
-  const { t: translateUi } = useTranslation();
   const { title, subtitle, children, sx, open, handleDialogClose, handleConfirm, handleDiscard } =
     props;
 
@@ -60,10 +58,10 @@ const AccountDialog = (props) => {
         }}
       >
         <Button variant="soft" color="neutral" onClick={handleDiscard}>
-          {translateUi('ui.sections.account.common.accountdialog.discard_36fff63c')}
+          Discard
         </Button>
         <Button variant="contained" color="primary" onClick={handleConfirm}>
-          {translateUi('ui.sections.account.common.accountdialog.confirm_04a21221')}
+          Confirm
         </Button>
       </DialogActions>
     </Dialog>

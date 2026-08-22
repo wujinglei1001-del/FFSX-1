@@ -1,13 +1,11 @@
 import { useRef } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Editor, { editorDefaultToolbar } from 'components/base/Editor';
 
 const EditDescription = ({ handleCloseEditMode }) => {
-  const { t: translateUi } = useTranslation();
   const { watch } = useFormContext();
   const rteRef = useRef(null);
 
@@ -53,7 +51,7 @@ const EditDescription = ({ handleCloseEditMode }) => {
             onClick={handleSave}
             disabled={rteRef.current?.editor?.isEmpty}
           >
-            {translateUi('ui.sections.kanban.kanban.task_details.save_efc007a3')}
+            Save
           </Button>
         </Stack>
       )}

@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 
 const HeaderAction = ({ sx, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   const now = dayjs();
 
   const payPeriodStart = now.startOf('month');
@@ -30,7 +28,7 @@ const HeaderAction = ({ sx, ...rest }) => {
         }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 400, color: 'text.secondary' }}>
-          {translateUi('ui.sections.hrm.payroll.common.pay_period_b40e6387')}
+          Pay Period
         </Typography>
         <Typography component="strong" sx={{ fontWeight: 700 }}>
           {payPeriodStart.format('D MMM')} - {payPeriodEnd.format('D MMM, YYYY')}
@@ -44,7 +42,7 @@ const HeaderAction = ({ sx, ...rest }) => {
         }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 400, color: 'text.secondary' }}>
-          {translateUi('ui.sections.hrm.payroll.common.pay_day_on_a9e05465')}
+          Pay Day On
         </Typography>
         <Typography component="strong" sx={{ fontWeight: 700 }}>
           {payDay.format('D MMM, YYYY')}
@@ -58,10 +56,10 @@ const HeaderAction = ({ sx, ...rest }) => {
         }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 400, color: 'text.secondary' }}>
-          {translateUi('ui.sections.hrm.payroll.common.pay_schedule_f93266bb')}
+          Pay Schedule
         </Typography>
         <Typography component="strong" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.hrm.payroll.common.monthly_d31edb7b')}
+          Monthly
         </Typography>
       </Stack>
     </Stack>

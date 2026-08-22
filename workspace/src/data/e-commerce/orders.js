@@ -1,56 +1,37 @@
 import { users } from 'data/users';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { customerInfo } from './customerAccount';
 import { products } from './products';
 
 export const orderActivities = [
   {
     id: 1,
-    get content() {
-      return i18n.t('ui.data.e_commerce.orders.this_product_was_archived_5d665f22');
-    },
+    content: 'This product was archived',
     createdAt: dayjs().toDate(),
   },
   {
     id: 2,
-    get content() {
-      return i18n.t('ui.data.e_commerce.orders.you_fulfilled_1_item_c482f6d4');
-    },
+    content: 'You fulfilled 1 item',
     createdAt: dayjs().toDate(),
   },
   {
     id: 3,
-    get content() {
-      return i18n.t(
-        'ui.data.e_commerce.orders.a_1454_50_payment_was_processed_on_bank_deposit_9ed489d8',
-      );
-    },
+    content: 'A $1454.50 payment was processed on bank deposit',
     createdAt: dayjs().subtract(23, 'h').toDate(),
   },
   {
     id: 4,
-    get content() {
-      return i18n.t(
-        'ui.data.e_commerce.orders.order_confirmation_email_was_sent_to_customer_email__f4c5ab51',
-      );
-    },
+    content: 'Order confirmation email was sent to customer@email.com',
     createdAt: dayjs().subtract(23, 'h').toDate(),
   },
   {
     id: 5,
-    get content() {
-      return i18n.t(
-        'ui.data.e_commerce.orders.a_1454_50_payment_is_pending_on_bank_deposit_01402da2',
-      );
-    },
+    content: 'A $1454.50 payment is pending on bank deposit',
     createdAt: dayjs().subtract(23, 'h').toDate(),
   },
   {
     id: 6,
-    get content() {
-      return i18n.t('ui.data.e_commerce.orders.a_customer_placed_order_5562345234_059c3931');
-    },
+    content: 'A customer placed order #5562345234',
     createdAt: dayjs().subtract(23, 'h').toDate(),
   },
 ];
@@ -64,16 +45,9 @@ export const orderDetailsList = [
         status: 'Delivered',
         quantity: 2,
         variants: [
+          { label: 'Size', value: 'S' },
           {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'S',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
+            label: 'Color',
             value: 'Black, White',
           },
         ],
@@ -94,16 +68,9 @@ export const orderDetailsList = [
         status: 'Shipped',
         quantity: 3,
         variants: [
+          { label: 'Size', value: 'S' },
           {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'S',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
+            label: 'Color',
             value: 'White Chocolate',
           },
         ],
@@ -124,16 +91,9 @@ export const orderDetailsList = [
         status: 'Shipped',
         quantity: 1,
         variants: [
+          { label: 'Size', value: 'L' },
           {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'L',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
+            label: 'Color',
             value: 'Chinese Black',
           },
         ],
@@ -170,18 +130,8 @@ export const orderDetailsList = [
         status: 'Processing',
         quantity: 1,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'M',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Navy Blue',
-          },
+          { label: 'Size', value: 'M' },
+          { label: 'Color', value: 'Navy Blue' },
         ],
         shippingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
         billlingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
@@ -200,18 +150,8 @@ export const orderDetailsList = [
         status: 'Pending',
         quantity: 1,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'L',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Red',
-          },
+          { label: 'Size', value: 'L' },
+          { label: 'Color', value: 'Red' },
         ],
         shippingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
         billlingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
@@ -230,18 +170,8 @@ export const orderDetailsList = [
         status: 'Delivered',
         quantity: 2,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'S',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Green',
-          },
+          { label: 'Size', value: 'S' },
+          { label: 'Color', value: 'Green' },
         ],
         shippingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
         billlingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
@@ -260,18 +190,8 @@ export const orderDetailsList = [
         status: 'Shipped',
         quantity: 1,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'XL',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Gray',
-          },
+          { label: 'Size', value: 'XL' },
+          { label: 'Color', value: 'Gray' },
         ],
         shippingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
         billlingAddress: 'Apt: 4/C, 321 Elm Street, San Francisco, California, USA 94110',
@@ -306,18 +226,8 @@ export const orderDetailsList = [
         status: 'Processing',
         quantity: 1,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'M',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Black',
-          },
+          { label: 'Size', value: 'M' },
+          { label: 'Color', value: 'Black' },
         ],
         shippingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
         billlingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
@@ -336,18 +246,8 @@ export const orderDetailsList = [
         status: 'Delivered',
         quantity: 2,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'L',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Blue',
-          },
+          { label: 'Size', value: 'L' },
+          { label: 'Color', value: 'Blue' },
         ],
         shippingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
         billlingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
@@ -366,18 +266,8 @@ export const orderDetailsList = [
         status: 'Shipped',
         quantity: 3,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'S',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'Red',
-          },
+          { label: 'Size', value: 'S' },
+          { label: 'Color', value: 'Red' },
         ],
         shippingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
         billlingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
@@ -396,18 +286,8 @@ export const orderDetailsList = [
         status: 'Shipped',
         quantity: 1,
         variants: [
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.size_b7152342');
-            },
-            value: 'XL',
-          },
-          {
-            get label() {
-              return i18n.t('ui.data.e_commerce.orders.color_1d0c8304');
-            },
-            value: 'White',
-          },
+          { label: 'Size', value: 'XL' },
+          { label: 'Color', value: 'White' },
         ],
         shippingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
         billlingAddress: '123 Oak Street, Dallas, Texas, USA 75201',
@@ -761,63 +641,34 @@ export const orderTrackDetails = {
       id: 1,
       date: '2 Feb, 2024',
       time: '12:21 AM',
-      get description() {
-        return i18n.t('ui.data.e_commerce.orders.shipped_dec6e329');
-      },
+      description: 'Shipped',
       place: 'Carol Stream, IL',
     },
     {
       id: 2,
       date: '2 Feb, 2024',
       time: '12:09 AM',
-      get description() {
-        return i18n.t('ui.data.e_commerce.orders.shipping_info_recieved_a658d59a');
-      },
+      description: 'Shipping info recieved',
       place: 'Chicago, IL',
     },
     {
       id: 3,
       date: '2 Feb, 2024',
       time: '6:26 PM',
-      get description() {
-        return i18n.t('ui.data.e_commerce.orders.origin_scan_323f6d93');
-      },
+      description: 'Origin Scan',
       place: 'Carol Stream, IL',
     },
     {
       id: 4,
       date: '2 Feb, 2024',
       time: '3:46 AM',
-      get description() {
-        return i18n.t('ui.data.e_commerce.orders.shipping_info_recieved_a658d59a');
-      },
+      description: 'Shipping info recieved',
       place: 'Carol Stream, IL',
     },
   ],
   trackSteps: [
-    {
-      get title() {
-        return i18n.t('ui.data.e_commerce.orders.prepared_d8b21a67');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.e_commerce.orders.we_are_preparing_to_ship_your_items_89f8c7bb');
-      },
-    },
-    {
-      get title() {
-        return i18n.t('ui.data.e_commerce.orders.shipped_dec6e329');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.e_commerce.orders.your_package_has_been_shipped_c14580b4');
-      },
-    },
-    {
-      get title() {
-        return i18n.t('ui.data.e_commerce.orders.delivered_eea956cd');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.e_commerce.orders.your_package_has_been_delivered_efece8e9');
-      },
-    },
+    { title: 'Prepared', subtitle: 'We are preparing to ship your items' },
+    { title: 'Shipped', subtitle: 'Your package has been shipped' },
+    { title: 'Delivered', subtitle: 'Your package has been delivered' },
   ],
 };

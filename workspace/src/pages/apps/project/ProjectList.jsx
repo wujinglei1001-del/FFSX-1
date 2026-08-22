@@ -1,17 +1,13 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Container, Dialog, DialogContent } from '@mui/material';
 import TaskDetails from 'pages/apps/project/TaskDetails';
-import { useAuth } from 'providers/AuthProvider';
 import paths from 'routes/paths';
 import ProjectGrid from 'components/sections/project/project-list/ProjectGrid';
 import ProjectListHeader from 'components/sections/project/project-list/ProjectListHeader';
 import ProjectListTable from 'components/sections/project/project-list/ProjectListTable';
 
 const ProjectList = () => {
-  const { t: translateUi } = useTranslation();
-  const { sessionUser } = useAuth();
   const navigate = useNavigate();
   const [viewType, setViewType] = useState('list');
   const [selectedFilter, setSelectedFilter] = useState('Running');
@@ -20,10 +16,8 @@ const ProjectList = () => {
   return (
     <Container maxWidth="lg">
       <ProjectListHeader
-        workspaceName={
-          sessionUser?.organizationName || translateUi('ffax.project.workspace_name_fallback')
-        }
-        workspaceDescription={translateUi('ffax.project.workspace_description')}
+        workspaceName="TW Workspace"
+        workspaceDescription="TW Workspace is the main hub for managing our team's projects, tracking progress, and keeping everyone aligned. It provides a clear overview of goals, timelines, and responsibilities so that collaboration stays smooth and efficient across every department involved."
         onAddProject={() => navigate(paths.createProject)}
         selectedFilter={selectedFilter}
         onFilterChange={setSelectedFilter}

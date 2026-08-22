@@ -1,6 +1,5 @@
 import { initialConfig } from 'config';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { users } from './users';
 
 const image = (index) => `${initialConfig.assetsDir}/images/file-manager/${index}.webp`;
@@ -13,18 +12,15 @@ export const fileStructure = [
     type: 'folder',
     children: [
       {
-        name: 'FFA-X_Research',
+        name: 'Aurora_Research',
         type: 'folder',
         children: [
           { name: 'Main.zip', type: 'file' },
-          {
-            name: 'FFA-X_New.docs',
-            type: 'file',
-          },
+          { name: 'Aurora_New.docs', type: 'file' },
         ],
       },
       {
-        name: 'FFA-X_Backups',
+        name: 'Aurora_Backups',
         type: 'folder',
         children: [
           { name: 'Index.html', type: 'file', status: 'new' },
@@ -33,19 +29,11 @@ export const fileStructure = [
         ],
       },
       {
-        name: 'FFA-X_Design',
+        name: 'Aurora_Design',
         type: 'folder',
-        children: [
-          {
-            name: 'Main_File.zip',
-            type: 'file',
-          },
-        ],
+        children: [{ name: 'Main_File.zip', type: 'file' }],
       },
-      {
-        name: 'Project_Management.html',
-        type: 'file',
-      },
+      { name: 'Project_Management.html', type: 'file' },
     ],
   },
   {
@@ -82,44 +70,32 @@ export const fileStructure = [
 
 export const fileStorageData = [
   {
-    get title() {
-      return i18n.t('ui.data.file_manager.photos_c8b2e864');
-    },
+    title: 'Photos',
     files: 580,
     size: 6.6,
   },
   {
-    get title() {
-      return i18n.t('ui.data.file_manager.videos_56b71e89');
-    },
+    title: 'Videos',
     files: 32,
     size: 3.2,
   },
   {
-    get title() {
-      return i18n.t('ui.data.file_manager.document_e214b8a2');
-    },
+    title: 'Document',
     files: 312,
     size: 3.7,
   },
   {
-    get title() {
-      return i18n.t('ui.data.file_manager.email_84add5b2');
-    },
+    title: 'Email',
     files: 356,
     size: 1.8,
   },
   {
-    get title() {
-      return i18n.t('ui.data.file_manager.chats_6c9e84c6');
-    },
+    title: 'Chats',
     files: 39,
     size: 0.5,
   },
   {
-    get title() {
-      return i18n.t('ui.data.file_manager.others_8d7bf5bf');
-    },
+    title: 'Others',
     files: 948,
     size: 2.1,
   },
@@ -128,7 +104,7 @@ export const fileStorageData = [
 export const files = [
   {
     id: 1,
-    name: 'FFA-X_Research',
+    name: 'Aurora_Research',
     type: 'folder',
     size: 1887436,
     savedIn: '2024-02-02',
@@ -152,7 +128,7 @@ export const files = [
         openedAt: '2024-08-03',
         createdAt: '2024-07-14',
         favorite: false,
-        location: 'FFA-X file manager',
+        location: 'Aurora file manager',
         shared: [],
       },
       {
@@ -168,11 +144,11 @@ export const files = [
         openedAt: '2024-09-17',
         createdAt: '2024-08-29',
         favorite: false,
-        location: 'FFA-X file manager',
+        location: 'Aurora file manager',
         shared: [],
       },
     ],
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[15], permission: 'owner' },
       { id: 2, user: users[5], permission: 'editor' },
@@ -192,7 +168,7 @@ export const files = [
     openedAt: '2024-06-12',
     createdAt: '2024-05-08',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[1], permission: 'owner' },
       { id: 2, user: users[2], permission: 'editor' },
@@ -212,7 +188,7 @@ export const files = [
     openedAt: '2024-07-21',
     createdAt: '2024-06-03',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[9], permission: 'owner' },
       { id: 2, user: users[0], permission: 'viewer' },
@@ -230,7 +206,7 @@ export const files = [
     openedAt: '2024-09-05',
     createdAt: '2024-08-11',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[0], permission: 'owner' },
       { id: 2, user: users[5], permission: 'viewer' },
@@ -250,7 +226,7 @@ export const files = [
     openedAt: '2024-08-27',
     createdAt: '2024-07-30',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[4], permission: 'owner' },
       { id: 2, user: users[10], permission: 'viewer' },
@@ -271,7 +247,7 @@ export const files = [
     openedAt: '2024-10-08',
     createdAt: '2024-09-12',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[4], permission: 'owner' },
       { id: 2, user: users[10], permission: 'viewer' },
@@ -292,7 +268,7 @@ export const files = [
     openedAt: '2024-07-14',
     createdAt: '2024-06-19',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[9], permission: 'owner' },
       { id: 2, user: users[0], permission: 'viewer' },
@@ -300,7 +276,7 @@ export const files = [
   },
   {
     id: 8,
-    name: 'FFA-X_Style',
+    name: 'Aurora_Style',
     type: 'file',
     extension: 'css',
     size: 1.3,
@@ -310,7 +286,7 @@ export const files = [
     openedAt: '2024-09-22',
     createdAt: '2024-08-25',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[15], permission: 'owner' },
       { id: 2, user: users[5], permission: 'viewer' },
@@ -330,7 +306,7 @@ export const files = [
     openedAt: '2024-08-09',
     createdAt: '2024-07-15',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[1], permission: 'owner' },
       { id: 2, user: users[2], permission: 'editor' },
@@ -342,10 +318,10 @@ export const files = [
   },
   {
     id: 10,
-    name: 'FFA-X',
+    name: 'Aurora',
     type: 'file',
     extension: 'mp4',
-    src: video('ffax'),
+    src: video('aurora'),
     size: 4710.4,
     savedIn: '2024-02-02',
     uploadedAt: dayjs().subtract(3, 'minutes').format(),
@@ -353,7 +329,7 @@ export const files = [
     openedAt: '2024-10-03',
     createdAt: '2024-09-18',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[4], permission: 'owner' },
       { id: 2, user: users[8], permission: 'viewer' },
@@ -374,7 +350,7 @@ export const files = [
     openedAt: '2024-07-28',
     createdAt: '2024-06-30',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[15], permission: 'owner' },
       { id: 2, user: users[5], permission: 'viewer' },
@@ -383,7 +359,7 @@ export const files = [
   },
   {
     id: 12,
-    name: 'FFA-X_Backups',
+    name: 'Aurora_Backups',
     type: 'folder',
     size: 3175.8,
     color: '',
@@ -401,7 +377,7 @@ export const files = [
         openedAt: '2024-07-28',
         createdAt: '2024-06-30',
         favorite: true,
-        location: 'FFA-X file manager',
+        location: 'Aurora file manager',
         shared: [
           { id: 1, user: users[15], permission: 'owner' },
           { id: 2, user: users[5], permission: 'viewer' },
@@ -420,7 +396,7 @@ export const files = [
         openedAt: '2024-09-02',
         createdAt: '2024-08-07',
         favorite: false,
-        location: 'FFA-X file manager',
+        location: 'Aurora file manager',
         shared: [
           { id: 1, user: users[1], permission: 'owner' },
           { id: 2, user: users[2], permission: 'editor' },
@@ -437,7 +413,7 @@ export const files = [
     openedAt: '2024-09-11',
     createdAt: '2024-08-14',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[1], permission: 'owner' },
       { id: 2, user: users[2], permission: 'editor' },
@@ -449,11 +425,7 @@ export const files = [
   },
   {
     id: 13,
-    get name() {
-      return i18n.t(
-        'ui.data.file_manager.elegant_living_room_design_with_green_screen_tv_21361c34',
-      );
-    },
+    name: 'Elegant Living Room Design with Green Screen TV',
     type: 'file',
     extension: 'mp4',
     src: video('elegant-living-room-design'),
@@ -464,7 +436,7 @@ export const files = [
     openedAt: '2024-08-16',
     createdAt: '2024-07-21',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[4], permission: 'owner' },
       { id: 2, user: users[3], permission: 'editor' },
@@ -485,7 +457,7 @@ export const files = [
     openedAt: '2024-10-12',
     createdAt: '2024-09-17',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[15], permission: 'owner' },
       { id: 2, user: users[5], permission: 'editor' },
@@ -505,7 +477,7 @@ export const files = [
     openedAt: '2024-07-23',
     createdAt: '2024-06-28',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[9], permission: 'owner' },
       { id: 2, user: users[0], permission: 'viewer' },
@@ -513,7 +485,7 @@ export const files = [
   },
   {
     id: 16,
-    name: 'FFA-X_New',
+    name: 'Aurora_New',
     type: 'file',
     extension: 'zip',
     size: 3686.4,
@@ -523,7 +495,7 @@ export const files = [
     openedAt: '2024-09-19',
     createdAt: '2024-08-22',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[4], permission: 'owner' },
       { id: 2, user: users[8], permission: 'editor' },
@@ -543,7 +515,7 @@ export const files = [
     openedAt: '2024-08-31',
     createdAt: '2024-08-04',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[1], permission: 'owner' },
       { id: 2, user: users[2], permission: 'editor' },
@@ -566,7 +538,7 @@ export const files = [
     openedAt: '2024-10-05',
     createdAt: '2024-09-10',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[4], permission: 'owner' },
       { id: 2, user: users[10], permission: 'viewer' },
@@ -576,7 +548,7 @@ export const files = [
   },
   {
     id: 19,
-    name: 'FFA-X_Designs',
+    name: 'Aurora_Designs',
     type: 'folder',
     size: 2.3,
     color: '',
@@ -593,7 +565,7 @@ export const files = [
         openedAt: '2024-09-05',
         createdAt: '2024-08-11',
         favorite: true,
-        location: 'FFA-X file manager',
+        location: 'Aurora file manager',
         shared: [
           { id: 1, user: users[0], permission: 'owner' },
           { id: 2, user: users[5], permission: 'viewer' },
@@ -602,7 +574,7 @@ export const files = [
       },
       {
         id: 8,
-        name: 'FFA-X_Style',
+        name: 'Aurora_Style',
         type: 'file',
         extension: 'css',
         size: 1.3,
@@ -612,7 +584,7 @@ export const files = [
         openedAt: '2024-09-22',
         createdAt: '2024-08-25',
         favorite: true,
-        location: 'FFA-X file manager',
+        location: 'Aurora file manager',
         shared: [
           { id: 1, user: users[15], permission: 'owner' },
           { id: 2, user: users[5], permission: 'viewer' },
@@ -626,7 +598,7 @@ export const files = [
     openedAt: '2024-07-30',
     createdAt: '2024-07-05',
     favorite: true,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[9], permission: 'owner' },
       { id: 2, user: users[0], permission: 'editor' },
@@ -644,7 +616,7 @@ export const files = [
     openedAt: '2024-09-02',
     createdAt: '2024-08-07',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[1], permission: 'owner' },
       { id: 2, user: users[2], permission: 'editor' },
@@ -667,7 +639,7 @@ export const files = [
     openedAt: '2024-09-02',
     createdAt: '2024-08-07',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [{ id: 1, user: users[11], permission: 'owner' }],
   },
   {
@@ -683,7 +655,7 @@ export const files = [
     openedAt: '2024-08-18',
     createdAt: '2024-07-24',
     favorite: false,
-    location: 'FFA-X file manager',
+    location: 'Aurora file manager',
     shared: [
       { id: 1, user: users[12], permission: 'owner' },
       { id: 2, user: users[4], permission: 'viewer' },

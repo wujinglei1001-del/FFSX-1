@@ -1,5 +1,4 @@
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, IconButton, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -10,7 +9,6 @@ import {
 import StyledTextField from 'components/styled/StyledTextField';
 
 const Tasks = () => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     register,
@@ -58,8 +56,7 @@ const Tasks = () => {
                 minWidth: 48,
               }}
             >
-              {translateUi('ui.sections.project.create_project.steps.task_7bb0ddf9')}
-              {index + 1}
+              Task {index + 1}
             </Typography>
             <StyledTextField
               fullWidth
@@ -69,9 +66,7 @@ const Tasks = () => {
               {...register(`tasks.${index}.value`)}
             />
             <IconButton
-              aria-label={translateUi(
-                'ui.sections.project.create_project.steps.remove_task_5be1bc9e',
-              )}
+              aria-label="Remove task"
               onClick={() => remove(index)}
               disabled={fields.length <= 1}
               sx={{ color: 'text.secondary' }}
@@ -88,7 +83,7 @@ const Tasks = () => {
         startIcon={<IconifyIcon icon="material-symbols:add-rounded" fontSize={20} />}
         onClick={() => append(getInitialTaskData())}
       >
-        {translateUi('ui.sections.project.create_project.steps.add_another_e9e7205b')}
+        Add another
       </Button>
     </Stack>
   );

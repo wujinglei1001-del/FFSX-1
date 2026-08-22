@@ -1,5 +1,4 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Divider, Stack } from '@mui/material';
 import {
   desktopNotifications,
@@ -12,7 +11,6 @@ import GeneralNotification from './GeneralNotification';
 import NotificationReceivingMethod from './NotificationReceivingMethod';
 
 const NotificationAlertsTabPanel = () => {
-  const { t: translateUi } = useTranslation();
   const methods = useForm({
     defaultValues: {
       desktopNotifications,
@@ -82,34 +80,24 @@ const NotificationAlertsTabPanel = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <AccountTabPanelSection
-          title={translateUi(
-            'ui.sections.account.notification_alerts.notificationalertstabpanel.general_settings_71dd223f',
-          )}
-          subtitle={translateUi(
-            'ui.sections.account.notification_alerts.notificationalertstabpanel.set_your_notification_preferences_select_who_can_tag_822114fc',
-          )}
+          title="General Settings"
+          subtitle="Set your notification preferences. Select who can tag you and mute notifications from specific user groups to maintain a streamlined experience."
           icon="material-symbols:settings-alert-outline"
         >
           <GeneralNotification />
         </AccountTabPanelSection>
 
         <AccountTabPanelSection
-          title={translateUi(
-            'ui.sections.account.notification_alerts.notificationalertstabpanel.notification_receiving_method_19819858',
-          )}
+          title="Notification Receiving Method"
           icon="material-symbols:settings-alert-outline"
         >
           <NotificationReceivingMethod />
           <Stack direction="row" sx={{ gap: 1, justifyContent: 'flex-end' }}>
             <Button variant="soft" color="neutral" onClick={() => reset()}>
-              {translateUi(
-                'ui.sections.account.notification_alerts.notificationalertstabpanel.discard_36fff63c',
-              )}
+              Discard
             </Button>
             <Button type="submit" variant="contained">
-              {translateUi(
-                'ui.sections.account.notification_alerts.notificationalertstabpanel.confirm_04a21221',
-              )}
+              Confirm
             </Button>
           </Stack>
         </AccountTabPanelSection>

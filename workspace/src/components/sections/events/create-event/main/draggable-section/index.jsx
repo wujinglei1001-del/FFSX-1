@@ -1,5 +1,4 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import {
@@ -19,7 +18,6 @@ import EventParagraphSection from 'components/sections/events/create-event/main/
 import StyledTextField from 'components/styled/StyledTextField';
 
 const DraggableEventSection = ({ section, index, handleChange, remove }) => {
-  const { t: translateUi } = useTranslation();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: section.id,
   });
@@ -81,15 +79,9 @@ const DraggableEventSection = ({ section, index, handleChange, remove }) => {
               value={section.contentType}
               onChange={(e) => handleChange(index, e)}
             >
-              <MenuItem value="paragraph">
-                {translateUi('ui.sections.events.create_event.main.paragraph_05058e0b')}
-              </MenuItem>
-              <MenuItem value="list">
-                {translateUi('ui.sections.events.create_event.main.list_a1fffaaa')}
-              </MenuItem>
-              <MenuItem value="info">
-                {translateUi('ui.sections.events.create_event.main.info_4b631f69')}
-              </MenuItem>
+              <MenuItem value="paragraph">Paragraph</MenuItem>
+              <MenuItem value="list">List</MenuItem>
+              <MenuItem value="info">Info</MenuItem>
             </StyledTextField>
           </FormControl>
           <IconButton color="error" onClick={() => remove(index)}>
@@ -99,7 +91,7 @@ const DraggableEventSection = ({ section, index, handleChange, remove }) => {
 
         <TextField
           fullWidth
-          label={translateUi('ui.sections.events.create_event.main.title_768e0c1c')}
+          label="Title"
           variant="filled"
           {...register(`sections.${index}.title`)}
           error={!!errors.sections?.[index]?.title}

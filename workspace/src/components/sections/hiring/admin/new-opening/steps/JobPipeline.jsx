@@ -1,57 +1,24 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Step from '@mui/material/Step';
 import { stepIconClasses } from '@mui/material/StepIcon';
 import StepLabel, { stepLabelClasses } from '@mui/material/StepLabel';
 import Stepper from '@mui/material/Stepper';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 import EditDeleteMenu from './common/EditDeleteMenu';
 
 const initialSteps = [
-  {
-    isMandatory: true,
-    get label() {
-      return i18n.t('ui.sections.hiring.admin.new_opening.received_applications_c67082c3');
-    },
-  },
-  {
-    isMandatory: false,
-    get label() {
-      return i18n.t('ui.sections.hiring.admin.new_opening.reviewed_31ef8593');
-    },
-  },
-  {
-    isMandatory: false,
-    get label() {
-      return i18n.t('ui.sections.hiring.admin.new_opening.schedule_mobile_screening_b2f8d7a0');
-    },
-  },
-  {
-    isMandatory: false,
-    get label() {
-      return i18n.t('ui.sections.hiring.admin.new_opening.mobile_screening_62809f11');
-    },
-  },
-  {
-    isMandatory: true,
-    get label() {
-      return i18n.t('ui.sections.hiring.admin.new_opening.job_offer_c6bfd348');
-    },
-  },
-  {
-    isMandatory: true,
-    get label() {
-      return i18n.t('ui.sections.hiring.admin.new_opening.hired_115779ef');
-    },
-  },
+  { isMandatory: true, label: 'Received Applications' },
+  { isMandatory: false, label: 'Reviewed' },
+  { isMandatory: false, label: 'Schedule Mobile Screening' },
+  { isMandatory: false, label: 'Mobile Screening' },
+  { isMandatory: true, label: 'Job Offer' },
+  { isMandatory: true, label: 'Hired' },
 ];
 
 const JobPipeline = () => {
-  const { t: translateUi } = useTranslation();
   const [steps, setSteps] = useState(initialSteps);
   const [editingIndex, setEditingIndex] = useState(null);
   const [menuAnchor, setMenuAnchor] = useState(null);
@@ -96,10 +63,7 @@ const JobPipeline = () => {
       lastNonMandatoryIndex !== undefined ? lastNonMandatoryIndex + 1 : steps.length - 2;
 
     const newSteps = [...steps];
-    newSteps.splice(insertIndex, 0, {
-      isMandatory: false,
-      label: translateUi('ui.sections.hiring.admin.new_opening.new_step_fcdd3088'),
-    });
+    newSteps.splice(insertIndex, 0, { isMandatory: false, label: 'New Step' });
     setSteps(newSteps);
     setEditingIndex(insertIndex);
   };
@@ -146,9 +110,7 @@ const JobPipeline = () => {
                   size="small"
                   fullWidth
                   autoFocus
-                  placeholder={translateUi(
-                    'ui.sections.hiring.admin.new_opening.new_step_fcdd3088',
-                  )}
+                  placeholder="New Step"
                   defaultValue={label}
                   onBlur={(e) => handleEditSave(index, e.target.value)}
                   onKeyDown={(e) => {
@@ -184,7 +146,7 @@ const JobPipeline = () => {
         sx={{ alignSelf: 'flex-start' }}
         onClick={handleAddStep}
       >
-        {translateUi('ui.sections.hiring.admin.new_opening.add_step_d185bda2')}
+        Add Step
       </Button>
       <EditDeleteMenu
         anchorEl={menuAnchor}

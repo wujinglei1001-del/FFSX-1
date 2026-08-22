@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -32,7 +31,6 @@ const getChipStyle = (trend) => {
   }
 };
 const KPI = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const { numberFormat } = useNumberFormat();
   const { title, value, changePercent, trend, since, hours, activities, earnings, projectsWorked } =
     data;
@@ -56,8 +54,7 @@ const KPI = ({ data }) => {
           onDelete={() => {}}
         />
         <Typography variant="subtitle2" sx={{ color: 'text.secondary' }}>
-          {translateUi('ui.sections.dashboards.time_tracker.kpi.since_2eb888e9')}
-          {since}
+          since {since}
         </Typography>
       </Stack>
 

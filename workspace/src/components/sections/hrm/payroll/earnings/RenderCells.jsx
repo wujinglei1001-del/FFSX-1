@@ -4,8 +4,7 @@ import Link from '@mui/material/Link';
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
+import { currencyFormat } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 import NumberTextField from 'components/base/NumberTextField';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -16,7 +15,7 @@ const renderEmployeeCell = (params) => {
     <Stack direction="row" sx={{ gap: 1.5, alignItems: 'center' }}>
       <Avatar src={params.row.employee.avatar} sx={{ width: 24, height: 24 }} />
       <Stack sx={{ gap: 0.5 }}>
-        <Link href={paths.memberProfile} sx={{ typography: 'subtitle2', fontWeight: 400 }}>
+        <Link href="#!" sx={{ typography: 'subtitle2', fontWeight: 400 }}>
           {params.row.employee.name}
         </Link>
         <Typography variant="caption" sx={{ lineHeight: 1.5 }}>
@@ -38,12 +37,9 @@ const renderHoursCell = (params) => {
           height: 36,
         }}
       >
-        <Typography variant="body2">
-          {i18n.t('ui.sections.hrm.payroll.earnings.regular_8d4e4ef3')}
-        </Typography>
+        <Typography variant="body2">Regular</Typography>
         <Typography variant="body2" sx={{ fontWeight: 500, color: 'text.primary' }}>
-          {params.row.hours.regular}
-          {i18n.t('ui.sections.hrm.payroll.earnings.hrs_a23c4292')}
+          {params.row.hours.regular}hrs
         </Typography>
       </Stack>
       <Stack
@@ -54,12 +50,9 @@ const renderHoursCell = (params) => {
           height: 36,
         }}
       >
-        <Typography variant="body2">
-          {i18n.t('ui.sections.hrm.payroll.earnings.overtime_b758d32c')}
-        </Typography>
+        <Typography variant="body2">Overtime</Typography>
         <Typography variant="body2" sx={{ fontWeight: 500, color: 'text.primary' }}>
-          {params.row.hours.overtime}
-          {i18n.t('ui.sections.hrm.payroll.earnings.hrs_a23c4292')}
+          {params.row.hours.overtime}hrs
         </Typography>
       </Stack>
     </Stack>
@@ -111,29 +104,17 @@ const renderExtraPayCell = (params, apiRef) => {
             value={newLabel}
             onChange={(e) => setNewLabel(e.target.value)}
           >
-            <MenuItem value="Bonus">
-              {i18n.t('ui.sections.hrm.payroll.earnings.bonus_4d963cfa')}
-            </MenuItem>
-            <MenuItem value="Commission">
-              {i18n.t('ui.sections.hrm.payroll.earnings.commission_4bfc46bc')}
-            </MenuItem>
-            <MenuItem value="Housing allowance">
-              {i18n.t('ui.sections.hrm.payroll.earnings.housing_allowance_518fa332')}
-            </MenuItem>
-            <MenuItem value="Vehicle allowance">
-              {i18n.t('ui.sections.hrm.payroll.earnings.vehicle_allowance_62d3d83c')}
-            </MenuItem>
-            <MenuItem value="Medical allowance">
-              {i18n.t('ui.sections.hrm.payroll.earnings.medical_allowance_1181dc66')}
-            </MenuItem>
-            <MenuItem value="Overtime">
-              {i18n.t('ui.sections.hrm.payroll.earnings.overtime_b758d32c')}
-            </MenuItem>
+            <MenuItem value="Bonus">Bonus</MenuItem>
+            <MenuItem value="Commission">Commission</MenuItem>
+            <MenuItem value="Housing allowance">Housing allowance</MenuItem>
+            <MenuItem value="Vehicle allowance">Vehicle allowance</MenuItem>
+            <MenuItem value="Medical allowance">Medical allowance</MenuItem>
+            <MenuItem value="Overtime">Overtime</MenuItem>
           </StyledTextField>
 
           <NumberTextField
             size="small"
-            placeholder={i18n.t('ui.sections.hrm.payroll.earnings.amount_43dc8532')}
+            placeholder="Amount"
             variant="custom"
             value={newAmount}
             onChange={(e) => setNewAmount(e.target.value)}
@@ -148,7 +129,7 @@ const renderExtraPayCell = (params, apiRef) => {
           sx={{ alignSelf: 'flex-start' }}
           onClick={handleAdd}
         >
-          {i18n.t('ui.sections.hrm.payroll.earnings.add_pay_3bd84b8e')}
+          Add Pay
         </Button>
       )}
     </Stack>
@@ -195,7 +176,7 @@ const renderDeductionCell = (params, apiRef) => {
         >
           <StyledTextField
             size="small"
-            placeholder={i18n.t('ui.sections.hrm.payroll.earnings.label_74341e3c')}
+            placeholder="Label"
             value={newLabel}
             autoFocus
             onChange={(e) => setNewLabel(e.target.value)}
@@ -204,7 +185,7 @@ const renderDeductionCell = (params, apiRef) => {
 
           <NumberTextField
             size="small"
-            placeholder={i18n.t('ui.sections.hrm.payroll.earnings.amount_43dc8532')}
+            placeholder="Amount"
             variant="custom"
             value={newAmount}
             onChange={(e) => setNewAmount(e.target.value)}
@@ -219,14 +200,14 @@ const renderDeductionCell = (params, apiRef) => {
           sx={{ alignSelf: 'flex-start' }}
           onClick={handleAdd}
         >
-          {i18n.t('ui.sections.hrm.payroll.earnings.add_pay_3bd84b8e')}
+          Add Pay
         </Button>
       )}
     </Stack>
   );
 };
 
-const renderNetPayTypeCell = (params, apiRef, currencyFormat) => {
+const renderNetPayTypeCell = (params, apiRef) => {
   const handleChange = (e) => {
     const newType = e.target.value;
 
@@ -251,7 +232,7 @@ const renderNetPayTypeCell = (params, apiRef, currencyFormat) => {
       }}
     >
       <Typography variant="body2" sx={{ fontWeight: 500, color: 'text.primary' }}>
-        {currencyFormat(params.row.netPayType.amount, {
+        {currencyFormat(params.row.netPayType.amount, 'en-US', {
           maximumFractionDigits: 0,
         })}
       </Typography>
@@ -263,15 +244,9 @@ const renderNetPayTypeCell = (params, apiRef, currencyFormat) => {
         onChange={handleChange}
         sx={{ maxWidth: 160, textAlign: 'left' }}
       >
-        <MenuItem value="Direct Deposit">
-          {i18n.t('ui.sections.hrm.payroll.earnings.direct_deposit_744e62e8')}
-        </MenuItem>
-        <MenuItem value="Cheque">
-          {i18n.t('ui.sections.hrm.payroll.earnings.cheque_6c0a1363')}
-        </MenuItem>
-        <MenuItem value="Cash Payment">
-          {i18n.t('ui.sections.hrm.payroll.earnings.cash_payment_ad3228af')}
-        </MenuItem>
+        <MenuItem value="Direct Deposit">Direct Deposit</MenuItem>
+        <MenuItem value="Cheque">Cheque</MenuItem>
+        <MenuItem value="Cash Payment">Cash Payment</MenuItem>
       </StyledTextField>
     </Stack>
   );

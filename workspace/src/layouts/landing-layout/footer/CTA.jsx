@@ -1,15 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import paths, { rootPaths } from 'routes/paths';
 import RevealItems from 'components/sections/landing/common/RevealItems';
 import RevealText from 'components/sections/landing/common/RevealText';
 
 const CTA = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -28,23 +24,20 @@ const CTA = () => {
             variant="h2"
             sx={{ typography: { xs: 'h3', sm: 'h2' }, color: 'primary.dark', mb: 1 }}
           >
-            {translateUi('ffax.public.footer.cta_title')}
+            Start with us today!
           </Typography>
         </RevealText>
 
         <RevealText>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            {translateUi('ffax.public.footer.cta_description')}
+            Our platform's design and architecture are crafted to boost collaboration, helping your
+            team work together more efficiently to achieve their goals.
           </Typography>
         </RevealText>
       </Box>
       <RevealItems component={Stack} direction="row" delay={0.1} y={0} sx={{ gap: 1 }}>
-        <Button component={Link} href={rootPaths.root} variant="contained" underline="none">
-          {translateUi('ffax.navigation.homepage')}
-        </Button>
-        <Button component={Link} href={paths.landingSubscriptions} color="neutral" underline="none">
-          {translateUi('ffax.navigation.services')}
-        </Button>
+        <Button variant="contained">Create an account</Button>
+        <Button color="neutral">Sign in</Button>
       </RevealItems>
     </Stack>
   );

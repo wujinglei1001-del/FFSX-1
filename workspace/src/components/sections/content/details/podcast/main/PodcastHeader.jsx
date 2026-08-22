@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -17,7 +16,6 @@ import { podcastPlaylist } from 'data/content/podcast';
 import { users } from 'data/users';
 import dayjs from 'dayjs';
 import useNumberFormat from 'hooks/useNumberFormat';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -26,7 +24,6 @@ import BookmarkButton from 'components/sections/content/common/BookmarkButton';
 const podcast = podcastPlaylist[0];
 
 const PodcastHeader = () => {
-  const { t: translateUi } = useTranslation();
   const { numberFormat } = useNumberFormat();
   const [following, setFollowing] = useState(false);
 
@@ -56,8 +53,7 @@ const PodcastHeader = () => {
             <Chip size="small" label={podcast.category} />
 
             <Typography variant="caption" sx={{ fontWeight: 'medium' }}>
-              {podcast.totalEpisodes}
-              {translateUi('ui.sections.content.details.podcast.eps_85962fc8')}
+              {podcast.totalEpisodes} eps
             </Typography>
 
             <Typography variant="caption" sx={{ fontWeight: 'medium' }}>
@@ -70,18 +66,14 @@ const PodcastHeader = () => {
           <List disablePadding sx={{ mb: 2, width: 1 }}>
             <ListItem sx={{ alignItems: 'center', gap: 1, p: 0 }}>
               <ListItemAvatar sx={{ minWidth: 48 }}>
-                <Avatar
-                  src={users[0].avatar}
-                  alt={translateUi('ui.sections.content.details.podcast.avatar_9c3bb49f')}
-                  sx={{ width: 48, height: 48 }}
-                />
+                <Avatar src={users[0].avatar} alt="avatar" sx={{ width: 48, height: 48 }} />
               </ListItemAvatar>
 
               <ListItemText
                 disableTypography
                 primary={
                   <Link
-                    href={paths.memberProfile}
+                    href="#!"
                     variant="subtitle1"
                     sx={{ fontWeight: 'bold', mb: 0.5, width: 'fit-content', color: 'inherit' }}
                   >
@@ -99,14 +91,14 @@ const PodcastHeader = () => {
                         notation: 'compact',
                         compactDisplay: 'short',
                       })}{' '}
-                      {translateUi('ui.sections.content.details.podcast.stories_67b5fefd')}
+                      Stories
                     </Typography>
                     <Typography
                       variant="caption"
                       component="p"
                       sx={{ fontWeight: 'medium', color: 'text.secondary', whiteSpace: 'nowrap' }}
                     >
-                      {translateUi('ui.sections.content.details.podcast.100_followers_9daf27de')}
+                      100 Followers
                     </Typography>
                   </Stack>
                 }
@@ -136,7 +128,7 @@ const PodcastHeader = () => {
                   icon={`material-symbols:thumb-up-outline-rounded`}
                   sx={{ fontSize: 20, mr: 0.5 }}
                 />
-                {translateUi('ui.sections.content.details.podcast.14_2k_b3e2da1d')}
+                14.2k
               </Button>
               <Button variant="text" color="neutral">
                 <IconifyIcon

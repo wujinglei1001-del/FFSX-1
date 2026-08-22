@@ -1,17 +1,12 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 
 const image = (index) => `${initialConfig.assetsDir}/images/ecommerce/products/96x96/${index}.webp`;
 
 export const topProducts = [
   {
     id: 1,
-    product: {
-      name: '简约棉布座椅',
-      image: image(1),
-    },
+    product: { name: 'Shanty Cotton Seat', image: image(1) },
     vendors: [users[2], users[7], users[15]],
     margin: 981.0,
     sold: 29536,
@@ -19,10 +14,7 @@ export const topProducts = [
   },
   {
     id: 2,
-    product: {
-      name: '实用柔软沙发',
-      image: image(2),
-    },
+    product: { name: 'Practical Soft Couch', image: image(2) },
     vendors: [users[6], users[11], users[7], users[13]],
     margin: 199,
     sold: 27700,
@@ -30,10 +22,7 @@ export const topProducts = [
   },
   {
     id: 3,
-    product: {
-      name: '复古橡胶椅',
-      image: image(3),
-    },
+    product: { name: 'Rustic Rubber Chair', image: image(3) },
     vendors: [users[4], users[3], users[5], users[14], users[1], users[2]],
     margin: 609,
     sold: 21778,
@@ -41,10 +30,7 @@ export const topProducts = [
   },
   {
     id: 4,
-    product: {
-      name: '人体工学冷冻培根',
-      image: image(4),
-    },
+    product: { name: 'Ergonomic Frozen Bacon', image: image(4) },
     vendors: [users[6], users[5], users[11], users[15]],
     margin: 923,
     sold: 20272,
@@ -52,10 +38,7 @@ export const topProducts = [
   },
   {
     id: 5,
-    product: {
-      name: '无品牌金属沙发',
-      image: image(5),
-    },
+    product: { name: 'Unbranded Metal Sofa', image: image(5) },
     vendors: [users[12], users[1]],
     margin: 119,
     sold: 17374,
@@ -63,10 +46,7 @@ export const topProducts = [
   },
   {
     id: 6,
-    product: {
-      name: '智能软沙发',
-      image: image(6),
-    },
+    product: { name: 'Intelligent Soft Sofa', image: image(6) },
     vendors: [users[1], users[2], users[3]],
     margin: 595,
     sold: 14374,
@@ -74,10 +54,7 @@ export const topProducts = [
   },
   {
     id: 7,
-    product: {
-      name: '手工棉布椅',
-      image: image(7),
-    },
+    product: { name: 'Handmade Cotton Chair', image: image(7) },
     vendors: [users[2], users[3], users[13], users[14], users[15], users[12]],
     margin: 472,
     sold: 12084,
@@ -85,10 +62,7 @@ export const topProducts = [
   },
   {
     id: 8,
-    product: {
-      name: '精美橡胶椅',
-      image: image(8),
-    },
+    product: { name: 'Fantastic Rubber Chair', image: image(8) },
     vendors: [users[2], users[7], users[15]],
     margin: 98,
     sold: 48604,
@@ -96,10 +70,7 @@ export const topProducts = [
   },
   {
     id: 9,
-    product: {
-      name: '通用钢制长椅',
-      image: image(9),
-    },
+    product: { name: 'Generic Steel Divan', image: image(9) },
     vendors: [users[10], users[13], users[5], users[11], users[12], users[13]],
     margin: 931,
     sold: 2329,
@@ -107,10 +78,7 @@ export const topProducts = [
   },
   {
     id: 10,
-    product: {
-      name: '手工豆袋椅',
-      image: image(10),
-    },
+    product: { name: 'Handmade Beanbag', image: image(10) },
     vendors: [users[10], users[2]],
     margin: 5300,
     sold: 70946,
@@ -118,10 +86,7 @@ export const topProducts = [
   },
   {
     id: 11,
-    product: {
-      name: '实用金属沙发',
-      image: image(11),
-    },
+    product: { name: 'Practical Metal Sofa', image: image(11) },
     vendors: [users[4], users[3], users[13], users[14], users[15], users[11]],
     margin: 282,
     sold: 57682,
@@ -129,10 +94,7 @@ export const topProducts = [
   },
   {
     id: 12,
-    product: {
-      name: '高级软沙发',
-      image: image(12),
-    },
+    product: { name: 'Advanced Soft Couch', image: image(12) },
     vendors: [users[15], users[10], users[7], users[9]],
     margin: 427,
     sold: 32587,
@@ -152,65 +114,21 @@ export const generatedRevenueData = {
 };
 
 export const storages = [
-  {
-    get label() {
-      return i18n.t('ui.data.e_commerce.dashboard.bed_1a706e23');
-    },
-    value: 20,
-  },
-  {
-    get label() {
-      return i18n.t('ui.data.e_commerce.dashboard.table_0424f6e7');
-    },
-    value: 30,
-  },
-  {
-    get label() {
-      return i18n.t('ui.data.e_commerce.dashboard.couch_80ada11a');
-    },
-    value: 40,
-  },
-  {
-    get label() {
-      return i18n.t('ui.data.e_commerce.dashboard.unoccupied_ac9f27ad');
-    },
-    value: 10,
-  },
+  { label: 'Bed', value: 20 },
+  { label: 'Table', value: 30 },
+  { label: 'Couch', value: 40 },
+  { label: 'Unoccupied', value: 10 },
 ];
 
 export const clientLocations = [
-  {
-    name: '日本',
-    value: 44000,
-  },
-  {
-    name: '格陵兰',
-    value: 41000,
-  },
-  {
-    name: '印度',
-    value: 38000,
-  },
-  {
-    name: '埃及',
-    value: 27000,
-  },
-  {
-    name: '墨西哥',
-    value: 19000,
-  },
-  {
-    name: '安哥拉',
-    value: 13000,
-  },
-  {
-    name: '哥伦比亚',
-    value: 11000,
-  },
-  {
-    name: '芬兰',
-    value: 7000,
-  },
+  { name: 'Japan', value: 44000 },
+  { name: 'Greenland', value: 41000 },
+  { name: 'India', value: 38000 },
+  { name: 'Egypt', value: 27000 },
+  { name: 'Mexico', value: 19000 },
+  { name: 'Angola', value: 13000 },
+  { name: 'Colombia', value: 11000 },
+  { name: 'Finland', value: 7000 },
 ];
 
 export const visitorRevenueChartData = {
@@ -225,42 +143,26 @@ export const monthlyProfitChartData = {
 
 export const promoSliderData = [
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.dashboard.grow_your_store_confidently_4cb9295a');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.data.e_commerce.dashboard.access_advanced_tools_and_proven_strategies_to_grow__633fa63c',
-      );
-    },
-    buttonText: '立即升级',
-    buttonLink: paths.landingSubscriptions,
+    title: 'Grow your store confidently.',
+    subtitle:
+      'Access advanced tools and proven strategies to grow your business faster and smarter.',
+    buttonText: 'Upgrade Now',
+    buttonLink: '#!',
     imageKey: 'rocket',
   },
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.dashboard.smarter_selling_with_ai_tools_ba675a37');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.data.e_commerce.dashboard.automate_tasks_reply_instantly_and_gain_helpful_insi_5bf50c7d',
-      );
-    },
-    buttonText: '探索 AI',
-    buttonLink: paths.contentSearch,
+    title: 'Smarter selling with AI tools',
+    subtitle:
+      'Automate tasks, reply instantly, and gain helpful insights for growth with less effort.',
+    buttonText: 'Explore AI',
+    buttonLink: '#!',
     imageKey: 'aiTools',
   },
   {
-    get title() {
-      return i18n.t('ui.data.e_commerce.dashboard.priority_help_anytime_e7c6411e');
-    },
-    get subtitle() {
-      return i18n.t(
-        'ui.data.e_commerce.dashboard.receive_quicker_responses_and_dedicated_support_for__936ae5bc',
-      );
-    },
-    buttonText: '了解更多',
-    buttonLink: paths.landingContact,
+    title: 'Priority help, anytime',
+    subtitle: 'Receive quicker responses and dedicated support for smoother store operations.',
+    buttonText: 'Learn More',
+    buttonLink: '#!',
     imageKey: 'customer',
   },
 ];

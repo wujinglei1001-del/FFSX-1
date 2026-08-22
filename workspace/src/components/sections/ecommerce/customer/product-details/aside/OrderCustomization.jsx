@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Paper, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const OrderCustomization = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, ...sx }}>
       <Typography
@@ -12,7 +10,7 @@ const OrderCustomization = ({ sx }) => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.product_details.need_customization_5193b137')}
+        Need customization?
       </Typography>
       <Typography
         variant="body2"
@@ -21,9 +19,8 @@ const OrderCustomization = ({ sx }) => {
           mb: 3,
         }}
       >
-        {translateUi(
-          'ui.sections.ecommerce.customer.product_details.have_this_product_modified_to_your_specifications_or_320db39a',
-        )}
+        Have this product modified to your specifications, or have unique, personalized designs made
+        according to your specifications.
       </Typography>
       <Button
         variant="soft"
@@ -33,7 +30,7 @@ const OrderCustomization = ({ sx }) => {
           <IconifyIcon icon="material-symbols:handyman-outline" fontSize="20px !important" />
         }
       >
-        {translateUi('ui.sections.ecommerce.customer.product_details.order_customization_1dc659b8')}
+        Order Customization
       </Button>
     </Paper>
   );

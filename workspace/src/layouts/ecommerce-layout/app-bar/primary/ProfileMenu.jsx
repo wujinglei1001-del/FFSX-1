@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useMemo, useState } from 'react';
 import {
   Box,
   Button,
@@ -11,18 +10,18 @@ import {
   listClasses,
   paperClasses,
 } from '@mui/material';
-import { zitadelConfig } from 'config/zitadel';
 import { useAuth } from 'providers/AuthProvider';
+import { demoUser } from 'providers/auth-provider/AuthJwtProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
 const ProfileMenu = () => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const { sessionUser, signout } = useAuth();
 
-  const user = sessionUser || { name: 'FFA-X' };
+  // Demo user data used for development purposes
+  const user = useMemo(() => sessionUser || demoUser, [sessionUser]);
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -35,11 +34,6 @@ const ProfileMenu = () => {
   const handleSignout = () => {
     signout();
     handleClose();
-  };
-
-  const handleAccountSettings = () => {
-    handleClose();
-    window.location.assign(zitadelConfig.accountUrl);
   };
 
   return (
@@ -55,7 +49,7 @@ const ProfileMenu = () => {
         }}
       >
         <StatusAvatar
-          alt={translateUi('ui.layouts.ecommerce_layout.app_bar.primary.captain_haddock_b801c768')}
+          alt="Captain Haddock"
           status="online"
           src={user.avatar || undefined}
           sx={{ width: 36, height: 36 }}
@@ -117,45 +111,27 @@ const ProfileMenu = () => {
 
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleAccountSettings}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.your_account_4ab29102')}
-          </MenuItem>
-          <MenuItem onClick={handleAccountSettings}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.account_settings_82cf8a5f')}
-          </MenuItem>
+          <MenuItem onClick={handleClose}>Your account</MenuItem>
+          <MenuItem onClick={handleClose}>Account settings</MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.orders_cded0933')}
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.track_order_51e971d9')}
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.wishlist_6ff33102')}
-          </MenuItem>
+          <MenuItem onClick={handleClose}>Orders</MenuItem>
+          <MenuItem onClick={handleClose}>Track order</MenuItem>
+          <MenuItem onClick={handleClose}>Wishlist</MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.membership_53bc9670')}
-          </MenuItem>
+          <MenuItem onClick={handleClose}>Membership</MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleClose}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.plans_subscription_0e2805ec')}
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.payment_methods_dc80127f')}
-          </MenuItem>
+          <MenuItem onClick={handleClose}>Plans & Subscription</MenuItem>
+          <MenuItem onClick={handleClose}>Payment methods</MenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <MenuItem onClick={handleSignout}>
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.log_out_6e78c91f')}
-          </MenuItem>
+          <MenuItem onClick={handleSignout}>Log out</MenuItem>
         </Box>
       </Menu>
     </>

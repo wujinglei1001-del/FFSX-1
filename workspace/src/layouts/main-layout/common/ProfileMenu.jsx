@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link as RouterLink } from 'react-router';
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router';
 import {
   Box,
   Button,
@@ -16,18 +15,17 @@ import {
   paperClasses,
 } from '@mui/material';
 import Menu from '@mui/material/Menu';
-import { zitadelConfig } from 'config/zitadel';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { useAuth } from 'providers/AuthProvider';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
 import { useSettingsContext } from 'providers/SettingsProvider';
+import { demoUser } from 'providers/auth-provider/AuthJwtProvider';
 import paths, { authPaths } from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
 const ProfileMenu = ({ type = 'default' }) => {
-  const { t: translateUi } = useTranslation();
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -38,9 +36,9 @@ const ProfileMenu = ({ type = 'default' }) => {
   const { themePreset, setThemePreset } = useThemeMode();
 
   const { sessionUser, signout } = useAuth();
-  const { setSettingsPanelConfig } = useSettingsPanelContext();
 
-  const user = sessionUser || { name: 'FFA-X' };
+  // Demo user data used for development purposes
+  const user = useMemo(() => sessionUser || demoUser, [sessionUser]);
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -50,25 +48,14 @@ const ProfileMenu = ({ type = 'default' }) => {
     setAnchorEl(null);
   };
 
-  const handleSignout = async () => {
+  const handleSignout = () => {
+    signout();
+    navigate(paths.defaultLoggedOut);
     handleClose();
-    await signout();
   };
 
   const handleThemeToggle = () => {
     setThemePreset(themePreset === 'default-dark' ? 'default-light' : 'default-dark');
-  };
-
-  const handleAccountSettings = () => {
-    handleClose();
-    if (zitadelConfig.accountUrl) {
-      window.location.assign(zitadelConfig.accountUrl);
-    }
-  };
-
-  const handlePreferences = () => {
-    handleClose();
-    setSettingsPanelConfig({ openSettingPanel: true });
   };
 
   const menuButton = (
@@ -77,8 +64,6 @@ const ProfileMenu = ({ type = 'default' }) => {
       variant="text"
       shape="circle"
       onClick={handleClick}
-      aria-label={translateUi('ffax.ui.profile_menu')}
-      title={translateUi('ffax.ui.profile_menu')}
       sx={[
         {
           height: 44,
@@ -179,25 +164,19 @@ const ProfileMenu = ({ type = 'default' }) => {
         </Stack>
         <Divider />
         <Box sx={{ py: 1 }}>
-          <ProfileMenuItem
-            icon="material-symbols:accessible-forward-rounded"
-            onClick={handlePreferences}
-          >
-            {translateUi('ffax.ui.accessibility')}
+          <ProfileMenuItem icon="material-symbols:accessible-forward-rounded" onClick={handleClose}>
+            Accessibility
           </ProfileMenuItem>
 
-          <ProfileMenuItem
-            icon="material-symbols:settings-outline-rounded"
-            onClick={handlePreferences}
-          >
-            {translateUi('ffax.ui.preferences')}
+          <ProfileMenuItem icon="material-symbols:settings-outline-rounded" onClick={handleClose}>
+            Preferences
           </ProfileMenuItem>
 
           <ProfileMenuItem
             onClick={handleThemeToggle}
             icon="material-symbols:dark-mode-outline-rounded"
           >
-            {translateUi('ffax.ui.dark_mode')}
+            Dark mode
             <Switch
               checked={themePreset === 'default-dark'}
               onChange={handleThemeToggle}
@@ -209,28 +188,28 @@ const ProfileMenu = ({ type = 'default' }) => {
         <Box sx={{ py: 1 }}>
           <ProfileMenuItem
             icon="material-symbols:manage-accounts-outline-rounded"
-            onClick={handleAccountSettings}
-            disabled={!zitadelConfig.accountUrl}
+            onClick={handleClose}
+            href="#!"
           >
-            {translateUi('ffax.ui.account_settings')}
+            Account Settings
           </ProfileMenuItem>
           <ProfileMenuItem
             icon="material-symbols:question-mark-rounded"
             onClick={handleClose}
-            href={paths.landingFaq}
+            href="#!"
           >
-            {translateUi('ffax.ui.help_center')}
+            Help Center
           </ProfileMenuItem>
         </Box>
         <Divider />
         <Box sx={{ py: 1 }}>
           {sessionUser ? (
             <ProfileMenuItem onClick={handleSignout} icon="material-symbols:logout-rounded">
-              {translateUi('ffax.ui.sign_out')}
+              Sign Out
             </ProfileMenuItem>
           ) : (
-            <ProfileMenuItem to={authPaths.login} icon="material-symbols:login-rounded">
-              {translateUi('ffax.ui.sign_in')}
+            <ProfileMenuItem href={authPaths.login} icon="material-symbols:login-rounded">
+              Sign In
             </ProfileMenuItem>
           )}
         </Box>
@@ -239,15 +218,11 @@ const ProfileMenu = ({ type = 'default' }) => {
   );
 };
 
-const ProfileMenuItem = ({ icon, onClick, children, href, to, sx, ...rest }) => {
-  const linkProps = to
-    ? { component: RouterLink, to }
-    : href
-      ? { component: Link, href, underline: 'none' }
-      : {};
+const ProfileMenuItem = ({ icon, onClick, children, href, sx }) => {
+  const linkProps = href ? { component: Link, href, underline: 'none' } : {};
 
   return (
-    <MenuItem onClick={onClick} {...linkProps} sx={{ gap: 1, ...sx }} {...rest}>
+    <MenuItem onClick={onClick} {...linkProps} sx={{ gap: 1, ...sx }}>
       <ListItemIcon
         sx={{
           [`&.${listItemIconClasses.root}`]: { minWidth: 'unset !important' },

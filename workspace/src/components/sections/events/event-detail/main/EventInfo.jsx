@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Link, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const EventInfo = ({ eventInfo }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={{
@@ -65,7 +63,7 @@ const EventInfo = ({ eventInfo }) => {
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  {translateUi('ui.sections.events.event_detail.main.show_in_map_0507f64c')}
+                  Show in map
                 </Link>
               )}
             </Typography>
@@ -81,7 +79,7 @@ const EventInfo = ({ eventInfo }) => {
               textAlign: { xs: 'left', xl: 'right' },
             }}
           >
-            {translateUi('ui.sections.events.event_detail.main.organized_by_2189f7af')}
+            Organized by
           </Typography>
           <Stack
             direction={{ xs: 'row', xl: 'column' }}

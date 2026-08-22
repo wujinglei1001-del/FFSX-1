@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,7 +10,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const FilterAndSort = () => {
-  const { t: translateUi } = useTranslation();
   const { fileManagerDispatch, filter, viewMode, sort } = useFileManager();
   const [tab, setTab] = useState(filter);
 
@@ -37,26 +35,11 @@ const FilterAndSort = () => {
         }}
       >
         <Tabs value={tab} onChange={handleFilterChange} variant="scrollable" scrollButtons={false}>
-          <Tab
-            label={translateUi('ui.sections.file_manager.main.all_files.all_files_af3d09ab')}
-            value="all"
-          />
-          <Tab
-            label={translateUi('ui.sections.file_manager.main.all_files.recent_76eec760')}
-            value="recent"
-          />
-          <Tab
-            label={translateUi('ui.sections.file_manager.main.all_files.folder_30baa249')}
-            value="folder"
-          />
-          <Tab
-            label={translateUi('ui.sections.file_manager.main.all_files.favorite_6b90b6a1')}
-            value="favorite"
-          />
-          <Tab
-            label={translateUi('ui.sections.file_manager.main.all_files.shared_50d0d8dd')}
-            value="shared"
-          />
+          <Tab label="All Files" value="all" />
+          <Tab label="Recent" value="recent" />
+          <Tab label="Folder" value="folder" />
+          <Tab label="Favorite" value="favorite" />
+          <Tab label="Shared" value="shared" />
         </Tabs>
       </Stack>
       <Stack
@@ -75,21 +58,11 @@ const FilterAndSort = () => {
           onChange={handleSortChange}
           sx={{ maxWidth: { xs: 160, xl: 180 } }}
         >
-          <MenuItem value="none">
-            {translateUi('ui.sections.file_manager.main.all_files.sort_by_none_35514334')}
-          </MenuItem>
-          <MenuItem value="name">
-            {translateUi('ui.sections.file_manager.main.all_files.sort_by_name_14ff8da6')}
-          </MenuItem>
-          <MenuItem value="size">
-            {translateUi('ui.sections.file_manager.main.all_files.sort_by_size_caf9f925')}
-          </MenuItem>
-          <MenuItem value="modified">
-            {translateUi('ui.sections.file_manager.main.all_files.sort_by_modified_4ea4c6f2')}
-          </MenuItem>
-          <MenuItem value="created">
-            {translateUi('ui.sections.file_manager.main.all_files.sort_by_created_d089f410')}
-          </MenuItem>
+          <MenuItem value="none">Sort by - None</MenuItem>
+          <MenuItem value="name">Sort by - Name</MenuItem>
+          <MenuItem value="size">Sort by - Size</MenuItem>
+          <MenuItem value="modified">Sort by - Modified</MenuItem>
+          <MenuItem value="created">Sort by - Created</MenuItem>
         </StyledTextField>
 
         <Button

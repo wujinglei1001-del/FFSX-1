@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { getRangeLabel } from 'lib/utils';
 
 const CompanyInfo = ({ company }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -62,8 +60,7 @@ const CompanyInfo = ({ company }) => {
                 color: 'text.secondary',
               }}
             >
-              {getRangeLabel(company.employees)}
-              {translateUi('ui.sections.hiring.candidate.job_details.employyes_8f19f560')}
+              {getRangeLabel(company.employees)} Employyes
             </Typography>
           </Stack>
         </Stack>

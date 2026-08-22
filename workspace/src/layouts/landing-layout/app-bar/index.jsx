@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
@@ -9,50 +8,83 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ThemeToggler from 'layouts/main-layout/common/ThemeToggler';
 import SearchBox, { SearchBoxButton } from 'layouts/main-layout/common/search-box/SearchBox';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths, { publicAuthPaths, rootPaths } from 'routes/paths';
-import publicSitemap from 'routes/public-sitemap';
+import paths from 'routes/paths';
 import Logo from 'components/common/Logo';
 import Sidenav from './nav/Sidenav';
 import Topnav from './nav/Topnav';
 
 const menus = [
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.home');
-    },
-    href: rootPaths.root,
+    label: 'Home',
+    href: paths.landingHomepage,
   },
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.about');
-    },
+    label: 'About Us',
     href: paths.landingAbout,
   },
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.contact');
-    },
+    label: 'Contact',
     href: paths.landingContact,
   },
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.faq');
-    },
-    href: paths.landingFaq,
-  },
-  {
-    get label() {
-      return i18n.t('ffax.public.navigation.subscriptions');
-    },
-    href: paths.landingSubscriptions,
+    label: 'Pages',
+    submenus: [
+      {
+        label: 'Homepage',
+        href: paths.landingHomepage,
+        icon: 'material-symbols:home-outline-rounded',
+        secondaryText: 'Explore our main landing page and key highlights',
+      },
+      {
+        label: 'About Us',
+        href: paths.landingAbout,
+        icon: 'material-symbols:info-outline-rounded',
+        secondaryText: 'Learn more about our mission, vision, and team',
+      },
+      {
+        label: 'Contact',
+        href: paths.landingContact,
+        icon: 'material-symbols:phone-in-talk-outline-rounded',
+        secondaryText: 'Reach out to us for inquiries and support',
+      },
+      {
+        label: 'FAQs',
+        href: paths.landingFaq,
+        icon: 'material-symbols:format-list-bulleted-rounded',
+        secondaryText: 'Find answers to the most common questions',
+      },
+      {
+        label: 'Pricing',
+        href: '#!',
+        icon: 'material-symbols:attach-money-rounded',
+        secondaryText: 'Discover our plans and choose what fits you best',
+      },
+      {
+        label: '404',
+        href: paths.landing404,
+        icon: 'material-symbols:warning-outline-rounded',
+        secondaryText: 'The page you’re looking for could not be found',
+      },
+      {
+        label: 'Maintenance',
+        href: paths.landingMaintenance,
+        icon: 'material-symbols:service-toolbox-outline-rounded',
+        secondaryText: 'We’re performing updates to serve you better',
+      },
+      {
+        label: 'Coming Soon',
+        href: paths.landingComingSoon,
+        icon: 'material-symbols:timer-outline-rounded',
+        secondaryText: 'Stay tuned for exciting features on the way',
+      },
+    ],
   },
 ];
 gsap.registerPlugin(ScrollTrigger);
 const LandingAppBar = (props) => {
-  const { t: translateUi } = useTranslation();
   const appBarRef = useRef(null);
+  const popoverAnchorRef = useRef(null);
   const { up } = useBreakpoints();
   const upSm = up('sm');
   const upMd = up('md');
@@ -108,29 +140,29 @@ const LandingAppBar = (props) => {
             alignItems: 'center',
           }}
         >
-          <Logo showName={upMd} href={rootPaths.root} />
+          <Logo showName={upMd} />
           {upSm ? (
             <SearchBox
-              navigation={publicSitemap}
               sx={{
                 width: 1,
                 maxWidth: 364,
               }}
             />
           ) : (
-            <SearchBoxButton navigation={publicSitemap} />
+            <SearchBoxButton />
           )}
         </Stack>
         <Stack
           direction="row"
+          ref={popoverAnchorRef}
           sx={{
             gap: 1,
           }}
         >
-          {upLg && <Topnav menus={menus} />}
+          {upLg && <Topnav menus={menus} anchorRef={popoverAnchorRef} />}
           <ThemeToggler />
-          <Button variant="contained" href={publicAuthPaths.login} sx={{ minWidth: 120 }}>
-            {translateUi('ffax.public.navigation.login')}
+          <Button variant="contained" href="#!" sx={{ minWidth: 120 }}>
+            Log In
           </Button>
           {!upLg && <Sidenav menus={menus} />}
         </Stack>

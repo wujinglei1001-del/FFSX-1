@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
@@ -15,7 +14,6 @@ const getChipColor = (status) => {
   }
 };
 const PayrollHistoryCard = ({ start, end, status }) => {
-  const { t: translateUi } = useTranslation();
   const startDate = dayjs(start).format('D MMM');
   const endDate = dayjs(end).format('D MMM');
   const year = dayjs(end).format('YYYY');
@@ -45,8 +43,7 @@ const PayrollHistoryCard = ({ start, end, status }) => {
               fontWeight: 600,
             }}
           >
-            {translateUi('ui.sections.hrm.payroll.dashboard.payroll_for_8620afe0')}
-            {startDate} - {endDate}, {year}
+            Payroll for {startDate} - {endDate}, {year}
           </Typography>
           <Chip
             variant="soft"

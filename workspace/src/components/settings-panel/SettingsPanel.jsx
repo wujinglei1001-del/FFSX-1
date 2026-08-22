@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { Box, Button, Divider, Stack, Toolbar, Typography, paperClasses } from '@mui/material';
 import Drawer from '@mui/material/Drawer';
@@ -21,7 +20,6 @@ import FontSettingsPanel from './font-settings/FontSettingsPanel';
 import ThemeList from './theme-preset/ThemeList';
 
 const SettingsPanel = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { navigationMenuType },
     configDispatch,
@@ -81,7 +79,7 @@ const SettingsPanel = () => {
               flex: 1,
             }}
           >
-            {translateUi('ui.components.settings_panel.settingspanel.customize_239dce62')}
+            Customize
           </Typography>
           <Button
             variant="soft"
@@ -92,7 +90,7 @@ const SettingsPanel = () => {
             startIcon={<IconifyIcon icon="material-symbols:reset-settings-rounded" />}
             onClick={handleReset}
           >
-            {translateUi('ui.components.settings_panel.settingspanel.reset_44c57abd')}
+            Reset
           </Button>
           <Button
             variant="soft"
@@ -127,88 +125,84 @@ const SettingsPanel = () => {
           >
             <Box sx={{ p: 3 }}>
               <Stack sx={{ gap: 3 }}>
-                <Section
-                  title={translateUi('ui.components.settings_panel.settingspanel.theme_a797e309')}
-                >
+                <Section title="Theme">
                   <ThemeList />
                 </Section>
 
                 <Divider sx={{ mx: -3 }} />
 
-                <Section
-                  title={translateUi(
-                    'ui.components.settings_panel.settingspanel.navigation_menu_de144f04',
-                  )}
-                  disable={disableNavigationMenuSection}
-                >
+                <Section title="Navigation Menu" disable={disableNavigationMenuSection}>
                   <NavigationMenuPanel />
                 </Section>
 
                 {navigationMenuType !== 'topnav' && (
-                  <Section
-                    title={translateUi(
-                      'ui.components.settings_panel.settingspanel.sidenav_shape_61ea250d',
-                    )}
-                    disable={disableSidenavShapeSection}
-                  >
+                  <Section title="Sidenav Shape" disable={disableSidenavShapeSection}>
                     <SidenavShapePanel />
                   </Section>
                 )}
                 {navigationMenuType !== 'sidenav' && (
-                  <Section
-                    title={translateUi(
-                      'ui.components.settings_panel.settingspanel.topnav_shape_5378944c',
-                    )}
-                    disable={disableTopShapeSection}
-                  >
+                  <Section title="Topnav Shape" disable={disableTopShapeSection}>
                     <TopnavShapePanel />
                   </Section>
                 )}
 
                 <Divider sx={{ mx: -3 }} />
 
-                <Section
-                  title={translateUi(
-                    'ui.components.settings_panel.settingspanel.nav_color_00d84528',
-                  )}
-                  disable={disableNavColorSection}
-                >
+                <Section title="Nav Color" disable={disableNavColorSection}>
                   <NavColorPanel />
                 </Section>
 
                 <Divider sx={{ mx: -3 }} />
 
-                <Section
-                  title={translateUi(
-                    'ui.components.settings_panel.settingspanel.text_direction_0526e3a6',
-                  )}
-                >
+                <Section title="Text Direction">
                   <TextDirectionPanel />
                 </Section>
 
                 <Divider sx={{ mx: -3 }} />
 
-                <Section
-                  title={translateUi(
-                    'ui.components.settings_panel.settingspanel.font_family_694eff06',
-                  )}
-                >
+                <Section title="Font Family">
                   <FontSettingsPanel />
                 </Section>
 
                 <Divider sx={{ mx: -3 }} />
 
-                <Section
-                  title={translateUi(
-                    'ui.components.settings_panel.settingspanel.vision_mode_c0486f98',
-                  )}
-                >
+                <Section title="Vision Mode">
                   <VisionModePanel />
                 </Section>
               </Stack>
             </Box>
           </SimpleBar>
         </Box>
+        <Toolbar
+          sx={{
+            display: 'block',
+            borderTop: 1,
+            borderColor: 'dividerLight',
+            py: 2,
+          }}
+        >
+          <Typography
+            variant="subtitle1"
+            sx={{
+              fontWeight: 700,
+              background: `linear-gradient(92.45deg, #20DE99 -0.35%, #7DB1F5 43.54%, #5A9EF6 78.08%)`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            And more
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              background: `linear-gradient(92.45deg, #5A9EF6 -0.35%, #7DB1F5 43.54%, #20DE99 78.91%)`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            Coming Soon...
+          </Typography>
+        </Toolbar>
       </Drawer>
     </div>
   );
@@ -217,7 +211,6 @@ const SettingsPanel = () => {
 export default SettingsPanel;
 
 const Section = ({ title, disable, children }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={[
@@ -256,11 +249,7 @@ const Section = ({ title, disable, children }) => {
       {disable && (
         <Stack direction="row" sx={{ alignItems: 'center', gap: 0.5, mb: 2, color: 'info.main' }}>
           <IconifyIcon icon="material-symbols:info-outline" sx={{ fontSize: 16 }} />
-          <Typography variant="subtitle2">
-            {translateUi(
-              'ui.components.settings_panel.settingspanel.not_available_in_this_layout_9411ed0a',
-            )}
-          </Typography>
+          <Typography variant="subtitle2">Not available in this layout.</Typography>
         </Stack>
       )}
       <Box sx={[!!disable && { opacity: 0.4 }]}>{children}</Box>

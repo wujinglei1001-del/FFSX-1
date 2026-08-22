@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { candidatesData as data } from 'data/hiring/dashboard';
 import DashboardSelectMenu from 'components/common/DashboardSelectMenu';
 import SectionHeader from 'components/common/SectionHeader';
@@ -7,13 +6,12 @@ import SectionWrapper from '../common/SectionWrapper';
 import CandidatesChart from './CandidatesChart';
 
 const Candidates = () => {
-  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
 
   return (
     <SectionWrapper>
       <SectionHeader
-        title={translateUi('ui.sections.dashboards.hiring.candidates.candidates_b5bf8067')}
+        title="Candidates"
         subTitle="Summary of candidate engagement"
         direction={{ xs: 'column', sm: 'row' }}
         actionComponent={
@@ -24,17 +22,15 @@ const Candidates = () => {
             options={[
               {
                 value: 7,
-                label: translateUi('ui.sections.dashboards.hiring.candidates.last_day_d85ff84f'),
+                label: 'Last Day',
               },
               {
                 value: 15,
-                label: translateUi('ui.sections.dashboards.hiring.candidates.last_6_days_300823a2'),
+                label: 'Last 6 Days',
               },
               {
                 value: 30,
-                label: translateUi(
-                  'ui.sections.dashboards.hiring.candidates.last_30_days_6118867f',
-                ),
+                label: 'Last 30 Days',
               },
             ]}
           />

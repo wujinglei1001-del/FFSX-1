@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   AvatarGroup,
@@ -20,7 +19,6 @@ import TablePreview from './views/TablePreview';
 import TimelinePreview from './views/TimelinePreview';
 
 const CreateProjectPreview = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const projectTitle = useWatch({ control, name: 'projectTitle' }) ?? '';
   const statuses = useWatch({ control, name: 'statuses' });
@@ -85,9 +83,7 @@ const CreateProjectPreview = () => {
             color: 'text.secondary',
           }}
         >
-          {translateUi(
-            'ui.sections.project.create_project.createprojectpreview.add_tasks_to_see_them_preview_here_36089b08',
-          )}
+          Add tasks to see them preview here.
         </Typography>
       );
     }

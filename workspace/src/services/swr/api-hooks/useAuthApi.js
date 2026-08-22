@@ -37,3 +37,10 @@ export const useLogOutUser = () => {
 
   return mutation;
 };
+export const useSendPasswordResetLink = () => {
+  return useSWRMutation([apiEndpoints.forgotPassword, { method: 'post' }], axiosFetcher);
+};
+
+export const useSetPassword = () => {
+  return useSWRMutation([apiEndpoints.setPassword, { method: 'post' }], axiosFetcher);
+};

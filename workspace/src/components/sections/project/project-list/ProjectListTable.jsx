@@ -12,7 +12,6 @@ import {
 import { DataGrid } from '@mui/x-data-grid';
 import { gridClasses } from '@mui/x-data-grid/constants';
 import { projectListData } from 'data/project/project-list';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -34,9 +33,7 @@ const getStatusBadgeColor = (status) => {
 const columns = [
   {
     field: 'name',
-    get headerName() {
-      return i18n.t('ui.sections.project.project_list.projectlisttable.name_of_project_4dc4c350');
-    },
+    headerName: 'Name of project',
     minWidth: 280,
     flex: 1,
     headerAlign: 'left',
@@ -83,9 +80,7 @@ const columns = [
   },
   {
     field: 'tasks',
-    get headerName() {
-      return i18n.t('ui.sections.project.project_list.projectlisttable.tasks_090ec5f5');
-    },
+    headerName: 'Tasks',
     width: 100,
     align: 'left',
     headerAlign: 'left',
@@ -120,9 +115,7 @@ const columns = [
   },
   {
     field: 'comments',
-    get headerName() {
-      return i18n.t('ui.sections.project.project_list.projectlisttable.comments_fce06e20');
-    },
+    headerName: 'Comments',
     width: 140,
     align: 'left',
     headerAlign: 'left',
@@ -146,9 +139,7 @@ const columns = [
   },
   {
     field: 'status',
-    get headerName() {
-      return i18n.t('ui.sections.project.project_list.projectlisttable.status_bae7d5be');
-    },
+    headerName: 'Status',
     width: 110,
     align: 'left',
     headerAlign: 'left',
@@ -166,9 +157,7 @@ const columns = [
   },
   {
     field: 'collaborators',
-    get headerName() {
-      return i18n.t('ui.sections.project.project_list.projectlisttable.collaborators_6eb695e5');
-    },
+    headerName: 'Collaborators',
     width: 180,
     align: 'left',
     headerAlign: 'left',
@@ -197,9 +186,7 @@ const columns = [
   },
   {
     field: 'lastOpened',
-    get headerName() {
-      return i18n.t('ui.sections.project.project_list.projectlisttable.last_opened_6674c9e5');
-    },
+    headerName: 'Last opened',
     width: 150,
     align: 'left',
     headerAlign: 'left',
@@ -294,7 +281,7 @@ const ProjectListTable = ({ onItemClick }) => {
           [`& .${gridClasses.columnHeader}`]: {
             px: 2,
           },
-          [`& .${gridClasses.cell}.ffax-data-grid-cell`]: {
+          [`& .${gridClasses.cell}.aurora-data-grid-cell`]: {
             px: 2,
           },
           [`& .${gridClasses.columnHeader} .${gridClasses.sortButton}`]: {

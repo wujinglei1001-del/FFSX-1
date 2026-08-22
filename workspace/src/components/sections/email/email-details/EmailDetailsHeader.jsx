@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router';
 import { ButtonBase, IconButton, Stack, Tooltip } from '@mui/material';
 import { useEmailContext } from 'providers/EmailProvider';
@@ -15,7 +14,6 @@ import CardHeaderAction from 'components/common/CardHeaderAction';
 import EmailDetailsActionMenu from './EmailDetailsActionMenu';
 
 const EmailDetailsHeader = () => {
-  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const { label } = useParams();
   const {
@@ -94,9 +92,7 @@ const EmailDetailsHeader = () => {
             />
           </IconButton>
         </Tooltip>
-        <Tooltip
-          title={translateUi('ui.sections.email.email_details.emaildetailsheader.archive_2621c6fd')}
-        >
+        <Tooltip title="Archive">
           <IconButton
             component={ButtonBase}
             onClick={() => emailDispatch({ type: ARCHIVE_EMAIL, payload: [email.id] })}
@@ -110,9 +106,7 @@ const EmailDetailsHeader = () => {
             />
           </IconButton>
         </Tooltip>
-        <Tooltip
-          title={translateUi('ui.sections.email.email_details.emaildetailsheader.delete_f6fdbe48')}
-        >
+        <Tooltip title="Delete">
           <IconButton
             component={ButtonBase}
             onClick={() => emailDispatch({ type: DELETE_EMAIL, payload: [email.id] })}

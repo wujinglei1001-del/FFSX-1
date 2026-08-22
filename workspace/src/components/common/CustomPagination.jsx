@@ -11,10 +11,6 @@ const CustomPagination = ({ count, sx, ...rest }) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const handleShowAll = () => {
-    setRowsPerPage((current) => (current === count ? 3 : count));
-    setPage(0);
-  };
 
   return (
     <TablePagination
@@ -27,7 +23,12 @@ const CustomPagination = ({ count, sx, ...rest }) => {
       rowsPerPage={rowsPerPage}
       onRowsPerPageChange={handleChangeRowsPerPage}
       ActionsComponent={(props) => (
-        <CustomTablePaginationAction onShowAllClick={handleShowAll} showFullPagination {...props} />
+        <CustomTablePaginationAction
+          showAllHref="#!"
+          onShowAllClick={() => {}}
+          showFullPagination
+          {...props}
+        />
       )}
       sx={{ bgcolor: 'background.paper', ...sx }}
       {...rest}

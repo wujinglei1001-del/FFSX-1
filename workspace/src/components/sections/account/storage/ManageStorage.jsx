@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Grid, Typography } from '@mui/material';
 import { convertSize } from 'lib/utils';
 import StorageBar from './StorageBar';
 import StorageCategoryCard from './StorageCategoryCard';
 
 const ManageStorage = ({ storageData }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <>
       <Typography variant="h6" sx={{ mb: 2 }}>
@@ -13,7 +11,7 @@ const ManageStorage = ({ storageData }) => {
           (convertSize(storageData.totalSpaceUsedinKb) / convertSize(storageData.totalSpaceinKb)) *
             100,
         )}
-        {translateUi('ui.sections.account.storage.managestorage.full_5418230f')}
+        % Full
       </Typography>
       <StorageBar storage={storageData} />
       <Grid container spacing={1}>

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -64,7 +63,6 @@ const Item = ({ label, icon, active, onClick }) => {
 };
 
 const TextDirectionPanel = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { textDirection },
     setConfig,
@@ -82,13 +80,13 @@ const TextDirectionPanel = () => {
   return (
     <Stack direction="row" sx={{ gap: 1 }}>
       <Item
-        label={translateUi('common_labels.left_to_right')}
+        label="LTR"
         icon="material-symbols:format-textdirection-l-to-r-outline"
         active={textDirection === 'ltr'}
         onClick={() => handleClick('ltr')}
       />
       <Item
-        label={translateUi('common_labels.right_to_left')}
+        label="RTL"
         icon="material-symbols:format-textdirection-r-to-l-outline"
         active={textDirection === 'rtl'}
         onClick={() => handleClick('rtl')}

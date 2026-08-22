@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -13,7 +12,6 @@ import AccessToggle from './AccessToggle';
 import DealStatus from './DealStatus';
 
 const DealDetailsHeader = ({ title }) => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const { down } = useBreakpoints();
 
@@ -24,14 +22,8 @@ const DealDetailsHeader = ({ title }) => {
       <div>
         <PageBreadcrumb
           items={[
-            {
-              label: translateUi('ui.sections.crm.deal_details.page_header.home_70f8bb9a'),
-              url: paths.crm,
-            },
-            {
-              label: translateUi('ui.sections.crm.deal_details.page_header.deal_details_b0dd2772'),
-              active: true,
-            },
+            { label: 'Home', url: paths.crm },
+            { label: 'Deal Details', active: true },
           ]}
           sx={{ mb: 1 }}
         />

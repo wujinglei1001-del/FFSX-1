@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, IconButton, InputAdornment, Stack } from '@mui/material';
 import { useGridApiRef } from '@mui/x-data-grid';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -16,7 +15,6 @@ const emptySelection = {
 };
 
 const InvoiceListContainer = () => {
-  const { t: translateUi } = useTranslation();
   const apiRef = useGridApiRef();
   const { only } = useBreakpoints();
   const [selectionModel, setSelectionModel] = useState(emptySelection);
@@ -50,7 +48,7 @@ const InvoiceListContainer = () => {
         <SearchTextField
           fullWidth
           onChange={handleSearch}
-          placeholder={translateUi('ui.sections.ecommerce.admin.invoice_list.search_bce06414')}
+          placeholder="Search"
           sx={{
             width: { xs: 1, sm: 300 },
             flexBasis: { xs: '100%', sm: 'unset' },

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Button,
@@ -12,7 +11,6 @@ import {
 } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useAccounts } from 'providers/AccountsProvider';
 import * as yup from 'yup';
@@ -22,39 +20,16 @@ import AccountFormDialog from '../common/AccountFormDialog';
 import Work from './Work';
 
 const workFormSchema = yup.object().shape({
-  companyName: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.workhistorysection.company_name_is_required_26410170',
-      ),
-    ),
-  designation: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.workhistorysection.designation_is_required_183fefe6',
-      ),
-    ),
-  location: yup
-    .string()
-    .required(
-      i18n.t('ui.sections.account.work_education.workhistorysection.location_is_required_3997aae0'),
-    ),
-  startDate: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.workhistorysection.start_date_is_required_438387af',
-      ),
-    ),
+  companyName: yup.string().required('Company name is required'),
+  designation: yup.string().required('Designation is required'),
+  location: yup.string().required('Location is required'),
+  startDate: yup.string().required('Start date is required'),
   endDate: yup.string().optional(),
   currentlyWorking: yup.boolean().required(),
   companyLogo: yup.string().nullable().defined(),
 });
 
 const WorkHistorySection = () => {
-  const { t: translateUi } = useTranslation();
   const { workHistory } = useAccounts();
   const [workHistories, setWorkHistories] = useState(workHistory);
   const [selectedWork, setSelectedWork] = useState(null);
@@ -159,18 +134,12 @@ const WorkHistorySection = () => {
         startIcon={<IconifyIcon icon="material-symbols:add" sx={{ fontSize: 20 }} />}
         onClick={() => handleOpenDialog(null)}
       >
-        {translateUi(
-          'ui.sections.account.work_education.workhistorysection.add_new_workplace_32deaca5',
-        )}
+        Add new workplace
       </Button>
       <FormProvider {...methods}>
         <AccountFormDialog
-          title={translateUi(
-            'ui.sections.account.work_education.workhistorysection.workplace_details_cbcd4dee',
-          )}
-          subtitle={translateUi(
-            'ui.sections.account.work_education.workhistorysection.update_your_workplace_information_is_current_for_pre_d8ed51d5',
-          )}
+          title="Workplace Details"
+          subtitle="Update your workplace information is current for precise notifications and records."
           open={dialogOpen}
           onSubmit={handleFormSubmit}
           handleDialogClose={handleCloseDialog}
@@ -182,9 +151,7 @@ const WorkHistorySection = () => {
           <Stack sx={{ gap: 2, alignItems: 'flex-start', p: 0.125 }}>
             <Stack sx={{ gap: 1, width: 1 }}>
               <TextField
-                label={translateUi(
-                  'ui.sections.account.work_education.workhistorysection.company_name_8599f5cc',
-                )}
+                label="Company Name"
                 error={!!errors.companyName}
                 helperText={errors.companyName?.message}
                 fullWidth
@@ -204,9 +171,7 @@ const WorkHistorySection = () => {
                 {...register('companyName')}
               />
               <TextField
-                label={translateUi(
-                  'ui.sections.account.work_education.workhistorysection.designation_b2797c75',
-                )}
+                label="Designation"
                 fullWidth
                 error={!!errors.designation}
                 helperText={errors.designation?.message}
@@ -223,9 +188,7 @@ const WorkHistorySection = () => {
               />
             </Stack>
             <TextField
-              label={translateUi(
-                'ui.sections.account.work_education.workhistorysection.location_d219c681',
-              )}
+              label="Location"
               fullWidth
               error={!!errors.location}
               helperText={errors.location?.message}
@@ -246,9 +209,7 @@ const WorkHistorySection = () => {
               render={({ field }) => (
                 <FormControlLabel
                   control={<Checkbox checked={field.value} {...field} />}
-                  label={translateUi(
-                    'ui.sections.account.work_education.workhistorysection.i_am_currently_working_here_932a1dbc',
-                  )}
+                  label="I am currently working here"
                   sx={{ ml: 0 }}
                 />
               )}
@@ -259,9 +220,7 @@ const WorkHistorySection = () => {
                 name="startDate"
                 render={({ field: { value, onChange, ...rest } }) => (
                   <DatePicker
-                    label={translateUi(
-                      'ui.sections.account.work_education.workhistorysection.start_date_9d7ab1a5',
-                    )}
+                    label="Start Date"
                     value={dayjs(value)}
                     onChange={(date) => onChange(date)}
                     slotProps={{
@@ -283,9 +242,7 @@ const WorkHistorySection = () => {
                 name="endDate"
                 render={({ field: { value, onChange, ...rest } }) => (
                   <DatePicker
-                    label={translateUi(
-                      'ui.sections.account.work_education.workhistorysection.end_date_84b14781',
-                    )}
+                    label="End Date"
                     disabled={currentlyWorking}
                     value={currentlyWorking ? dayjs() : dayjs(value)}
                     onChange={(date) => onChange(date)}

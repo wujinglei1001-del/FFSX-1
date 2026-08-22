@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Button,
   Divider,
@@ -13,7 +12,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import useNumberFormat from 'hooks/useNumberFormat';
+import { currencyFormat } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SortableDnd from 'components/base/SortableDnd';
 import TableRowForm from './TableRowForm';
@@ -24,8 +23,6 @@ const getTotalPrice = (subtotal, vat, discount, shippingCost) => {
   return taxableAmount + taxAmount + shippingCost;
 };
 const ItemDetailsTableForm = () => {
-  const { t: translateUi } = useTranslation();
-  const { currencyFormat } = useNumberFormat();
   const { control, watch } = useFormContext();
   const { fields, move, remove, append } = useFieldArray({
     control,
@@ -57,16 +54,11 @@ const ItemDetailsTableForm = () => {
   return (
     <Stack>
       <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 700 }}>
-        {translateUi('ui.sections.invoice.create_invoice.items_details.item_details_12e853a0')}
+        Item details
       </Typography>
       <SortableDnd items={fields} onDragEnd={handleDragEnd}>
         <TableContainer sx={{ mb: 2 }}>
-          <Table
-            sx={{ minWidth: 700 }}
-            aria-label={translateUi(
-              'ui.sections.invoice.create_invoice.items_details.item_details_table_23e6dd39',
-            )}
-          >
+          <Table sx={{ minWidth: 700 }} aria-label="item details table">
             <TableHead>
               <TableRow
                 sx={{
@@ -79,29 +71,11 @@ const ItemDetailsTableForm = () => {
                 }}
               >
                 <TableCell></TableCell>
-                <TableCell>
-                  {translateUi(
-                    'ui.sections.invoice.create_invoice.items_details.item_type_9ddc15fd',
-                  )}
-                </TableCell>
-                <TableCell>
-                  {translateUi(
-                    'ui.sections.invoice.create_invoice.items_details.description_55f8ebc8',
-                  )}
-                </TableCell>
-                <TableCell align="right">
-                  {translateUi(
-                    'ui.sections.invoice.create_invoice.items_details.quantity_44f6af69',
-                  )}
-                </TableCell>
-                <TableCell align="right">
-                  {translateUi(
-                    'ui.sections.invoice.create_invoice.items_details.unit_price_3c6c777f',
-                  )}
-                </TableCell>
-                <TableCell align="center">
-                  {translateUi('ui.sections.invoice.create_invoice.items_details.total_b25928c6')}
-                </TableCell>
+                <TableCell>Item type</TableCell>
+                <TableCell>Description</TableCell>
+                <TableCell align="right">Quantity</TableCell>
+                <TableCell align="right">Unit price</TableCell>
+                <TableCell align="center">Total</TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
@@ -139,11 +113,7 @@ const ItemDetailsTableForm = () => {
                       paddingLeft: '5px',
                     }}
                   >
-                    <Typography variant="button">
-                      {translateUi(
-                        'ui.sections.invoice.create_invoice.items_details.add_item_4dba3be5',
-                      )}
-                    </Typography>
+                    <Typography variant="button">Add Item</Typography>
                   </Button>
                 </TableCell>
               </TableRow>
@@ -158,7 +128,7 @@ const ItemDetailsTableForm = () => {
               flexGrow: 1,
             }}
           >
-            {translateUi('ui.sections.invoice.create_invoice.items_details.subtotal_97f7359e')}
+            Subtotal
           </Typography>
           <Typography
             variant="subtitle2"
@@ -179,7 +149,7 @@ const ItemDetailsTableForm = () => {
               flexGrow: 1,
             }}
           >
-            {translateUi('ui.sections.invoice.create_invoice.items_details.discount_b524936d')}
+            Discount
           </Typography>
           <Typography
             variant="subtitle2"
@@ -200,7 +170,7 @@ const ItemDetailsTableForm = () => {
               flexGrow: 1,
             }}
           >
-            {translateUi('ui.sections.invoice.create_invoice.items_details.tax_9be70f66')}
+            Tax
           </Typography>
           <Typography
             variant="subtitle2"
@@ -221,7 +191,7 @@ const ItemDetailsTableForm = () => {
               flexGrow: 1,
             }}
           >
-            {translateUi('ui.sections.invoice.create_invoice.items_details.shipping_cost_3ff0465a')}
+            Shipping cost
           </Typography>
           <Typography
             variant="subtitle2"
@@ -237,7 +207,7 @@ const ItemDetailsTableForm = () => {
         <Divider />
         <Stack direction="row" sx={{ py: '17px', textAlign: 'end', alignItems: 'center' }}>
           <Typography variant="body2" sx={{ flexGrow: 1 }}>
-            {translateUi('ui.sections.invoice.create_invoice.items_details.total_b25928c6')}
+            Total
           </Typography>
           <Typography variant="subtitle2" sx={{ fontWeight: 700, width: 130 }}>
             {currencyFormat(

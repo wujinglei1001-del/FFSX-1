@@ -1,5 +1,4 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Button, IconButton, Stack, Typography } from '@mui/material';
@@ -9,7 +8,6 @@ import ColorPicker from 'components/base/color-picker/ColorPicker';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const StatusRow = ({ id, group, index, onRemove, canRemove, colorPickerId }) => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -48,7 +46,7 @@ const StatusRow = ({ id, group, index, onRemove, canRemove, colorPickerId }) => 
 
       <StyledTextField
         fullWidth
-        placeholder={translateUi('ui.sections.project.create_project.steps.pending_96f608c1')}
+        placeholder="Pending"
         error={Boolean(groupErrors?.[index]?.label)}
         helperText={groupErrors?.[index]?.label?.message}
         {...register(`statuses.${group}.${index}.label`)}
@@ -63,7 +61,7 @@ const StatusRow = ({ id, group, index, onRemove, canRemove, colorPickerId }) => 
       />
 
       <IconButton
-        aria-label={translateUi('ui.sections.project.create_project.steps.remove_status_1ef24586')}
+        aria-label="Remove status"
         disabled={!canRemove}
         onClick={onRemove}
         sx={{ color: 'text.primary' }}
@@ -75,7 +73,6 @@ const StatusRow = ({ id, group, index, onRemove, canRemove, colorPickerId }) => 
 };
 
 const StatusGroup = ({ title, group }) => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { fields, append, remove, move } = useFieldArray({
     control,
@@ -118,7 +115,7 @@ const StatusGroup = ({ title, group }) => {
           startIcon={<IconifyIcon icon="material-symbols:add-rounded" fontSize={20} />}
           onClick={() => append({ label: '', color: '#E0E0E0' })}
         >
-          {translateUi('ui.sections.project.create_project.steps.add_another_e9e7205b')}
+          Add another
         </Button>
       </Stack>
     </div>
@@ -127,13 +124,12 @@ const StatusGroup = ({ title, group }) => {
 
 const Status = () => {
   useFormContext();
-  const { t: translateUi } = useTranslation();
 
   return (
     <Stack sx={{ gap: 2.5 }}>
-      <StatusGroup title={translateUi('common_labels.incomplete')} group="incomplete" />
-      <StatusGroup title={translateUi('common_labels.active')} group="active" />
-      <StatusGroup title={translateUi('common_labels.completed')} group="completed" />
+      <StatusGroup title="INCOMPLETE" group="incomplete" />
+      <StatusGroup title="ACTIVE" group="active" />
+      <StatusGroup title="COMPLETED" group="completed" />
     </Stack>
   );
 };

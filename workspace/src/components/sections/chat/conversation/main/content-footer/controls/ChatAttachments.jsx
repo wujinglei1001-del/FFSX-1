@@ -1,11 +1,9 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Tooltip } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { VisuallyHiddenInput } from 'components/styled/VisuallyHiddenInput';
 
 const ChatAttachments = () => {
-  const { t: translateUi } = useTranslation();
   const { setValue, watch } = useFormContext();
 
   const currentAttachments = watch('attachments') || [];
@@ -30,7 +28,7 @@ const ChatAttachments = () => {
   };
 
   return (
-    <Tooltip title={translateUi('ui.sections.chat.conversation.main.attachments_6771ade6')}>
+    <Tooltip title="Attachments">
       <Button shape="square" color="neutral" component="label">
         <IconifyIcon icon="material-symbols:attachment-rounded" fontSize={20} />
         <VisuallyHiddenInput type="file" onChange={handleFileSelection} multiple />

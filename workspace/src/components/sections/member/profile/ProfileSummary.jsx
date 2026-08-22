@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Link, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
 const ProfileSummary = ({ data, sx, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       background={1}
@@ -77,7 +75,7 @@ const ProfileSummary = ({ data, sx, ...rest }) => {
                 sx={{ fontWeight: 400, color: 'text.secondary', textWrap: 'nowrap' }}
               >
                 <Box component="span" sx={{ fontWeight: 500, color: 'text.primary' }}>
-                  {translateUi('ui.sections.member.profile.profilesummary.id_d789a1e9')}{' '}
+                  ID:{' '}
                 </Box>{' '}
                 {data.id}
               </Typography>
@@ -132,7 +130,7 @@ const ContactInfo = ({ icon, isLink = false, value }) => {
         <IconifyIcon icon={icon} sx={{ fontSize: 18 }} />
       </Button>
       {isLink ? (
-        <Link href={`mailto:${value}`} variant="subtitle2" sx={valueStyles}>
+        <Link href="#!" variant="subtitle2" sx={valueStyles}>
           {value}
         </Link>
       ) : (

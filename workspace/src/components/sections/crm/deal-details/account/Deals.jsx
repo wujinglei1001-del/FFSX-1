@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Chip, { chipClasses } from '@mui/material/Chip';
@@ -7,13 +6,11 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
-import useNumberFormat from 'hooks/useNumberFormat';
+import { currencyFormat } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CRMDropdownMenu from '../../common/CRMDropdownMenu';
 
 const Deals = ({ deals }) => {
-  const { t: translateUi } = useTranslation();
-  const { currencyFormat } = useNumberFormat();
   const [anchorEl, setAnchorEl] = useState(null);
 
   return (
@@ -26,7 +23,7 @@ const Deals = ({ deals }) => {
         <Box component="span" sx={{ textTransform: 'capitalize' }}>
           {deals[0].state}
         </Box>{' '}
-        {translateUi('ui.sections.crm.deal_details.account.deals_2c874671')}
+        Deals
       </Typography>
       <Stack
         sx={{
@@ -74,7 +71,7 @@ const Deals = ({ deals }) => {
                   }}
                 >
                   <Typography variant="body2" sx={{ fontWeight: 700 }}>
-                    {translateUi('ui.sections.crm.deal_details.account.budget_102a5880')}{' '}
+                    Budget:{' '}
                   </Typography>
                   <Typography sx={{ fontWeight: 500 }}>{currencyFormat(deal.budget)}</Typography>
                 </Stack>
@@ -87,9 +84,7 @@ const Deals = ({ deals }) => {
                     }}
                   >
                     <Typography variant="body2" sx={{ fontWeight: 700 }}>
-                      {translateUi(
-                        'ui.sections.crm.deal_details.account.closing_date_77dd8360',
-                      )}{' '}
+                      Closing Date:{' '}
                     </Typography>
                     <Typography sx={{ fontWeight: 500 }}>
                       {dayjs(deal.closingDate).format('D MMM, YYYY')}
@@ -104,7 +99,7 @@ const Deals = ({ deals }) => {
                     }}
                   >
                     <Typography variant="body2" sx={{ fontWeight: 700 }}>
-                      {translateUi('ui.sections.crm.deal_details.account.status_11dc9e19')}{' '}
+                      Status:{' '}
                     </Typography>
                     <Chip
                       label={deal.status}

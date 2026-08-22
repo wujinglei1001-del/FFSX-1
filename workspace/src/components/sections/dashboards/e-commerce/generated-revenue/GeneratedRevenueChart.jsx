@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import dayjs from 'dayjs';
 import { LineChart } from 'echarts/charts';
@@ -14,7 +13,6 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, LineChart, CanvasRenderer, LegendComponent]);
 
 const GeneratedRevenueChart = ({ sx, data, ref }) => {
-  const { t: translateUi } = useTranslation();
   const { vars, typography } = useTheme();
   const { getThemeColor } = useSettingsContext();
 
@@ -69,9 +67,7 @@ const GeneratedRevenueChart = ({ sx, data, ref }) => {
       },
       series: [
         {
-          name: translateUi(
-            'ui.sections.dashboards.e_commerce.generated_revenue.this_year_094c097f',
-          ),
+          name: 'This year',
           type: 'line',
           data: data.currentYear,
           showSymbol: false,
@@ -98,9 +94,7 @@ const GeneratedRevenueChart = ({ sx, data, ref }) => {
         },
         {
           type: 'line',
-          name: translateUi(
-            'ui.sections.dashboards.e_commerce.generated_revenue.last_year_3cf4d8d7',
-          ),
+          name: 'Last year',
           data: data.lastYear,
           showSymbol: true,
           symbolSize: 8,

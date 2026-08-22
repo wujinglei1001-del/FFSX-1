@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Divider, Stack, TextField, Typography } from '@mui/material';
 import { ecomCoupons } from 'data/e-commerce/products';
 import useNumberFormat from 'hooks/useNumberFormat';
@@ -7,7 +6,6 @@ import { useSnackbar } from 'notistack';
 import { useEcommerce } from 'providers/EcommerceProvider';
 
 const PaymentSummary = () => {
-  const { t: translateUi } = useTranslation();
   const [coupon, setCoupon] = useState('');
   const [couponError, setCouponError] = useState(false);
   const { appliedCoupon, setAppliedCoupon, cartSubTotal, cartTotal } = useEcommerce();
@@ -47,13 +45,11 @@ const PaymentSummary = () => {
             fullWidth
             value={coupon}
             onChange={(e) => setCoupon(e.target.value)}
-            label={translateUi(
-              'ui.sections.ecommerce.customer.common.enter_a_coupon_or_a_reward_code_3f8f14fa',
-            )}
+            label="Enter a coupon or a reward code"
           />
 
           <Button variant="soft" color="neutral" sx={{ minWidth: 200 }} onClick={applyCouponCode}>
-            {translateUi('ui.sections.ecommerce.customer.common.apply_cfea419c')}
+            Apply
           </Button>
         </Stack>
 
@@ -66,10 +62,7 @@ const PaymentSummary = () => {
                 mb: 0.5,
               }}
             >
-              {translateUi(
-                'ui.sections.ecommerce.customer.common.you_have_applied_coupon_510f248b',
-              )}
-              <strong>{appliedCoupon?.code}</strong>
+              You have applied coupon <strong>{appliedCoupon?.code}</strong>
             </Typography>
             <br />
             <Typography
@@ -79,7 +72,7 @@ const PaymentSummary = () => {
                 mb: 0.5,
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.common.which_saves_you_0ed4c727')}{' '}
+              Which saves you{' '}
               <Box
                 component="span"
                 sx={{
@@ -101,9 +94,7 @@ const PaymentSummary = () => {
                 mb: 1,
               }}
             >
-              {translateUi(
-                'ui.sections.ecommerce.customer.common.uh_oh_seems_like_this_coupon_does_not_exist_8a47a6a3',
-              )}
+              Uh-oh! Seems like this coupon does not exist.
             </Typography>
 
             <Typography
@@ -113,9 +104,7 @@ const PaymentSummary = () => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi(
-                'ui.sections.ecommerce.customer.common.please_check_if_all_the_letters_and_numbers_are_keye_e6f0b189',
-              )}
+              Please check if all the letters and numbers are keyed correctly.
             </Typography>
           </>
         )}
@@ -127,7 +116,7 @@ const PaymentSummary = () => {
             fontWeight: 700,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.common.summary_12b71c3e')}
+          Summary
         </Typography>
 
         <Divider sx={{ my: 3 }} />
@@ -146,7 +135,7 @@ const PaymentSummary = () => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.common.subtotal_97f7359e')}
+            Subtotal
           </Typography>
           <Typography
             variant="subtitle1"
@@ -177,7 +166,7 @@ const PaymentSummary = () => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.common.shipping_cost_3ff0465a')}
+              Shipping cost
             </Typography>
             <Typography
               variant="subtitle1"
@@ -196,16 +185,16 @@ const PaymentSummary = () => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.common.you_are_only_972ff3a3')}{' '}
+            You are only{' '}
             <Box
               component="span"
               sx={{
                 color: 'success.main',
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.common.20_away_efd0dd8a')}
+              $20 away
             </Box>{' '}
-            {translateUi('ui.sections.ecommerce.customer.common.from_free_shipping_bdcbbdca')}
+            from free shipping
           </Typography>
         </div>
 
@@ -225,7 +214,7 @@ const PaymentSummary = () => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.common.discount_b524936d')}
+            Discount
           </Typography>
           <Typography
             variant="subtitle1"
@@ -255,7 +244,7 @@ const PaymentSummary = () => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.common.total_b25928c6')}
+              Total
             </Typography>
             <Typography variant="h4">{currencyFormat(cartTotal)}</Typography>
           </Stack>
@@ -263,9 +252,7 @@ const PaymentSummary = () => {
           <Chip
             color="success"
             variant="filled"
-            label={translateUi(
-              'ui.sections.ecommerce.customer.common.yay_you_saved_30_in_total_827e152a',
-            )}
+            label="Yay! you saved 30% in total"
             sx={{ textAlign: 'right' }}
           />
         </Box>

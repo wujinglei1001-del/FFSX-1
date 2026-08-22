@@ -1,8 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { FormControl, FormControlLabel, Stack, Switch, Typography } from '@mui/material';
 
 const TouchIdFeatures = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack sx={{ gap: 3 }}>
       <FormControl
@@ -11,36 +9,26 @@ const TouchIdFeatures = () => {
         sx={{ gap: 2, alignItems: 'flex-start' }}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          {translateUi(
-            'ui.sections.account.touch_id.touchidfeatures.manage_touch_id_features_6ff4a848',
-          )}
+          Manage Touch ID Features
         </Typography>
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label={translateUi(
-            'ui.sections.account.touch_id.touchidfeatures.use_touch_id_to_unlock_your_login_page_d157d8d8',
-          )}
+          label="Use Touch ID to unlock your login page"
           sx={{ gap: 2, ml: 0 }}
         />
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label={translateUi(
-            'ui.sections.account.touch_id.touchidfeatures.use_touch_id_for_online_payment_339f02af',
-          )}
+          label="Use Touch ID for online payment"
           sx={{ gap: 2, ml: 0 }}
         />
         <FormControlLabel
           control={<Switch defaultChecked />}
-          label={translateUi(
-            'ui.sections.account.touch_id.touchidfeatures.use_touch_id_for_autofilling_passwords_d8799fef',
-          )}
+          label="Use Touch ID for Autofilling passwords"
           sx={{ gap: 2, ml: 0 }}
         />
         <FormControlLabel
           control={<Switch />}
-          label={translateUi(
-            'ui.sections.account.touch_id.touchidfeatures.use_touch_id_for_fast_user_switching_05749acf',
-          )}
+          label="Use Touch ID for fast user switching"
           sx={{ gap: 2, ml: 0 }}
         />
       </FormControl>

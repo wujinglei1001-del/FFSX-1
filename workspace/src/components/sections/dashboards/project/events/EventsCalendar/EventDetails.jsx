@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Button,
@@ -16,7 +15,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const EventDetails = () => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     watch,
@@ -35,21 +33,15 @@ const EventDetails = () => {
             control={control}
             render={({ field }) => (
               <StyledTextField
-                label={translateUi('ui.sections.dashboards.project.events.event_type_23f657cb')}
+                label="Event type"
                 select
                 {...field}
                 error={!!errors.eventType}
                 helperText={errors.eventType?.message}
               >
-                <MenuItem value="online">
-                  {translateUi('ui.sections.dashboards.project.events.online_c3e839df')}
-                </MenuItem>
-                <MenuItem value="physical">
-                  {translateUi('ui.sections.dashboards.project.events.physical_919b82a0')}
-                </MenuItem>
-                <MenuItem value="hybrid">
-                  {translateUi('ui.sections.dashboards.project.events.hybrid_8e01f6bc')}
-                </MenuItem>
+                <MenuItem value="online">Online</MenuItem>
+                <MenuItem value="physical">Physical</MenuItem>
+                <MenuItem value="hybrid">Hybrid</MenuItem>
               </StyledTextField>
             )}
           />
@@ -61,7 +53,7 @@ const EventDetails = () => {
             render={({ field }) => (
               <StyledTextField
                 select
-                label={translateUi('ui.sections.dashboards.project.events.notification_c18f8f25')}
+                label="Notification"
                 {...field}
                 slotProps={{
                   input: {
@@ -73,18 +65,10 @@ const EventDetails = () => {
                   },
                 }}
               >
-                <MenuItem value={15}>
-                  {translateUi('ui.sections.dashboards.project.events.15_minutes_before_4bba5a72')}
-                </MenuItem>
-                <MenuItem value={30}>
-                  {translateUi('ui.sections.dashboards.project.events.30_minutes_before_3eef06b7')}
-                </MenuItem>
-                <MenuItem value={45}>
-                  {translateUi('ui.sections.dashboards.project.events.45_minutes_before_6bb473a4')}
-                </MenuItem>
-                <MenuItem value={60}>
-                  {translateUi('ui.sections.dashboards.project.events.60_minutes_before_252d11fc')}
-                </MenuItem>
+                <MenuItem value={15}>15 minutes before</MenuItem>
+                <MenuItem value={30}>30 minutes before</MenuItem>
+                <MenuItem value={45}>45 minutes before</MenuItem>
+                <MenuItem value={60}>60 minutes before</MenuItem>
               </StyledTextField>
             )}
           />
@@ -103,11 +87,9 @@ const EventDetails = () => {
       </Stack>
       {(eventType === 'online' || eventType === 'hybrid') && (
         <StyledTextField
-          label={translateUi('ui.sections.dashboards.project.events.virtual_8e7daa12')}
+          label="Virtual"
           fullWidth
-          placeholder={translateUi(
-            'ui.sections.dashboards.project.events.add_meeting_link_8e37591f',
-          )}
+          placeholder="Add meeting link"
           error={!!errors.virtualLink}
           helperText={errors.virtualLink?.message}
           slotProps={{
@@ -124,9 +106,9 @@ const EventDetails = () => {
       )}
       {(eventType === 'physical' || eventType === 'hybrid') && (
         <StyledTextField
-          label={translateUi('ui.sections.dashboards.project.events.physical_919b82a0')}
+          label="Physical"
           fullWidth
-          placeholder={translateUi('ui.sections.dashboards.project.events.add_location_80fb1d44')}
+          placeholder="Add location"
           error={!!errors.physical}
           helperText={errors.physical?.message}
           slotProps={{
@@ -196,10 +178,8 @@ const EventDetails = () => {
               renderInput={(params) => (
                 <StyledTextField
                   {...params}
-                  label={translateUi('ui.sections.dashboards.project.events.add_guests_d7aacd94')}
-                  placeholder={translateUi(
-                    'ui.sections.dashboards.project.events.user_id_23bf49da',
-                  )}
+                  label="Add Guests"
+                  placeholder="User ID"
                   error={!!errors.members}
                   helperText={errors.members?.message}
                 />
@@ -231,7 +211,7 @@ const EventDetails = () => {
           )}
         />
         <Button variant="soft" size="medium" sx={{ textWrap: 'nowrap', minWidth: 'max-content' }}>
-          {translateUi('ui.sections.dashboards.project.events.send_e_vite_d970e332')}
+          Send E-vite
         </Button>
       </Stack>
     </Stack>

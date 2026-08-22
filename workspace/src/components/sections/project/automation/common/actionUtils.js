@@ -1,5 +1,4 @@
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { getActionFieldVariant } from './actionRegistry';
 import { getActionTypeLabel } from './constants';
 
@@ -12,23 +11,14 @@ export const validateActionParams = (action, params, context) => {
   switch (variant) {
     case 'group':
       if (!params.targetGroup?.trim()) {
-        return createError({
-          path: `${basePath}.targetGroup`,
-          get message() {
-            return i18n.t('ui.sections.project.automation.common.group_is_required_4805ce55');
-          },
-        });
+        return createError({ path: `${basePath}.targetGroup`, message: 'Group is required' });
       }
       return true;
     case 'project':
       if (!params.targetProject?.trim()) {
         return createError({
           path: `${basePath}.targetProject`,
-          get message() {
-            return i18n.t(
-              'ui.sections.project.automation.common.target_project_is_required_2abcb8e1',
-            );
-          },
+          message: 'Target project is required',
         });
       }
       return true;
@@ -38,22 +28,13 @@ export const validateActionParams = (action, params, context) => {
         if (!params.customDate?.trim()) {
           return createError({
             path: `${basePath}.customDate`,
-            get message() {
-              return i18n.t(
-                'ui.sections.project.automation.common.custom_date_is_required_0c72af10',
-              );
-            },
+            message: 'Custom date is required',
           });
         }
         return true;
       }
       if (!params.dateOffset?.trim()) {
-        return createError({
-          path: `${basePath}.dateOffset`,
-          get message() {
-            return i18n.t('ui.sections.project.automation.common.offset_is_required_25574025');
-          },
-        });
+        return createError({ path: `${basePath}.dateOffset`, message: 'Offset is required' });
       }
       return true;
     }
@@ -61,40 +42,21 @@ export const validateActionParams = (action, params, context) => {
       if (!params.fromPriority?.trim()) {
         return createError({
           path: `${basePath}.fromPriority`,
-          get message() {
-            return i18n.t(
-              'ui.sections.project.automation.common.from_priority_is_required_a3384fd5',
-            );
-          },
+          message: 'From priority is required',
         });
       }
       if (!params.newPriority?.trim()) {
-        return createError({
-          path: `${basePath}.newPriority`,
-          get message() {
-            return i18n.t('ui.sections.project.automation.common.to_priority_is_required_01c0eb81');
-          },
-        });
+        return createError({ path: `${basePath}.newPriority`, message: 'To priority is required' });
       }
       return true;
     case 'status':
       if (!params.status?.trim()) {
-        return createError({
-          path: `${basePath}.status`,
-          get message() {
-            return i18n.t('ui.sections.project.automation.common.status_is_required_d88cae16');
-          },
-        });
+        return createError({ path: `${basePath}.status`, message: 'Status is required' });
       }
       return true;
     case 'create_task':
       if (!params.taskName?.trim()) {
-        return createError({
-          path: `${basePath}.taskName`,
-          get message() {
-            return i18n.t('ui.sections.project.automation.common.task_name_is_required_17ee7cb7');
-          },
-        });
+        return createError({ path: `${basePath}.taskName`, message: 'Task name is required' });
       }
       return true;
     default:

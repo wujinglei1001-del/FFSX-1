@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { statData } from 'data/hiring/dashboard';
@@ -7,7 +6,6 @@ import SectionWrapper from 'components/sections/dashboards/hiring/common/Section
 import StatCard from './StatCard';
 
 const OverviewStats = () => {
-  const { t: translateUi } = useTranslation();
   const today = dayjs();
 
   return (
@@ -23,9 +21,7 @@ const OverviewStats = () => {
       >
         <div>
           <Typography variant="h5" sx={{ mb: 0.5, whiteSpace: 'nowrap' }}>
-            {translateUi(
-              'ui.sections.dashboards.hiring.overview_stats.welcome_john_carter_a49b2e44',
-            )}
+            Welcome, John Carter!
           </Typography>
           <Typography
             variant="subtitle1"
@@ -35,9 +31,7 @@ const OverviewStats = () => {
               color: 'text.secondary',
             }}
           >
-            {translateUi(
-              'ui.sections.dashboards.hiring.overview_stats.have_a_productive_day_1e0a2f2b',
-            )}
+            Have a Productive Day!
           </Typography>
         </div>
 
@@ -51,8 +45,7 @@ const OverviewStats = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            {translateUi('ui.sections.dashboards.hiring.overview_stats.today_is_1ea03080')}
-            {today.format('dddd')}
+            Today is {today.format('dddd')}
           </Typography>
           <Typography
             variant="subtitle1"

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -19,7 +18,6 @@ import { useChatContext } from 'providers/ChatProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FileAttachments = () => {
-  const { t: translateUi } = useTranslation();
   const [attachmentsCount, setAttachmentsCount] = useState(4);
   const { currentConversation } = useChatContext();
 
@@ -39,15 +37,13 @@ const FileAttachments = () => {
           px: { md: 2 },
         }}
       >
-        <Typography variant="h6">
-          {translateUi('ui.sections.chat.conversation.aside.files_6ce6c512')}
-        </Typography>
+        <Typography variant="h6">Files</Typography>
         <Button
           variant="text"
           disabled={!fileAttachments.length}
           onClick={() => setAttachmentsCount(fileAttachments.length)}
         >
-          {translateUi('ui.sections.chat.conversation.aside.view_all_931e1a4b')}
+          View all
         </Button>
       </Stack>
       {fileAttachments.length > 0 ? (
@@ -58,17 +54,13 @@ const FileAttachments = () => {
               disablePadding
               secondaryAction={
                 <Stack direction="row" sx={{ gap: 0.5 }}>
-                  <Tooltip
-                    title={translateUi('ui.sections.chat.conversation.aside.download_a479c9c3')}
-                  >
+                  <Tooltip title="Download">
                     <Button variant="text" color="neutral" shape="square" size="small">
                       <IconifyIcon icon="material-symbols:download-rounded" fontSize={18} />
                     </Button>
                   </Tooltip>
 
-                  <Tooltip
-                    title={translateUi('ui.sections.chat.conversation.aside.delete_f6fdbe48')}
-                  >
+                  <Tooltip title="Delete">
                     <Button variant="text" color="neutral" shape="square" size="small">
                       <IconifyIcon icon="material-symbols:delete-outline-rounded" fontSize={18} />
                     </Button>
@@ -120,7 +112,7 @@ const FileAttachments = () => {
             px: { md: 2 },
           }}
         >
-          {translateUi('ui.sections.chat.conversation.aside.no_files_attached_yet_d50be62f')}
+          No files attached yet.
         </Typography>
       )}
     </Box>

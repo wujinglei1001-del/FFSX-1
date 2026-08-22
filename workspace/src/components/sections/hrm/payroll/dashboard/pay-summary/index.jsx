@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { paySummaryKpis } from 'data/hrm/payroll/dashboard';
@@ -7,11 +6,10 @@ import SectionHeader from 'components/common/SectionHeader';
 import PayKPI from './PayKPI';
 
 const PaySummary = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, height: 1 }}>
       <SectionHeader
-        title={translateUi('ui.sections.hrm.payroll.dashboard.pay_summary_e1436bfc')}
+        title="Pay Summary"
         subTitle="Here's what was processed in the previous payroll"
         actionComponent={<DashboardMenu size="medium" />}
       />

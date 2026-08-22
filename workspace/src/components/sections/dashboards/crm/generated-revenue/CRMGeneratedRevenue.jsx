@@ -1,36 +1,18 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Paper, Stack, Typography } from '@mui/material';
 import { crmGeneratedRevenueData } from 'data/crm/dashboard';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
-import i18n from 'locales/i18n';
 import ChartLegend from 'components/common/ChartLegend';
 import DashboardMenu from 'components/common/DashboardMenu';
 import CRMGeneratedRevenueChart from './CRMGeneratedRevenueChart';
 
 const chartLegends = [
-  {
-    get label() {
-      return i18n.t('ui.sections.dashboards.crm.generated_revenue.25th_a1a42408');
-    },
-    color: 'chGrey.200',
-  },
-  {
-    get label() {
-      return i18n.t('ui.sections.dashboards.crm.generated_revenue.50th_e72f00ee');
-    },
-    color: 'chGreen.400',
-  },
-  {
-    get label() {
-      return i18n.t('ui.sections.dashboards.crm.generated_revenue.75th_52c688e9');
-    },
-    color: 'chBlue.500',
-  },
+  { label: '25th', color: 'chGrey.200' },
+  { label: '50th', color: 'chGreen.400' },
+  { label: '75th', color: 'chBlue.500' },
 ];
 
 const CRMGeneratedRevenue = () => {
-  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
 
@@ -58,9 +40,7 @@ const CRMGeneratedRevenue = () => {
                 mb: 1,
               }}
             >
-              {translateUi(
-                'ui.sections.dashboards.crm.generated_revenue.revenue_generated_d7891231',
-              )}
+              Revenue Generated
             </Typography>
             <Typography
               variant="body2"
@@ -68,9 +48,7 @@ const CRMGeneratedRevenue = () => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi(
-                'ui.sections.dashboards.crm.generated_revenue.amount_of_revenue_in_this_month_c90cfc9a',
-              )}
+              Amount of revenue in this month
             </Typography>
           </div>
 

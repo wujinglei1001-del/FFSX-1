@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -8,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 import TableLabelDisplayedRows from 'components/pagination/TableLabelDisplayedRows';
 import ActivityChart from './ActivityChart';
@@ -25,7 +23,6 @@ const getJSSResponseColor = (value, vars) => {
 };
 
 const ResignationsTable = ({ tableData }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat, numberFormat } = useNumberFormat();
   const { up } = useBreakpoints();
   const { vars } = useTheme();
@@ -35,14 +32,14 @@ const ResignationsTable = ({ tableData }) => {
     () => [
       {
         field: 'id',
-        headerName: translateUi('ui.sections.dashboards.hrm.resignations.id_no_0df58af4'),
+        headerName: 'ID no.',
         headerClassName: 'resignation-id-header',
         cellClassName: 'resignation-id-cell',
         width: 100,
       },
       {
         field: 'profile',
-        headerName: translateUi('ui.sections.dashboards.hrm.resignations.name_709a2322'),
+        headerName: 'Name',
         headerClassName: 'profile-header',
         cellClassName: 'profile-cell',
         minWidth: 220,
@@ -69,7 +66,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'reason',
-        headerName: translateUi('ui.sections.dashboards.hrm.resignations.reason_f219cc06'),
+        headerName: 'Reason',
         headerClassName: 'reason-header',
         cellClassName: 'reason-cell',
         minWidth: 180,
@@ -85,7 +82,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'jssResponse',
-        headerName: translateUi('ui.sections.dashboards.hrm.resignations.jss_response_00a9ccca'),
+        headerName: 'JSS Response',
         headerClassName: 'jss-response-header',
         cellClassName: 'jss-response-cell',
         minWidth: 120,
@@ -142,7 +139,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'lastSalary',
-        headerName: translateUi('ui.sections.dashboards.hrm.resignations.last_salary_ac841bd7'),
+        headerName: 'Last Salary',
         headerClassName: 'last-salary-header',
         cellClassName: 'last-salary-cell',
         minWidth: 170,
@@ -157,9 +154,7 @@ const ResignationsTable = ({ tableData }) => {
       },
       {
         field: 'activity',
-        headerName: translateUi(
-          'ui.sections.dashboards.hrm.resignations.activity_tracking_fb69b086',
-        ),
+        headerName: 'Activity tracking',
         headerClassName: 'activity-header',
         cellClassName: 'activity-cell',
         minWidth: 200,
@@ -201,7 +196,7 @@ const ResignationsTable = ({ tableData }) => {
         slots={{
           basePagination: (props) => (
             <DataGridPagination
-              showAllHref={paths.members}
+              showAllHref="#!"
               labelDisplayedRows={upLg ? TableLabelDisplayedRows : () => null}
               {...props}
             />
@@ -223,7 +218,7 @@ const ResignationsTable = ({ tableData }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.resignation-id-cell, .activity-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

@@ -21,19 +21,11 @@ function Assert-FrontendBundle {
 
   $indexPath = Join-Path $BundleRoot 'index.html'
   $assetsPath = Join-Path $BundleRoot 'assets'
-  $brandIconPath = Join-Path $BundleRoot 'ffax.svg'
-  $legacyIconPath = Join-Path $BundleRoot 'aurora.svg'
   if (-not (Test-Path -LiteralPath $indexPath -PathType Leaf)) {
     throw "Missing frontend entry: $indexPath"
   }
   if (-not (Test-Path -LiteralPath $assetsPath -PathType Container)) {
     throw "Missing frontend asset directory: $assetsPath"
-  }
-  if (-not (Test-Path -LiteralPath $brandIconPath -PathType Leaf)) {
-    throw "Missing FFA-X brand icon: $brandIconPath"
-  }
-  if (Test-Path -LiteralPath $legacyIconPath) {
-    throw "Legacy Aurora brand icon remains in frontend bundle: $legacyIconPath"
   }
 
   $assetCount = @(Get-ChildItem -LiteralPath $assetsPath -File -Recurse).Count
@@ -42,18 +34,7 @@ function Assert-FrontendBundle {
   }
 
   $indexHtml = Get-Content -LiteralPath $indexPath -Raw
-  $forbiddenBranding = @(
-    'aurora.svg',
-    'Aurora, the intuitive',
-    'fonts.googleapis.com',
-    'fonts.gstatic.com',
-    'prium.github.io/aurora'
-  )
-  foreach ($forbiddenValue in $forbiddenBranding) {
-    if ($indexHtml.Contains($forbiddenValue, [StringComparison]::OrdinalIgnoreCase)) {
-      throw "Legacy or remote template dependency remains in $indexPath`: $forbiddenValue"
-    }
-  }
+
   $references = [regex]::Matches($indexHtml, '(?:src|href)="([^"]+)"')
   foreach ($reference in $references) {
     $url = $reference.Groups[1].Value -replace '[?#].*$', ''

@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import paths from 'routes/paths';
 import ProductCard from '../common/ProductCard';
 
 const FeaturedProducts = ({ products }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, py: 5 }}>
       <Typography
@@ -15,9 +13,7 @@ const FeaturedProducts = ({ products }) => {
           mb: 4,
         }}
       >
-        {translateUi(
-          'ui.sections.ecommerce.customer.homepage.featured_products_just_for_you_fd452f1c',
-        )}
+        Featured products just for you
       </Typography>
       <Grid
         container
@@ -42,7 +38,7 @@ const FeaturedProducts = ({ products }) => {
           width: 'fit-content',
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.homepage.load_more_products_e9797b49')}
+        Load more products
       </Button>
     </Box>
   );

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/material';
 import { cardClasses } from '@mui/material/Card';
 import Container from '@mui/material/Container';
@@ -10,7 +9,6 @@ import RevealItems from '../common/RevealItems';
 import SectionHeader from '../common/SectionHeader';
 
 const Pricing = () => {
-  const { t: translateUi } = useTranslation();
   const { between } = useBreakpoints();
 
   const isBetweenSmLg = between('sm', 'lg');
@@ -18,10 +16,8 @@ const Pricing = () => {
   return (
     <Box sx={{ px: { xs: 3, md: 5 }, pt: { xs: 8, sm: 16 }, pb: { xs: 0, sm: 8 } }}>
       <SectionHeader
-        title={translateUi('ui.sections.landing.homepage.pricing.pricing_a0d9bbad')}
-        subtitle={translateUi(
-          'ui.sections.landing.homepage.pricing.choose_the_package_that_fit_best_for_you_0f1ecd72',
-        )}
+        title="Pricing"
+        subtitle="Choose the package that fit best for you"
         sx={{ mb: 3 }}
       />
 

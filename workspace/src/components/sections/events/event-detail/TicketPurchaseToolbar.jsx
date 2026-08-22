@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Container, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const TicketPurchaseToolbar = ({ onPurchaseClick }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={({ mixins }) => ({
@@ -33,7 +31,7 @@ const TicketPurchaseToolbar = ({ onPurchaseClick }) => {
             <IconifyIcon icon="material-symbols:favorite-outline-rounded" width={20} height={20} />
           </Button>
           <Button variant="contained" onClick={onPurchaseClick}>
-            {translateUi('ui.sections.events.event_detail.ticketpurchasetoolbar.purchase_160f06d4')}
+            Purchase
           </Button>
         </Stack>
       </Container>

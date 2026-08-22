@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Container, Divider, Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import paths from 'routes/paths';
@@ -10,25 +9,15 @@ import PaymentDetails from 'components/sections/ecommerce/customer/payment/Payme
 import PaymentMethods from 'components/sections/ecommerce/customer/payment/PaymentMethods';
 
 const Payment = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.ecommerce.customer.payment_b41a92be')}
+          title="Payment"
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.cart_44656820'),
-              url: paths.cart,
-            },
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.checkout_3ac8e9e5'),
-              url: paths.checkout,
-            },
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.payment_b41a92be'),
-              active: true,
-            },
+            { label: 'Cart', url: paths.cart },
+            { label: 'Checkout', url: paths.checkout },
+            { label: 'Payment', active: true },
           ]}
         />
       </Grid>
@@ -49,7 +38,7 @@ const Payment = () => {
                 mb: 1,
               }}
             >
-              {translateUi('ui.pages.apps.ecommerce.customer.your_order_has_been_placed_52e2ba05')}
+              Your order has been placed!
             </Typography>
             <Typography
               variant="h5"
@@ -64,7 +53,7 @@ const Payment = () => {
                   color: 'text.secondary',
                 }}
               >
-                {translateUi('ui.pages.apps.ecommerce.customer.order_id_81415342')}{' '}
+                Order ID{' '}
               </Box>
               #51253134
             </Typography>
@@ -75,12 +64,7 @@ const Payment = () => {
                 mb: 3,
               }}
             >
-              {translateUi(
-                'ui.pages.apps.ecommerce.customer.a_confirmation_email_has_been_sent_to_82006b1e',
-              )}
-              <strong>
-                {translateUi('ui.pages.apps.ecommerce.customer.hello_email_com_7b5f21e4')}
-              </strong>
+              A confirmation email has been sent to <strong>hello@email.com</strong>
             </Typography>
             <PaymentDetails sx={{ mb: 7 }} />
             <PaymentMethods />

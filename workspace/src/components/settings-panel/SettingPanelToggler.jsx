@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Button, buttonClasses, useTheme } from '@mui/material';
 import { useSettingsPanelContext } from 'providers/SettingsPanelProvider';
 import SettingsIcon from 'components/icons/SettingsIcon';
 
 const SettingPanelToggler = () => {
-  const { t: translateUi } = useTranslation();
   const { setSettingsPanelConfig } = useSettingsPanelContext();
 
   const theme = useTheme();
@@ -51,7 +49,7 @@ const SettingPanelToggler = () => {
         })
       }
     >
-      {translateUi('ui.components.settings_panel.settingpaneltoggler.customize_239dce62')}
+      Customize
     </Button>
   );
 };

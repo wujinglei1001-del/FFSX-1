@@ -1,10 +1,8 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Chip, Link, Stack } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import { orderListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
-import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 import OrderDetailsPopper from './OrderDetailsPopper';
@@ -43,7 +41,6 @@ const getShippingMethodBadgeColor = (val) => {
 const defaultPageSize = 8;
 
 const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
 
   const columns = useMemo(
@@ -54,7 +51,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'id',
-        headerName: translateUi('ui.sections.ecommerce.admin.order_list.order_1d75774c'),
+        headerName: 'Order',
         headerClassName: 'order-id-header',
         cellClassName: 'order-id-cell',
         sortable: false,
@@ -66,14 +63,14 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'date',
-        headerName: translateUi('ui.sections.ecommerce.admin.order_list.date_eb9a4bc1'),
+        headerName: 'Date',
         headerClassName: 'product-header',
         cellClassName: 'product-cell',
         width: 240,
       },
       {
         field: 'customer',
-        headerName: translateUi('ui.sections.ecommerce.admin.order_list.customer_0e85749a'),
+        headerName: 'Customer',
         headerClassName: 'product-header',
         cellClassName: 'product-cell',
         minWidth: 280,
@@ -93,7 +90,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
                 src={params.row.customer.avatar}
                 sx={{ width: 32, height: 32 }}
               />
-              <Link variant="subtitle2" href={paths.customerAccount} sx={{ fontWeight: 400 }}>
+              <Link variant="subtitle2" href="#!" sx={{ fontWeight: 400 }}>
                 {params.row.customer.name}
               </Link>
             </Stack>
@@ -102,7 +99,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'paymentStatus',
-        headerName: translateUi('ui.sections.ecommerce.admin.order_list.payment_status_9dfea404'),
+        headerName: 'Payment status',
         headerClassName: 'payment-status-header',
         cellClassName: 'payment-status-cell',
         minWidth: 152,
@@ -119,9 +116,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'fulfillmentStatus',
-        headerName: translateUi(
-          'ui.sections.ecommerce.admin.order_list.fulfillment_status_9426c9df',
-        ),
+        headerName: 'Fulfillment status',
         headerClassName: 'fulfillment-header',
         cellClassName: 'fulfillment-cell',
         minWidth: 192,
@@ -138,7 +133,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'shippingMethod',
-        headerName: translateUi('ui.sections.ecommerce.admin.order_list.shipping_method_9d1aafa8'),
+        headerName: 'Shipping method',
         headerClassName: 'shipping-method-header',
         cellClassName: 'shipping-method-cell',
         minWidth: 152,
@@ -156,7 +151,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
       },
       {
         field: 'total',
-        headerName: translateUi('ui.sections.ecommerce.admin.order_list.total_b25928c6'),
+        headerName: 'Total',
         headerClassName: 'total-header',
         cellClassName: 'total-cell',
         minWidth: 148,
@@ -228,7 +223,7 @@ const OrdersTable = ({ apiRef, filterButtonEl, selectionModel, onSelectionChange
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

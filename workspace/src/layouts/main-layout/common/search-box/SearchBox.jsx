@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -7,7 +6,7 @@ import SearchDialog from './SearchDialog';
 import SearchPopover from './SearchPopover';
 import SearchTextField from './SearchTextField';
 
-const SearchBox = ({ sx, navigation }) => {
+const SearchBox = ({ sx }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -36,13 +35,12 @@ const SearchBox = ({ sx, navigation }) => {
           },
         }}
       />
-      <SearchPopover anchorEl={anchorEl} handleClose={handleClose} navigation={navigation} />
+      <SearchPopover anchorEl={anchorEl} handleClose={handleClose} />
     </>
   );
 };
 
-export const SearchBoxButton = ({ type = 'default', sx, navigation, ...rest }) => {
-  const { t: translateUi } = useTranslation();
+export const SearchBoxButton = ({ type = 'default', sx, ...rest }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { up } = useBreakpoints();
   const upSm = up('sm');
@@ -69,7 +67,7 @@ export const SearchBoxButton = ({ type = 'default', sx, navigation, ...rest }) =
           {...rest}
         >
           <Box sx={{ mb: 0.25 }} component="span">
-            {translateUi('ffax.ui.search')}
+            Search
           </Box>
         </Button>
       ) : (
@@ -80,8 +78,6 @@ export const SearchBoxButton = ({ type = 'default', sx, navigation, ...rest }) =
           variant="soft"
           size={type === 'slim' ? 'small' : 'medium'}
           onClick={handleClick}
-          aria-label={translateUi('ffax.ui.search')}
-          title={translateUi('ffax.ui.search')}
           sx={sx}
           {...rest}
         >
@@ -91,7 +87,7 @@ export const SearchBoxButton = ({ type = 'default', sx, navigation, ...rest }) =
           />
         </Button>
       )}
-      <SearchDialog anchorEl={anchorEl} handleClose={handleClose} navigation={navigation} />
+      <SearchDialog anchorEl={anchorEl} handleClose={handleClose} />
     </>
   );
 };

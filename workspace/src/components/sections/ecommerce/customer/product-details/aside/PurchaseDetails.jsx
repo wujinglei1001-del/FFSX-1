@@ -1,10 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Link, Paper, Stack, Typography } from '@mui/material';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PurchaseDetails = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ p: { xs: 3, md: 5 }, ...sx }}>
       <Typography
@@ -13,7 +10,7 @@ const PurchaseDetails = ({ sx }) => {
           mb: 3,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.product_details.purchase_details_540a0a5a')}
+        Purchase details
       </Typography>
       <Stack
         direction="row"
@@ -32,9 +29,7 @@ const PurchaseDetails = ({ sx }) => {
             color: 'text.secondary',
           }}
         >
-          {translateUi(
-            'ui.sections.ecommerce.customer.product_details.home_delivery_and_store_pickup_2440319d',
-          )}
+          Home delivery and store pickup
           <Box
             sx={{
               display: 'block',
@@ -43,7 +38,7 @@ const PurchaseDetails = ({ sx }) => {
             }}
             component="span"
           >
-            {translateUi('ui.sections.ecommerce.customer.product_details.both_available_cca90348')}
+            Both available
           </Box>
         </Typography>
       </Stack>
@@ -59,17 +54,8 @@ const PurchaseDetails = ({ sx }) => {
               color: 'text.secondary',
             }}
           >
-            <strong>
-              {translateUi(
-                'ui.sections.ecommerce.customer.product_details.eligible_for_refund_within_30_days_ef044917',
-              )}
-            </strong>
-            {translateUi(
-              'ui.sections.ecommerce.customer.product_details.of_receiving_products_2271db01',
-            )}{' '}
-            <Link href={paths.landingFaq}>
-              {translateUi('ui.sections.ecommerce.customer.product_details.view_details_00c3e21c')}
-            </Link>
+            <strong>Eligible for refund within 30 days</strong> of receiving products.{' '}
+            <Link href="#!">View details.</Link>
           </Typography>
         </div>
       </Stack>

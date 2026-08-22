@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 
 const useProjectTable = (tableData) => {
   const [data, setData] = useState(tableData);
@@ -65,9 +64,7 @@ const useProjectTable = (tableData) => {
         name: 'Name of the Task',
         collaborator: [],
         status: 'Running',
-        get label() {
-          return i18n.t('ui.sections.project.table_view.useprojecttable.issue_73781a12');
-        },
+        label: 'Issue',
         priority: 'Medium',
         dependingOn: 'Depending on...',
         startDate: dayjs().format('YYYY-MM-DD'),
@@ -84,16 +81,10 @@ const useProjectTable = (tableData) => {
       const newId = (parseFloat(subTaskList[subTaskList.length - 1].id) + 0.1).toString();
       const newSubtask = {
         id: newId,
-        get name() {
-          return i18n.t(
-            'ui.sections.project.table_view.useprojecttable.name_of_the_subtask_b7a428a6',
-          );
-        },
+        name: 'Name of the Subtask',
         collaborator: [],
         status: 'Running',
-        get label() {
-          return i18n.t('ui.sections.project.table_view.useprojecttable.issue_73781a12');
-        },
+        label: 'Issue',
         priority: 'Medium',
         dependingOn: 'Depending on...',
         startDate: dayjs().format('YYYY-MM-DD'),

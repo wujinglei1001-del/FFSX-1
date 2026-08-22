@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import dayjs from 'dayjs';
@@ -24,7 +23,6 @@ const customDateAdapter = {
   },
 };
 const TaskTrackChart = ({ projects, tasks, timeRanges }) => {
-  const { t: translateUi } = useTranslation();
   const { typography, vars, direction } = useTheme();
   const taskElementHook = (node, task) => {
     const root = createRoot(node);
@@ -45,13 +43,7 @@ const TaskTrackChart = ({ projects, tasks, timeRanges }) => {
       from: dayjs().hour(9).minute(0).second(0).valueOf(),
       to: dayjs().hour(22).minute(0).second(0).valueOf(),
       headers: [{ unit: 'hour', format: 'h:mm A' }],
-      tableHeaders: [
-        {
-          title: translateUi('ui.sections.dashboards.time_tracker.daily_task_track.title_768e0c1c'),
-          property: 'label',
-          type: 'tree',
-        },
-      ],
+      tableHeaders: [{ title: 'Title', property: 'label', type: 'tree' }],
       ganttTableModules: [],
     };
   }, [vars.palette, projects, tasks, timeRanges]);

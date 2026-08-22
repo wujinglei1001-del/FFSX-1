@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -20,7 +19,6 @@ const LabelPicker = ({
   showTitle = false,
   visibleCount = 4,
 }) => {
-  const { t: translateUi } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [showAllLabels, setShowAllLabels] = useState(false);
 
@@ -40,12 +38,12 @@ const LabelPicker = ({
     <Stack sx={{ gap: 2 }}>
       {showTitle && (
         <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.project.common.labels.add_label_80767416')}
+          Add label
         </Typography>
       )}
 
       <StyledTextField
-        placeholder={translateUi('ui.sections.project.common.labels.search_label_f9283cd5')}
+        placeholder="Search label"
         fullWidth
         value={searchQuery}
         onChange={(event) => setSearchQuery(event.target.value)}
@@ -100,19 +98,19 @@ const LabelPicker = ({
           })
         ) : (
           <Typography variant="body2" sx={{ color: 'text.secondary', textAlign: 'center', py: 2 }}>
-            {translateUi('ui.sections.project.common.labels.no_labels_found_513ac033')}
+            No labels found
           </Typography>
         )}
 
         {hasHiddenLabels && (
           <Button variant="text" onClick={() => setShowAllLabels(true)}>
-            {translateUi('ui.sections.project.common.labels.show_more_25911d48')}
+            Show more
           </Button>
         )}
       </Stack>
 
       <Button variant="soft" color="neutral" fullWidth onClick={onCreateLabelClick}>
-        {translateUi('ui.sections.project.common.labels.create_new_label_162fa3b4')}
+        Create new label
       </Button>
     </Stack>
   );

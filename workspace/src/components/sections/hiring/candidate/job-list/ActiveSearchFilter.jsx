@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useHiringContext } from 'providers/HiringProvider';
 
 const ActiveSearchFilter = ({ search }) => {
-  const { t: translateUi } = useTranslation();
   const {
     candidate: { jobs },
   } = useHiringContext();
@@ -35,7 +33,7 @@ const ActiveSearchFilter = ({ search }) => {
             fontWeight: 700,
           }}
         >
-          {translateUi('ui.sections.hiring.candidate.job_list.searched_for_ad982376')}
+          Searched for
         </Typography>
         <Typography
           variant="subtitle1"
@@ -66,8 +64,7 @@ const ActiveSearchFilter = ({ search }) => {
             fontWeight: 500,
           }}
         >
-          {jobsCount === 1 ? 'Job' : 'Jobs'}
-          {translateUi('ui.sections.hiring.candidate.job_list.matched_1bf3ec5b')}
+          {jobsCount === 1 ? 'Job' : 'Jobs'} Matched
         </Typography>
       </Stack>
     </Stack>

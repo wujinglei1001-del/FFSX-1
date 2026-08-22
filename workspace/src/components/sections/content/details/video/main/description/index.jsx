@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Chip, Collapse, Link, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const VideoDescription = ({ description }) => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(true);
 
   const handleClick = () => {
@@ -40,9 +38,7 @@ const VideoDescription = ({ description }) => {
             rotate: open ? '180deg' : '0deg',
           }}
         />
-        <Typography variant="h6">
-          {translateUi('ui.sections.content.details.video.details_dc3decbb')}
-        </Typography>
+        <Typography variant="h6">Details</Typography>
       </Stack>
       <Collapse in={open} unmountOnExit>
         <Typography sx={{ color: 'text.secondary', my: 3 }}>{description.description}</Typography>
@@ -53,7 +49,7 @@ const VideoDescription = ({ description }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.content.details.video.team_21888726')}
+          Team
         </Typography>
         <Stack sx={{ mb: 3 }}>
           {description.team.map((member) => (
@@ -69,7 +65,7 @@ const VideoDescription = ({ description }) => {
             mb: 0.5,
           }}
         >
-          {translateUi('ui.sections.content.details.video.follow_us_d2444325')}
+          Follow us
         </Typography>
         <Stack sx={{ gap: 1, mb: { xs: 3, md: 5 } }}>
           {description.socials.map((social) => (
@@ -82,12 +78,7 @@ const VideoDescription = ({ description }) => {
                 }
                 sx={{ fontSize: 20 }}
               />
-              <Typography
-                component={social.platform.toLowerCase() === 'email' ? Link : 'span'}
-                href={
-                  social.platform.toLowerCase() === 'email' ? `mailto:${social.link}` : undefined
-                }
-              >
+              <Typography component={Link} href="#!">
                 <Box component="span" sx={{ color: 'primary.main' }}>
                   {social.link}
                 </Box>
@@ -104,7 +95,7 @@ const VideoDescription = ({ description }) => {
             mb: 2,
           }}
         >
-          {translateUi('ui.sections.content.details.video.tags_848eed0f')}
+          Tags
         </Typography>
         <Stack direction="row" sx={{ alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
           {description.tags.map((tag) => (

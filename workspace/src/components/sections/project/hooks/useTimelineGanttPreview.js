@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { useTheme } from '@mui/material';
 import gantt from 'dhtmlx-gantt';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import { useSettingsContext } from 'providers/SettingsProvider';
 import CreateTaskTextTemplate from 'components/sections/project/common/CreateTaskTextTemplate';
 import {
   createGanttConfig,
@@ -15,9 +14,6 @@ import {
 export const useTimelineGanttPreview = ({ tasks, getTaskColor }) => {
   const ganttContainer = useRef(null);
   const theme = useTheme();
-  const {
-    config: { locale },
-  } = useSettingsContext();
   const { down } = useBreakpoints();
   const downXl = down('xl');
 
@@ -26,7 +22,6 @@ export const useTimelineGanttPreview = ({ tasks, getTaskColor }) => {
 
     const g = gantt;
 
-    g.i18n.setLocale(locale === 'zh-CN' ? 'cn' : 'en');
     const config = createGanttConfig('timeline', theme.direction);
     Object.assign(g.config, config);
 
@@ -101,7 +96,7 @@ export const useTimelineGanttPreview = ({ tasks, getTaskColor }) => {
       observer.disconnect();
       g.clearAll();
     };
-  }, [tasks, theme, getTaskColor, downXl, locale]);
+  }, [tasks, theme, getTaskColor, downXl]);
 
   return { ganttContainer };
 };

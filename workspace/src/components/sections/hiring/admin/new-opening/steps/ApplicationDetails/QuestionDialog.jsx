@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Button,
   Checkbox,
@@ -28,7 +27,6 @@ const responseOptions = {
 };
 
 const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const [question, setQuestion] = useState('');
   const [description, setDescription] = useState('');
@@ -97,13 +95,11 @@ const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
       </DialogTitle>
       <DialogContent sx={{ pb: 0.125, px: { xs: 3, sm: 5 } }}>
         <DialogContentText variant="body2" sx={{ color: 'text.secondary', mb: 3 }}>
-          {translateUi(
-            'ui.sections.hiring.admin.new_opening.add_a_question_to_collect_specific_details_from_cand_5cd166ff',
-          )}
+          Add a question to collect specific details from candidates when they submit a request.
         </DialogContentText>
         <TextField
           fullWidth
-          label={translateUi('ui.sections.hiring.admin.new_opening.enter_your_question_e290cc9e')}
+          label="Enter your question"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           sx={{ mb: 1 }}
@@ -112,7 +108,7 @@ const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
           fullWidth
           multiline
           rows={3}
-          label={translateUi('ui.sections.hiring.admin.new_opening.description_55f8ebc8')}
+          label="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           sx={{ mb: 3 }}
@@ -133,10 +129,7 @@ const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
             }}
           >
             <FormControl variant="filled" fullWidth>
-              <InputLabel id="screening-format-label">
-                {translateUi('ui.sections.hiring.admin.new_opening.screening_50783a71')}
-                {upSm && 'Format'}
-              </InputLabel>
+              <InputLabel id="screening-format-label">Screening {upSm && 'Format'}</InputLabel>
               <Select
                 labelId="screening-format-label"
                 value={format}
@@ -145,19 +138,12 @@ const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
                   setResponseType('');
                 }}
               >
-                <MenuItem value="pre-screen">
-                  {translateUi('ui.sections.hiring.admin.new_opening.pre_screen_faca8428')}
-                </MenuItem>
-                <MenuItem value="video-response">
-                  {translateUi('ui.sections.hiring.admin.new_opening.video_response_d2c70c1d')}
-                </MenuItem>
+                <MenuItem value="pre-screen">Pre-Screen</MenuItem>
+                <MenuItem value="video-response">Video Response</MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" fullWidth>
-              <InputLabel id="response-type-label">
-                {translateUi('ui.sections.hiring.admin.new_opening.response_6e617e4f')}
-                {upSm && 'Type'}
-              </InputLabel>
+              <InputLabel id="response-type-label">Response {upSm && 'Type'}</InputLabel>
               <Select
                 labelId="response-type-label"
                 value={responseType}
@@ -182,7 +168,7 @@ const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
             control={
               <Checkbox checked={isMandatory} onChange={(e) => setIsMandatory(e.target.checked)} />
             }
-            label={translateUi('ui.sections.hiring.admin.new_opening.required_eed6bfb4')}
+            label="Required"
           />
         </Stack>
       </DialogContent>
@@ -193,7 +179,7 @@ const QuestionDialog = ({ open, onClose, onSave, initialValue }) => {
         }}
       >
         <Button variant="soft" color="neutral" onClick={onClose}>
-          {translateUi('ui.sections.hiring.admin.new_opening.discard_36fff63c')}
+          Discard
         </Button>
         <Button variant="contained" onClick={handleConfirm}>
           {initialValue ? 'Update' : 'Save'}

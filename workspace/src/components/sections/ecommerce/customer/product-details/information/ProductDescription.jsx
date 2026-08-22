@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import { kebabCase } from 'lib/utils';
 
 const ProductDescription = ({ descriptions }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography
@@ -12,7 +10,7 @@ const ProductDescription = ({ descriptions }) => {
           mb: 3,
         }}
       >
-        {translateUi('ui.sections.ecommerce.customer.product_details.description_55f8ebc8')}
+        Description
       </Typography>
       {descriptions.map(({ title, description }) => (
         <Box

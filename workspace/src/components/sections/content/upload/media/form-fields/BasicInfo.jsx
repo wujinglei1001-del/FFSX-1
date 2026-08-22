@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormHelperText, Typography } from '@mui/material';
 import Editor from 'components/base/Editor';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -9,7 +8,6 @@ const MAX_TITLE = 75;
 const MAX_DESCRIPTION = 140;
 
 const BasicInfo = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     setValue,
@@ -52,14 +50,14 @@ const BasicInfo = () => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.content.upload.media.title_768e0c1c')}
+          Title
         </Typography>
         <StyledTextField
           {...register('title', {
             onChange: handleTitleChange,
           })}
           fullWidth
-          placeholder={translateUi('ui.sections.content.upload.media.title_768e0c1c')}
+          placeholder="Title"
           error={!!errors.title}
           helperText={errors.title?.message}
           slotProps={{
@@ -88,14 +86,14 @@ const BasicInfo = () => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.content.upload.media.description_55f8ebc8')}
+          Description
         </Typography>
 
         <Editor
           key={isSubmitSuccessful ? 'reset-editor' : 'editor'}
           content={description}
           onChange={handleDescriptionChange}
-          placeholder={translateUi('ui.sections.content.upload.media.write_a_description_dda9f030')}
+          placeholder="Write a description"
           isValid={!errors.description}
           sx={{
             '& .MuiTiptap-RichTextContent-root': {

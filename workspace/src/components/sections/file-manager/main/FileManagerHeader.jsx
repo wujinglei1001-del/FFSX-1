@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, InputAdornment, Paper, Stack } from '@mui/material';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -11,7 +10,6 @@ import FilterFiles from './filter-files/FilterFiles';
 import UploadFiles from './upload-files/UploadFiles';
 
 const FileManagerHeader = ({ handleSidebar, handleToggleInfo }) => {
-  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
   const { allFiles } = useFileManager();
   const { up } = useBreakpoints();
@@ -58,9 +56,7 @@ const FileManagerHeader = ({ handleSidebar, handleToggleInfo }) => {
           }}
         >
           <StyledTextField
-            placeholder={translateUi(
-              'ui.sections.file_manager.main.filemanagerheader.search_by_name_28abc031',
-            )}
+            placeholder="Search by name"
             slotProps={{
               input: {
                 startAdornment: (

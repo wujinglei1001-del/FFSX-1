@@ -1,12 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { IconButton, Stack, Typography } from '@mui/material';
 import { TimePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const TimeSlotControl = ({ dayIndex, slotIndex, slotId, disabled, onTimeChange, onRemoveSlot }) => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   return (
     <Stack key={slotId} direction="row" sx={{ gap: 1, alignItems: 'center' }}>
@@ -33,7 +31,7 @@ const TimeSlotControl = ({ dayIndex, slotIndex, slotId, disabled, onTimeChange, 
           />
         )}
       />
-      <Typography variant="subtitle2">{translateUi('common.to')}</Typography>
+      <Typography variant="subtitle2">to</Typography>
       <Controller
         name={`availability.${dayIndex}.timeSlots.${slotIndex}.end`}
         control={control}

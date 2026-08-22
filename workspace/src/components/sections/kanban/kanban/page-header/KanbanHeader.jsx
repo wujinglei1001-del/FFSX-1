@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button, { buttonClasses } from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Stack from '@mui/material/Stack';
@@ -14,7 +13,6 @@ import InviteButton from './InviteButton';
 import FilterMenu from './filter-menu/FilterMenu';
 
 const KanbanHeader = () => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upXl = up('xl');
   const upSm = up('sm');
@@ -67,10 +65,7 @@ const KanbanHeader = () => {
         {upSm && <BoardTheme />}
         <FilterMenu />
 
-        <Tooltip
-          title={translateUi('ui.sections.kanban.kanban.page_header.export_import_ad3b8923')}
-          disableHoverListener={upXl ? true : false}
-        >
+        <Tooltip title="Export / Import" disableHoverListener={upXl ? true : false}>
           <Button
             variant={upXl ? 'text' : 'soft'}
             color="neutral"
@@ -95,7 +90,7 @@ const KanbanHeader = () => {
         </Tooltip>
 
         <SearchTextField
-          placeholder={translateUi('ui.sections.kanban.kanban.page_header.search_tasks_344b6c0a')}
+          placeholder="Search Tasks"
           onChange={handleSearch}
           fullWidth
           sx={{ ml: { xl: 1 }, maxWidth: { xs: 1, sm: 300 } }}

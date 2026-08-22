@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/8-dark.webp';
 import illustration from 'assets/images/illustrations/8.webp';
 import Image from 'components/base/Image';
 
 const Chat = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -32,9 +30,7 @@ const Chat = () => {
           textAlign: 'center',
         }}
       >
-        {translateUi('ui.pages.apps.chat.select_a_conversation_to_30a184fd')}
-        <br />
-        {translateUi('ui.pages.apps.chat.view_its_messages_af4d8aac')}
+        Select a conversation to <br /> view its messages
       </Typography>
     </Stack>
   );

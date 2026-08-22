@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem, Typography, listClasses, menuClasses } from '@mui/material';
 
 const PlaybackButton = () => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -19,14 +17,14 @@ const PlaybackButton = () => {
         size="small"
         variant="soft"
         color="neutral"
-        aria-label={translateUi('ui.sections.content.common.playbackbutton.speed_92b63208')}
+        aria-label="speed"
         id="action-button"
         aria-controls={open ? 'actions-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
         onClick={handleClick}
       >
-        {translateUi('ui.sections.content.common.playbackbutton.1x_6fe62d0d')}
+        1x
       </Button>
       <Menu
         id="actions-menu"

@@ -1,8 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
-import { fontFamilies, initialConfig } from 'config';
+import { initialConfig } from 'config';
 import { getColor } from 'helpers/echart-utils';
-import { getItemFromStore, setItemToStore } from 'lib/utils';
+import { getItemFromStore } from 'lib/utils';
 import {
   COLLAPSE_NAVBAR,
   EXPAND_NAVBAR,
@@ -14,35 +14,12 @@ import { COLOR_GROUPS } from 'theme/primaryColorOverride';
 export const SettingsContext = createContext({});
 
 const SettingsProvider = ({ children }) => {
-  const localeMigrationVersion = 'ffax-locales-v1';
-  const storedLocaleMigrationVersion = getItemFromStore('localeMigrationVersion', null);
-  const shouldMigrateLocale = storedLocaleMigrationVersion !== localeMigrationVersion;
-  const layoutMigrationVersion = 'sidenav-default-v1';
-  const storedLayoutMigrationVersion = getItemFromStore('layoutMigrationVersion', null);
-  const shouldMigrateLayout = storedLayoutMigrationVersion !== layoutMigrationVersion;
-
-  if (shouldMigrateLocale) {
-    setItemToStore('locale', initialConfig.locale);
-    setItemToStore('localeMigrationVersion', localeMigrationVersion);
-  }
-
-  if (shouldMigrateLayout) {
-    setItemToStore('navigationMenuType', initialConfig.navigationMenuType);
-    setItemToStore('sidenavType', initialConfig.sidenavType);
-    setItemToStore('sidenavCollapsed', String(initialConfig.sidenavCollapsed));
-    setItemToStore('layoutMigrationVersion', layoutMigrationVersion);
-  }
-
   const storedPrimaryColor = getItemFromStore('primaryColor', undefined);
   let primaryColor = typeof storedPrimaryColor === 'string' ? storedPrimaryColor : null;
 
   const storedThemePreset = getItemFromStore('themePreset', initialConfig.themePreset);
   const themePreset =
     typeof storedThemePreset === 'string' ? storedThemePreset : initialConfig.themePreset;
-  const storedFontFamily = getItemFromStore('fontFamily', initialConfig.fontFamily);
-  const fontFamily = fontFamilies.includes(storedFontFamily)
-    ? storedFontFamily
-    : initialConfig.fontFamily;
 
   if (!primaryColor && themePreset) {
     const colorGroup = COLOR_GROUPS.find((group) => group.key === themePreset);
@@ -59,11 +36,8 @@ const SettingsProvider = ({ children }) => {
     textDirection: getItemFromStore('textDirection', initialConfig.textDirection),
     navigationMenuType: getItemFromStore('navigationMenuType', initialConfig.navigationMenuType),
     navColor: getItemFromStore('navColor', initialConfig.navColor),
-    locale: shouldMigrateLocale
-      ? initialConfig.locale
-      : getItemFromStore('locale', initialConfig.locale),
-    currency: getItemFromStore('currency', initialConfig.currency),
-    fontFamily,
+    locale: getItemFromStore('locale', initialConfig.locale),
+    fontFamily: getItemFromStore('fontFamily', initialConfig.fontFamily),
     fontSize: Number(getItemFromStore('fontSize', initialConfig.fontSize.toString())),
     themePreset: themePreset,
     primaryColor,

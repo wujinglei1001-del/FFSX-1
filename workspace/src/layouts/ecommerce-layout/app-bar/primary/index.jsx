@@ -1,6 +1,5 @@
 'use client';
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -31,7 +30,6 @@ import ProfileMenu from './ProfileMenu';
 
 const searchCategories = ['All', 'Popular', 'New', 'Discounted', 'Top Rated', 'Featured'];
 const PrimaryAppbar = ({ children }) => {
-  const { t: translateUi } = useTranslation();
   const categoryBtnRef = useRef(null);
   const [openCartDrawer, setOpenCartDrawer] = useState(false);
   const [openItem, setOpenItem] = useState(0);
@@ -68,9 +66,7 @@ const PrimaryAppbar = ({ children }) => {
                 color="neutral"
                 variant="soft"
                 shape="circle"
-                aria-label={translateUi(
-                  'ui.layouts.ecommerce_layout.app_bar.primary.open_drawer_fe4563aa',
-                )}
+                aria-label="open drawer"
                 onClick={handleDrawerToggle}
               >
                 <IconifyIcon icon="material-symbols:menu-rounded" sx={{ fontSize: 20 }} />
@@ -154,7 +150,7 @@ const PrimaryAppbar = ({ children }) => {
                     display: { xs: 'none', lg: 'block' },
                   }}
                 >
-                  {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.category_a3c686e7')}
+                  Category
                 </Box>
               </Button>
 
@@ -270,9 +266,7 @@ const PrimaryAppbar = ({ children }) => {
                         pl: { xs: '16px !important', md: '8px !important' },
                       },
                     }}
-                    placeholder={translateUi(
-                      'ui.layouts.ecommerce_layout.app_bar.primary.search_product_cd4042ff',
-                    )}
+                    placeholder="Search product"
                     slotProps={{
                       input: {
                         inputProps: {

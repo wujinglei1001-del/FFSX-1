@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, ListItemText, Menu, MenuItem } from '@mui/material';
 import { kebabCase } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const CollapsedMenu = ({ links }) => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -31,7 +29,7 @@ const CollapsedMenu = ({ links }) => {
         endIcon={<IconifyIcon icon="material-symbols:expand-more-rounded" sx={{ fontSize: 22 }} />}
         onClick={handleClick}
       >
-        {translateUi('ui.layouts.ecommerce_layout.app_bar.secondary.more_4bab2d8f')}
+        More
       </Button>
       <Menu
         anchorEl={anchorEl}

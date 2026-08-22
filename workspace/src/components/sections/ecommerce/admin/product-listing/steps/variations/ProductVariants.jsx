@@ -1,7 +1,5 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormControlLabel, Radio, RadioGroup, Stack } from '@mui/material';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import VariantsList from './VariantsList';
 
@@ -15,11 +13,7 @@ export const productVariantSchema = yup.object({
           .of(
             yup.object({
               name: yup.string().optional(),
-              value: yup
-                .string()
-                .required(
-                  i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
-                ),
+              value: yup.string().required('Value is required'),
               images: yup.array().of(yup.mixed()).optional(),
             }),
           )
@@ -30,7 +24,6 @@ export const productVariantSchema = yup.object({
 });
 
 const ProductVariants = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
 
   const variantsFieldArray = useFieldArray({
@@ -59,16 +52,12 @@ const ProductVariants = () => {
         <FormControlLabel
           value="noVariants"
           control={<Radio />}
-          label={translateUi(
-            'ui.sections.ecommerce.admin.product_listing.this_product_does_not_have_variants_77cf1b60',
-          )}
+          label="This product does not have variants"
         />
         <FormControlLabel
           value="hasVariants"
           control={<Radio />}
-          label={translateUi(
-            'ui.sections.ecommerce.admin.product_listing.this_product_has_variants_like_size_or_color_f9004450',
-          )}
+          label="This product has variants, like size or color"
         />
       </RadioGroup>
 

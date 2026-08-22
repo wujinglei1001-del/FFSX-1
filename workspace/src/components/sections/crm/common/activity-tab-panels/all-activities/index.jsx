@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -15,13 +14,10 @@ import Activity from './Activity';
 dayjs.extend(isToday);
 
 const AllActivitiesTabPanel = ({ allActivities }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Container maxWidth={false} sx={{ maxWidth: 800, px: { xs: 0 } }}>
       <StyledTextField
-        placeholder={translateUi(
-          'ui.sections.crm.common.activity_tab_panels.search_an_activity_9a98021d',
-        )}
+        placeholder="Search an activity"
         fullWidth
         slotProps={{
           input: {
@@ -68,7 +64,7 @@ const AllActivitiesTabPanel = ({ allActivities }) => {
                   {isToday ? (
                     <>
                       <Box component="strong" sx={{ color: 'text.primary' }}>
-                        {translateUi('ui.sections.crm.common.activity_tab_panels.today_24345a14')}
+                        Today
                       </Box>{' '}
                       ({formattedDate})
                     </>
@@ -90,9 +86,7 @@ const AllActivitiesTabPanel = ({ allActivities }) => {
           })}
         </Stack>
       </SimpleBar>
-      <Button sx={{ mt: 3 }}>
-        {translateUi('ui.sections.crm.common.activity_tab_panels.load_more_notifications_160c9a66')}
-      </Button>
+      <Button sx={{ mt: 3 }}>Load more notifications</Button>
     </Container>
   );
 };

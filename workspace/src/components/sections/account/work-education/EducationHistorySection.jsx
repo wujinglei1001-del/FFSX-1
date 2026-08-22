@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, InputAdornment, Stack, TextField } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useAccounts } from 'providers/AccountsProvider';
 import * as yup from 'yup';
@@ -15,46 +13,15 @@ import AccountFormDialog from '../common/AccountFormDialog';
 import Education from './Education';
 
 const educationFormSchema = yup.object().shape({
-  institutionName: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.educationhistorysection.institution_name_is_required_6794f5a5',
-      ),
-    ),
-  subject: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.educationhistorysection.subject_is_required_be41b487',
-      ),
-    ),
-  location: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.educationhistorysection.location_is_required_3997aae0',
-      ),
-    ),
-  startDate: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.educationhistorysection.start_date_is_required_438387af',
-      ),
-    ),
-  endDate: yup
-    .string()
-    .required(
-      i18n.t(
-        'ui.sections.account.work_education.educationhistorysection.end_date_is_required_0f750cd5',
-      ),
-    ),
+  institutionName: yup.string().required('Institution name is required'),
+  subject: yup.string().required('Subject is required'),
+  location: yup.string().required('Location is required'),
+  startDate: yup.string().required('Start date is required'),
+  endDate: yup.string().required('End date is required'),
   institutionLogo: yup.string().nullable().defined(),
 });
 
 const EducationHistorySection = () => {
-  const { t: translateUi } = useTranslation();
   const { educationHistory } = useAccounts();
   const [educationHistories, setEducationHistories] = useState(educationHistory);
   const [selectedEducation, setSelectedEducation] = useState(null);
@@ -153,18 +120,12 @@ const EducationHistorySection = () => {
         startIcon={<IconifyIcon icon="material-symbols:add" sx={{ fontSize: 20 }} />}
         onClick={() => handleOpenDialog(null)}
       >
-        {translateUi(
-          'ui.sections.account.work_education.educationhistorysection.add_new_school_d443d6e6',
-        )}
+        Add new school
       </Button>
       <FormProvider {...methods}>
         <AccountFormDialog
-          title={translateUi(
-            'ui.sections.account.work_education.educationhistorysection.education_details_09ab458b',
-          )}
-          subtitle={translateUi(
-            'ui.sections.account.work_education.educationhistorysection.update_your_education_details_for_accurate_records_a_829e38aa',
-          )}
+          title="Education Details"
+          subtitle="Update your education details for accurate records and to receive relevant notifications."
           open={dialogOpen}
           onSubmit={handleFormSubmit}
           handleDialogClose={handleCloseDialog}
@@ -175,9 +136,7 @@ const EducationHistorySection = () => {
           <Stack sx={{ gap: 2, p: 0.125 }}>
             <Stack sx={{ gap: 1 }}>
               <TextField
-                label={translateUi(
-                  'ui.sections.account.work_education.educationhistorysection.institution_name_b6544303',
-                )}
+                label="Institution Name"
                 error={!!errors.institutionName}
                 helperText={errors.institutionName?.message}
                 fullWidth
@@ -202,9 +161,7 @@ const EducationHistorySection = () => {
                 {...register('institutionName')}
               />
               <TextField
-                label={translateUi(
-                  'ui.sections.account.work_education.educationhistorysection.degree_field_of_study_8dcf3120',
-                )}
+                label="Degree/Field of Study"
                 fullWidth
                 error={!!errors.subject}
                 helperText={errors.subject?.message}
@@ -221,9 +178,7 @@ const EducationHistorySection = () => {
               />
             </Stack>
             <TextField
-              label={translateUi(
-                'ui.sections.account.work_education.educationhistorysection.location_d219c681',
-              )}
+              label="Location"
               fullWidth
               error={!!errors.location}
               helperText={errors.location?.message}
@@ -244,9 +199,7 @@ const EducationHistorySection = () => {
                 name="startDate"
                 render={({ field: { value, onChange, ...rest } }) => (
                   <DatePicker
-                    label={translateUi(
-                      'ui.sections.account.work_education.educationhistorysection.start_date_9d7ab1a5',
-                    )}
+                    label="Start Date"
                     value={dayjs(value)}
                     onChange={(date) => onChange(date)}
                     slotProps={{
@@ -268,9 +221,7 @@ const EducationHistorySection = () => {
                 name="endDate"
                 render={({ field: { value, onChange, ...rest } }) => (
                   <DatePicker
-                    label={translateUi(
-                      'ui.sections.account.work_education.educationhistorysection.end_date_84b14781',
-                    )}
+                    label="End Date"
                     value={dayjs(value)}
                     onChange={(date) => onChange(date)}
                     slotProps={{

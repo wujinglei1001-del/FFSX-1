@@ -1,4 +1,4 @@
-import { Link, ListItemText, Typography } from '@mui/material';
+import { Link, ListItemText } from '@mui/material';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -25,16 +25,15 @@ const NavList = ({ title, items }) => {
       {items.map((item) => (
         <ListItem key={item.label} sx={{ py: 0.5 }}>
           <ListItemText disableTypography sx={{ typography: 'caption' }}>
-            <Typography
-              component={item.href ? Link : 'span'}
-              href={item.href || undefined}
+            <Link
+              href={item.href}
               color="textPrimary"
               sx={{
                 fontWeight: 500,
               }}
             >
               {item.label}
-            </Typography>
+            </Link>
           </ListItemText>
         </ListItem>
       ))}

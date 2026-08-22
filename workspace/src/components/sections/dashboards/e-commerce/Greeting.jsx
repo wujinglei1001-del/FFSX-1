@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -19,7 +18,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import SimpleBar from 'components/base/SimpleBar';
 
 const Greeting = ({ stats, orders }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       background={1}
@@ -49,10 +47,8 @@ const Greeting = ({ stats, orders }) => {
               flexWrap: 'wrap',
             }}
           >
-            {translateUi('ui.sections.dashboards.e_commerce.greeting.good_morning_b1ffeaea')}
-            <span>
-              {translateUi('ui.sections.dashboards.e_commerce.greeting.captain_ea134a2d')}
-            </span>
+            Good morning,
+            <span>Captain!</span>
           </Typography>
         </Stack>
 
@@ -65,9 +61,7 @@ const Greeting = ({ stats, orders }) => {
               mb: 2,
             }}
           >
-            {translateUi(
-              'ui.sections.dashboards.e_commerce.greeting.updates_from_yesterday_2d62931f',
-            )}
+            Updates from yesterday.
           </Typography>
 
           <Stack
@@ -133,9 +127,7 @@ const Greeting = ({ stats, orders }) => {
               fontWeight: 400,
             }}
           >
-            {translateUi(
-              'ui.sections.dashboards.e_commerce.greeting.your_have_16_orders_today_d8e6419a',
-            )}
+            Your have 16 orders today.
           </Typography>
 
           <SimpleBar
@@ -197,7 +189,11 @@ const Greeting = ({ stats, orders }) => {
 
                   <Tooltip
                     title={
-                      status === 'warning' ? '处理中' : status === 'primary' ? '已发货' : '已送达'
+                      status === 'warning'
+                        ? 'Processing'
+                        : status === 'primary'
+                          ? 'Shipped'
+                          : 'Delivered'
                     }
                   >
                     <Chip
@@ -233,7 +229,7 @@ const Greeting = ({ stats, orders }) => {
             }
             sx={{ alignSelf: 'flex-end' }}
           >
-            {translateUi('ui.sections.dashboards.e_commerce.greeting.all_orders_e6909858')}
+            All orders
           </Button>
         </Stack>
       </Stack>

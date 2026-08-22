@@ -1,5 +1,4 @@
 import { useMemo, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, ButtonBase, Divider, Paper, Stack, Typography, useTheme } from '@mui/material';
 import { currentDayReport } from 'data/time-tracker/report';
 import dayjs from 'dayjs';
@@ -9,7 +8,6 @@ import * as echarts from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import useToggleChartLegends from 'hooks/useToggleChartLegends';
 import { formatCompactNumber, secondsToHms } from 'lib/utils';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import ReactEchart from 'components/base/ReactEchart';
@@ -17,17 +15,9 @@ import ReactEchart from 'components/base/ReactEchart';
 echarts.use([TooltipComponent, GridComponent, PieChart, CanvasRenderer, LegendComponent]);
 
 const chartLegends = [
+  { label: 'Billable', value: currentDayReport.hours.billable, color: 'chBlue.400' },
   {
-    get label() {
-      return i18n.t('ui.sections.time_tracker.report.currentdayreport.billable_ff5d36b9');
-    },
-    value: currentDayReport.hours.billable,
-    color: 'chBlue.400',
-  },
-  {
-    get label() {
-      return i18n.t('ui.sections.time_tracker.report.currentdayreport.non_billable_82b5ce99');
-    },
+    label: 'Non-Billable',
     value: currentDayReport.hours.nonBillable,
     color: 'chBlue.200',
   },
@@ -58,7 +48,6 @@ const ReportItem = ({ label, value, align }) => {
 };
 
 const CurrentDayReport = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const chartRef = useRef(null);
   const { down } = useBreakpoints();
   const { legendState, handleLegendToggle } = useToggleChartLegends(chartRef);
@@ -67,10 +56,7 @@ const CurrentDayReport = ({ data }) => {
 
   return (
     <Stack sx={{ gap: 4 }}>
-      <Typography variant="h5">
-        {translateUi('ui.sections.time_tracker.report.currentdayreport.report_of_6f5f305c')}
-        {today.format('ddd, D MMM, YYYY')}
-      </Typography>
+      <Typography variant="h5">Report of {today.format('ddd, D MMM, YYYY')}</Typography>
       <Paper background={1} sx={{ outline: 0, p: { xs: 2, sm: 3 }, borderRadius: 6 }}>
         <Stack
           direction={{ xs: 'column', md: 'row' }}
@@ -113,23 +99,19 @@ const CurrentDayReport = ({ data }) => {
             }}
           >
             <ReportItem
-              label={translateUi(
-                'ui.sections.time_tracker.report.currentdayreport.projects_53e890d5',
-              )}
+              label="Projects"
               align="flex-start"
               value={currentDayReport.totalProjects}
             />
             <ReportItem
-              label={translateUi('ui.sections.time_tracker.report.currentdayreport.hours_9e25a34e')}
+              label="Hours"
               align="flex-start"
               value={`${secondsToHms(
                 currentDayReport.hours.billable + currentDayReport.hours.nonBillable,
               )} Hrs`}
             />
             <ReportItem
-              label={translateUi(
-                'ui.sections.time_tracker.report.currentdayreport.earnings_ad772fd4',
-              )}
+              label="Earnings"
               align="flex-end"
               value={`$ ${formatCompactNumber(currentDayReport.totalAmount)}`}
             />
@@ -144,14 +126,8 @@ const BillableHoursChart = ({ ref, hours, sx }) => {
   const { vars } = useTheme();
   const { getThemeColor } = useSettingsContext();
   const data = [
-    {
-      name: 'Billable',
-      value: hours.billable,
-    },
-    {
-      name: 'Non-Billable',
-      value: hours.nonBillable,
-    },
+    { name: 'Billable', value: hours.billable },
+    { name: 'Non-Billable', value: hours.nonBillable },
   ];
 
   const getOptions = useMemo(

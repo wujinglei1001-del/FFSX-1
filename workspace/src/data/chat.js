@@ -1,6 +1,5 @@
 import { initialConfig } from 'config';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import { users } from './users';
 
 const image = (index) => `${initialConfig.assetsDir}/images/chat/${index}.webp`;
@@ -14,11 +13,7 @@ export const conversations = [
         id: 1,
         senderId: 5,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.do_you_know_the_director_francis_ford_coppola_movies_2516ab5e',
-          );
-        },
+        text: 'do you know the director Francis Ford Coppola  & movies ?',
         createdAt: dayjs().subtract(23, 'h').toDate(),
         readAt: new Date(),
       },
@@ -26,9 +21,7 @@ export const conversations = [
         id: 2,
         senderId: 5,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.tell_me_about_his_best_works_7b855e15');
-        },
+        text: 'Tell me about his best works',
         createdAt: dayjs().subtract(23, 'h').toDate(),
         readAt: new Date(),
       },
@@ -36,9 +29,7 @@ export const conversations = [
         id: 3,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.yeah_the_godfather_1972_is_one_of_the_best_34a19499');
-        },
+        text: 'yeah, The Godfather (1972)  is one of the best.',
         createdAt: dayjs().subtract(3, 'm').toDate(),
         readAt: new Date(),
       },
@@ -46,11 +37,7 @@ export const conversations = [
         id: 4,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.now_you_come_to_me_and_you_say_don_corleone_give_me__2a765d3f',
-          );
-        },
+        text: "Now you come to me, and you say, 'Don Corleone, give me justice.' But you don't ask with respect. You don't offer friendship. You don't even think to call me Godfather. Instead, you come into my house on the day my daughter is to be married, and you ask me to do murder. For money. - my favorite dialogue.",
         createdAt: dayjs().subtract(5, 'm').toDate(),
         reactions: [
           {
@@ -64,9 +51,7 @@ export const conversations = [
         id: 5,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.sent_my_photos_i_am_sharing_the_movie_link_25440cfc');
-        },
+        text: 'sent my photos, i am sharing the movie link',
         createdAt: dayjs().subtract(6, 'm').toDate(),
         reactions: [
           {
@@ -94,11 +79,7 @@ export const conversations = [
         id: 7,
         senderId: 5,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.thanks_i_m_going_to_watch_the_movie_and_check_the_ph_df5db26d',
-          );
-        },
+        text: "Thanks... I'm going to watch the movie. And check the photos, I sent what you need. Let me know if I missed anything.",
         createdAt: dayjs().subtract(8, 'm').toDate(),
         readAt: new Date(),
       },
@@ -106,14 +87,7 @@ export const conversations = [
         id: 8,
         senderId: 14,
         type: 'sent',
-        attachments: {
-          files: [
-            {
-              name: 'The Godfather(1972).zip',
-              format: 'zip',
-            },
-          ],
-        },
+        attachments: { files: [{ name: 'The Godfather(1972).zip', format: 'zip' }] },
         createdAt: dayjs().subtract(9, 'm').toDate(),
         readAt: new Date(),
       },
@@ -129,11 +103,7 @@ export const conversations = [
         id: 1,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.hey_guess_what_i_m_planning_a_weekend_tour_to_the_mo_e3065bf6',
-          );
-        },
+        text: "Hey, Guess what? I'm planning a weekend tour to the mountains. Want to join?",
         createdAt: dayjs().subtract(10, 'm').toDate(),
         readAt: new Date(),
       },
@@ -141,11 +111,7 @@ export const conversations = [
         id: 2,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.seriously_that_sounds_amazing_which_mountains_are_yo_bde25168',
-          );
-        },
+        text: 'seriously? That sounds amazing! Which mountains are you thinking about?',
         createdAt: dayjs().subtract(11, 'm').toDate(),
         readAt: new Date(),
       },
@@ -153,11 +119,7 @@ export const conversations = [
         id: 3,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.the_blue_ridge_mountains_i_ve_heard_the_views_are_br_45c43fa8',
-          );
-        },
+        text: "The Blue Ridge Mountains. I've heard the views are breathtaking, especially this time of year.",
         createdAt: dayjs().subtract(12, 'm').toDate(),
         readAt: new Date(),
       },
@@ -165,9 +127,7 @@ export const conversations = [
         id: 4,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.oh_yeah_sent_me_pictures_028271f6');
-        },
+        text: 'oh yeah, sent me pictures',
         createdAt: dayjs().subtract(13, 'm').toDate(),
         readAt: new Date(),
       },
@@ -175,9 +135,7 @@ export const conversations = [
         id: 5,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.what_s_the_plan_e45540c2');
-        },
+        text: " What's the plan?",
         createdAt: dayjs().subtract(14, 'm').toDate(),
         readAt: new Date(),
       },
@@ -206,11 +164,7 @@ export const conversations = [
         id: 7,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.we_d_leave_saturday_morning_hike_a_few_trails_maybe__3cd88f09',
-          );
-        },
+        text: "We'd leave Saturday morning, hike a few trails, maybe camp overnight, and then explore some waterfalls on Sunday.",
         createdAt: dayjs().subtract(16, 'm').toDate(),
         readAt: new Date(),
       },
@@ -218,9 +172,7 @@ export const conversations = [
         id: 8,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.they_re_stunning_084c4640');
-        },
+        text: "they're stunning!",
         createdAt: dayjs().subtract(17, 'm').toDate(),
         readAt: new Date(),
       },
@@ -228,11 +180,7 @@ export const conversations = [
         id: 9,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.camping_huh_do_we_need_to_bring_our_own_gear_or_are__414ba246',
-          );
-        },
+        text: 'Camping, huh? do we need to bring our own gear, or are you renting stuff?',
         createdAt: dayjs().subtract(18, 'm').toDate(),
         readAt: new Date(),
       },
@@ -240,11 +188,7 @@ export const conversations = [
         id: 10,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.i_ve_got_a_tent_and_sleeping_bags_you_d_just_need_yo_c625b076',
-          );
-        },
+        text: "I've got a tent and sleeping bags. You'd just need your clothes, snacks, and maybe a flashlight.",
         createdAt: dayjs().subtract(19, 'm').toDate(),
         readAt: new Date(),
       },
@@ -252,9 +196,7 @@ export const conversations = [
         id: 11,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.sweet_are_we_driving_or_carpooling_bc596cfe');
-        },
+        text: 'Sweet. Are we driving or carpooling?',
         createdAt: dayjs().subtract(20, 'm').toDate(),
         readAt: new Date(),
       },
@@ -262,9 +204,7 @@ export const conversations = [
         id: 12,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.i_thought_we_could_carpool_to_save_on_gas_c3aec60a');
-        },
+        text: 'I thought we could carpool to save on gas.',
         createdAt: dayjs().subtract(21, 'm').toDate(),
         readAt: new Date(),
       },
@@ -272,9 +212,7 @@ export const conversations = [
         id: 13,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.plus_it_s_more_fun_with_music_and_road_trip_snacks_a4e27c2a');
-        },
+        text: "Plus, it's more fun with music and road trip snacks!",
         createdAt: dayjs().subtract(22, 'm').toDate(),
         readAt: new Date(),
       },
@@ -282,11 +220,7 @@ export const conversations = [
         id: 14,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.totally_agree_count_me_in_i_ll_pack_my_stuff_and_bri_5f9891a6',
-          );
-        },
+        text: "totally agree. count me in! I'll pack my stuff and bring some marshmallows for a campfire.",
         createdAt: dayjs().subtract(23, 'm').toDate(),
         readAt: new Date(),
       },
@@ -294,11 +228,7 @@ export const conversations = [
         id: 15,
         senderId: 0,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.awesome_it_s_going_to_be_so_much_fun_let_s_finalize__5e0ed15a',
-          );
-        },
+        text: "Awesome! It's going to be so much fun. Let's finalize the details tomorrow.",
         createdAt: dayjs().subtract(24, 'm').toDate(),
         readAt: new Date(),
       },
@@ -306,9 +236,7 @@ export const conversations = [
         id: 16,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.sounds_like_a_plan_can_t_wait_d1b23024');
-        },
+        text: "Sounds like a plan. Can't wait! 🤞😊",
         createdAt: dayjs().subtract(25, 'm').toDate(),
         readAt: new Date(),
       },
@@ -325,11 +253,7 @@ export const conversations = [
         id: 1,
         senderId: 1,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.hey_everyone_quick_update_about_tomorrow_s_exam_a_lo_779bd6e8',
-          );
-        },
+        text: "Hey everyone, quick update about tomorrow's exam. A lot of you have been asking if it can be rescheduled.",
         createdAt: dayjs().subtract(26, 'm').toDate(),
         readAt: new Date(),
       },
@@ -337,11 +261,7 @@ export const conversations = [
         id: 2,
         senderId: 11,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.yeah_it_s_too_soon_i_barely_started_studying_can_we__03f16303',
-          );
-        },
+        text: "Yeah, it's too soon! I barely started studying. Can we push it back?",
         createdAt: dayjs().subtract(27, 'm').toDate(),
         readAt: new Date(),
       },
@@ -349,11 +269,7 @@ export const conversations = [
         id: 3,
         senderId: 8,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.same_here_i_have_back_to_back_assignments_to_submit__59f73446',
-          );
-        },
+        text: 'Same here. I have back-to-back assignments to submit this week.',
         createdAt: dayjs().subtract(28, 'm').toDate(),
         readAt: new Date(),
       },
@@ -361,11 +277,7 @@ export const conversations = [
         id: 4,
         type: 'received',
         senderId: 1,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.i_spoke_to_the_professor_about_rescheduling_unfortun_f1a40779',
-          );
-        },
+        text: "I spoke to the professor about rescheduling. Unfortunately, they said it's not possible because of the tight schedule this semester.",
         reactions: [
           {
             userId: 8,
@@ -383,9 +295,7 @@ export const conversations = [
         id: 5,
         senderId: 15,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.ugh_seriously_32b4f32e');
-        },
+        text: 'Ugh, seriously?',
         createdAt: dayjs().subtract(30, 'm').toDate(),
         readAt: new Date(),
       },
@@ -393,9 +303,7 @@ export const conversations = [
         id: 6,
         type: 'received',
         senderId: 15,
-        get text() {
-          return i18n.t('ui.data.chat.didn_t_they_consider_that_we_have_other_exams_too_8db82a47');
-        },
+        text: "Didn't they consider that we have other exams too?",
         createdAt: dayjs().subtract(31, 'm').toDate(),
         readAt: new Date(),
       },
@@ -403,11 +311,7 @@ export const conversations = [
         id: 7,
         senderId: 1,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.trust_me_i_tried_my_best_to_convince_them_i_even_bro_771b335d',
-          );
-        },
+        text: 'Trust me, I tried my best to convince them. I even brought up how many of us are struggling.',
         createdAt: dayjs().subtract(32, 'm').toDate(),
         readAt: new Date(),
       },
@@ -415,9 +319,7 @@ export const conversations = [
         id: 8,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.thanks_for_trying_cr_it_s_just_frustrating_0ef3026b');
-        },
+        text: "thanks for trying, CR. It's just frustrating.",
         createdAt: dayjs().subtract(33, 'm').toDate(),
         readAt: new Date(),
       },
@@ -425,9 +327,7 @@ export const conversations = [
         id: 9,
         type: 'received',
         senderId: 11,
-        get text() {
-          return i18n.t('ui.data.chat.frustrating_is_an_understatement_c453b3e6');
-        },
+        text: 'Frustrating is an understatement.',
         createdAt: dayjs().subtract(34, 'm').toDate(),
         readAt: new Date(),
       },
@@ -435,9 +335,7 @@ export const conversations = [
         id: 10,
         type: 'received',
         senderId: 11,
-        get text() {
-          return i18n.t('ui.data.chat.you_should_ve_pushed_harder_ad66a7cd');
-        },
+        text: "You should've pushed harder!",
         createdAt: dayjs().subtract(35, 'm').toDate(),
         readAt: new Date(),
       },
@@ -445,11 +343,7 @@ export const conversations = [
         id: 11,
         type: 'received',
         senderId: 11,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.what_s_the_point_of_being_the_cr_if_you_can_t_handle_adea5b86',
-          );
-        },
+        text: "What's the point of being the CR if you can't handle this, Manami?",
         createdAt: dayjs().subtract(36, 'm').toDate(),
         readAt: new Date(),
       },
@@ -457,11 +351,7 @@ export const conversations = [
         id: 12,
         type: 'received',
         senderId: 1,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.i_understand_you_re_upset_amelia_but_i_really_did_ev_5a7b53f4',
-          );
-        },
+        text: "I understand you're upset, Amelia, but I really did everything I could. The professor just wouldn't budge.",
         createdAt: dayjs().subtract(37, 'm').toDate(),
         readAt: new Date(),
       },
@@ -469,11 +359,7 @@ export const conversations = [
         id: 13,
         type: 'received',
         senderId: 8,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.amelia_it_s_not_like_the_cr_has_magical_powers_to_ch_74af2230',
-          );
-        },
+        text: "Amelia, it's not like the CR has magical powers to change the schedule. Chill out.",
         createdAt: dayjs().subtract(38, 'm').toDate(),
         readAt: new Date(),
       },
@@ -481,9 +367,7 @@ export const conversations = [
         id: 14,
         type: 'received',
         senderId: 11,
-        get text() {
-          return i18n.t('ui.data.chat.still_it_feels_like_not_enough_effort_was_made_d24a2c8c');
-        },
+        text: 'Still, it feels like not enough effort was made.',
         createdAt: dayjs().subtract(39, 'm').toDate(),
         readAt: new Date(),
       },
@@ -491,11 +375,7 @@ export const conversations = [
         id: 15,
         type: 'received',
         senderId: 1,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.i_m_sorry_you_feel_that_way_if_you_want_you_can_talk_67390f89',
-          );
-        },
+        text: "I'm sorry you feel that way. If you want, you can talk to the professor directly too. Maybe a group effort will help in the future.",
         createdAt: dayjs().subtract(40, 'm').toDate(),
         readAt: new Date(),
       },
@@ -503,11 +383,7 @@ export const conversations = [
         id: 16,
         type: 'sent',
         senderId: 14,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.let_s_not_blame_lucy_it_s_a_tough_situation_and_they_ac1ca919',
-          );
-        },
+        text: "let's not blame Lucy. It's a tough situation, and they're doing their best.",
         createdAt: dayjs().subtract(41, 'm').toDate(),
         readAt: new Date(),
       },
@@ -515,11 +391,7 @@ export const conversations = [
         id: 17,
         type: 'received',
         senderId: 15,
-        get text() {
-          return i18n.t(
-            'ui.data.chat.yeah_it_s_not_fair_to_take_it_out_on_them_let_s_focu_b5c576b4',
-          );
-        },
+        text: "Yeah, it's not fair to take it out on them. Let's focus on preparing instead of arguing.",
         createdAt: dayjs().subtract(42, 'm').toDate(),
         readAt: new Date(),
       },
@@ -527,9 +399,7 @@ export const conversations = [
         id: 18,
         senderId: 11,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.fine_whatever_7a313a51');
-        },
+        text: 'Fine. Whatever.',
         createdAt: dayjs().subtract(43, 'm').toDate(),
         readAt: new Date(),
       },
@@ -537,11 +407,7 @@ export const conversations = [
         id: 19,
         senderId: 1,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.thanks_everyone_i_know_it_s_stressful_but_we_ll_get__0ca59ec3',
-          );
-        },
+        text: "Thanks, everyone. I know it's stressful, but we'll get through this.",
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -549,9 +415,7 @@ export const conversations = [
         id: 20,
         senderId: 1,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.if_anyone_needs_help_with_the_material_let_me_know_2676ef30');
-        },
+        text: 'If anyone needs help with the material, let me know.',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -559,11 +423,7 @@ export const conversations = [
         id: 21,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.let_s_organize_that_study_group_and_just_power_throu_580699d7',
-          );
-        },
+        text: 'Let’s organize that study group and just power through this.',
         reactions: [
           {
             userId: 11,
@@ -581,9 +441,7 @@ export const conversations = [
         id: 22,
         senderId: 1,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.sounds_good_let_s_focus_on_that_we_ve_got_this_725a1c10');
-        },
+        text: 'Sounds good. Let’s focus on that. We’ve got this!',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: null,
       },
@@ -599,11 +457,7 @@ export const conversations = [
         id: 1,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.hey_michael_i_heard_you_re_taking_a_leave_of_absence_8698f5f0',
-          );
-        },
+        text: 'Hey, Michael . I heard you’re taking a leave of absence from school. Is everything okay?',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -611,11 +465,7 @@ export const conversations = [
         id: 2,
         senderId: 15,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.yeah_everything_s_fine_i_just_need_some_time_to_sort_7de1607c',
-          );
-        },
+        text: 'Yeah, everything’s fine. I just need some time to sort out a few personal things and recharge. It’s been a bit overwhelming lately.',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -623,11 +473,7 @@ export const conversations = [
         id: 3,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.that_makes_sense_taking_care_of_yourself_is_importan_46ff3ec2',
-          );
-        },
+        text: 'that makes sense. taking care of yourself is important.',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -635,9 +481,7 @@ export const conversations = [
         id: 4,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t('ui.data.chat.how_long_will_you_be_away_d0fcd6f6');
-        },
+        text: 'How long will you be away?',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -645,11 +489,7 @@ export const conversations = [
         id: 5,
         senderId: 15,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.probably_a_semester_i_ve_already_spoken_with_the_cou_ff188ae0',
-          );
-        },
+        text: 'Probably a semester. I’ve already spoken with the counselor, and they helped me with the process.',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -657,11 +497,7 @@ export const conversations = [
         id: 6,
         senderId: 15,
         type: 'received',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.of_course_i_ll_still_hang_out_and_keep_up_with_what__c29a98be',
-          );
-        },
+        text: 'Of course! I’ll still hang out and keep up with what’s happening. I just need a break from the coursework for now.',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -669,11 +505,7 @@ export const conversations = [
         id: 7,
         senderId: 14,
         type: 'sent',
-        get text() {
-          return i18n.t(
-            'ui.data.chat.totally_understandable_if_you_need_anything_or_just__1b32c14f',
-          );
-        },
+        text: 'Totally understandable. If you need anything or just want to talk, I’m here.',
         createdAt: dayjs().subtract(44, 'm').toDate(),
         readAt: new Date(),
       },
@@ -681,9 +513,7 @@ export const conversations = [
         id: 8,
         senderId: 15,
         type: 'received',
-        get text() {
-          return i18n.t('ui.data.chat.thanks_that_means_a_lot_i_ll_see_you_around_078e8b8d');
-        },
+        text: 'Thanks. That means a lot. I’ll see you around!',
         reactions: [
           {
             userId: 14,

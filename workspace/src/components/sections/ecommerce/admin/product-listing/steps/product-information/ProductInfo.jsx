@@ -1,7 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import OptionalInfo from './OptionalInfo';
 import ProductDimensionInput from './ProductDimensionInput';
@@ -14,53 +12,27 @@ export const productInfoFormSchema = yup
           value: yup
             .number()
             .positive('Value must be a positive number')
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
-            ),
-          unit: yup
-            .string()
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.unit_is_required_c7db62de'),
-            ),
+            .required('Value is required'),
+          unit: yup.string().required('Unit is required'),
         }),
         width: yup.object({
           value: yup
             .number()
             .positive('Value must be a positive number')
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
-            ),
-          unit: yup
-            .string()
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.unit_is_required_c7db62de'),
-            ),
+            .required('Value is required'),
+          unit: yup.string().required('Unit is required'),
         }),
         height: yup.object({
           value: yup
             .number()
             .positive('Value must be a positive number')
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
-            ),
-          unit: yup
-            .string()
-            .required(
-              i18n.t('ui.sections.ecommerce.admin.product_listing.unit_is_required_c7db62de'),
-            ),
+            .required('Value is required'),
+          unit: yup.string().required('Unit is required'),
         }),
         specifications: yup.array().of(
           yup.object({
-            label: yup
-              .string()
-              .required(
-                i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
-              ),
-            value: yup
-              .string()
-              .required(
-                i18n.t('ui.sections.ecommerce.admin.product_listing.value_is_required_30b22827'),
-              ),
+            label: yup.string().required('Value is required'),
+            value: yup.string().required('Value is required'),
           }),
         ),
       })
@@ -69,7 +41,6 @@ export const productInfoFormSchema = yup
   .required();
 
 const ProductInfo = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <>
       <Grid
@@ -81,7 +52,7 @@ const ProductInfo = () => {
       >
         <Grid size={12}>
           <Typography variant="subtitle2">
-            {translateUi('ui.sections.ecommerce.admin.product_listing.required_eed6bfb4')}
+            Required
             <Box
               component="span"
               sx={{
@@ -94,24 +65,15 @@ const ProductInfo = () => {
         </Grid>
 
         <Grid size={12}>
-          <ProductDimensionInput
-            field="length"
-            label={translateUi('ui.sections.ecommerce.admin.product_listing.length_3bade34e')}
-          />
+          <ProductDimensionInput field="length" label="Length" />
         </Grid>
 
         <Grid size={12}>
-          <ProductDimensionInput
-            field="width"
-            label={translateUi('ui.sections.ecommerce.admin.product_listing.width_a58ddf50')}
-          />
+          <ProductDimensionInput field="width" label="Width" />
         </Grid>
 
         <Grid size={12}>
-          <ProductDimensionInput
-            field="height"
-            label={translateUi('ui.sections.ecommerce.admin.product_listing.height_3f608b49')}
-          />
+          <ProductDimensionInput field="height" label="Height" />
         </Grid>
       </Grid>
       <OptionalInfo />

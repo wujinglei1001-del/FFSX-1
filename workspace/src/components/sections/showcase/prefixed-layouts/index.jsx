@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Container, Grid, Stack } from '@mui/material';
 import { showcaseAssets } from 'data/showcase';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -13,7 +12,6 @@ import SectionModeToggle from '../common/SectionModeToggle';
 import LayoutCard from './LayoutCard';
 
 const PrefixedLayouts = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const [isDark, setIsDark] = useState(true);
   const [activeCardIndex, setActiveCardIndex] = useState(null);
@@ -84,9 +82,9 @@ const PrefixedLayouts = ({ data }) => {
             >
               <RevealText start="top 80%">
                 <GradientText variant="h3" gradientOrientation={upMd ? 'ltr' : 'center'}>
-                  {translateUi('ui.sections.showcase.prefixed_layouts.or_go_with_a_f7e0557f')}{' '}
+                  Or go with a{' '}
                   <Box component="span" sx={{ whiteSpace: 'nowrap' }}>
-                    {translateUi('ui.sections.showcase.prefixed_layouts.prefixed_one_8717caa8')}
+                    prefixed one
                   </Box>
                 </GradientText>
               </RevealText>

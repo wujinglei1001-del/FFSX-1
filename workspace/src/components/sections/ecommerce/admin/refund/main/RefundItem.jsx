@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Chip, Link, List, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import paths from 'routes/paths';
@@ -9,7 +8,6 @@ import { OrderAttributeListItem } from '../../order/main/OrderItem';
 import RefundItemTable from './RefundItemTable';
 
 const RefundItem = ({ product, index }) => {
-  const { t: translateUi } = useTranslation();
   const { order } = useOrderDetails();
   const { currencyFormat } = useNumberFormat();
   const { id, name, images, price, vendor, status, quantity, variants } = product;
@@ -65,7 +63,7 @@ const RefundItem = ({ product, index }) => {
             mb: 3,
           }}
         >
-          {translateUi('ui.sections.ecommerce.admin.refund.sold_by_12c71f0a')}{' '}
+          Sold by{' '}
           <Box
             component="span"
             sx={{

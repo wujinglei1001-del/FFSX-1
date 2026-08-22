@@ -5,6 +5,9 @@ export const rootPaths = {
   miscRoot: 'misc',
   authRoot: 'authentication',
   pricingRoot: 'pricing',
+  authDefaultJwtRoot: 'default/jwt',
+  authDefaultFirebaseRoot: 'default/firebase',
+  authDefaultAuth0Root: 'default/auth0',
   authZitadelRoot: 'zitadel',
   errorRoot: 'error',
   ecommerceRoot: 'ecommerce',
@@ -34,7 +37,6 @@ export const rootPaths = {
 
 const paths = {
   showcase: `/showcase`,
-  workbench: `/workbench`,
 
   ecommerce: `/${rootPaths.dashboardRoot}/ecommerce`,
   crm: `/${rootPaths.dashboardRoot}/crm`,
@@ -47,11 +49,24 @@ const paths = {
 
   starter: `/${rootPaths.pagesRoot}/starter`,
   notifications: `/${rootPaths.pagesRoot}/notifications`,
+  defaultJwtLogin: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/login`,
+  defaultJwtSignup: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/sign-up`,
+  defaultJwtForgotPassword: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/forgot-password`,
+  defaultJwt2FA: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/2FA`,
+  defaultJwtSetPassword: `/${rootPaths.authRoot}/${rootPaths.authDefaultJwtRoot}/set-password`,
   zitadelLogin: `/${rootPaths.authRoot}/${rootPaths.authZitadelRoot}/login`,
   zitadelSignup: `/${rootPaths.authRoot}/${rootPaths.authZitadelRoot}/sign-up`,
   zitadelVerifyEmail: `/${rootPaths.authRoot}/${rootPaths.authZitadelRoot}/verify-email`,
   zitadelLoggedOut: `/${rootPaths.authRoot}/${rootPaths.authZitadelRoot}/logged-out`,
   zitadelCallback: `/${rootPaths.authRoot}/callback`,
+
+  defaultAuth0Login: `/${rootPaths.authRoot}/${rootPaths.authDefaultAuth0Root}/login`,
+
+  defaultFirebaseLogin: `/${rootPaths.authRoot}/${rootPaths.authDefaultFirebaseRoot}/login`,
+  defaultFirebaseSignup: `/${rootPaths.authRoot}/${rootPaths.authDefaultFirebaseRoot}/sign-up`,
+  defaultFirebaseForgotPassword: `/${rootPaths.authRoot}/${rootPaths.authDefaultFirebaseRoot}/forgot-password`,
+
+  defaultLoggedOut: `/${rootPaths.authRoot}/default/logged-out`,
   pricingColumn: `/${rootPaths.pagesRoot}/${rootPaths.pricingRoot}/column`,
   pricingTable: `/${rootPaths.pagesRoot}/${rootPaths.pricingRoot}/table`,
 
@@ -136,7 +151,6 @@ const paths = {
   landingAbout: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/about-us`,
   landingContact: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/contact`,
   landingFaq: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/faq`,
-  landingSubscriptions: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/contact?topic=subscription`,
   landing404: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/404`,
   landingComingSoon: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/coming-soon`,
   landingMaintenance: `/${rootPaths.pagesRoot}/${rootPaths.landingRoot}/maintenance`,
@@ -189,35 +203,47 @@ const paths = {
   memberNewMember: `/${rootPaths.appsRoot}/${rootPaths.memberRoot}/new-member`,
 };
 
+export const authPaths = {
+  /* ---------------------------------JWT----------------------------------------- */
+  login: paths.zitadelLogin,
+  signup: paths.zitadelSignup,
+  forgotPassword: paths.defaultJwtForgotPassword,
+  setNewPassword: paths.defaultJwtSetPassword,
+  twoFactorAuth: paths.defaultJwt2FA,
+  /* ---------------------------------Firebase----------------------------------------- */
+  // login: paths.defaultFirebaseLogin,
+  // signup: paths.defaultFirebaseSignup,
+  // forgotPassword: paths.defaultFirebaseForgotPassword,
+  /* ---------------------------------Auth0----------------------------------------- */
+  // login: paths.defaultAuth0Login,
+};
+
 const runtimeBasePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
 
 export const workbenchEntryPath =
-  runtimeBasePath === '/workbench' ? rootPaths.root : paths.workbench;
-
-export const authPaths = {
-  login: paths.zitadelLogin,
-  signup: paths.zitadelSignup,
-};
+  runtimeBasePath === '/workbench' ? rootPaths.root : '/workbench';
 
 export const publicAuthPaths = {
-  login: `${paths.workbench}${paths.zitadelLogin}`,
-  signup: `${paths.workbench}${paths.zitadelSignup}`,
+  login: `/workbench${paths.zitadelLogin}`,
+  signup: `/workbench${paths.zitadelSignup}`,
 };
 
 export const apiEndpoints = {
-  login: '/auth/login',
   register: '/auth/register',
-  verifyEmail: '/auth/verify-email',
+  login: '/auth/login',
   logout: '/auth/logout',
   profile: '/auth/profile',
+  verifyEmail: '/auth/verify-email',
   contactRequests: '/public/contact-requests',
   getUsers: '/users',
-  getProduct: (id) => `e-commerce/products/${id}`,
+  forgotPassword: '/auth/forgot-password',
+  setPassword: '/auth/set-password',
   notifications: '/v1/notifications',
   notificationRead: (id) => `/v1/notifications/${id}/read`,
   plugins: '/v1/plugins',
   pluginPurchase: (id) => `/v1/plugins/${id}/purchase`,
   pluginAction: (id, action) => `/v1/plugins/${id}/${action}`,
+  getProduct: (id) => `e-commerce/products/${id}`,
 };
 
 export default paths;

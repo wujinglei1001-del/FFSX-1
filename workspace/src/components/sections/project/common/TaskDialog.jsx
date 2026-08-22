@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
   Box,
@@ -18,7 +17,6 @@ import { TaskDialogFormSections } from './task-dialog/TaskDialogFormSections';
 import { defaultFormValues, validationSchema } from './task-dialog/taskDialogConfig';
 
 const TaskDialog = ({ open, onClose, onSubmit: onTaskSubmit, initialValues, mode = 'create' }) => {
-  const { t: translateUi } = useTranslation();
   const [startDateOpen, setStartDateOpen] = useState(false);
   const [endDateOpen, setEndDateOpen] = useState(false);
   const [collaboratorSearch, setCollaboratorSearch] = useState('');
@@ -115,7 +113,7 @@ const TaskDialog = ({ open, onClose, onSubmit: onTaskSubmit, initialValues, mode
         <DialogActions sx={{ py: 1.5, px: { xs: 3 }, flexShrink: 0 }}>
           <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button onClick={onClose} color="neutral">
-              {translateUi('ui.sections.project.common.taskdialog.cancel_77dfd213')}
+              Cancel
             </Button>
             <Button onClick={handleSubmit(onSubmit)} color="primary" variant="text">
               {mode === 'edit' ? 'Save Changes' : 'Create Task'}

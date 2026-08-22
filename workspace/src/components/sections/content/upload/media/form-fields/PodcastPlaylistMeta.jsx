@@ -1,10 +1,8 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, FormHelperText, Grid, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const PodcastPlaylistMeta = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -25,11 +23,11 @@ const PodcastPlaylistMeta = () => {
               mb: 1,
             }}
           >
-            {translateUi('ui.sections.content.upload.media.episode_no_16878bb5')}
+            Episode No
           </Typography>
 
           <StyledTextField
-            placeholder={translateUi('ui.sections.content.upload.media.number_b7baa1d4')}
+            placeholder="Number"
             type="number"
             fullWidth
             error={!!errors.episodeNo}
@@ -56,11 +54,11 @@ const PodcastPlaylistMeta = () => {
               mb: 1,
             }}
           >
-            {translateUi('ui.sections.content.upload.media.season_no_2253828b')}
+            Season No
           </Typography>
 
           <StyledTextField
-            placeholder={translateUi('ui.sections.content.upload.media.number_b7baa1d4')}
+            placeholder="Number"
             type="number"
             fullWidth
             error={!!errors.seasonNo}

@@ -8,7 +8,6 @@ import { useThemeMode } from 'hooks/useThemeMode';
 import Lottie from 'lottie-react';
 
 const Starter = () => {
-  const { t: translateUi } = useTranslation();
   const { t } = useTranslation();
   const { isDark } = useThemeMode();
 
@@ -59,10 +58,10 @@ const Starter = () => {
                 fontWeight: 500,
               }}
             >
-              {translateUi('ui.pages.others.starter.edit_me_c7feeac3')}
+              Edit me!
             </Typography>
             <Button variant="contained" color="primary" sx={{ width: 1 }}>
-              {translateUi('ui.pages.others.starter.get_started_bd2cb051')}
+              Get Started
             </Button>
           </Box>
         </Paper>

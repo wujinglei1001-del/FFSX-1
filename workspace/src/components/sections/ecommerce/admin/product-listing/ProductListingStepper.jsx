@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import {
   Box,
@@ -15,7 +14,6 @@ import {
   Typography,
   stepLabelClasses,
 } from '@mui/material';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -32,63 +30,44 @@ import useProductListingForm from './useProductListingForm';
 
 const steps = [
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.vital_info_8daec801');
-    },
+    label: 'Vital info',
     content: <VitalInfo />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.name_and_description_fa2fb5bc');
-    },
+    label: 'Name and description',
     content: <NameDescription />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.product_information_31439650');
-    },
+    label: 'Product information',
     content: <ProductInfo />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.images_and_videos_242a4f6d');
-    },
+    label: 'Images and videos',
     content: <MediaFiles />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.variations_4fba657a');
-    },
+    label: 'Variations',
     content: <Variations />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.pricing_and_quantity_ff555181');
-    },
+    label: 'Pricing and quantity',
     content: <PricingQuantity />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.inventory_300d29fd');
-    },
+    label: 'Inventory',
     content: <Inventory />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.shipping_694e6062');
-    },
+    label: 'Shipping',
     content: <Shipping />,
   },
   {
-    get label() {
-      return i18n.t('ui.sections.ecommerce.admin.product_listing.tag_982963c1');
-    },
+    label: 'Tag',
     content: <Tags />,
   },
 ];
 
 const ProductListingStepper = () => {
-  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
 
   const [activeStep, setActiveStep] = useState(0);
@@ -186,9 +165,7 @@ const ProductListingStepper = () => {
                           onClick={handlePreviousStep}
                           startIcon={<IconifyIcon icon="material-symbols:chevron-left-rounded" />}
                         >
-                          {translateUi(
-                            'ui.sections.ecommerce.admin.product_listing.previous_50f94286',
-                          )}
+                          Previous
                         </Button>
                       )}
                       {!isLastStep ? (
@@ -199,9 +176,7 @@ const ProductListingStepper = () => {
                           onClick={handleProceed}
                           endIcon={<IconifyIcon icon="material-symbols:chevron-right-rounded" />}
                         >
-                          {translateUi(
-                            'ui.sections.ecommerce.admin.product_listing.finish_and_proceed_ff0cf9d4',
-                          )}
+                          Finish and proceed
                         </Button>
                       ) : (
                         <Stack
@@ -219,9 +194,7 @@ const ProductListingStepper = () => {
                             color="primary"
                             sx={{ whiteSpace: 'nowrap' }}
                           >
-                            {translateUi(
-                              'ui.sections.ecommerce.admin.product_listing.archive_product_8ae22add',
-                            )}
+                            Archive product
                           </Button>
                           <Button
                             form="productListingForm"
@@ -231,9 +204,7 @@ const ProductListingStepper = () => {
                             color="primary"
                             sx={{ whiteSpace: 'nowrap' }}
                           >
-                            {translateUi(
-                              'ui.sections.ecommerce.admin.product_listing.publish_product_5eeadba1',
-                            )}
+                            Publish product
                           </Button>
                         </Stack>
                       )}

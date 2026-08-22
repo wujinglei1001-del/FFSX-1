@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import {
@@ -20,7 +19,6 @@ import SortableDnd from 'components/base/SortableDnd';
 import ValueItem from './OptionValueField';
 
 const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
-  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id,
@@ -129,8 +127,7 @@ const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
                 flex: 1,
               }}
             >
-              {translateUi('ui.sections.ecommerce.admin.product_listing.option_e31d9722')}
-              {variantIndex + 1}
+              Option {variantIndex + 1}
             </Typography>
 
             <IconButton
@@ -143,9 +140,7 @@ const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
           </Stack>
 
           <FormControl variant="filled" fullWidth error={!!errors.variants?.[variantIndex]?.type}>
-            <InputLabel id="variants-type-label">
-              {translateUi('ui.sections.ecommerce.admin.product_listing.select_variant_3785e871')}
-            </InputLabel>
+            <InputLabel id="variants-type-label">Select variant</InputLabel>
 
             <Controller
               name={`variants.${variantIndex}.name`}
@@ -153,9 +148,7 @@ const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
               render={({ field: { onChange, ...rest } }) => (
                 <Select
                   labelId="variants-type-label"
-                  label={translateUi(
-                    'ui.sections.ecommerce.admin.product_listing.variants_type_91988971',
-                  )}
+                  label="Variants type"
                   displayEmpty
                   onChange={(e) => {
                     onChange(e);
@@ -169,17 +162,9 @@ const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
                   }}
                   {...rest}
                 >
-                  <MenuItem value="color">
-                    {translateUi('ui.sections.ecommerce.admin.product_listing.color_1d0c8304')}
-                  </MenuItem>
-                  <MenuItem value="fabric">
-                    {translateUi(
-                      'ui.sections.ecommerce.admin.product_listing.fabric_material_c4a8b08b',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="size">
-                    {translateUi('ui.sections.ecommerce.admin.product_listing.size_b7152342')}
-                  </MenuItem>
+                  <MenuItem value="color">Color</MenuItem>
+                  <MenuItem value="fabric">Fabric material</MenuItem>
+                  <MenuItem value="size">Size</MenuItem>
                 </Select>
               )}
             />
@@ -196,7 +181,7 @@ const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
                 mb: 2,
               }}
             >
-              {translateUi('ui.sections.ecommerce.admin.product_listing.values_b1564f6b')}
+              Values
             </Typography>
 
             <Stack sx={{ rowGap: 1 }}>
@@ -222,9 +207,7 @@ const OptionField = ({ id, variantIndex, variantsFieldArray }) => {
                 }
                 onClick={() => append({ color: '', value: '', images: [] })}
               >
-                {translateUi(
-                  'ui.sections.ecommerce.admin.product_listing.add_another_value_368b6797',
-                )}
+                Add another value
               </Button>
             </Stack>
           </div>

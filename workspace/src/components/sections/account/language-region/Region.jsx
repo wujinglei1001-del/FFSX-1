@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   FormControl,
@@ -19,7 +18,6 @@ import {
 import StyledTextField from 'components/styled/StyledTextField';
 
 const Region = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
 
   return (
@@ -40,7 +38,7 @@ const Region = () => {
             renderInput={(params) => (
               <StyledTextField
                 {...params}
-                label={translateUi('ui.sections.account.language_region.region.region_0f217179')}
+                label="Region"
                 placeholder={regions[0]}
                 sx={{ width: { sm: 0.5 }, pr: { sm: 0.5 } }}
               />
@@ -50,32 +48,22 @@ const Region = () => {
       />
       <FormControl sx={{ gap: 2 }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.account.language_region.region.temperature_0a9062a9')}
+          Temperature
         </Typography>
         <Controller
           name="temperature"
           control={control}
           render={({ field }) => (
             <RadioGroup row aria-labelledby="temperature-radio-button-group-label" {...field}>
-              <FormControlLabel
-                value="celcius"
-                control={<Radio />}
-                label={translateUi('ui.sections.account.language_region.region.celsius_781e3854')}
-              />
-              <FormControlLabel
-                value="fahrenheit"
-                control={<Radio />}
-                label={translateUi(
-                  'ui.sections.account.language_region.region.fahrenheit_3f60318d',
-                )}
-              />
+              <FormControlLabel value="celcius" control={<Radio />} label="Celsius (℃)" />
+              <FormControlLabel value="fahrenheit" control={<Radio />} label="Fahrenheit (℉)" />
             </RadioGroup>
           )}
         />
       </FormControl>
       <FormControl sx={{ gap: 2 }}>
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.account.language_region.region.measurement_system_515a10d2')}
+          Measurement System
         </Typography>
         <Controller
           name="measurementSystem"
@@ -86,11 +74,7 @@ const Region = () => {
               aria-labelledby="measurement-system-radio-button-group-label"
               {...field}
             >
-              <FormControlLabel
-                value="metric"
-                control={<Radio />}
-                label={translateUi('ui.sections.account.language_region.region.metric_b2bb7604')}
-              />
+              <FormControlLabel value="metric" control={<Radio />} label="Metric" />
               <FormControlLabel value="us" control={<Radio />} label="US" />
               <FormControlLabel value="uk" control={<Radio />} label="UK" />
             </RadioGroup>
@@ -112,13 +96,7 @@ const Region = () => {
                 field.onChange(value);
               }}
               renderInput={(params) => (
-                <StyledTextField
-                  {...params}
-                  label={translateUi(
-                    'ui.sections.account.language_region.region.first_day_of_week_8bdd9523',
-                  )}
-                  placeholder={weekDays[0]}
-                />
+                <StyledTextField {...params} label="First day of week" placeholder={weekDays[0]} />
               )}
             />
           )}
@@ -137,13 +115,7 @@ const Region = () => {
                 field.onChange(value);
               }}
               renderInput={(params) => (
-                <StyledTextField
-                  {...params}
-                  label={translateUi(
-                    'ui.sections.account.language_region.region.date_format_94ee8869',
-                  )}
-                  placeholder={dateFormats[0]}
-                />
+                <StyledTextField {...params} label="Date format" placeholder={dateFormats[0]} />
               )}
             />
           )}
@@ -164,13 +136,7 @@ const Region = () => {
                 field.onChange(value);
               }}
               renderInput={(params) => (
-                <StyledTextField
-                  {...params}
-                  label={translateUi(
-                    'ui.sections.account.language_region.region.number_format_ebe7cbe4',
-                  )}
-                  placeholder={numberFormats[0]}
-                />
+                <StyledTextField {...params} label="Number format" placeholder={numberFormats[0]} />
               )}
             />
           )}
@@ -191,9 +157,7 @@ const Region = () => {
               renderInput={(params) => (
                 <StyledTextField
                   {...params}
-                  label={translateUi(
-                    'ui.sections.account.language_region.region.list_sort_order_74c7141a',
-                  )}
+                  label="List sort order"
                   placeholder={listSortOrders[0]}
                 />
               )}

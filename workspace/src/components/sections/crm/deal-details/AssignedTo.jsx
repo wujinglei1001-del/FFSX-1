@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
@@ -7,12 +6,9 @@ import Typography from '@mui/material/Typography';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const AssignedTo = ({ assignedToData }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, gap: 2 }}>
-      <Typography variant="h5">
-        {translateUi('ui.sections.crm.deal_details.assignedto.assigned_to_bb2279f0')}
-      </Typography>
+      <Typography variant="h5">Assigned to</Typography>
       <Stack
         direction="row"
         sx={{

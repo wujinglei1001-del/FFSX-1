@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box, Button, Divider, Stack, Typography } from '@mui/material';
-import i18n from 'locales/i18n';
 import { enqueueSnackbar } from 'notistack';
 import { createRecurringEventsForSlot } from 'pages/apps/calendar/Scheduler';
 import * as yup from 'yup';
@@ -14,15 +12,9 @@ import ScheduleConfig from 'components/sections/scheduler/SchedulePanel/Schedule
 import { useScheduleColors } from 'components/sections/scheduler/SchedulePanel/useSchedulerColors';
 
 const schema = yup.object().shape({
-  title: yup
-    .string()
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
-  duration: yup
-    .string()
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
-  timeZone: yup
-    .string()
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
+  title: yup.string().required('required*'),
+  duration: yup.string().required('required*'),
+  timeZone: yup.string().required('required*'),
   virtualLink: yup.string().url('provide valid url').optional(),
   location: yup.string().optional(),
   guests: yup
@@ -33,39 +25,19 @@ const schema = yup.object().shape({
       }),
     )
     .optional(),
-  preMeetingAlert: yup
-    .string()
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
+  preMeetingAlert: yup.string().required('required*'),
   alertBefore: yup.object().shape({
-    value: yup
-      .number()
-      .min(0)
-      .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
-    unit: yup
-      .string()
-      .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
+    value: yup.number().min(0).required('required*'),
+    unit: yup.string().required('required*'),
   }),
-  color: yup
-    .string()
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
-  appointmentType: yup
-    .string()
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
-  access: yup
-    .string()
-    .oneOf(['private', 'public'])
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
+  color: yup.string().required('required*'),
+  appointmentType: yup.string().required('required*'),
+  access: yup.string().oneOf(['private', 'public']).required('required*'),
 
   config: yup.object().shape({
-    bufferTime: yup
-      .number()
-      .min(0, i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.minimum_0_2c25e595'))
-      .optional(),
+    bufferTime: yup.number().min(0, 'minimum 0 !').optional(),
     bufferTimeUnit: yup.string().oneOf(['minutes', 'hr', 'day']).optional(),
-    maxBookingsPerDay: yup
-      .number()
-      .min(0, i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.minimum_0_2c25e595'))
-      .optional(),
+    maxBookingsPerDay: yup.number().min(0, 'minimum 0 !').optional(),
     canInviteOthers: yup.boolean().optional(),
   }),
   availability: yup.array().of(
@@ -74,20 +46,8 @@ const schema = yup.object().shape({
       disabled: yup.boolean().required(),
       timeSlots: yup.array().of(
         yup.object().shape({
-          start: yup
-            .string()
-            .required(
-              i18n.t(
-                'ui.sections.scheduler.schedulepanel.schedulerpanel.start_time_is_required_ece990b2',
-              ),
-            ),
-          end: yup
-            .string()
-            .required(
-              i18n.t(
-                'ui.sections.scheduler.schedulepanel.schedulerpanel.end_time_is_required_2738dddf',
-              ),
-            ),
+          start: yup.string().required('Start time is required'),
+          end: yup.string().required('End time is required'),
           id: yup.string(),
         }),
       ),
@@ -96,7 +56,7 @@ const schema = yup.object().shape({
   repeatedAppointment: yup
     .string()
     .oneOf(['none', 'daily', 'weekly', 'monthly'])
-    .required(i18n.t('ui.sections.scheduler.schedulepanel.schedulerpanel.required_e9bcbc4f')),
+    .required('required*'),
 });
 
 const SchedulerPanel = ({
@@ -105,7 +65,6 @@ const SchedulerPanel = ({
   onUpdateAppointments,
   onRemoveAppointments,
 }) => {
-  const { t: translateUi } = useTranslation();
   const { colorMap } = useScheduleColors();
 
   const methods = useForm({
@@ -208,9 +167,7 @@ const SchedulerPanel = ({
                 lineHeight: '2rem',
               }}
             >
-              {translateUi(
-                'ui.sections.scheduler.schedulepanel.schedulerpanel.scheduler_settings_07c83d6b',
-              )}
+              Scheduler Settings
             </Typography>
             <Button
               onClick={toggleDrawer}
@@ -247,10 +204,10 @@ const SchedulerPanel = ({
             }}
           >
             <Button variant="soft" color="neutral" onClick={toggleDrawer}>
-              {translateUi('ui.sections.scheduler.schedulepanel.schedulerpanel.discard_36fff63c')}
+              Discard
             </Button>
             <Button type="submit" variant="contained" sx={{ px: 3 }}>
-              {translateUi('ui.sections.scheduler.schedulepanel.schedulerpanel.save_efc007a3')}
+              Save
             </Button>
           </Stack>
         </Stack>

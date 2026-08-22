@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -19,7 +18,6 @@ import FilterMenu from '../filters/FilterMenu';
 import SearchFilterMenu from '../filters/SearchFilterMenu';
 
 const SidebarHeader = () => {
-  const { t: translateUi } = useTranslation();
   const { chatDispatch, filterBy, searchQuery, handleChatSidebar } = useChatContext();
   const { only } = useBreakpoints();
 
@@ -57,16 +55,13 @@ const SidebarHeader = () => {
                 }}
               />
             }
-            label={translateUi('ui.sections.chat.sidebar.layouts.unread_07b032b5')}
+            label="Unread"
             sx={{ gap: 1, m: 0 }}
           />
         )}
 
         <Stack direction="row" sx={{ gap: 1 }}>
-          <Tooltip
-            title={translateUi('ui.sections.chat.sidebar.layouts.new_message_1ed2e7b5')}
-            placement={onlySm ? 'right' : 'top'}
-          >
+          <Tooltip title="New message" placement={onlySm ? 'right' : 'top'}>
             <Button
               href={paths.newChat}
               onClick={() => handleChatSidebar(false)}
@@ -92,7 +87,7 @@ const SidebarHeader = () => {
         <StyledTextField
           id="search-box"
           size="large"
-          placeholder={translateUi('ui.sections.chat.sidebar.layouts.find_a_dm_95a56893')}
+          placeholder="Find a dm"
           fullWidth
           value={searchQuery}
           onChange={handleSearch}

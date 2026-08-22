@@ -11,7 +11,6 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
@@ -58,7 +57,7 @@ export const taskColumns = [
           checked={table.getIsAllPageRowsSelected() ?? false}
           indeterminate={table.getIsSomePageRowsSelected?.() ?? false}
           onChange={table.getToggleAllPageRowsSelectedHandler?.()}
-          aria-label={i18n.t('ui.sections.project.table_view.task_columns.select_all_913afff1')}
+          aria-label="Select all"
           sx={leadingCheckboxSx}
         />
       </LeadingIconCell>
@@ -73,7 +72,7 @@ export const taskColumns = [
             checked={row.getIsSelected?.() ?? false}
             indeterminate={row.getIsSomeSelected?.() ?? false}
             onChange={row.getToggleSelectedHandler?.()}
-            aria-label={i18n.t('ui.sections.project.table_view.task_columns.select_row_80eff361')}
+            aria-label="Select row"
             sx={leadingCheckboxSx}
           />
         </LeadingIconCell>
@@ -136,7 +135,7 @@ export const taskColumns = [
             checked={row.getIsSelected?.() ?? false}
             indeterminate={row.getIsSomeSelected?.() ?? false}
             onChange={row.getToggleSelectedHandler?.()}
-            aria-label={i18n.t('ui.sections.project.table_view.task_columns.select_row_80eff361')}
+            aria-label="Select row"
             sx={leadingCheckboxSx}
           />
         </LeadingIconCell>

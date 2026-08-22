@@ -11,11 +11,7 @@ const DataGridPagination = function BasePagination({ ref, ...props }) {
       showLastButton
       component="div"
       ActionsComponent={(props) => (
-        <DataGridPaginationAction
-          showFullPagination={showFullPagination}
-          showAllHref={showAllHref}
-          {...props}
-        />
+        <DataGridPaginationAction showFullPagination={showFullPagination} {...props} />
       )}
       onRowsPerPageChange={useEventCallback((event) => {
         onRowsPerPageChange?.(Number(event.target.value));

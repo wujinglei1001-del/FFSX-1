@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button } from '@mui/material';
 import dayjs from 'dayjs';
 import {
@@ -13,7 +12,6 @@ import SvelteGanttChart from 'components/base/SvelteGanttChart';
 import ProjectTimelineChartSkeleton from './ProjectTimelineChartSkeleton';
 
 const ProjectTimelineChart = ({ projectTimelineData }) => {
-  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const [chartReady, setChartReady] = useState(false);
   const [chartMountDeferred, setChartMountDeferred] = useState(true);
@@ -78,16 +76,7 @@ const ProjectTimelineChart = ({ projectTimelineData }) => {
       from,
       to,
       minWidth: Math.min(MIN_WIDTH_PER_MONTH * numMonths, MAX_MIN_WIDTH),
-      tableHeaders: [
-        {
-          title: translateUi(
-            'ui.sections.dashboards.project.project_timeline.all_projects_bf9f85b4',
-          ),
-          property: 'label',
-          width: 140,
-          type: 'tree',
-        },
-      ],
+      tableHeaders: [{ title: 'All Projects', property: 'label', width: 140, type: 'tree' }],
     };
   }, [ganttData, tableWidth, from, to]);
 

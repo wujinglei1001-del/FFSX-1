@@ -1,5 +1,4 @@
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Button, IconButton, Stack } from '@mui/material';
@@ -9,7 +8,6 @@ import ColorPicker from 'components/base/color-picker/ColorPicker';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const GroupRow = ({ id, index, onRemove, canRemove }) => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -46,7 +44,7 @@ const GroupRow = ({ id, index, onRemove, canRemove }) => {
       </Button>
       <StyledTextField
         fullWidth
-        placeholder={translateUi('ui.sections.project.create_project.steps.group_name_ebb7e14b')}
+        placeholder="Group name"
         error={Boolean(errors.groups?.[index]?.label)}
         helperText={errors.groups?.[index]?.label?.message}
         {...register(`groups.${index}.label`)}
@@ -59,7 +57,7 @@ const GroupRow = ({ id, index, onRemove, canRemove }) => {
         )}
       />
       <IconButton
-        aria-label={translateUi('ui.sections.project.create_project.steps.remove_group_9a5319bc')}
+        aria-label="Remove group"
         disabled={!canRemove}
         onClick={onRemove}
         sx={{ color: 'text.primary' }}
@@ -71,7 +69,6 @@ const GroupRow = ({ id, index, onRemove, canRemove }) => {
 };
 
 const Group = () => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const { fields, append, remove, move } = useFieldArray({
     control,
@@ -104,7 +101,7 @@ const Group = () => {
         startIcon={<IconifyIcon icon="material-symbols:add-rounded" fontSize={20} />}
         onClick={() => append({ label: '', color: '#E0E0E0' })}
       >
-        {translateUi('ui.sections.project.create_project.steps.add_another_e9e7205b')}
+        Add another
       </Button>
     </Stack>
   );

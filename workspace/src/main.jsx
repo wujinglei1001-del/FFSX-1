@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router/dom';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { registerIcons } from 'lib/iconify/iconify-register';
-import AppLocalizationProvider from 'providers/AppLocalizationProvider';
 import BreakpointsProvider from 'providers/BreakpointsProvider';
 import NotistackProvider from 'providers/NotistackProvider';
 import SettingsPanelProvider from 'providers/SettingsPanelProvider';
@@ -11,7 +12,6 @@ import ThemeProvider from 'providers/ThemeProvider';
 import VisionModeProvider from 'providers/VisionModeProvider';
 import router from 'routes/router';
 import SWRConfiguration from 'services/configuration/SWRConfiguration';
-import './assets/fonts/plus-jakarta-sans/index.css';
 import './locales/i18n';
 
 registerIcons();
@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <SettingsProvider>
         <VisionModeProvider>
           <ThemeProvider>
-            <AppLocalizationProvider>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
               <NotistackProvider>
                 <BreakpointsProvider>
                   <SettingsPanelProvider>
@@ -30,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                   </SettingsPanelProvider>
                 </BreakpointsProvider>
               </NotistackProvider>
-            </AppLocalizationProvider>
+            </LocalizationProvider>
           </ThemeProvider>
         </VisionModeProvider>
       </SettingsProvider>

@@ -1,5 +1,4 @@
 import { Controller, useFieldArray, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Avatar,
@@ -11,33 +10,16 @@ import {
   Typography,
 } from '@mui/material';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const teamOptions = [
-  {
-    value: 'engineering',
-    get label() {
-      return i18n.t('ui.sections.project.create_project.steps.engineering_4143d048');
-    },
-  },
-  {
-    value: 'design',
-    get label() {
-      return i18n.t('ui.sections.project.create_project.steps.design_59b03536');
-    },
-  },
-  {
-    value: 'marketing',
-    get label() {
-      return i18n.t('ui.sections.project.create_project.steps.marketing_e0c534a0');
-    },
-  },
+  { value: 'engineering', label: 'Engineering' },
+  { value: 'design', label: 'Design' },
+  { value: 'marketing', label: 'Marketing' },
 ];
 
 const InviteMembers = () => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -85,7 +67,7 @@ const InviteMembers = () => {
             }}
           >
             <MenuItem value="" disabled>
-              {translateUi('ui.sections.project.create_project.steps.select_a_team_dd6d4924')}
+              Select a team
             </MenuItem>
             {teamOptions.map((opt) => (
               <MenuItem key={opt.value} value={opt.value}>
@@ -103,9 +85,7 @@ const InviteMembers = () => {
             mb: 3,
           }}
         >
-          {translateUi(
-            'ui.sections.project.create_project.steps.and_or_invite_individual_members_3751c31e',
-          )}
+          And/or invite individual members
         </Typography>
 
         <Stack sx={{ gap: 1, mt: 2 }}>
@@ -130,9 +110,7 @@ const InviteMembers = () => {
                     <Autocomplete
                       disableClearable
                       disablePortal={false}
-                      noOptionsText={translateUi(
-                        'ui.sections.project.create_project.steps.user_not_found_01eb9469',
-                      )}
+                      noOptionsText="User not found"
                       options={selectableOptions}
                       popupIcon={null}
                       isOptionEqualToValue={(option, value) => option.id === value?.id}
@@ -172,9 +150,7 @@ const InviteMembers = () => {
                       renderInput={(params) => (
                         <StyledTextField
                           {...params}
-                          placeholder={translateUi(
-                            'ui.sections.project.create_project.steps.select_a_member_6d593674',
-                          )}
+                          placeholder="Select a member"
                           error={Boolean(errors.collaborators?.[index]?.email)}
                           helperText={errors.collaborators?.[index]?.email?.message}
                         />
@@ -184,9 +160,7 @@ const InviteMembers = () => {
                   )}
                 />
                 <IconButton
-                  aria-label={translateUi(
-                    'ui.sections.project.create_project.steps.remove_member_1c31d1d2',
-                  )}
+                  aria-label="Remove member"
                   onClick={() => remove(index)}
                   disabled={fields.length <= 1}
                   sx={{ color: 'text.primary' }}
@@ -205,7 +179,7 @@ const InviteMembers = () => {
           startIcon={<IconifyIcon icon="material-symbols:add-rounded" fontSize={20} />}
           onClick={() => append({ email: '', userId: undefined, name: '', avatar: '' })}
         >
-          {translateUi('ui.sections.project.create_project.steps.add_another_e9e7205b')}
+          Add another
         </Button>
       </div>
     </Stack>

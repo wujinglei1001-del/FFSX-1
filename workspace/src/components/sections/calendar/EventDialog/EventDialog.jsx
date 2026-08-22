@@ -1,5 +1,4 @@
 import { FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -15,7 +14,6 @@ import {
   dialogTitleClasses,
   toggleButtonClasses,
 } from '@mui/material';
-import i18n from 'locales/i18n';
 import { useCalendarContext } from 'providers/CalendarProvider';
 import { SET_CALENDAR_STATE } from 'reducers/CalendarReducer';
 import * as yup from 'yup';
@@ -27,32 +25,11 @@ import useEventDialog from 'components/sections/calendar/useEventDialog';
 
 export const calendarEventSchema = yup
   .object({
-    title: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
-    category: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
-    start: yup
-      .mixed()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
-    end: yup
-      .mixed()
-      .nullable()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
-    eventType: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
+    title: yup.string().required('This field is required'),
+    category: yup.string().required('This field is required'),
+    start: yup.mixed().required('This field is required'),
+    end: yup.mixed().nullable().required('This field is required'),
+    eventType: yup.string().required('This field is required'),
     url: yup.string(),
     location: yup.string(),
     description: yup.string(),
@@ -63,27 +40,10 @@ export const calendarEventSchema = yup
 
 export const calendarTaskSchema = yup
   .object({
-    title: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
-    selectedList: yup
-      .string()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
-    start: yup
-      .mixed()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.start_date_is_required_438387af'),
-      ),
-    end: yup
-      .mixed()
-      .nullable()
-      .required(
-        i18n.t('ui.sections.calendar.eventdialog.eventdialog.this_field_is_required_dedbaded'),
-      ),
+    title: yup.string().required('This field is required'),
+    selectedList: yup.string().required('This field is required'),
+    start: yup.mixed().required('Start date is required'),
+    end: yup.mixed().nullable().required('This field is required'),
     repeated: yup.string(),
     description: yup.string(),
     allDay: yup.boolean().default(false),
@@ -91,7 +51,6 @@ export const calendarTaskSchema = yup
   .required();
 
 const EventDialog = ({ open }) => {
-  const { t: translateUi } = useTranslation();
   const { calendarDispatch, selectedItem } = useCalendarContext();
   const { methods, formType, setFormType, handleSubmit } = useEventDialog();
 
@@ -165,12 +124,8 @@ const EventDialog = ({ open }) => {
                   },
                 }}
               >
-                <ToggleButton value="event">
-                  {translateUi('ui.sections.calendar.eventdialog.eventdialog.event_ad8919ac')}
-                </ToggleButton>
-                <ToggleButton value="task">
-                  {translateUi('ui.sections.calendar.eventdialog.eventdialog.task_7bb0ddf9')}
-                </ToggleButton>
+                <ToggleButton value="event">Event</ToggleButton>
+                <ToggleButton value="task">Task</ToggleButton>
               </ToggleButtonGroup>
             </DialogTitle>
           )}{' '}
@@ -191,7 +146,7 @@ const EventDialog = ({ open }) => {
                   }
                   color="neutral"
                 >
-                  {translateUi('ui.sections.calendar.eventdialog.eventdialog.discard_36fff63c')}
+                  Discard
                 </Button>
                 <Button onClick={handleSubmit} color="primary" variant="contained">
                   {selectedItem ? `Update ${formType}` : `Add ${formType}`}

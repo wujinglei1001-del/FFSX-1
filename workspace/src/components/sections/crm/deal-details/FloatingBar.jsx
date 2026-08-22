@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
@@ -9,7 +8,6 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const FloatingBar = ({ contactInfo, handleDrawerOpen }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
 
   const upSm = up('sm');
@@ -59,9 +57,7 @@ const FloatingBar = ({ contactInfo, handleDrawerOpen }) => {
               whiteSpace: 'nowrap',
             }}
           >
-            {translateUi(
-              'ui.sections.crm.deal_details.floatingbar.replica_badidas_futbol_f40c1d77',
-            )}
+            Replica Badidas Futbol
           </Typography>
           {upSm && (
             <Stack
@@ -95,7 +91,7 @@ const FloatingBar = ({ contactInfo, handleDrawerOpen }) => {
           onClick={handleDrawerOpen}
           sx={{ textWrap: 'nowrap' }}
         >
-          {translateUi('ui.sections.crm.deal_details.floatingbar.more_details_473710d3')}
+          More details
         </Button>
       </Stack>
     </Paper>

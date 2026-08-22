@@ -1,14 +1,11 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Avatar, Button, Link, Stack } from '@mui/material';
 import { inputBaseClasses } from '@mui/material/InputBase';
 import { profileData } from 'data/social';
 import { useSnackbar } from 'notistack';
-import paths from 'routes/paths';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThreadInput }) => {
-  const { t: translateUi } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const [text, setText] = useState('');
 
@@ -25,9 +22,9 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
     >
       <Avatar
         component={Link}
-        href={paths.memberProfile}
+        href="#!"
         src={profileData.avatar}
-        alt={translateUi('common.accessibility.comment_author_avatar')}
+        alt="comment-author-avatar"
         sx={{ width: 32, height: 32, color: 'unset' }}
       />
       <Stack sx={{ gap: 2, flexGrow: 1 }}>
@@ -60,7 +57,7 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
               toggleThreadInput();
             }}
           >
-            {translateUi('ui.sections.hrm.performance_management.goals.discard_36fff63c')}
+            Discard
           </Button>
           <Button
             variant="contained"
@@ -70,7 +67,7 @@ const ThreadInput = ({ sx, placeholder = 'Comment to this post...', toggleThread
               toggleThreadInput();
             }}
           >
-            {translateUi('ui.sections.hrm.performance_management.goals.comment_153d7a58')}
+            Comment
           </Button>
         </Stack>
       </Stack>

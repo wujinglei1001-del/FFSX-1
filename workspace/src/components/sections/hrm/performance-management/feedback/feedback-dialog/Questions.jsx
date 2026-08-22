@@ -1,5 +1,4 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { filledInputClasses } from '@mui/material/FilledInput';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -9,7 +8,6 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
 const Questions = ({ questions, sx }) => {
-  const { t: translateUi } = useTranslation();
   const methods = useFormContext();
 
   return (
@@ -19,9 +17,7 @@ const Questions = ({ questions, sx }) => {
         ...sx,
       }}
     >
-      <Typography sx={{ fontWeight: 700 }}>
-        {translateUi('ui.sections.hrm.performance_management.feedback.questions_9a1fc173')}
-      </Typography>
+      <Typography sx={{ fontWeight: 700 }}>Questions</Typography>
       <List disablePadding component="ol" sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
         {questions.map((item, index) => (
           <ListItem
@@ -58,9 +54,7 @@ const Questions = ({ questions, sx }) => {
                 multiline
                 fullWidth
                 rows={2}
-                placeholder={translateUi(
-                  'ui.sections.hrm.performance_management.feedback.answer_a16a4eda',
-                )}
+                placeholder="Answer"
                 sx={{
                   ml: -2,
                   mt: 1,

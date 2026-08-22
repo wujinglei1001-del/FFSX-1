@@ -1,13 +1,10 @@
-import { useTranslation } from 'react-i18next';
-import { Box, Button, Container, Link, Stack, Typography } from '@mui/material';
-import { externalLinks } from 'config';
+import { Button, Container, Link, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import RevealItems from '../common/RevealItems';
 import RevealText from '../common/RevealText';
 import { StripedBackground } from '../common/StripedBackground';
 
 const Newsletter = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <StripedBackground
       fadeWidth="0"
@@ -43,11 +40,7 @@ const Newsletter = () => {
             }}
           >
             <RevealText>
-              <Typography variant="h4">
-                {translateUi(
-                  'ui.sections.landing.homepage.newsletter.want_to_stay_updated_baa1d75b',
-                )}
-              </Typography>
+              <Typography variant="h4">Want to stay updated?</Typography>
             </RevealText>
             <RevealText>
               <Typography
@@ -57,9 +50,7 @@ const Newsletter = () => {
                   fontWeight: 400,
                 }}
               >
-                {translateUi(
-                  'ui.sections.landing.homepage.newsletter.subscribe_to_our_newsletter_3ae5a4f2',
-                )}
+                Subscribe to our newsletter
               </Typography>
             </RevealText>
           </Stack>
@@ -72,30 +63,16 @@ const Newsletter = () => {
                 gap: 1,
               }}
             >
-              <StyledTextField
-                placeholder={translateUi('ui.sections.landing.homepage.newsletter.email_84add5b2')}
-                fullWidth
-                sx={{ maxWidth: 291 }}
-              />
+              <StyledTextField placeholder="Email" fullWidth sx={{ maxWidth: 291 }} />
               <Button type="submit" variant="contained">
-                {translateUi('ui.sections.landing.homepage.newsletter.subscribe_d6981f74')}
+                Subscribe
               </Button>
             </Stack>
             <Typography
               variant="subtitle2"
               sx={{ fontWeight: 400, color: 'text.secondary', px: '10.5px' }}
             >
-              {translateUi(
-                'ui.sections.landing.homepage.newsletter.your_privacy_is_safe_with_us_read_our_e30ffd34',
-              )}
-              <Box
-                component={externalLinks.legal.terms ? Link : 'span'}
-                href={externalLinks.legal.terms || undefined}
-              >
-                {translateUi(
-                  'ui.sections.landing.homepage.newsletter.terms_and_conditions_9b45e625',
-                )}
-              </Box>
+              your privacy is safe with us. Read our <Link href="#!">terms and conditions</Link>
             </Typography>
           </RevealItems>
         </Stack>

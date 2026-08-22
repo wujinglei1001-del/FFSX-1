@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Chip, Link, Stack, Typography } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
@@ -30,7 +29,6 @@ const InvoiceListTable = ({
   selectionModel,
   onSelectionChange,
 }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const columns = useMemo(
     () => [
@@ -40,9 +38,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'id',
-        headerName: translateUi(
-          'ui.sections.invoice.invoice_list.invoicelisttable.invoice_f9f38818',
-        ),
+        headerName: 'Invoice',
         headerClassName: 'invoice-id-header',
         cellClassName: 'invoice-id-cell',
         sortable: false,
@@ -63,9 +59,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'client',
-        headerName: translateUi(
-          'ui.sections.invoice.invoice_list.invoicelisttable.client_1bdd79b1',
-        ),
+        headerName: 'Client',
         headerClassName: 'client-header',
         cellClassName: 'client-cell',
         minWidth: 240,
@@ -81,7 +75,7 @@ const InvoiceListTable = ({
                 <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
                   {name}
                 </Typography>
-                <Link href={`mailto:${email}`} variant="caption">
+                <Link href="#!" variant="caption">
                   {email}
                 </Link>
               </div>
@@ -91,9 +85,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'issueDate',
-        headerName: translateUi(
-          'ui.sections.invoice.invoice_list.invoicelisttable.issue_date_72072fe9',
-        ),
+        headerName: 'Issue Date',
         headerClassName: 'issue-date-header',
         cellClassName: 'issue-date-cell',
         valueGetter: ({ date }) => date,
@@ -114,9 +106,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'status',
-        headerName: translateUi(
-          'ui.sections.invoice.invoice_list.invoicelisttable.status_bae7d5be',
-        ),
+        headerName: 'Status',
         headerClassName: 'status-header',
         cellClassName: 'status-cell',
         filterable: true,
@@ -137,10 +127,8 @@ const InvoiceListTable = ({
                 color={params.row.status === 'late' ? 'error' : undefined}
                 sx={{ fontWeight: 400 }}
               >
-                {params.row.status === 'paid'
-                  ? translateUi('common.paid')
-                  : translateUi('common.due')}{' '}
-                {translateUi('common.on')} {dayjs(params.row.paymentDate).format('MMM DD, YYYY')}
+                {params.row.status === 'paid' ? 'Paid' : 'Due'} on{' '}
+                {dayjs(params.row.paymentDate).format('MMM DD, YYYY')}
               </Typography>
             </Stack>
           );
@@ -148,9 +136,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'requiredAmount',
-        headerName: translateUi(
-          'ui.sections.invoice.invoice_list.invoicelisttable.amount_43dc8532',
-        ),
+        headerName: 'Amount',
         headerClassName: 'required-amount-header',
         cellClassName: 'required-amount-cell',
         filterable: false,
@@ -167,7 +153,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'paidAmount',
-        headerName: translateUi('ui.sections.invoice.invoice_list.invoicelisttable.paid_dc9d4584'),
+        headerName: 'Paid',
         headerClassName: 'paid-amount-header',
         cellClassName: 'paid-amount-cell',
         filterable: false,
@@ -184,9 +170,7 @@ const InvoiceListTable = ({
       },
       {
         field: 'remainingBalance',
-        headerName: translateUi(
-          'ui.sections.invoice.invoice_list.invoicelisttable.balance_90eef613',
-        ),
+        headerName: 'Balance',
         headerClassName: 'remaining-balance-header',
         cellClassName: 'remaining-balance-cell',
         filterable: false,
@@ -261,7 +245,7 @@ const InvoiceListTable = ({
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.MuiDataGrid-cellCheckbox, .required-amount-cell, .paid-amount-cell, .remaining-balance-cell, .action-cell)':
                   {
                     p: `0 ${spacing(1.25)}`,

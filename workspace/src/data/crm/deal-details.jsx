@@ -4,17 +4,11 @@ import Typography from '@mui/material/Typography';
 import { initialConfig } from 'config';
 import { users } from 'data/users';
 import dayjs from 'dayjs';
-import useNumberFormat from 'hooks/useNumberFormat';
-import { generateUniqueId, getPercentageStr } from 'lib/utils';
-import i18n from 'locales/i18n';
+import { currencyFormat, generateUniqueId, getPercentageStr } from 'lib/utils';
 import Logo from 'components/common/Logo';
 
 const image = (index) => `${initialConfig.assetsDir}/images/crm/deal-details/${index}.webp`;
 const audio = (name) => `${initialConfig.assetsDir}/audio/${name}.mp3`;
-const FormattedCurrency = ({ amount }) => {
-  const { currencyFormat } = useNumberFormat();
-  return currencyFormat(amount);
-};
 
 export const dealInformation = [
   {
@@ -35,9 +29,9 @@ export const dealInformation = [
     attribute: 'Deal Details',
     value: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t(
-          'ui.data.crm.deal_details.saying_i_notice_you_re_a_nerd_is_like_saying_hey_i_n_7136bcc3',
-        )}
+        Saying 'I notice you're a nerd' is like saying, 'Hey, I notice that you'd rather be
+        intelligent than be stupid, that you'd rather be thoughtful than be vapid, that you believe
+        that there are things that matter more than the arrest record
       </Typography>
     ),
     background: false,
@@ -60,7 +54,7 @@ export const dealInformation = [
     attribute: 'Created By',
     value: (
       <Chip
-        label={i18n.t('ui.data.crm.deal_details.gerard_p_25428c40')}
+        label="Gerard P."
         avatar={<Avatar src={users[7].avatar} sx={{ width: 16, height: 16 }} />}
         variant="soft"
       />
@@ -70,13 +64,7 @@ export const dealInformation = [
   {
     id: 5,
     attribute: 'Current Stage',
-    value: (
-      <Chip
-        label={i18n.t('ui.data.crm.deal_details.presentation_scheduled_b577d247')}
-        variant="soft"
-        color="warning"
-      />
-    ),
+    value: <Chip label="Presentation Scheduled" variant="soft" color="warning" />,
     background: true,
   },
   {
@@ -100,7 +88,7 @@ export const dealInformation = [
         variant="body2"
         sx={{ color: 'primary.main', textDecoration: 'underline', textUnderlineOffset: 2 }}
       >
-        {i18n.t('ui.data.crm.deal_details.tsamina_mina_f6bd64fe')}
+        Tsamina Mina
       </Typography>
     ),
     background: true,
@@ -113,7 +101,7 @@ export const dealInformation = [
         variant="body2"
         sx={{ color: 'text.secondary', textDecoration: 'underline', textUnderlineOffset: 2 }}
       >
-        {i18n.t('ui.data.crm.deal_details.not_set_ef374c57')}
+        not set
       </Typography>
     ),
     background: false,
@@ -123,7 +111,7 @@ export const dealInformation = [
     attribute: 'Deal Owner',
     value: (
       <Chip
-        label={i18n.t('ui.data.crm.deal_details.gerard_p_25428c40')}
+        label="Gerard P."
         avatar={<Avatar src={users[7].avatar} sx={{ width: 16, height: 16 }} />}
         variant="soft"
       />
@@ -135,7 +123,7 @@ export const dealInformation = [
     attribute: 'Collaborating Agents',
     value: (
       <Chip
-        label={i18n.t('ui.data.crm.deal_details.isaac_n_a8a82273')}
+        label="Isaac N."
         avatar={<Avatar src={users[11].avatar} sx={{ width: 16, height: 16 }} />}
         variant="soft"
       />
@@ -150,7 +138,7 @@ export const dealInformation = [
         variant="body2"
         sx={{ color: 'text.secondary', textDecoration: 'underline', textUnderlineOffset: 2 }}
       >
-        <FormattedCurrency amount={105000} />
+        {currencyFormat(105000)}
       </Typography>
     ),
     background: true,
@@ -163,7 +151,7 @@ export const dealInformation = [
         variant="body2"
         sx={{ color: 'text.secondary', textDecoration: 'underline', textUnderlineOffset: 2 }}
       >
-        {i18n.t('ui.data.crm.deal_details.best_case_0c2cb6b4')}
+        Best Case
       </Typography>
     ),
     background: false,
@@ -192,124 +180,60 @@ export const activitySummary = {
   timeline: [
     {
       id: 1,
-      get title() {
-        return i18n.t('ui.data.crm.deal_details.meeting_with_client_35a3673d');
-      },
-      get description() {
-        return i18n.t('ui.data.crm.deal_details.discussed_project_scope_and_deliverables_86410590');
-      },
+      title: 'Meeting with Client',
+      description: 'Discussed project scope and deliverables',
       date: dayjs('2025-01-21').format('DD MMM, YYYY'),
     },
     {
       id: 2,
-      get title() {
-        return i18n.t('ui.data.crm.deal_details.email_follow_up_91b69cd0');
-      },
-      get description() {
-        return i18n.t('ui.data.crm.deal_details.sent_proposal_updates_awaiting_feedback_bcd9e5aa');
-      },
+      title: 'Email Follow-up',
+      description: 'Sent proposal updates, awaiting feedback',
       date: dayjs('2025-01-23').format('DD MMM, YYYY'),
     },
     {
       id: 3,
-      get title() {
-        return i18n.t('ui.data.crm.deal_details.phone_call_7c2c6b79');
-      },
-      get description() {
-        return i18n.t('ui.data.crm.deal_details.confirmed_pricing_clarified_timeline_dac6be64');
-      },
+      title: 'Phone Call',
+      description: 'Confirmed pricing, clarified timeline',
       date: dayjs('2025-01-23').format('DD MMM, YYYY'),
     },
     {
       id: 4,
-      get title() {
-        return i18n.t('ui.data.crm.deal_details.upcoming_actions_46197c15');
-      },
-      get description() {
-        return i18n.t('ui.data.crm.deal_details.finalize_contract_discuss_next_steps_d943b7b0');
-      },
+      title: 'Upcoming Actions',
+      description: 'Finalize contract, discuss next steps',
       date: dayjs('2025-01-30').format('DD MMM, YYYY'),
     },
   ],
 };
 
 export const analyticsData = [
-  {
-    value: 16,
-    name: 'Deal Progress',
-  },
-  {
-    value: 28,
-    name: 'Win/Loss Ratio',
-  },
-  {
-    value: 22,
-    name: 'Conversion Rate',
-  },
-  {
-    value: 34,
-    name: 'Engagement Metrices',
-  },
+  { value: 16, name: 'Deal Progress' },
+  { value: 28, name: 'Win/Loss Ratio' },
+  { value: 22, name: 'Conversion Rate' },
+  { value: 34, name: 'Engagement Metrices' },
 ];
 
 export const salesPipelineData = [
-  {
-    id: 1,
-    name: 'Contact',
-    status: 'done',
-  },
+  { id: 1, name: 'Contact', status: 'done' },
   { id: 2, name: 'MQL', status: 'done' },
   { id: 3, name: 'SQL', status: 'done' },
-  {
-    id: 4,
-    name: 'Chance',
-    status: 'done',
-  },
-  {
-    id: 5,
-    name: 'W/L',
-    status: 'ongoing',
-  },
+  { id: 4, name: 'Chance', status: 'done' },
+  { id: 5, name: 'W/L', status: 'ongoing' },
 ];
 
 export const assignedToData = [
   {
     type: 'Deal Owner',
-    people: [
-      {
-        id: 1,
-        name: 'Gerard P.',
-        avatar: users[1].avatar,
-        editable: true,
-      },
-    ],
+    people: [{ id: 1, name: 'Gerard P.', avatar: users[1].avatar, editable: true }],
   },
   {
     type: 'Collaborator',
-    people: [
-      {
-        id: 2,
-        name: 'Muzan K.',
-        avatar: users[14].avatar,
-        editable: false,
-      },
-    ],
+    people: [{ id: 2, name: 'Muzan K.', avatar: users[14].avatar, editable: false }],
   },
   {
     type: 'Follower',
     people: [
-      {
-        id: 3,
-        name: 'Haddock. C',
-        avatar: users[4].avatar,
-        editable: false,
-      },
-      {
-        id: 4,
-        name: 'K. Naan',
-        avatar: users[12].avatar,
-        editable: false,
-      },
+      { id: 3, name: 'Haddock. C', avatar: users[4].avatar, editable: false },
+      { id: 4, name: 'K. Naan', avatar: users[12].avatar, editable: false },
     ],
   },
 ];
@@ -340,18 +264,8 @@ export const accountData = {
     },
   ],
   pastDeals: [
-    {
-      name: 'Almost Original Mike Boots',
-      budget: 95000,
-      state: 'past',
-      status: 'closed',
-    },
-    {
-      name: 'Original Niqe Boots',
-      budget: 85000,
-      state: 'past',
-      status: 'lost',
-    },
+    { name: 'Almost Original Mike Boots', budget: 95000, state: 'past', status: 'closed' },
+    { name: 'Original Niqe Boots', budget: 85000, state: 'past', status: 'lost' },
   ],
 };
 
@@ -365,13 +279,7 @@ export const associatedContactData = [
     contactInfo: {
       phone: '+33 6 78 09 34 90',
       email: 'example_1@email.com',
-      contactOwner: [
-        {
-          id: 1,
-          name: 'Gerard P.',
-          avatar: users[7].avatar,
-        },
-      ],
+      contactOwner: [{ id: 1, name: 'Gerard P.', avatar: users[7].avatar }],
     },
   },
 ];
@@ -384,9 +292,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'mail',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.sent_1_mail_to_the_contact_476e6348');
-        },
+        title: 'Sent 1 mail to the contact',
         color: 'primary',
         user: 'Sampro',
         icon: 'material-symbols:outgoing-mail-outline-rounded',
@@ -396,9 +302,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'meeting',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.onboarding_meeting_with_bf7a9df4');
-        },
+        title: 'Onboarding Meeting with',
         color: 'info',
         user: 'Mariyam',
         icon: 'material-symbols:videocam-outline-rounded',
@@ -408,9 +312,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'call',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.purchasing_related_vendors_with_9dd0aa7c');
-        },
+        title: 'Purchasing-Related Vendors with',
         color: 'error',
         user: 'Mariyam',
         icon: 'material-symbols:phone-in-talk-outline-rounded',
@@ -420,9 +322,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'mail',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.sent_1_mail_to_the_contact_476e6348');
-        },
+        title: 'Sent 1 mail to the contact',
         color: 'primary',
         user: 'Sampro',
         icon: 'material-symbols:outgoing-mail-outline-rounded',
@@ -432,9 +332,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'attachment',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.added_image_in_the_project_65d1ba3b');
-        },
+        title: 'Added image in the Project',
         color: 'success',
         user: 'Ansolo Lazinatov',
         icon: 'material-symbols:attach-file-rounded',
@@ -444,11 +342,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'note',
-        get title() {
-          return i18n.t(
-            'ui.data.crm.deal_details.assigned_as_a_director_for_the_project_nothingum_34425119',
-          );
-        },
+        title: 'Assigned as a director for the Project nothingum',
         color: 'warning',
         user: 'Netnai Pollock',
         icon: 'material-symbols:edit-note-outline-rounded',
@@ -457,9 +351,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'task',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.designing_the_dungeon_df56e94d');
-        },
+        title: 'Designing the dungeon',
         color: 'success',
         user: 'Dorbesh Baba',
         icon: 'material-symbols:add-task-rounded',
@@ -468,9 +360,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'mail',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.sent_1_mail_to_the_contact_476e6348');
-        },
+        title: 'Sent 1 mail to the contact',
         color: 'primary',
         user: 'Sampro',
         icon: 'material-symbols:outgoing-mail-outline-rounded',
@@ -480,9 +370,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'attachment',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.added_note_in_the_project_37e28670');
-        },
+        title: 'Added note in the Project',
         color: 'success',
         user: 'Ansolo Lazinatov',
         icon: 'material-symbols:attach-file-rounded',
@@ -492,9 +380,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'call',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.purchasing_related_vendors_with_9dd0aa7c');
-        },
+        title: 'Purchasing-Related Vendors with',
         color: 'error',
         user: 'Mariyam',
         icon: 'material-symbols:phone-in-talk-outline-rounded',
@@ -504,11 +390,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'note',
-        get title() {
-          return i18n.t(
-            'ui.data.crm.deal_details.assigned_as_a_director_for_the_project_nothingum_34425119',
-          );
-        },
+        title: 'Assigned as a director for the Project nothingum',
         color: 'warning',
         user: 'Netnai Pollock',
         icon: 'material-symbols:edit-note-outline-rounded',
@@ -528,9 +410,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'mail',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.sent_1_mail_to_the_contact_476e6348');
-        },
+        title: 'Sent 1 mail to the contact',
         color: 'primary',
         user: 'Sampro',
         icon: 'material-symbols:outgoing-mail-outline-rounded',
@@ -540,9 +420,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'call',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.purchasing_related_vendors_with_9dd0aa7c');
-        },
+        title: 'Purchasing-Related Vendors with',
         color: 'error',
         user: 'Mariyam',
         icon: 'material-symbols:phone-in-talk-outline-rounded',
@@ -552,9 +430,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'attachment',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.added_note_in_the_project_37e28670');
-        },
+        title: 'Added note in the Project',
         color: 'success',
         user: 'Ansolo Lazinatov',
         icon: 'material-symbols:attach-file-rounded',
@@ -576,9 +452,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'meeting',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.onboarding_meeting_with_bf7a9df4');
-        },
+        title: 'Onboarding Meeting with',
         color: 'info',
         user: 'Mariyam',
         icon: 'material-symbols:videocam-outline-rounded',
@@ -588,9 +462,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'mail',
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.sent_1_mail_to_the_contact_476e6348');
-        },
+        title: 'Sent 1 mail to the contact',
         color: 'primary',
         user: 'Sampro',
         icon: 'material-symbols:outgoing-mail-outline-rounded',
@@ -600,11 +472,7 @@ export const allActivities = [
       {
         id: generateUniqueId(),
         type: 'note',
-        get title() {
-          return i18n.t(
-            'ui.data.crm.deal_details.assigned_as_a_director_for_the_project_nothingum_34425119',
-          );
-        },
+        title: 'Assigned as a director for the Project nothingum',
         color: 'warning',
         user: 'Netnai Pollock',
         icon: 'material-symbols:edit-note-outline-rounded',
@@ -622,17 +490,16 @@ export const emailData = [
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t('ui.data.crm.deal_details.hello_6449ab1d')}
+        Hello ,
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.you_are_a_good_soldier_carefully_choosing_your_battl_a9fc6cf8',
-        )}
+        You are a good soldier, carefully choosing your battles and always ready to pick yourself up
+        and dust yourself off and back in the saddle when knocked down.
         <br />
         <br />
-        {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
+        Best regards,
         <br />
-        {i18n.t('ui.data.crm.deal_details.tsamina_mina_f6bd64fe')}
+        Tsamina Mina
       </Typography>
     ),
   },
@@ -640,30 +507,26 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'FFA-X Campaign Manager',
+    sentVia: 'Aurora Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t('ui.data.crm.deal_details.hello_tsamina_mina_f8c2e16b')}
+        Hello Tsamina Mina,
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.thank_you_positioned_at_the_front_line_all_eyes_are__19090aed',
-        )}
+        Thank you. Positioned at the front line, all eyes are on you, aware of the gravity as we are
+        getting closer-- this fight is not over.
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.the_pressure_mounts_you_are_feeling_it_but_you_posse_31e0cc3e',
-        )}
+        The pressure mounts, you are feeling it, but you possess everything needed to prevail.
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.embrace_the_belief_that_when_you_fall_you_can_get_up_6b5f84d1',
-        )}
+        Embrace the belief that when you fall, you can get up. And if you fall, you definitely will
+        get up.
         <br />
         <br />
-        {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
+        Best regards,
         <br />
-        {i18n.t('ui.data.crm.deal_details.team_ffax_8534330a')}
+        Team Aurora.
       </Typography>
     ),
     attachment: [{ src: image(1), name: 'screenshot.jpg', size: '16.2kb' }],
@@ -675,17 +538,17 @@ export const emailData = [
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t('ui.data.crm.deal_details.hello_gerard_p_9abb38d1')}
+        Hello Gerard P,
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.you_are_a_good_soldier_carefully_choosing_your_battl_79572db6',
-        )}
+        You are a good soldier, carefully choosing your battles and always ready to pick yourself up
+        and dust yourself off and back in the saddle when knocked down. Positioned at the front
+        line, all eyes are on you, aware of the gravity as we are getting closer.
         <br />
         <br />
-        {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
+        Best regards,
         <br />
-        {i18n.t('ui.data.crm.deal_details.tsamina_mina_f6bd64fe')}
+        Tsamina Mina
       </Typography>
     ),
   },
@@ -693,31 +556,36 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'FFA-X Campaign Manager',
+    sentVia: 'Aurora Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t('ui.data.crm.deal_details.hello_6449ab1d')}
+        Hello ,
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.kept_in_sent_gave_feel_will_oh_it_we_has_pleasure_pr_daff725d',
-        )}
+        Kept in sent gave feel will oh it we. Has pleasure procured men laughing shutters nay. Old
+        insipidity motionless continuing law shy partiality. Depending acuteness dependent eat use
+        dejection. Unpleasing astonished discovered not nor shy. Morning hearted now met yet beloved
+        evening. Has and upon his last here must.
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.breakfast_procuring_nay_end_happiness_allowance_assu_13fd12a6',
-        )}
+        Breakfast procuring nay end happiness allowance assurance frankness. Met simplicity nor
+        difficulty unreserved who. Entreaties mr conviction dissimilar me astonished estimating
+        cultivated. On no applauded exquisite my additions. Pronounce add boy estimable nay
+        suspected. You sudden nay elinor thirty esteem temper. Quiet leave shy you gay off asked
+        large style.
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.fulfilled_direction_use_continual_set_him_propriety__f0c1b129',
-        )}
+        Fulfilled direction use continual set him propriety continued. Saw met applauded favourite
+        deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther
+        related bed and passage comfort civilly. Dashwoods see frankness objection abilities the. As
+        hastened oh produced prospect formerly up am. Placing forming nay looking old married few
+        has. Margaret disposed add screened rendered six say his striking confined
         <br />
         <br />
-        {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
+        Best regards,
         <br />
-        {i18n.t('ui.data.crm.deal_details.team_ffax_8534330a')}
+        Team Aurora.
       </Typography>
     ),
     files: [
@@ -747,17 +615,18 @@ export const emailData = [
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t('ui.data.crm.deal_details.hello_gerard_p_9abb38d1')}
+        Hello Gerard P,
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.admiration_stimulated_cultivated_reasonable_be_proje_6c299d7c',
-        )}
+        Admiration stimulated cultivated reasonable be projection possession of. Real no near room
+        ye bred sake if some. Is arranging furnished knowledge agreeable so. Fanny as smile up
+        small. It vulgar chatty simple months turned oh at change of. Astonished set expression
+        solicitude way admiration.
         <br />
         <br />
-        {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
+        Best regards,
         <br />
-        {i18n.t('ui.data.crm.deal_details.tsamina_mina_f6bd64fe')}
+        Tsamina Mina
       </Typography>
     ),
   },
@@ -765,21 +634,21 @@ export const emailData = [
     id: generateUniqueId(),
     name: 'Gerard P.',
     avatar: <Logo showName={false} />,
-    sentVia: 'FFA-X Campaign Manager',
+    sentVia: 'Aurora Campaign Manager',
     sentAt: dayjs().format(),
     message: (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {i18n.t('ui.data.crm.deal_details.hello_6449ab1d')}
+        Hello ,
         <br />
         <br />
-        {i18n.t(
-          'ui.data.crm.deal_details.kept_in_sent_gave_feel_will_oh_it_we_has_pleasure_pr_14ae1039',
-        )}
+        Kept in sent gave feel will oh it we. Has pleasure procured men laughing shutters nay. Old
+        insipidity motionless continuing law shy partiality. Depending acuteness dependent eat use
+        dejection.
         <br />
         <br />
-        {i18n.t('ui.data.crm.deal_details.best_regards_d0590a67')}
+        Best regards,
         <br />
-        {i18n.t('ui.data.crm.deal_details.team_ffax_8534330a')}
+        Team Aurora.
       </Typography>
     ),
     files: [],
@@ -900,86 +769,52 @@ export const callLogData = [
           {
             id: 1,
             user: 'agent',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.would_you_tell_me_please_which_way_i_ought_to_go_fro_cb6add14',
-              );
-            },
+            message: 'Would you tell me, please, which way I ought to go from here?',
           },
           {
             id: 2,
             user: 'client',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.that_depends_a_good_deal_on_where_you_want_to_get_to_903c14b2',
-              );
-            },
+            message: 'That depends a good deal on where you want to get to.',
           },
           {
             id: 3,
             user: 'agent',
-            get message() {
-              return i18n.t('ui.data.crm.deal_details.i_don_t_much_care_where_8008d3a0');
-            },
+            message: "I don't much care where.",
           },
           {
             id: 4,
             user: 'client',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.then_it_doesn_t_much_matter_which_way_you_go_fa2f03e7',
-              );
-            },
+            message: "Then it doesn't much matter which way you go.",
           },
           {
             id: 5,
             user: 'agent',
-            get message() {
-              return i18n.t('ui.data.crm.deal_details.so_long_as_i_get_somewhere_ee3be1d9');
-            },
+            message: '...So long as I get somewhere.',
           },
           {
             id: 6,
             user: 'client',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.oh_you_re_sure_to_do_that_if_only_you_walk_long_enou_086adbbd',
-              );
-            },
+            message: "Oh, you're sure to do that, if only you walk long enough.” ",
           },
           {
             id: 7,
             user: 'agent',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.but_i_don_t_want_to_go_among_mad_people_9a82bf6c',
-              );
-            },
+            message: "But I don't want to go among mad people.",
           },
           {
             id: 8,
             user: 'client',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.oh_you_can_t_help_that_we_re_all_mad_here_i_m_mad_yo_27363e08',
-              );
-            },
+            message: "Oh, you can't help that,\nwe're all mad here.\n ...\n I'm mad. You're mad.",
           },
           {
             id: 9,
             user: 'agent',
-            get message() {
-              return i18n.t('ui.data.crm.deal_details.how_do_you_know_i_m_mad_186da99f');
-            },
+            message: 'How do you know I’m mad?',
           },
           {
             id: 10,
             user: 'client',
-            get message() {
-              return i18n.t(
-                'ui.data.crm.deal_details.you_must_be_or_you_wouldn_t_have_come_here_4c17ae8a',
-              );
-            },
+            message: 'You must be,\nor you wouldn’t have come here.',
           },
         ],
       },
@@ -999,42 +834,32 @@ export const callLogData = [
 export const tasksData = [
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.marketing_campaign_e336bfae');
-    },
+    title: 'Marketing Campaign',
     taskList: [
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.finalize_ad_creatives_48255464');
-        },
+        title: 'Finalize Ad Creatives',
         completed: false,
         timeStamp: dayjs().format(),
         people: [],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.schedule_social_media_posts_f369b8a1');
-        },
+        title: 'Schedule Social Media Posts',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[15], users[14]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.approve_email_newsletter_93a54bab');
-        },
+        title: 'Approve Email Newsletter',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[8]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.analyze_audience_engagement_0873a64c');
-        },
+        title: 'Analyze Audience Engagement',
         completed: true,
         timeStamp: dayjs().format(),
         people: [users[2]],
@@ -1043,42 +868,32 @@ export const tasksData = [
   },
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.product_development_a8c33f17');
-    },
+    title: 'Product Development',
     taskList: [
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.review_ui_ux_wireframes_ebb1542c');
-        },
+        title: 'Review UI/UX Wireframes',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[2]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.conduct_beta_testing_b18b9de1');
-        },
+        title: 'Conduct Beta Testing',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[14], users[13]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.implement_feedback_changes_d96e1e82');
-        },
+        title: 'Implement Feedback Changes',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[11]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.finalize_product_roadmap_470acf13');
-        },
+        title: 'Finalize Product Roadmap',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
@@ -1087,51 +902,39 @@ export const tasksData = [
   },
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.client_onboarding_30f709fd');
-    },
+    title: 'Client Onboarding',
     taskList: [
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.gather_client_requirements_859db38c');
-        },
+        title: 'Gather Client Requirements',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[2]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.set_up_client_account_9bd4b8e0');
-        },
+        title: 'Set Up Client Account',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[14], users[13]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.conduct_initial_traning_session_70a928fe');
-        },
+        title: 'Conduct Initial Traning Session',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[11]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.assign_account_manager_63edc4b2');
-        },
+        title: 'Assign Account Manager',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.collect_feedback_adjust_services_7d885634');
-        },
+        title: 'Collect Feedback & Adjust Services',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
@@ -1140,71 +943,53 @@ export const tasksData = [
   },
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.software_update_452fd054');
-    },
+    title: 'Software Update',
     taskList: [
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.identity_document_required_changes_23581422');
-        },
+        title: 'Identity & Document Required Changes',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[2]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.develop_test_new_features_76cad76f');
-        },
+        title: 'Develop & Test New Features',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[14], users[13]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.perform_bug_fixes_security_patches_39ef87f7');
-        },
+        title: 'Perform Bug Fixes & Security Patches',
         completed: false,
         timeStamp: dayjs().format(),
         people: [users[11]],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.conduct_internal_qa_testing_8b58050d');
-        },
+        title: 'Conduct Internal QA Testing',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.release_update_to_staging_environment_dd7b0ca8');
-        },
+        title: 'Release Update to Staging Environment',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t('ui.data.crm.deal_details.deploy_update_to_production_4c69dfad');
-        },
+        title: 'Deploy Update to Production',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
       },
       {
         id: generateUniqueId(),
-        get title() {
-          return i18n.t(
-            'ui.data.crm.deal_details.monitor_performance_gather_user_feedback_29bc3a59',
-          );
-        },
+        title: 'Monitor Performance & Gather User Feedback',
         completed: true,
         timeStamp: dayjs().format(),
         people: [],
@@ -1216,87 +1001,55 @@ export const tasksData = [
 const notes = [
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.feedback_on_trial_376c1d88');
-    },
-    author: {
-      avatar: users[5].avatar,
-      name: 'Olivia Carter',
-    },
+    title: 'Feedback on trial',
+    author: { avatar: users[5].avatar, name: 'Olivia Carter' },
     createdAt: dayjs()
       .subtract(1, 'month')
       .subtract(4, 'day')
       .subtract(5, 'hour')
       .subtract(51, 'minute')
       .toISOString(),
-    get description() {
-      return i18n.t(
-        'ui.data.crm.deal_details.a_crm_should_guide_users_naturally_like_a_well_writt_7c4f2c1b',
-      );
-    },
+    description:
+      'A CRM should guide users naturally, like a well-written book. If users need to hunt for basic actions or get lost in too many options, the design is failing them. The best UI feels invisible—users just know what to do next.',
   },
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.feedback_on_trial_376c1d88');
-    },
-    author: {
-      avatar: users[4].avatar,
-      name: 'James Wilson',
-    },
+    title: 'Feedback on trial',
+    author: { avatar: users[4].avatar, name: 'James Wilson' },
     createdAt: dayjs()
       .subtract(1, 'month')
       .subtract(4, 'day')
       .subtract(6, 'hour')
       .subtract(33, 'minute')
       .toISOString(),
-    get description() {
-      return i18n.t(
-        'ui.data.crm.deal_details.a_well_designed_system_should_guide_users_naturally__a74bb50d',
-      );
-    },
+    description:
+      "A well-designed system should guide users naturally, just like a well-structured narrative. If someone has to pause and think too much about where to click or how to complete an action, the design isn't working as intended. The best user experiences feel seamless—people should instinctively understand the next steps without needing to search through menus or instructions. When the interface is intuitive, users feel in control and can complete their tasks efficiently. Clarity, simplicity, and logical flow are the key ingredients of an interface that “tells a story” users can follow without friction.",
   },
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.feedback_on_trial_376c1d88');
-    },
-    author: {
-      avatar: users[3].avatar,
-      name: 'Lucas Taylor',
-    },
+    title: 'Feedback on trial',
+    author: { avatar: users[3].avatar, name: 'Lucas Taylor' },
     createdAt: dayjs()
       .subtract(1, 'month')
       .subtract(4, 'day')
       .subtract(2, 'hour')
       .subtract(17, 'minute')
       .toISOString(),
-    get description() {
-      return i18n.t(
-        'ui.data.crm.deal_details.notifications_should_add_value_not_noise_when_a_syst_efdd0182',
-      );
-    },
+    description:
+      'Notifications should add value, not noise. When a system bombards users with constant alerts, messages, or reminders, it becomes overwhelming and counterproductive. Instead of helping, excessive notifications create stress and lead to important updates being ignored. The best approach is to provide control—allowing users to prioritize what’s urgent, what requires their attention later, and what can be muted altogether. Clear categorization, smart grouping, and personalized settings can turn notifications from a distraction into a helpful guide.',
   },
   {
     id: generateUniqueId(),
-    get title() {
-      return i18n.t('ui.data.crm.deal_details.feedback_on_trial_376c1d88');
-    },
-    author: {
-      avatar: users[7].avatar,
-      name: 'Gerard P.',
-    },
+    title: 'Feedback on trial',
+    author: { avatar: users[7].avatar, name: 'Gerard P.' },
     createdAt: dayjs()
       .subtract(1, 'month')
       .subtract(4, 'day')
       .subtract(11, 'hour')
       .subtract(5, 'minute')
       .toISOString(),
-    get description() {
-      return i18n.t(
-        'ui.data.crm.deal_details.every_field_button_and_tab_should_serve_a_clear_purp_409ce8d1',
-      );
-    },
+    description:
+      'Every field, button, and tab should serve a clear purpose. If users have to sift through unnecessary information or redundant features, their efficiency drops. Less is often more.',
   },
 ];
 

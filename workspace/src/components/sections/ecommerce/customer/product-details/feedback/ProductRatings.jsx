@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   CircularProgress,
@@ -24,7 +23,6 @@ const recommendsValue = 85;
 const totalRatings = ratings.reduce((total, rating) => total + rating.count, 0);
 
 const ProductRatings = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ bgcolor: 'background.elevation1', p: 3, borderRadius: 4, ...sx }}>
       <Grid
@@ -76,7 +74,7 @@ const ProductRatings = ({ sx }) => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.product_details.129_reviews_524dc2c2')}
+              129 reviews
             </Typography>
           </Stack>
         </Grid>
@@ -146,9 +144,7 @@ const ProductRatings = ({ sx }) => {
                   textAlign: 'center',
                 }}
               >
-                {translateUi(
-                  'ui.sections.ecommerce.customer.product_details.recommends_this_product_38278861',
-                )}
+                recommends this product
               </Typography>
             </Box>
           </Stack>

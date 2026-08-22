@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Alert, Button, Paper, Snackbar, Stack } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ScheduleDialog from './ScheduleDialog';
 
 const FormActions = () => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upSm = up('sm');
 
@@ -107,8 +105,7 @@ const FormActions = () => {
           }}
         >
           <Button type="button" color="neutral" onClick={handleSaveDraft} disabled={isSubmitting}>
-            {translateUi('ui.sections.content.upload.form_actions.save_efc007a3')}
-            {upSm && 'Draft'}
+            Save {upSm && 'Draft'}
           </Button>
           <Button
             type="button"
@@ -117,8 +114,7 @@ const FormActions = () => {
             onClick={() => setOpen(true)}
             disabled={isSubmitting}
           >
-            {translateUi('ui.sections.content.upload.form_actions.schedule_0a8adac9')}
-            {upSm && 'for later'}
+            Schedule {upSm && 'for later'}
           </Button>
           <Button
             type="submit"
@@ -127,8 +123,7 @@ const FormActions = () => {
             onClick={handlePublish}
             disabled={isSubmitting}
           >
-            {translateUi('ui.sections.content.upload.form_actions.publish_56564005')}
-            {upSm && 'Now'}
+            Publish {upSm && 'Now'}
           </Button>
         </Stack>
       </Paper>

@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
 const LeaveCard = ({ leaveData }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -34,9 +32,7 @@ const LeaveCard = ({ leaveData }) => {
           <Typography variant="h5" sx={{ mr: 0.5 }}>
             {leaveData.days}
           </Typography>
-          <Typography variant="subtitle2">
-            {translateUi('ui.sections.dashboards.hrm.leaves.days_5548ae4f')}
-          </Typography>
+          <Typography variant="subtitle2">days</Typography>
         </Stack>
         <Typography
           variant="caption"

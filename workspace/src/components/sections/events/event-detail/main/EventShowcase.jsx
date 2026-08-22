@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import { SwiperSlide } from 'swiper/react';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -7,7 +6,6 @@ import Swiper from 'components/base/Swiper';
 import EventCard from 'components/sections/events/event-detail/main/EventCard';
 
 const EventShowcase = ({ showcase }) => {
-  const { t: translateUi } = useTranslation();
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
 
@@ -24,9 +22,7 @@ const EventShowcase = ({ showcase }) => {
         }}
       >
         <Typography variant="h6" sx={{ lineHeight: 1.5 }}>
-          {translateUi(
-            'ui.sections.events.event_detail.main.more_events_from_this_organizer_6bbdf930',
-          )}
+          More events from this organizer
         </Typography>
         <Stack
           direction="row"

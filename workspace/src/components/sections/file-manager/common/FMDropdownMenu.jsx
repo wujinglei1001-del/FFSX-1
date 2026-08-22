@@ -1,79 +1,57 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Menu, MenuItem, listClasses, menuClasses, useTheme } from '@mui/material';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EllipsisHorizontalIcon from 'components/icons/EllipsisHorizontalIcon';
 
 const defaultItems = [
   {
     id: 'file-info',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.file_info_710a38a1');
-    },
+    label: 'File info',
     icon: 'material-symbols:info-outline-rounded',
   },
   {
     id: 'share',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.share_09ca55ca');
-    },
+    label: 'Share',
     icon: 'material-symbols:share-outline',
   },
   {
     id: 'edit',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.edit_5301648d');
-    },
+    label: 'Edit',
     icon: 'material-symbols:edit-outline-rounded',
   },
   {
     id: 'download',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.download_a479c9c3');
-    },
+    label: 'Download',
     icon: 'material-symbols:download-rounded',
   },
   {
     id: 'rename',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.rename_d3f4cb89');
-    },
+    label: 'Rename',
     icon: 'material-symbols:edit-note-outline-rounded',
   },
   {
     id: 'view-source',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.view_source_accd4b91');
-    },
+    label: 'View Source',
     icon: 'material-symbols:topic-outline-rounded',
   },
   {
     id: 'copy-file',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.copy_file_e1199d6a');
-    },
+    label: 'Copy File',
     icon: 'material-symbols:file-copy-outline-rounded',
   },
   {
     id: 'move-file',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.move_file_4686a9b0');
-    },
+    label: 'Move File',
     icon: 'material-symbols:exit-to-app-rounded',
   },
   {
     id: 'make-favorite',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.make_favorite_ed83d487');
-    },
+    label: 'Make Favorite',
     icon: 'material-symbols:star-rate-rounded',
   },
   {
     id: 'delete-file',
-    get label() {
-      return i18n.t('ui.sections.file_manager.common.fmdropdownmenu.delete_file_d8b147e7');
-    },
+    label: 'Delete File',
     icon: 'material-symbols:delete-outline-rounded',
     sx: { color: 'error.main' },
   },
@@ -88,7 +66,6 @@ const FMDropdownMenu = ({
   sx,
   onMenuToggle,
 }) => {
-  const { t: translateUi } = useTranslation();
   const { direction } = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -111,7 +88,7 @@ const FMDropdownMenu = ({
         color={color}
         size={size}
         variant={variant}
-        aria-label={translateUi('ui.sections.file_manager.common.fmdropdownmenu.more_e7c95b4c')}
+        aria-label="more"
         id="action-button"
         disableElevation={false}
         aria-controls={open ? 'actions-menu' : undefined}

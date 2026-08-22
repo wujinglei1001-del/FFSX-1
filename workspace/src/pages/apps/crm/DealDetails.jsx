@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Paper } from '@mui/material';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';
 import Grid from '@mui/material/Grid';
@@ -30,7 +29,6 @@ import DealInformation from 'components/sections/crm/deal-details/deal-informati
 import DealDetailsHeader from 'components/sections/crm/deal-details/page-header/DealDetailsHeader';
 
 const DealDetails = () => {
-  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const handleDrawerOpen = () => setDrawerOpen(true);
@@ -44,9 +42,7 @@ const DealDetails = () => {
   );
   return (
     <Stack>
-      <DealDetailsHeader
-        title={translateUi('ui.pages.apps.crm.dealdetails.replica_badidas_futbol_f40c1d77')}
-      />
+      <DealDetailsHeader title="Replica Badidas Futbol" />
       <Grid container>
         <Drawer
           anchor="left"
@@ -76,7 +72,7 @@ const DealDetails = () => {
               }}
             >
               <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-                {translateUi('ui.pages.apps.crm.dealdetails.more_information_f925f9be')}
+                More information
               </Typography>
               <IconButton color="default" size="small" onClick={handleDrawerClose}>
                 <IconifyIcon

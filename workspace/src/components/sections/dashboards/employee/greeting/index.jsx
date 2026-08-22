@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import SectionWrapper from 'components/sections/dashboards/hiring/common/SectionWrapper';
 
 const EmployeeGreetings = () => {
-  const { t: translateUi } = useTranslation();
   const today = dayjs();
   return (
     <SectionWrapper sx={{ py: { xs: 3 } }}>
@@ -19,12 +17,10 @@ const EmployeeGreetings = () => {
       >
         <div>
           <Typography variant="h4" sx={{ mb: 1 }}>
-            {translateUi(
-              'ui.sections.dashboards.employee.greeting.good_evening_john_carter_729f8a2c',
-            )}
+            Good Evening, John Carter!
           </Typography>
           <Typography variant="subtitle1" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-            {translateUi('ui.sections.dashboards.employee.greeting.have_a_productive_day_1e0a2f2b')}
+            Have a Productive Day!
           </Typography>
         </div>
         <div>

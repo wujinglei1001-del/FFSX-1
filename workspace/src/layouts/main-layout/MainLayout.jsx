@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { Navigate, useLocation } from 'react-router';
 import { Drawer, drawerClasses } from '@mui/material';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,7 +7,6 @@ import AppBar from 'layouts/main-layout/app-bar';
 import Sidenav from 'layouts/main-layout/sidenav';
 import { mainDrawerWidth } from 'lib/constants';
 import { useSettingsContext } from 'providers/SettingsProvider';
-import paths, { rootPaths, workbenchEntryPath } from 'routes/paths';
 import { sidenavVibrantStyle } from 'theme/styles/vibrantNav';
 import VibrantBackground from 'components/common/VibrantBackground';
 import NavProvider from './NavProvider';
@@ -21,7 +19,6 @@ import TopNavStacked from './topnav/TopNavStacked';
 import TopnavSlim from './topnav/TopnavSlim';
 
 const MainLayout = ({ children }) => {
-  const { pathname } = useLocation();
   const {
     config: {
       drawerWidth,
@@ -52,13 +49,6 @@ const MainLayout = ({ children }) => {
 
     return 'appbar';
   }, [navigationMenuType, topnavType]);
-
-  const templatePreviewEnabled = import.meta.env.VITE_ENABLE_TEMPLATE_PREVIEW === 'true';
-  const realWorkspaceRoutes = [rootPaths.root, paths.workbench, paths.notifications];
-
-  if (!templatePreviewEnabled && !realWorkspaceRoutes.includes(pathname)) {
-    return <Navigate to={workbenchEntryPath} replace />;
-  }
 
   return (
     <Box>

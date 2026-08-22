@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Chip, Stack, Typography } from '@mui/material';
 import { useChatContext } from 'providers/ChatProvider';
 import { SENT_MESSAGE } from 'reducers/ChatReducer';
 
 const ContentFallback = () => {
-  const { t: translateUi } = useTranslation();
   const { chatDispatch, currentConversation } = useChatContext();
 
   const handleNewMessage = (text) => {
@@ -36,7 +34,7 @@ const ContentFallback = () => {
           mb: 1,
         }}
       >
-        {translateUi('ui.sections.chat.conversation.main.no_messages_here_yet_8db69c74')}
+        No messages here yet.
       </Typography>
       <Typography
         variant="subtitle2"
@@ -45,9 +43,7 @@ const ContentFallback = () => {
           mb: 3,
         }}
       >
-        {translateUi(
-          'ui.sections.chat.conversation.main.write_something_or_tap_on_one_of_the_messages_to_sta_9e611cdd',
-        )}
+        Write something or tap on one of the messages to start a conversation
       </Typography>
       {["Hey there! 👋 How's your day going?", 'Hi! What are you up to today? 😄'].map(
         (text, i) => (

@@ -1,7 +1,6 @@
 import { initialConfig } from 'config';
 import { users } from 'data/users';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 
 const logo = (index) => `${initialConfig.assetsDir}/images/logo/${index}.svg`;
 
@@ -18,60 +17,20 @@ const profileSummaryData = {
 };
 const personalData = {
   overview: [
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.full_name_64346b48');
-      },
-      value: 'John Carter',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.nationality_1969ead5');
-      },
-      value: 'Bangladeshi',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.gender_8a754c61');
-      },
-      value: 'Male',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.permanent_address_b1bfe9e9');
-      },
-      value: '123 Maple Street Springfield, IL 62704 USA',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.birthday_a6b9d69f');
-      },
-      value: '12 Feb, 2000',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.marital_status_e65f7360');
-      },
-      value: 'Single',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.religion_b04d58c6');
-      },
-      value: 'Christianity',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.present_address_898a440b');
-      },
-      value: '456 Oak Avenue Chicago, IL 60610 USA',
-    },
+    { label: 'Full Name', value: 'John Carter' },
+    { label: 'Nationality', value: 'Bangladeshi' },
+    { label: 'Gender', value: 'Male' },
+    { label: 'Permanent Address', value: '123 Maple Street Springfield, IL 62704 USA' },
+    { label: 'Birthday', value: '12 Feb, 2000' },
+    { label: 'Marital Status', value: 'Single' },
+    { label: 'Religion', value: 'Christianity' },
+    { label: 'Present Address', value: '456 Oak Avenue Chicago, IL 60610 USA' },
   ],
   experiences: [
     {
-      icon: `${import.meta.env.BASE_URL}ffax.svg`,
+      icon: logo(20),
       designation: 'UX/UI Designer',
-      company: 'FFA-X',
+      company: 'ThemeWagon Inc.',
       location: 'Dhaka, Bangladesh',
       startDate: '2024-04-01',
       endDate: '2025-11-01',
@@ -119,96 +78,24 @@ const personalData = {
 };
 const jobData = {
   overview: [
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.id_no_2cee330c');
-      },
-      value: '123456',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.joining_date_a94e7880');
-      },
-      value: '02/04/2018',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.department_db40106a');
-      },
-      value: 'Design',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.branch_1627510b');
-      },
-      value: 'European Office-UK',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.team_21888726');
-      },
-      value: 'OneGo',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.shift_469d5b18');
-      },
-      value: 'Day',
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.supervisor_2cd4fa19');
-      },
-      value: "Grace O'Connell",
-    },
-    {
-      get label() {
-        return i18n.t('ui.data.member.profile.office_address_f2d5d1d8');
-      },
-      value: '233 Oak Avenue Chicago, IL 60610 USA',
-    },
+    { label: 'ID No', value: '123456' },
+    { label: 'Joining Date', value: '02/04/2018' },
+    { label: 'Department', value: 'Design' },
+    { label: 'Branch', value: 'European Office-UK' },
+    { label: 'Team', value: 'OneGo' },
+    { label: 'Shift', value: 'Day' },
+    { label: 'Supervisor', value: "Grace O'Connell" },
+    { label: 'Office Address', value: '233 Oak Avenue Chicago, IL 60610 USA' },
   ],
   teamMembers: [
-    {
-      ...users[2],
-      name: 'John Carter',
-      designation: 'Sr. Software Engineer',
-    },
-    {
-      ...users[1],
-      name: 'Emily Davis',
-      designation: 'Software Engineer',
-    },
-    {
-      ...users[3],
-      name: 'Michael Thompson',
-      designation: 'Software Engineer',
-    },
-    {
-      ...users[4],
-      name: 'Sarah Johnson',
-      designation: 'Software Engineer',
-    },
-    {
-      ...users[12],
-      name: 'Emily Davis',
-      designation: 'Software Engineer',
-    },
-    {
-      ...users[14],
-      name: 'David Wilson',
-      designation: 'Software Engineer',
-    },
-    {
-      ...users[8],
-      name: 'Jessica Martinez',
-      designation: 'Software Engineer',
-    },
-    {
-      ...users[13],
-      name: 'Daniel Brown',
-      designation: 'Software Engineer',
-    },
+    { ...users[2], name: 'John Carter', designation: 'Sr. Software Engineer' },
+    { ...users[1], name: 'Emily Davis', designation: 'Software Engineer' },
+    { ...users[3], name: 'Michael Thompson', designation: 'Software Engineer' },
+    { ...users[4], name: 'Sarah Johnson', designation: 'Software Engineer' },
+    { ...users[12], name: 'Emily Davis', designation: 'Software Engineer' },
+    { ...users[14], name: 'David Wilson', designation: 'Software Engineer' },
+    { ...users[8], name: 'Jessica Martinez', designation: 'Software Engineer' },
+    { ...users[13], name: 'Daniel Brown', designation: 'Software Engineer' },
   ],
   jobInformation: [
     {
@@ -372,30 +259,10 @@ const teamOverviewData = {
 const timeOffData = {
   basicInfo: {
     chart: [
-      {
-        get label() {
-          return i18n.t('ui.data.member.profile.working_day_416c8064');
-        },
-        value: 300,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.member.profile.vacation_789ca75e');
-        },
-        value: 200,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.member.profile.leave_7e3520a9');
-        },
-        value: 150,
-      },
-      {
-        get label() {
-          return i18n.t('ui.data.member.profile.take_leave_060fc289');
-        },
-        value: 90,
-      },
+      { label: 'Working Day', value: 300 },
+      { label: 'Vacation', value: 200 },
+      { label: 'Leave', value: 150 },
+      { label: 'Take leave', value: 90 },
     ],
     appliedLeave: [
       { date: 'Mar 27', duration: 8, type: 'Vacation', reason: 'Personal' },
@@ -454,12 +321,7 @@ const documentsData = [
     files: 2,
     icon: 'material-symbols-light:folder-outline-rounded',
   },
-  {
-    id: 2,
-    name: 'Appointment',
-    files: 3,
-    icon: 'material-symbols-light:folder-outline-rounded',
-  },
+  { id: 2, name: 'Appointment', files: 3, icon: 'material-symbols-light:folder-outline-rounded' },
   {
     id: 3,
     name: 'Salary Statement',

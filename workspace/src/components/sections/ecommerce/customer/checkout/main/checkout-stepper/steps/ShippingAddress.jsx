@@ -1,45 +1,22 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Checkbox, FormControl, FormControlLabel, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 
 export const shippingAddressFormSchema = yup
   .object({
     shippingAddress: yup.object({
-      street: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      townCity: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      postcode: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      country: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
-      state: yup
-        .string()
-        .required(
-          i18n.t('ui.sections.ecommerce.customer.checkout.this_field_is_required_dedbaded'),
-        ),
+      street: yup.string().required('This field is required'),
+      townCity: yup.string().required('This field is required'),
+      postcode: yup.string().required('This field is required'),
+      country: yup.string().required('This field is required'),
+      state: yup.string().required('This field is required'),
       differentBillingAddress: yup.boolean(),
     }),
   })
   .required();
 
 const ShippingAddress = () => {
-  const { t: translateUi } = useTranslation();
   const {
     register,
     formState: { errors },
@@ -65,7 +42,7 @@ const ShippingAddress = () => {
           fullWidth
           id="street"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.street_address_bc48b235')}
+          label="Street address*"
           variant="filled"
           error={!!errors.shippingAddress?.street}
           helperText={errors.shippingAddress?.street?.message}
@@ -82,7 +59,7 @@ const ShippingAddress = () => {
           fullWidth
           id="townCity"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.town_city_e44cf3b5')}
+          label="Town/City*"
           variant="filled"
           error={!!errors.shippingAddress?.townCity}
           helperText={errors.shippingAddress?.townCity?.message}
@@ -99,7 +76,7 @@ const ShippingAddress = () => {
           fullWidth
           id="postcode"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.postcode_50767273')}
+          label="Postcode*"
           variant="filled"
           error={!!errors.shippingAddress?.postcode}
           helperText={errors.shippingAddress?.postcode?.message}
@@ -116,7 +93,7 @@ const ShippingAddress = () => {
           fullWidth
           id="country"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.country_2bd5a736')}
+          label="Country*"
           variant="filled"
           error={!!errors.shippingAddress?.country}
           helperText={errors.shippingAddress?.country?.message}
@@ -133,7 +110,7 @@ const ShippingAddress = () => {
           fullWidth
           id="state"
           type="text"
-          label={translateUi('ui.sections.ecommerce.customer.checkout.state_c3ffd085')}
+          label="State*"
           variant="filled"
           error={!!errors.shippingAddress?.state}
           helperText={errors.shippingAddress?.state?.message}
@@ -152,9 +129,7 @@ const ShippingAddress = () => {
                 render={({ field }) => <Checkbox {...field} checked={field.value} />}
               />
             }
-            label={translateUi(
-              'ui.sections.ecommerce.customer.checkout.use_a_different_billing_address_1693a0e6',
-            )}
+            label="Use a different billing address"
           />
         </FormControl>
       </Grid>

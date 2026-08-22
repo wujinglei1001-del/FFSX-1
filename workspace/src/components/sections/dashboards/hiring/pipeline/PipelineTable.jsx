@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Link } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
@@ -7,12 +6,10 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid/colDef';
 import { gridClasses } from '@mui/x-data-grid/constants';
-import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 
 const PipelineTable = ({ apiRef, data }) => {
-  const { t: translateUi } = useTranslation();
   const columns = useMemo(
     () => [
       {
@@ -21,7 +18,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'jobPosition',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.job_positions_0fa0402f'),
+        headerName: 'Job Positions',
         headerClassName: 'job-position-header',
         cellClassName: 'job-position-cell',
         valueGetter: ({ title }) => title,
@@ -34,7 +31,7 @@ const PipelineTable = ({ apiRef, data }) => {
               }}
             >
               <Link
-                href={paths.hiringJobOpening}
+                href="#!"
                 variant="subtitle2"
                 sx={{
                   fontWeight: 600,
@@ -58,7 +55,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'vacancy',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.vacancy_fec3f6d9'),
+        headerName: 'Vacancy',
         headerClassName: 'vacancy-header',
         cellClassName: 'vacancy-cell',
         valueGetter: ({ vacancy }) => vacancy,
@@ -73,7 +70,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'hiringManager',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.hiring_manager_440641fc'),
+        headerName: 'Hiring Manager',
         headerClassName: 'hiring-manager-header',
         cellClassName: 'hiring-manager-cell',
         minWidth: 190,
@@ -92,7 +89,7 @@ const PipelineTable = ({ apiRef, data }) => {
                 sx={{ width: 24, height: 24 }}
               />
               <Link
-                href={paths.memberProfile}
+                href="#!"
                 variant="subtitle2"
                 sx={{
                   fontWeight: 400,
@@ -107,7 +104,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'applied',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.applied_a3e4a569'),
+        headerName: 'Applied',
         headerClassName: 'applied-header',
         cellClassName: 'applied-cell',
         minWidth: 125,
@@ -146,7 +143,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'reviewed',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.reviewed_31ef8593'),
+        headerName: 'Reviewed',
         headerClassName: 'reviewed-header',
         cellClassName: 'reviewed-cell',
         minWidth: 125,
@@ -185,7 +182,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'mobileScreen',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.mobile_screen_3ea04adb'),
+        headerName: 'Mobile Screen',
         headerClassName: 'mobile-screen-header',
         cellClassName: 'mobile-screen-cell',
         minWidth: 125,
@@ -224,7 +221,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'interview',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.interview_19ad8ec7'),
+        headerName: 'Interview',
         headerClassName: 'interview-header',
         cellClassName: 'interview-cell',
         minWidth: 125,
@@ -263,7 +260,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'offer',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.offer_3898b9aa'),
+        headerName: 'Offer',
         headerClassName: 'offer-header',
         cellClassName: 'offer-cell',
         minWidth: 125,
@@ -302,7 +299,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'hired',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.hired_115779ef'),
+        headerName: 'Hired',
         headerClassName: 'hired-header',
         cellClassName: 'hired-cell',
         minWidth: 125,
@@ -341,7 +338,7 @@ const PipelineTable = ({ apiRef, data }) => {
       },
       {
         field: 'rejected',
-        headerName: translateUi('ui.sections.dashboards.hiring.pipeline.rejected_27eeb7a2'),
+        headerName: 'Rejected',
         headerClassName: 'rejected-header',
         cellClassName: 'rejected-cell',
         minWidth: 125,
@@ -411,7 +408,7 @@ const PipelineTable = ({ apiRef, data }) => {
         checkboxSelection
         slots={{
           basePagination: (props) => (
-            <DataGridPagination showFullPagination showAllHref={paths.hiringPipeline} {...props} />
+            <DataGridPagination showFullPagination showAllHref="#!" {...props} />
           ),
         }}
         sx={({ spacing }) => ({
@@ -427,7 +424,7 @@ const PipelineTable = ({ apiRef, data }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.action-cell)': {
                   p: `${spacing(1)} ${spacing(1.25)}`,
                 },

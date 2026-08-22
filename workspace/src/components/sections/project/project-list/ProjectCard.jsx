@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, AvatarGroup, Box, Chip, Stack, Typography, avatarClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
@@ -18,7 +17,6 @@ const getStatusBadgeColor = (status) => {
 };
 
 const ProjectCard = ({ project, onClick, selected }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box
       sx={{
@@ -178,8 +176,7 @@ const ProjectCard = ({ project, onClick, selected }) => {
               fontSize: '0.875rem',
             }}
           >
-            {translateUi('ui.sections.project.project_list.projectcard.last_opened_b721428a')}
-            {project.lastOpened}
+            Last opened: {project.lastOpened}
           </Typography>
           <DashboardMenu icon={<IconifyIcon fontSize={18} icon="material-symbols:more-horiz" />} />
         </Stack>

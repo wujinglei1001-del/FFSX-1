@@ -1,4 +1,5 @@
 import { avatarClasses } from '@mui/material';
+import { initialConfig } from 'config';
 
 export const Avatar = {
   defaultProps: {},
@@ -11,6 +12,15 @@ export const Avatar = {
     colorDefault: ({ theme }) => ({
       backgroundColor: theme.vars.palette.primary.main,
     }),
+    fallback: {
+      background: `url(${initialConfig.assetsDir}/images/avatar/0.webp) center bottom no-repeat`,
+      backgroundSize: 'contain',
+      width: '62%',
+      height: '100%',
+      path: {
+        display: 'none',
+      },
+    },
   },
 };
 

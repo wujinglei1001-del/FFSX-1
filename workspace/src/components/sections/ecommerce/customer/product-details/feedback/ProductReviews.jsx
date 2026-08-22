@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -22,7 +21,6 @@ import DashboardMenu from 'components/common/DashboardMenu';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ProductReviews = () => {
-  const { t: translateUi } = useTranslation();
   const [activeTag, setActiveTag] = useState('All');
   const [sortBy, setSortBy] = useState('recent');
 
@@ -90,26 +88,10 @@ const ProductReviews = () => {
               setSortBy(event.target.value);
             }}
           >
-            <MenuItem value="recent">
-              {translateUi(
-                'ui.sections.ecommerce.customer.product_details.sort_by_most_recent_abb421f2',
-              )}
-            </MenuItem>
-            <MenuItem value="oldest">
-              {translateUi(
-                'ui.sections.ecommerce.customer.product_details.sort_by_oldest_b3580db0',
-              )}
-            </MenuItem>
-            <MenuItem value="helpful">
-              {translateUi(
-                'ui.sections.ecommerce.customer.product_details.sort_by_most_helpful_19c22de5',
-              )}
-            </MenuItem>
-            <MenuItem value="relevant">
-              {translateUi(
-                'ui.sections.ecommerce.customer.product_details.sort_by_most_relevant_3fbeb0a6',
-              )}
-            </MenuItem>
+            <MenuItem value="recent">Sort by - Most recent</MenuItem>
+            <MenuItem value="oldest">Sort by - Oldest</MenuItem>
+            <MenuItem value="helpful">Sort by - Most helpful</MenuItem>
+            <MenuItem value="relevant">Sort by - Most relevant</MenuItem>
           </StyledTextField>
         </FormControl>
       </Stack>
@@ -152,23 +134,7 @@ const ProductReviews = () => {
               </Stack>
               <DashboardMenu
                 icon={<IconifyIcon icon="material-symbols-light:more-vert" fontSize={22} />}
-                menuItems={[
-                  {
-                    label: translateUi(
-                      'ui.sections.ecommerce.customer.product_details.hide_34d8b60f',
-                    ),
-                  },
-                  {
-                    label: translateUi(
-                      'ui.sections.ecommerce.customer.product_details.share_09ca55ca',
-                    ),
-                  },
-                  {
-                    label: translateUi(
-                      'ui.sections.ecommerce.customer.product_details.report_abuse_ef459ef9',
-                    ),
-                  },
-                ]}
+                menuItems={[{ label: 'Hide' }, { label: 'Share' }, { label: 'Report abuse' }]}
               />
             </Stack>
             <Rating
@@ -217,10 +183,7 @@ const ProductReviews = () => {
                   color: 'text.secondary',
                 }}
               >
-                {helpfulCount}
-                {translateUi(
-                  'ui.sections.ecommerce.customer.product_details.people_found_it_helpful_1cea6731',
-                )}
+                {helpfulCount} people found it helpful
               </Typography>
               <Stack direction="row" sx={{ gap: 1.5 }}>
                 <Button
@@ -229,7 +192,7 @@ const ProductReviews = () => {
                   size="small"
                   startIcon={<IconifyIcon icon="material-symbols:thumb-up-outline-rounded" />}
                 >
-                  {translateUi('ui.sections.ecommerce.customer.product_details.helpful_45e36dd9')}
+                  Helpful
                 </Button>
                 <Button
                   variant="text"
@@ -237,9 +200,7 @@ const ProductReviews = () => {
                   size="small"
                   startIcon={<IconifyIcon icon="material-symbols:thumb-down-outline-rounded" />}
                 >
-                  {translateUi(
-                    'ui.sections.ecommerce.customer.product_details.not_helpful_85efce01',
-                  )}
+                  Not helpful
                 </Button>
               </Stack>
             </Stack>
@@ -247,7 +208,7 @@ const ProductReviews = () => {
         ))}
         <Divider sx={{ [`& .${dividerClasses.wrapper}`]: { p: 0 } }}>
           <Button color="neutral" variant="soft" sx={{ borderRadius: 10 }}>
-            {translateUi('ui.sections.ecommerce.customer.product_details.load_more_dfe60ca9')}
+            Load more
           </Button>
         </Divider>
       </Stack>

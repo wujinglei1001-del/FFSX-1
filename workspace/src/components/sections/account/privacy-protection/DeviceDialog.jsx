@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Button,
   Chip,
@@ -15,7 +14,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 const DeviceDialog = (props) => {
-  const { t: translateUi } = useTranslation();
   const { open, handleDialogClose, loggedInDevice, sx } = props;
 
   return (
@@ -35,12 +33,7 @@ const DeviceDialog = (props) => {
       }}
     >
       <DialogContent sx={{ p: 3, pr: 0, display: 'flex', gap: 2 }}>
-        <Image
-          src={loggedInDevice.icon}
-          width={40}
-          height={40}
-          alt={translateUi('common.accessibility.logged_device_icon')}
-        />
+        <Image src={loggedInDevice.icon} width={40} height={40} alt="logged-device-icon" />
         <Stack sx={{ gap: 3, flexGrow: 1 }}>
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
@@ -54,36 +47,21 @@ const DeviceDialog = (props) => {
                 {loggedInDevice.location}
               </Typography>
             </Stack>
-            {loggedInDevice.currentlyLoggedIn && (
-              <Chip
-                label={translateUi(
-                  'ui.sections.account.privacy_protection.devicedialog.currently_logged_in_05e7f417',
-                )}
-                color="info"
-              />
-            )}
+            {loggedInDevice.currentlyLoggedIn && <Chip label="Currently logged in" color="info" />}
           </Stack>
           <Stack sx={{ gap: 1 }}>
             {loggedInDevice.currentlyLoggedIn ? (
               <Typography variant="subtitle2" sx={{ fontWeight: 400, color: 'text.secondary' }}>
-                {translateUi(
-                  'ui.sections.account.privacy_protection.devicedialog.first_logged_in_at_74796b75',
-                )}
-                {dayjs(loggedInDevice.firstLoggedTime).format('MMM DD, h:mm a')}
+                First logged in at {dayjs(loggedInDevice.firstLoggedTime).format('MMM DD, h:mm a')}
               </Typography>
             ) : (
               <Typography variant="subtitle2">
-                {translateUi(
-                  'ui.sections.account.privacy_protection.devicedialog.last_logged_in_at_04771018',
-                )}
-                {dayjs(loggedInDevice.lastLoggedTime).format('MMM DD, h:mm a')}
+                Last logged in at {dayjs(loggedInDevice.lastLoggedTime).format('MMM DD, h:mm a')}
               </Typography>
             )}
             {loggedInDevice.currentlyLoggedIn ? (
               <Typography variant="subtitle2" sx={{ fontWeight: 400 }}>
-                {translateUi(
-                  'ui.sections.account.privacy_protection.devicedialog.recent_activity_in_bangladesh_in_the_last_21f5b4a0',
-                )}{' '}
+                Recent activity in Bangladesh in the last{' '}
                 {dayjs(loggedInDevice.lastLoggedTime).fromNow(true)}
               </Typography>
             ) : (
@@ -97,23 +75,17 @@ const DeviceDialog = (props) => {
                     alignItems: 'center',
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.account.privacy_protection.devicedialog.don_t_recognize_the_device_8811d526',
-                  )}{' '}
+                  Don’t recognize the device?{' '}
                 </Typography>
                 <Button color="error" size="small" onClick={handleDialogClose}>
-                  {translateUi(
-                    'ui.sections.account.privacy_protection.devicedialog.click_here_to_log_out_93f84100',
-                  )}
+                  Click here to log out
                 </Button>
               </Stack>
             )}
           </Stack>
           <Stack sx={{ gap: 1 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 400, color: 'text.secondary' }}>
-              {translateUi(
-                'ui.sections.account.privacy_protection.devicedialog.browsers_apps_and_services_e72e4fac',
-              )}
+              Browsers, Apps and Services
             </Typography>
             <Stack sx={{ gap: 0.5 }}>
               {loggedInDevice.browsersAppsServices?.map((service, _index) => (

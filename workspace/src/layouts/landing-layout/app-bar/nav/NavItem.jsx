@@ -8,26 +8,25 @@ const NavItem = ({ menu, handlePopoverClose, disabledSecondaryText }) => {
   return (
     <ListItem disablePadding>
       <ListItemButton
+        component="a"
         href={menu.href}
         onClick={handlePopoverClose ?? undefined}
         sx={{ gap: 2, alignItems: disabledSecondaryText ? 'center' : 'flex-start' }}
       >
-        {menu.icon && (
-          <ListItemIcon>
-            <Avatar
-              variant="rounded"
-              sx={{
-                bgcolor: ({ vars }) =>
-                  isDark
-                    ? 'background.elevation2'
-                    : cssVarRgba(vars.palette.background.elevation4Channel, 0.3),
-                color: 'text.primary',
-              }}
-            >
-              <IconifyIcon icon={menu.icon} />
-            </Avatar>
-          </ListItemIcon>
-        )}
+        <ListItemIcon>
+          <Avatar
+            variant="rounded"
+            sx={{
+              bgcolor: ({ vars }) =>
+                isDark
+                  ? 'background.elevation2'
+                  : cssVarRgba(vars.palette.background.elevation4Channel, 0.3),
+              color: 'text.primary',
+            }}
+          >
+            <IconifyIcon icon={menu.icon} />
+          </Avatar>
+        </ListItemIcon>
         <ListItemText
           sx={{ my: 0, gap: 2 }}
           primary={menu.label}

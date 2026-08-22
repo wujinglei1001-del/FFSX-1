@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -15,7 +14,6 @@ import { statusOptions, taskDetailsData } from 'data/project/task-details';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const TaskHeader = ({ onClose }) => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(taskDetailsData.status);
   const open = Boolean(anchorEl);
@@ -150,7 +148,7 @@ const TaskHeader = ({ onClose }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.project.task_details.taskheader.task_created_by_c1da1e72')}
+            Task created by
           </Typography>
           <Avatar
             src={taskDetailsData.createdBy.avatar}

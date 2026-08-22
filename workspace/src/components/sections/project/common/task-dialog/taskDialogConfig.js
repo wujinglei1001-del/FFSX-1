@@ -1,40 +1,20 @@
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 import * as yup from 'yup';
 import { defaultLabelOptions as taskLabelOptions } from '../labels/labelConfig';
 
 export { taskLabelOptions };
 
 export const validationSchema = yup.object({
-  task: yup
-    .string()
-    .required(i18n.t('ui.sections.project.common.task_dialog.task_is_required_dfd1415b'))
-    .min(
-      3,
-      i18n.t('ui.sections.project.common.task_dialog.task_must_be_at_least_3_characters_64e04cde'),
-    ),
-  group: yup
-    .string()
-    .required(i18n.t('ui.sections.project.common.task_dialog.group_is_required_4805ce55')),
-  status: yup
-    .string()
-    .required(i18n.t('ui.sections.project.common.task_dialog.status_is_required_d88cae16')),
-  startDate: yup
-    .date()
-    .required(i18n.t('ui.sections.project.common.task_dialog.start_date_is_required_438387af')),
-  endDate: yup
-    .date()
-    .required(i18n.t('ui.sections.project.common.task_dialog.end_date_is_required_0f750cd5')),
-  priority: yup
-    .string()
-    .required(i18n.t('ui.sections.project.common.task_dialog.priority_is_required_d0f01e4d')),
+  task: yup.string().required('Task is required').min(3, 'Task must be at least 3 characters'),
+  group: yup.string().required('Group is required'),
+  status: yup.string().required('Status is required'),
+  startDate: yup.date().required('Start date is required'),
+  endDate: yup.date().required('End date is required'),
+  priority: yup.string().required('Priority is required'),
   collaborators: yup
     .array()
     .of(yup.number().required())
-    .min(
-      1,
-      i18n.t('ui.sections.project.common.task_dialog.select_at_least_one_collaborator_d3885b44'),
-    )
+    .min(1, 'Select at least one collaborator')
     .required(),
 });
 
@@ -61,58 +41,18 @@ export const defaultFormValues = {
 };
 
 export const taskGroupOptions = [
-  {
-    value: 'group-1',
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.planning_phase_448907fb');
-    },
-  },
-  {
-    value: 'group-2',
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.developement_phase_6dcfd35d');
-    },
-  },
-  {
-    value: 'group-3',
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.testing_deployment_5f280215');
-    },
-  },
+  { value: 'group-1', label: 'Planning Phase' },
+  { value: 'group-2', label: 'Developement phase' },
+  { value: 'group-3', label: 'Testing & Deployment' },
 ];
 
 export const taskStatusOptions = [
-  {
-    value: 'This week',
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.this_week_7b72883e');
-    },
-  },
-  {
-    value: 'Completed',
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.completed_1798b3ba');
-    },
-  },
+  { value: 'This week', label: 'This week' },
+  { value: 'Completed', label: 'Completed' },
 ];
 
 export const taskPriorityOptions = [
-  {
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.normal_45e118d0');
-    },
-    color: 'primary',
-  },
-  {
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.high_b1a5954a');
-    },
-    color: 'warning',
-  },
-  {
-    get label() {
-      return i18n.t('ui.sections.project.common.task_dialog.urgent_ecb26f46');
-    },
-    color: 'error',
-  },
+  { label: 'Normal', color: 'primary' },
+  { label: 'High', color: 'warning' },
+  { label: 'Urgent', color: 'error' },
 ];

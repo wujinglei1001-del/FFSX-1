@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Typography } from '@mui/material';
 import Image from 'components/base/Image';
 
@@ -7,14 +6,13 @@ const VIDEO_EXTS = ['mp4', 'mkv', 'mov', 'avi', 'mpg'];
 const AUDIO_EXTS = ['mp3', 'wav', 'm4a', 'ogg'];
 
 const InlineMediaPreview = ({ preview }) => {
-  const { t: translateUi } = useTranslation();
   const ext = preview?.format?.toLowerCase() || '';
   const previewUrl = preview?.preview;
 
   if (!previewUrl && !ext) {
     return (
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        {translateUi('ui.components.common.inlinemediapreview.no_preview_available_3a5aa5b9')}
+        No preview available
       </Typography>
     );
   }
@@ -24,7 +22,7 @@ const InlineMediaPreview = ({ preview }) => {
       <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
         <Image
           src={previewUrl}
-          alt={translateUi('ui.components.common.inlinemediapreview.file_preview_f2808459')}
+          alt="File preview"
           sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
       </Box>
@@ -52,8 +50,7 @@ const InlineMediaPreview = ({ preview }) => {
 
   return (
     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      {translateUi('ui.components.common.inlinemediapreview.no_preview_available_for_ebc3275d')}
-      {ext ? `.${ext}` : 'this file'}
+      No preview available for {ext ? `.${ext}` : 'this file'}
     </Typography>
   );
 };

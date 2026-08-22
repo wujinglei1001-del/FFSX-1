@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Stack, Typography } from '@mui/material';
 import { useTextTruncation } from 'hooks/useTextTruncation';
 import { useSettingsContext } from 'providers/SettingsProvider';
@@ -23,7 +22,6 @@ const ProjectListHeader = ({
   inviteButtonIcon = 'material-symbols:person-add-outline',
   onInvite,
 }) => {
-  const { t: translateUi } = useTranslation();
   const [internalSelectedFilter, setInternalSelectedFilter] = useState(defaultSelectedFilter);
   const [membersMenuAnchorEl, setMembersMenuAnchorEl] = useState(null);
   const {
@@ -186,9 +184,7 @@ const ProjectListHeader = ({
             onClick={onAddProject}
             sx={{ flexShrink: 0, whiteSpace: 'nowrap' }}
           >
-            {translateUi(
-              'ui.sections.project.project_list.projectlistheader.add_new_project_a7fdfc9d',
-            )}
+            Add new project
           </Button>
         </Box>
 

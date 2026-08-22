@@ -1,12 +1,10 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { MenuItem, Stack, Typography } from '@mui/material';
 import StyledTextField from 'components/styled/StyledTextField';
 import { LABEL_OPTIONS, PROJECT_OPTIONS, STATUS_OPTIONS } from '../common/constants';
 import AutomationDatePicker from '../shared/AutomationDatePicker';
 
 const CreateTaskSubtaskActionFields = ({ index }) => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { errors },
@@ -21,7 +19,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          {translateUi('ui.sections.project.automation.action_fields.task_name_c78d2fc3')}
+          Task name
         </Typography>
         <Controller
           control={control}
@@ -32,9 +30,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               fullWidth
               value={field.value ?? ''}
               onChange={field.onChange}
-              placeholder={translateUi(
-                'ui.sections.project.automation.action_fields.task_name_c78d2fc3',
-              )}
+              placeholder="Task name"
               error={!!errors.actions?.[index]?.params?.taskName}
               helperText={errors.actions?.[index]?.params?.taskName?.message}
             />
@@ -48,7 +44,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          {translateUi('ui.sections.project.automation.action_fields.project_f6f4da8d')}
+          Project
         </Typography>
         <Controller
           control={control}
@@ -68,9 +64,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               }}
             >
               <MenuItem value="" disabled>
-                {translateUi(
-                  'ui.sections.project.automation.action_fields.select_project_b4b37dd6',
-                )}
+                Select project
               </MenuItem>
               {PROJECT_OPTIONS.map((project) => (
                 <MenuItem key={project} value={project}>
@@ -88,7 +82,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          {translateUi('ui.sections.project.automation.action_fields.status_bae7d5be')}
+          Status
         </Typography>
         <Controller
           control={control}
@@ -108,7 +102,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               }}
             >
               <MenuItem value="" disabled>
-                {translateUi('ui.sections.project.automation.action_fields.select_status_03320176')}
+                Select status
               </MenuItem>
               {STATUS_OPTIONS.map((status) => (
                 <MenuItem key={status} value={status}>
@@ -126,7 +120,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          {translateUi('ui.sections.project.automation.action_fields.description_55f8ebc8')}
+          Description
         </Typography>
         <Controller
           control={control}
@@ -137,9 +131,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               fullWidth
               value={field.value ?? ''}
               onChange={field.onChange}
-              placeholder={translateUi(
-                'ui.sections.project.automation.action_fields.write_a_description_dda9f030',
-              )}
+              placeholder="Write a description"
               multiline
               minRows={3}
             />
@@ -154,7 +146,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.project.automation.action_fields.start_date_9d7ab1a5')}
+            Start Date
           </Typography>
           <AutomationDatePicker name={`actions.${index}.params.startDate`} />
         </Stack>
@@ -166,7 +158,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.project.automation.action_fields.end_date_84b14781')}
+            End Date
           </Typography>
           <AutomationDatePicker name={`actions.${index}.params.endDate`} />
         </Stack>
@@ -178,7 +170,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
             color: 'text.secondary',
           }}
         >
-          {translateUi('ui.sections.project.automation.action_fields.label_74341e3c')}
+          Label
         </Typography>
         <Controller
           control={control}
@@ -198,7 +190,7 @@ const CreateTaskSubtaskActionFields = ({ index }) => {
               }}
             >
               <MenuItem value="" disabled>
-                {translateUi('ui.sections.project.automation.action_fields.select_label_239dc2b6')}
+                Select label
               </MenuItem>
               {LABEL_OPTIONS.map((label) => (
                 <MenuItem key={label} value={label}>

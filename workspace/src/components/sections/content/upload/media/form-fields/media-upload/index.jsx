@@ -1,5 +1,4 @@
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Paper, Stack, Typography } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import FileDropZone from 'components/base/FileDropZone';
@@ -13,7 +12,6 @@ const ACCEPT_MEDIA_TYPES = {
 const MAX_MEDIA_SIZE_BYTES = 256 * 1024 * 1024 * 1024; // 256 GB
 
 const MediaUpload = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { topnavType },
   } = useSettingsContext();
@@ -85,9 +83,8 @@ const MediaUpload = () => {
           sx={{ color: 'info.main', fontSize: 16, flexShrink: 0, mt: 0.25 }}
         />
         <Typography variant="caption" color="info">
-          {translateUi(
-            'ui.sections.content.upload.media.video_and_audio_should_be_in_mp3_m4a_wav_mpg_mov_mp4_5ee88e1b',
-          )}
+          Video and audio should be in mp3, m4a, wav, mpg, mov, mp4, or mkv format. The maximum
+          video upload size is 256 GB.
         </Typography>
       </Stack>
     </Paper>

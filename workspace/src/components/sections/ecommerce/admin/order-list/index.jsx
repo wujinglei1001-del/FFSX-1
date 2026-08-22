@@ -1,10 +1,8 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, IconButton, MenuItem, Stack } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import { useGridApiRef } from '@mui/x-data-grid';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DataGridSelectionBar from 'components/common/DataGridSelectionBar';
 import SearchTextField from 'components/common/SearchTextField';
@@ -17,7 +15,6 @@ const emptySelection = {
 };
 
 const OrderListContainer = () => {
-  const { t: translateUi } = useTranslation();
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const [selectionModel, setSelectionModel] = useState(emptySelection);
   const apiRef = useGridApiRef();
@@ -59,19 +56,12 @@ const OrderListContainer = () => {
             flexWrap: { xs: 'wrap', sm: 'nowrap' },
           }}
         >
-          <Button
-            href={paths.adminCreateOrder}
-            variant="contained"
-            color="primary"
-            sx={{ flexShrink: 0 }}
-          >
-            {translateUi('ui.sections.ecommerce.admin.order_list.add_order_29c14ca6')}
+          <Button href={'#!'} variant="contained" color="primary" sx={{ flexShrink: 0 }}>
+            Add Order
           </Button>
 
           <SearchTextField
-            placeholder={translateUi(
-              'ui.sections.ecommerce.admin.order_list.search_order_7f86db03',
-            )}
+            placeholder="Search order"
             fullWidth
             onChange={handleSearch}
             sx={{
@@ -85,15 +75,9 @@ const OrderListContainer = () => {
 
           <Box sx={{ maxWidth: { xs: 200, sm: 150 }, width: 1, ml: 'auto' }}>
             <StyledTextField variant="filled" fullWidth select defaultValue="30days">
-              <MenuItem value="30days">
-                {translateUi('ui.sections.ecommerce.admin.order_list.last_30_days_6b329852')}
-              </MenuItem>
-              <MenuItem value="90days">
-                {translateUi('ui.sections.ecommerce.admin.order_list.last_90_days_c328508b')}
-              </MenuItem>
-              <MenuItem value="lastYear">
-                {translateUi('ui.sections.ecommerce.admin.order_list.last_year_3cf4d8d7')}
-              </MenuItem>
+              <MenuItem value="30days">Last 30 days</MenuItem>
+              <MenuItem value="90days">Last 90 days</MenuItem>
+              <MenuItem value="lastYear">Last year</MenuItem>
             </StyledTextField>
           </Box>
 
@@ -107,11 +91,7 @@ const OrderListContainer = () => {
               sx={{ flexShrink: 0 }}
             >
               <IconifyIcon icon="material-symbols:star-rounded" fontSize={20} />
-              {upLg && (
-                <Box component="span">
-                  {translateUi('ui.sections.ecommerce.admin.order_list.saved_c0ae8f6e')}
-                </Box>
-              )}
+              {upLg && <Box component="span">Saved</Box>}
             </Button>
 
             <Button
@@ -134,11 +114,7 @@ const OrderListContainer = () => {
                   fontSize={'20px !important'}
                 />
               )}
-              {upLg && (
-                <Box component="span">
-                  {translateUi('ui.sections.ecommerce.admin.order_list.more_filters_bf7117ef')}
-                </Box>
-              )}
+              {upLg && <Box component="span">More filters</Box>}
             </Button>
           </Stack>
         </Stack>

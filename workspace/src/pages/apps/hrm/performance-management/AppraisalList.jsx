@@ -1,17 +1,14 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { typographyClasses } from '@mui/material/Typography';
 import { useGridApiRef } from '@mui/x-data-grid';
-import paths from 'routes/paths';
 import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import SearchFilterActionBar from 'components/sections/hrm/payroll/common/SearchFilterActionBar';
 import ListTable from 'components/sections/hrm/performance-management/appraisal-list/ListTable';
 import AddMember from 'components/sections/hrm/performance-management/appraisal-list/add-member';
 
 const AppraisalList = () => {
-  const { t: translateUi } = useTranslation();
   const [filterButtonEl, setFilterButtonEl] = useState(null);
   const apiRef = useGridApiRef();
 
@@ -37,16 +34,10 @@ const AppraisalList = () => {
   return (
     <Paper sx={{ height: 1 }}>
       <PageHeader
-        title={translateUi('ui.pages.apps.hrm.performance_management.appraisal_list_f7d5e630')}
+        title="Appraisal List"
         breadcrumb={[
-          {
-            label: translateUi('ui.pages.apps.hrm.performance_management.home_70f8bb9a'),
-            url: paths.workbench,
-          },
-          {
-            label: translateUi('ui.pages.apps.hrm.performance_management.appraisal_list_f7d5e630'),
-            active: true,
-          },
+          { label: 'Home', url: '#!' },
+          { label: 'Appraisal List', active: true },
         ]}
         actionComponent={
           <SearchFilterActionBar

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -14,7 +13,6 @@ import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import CRMDropdownMenu from '../common/CRMDropdownMenu';
 
 const LeadDetailsHeader = () => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [starred, setStarred] = useState(false);
   const { down } = useBreakpoints();
@@ -32,16 +30,8 @@ const LeadDetailsHeader = () => {
         >
           <PageBreadcrumb
             items={[
-              {
-                label: translateUi('ui.sections.crm.lead_details.leaddetailsheader.home_70f8bb9a'),
-                url: paths.crm,
-              },
-              {
-                label: translateUi(
-                  'ui.sections.crm.lead_details.leaddetailsheader.lead_details_8b2d0aac',
-                ),
-                active: true,
-              },
+              { label: 'Home', url: paths.crm },
+              { label: 'Lead Details', active: true },
             ]}
             sx={{ mb: 2 }}
           />
@@ -65,9 +55,7 @@ const LeadDetailsHeader = () => {
               }}
             >
               <Typography variant="h4" sx={{ fontSize: { xs: 20, md: 28 } }}>
-                {translateUi(
-                  'ui.sections.crm.lead_details.leaddetailsheader.tsamina_mina_f6bd64fe',
-                )}
+                Tsamina Mina
               </Typography>
               <Button
                 shape="square"
@@ -97,9 +85,7 @@ const LeadDetailsHeader = () => {
           >
             <IconifyIcon icon="material-symbols:edit-outline" />
             <Box component="span" sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {translateUi(
-                'ui.sections.crm.lead_details.leaddetailsheader.edit_information_7d105ee7',
-              )}
+              Edit information
             </Box>
           </Button>
 
@@ -111,7 +97,7 @@ const LeadDetailsHeader = () => {
             sx={{ gap: 0.5 }}
           >
             <Box component="span" sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {translateUi('ui.sections.crm.lead_details.leaddetailsheader.more_action_0cb6d463')}
+              More Action
             </Box>
             <IconifyIcon icon="material-symbols:expand-more" />
           </Button>

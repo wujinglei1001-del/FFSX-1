@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Grid, Tooltip, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
@@ -6,7 +5,6 @@ import { useCalendarContext } from 'providers/CalendarProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const SchedulerTop = ({ toggleDrawer, isDrawerOpen }) => {
-  const { t: translateUi } = useTranslation();
   const { schedulerApi, updateView } = useCalendarContext();
   const { down } = useBreakpoints();
   const downSm = down('sm');
@@ -25,11 +23,7 @@ const SchedulerTop = ({ toggleDrawer, isDrawerOpen }) => {
       }}
     >
       <Grid size={{ xs: 'auto' }}>
-        <Tooltip
-          title={translateUi('ui.sections.scheduler.schedulertop.create_schedule_17178120')}
-          arrow
-          disableHoverListener={!downMd}
-        >
+        <Tooltip title="Create Schedule" arrow disableHoverListener={!downMd}>
           <Button
             variant="soft"
             size={downMd ? 'small' : 'medium'}
@@ -78,7 +72,7 @@ const SchedulerTop = ({ toggleDrawer, isDrawerOpen }) => {
           onClick={() => updateView('scheduler', 'today')}
           sx={{ ml: { xs: 1, md: 2 } }}
         >
-          {translateUi('ui.sections.scheduler.schedulertop.today_24345a14')}
+          Today
         </Button>
       </Grid>
       <Grid

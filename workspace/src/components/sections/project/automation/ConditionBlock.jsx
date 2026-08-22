@@ -1,5 +1,4 @@
 import { Controller, useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, IconButton, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ConditionFields from './ConditionFields';
@@ -19,7 +18,6 @@ const ConditionBlock = ({
   onTriggerTypeChange,
   onFilterTypeChange,
 }) => {
-  const { t: translateUi } = useTranslation();
   const { control } = useFormContext();
   const isPrimary = index === 0;
 
@@ -47,9 +45,7 @@ const ConditionBlock = ({
                     }}
                   >
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      {translateUi(
-                        'ui.sections.project.automation.conditionblock.also_with_this_6746aa9a',
-                      )}
+                      Also, with this,
                     </Typography>
                     {canRemove && (
                       <IconButton

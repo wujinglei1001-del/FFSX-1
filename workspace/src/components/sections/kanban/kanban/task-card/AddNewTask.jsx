@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconifyIcon from 'components/base/IconifyIcon';
 import AddNewTaskForm from './AddNewTaskForm';
 
 const AddNewTask = ({ listId }) => {
-  const { t: translateUi } = useTranslation();
   const [isFormActive, setIsFormActive] = useState(false);
 
   return isFormActive ? (
@@ -26,7 +24,7 @@ const AddNewTask = ({ listId }) => {
         }
         fullWidth
       >
-        {translateUi('ui.sections.kanban.kanban.task_card.add_new_task_23c82a1c')}
+        Add New Task
       </Button>
     </Box>
   );

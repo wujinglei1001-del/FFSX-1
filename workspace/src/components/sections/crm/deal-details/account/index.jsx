@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
@@ -10,14 +9,11 @@ import Image from 'components/base/Image';
 import Deals from './Deals';
 
 const Account = ({ accountData }) => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper
       sx={{ display: 'flex', flexDirection: 'column', p: { xs: 3, md: 5 }, gap: 3, height: 1 }}
     >
-      <Typography variant="h5">
-        {translateUi('ui.sections.crm.deal_details.account.account_85dfa32c')}
-      </Typography>
+      <Typography variant="h5">Account</Typography>
       <Stack
         sx={{
           gap: 3,
@@ -40,8 +36,7 @@ const Account = ({ accountData }) => {
                 {accountData.name}
               </Typography>
               <Typography variant="subtitle2" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-                {translateUi('ui.sections.crm.deal_details.account.since_2eb888e9')}
-                {dayjs(accountData.dateCreated).format('YYYY')}
+                since {dayjs(accountData.dateCreated).format('YYYY')}
               </Typography>
             </Stack>
           </Stack>
@@ -62,23 +57,24 @@ const Account = ({ accountData }) => {
             gap: 1,
           }}
         >
-          {accountData.contactIcons.map((icon) => {
-            const href = accountData.contactLinks?.[icon];
-
-            return (
-              <Button
-                href={href}
-                disabled={!href}
-                key={icon}
-                shape="square"
-                variant="soft"
-                size="large"
-                color="neutral"
-              >
-                <IconifyIcon icon={icon} sx={{ fontSize: 24 }} />
-              </Button>
-            );
-          })}
+          {accountData.contactIcons.map((icon) => (
+            <Button
+              href={
+                icon === 'material-symbols:mail-outline'
+                  ? 'mailto:?'
+                  : icon === 'material-symbols:call-outline'
+                    ? 'tel:?'
+                    : '#!'
+              }
+              key={icon}
+              shape="square"
+              variant="soft"
+              size="large"
+              color="neutral"
+            >
+              <IconifyIcon icon={icon} sx={{ fontSize: 24 }} />
+            </Button>
+          ))}
         </Stack>
       </Stack>
       <Deals deals={accountData.ongoingDeals} />

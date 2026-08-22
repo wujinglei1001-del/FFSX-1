@@ -1,5 +1,4 @@
 import { FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
@@ -14,7 +13,6 @@ import Questionaries from 'components/sections/hiring/candidate/job-application/
 import useJobApplicationForm from 'components/sections/hiring/candidate/job-application/useJobApplicationForm';
 
 const JobApplication = () => {
-  const { t: translateUi } = useTranslation();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const { methods } = useJobApplicationForm();
@@ -36,9 +34,7 @@ const JobApplication = () => {
             height: 1,
           }}
         >
-          <Typography variant="h4">
-            {translateUi('ui.pages.apps.hiring.candidate.job_application_97cbb502')}
-          </Typography>
+          <Typography variant="h4">Job Application</Typography>
           <FormProvider {...methods}>
             <Stack
               component="form"

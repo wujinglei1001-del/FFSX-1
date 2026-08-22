@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { cssVarRgba } from 'lib/utils';
@@ -7,7 +6,6 @@ import Image from 'components/base/Image';
 import { BentoCardHeader } from './BentoCard';
 
 const APIS = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -48,10 +46,8 @@ const APIS = () => {
         }}
       >
         <BentoCardHeader
-          title={translateUi('ui.sections.landing.homepage.features.powerful_apis_0df425bb')}
-          subtitle={translateUi(
-            'ui.sections.landing.homepage.features.create_stunning_websites_e592584c',
-          )}
+          title="Powerful APIS"
+          subtitle="Create stunning websites"
           sx={{ px: { xs: 2, md: 3 }, pt: { xs: 2, md: 3 } }}
         />
 

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -15,19 +14,17 @@ import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import StyledSelect from 'components/styled/StyledSelect';
 
 const ProfileHeader = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Paper sx={{ px: { xs: 3, lg: 5 }, py: 3 }}>
       <PageBreadcrumb
         items={[
           {
-            label: translateUi('ui.sections.hiring.admin.candidate_details.home_70f8bb9a'),
+            label: 'Home',
             url: '/',
           },
           {
-            label: translateUi(
-              'ui.sections.hiring.admin.candidate_details.candidate_details_4e4d7cc1',
-            ),
+            label: 'Candidate Details',
+            url: '#!',
             active: true,
           },
         ]}
@@ -68,9 +65,9 @@ const ProfileHeader = () => {
                 {users[15].name}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                {translateUi('ui.sections.hiring.admin.candidate_details.applied_a3e4a569')}{' '}
+                Applied{' '}
                 <Box component="span" sx={{ color: 'text.primary', fontWeight: 600 }}>
-                  {translateUi('ui.sections.hiring.admin.candidate_details.jan_5_2026_72cebd90')}
+                  Jan 5, 2026
                 </Box>
               </Typography>
             </div>
@@ -116,19 +113,13 @@ const ProfileHeader = () => {
                 [`& .${selectClasses.icon}`]: { right: 8 },
               }}
             >
-              <MenuItem value="Member">
-                {translateUi('ui.sections.hiring.admin.candidate_details.member_6853c98a')}
-              </MenuItem>
-              <MenuItem value="Admin">
-                {translateUi('ui.sections.hiring.admin.candidate_details.admin_4e7afebc')}
-              </MenuItem>
-              <MenuItem value="Guest">
-                {translateUi('ui.sections.hiring.admin.candidate_details.guest_face83ee')}
-              </MenuItem>
+              <MenuItem value="Member">Member</MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+              <MenuItem value="Guest">Guest</MenuItem>
             </StyledSelect>
 
             <Button variant="soft" color="neutral">
-              {translateUi('ui.sections.hiring.admin.candidate_details.disqualified_a525f885')}
+              Disqualified
             </Button>
           </Stack>
 
@@ -140,33 +131,28 @@ const ProfileHeader = () => {
                 mb: 1,
               }}
             >
-              {translateUi('ui.sections.hiring.admin.candidate_details.job_opeing_96a658df')}{' '}
+              Job Opeing{' '}
               <Box
                 component="strong"
                 sx={{
                   whiteSpace: 'nowrap',
                 }}
               >
-                {translateUi(
-                  'ui.sections.hiring.admin.candidate_details.february_24_2024_85399bb4',
-                )}
+                February 24, 2024
               </Box>{' '}
-              {translateUi('common.for')}{' '}
+              for{' '}
               <Box
                 component="strong"
                 sx={{
                   whiteSpace: 'nowrap',
                 }}
               >
-                {translateUi('ui.sections.hiring.admin.candidate_details.sr_desinger_7f8c0184')}
+                Sr. Desinger
               </Box>
             </Typography>
 
             <Typography variant="subtitle1" color="textSecondary">
-              <strong>
-                {translateUi('ui.sections.hiring.admin.candidate_details.100_candidates_3bab48f0')}
-              </strong>
-              {translateUi('ui.sections.hiring.admin.candidate_details.applied_a3e4a569')}
+              <strong>100 Candidates</strong> Applied
             </Typography>
           </Box>
         </Stack>

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Divider, Paper, Stack } from '@mui/material';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
 import SimpleBar from 'components/base/SimpleBar';
@@ -6,7 +5,6 @@ import EventPrivacy from 'components/sections/events/create-event/aside/EventPri
 import TicketPrice from 'components/sections/events/create-event/aside/TicketPrice';
 
 const EventAside = ({ handleClose }) => {
-  const { t: translateUi } = useTranslation();
   const { topbarHeight } = useNavContext();
 
   return (
@@ -43,7 +41,7 @@ const EventAside = ({ handleClose }) => {
         }}
       >
         <Button type="button" variant="soft" color="neutral" onClick={handleClose}>
-          {translateUi('ui.sections.events.create_event.aside.save_as_draft_77d9d759')}
+          Save as draft
         </Button>
         <Button
           form="createEventForm"
@@ -54,7 +52,7 @@ const EventAside = ({ handleClose }) => {
             flexGrow: 1,
           }}
         >
-          {translateUi('ui.sections.events.create_event.aside.publish_56564005')}
+          Publish
         </Button>
       </Stack>
     </Paper>

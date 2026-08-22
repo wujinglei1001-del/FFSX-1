@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Button,
   Dialog,
@@ -17,7 +16,6 @@ import dayjs from 'dayjs';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ScheduleDialog = (props) => {
-  const { t: translateUi } = useTranslation();
   const { open, handleDialogClose, onSubmit, sx, ...dialogProps } = props;
   const [formValue, setFormValue] = useState({
     date: dayjs(),
@@ -67,7 +65,7 @@ const ScheduleDialog = (props) => {
           alignItems: 'center',
         }}
       >
-        {translateUi('ui.sections.content.upload.form_actions.schedule_0a8adac9')}
+        Schedule
         <IconButton onClick={handleDialogCloseClick}>
           <IconifyIcon icon="material-symbols:close" sx={{ fontSize: 20, color: 'neutral.dark' }} />
         </IconButton>
@@ -78,9 +76,7 @@ const ScheduleDialog = (props) => {
           variant="body2"
           sx={{ color: 'text.secondary', mb: 2, textWrap: 'pretty' }}
         >
-          {translateUi(
-            'ui.sections.content.upload.form_actions.make_your_schedule_to_publish_your_content_in_your_p_219facca',
-          )}
+          Make your schedule to publish your content in your preferable date and time.
         </DialogContentText>
 
         <Grid container spacing={2}>
@@ -96,9 +92,7 @@ const ScheduleDialog = (props) => {
                   fullWidth: true,
                   slotProps: {
                     htmlInput: {
-                      placeholder: translateUi(
-                        'ui.sections.content.upload.form_actions.select_date_b84a6ecb',
-                      ),
+                      placeholder: 'Select date',
                     },
                   },
                 },
@@ -130,9 +124,7 @@ const ScheduleDialog = (props) => {
                   onClick: () => setTimeOpen(true),
                   slotProps: {
                     htmlInput: {
-                      placeholder: translateUi(
-                        'ui.sections.content.upload.form_actions.time_6c82e6dd',
-                      ),
+                      placeholder: 'Time',
                     },
                   },
                 },
@@ -148,7 +140,7 @@ const ScheduleDialog = (props) => {
       <DialogActions sx={{ p: 3, pt: 0, justifyContent: 'flex-end' }}>
         <Stack direction="row" sx={{ gap: 1, justifyContent: 'flex-end' }}>
           <Button variant="soft" color="neutral" onClick={handleDialogCloseClick}>
-            {translateUi('ui.sections.content.upload.form_actions.cancel_77dfd213')}
+            Cancel
           </Button>
           <Button
             type="button"
@@ -157,7 +149,7 @@ const ScheduleDialog = (props) => {
             onClick={handleSubmit}
             disabled={!formValue.date || !formValue.time}
           >
-            {translateUi('ui.sections.content.upload.form_actions.schedule_0a8adac9')}
+            Schedule
           </Button>
         </Stack>
       </DialogActions>

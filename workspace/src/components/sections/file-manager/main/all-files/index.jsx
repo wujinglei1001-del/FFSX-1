@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Container from '@mui/material/Container';
@@ -16,7 +15,6 @@ import GridView from './grid-view';
 import ListView from './list-view';
 
 const AllFiles = () => {
-  const { t: translateUi } = useTranslation();
   const { viewMode, allFiles, selectedFiles, filter } = useFileManager();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -52,7 +50,7 @@ const AllFiles = () => {
               variant="h5"
               sx={{ fontSize: { xs: 20, md: 24 } }}
             >
-              {translateUi('ui.sections.file_manager.main.all_files.all_files_af3d09ab')}
+              All Files
             </Typography>
             <Typography variant="h5" sx={{ fontSize: { xs: 20, md: 24 } }}>
               {currentFolder?.name}
@@ -60,7 +58,7 @@ const AllFiles = () => {
           </Breadcrumbs>
         ) : (
           <Typography variant="h5" sx={{ mb: 2, fontSize: { xs: 20, md: 24 } }}>
-            {translateUi('ui.sections.file_manager.main.all_files.all_files_af3d09ab')}
+            All Files
           </Typography>
         )}
 

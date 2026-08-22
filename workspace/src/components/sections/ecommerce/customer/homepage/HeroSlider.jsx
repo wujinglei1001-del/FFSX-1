@@ -1,8 +1,6 @@
 import { Box, Link, Typography, buttonBaseClasses } from '@mui/material';
 import { initialConfig } from 'config';
 import { cssVarRgba } from 'lib/utils';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
 import { blue, orange } from 'theme/colors/base';
@@ -27,13 +25,13 @@ const slides = [
             fontWeight: 400,
           }}
         >
-          {i18n.t('ui.sections.ecommerce.customer.homepage.best_deals_on_21167a7e')}{' '}
+          Best deals on{' '}
         </Box>
-        {i18n.t('ui.sections.ecommerce.customer.homepage.living_room_furnitures_f09b5db3')}
+        living room furnitures
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/1.webp`,
-    url: paths.products,
+    url: '#!',
   },
   {
     id: 2,
@@ -46,19 +44,19 @@ const slides = [
           typography: { md: 'h3', xs: 'h5' },
         }}
       >
-        {i18n.t('ui.sections.ecommerce.customer.homepage.customize_your_bedroom_59abc261')}{' '}
+        Customize your bedroom{' '}
         <Box
           component="span"
           sx={{
             fontWeight: 400,
           }}
         >
-          {i18n.t('ui.sections.ecommerce.customer.homepage.just_the_way_you_want_7af0b702')}
+          just the way you want
         </Box>
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/2.webp`,
-    url: paths.products,
+    url: '#!',
   },
   {
     id: 3,
@@ -77,9 +75,7 @@ const slides = [
             fontWeight: 400,
           }}
         >
-          {i18n.t(
-            'ui.sections.ecommerce.customer.homepage.dining_furnitures_with_up_to_62caea44',
-          )}{' '}
+          Dining furnitures with up to{' '}
         </Box>
         <Box
           component="span"
@@ -87,12 +83,12 @@ const slides = [
             color: blue[900],
           }}
         >
-          {i18n.t('ui.sections.ecommerce.customer.homepage.50_discount_49b6cec7')}
+          50% discount
         </Box>
       </Typography>
     ),
     image: `${initialConfig.assetsDir}/images/ecommerce/gallery/3.webp`,
-    url: paths.products,
+    url: '#!',
   },
 ];
 

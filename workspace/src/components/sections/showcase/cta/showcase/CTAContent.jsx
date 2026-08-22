@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Stack, Typography } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import paths from 'routes/paths';
@@ -8,7 +7,6 @@ import GradientButton from '../../common/GradientButton';
 import GradientText from '../../common/GradientText';
 
 const CTAContent = () => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upSm = up('sm');
   return (
@@ -38,7 +36,7 @@ const CTAContent = () => {
               gradientOrientation="rtl"
               sx={{ display: 'inline-block', fontWeight: 500 }}
             >
-              {translateUi('ui.sections.showcase.cta.showcase.begin_your_journey_with_1a0d9ef4')}
+              Begin your journey with
             </GradientText>
           </RevealText>
         </Box>
@@ -76,7 +74,7 @@ const CTAContent = () => {
                     color: 'common.white',
                   }}
                 >
-                  {translateUi('ui.sections.showcase.cta.showcase.ffax_c8251d84')}
+                  aurora
                 </Typography>
               </Stack>
             </RevealOnScroll>
@@ -89,14 +87,16 @@ const CTAContent = () => {
                 gradientOrientation="ltr"
                 sx={{ display: 'inline-block', fontWeight: 500 }}
               >
-                {translateUi('ui.sections.showcase.cta.showcase.today_76d70374')}
+                today!
               </GradientText>
             </RevealText>
           </Box>
         </Stack>
       </Stack>
       <RevealOnScroll delay={0.4}>
-        <GradientButton href={paths.landingSubscriptions}>咨询订阅服务</GradientButton>
+        <GradientButton href={paths.ecommerce} target="_blank" rel="noopener noreferrer">
+          Live Preview
+        </GradientButton>
       </RevealOnScroll>
     </Stack>
   );

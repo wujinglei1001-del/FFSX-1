@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -10,7 +9,6 @@ dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 
 const TimeAtWorkKPI = () => {
-  const { t: translateUi } = useTranslation();
   const today = dayjs();
   const startOfWeek = today.startOf('week');
   const endOfWeek = today.endOf('week');
@@ -41,7 +39,7 @@ const TimeAtWorkKPI = () => {
           component="p"
           sx={{ fontWeight: 500, color: 'text.secondary', lineHeight: 1.5 }}
         >
-          {translateUi('ui.sections.dashboards.employee.time_at_work.total_hours_ad51f9a7')}
+          Total Hours
         </Typography>
         <Typography variant="h6" sx={{ fontWeight: 600, lineHeight: 1.5 }}>
           64:56:23

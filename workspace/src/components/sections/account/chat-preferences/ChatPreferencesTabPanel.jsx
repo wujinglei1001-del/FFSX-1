@@ -1,51 +1,39 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Divider, Stack } from '@mui/material';
 import { useSnackbar } from 'notistack';
 import AccountTabPanelSection from '../common/AccountTabPanelSection';
 import GeneralSettings from './GeneralSettings';
 
 const ChatPreferencesTabPanel = () => {
-  const { t: translateUi } = useTranslation();
   const methods = useForm({
     defaultValues: {
       showActivity: [
         {
           name: 'displayDot',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.display_a_dot_on_the_home_icon_for_unread_activity_595d4417',
-          ),
+          label: 'Display a dot (🔴) on the Home icon for unread activity.',
         },
       ],
       allwaysShowSidebar: [
         {
           name: 'unreadMessage',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.unread_message_686dd998',
-          ),
+          label: 'Unread message',
         },
         {
           name: 'earphoneIcon',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.earphone_icon_in_joining_meeting_85e72c51',
-          ),
+          label: 'Earphone icon in joining meeting',
         },
         {
           name: 'threadsMessage',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.threads_message_8628c492',
-          ),
+          label: 'Threads message',
         },
         {
           name: 'draftsMessage',
           checked: false,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.drafts_sent_essage_5c6da56c',
-          ),
+          label: 'Drafts & sent essage',
         },
       ],
       sortOption: 'all',
@@ -53,44 +41,32 @@ const ChatPreferencesTabPanel = () => {
         {
           name: '',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.display_profile_picture_next_to_direct_messages_176ffd6d',
-          ),
+          label: 'Display profile picture next to direct messages.',
         },
         {
           name: 'organizeInboxes',
           checked: false,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.organize_private_and_public_inboxes_separately_in_th_74dd6dc2',
-          ),
+          label: 'Organize private and public inboxes separately in the sidebar.',
         },
         {
           name: 'keepDirectMessages',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.keep_direct_messages_and_apps_separate_from_the_inbo_7e7051ae',
-          ),
+          label: 'Keep direct messages and apps separate from the inbox in the sidebar.',
         },
         {
           name: 'prioritizeUnreadMentions',
           checked: false,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.prioritize_items_with_unread_mentions_at_the_top_of__89432a5b',
-          ),
+          label: 'Prioritize items with unread mentions (🔴) at the top of sections.',
         },
         {
           name: 'groupExternalChats',
           checked: false,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.group_external_chats_under_the_external_connection_s_a861d887',
-          ),
+          label: 'Group external chats under the External Connection section.',
         },
         {
           name: 'showMutedItems',
           checked: true,
-          label: translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.show_muted_items_outside_the_sidebar_menus_97f89f7c',
-          ),
+          label: 'Show muted items outside the sidebar menus.',
         },
       ],
     },
@@ -112,25 +88,17 @@ const ChatPreferencesTabPanel = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <AccountTabPanelSection
-          title={translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.general_settings_71dd223f',
-          )}
-          subtitle={translateUi(
-            'ui.sections.account.chat_preferences.chatpreferencestabpanel.customize_your_chat_experience_with_settings_for_not_99ae801a',
-          )}
+          title="General Settings"
+          subtitle="Customize your chat experience with settings for notifications, privacy, appearance, and message handling."
           icon="material-symbols:settings-alert-outline-rounded"
         >
           <GeneralSettings />
           <Stack direction="row" sx={{ gap: 1, justifyContent: 'flex-end' }}>
             <Button variant="soft" color="neutral" onClick={() => reset()}>
-              {translateUi(
-                'ui.sections.account.chat_preferences.chatpreferencestabpanel.discard_36fff63c',
-              )}
+              Discard
             </Button>
             <Button type="submit" variant="contained">
-              {translateUi(
-                'ui.sections.account.chat_preferences.chatpreferencestabpanel.confirm_04a21221',
-              )}
+              Confirm
             </Button>
           </Stack>
         </AccountTabPanelSection>

@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Autocomplete,
   Avatar,
@@ -25,7 +24,6 @@ import SettingsToggle from 'components/sections/scheduler/SettingsToggle';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const ScheduleConfig = () => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     register,
@@ -54,18 +52,14 @@ const ScheduleConfig = () => {
 
   return (
     <SettingsToggle
-      title={translateUi(
-        'ui.sections.scheduler.schedulepanel.scheduleconfig.appointment_schedule_7b928107',
-      )}
+      title="Appointment schedule"
       icon="material-symbols:schedule-outline"
       defaultOpen
     >
       <Stack sx={{ gap: 3, mb: 4 }}>
         <StyledTextField
           fullWidth
-          label={translateUi(
-            'ui.sections.scheduler.schedulepanel.scheduleconfig.event_title_072cbaea',
-          )}
+          label="Event Title"
           error={!!errors.title}
           helperText={errors?.title?.message}
           {...register('title')}
@@ -78,29 +72,15 @@ const ScheduleConfig = () => {
               render={({ field }) => (
                 <StyledTextField
                   fullWidth
-                  label={translateUi(
-                    'ui.sections.scheduler.schedulepanel.scheduleconfig.duration_1370004d',
-                  )}
+                  label="Duration"
                   select
                   error={!!errors.duration}
                   helperText={errors.duration?.message}
                   {...field}
                 >
-                  <MenuItem value="1hr">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.1_hour_f030c3d6',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="2hr">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.2_hours_2046e49e',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="5hr">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.5_hours_1fe288aa',
-                    )}
-                  </MenuItem>
+                  <MenuItem value="1hr">1 hour</MenuItem>
+                  <MenuItem value="2hr">2 hours</MenuItem>
+                  <MenuItem value="5hr">5 hours</MenuItem>
                 </StyledTextField>
               )}
             />
@@ -112,29 +92,15 @@ const ScheduleConfig = () => {
               render={({ field }) => (
                 <StyledTextField
                   fullWidth
-                  label={translateUi(
-                    'ui.sections.scheduler.schedulepanel.scheduleconfig.time_zone_eea79afd',
-                  )}
+                  label="Time zone"
                   select
                   error={!!errors.timeZone}
                   helperText={errors.timeZone?.message}
                   {...field}
                 >
-                  <MenuItem value="PST">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.pacific_time_pst_edbde6db',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="CST">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.central_cst_b2e3ff55',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="EST">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.eastern_est_6dc562d3',
-                    )}
-                  </MenuItem>
+                  <MenuItem value="PST">Pacific Time (PST)</MenuItem>
+                  <MenuItem value="CST">Central (CST)</MenuItem>
+                  <MenuItem value="EST">Eastern (EST)</MenuItem>
                 </StyledTextField>
               )}
             />
@@ -142,12 +108,8 @@ const ScheduleConfig = () => {
         </Grid>
         <StyledTextField
           fullWidth
-          placeholder={translateUi(
-            'ui.sections.scheduler.schedulepanel.scheduleconfig.add_description_c3f451c2',
-          )}
-          label={translateUi(
-            'ui.sections.scheduler.schedulepanel.scheduleconfig.description_55f8ebc8',
-          )}
+          placeholder="Add description"
+          label="Description"
           multiline
           rows={3}
           sx={{
@@ -163,10 +125,8 @@ const ScheduleConfig = () => {
       </Stack>
       <Stack sx={{ gap: 3, mb: 4 }}>
         <StyledTextField
-          label={translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.virtual_8e7daa12')}
-          placeholder={translateUi(
-            'ui.sections.scheduler.schedulepanel.scheduleconfig.add_meeting_link_8e37591f',
-          )}
+          label="Virtual"
+          placeholder="Add meeting link"
           error={!!errors.virtualLink}
           helperText={errors.virtualLink?.message}
           slotProps={{
@@ -184,12 +144,8 @@ const ScheduleConfig = () => {
           {...register('virtualLink')}
         />
         <StyledTextField
-          label={translateUi(
-            'ui.sections.scheduler.schedulepanel.scheduleconfig.physical_919b82a0',
-          )}
-          placeholder={translateUi(
-            'ui.sections.scheduler.schedulepanel.scheduleconfig.location_d219c681',
-          )}
+          label="Physical"
+          placeholder="Location"
           error={!!errors.location}
           helperText={errors.location?.message}
           slotProps={{
@@ -259,12 +215,8 @@ const ScheduleConfig = () => {
                 renderInput={(params) => (
                   <StyledTextField
                     sx={{ flexGrow: 1 }}
-                    label={translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.add_guests_d7aacd94',
-                    )}
-                    placeholder={translateUi(
-                      'ui.sections.scheduler.schedulepanel.scheduleconfig.user_id_23bf49da',
-                    )}
+                    label="Add Guests"
+                    placeholder="User ID"
                     error={!!errors.guests}
                     helperText={errors.guests?.message}
                     {...params}
@@ -288,7 +240,7 @@ const ScheduleConfig = () => {
               />
             }
           >
-            {translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.send_e_vite_d970e332')}
+            Send E-vite
           </Button>
         </Stack>
       </Stack>
@@ -301,29 +253,15 @@ const ScheduleConfig = () => {
               mb: 1,
             }}
           >
-            {translateUi(
-              'ui.sections.scheduler.schedulepanel.scheduleconfig.pre_meeting_alerts_7de68d50',
-            )}
+            Pre-Meeting Alerts
           </Typography>
           <Controller
             name="preMeetingAlert"
             control={control}
             render={({ field }) => (
               <RadioGroup row {...field}>
-                <FormControlLabel
-                  value="email"
-                  control={<Radio />}
-                  label={translateUi(
-                    'ui.sections.scheduler.schedulepanel.scheduleconfig.email_84add5b2',
-                  )}
-                />
-                <FormControlLabel
-                  value="notifications"
-                  control={<Radio />}
-                  label={translateUi(
-                    'ui.sections.scheduler.schedulepanel.scheduleconfig.notifications_753a22b2',
-                  )}
-                />
+                <FormControlLabel value="email" control={<Radio />} label="Email" />
+                <FormControlLabel value="notifications" control={<Radio />} label="Notifications" />
               </RadioGroup>
             )}
           />
@@ -360,15 +298,9 @@ const ScheduleConfig = () => {
               onChange={handleUnitChange}
               sx={{ flexGrow: 1 }}
             >
-              <MenuItem value="minute">
-                {translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.minutes_092f99ea')}
-              </MenuItem>
-              <MenuItem value="hr">
-                {translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.hour_c37cf838')}
-              </MenuItem>
-              <MenuItem value="day">
-                {translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.day_987b9ced')}
-              </MenuItem>
+              <MenuItem value="minute">Minutes</MenuItem>
+              <MenuItem value="hr">Hour</MenuItem>
+              <MenuItem value="day">Day</MenuItem>
             </StyledTextField>
           </Stack>
         </div>
@@ -381,7 +313,7 @@ const ScheduleConfig = () => {
               mb: 2,
             }}
           >
-            {translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.color_1d0c8304')}
+            Color
           </Typography>
           <Controller
             name="color"
@@ -443,34 +375,16 @@ const ScheduleConfig = () => {
           render={({ field }) => (
             <StyledTextField
               fullWidth
-              label={translateUi(
-                'ui.sections.scheduler.schedulepanel.scheduleconfig.appointment_type_d60f67c2',
-              )}
+              label="Appointment Type"
               select
               error={!!errors.appointmentType}
               helperText={errors.appointmentType?.message}
               {...field}
             >
-              <MenuItem value="design">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.scheduleconfig.design_consultation_3d988128',
-                )}
-              </MenuItem>
-              <MenuItem value="follow-up">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.scheduleconfig.follow_up_meeting_b7e7bdb4',
-                )}
-              </MenuItem>
-              <MenuItem value="review">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.scheduleconfig.project_review_96032beb',
-                )}
-              </MenuItem>
-              <MenuItem value="support">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.scheduleconfig.technical_support_4e09a610',
-                )}
-              </MenuItem>
+              <MenuItem value="design">Design consultation</MenuItem>
+              <MenuItem value="follow-up">Follow-up meeting</MenuItem>
+              <MenuItem value="review">Project review</MenuItem>
+              <MenuItem value="support">Technical support</MenuItem>
             </StyledTextField>
           )}
         />
@@ -482,7 +396,7 @@ const ScheduleConfig = () => {
               mb: 1,
             }}
           >
-            {translateUi('ui.sections.scheduler.schedulepanel.scheduleconfig.access_2f81a22d')}
+            Access
           </Typography>
           <Controller
             name="access"
@@ -494,20 +408,14 @@ const ScheduleConfig = () => {
                   control={<Radio />}
                   label={
                     <Stack sx={{ gap: 1, mt: '3px' }}>
-                      <Typography variant="subtitle2">
-                        {translateUi(
-                          'ui.sections.scheduler.schedulepanel.scheduleconfig.private_237dfa0a',
-                        )}
-                      </Typography>
+                      <Typography variant="subtitle2">Private</Typography>
                       <Typography
                         variant="caption"
                         sx={{
                           color: 'text.secondary',
                         }}
                       >
-                        {translateUi(
-                          'ui.sections.scheduler.schedulepanel.scheduleconfig.only_admins_and_linked_clients_can_book_1176775c',
-                        )}
+                        Only admins and linked clients can book.
                       </Typography>
                     </Stack>
                   }
@@ -517,20 +425,14 @@ const ScheduleConfig = () => {
                   control={<Radio />}
                   label={
                     <Stack sx={{ gap: 1, mt: '3px' }}>
-                      <Typography variant="subtitle2">
-                        {translateUi(
-                          'ui.sections.scheduler.schedulepanel.scheduleconfig.public_dc5eb704',
-                        )}
-                      </Typography>
+                      <Typography variant="subtitle2">Public</Typography>
                       <Typography
                         variant="caption"
                         sx={{
                           color: 'text.secondary',
                         }}
                       >
-                        {translateUi(
-                          'ui.sections.scheduler.schedulepanel.scheduleconfig.anyone_with_the_link_can_book_883e0d99',
-                        )}
+                        Anyone with the link can book.
                       </Typography>
                     </Stack>
                   }

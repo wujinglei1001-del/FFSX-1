@@ -1,5 +1,4 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   FormControl,
   FormControlLabel,
@@ -15,7 +14,6 @@ import SettingsToggle from 'components/sections/scheduler/SettingsToggle';
 import StyledTextField from 'components/styled/StyledTextField';
 
 const AppointmentConfig = () => {
-  const { t: translateUi } = useTranslation();
   const { control, watch, setValue } = useFormContext();
 
   const bufferTime = watch('config.bufferTime');
@@ -23,9 +21,7 @@ const AppointmentConfig = () => {
 
   return (
     <SettingsToggle
-      title={translateUi(
-        'ui.sections.scheduler.schedulepanel.appointmentconfig.appointment_settings_b0e2d97d',
-      )}
+      title="Appointment Settings"
       icon="material-symbols:event-available-outline"
       defaultOpen
     >
@@ -46,13 +42,7 @@ const AppointmentConfig = () => {
                 )}
               />
             }
-            label={
-              <Typography variant="subtitle2">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.appointmentconfig.buffer_time_7e719d21',
-                )}
-              </Typography>
-            }
+            label={<Typography variant="subtitle2">Buffer time</Typography>}
             sx={{ mx: 0, gap: 1 }}
           />
           <Stack direction="row" sx={{ gap: 1, ml: 5 }}>
@@ -76,21 +66,9 @@ const AppointmentConfig = () => {
               control={control}
               render={({ field }) => (
                 <StyledTextField select {...field} disabled={bufferTime === 0}>
-                  <MenuItem value="minutes">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.appointmentconfig.minutes_092f99ea',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="hr">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.appointmentconfig.hour_c37cf838',
-                    )}
-                  </MenuItem>
-                  <MenuItem value="day">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.appointmentconfig.day_987b9ced',
-                    )}
-                  </MenuItem>
+                  <MenuItem value="minutes">Minutes</MenuItem>
+                  <MenuItem value="hr">Hour</MenuItem>
+                  <MenuItem value="day">Day</MenuItem>
                 </StyledTextField>
               )}
             />
@@ -113,13 +91,7 @@ const AppointmentConfig = () => {
                 )}
               />
             }
-            label={
-              <Typography variant="subtitle2">
-                {translateUi(
-                  'ui.sections.scheduler.schedulepanel.appointmentconfig.maximum_booking_per_day_8cffdcd1',
-                )}
-              </Typography>
-            }
+            label={<Typography variant="subtitle2">Maximum booking per day</Typography>}
             sx={{ mx: 0, gap: 1 }}
           />
           <Controller
@@ -148,13 +120,7 @@ const AppointmentConfig = () => {
             render={({ field }) => (
               <FormControlLabel
                 control={<Switch size="small" {...field} />}
-                label={
-                  <Typography variant="subtitle2">
-                    {translateUi(
-                      'ui.sections.scheduler.schedulepanel.appointmentconfig.guests_can_invite_others_a9813d83',
-                    )}
-                  </Typography>
-                }
+                label={<Typography variant="subtitle2">Guests can invite others</Typography>}
                 sx={{ mx: 0, gap: 1 }}
               />
             )}

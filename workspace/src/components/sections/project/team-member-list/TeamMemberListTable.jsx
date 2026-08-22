@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Box,
@@ -10,7 +9,6 @@ import {
   tablePaginationClasses,
 } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomColumnMenu from 'components/common/CustomColumnMenu';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -34,7 +32,6 @@ const actionMenuIcon = (
 );
 
 const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
-  const { t: translateUi } = useTranslation();
   const [roleByKey, setRoleByKey] = useState(() => {
     const map = {};
     data.forEach((member) => {
@@ -61,9 +58,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'name',
-        headerName: translateUi(
-          'ui.sections.project.team_member_list.teammemberlisttable.name_709a2322',
-        ),
+        headerName: 'Name',
         flex: 3,
         minWidth: columnMinWidths.name,
         disableColumnMenu: true,
@@ -78,7 +73,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
               <Avatar src={avatar} alt={name} sx={{ width: 24, height: 24, flexShrink: 0 }} />
               <Stack sx={{ gap: 0.5, minWidth: 0, overflow: 'hidden' }}>
                 <Typography variant="subtitle2" noWrap sx={{ textOverflow: 'ellipsis' }}>
-                  <Link href={paths.memberProfile}>{name}</Link>
+                  <Link href="#!">{name}</Link>
                 </Typography>
                 <Typography
                   variant="caption"
@@ -97,9 +92,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'designation',
-        headerName: translateUi(
-          'ui.sections.project.team_member_list.teammemberlisttable.designation_b2797c75',
-        ),
+        headerName: 'Designation',
         flex: 1,
         minWidth: columnMinWidths.designation,
         disableColumnMenu: true,
@@ -116,9 +109,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'lastActive',
-        headerName: translateUi(
-          'ui.sections.project.team_member_list.teammemberlisttable.last_active_0eb2b938',
-        ),
+        headerName: 'Last Active',
         flex: 1,
         minWidth: columnMinWidths.lastActive,
         disableColumnMenu: true,
@@ -137,9 +128,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
       },
       {
         field: 'role',
-        headerName: translateUi(
-          'ui.sections.project.team_member_list.teammemberlisttable.role_c3f104d1',
-        ),
+        headerName: 'Role',
         flex: 1,
         minWidth: columnMinWidths.role,
         cellClassName: 'role-cell',
@@ -161,21 +150,9 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
               onClick={(event) => event.stopPropagation()}
               sx={{ width: 1, minWidth: 0 }}
             >
-              <MenuItem value="Admin">
-                {translateUi(
-                  'ui.sections.project.team_member_list.teammemberlisttable.admin_4e7afebc',
-                )}
-              </MenuItem>
-              <MenuItem value="Moderator">
-                {translateUi(
-                  'ui.sections.project.team_member_list.teammemberlisttable.moderator_ad3b15c3',
-                )}
-              </MenuItem>
-              <MenuItem value="Member">
-                {translateUi(
-                  'ui.sections.project.team_member_list.teammemberlisttable.member_6853c98a',
-                )}
-              </MenuItem>
+              <MenuItem value="Admin">Admin</MenuItem>
+              <MenuItem value="Moderator">Moderator</MenuItem>
+              <MenuItem value="Member">Member</MenuItem>
             </StyledTextField>
           );
         },
@@ -304,7 +281,7 @@ const TeamMemberListTable = ({ data, selectionModel, onSelectionChange }) => {
           [`& .${gridClasses.columnHeaderTitle}`]: {
             whiteSpace: 'nowrap',
           },
-          [`& .${gridClasses.cell}.ffax-data-grid-cell`]: {
+          [`& .${gridClasses.cell}.aurora-data-grid-cell`]: {
             px: 2,
           },
           [`& .${gridClasses.columnHeader} .${gridClasses.sortButton}`]: {

@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Stack } from '@mui/material';
 import paths from 'routes/paths';
 import DashboardMenu from 'components/common/DashboardMenu';
@@ -8,20 +7,13 @@ import CreateOrderAside from 'components/sections/ecommerce/admin/create-order/a
 import CreateOrderContainer from 'components/sections/ecommerce/admin/create-order/main';
 
 const CreateOrder = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack>
       <PageHeader
-        title={translateUi('ui.pages.apps.ecommerce.admin.create_order_0289c84e')}
+        title="Create Order"
         breadcrumb={[
-          {
-            label: translateUi('ui.pages.apps.ecommerce.admin.order_list_86e684a4'),
-            url: paths.adminOrderList,
-          },
-          {
-            label: translateUi('ui.pages.apps.ecommerce.admin.create_order_0289c84e'),
-            active: true,
-          },
+          { label: 'Order list', url: paths.adminOrderList },
+          { label: 'Create Order', active: true },
         ]}
         actionComponent={
           <Stack
@@ -31,7 +23,7 @@ const CreateOrder = () => {
             }}
           >
             <Button variant="soft" color="neutral">
-              {translateUi('ui.pages.apps.ecommerce.admin.clear_form_68e3e8f0')}
+              Clear form
             </Button>
             <DashboardMenu size="medium" variant="soft" />
           </Stack>

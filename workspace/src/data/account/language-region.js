@@ -1,76 +1,14 @@
-import i18n from 'locales/i18n';
-
 export const languages = [
-  {
-    id: 1,
-    name: 'English (US)',
-    get label() {
-      return i18n.t('ui.data.account.language_region.english_us_f20315fe');
-    },
-  },
-  {
-    id: 2,
-    name: 'English (UK)',
-    get label() {
-      return i18n.t('ui.data.account.language_region.english_uk_d32cdaad');
-    },
-  },
-  {
-    id: 3,
-    name: 'English (Australia)',
-    get label() {
-      return i18n.t('ui.data.account.language_region.english_australia_7fe6b57b');
-    },
-  },
-  {
-    id: 4,
-    name: 'English (Canada)',
-    get label() {
-      return i18n.t('ui.data.account.language_region.english_canada_0b126000');
-    },
-  },
-  {
-    id: 5,
-    name: 'English (Ireland)',
-    get label() {
-      return i18n.t('ui.data.account.language_region.english_ireland_05b9c382');
-    },
-  },
-  {
-    id: 6,
-    name: 'English (India)',
-    get label() {
-      return i18n.t('ui.data.account.language_region.english_india_4b33a840');
-    },
-  },
-  {
-    id: 7,
-    name: 'বাংলা',
-    get label() {
-      return i18n.t('ui.data.account.language_region.bengali_198e9c08');
-    },
-  },
-  {
-    id: 8,
-    name: '日本語',
-    get label() {
-      return i18n.t('ui.data.account.language_region.japanese_9239c22d');
-    },
-  },
-  {
-    id: 9,
-    name: 'Française',
-    get label() {
-      return i18n.t('ui.data.account.language_region.french_44389f6a');
-    },
-  },
-  {
-    id: 10,
-    name: 'हिन्दी',
-    get label() {
-      return i18n.t('ui.data.account.language_region.hindi_c9e6b253');
-    },
-  },
+  { id: 1, name: 'English (US)', label: 'English (US)' },
+  { id: 2, name: 'English (UK)', label: 'English (UK)' },
+  { id: 3, name: 'English (Australia)', label: 'English (Australia)' },
+  { id: 4, name: 'English (Canada)', label: 'English (Canada)' },
+  { id: 5, name: 'English (Ireland)', label: 'English (Ireland)' },
+  { id: 6, name: 'English (India)', label: 'English (India)' },
+  { id: 7, name: 'বাংলা', label: 'Bengali' },
+  { id: 8, name: '日本語', label: 'Japanese' },
+  { id: 9, name: 'Française', label: 'French' },
+  { id: 10, name: 'हिन्दी', label: 'Hindi' },
 ];
 
 export const regions = [

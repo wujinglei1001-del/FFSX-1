@@ -1,17 +1,10 @@
 import { Link as RouterLink } from 'react-router';
 import { getHashFromTo, isPlainLeftClick, scrollToHash } from 'lib/hash-link-scroll';
 
-const isNativeHref = (href) =>
-  typeof href === 'string' && /^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(href);
+export const LinkBehavior = ({ ref, ...props }) => {
+  const { href, ...other } = props;
 
-export const LinkBehavior = ({ ref, href, to, ...other }) => {
-  const destination = to ?? href;
-
-  if (destination == null || isNativeHref(destination)) {
-    return <a ref={ref} href={destination} {...other} />;
-  }
-
-  return <RouterLink ref={ref} to={destination} {...other} />;
+  return <RouterLink ref={ref} to={href} {...other} />;
 };
 LinkBehavior.displayName = 'LinkBehavior';
 

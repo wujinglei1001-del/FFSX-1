@@ -1,15 +1,13 @@
-import { useTranslation } from 'react-i18next';
 import { Button, FormControlLabel, Grid, Stack, Switch, Typography } from '@mui/material';
 import { convertSize, cssVarRgba } from 'lib/utils';
 
 const SavedtoStorage = ({ backupSyncSettings, storageData }) => {
-  const { t: translateUi } = useTranslation();
   const { totalSpaceUsedinKb, totalSpaceinKb } = storageData;
 
   return (
     <>
       <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 700 }}>
-        {translateUi('ui.sections.account.storage.savedtostorage.backup_sync_settings_2dede234')}
+        Backup & Sync Settings
       </Typography>
       <Grid container spacing={1} sx={{ mb: 3 }}>
         {backupSyncSettings.map((item) => (
@@ -24,18 +22,16 @@ const SavedtoStorage = ({ backupSyncSettings, storageData }) => {
       </Grid>
 
       <Typography variant="subtitle2" sx={{ mb: 2, fontWeight: 700 }}>
-        {translateUi('ui.sections.account.storage.savedtostorage.enhanced_data_security_018ab09c')}
+        Enhanced Data Security
       </Typography>
       <FormControlLabel
         control={<Switch defaultChecked />}
-        label={translateUi(
-          'ui.sections.account.storage.savedtostorage.advanced_data_protection_228c361e',
-        )}
+        label="Advanced data protection"
         sx={{ gap: 2, ml: 0, mb: 3 }}
       />
 
       <Typography variant="subtitle2" sx={{ mb: 0.75, fontWeight: 700 }}>
-        {translateUi('ui.sections.account.storage.savedtostorage.manage_storage_87e8f3e6')}
+        Manage Storage
       </Typography>
       <Typography variant="body2" sx={{ mb: 2, color: 'text.secondary' }}>
         <Typography
@@ -43,13 +39,10 @@ const SavedtoStorage = ({ backupSyncSettings, storageData }) => {
           component="span"
           sx={{ color: 'warning.main', fontWeight: 600 }}
         >
-          {translateUi('ui.sections.account.storage.savedtostorage.your_storage_is_131ee74f')}
-          {Math.round((totalSpaceUsedinKb / totalSpaceinKb) * 100)}
-          {translateUi('ui.sections.account.storage.savedtostorage.full_fb03e1f8')}
+          Your storage is {Math.round((totalSpaceUsedinKb / totalSpaceinKb) * 100)}% full.
         </Typography>{' '}
-        {translateUi(
-          'ui.sections.account.storage.savedtostorage.to_continue_uploading_files_saving_photos_and_sendin_6063d1bb',
-        )}
+        To continue uploading files, saving photos and sending or receiving emails, make sure you
+        have enough available space.
       </Typography>
 
       <Stack
@@ -64,14 +57,14 @@ const SavedtoStorage = ({ backupSyncSettings, storageData }) => {
         })}
       >
         <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-          {translateUi('ui.sections.account.storage.savedtostorage.cloud_storage_ff7f9006')}
+          Cloud Storage
         </Typography>
         <Typography variant="subtitle2" sx={{ ml: { xs: 0, sm: 3 }, color: 'text.secondary' }}>
           {convertSize(totalSpaceinKb)} GB{' '}
           <Typography variant="subtitle2" component="span" sx={{ color: 'warning.main' }}>
             (
             {Math.round(convertSize(totalSpaceinKb - totalSpaceUsedinKb, { from: 'kb', to: 'mb' }))}{' '}
-            {translateUi('ui.sections.account.storage.savedtostorage.mb_available_2f2c941e')}
+            MB available)
           </Typography>{' '}
         </Typography>
         <Button
@@ -80,7 +73,7 @@ const SavedtoStorage = ({ backupSyncSettings, storageData }) => {
           color="warning"
           sx={{ ml: { xs: 0, sm: 'auto' }, borderRadius: 1 }}
         >
-          {translateUi('ui.sections.account.storage.savedtostorage.upgrade_storage_275f7327')}
+          Upgrade storage
         </Button>
       </Stack>
     </>

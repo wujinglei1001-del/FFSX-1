@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Divider,
@@ -17,7 +16,6 @@ import EventDetailsSection from 'components/sections/calendar/EventDialog/EventD
 import StyledTextField from 'components/styled/StyledTextField';
 
 const CalendarEventForm = () => {
-  const { t: translateUi } = useTranslation();
   const methods = useFormContext();
   const { register, control, watch, setValue, formState } = methods;
   const { errors } = formState;
@@ -54,9 +52,7 @@ const CalendarEventForm = () => {
       <Stack sx={{ gap: 2 }}>
         <StyledTextField
           fullWidth
-          label={translateUi(
-            'ui.sections.calendar.eventdialog.calendareventform.event_title_072cbaea',
-          )}
+          label="Event Title"
           error={!!errors.title}
           helperText={errors.title?.message}
           {...register('title')}
@@ -78,9 +74,7 @@ const CalendarEventForm = () => {
                 control={
                   <Switch checked={value} onChange={(e) => handleAllDayChange(e.target.checked)} />
                 }
-                label={translateUi(
-                  'ui.sections.calendar.eventdialog.calendareventform.all_day_event_63bee735',
-                )}
+                label="All Day Event"
                 sx={{ gap: 1.5, mx: 0, mb: 1, width: 1 }}
               />
             )}
@@ -94,9 +88,7 @@ const CalendarEventForm = () => {
                 select
                 value={value || ''}
                 onChange={(e) => onChange(e.target.value)}
-                label={translateUi(
-                  'ui.sections.calendar.eventdialog.calendareventform.event_category_4b4708b5',
-                )}
+                label="Event Category"
                 error={!!errors.category}
                 helperText={errors.category?.message}
               >
@@ -146,23 +138,13 @@ const CalendarEventForm = () => {
           />
         </Stack>
 
-        <EventDateTimePicker
-          name="start"
-          label={translateUi('ui.sections.calendar.eventdialog.calendareventform.start_952f3754')}
-          isAllDay={isAllDay}
-          errors={errors}
-        />
-        <EventDateTimePicker
-          name="end"
-          label={translateUi('ui.sections.calendar.eventdialog.calendareventform.end_a2bb9d34')}
-          isAllDay={isAllDay}
-          errors={errors}
-        />
+        <EventDateTimePicker name="start" label="Start" isAllDay={isAllDay} errors={errors} />
+        <EventDateTimePicker name="end" label="End" isAllDay={isAllDay} errors={errors} />
       </Stack>
       <EventDetailsSection eventType={eventType} errors={errors} />
       <StyledTextField
         fullWidth
-        label={translateUi('ui.sections.calendar.eventdialog.calendareventform.add_note_757092db')}
+        label="Add note"
         multiline
         rows={3}
         sx={{

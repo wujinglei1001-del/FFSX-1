@@ -1,5 +1,4 @@
 import { Typography } from '@mui/material';
-import i18n from 'locales/i18n';
 import ChangeAssigneesActionFields from './action-fields/ChangeAssigneesActionFields';
 import ChangeDateActionFields from './action-fields/ChangeDateActionFields';
 import ChangeLabelActionFields from './action-fields/ChangeLabelActionFields';
@@ -11,9 +10,7 @@ import { getActionFieldVariant } from './common/actionRegistry';
 
 const NoConfigActionFields = () => (
   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-    {i18n.t(
-      'ui.sections.project.automation.actionfields.no_additional_configuration_required_b192df1b',
-    )}
+    No additional configuration required.
   </Typography>
 );
 

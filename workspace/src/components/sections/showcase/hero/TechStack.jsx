@@ -13,7 +13,7 @@ const techLogos = [
 ];
 
 const mainTechs = [
-  { src: `${initialConfig.assetsDir}/images/logo/16.svg`, title: 'Next.js 16' },
+  { src: `${initialConfig.assetsDir}/images/logo/16.svg`, title: 'Nextjs 16' },
   { src: `${initialConfig.assetsDir}/images/logo/17.svg`, title: 'React 19' },
   { src: `${initialConfig.assetsDir}/images/logo/18.svg`, title: 'MUI v9' },
 ];

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -17,7 +16,6 @@ import { Fragment } from 'react/jsx-runtime';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const SelectTime = ({ fromTime, toTime, children, sx, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   const today = dayjs();
   const [open, setOpen] = useState(false);
   const [from, setFrom] = useState(dayjs(fromTime, 'HH:mm'));
@@ -64,9 +62,7 @@ const SelectTime = ({ fromTime, toTime, children, sx, ...rest }) => {
             alignItems: 'center',
           }}
         >
-          <Box component="span">
-            {translateUi('ui.sections.time_tracker.time_sheets.selecttime.select_time_ef4f5edc')}
-          </Box>
+          <Box component="span">Select Time</Box>
           <Button shape="circle" color="neutral" onClick={handleClose}>
             <IconifyIcon
               icon="material-symbols:close"
@@ -77,16 +73,13 @@ const SelectTime = ({ fromTime, toTime, children, sx, ...rest }) => {
         <DialogContent sx={{ pb: 1 }}>
           <Stack sx={{ gap: 2 }}>
             <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-              {translateUi('ui.sections.time_tracker.time_sheets.selecttime.today_50b2515d')}
-              {today.format('DD MMM, YYYY')}
+              Today, {today.format('DD MMM, YYYY')}
             </Typography>
             <Grid container spacing={2}>
               <Grid container spacing={1} size={8}>
                 <Grid size={6}>
                   <TimeField
-                    label={translateUi(
-                      'ui.sections.time_tracker.time_sheets.selecttime.from_3f66052a',
-                    )}
+                    label="From"
                     value={from}
                     onChange={(newValue) => setFrom(newValue)}
                     format="h:mm A"
@@ -95,9 +88,7 @@ const SelectTime = ({ fromTime, toTime, children, sx, ...rest }) => {
                 </Grid>
                 <Grid size={6}>
                   <TimeField
-                    label={translateUi(
-                      'ui.sections.time_tracker.time_sheets.selecttime.to_ae79ea1e',
-                    )}
+                    label="To"
                     value={to}
                     onChange={(newValue) => setTo(newValue)}
                     format="h:mm A"
@@ -107,9 +98,7 @@ const SelectTime = ({ fromTime, toTime, children, sx, ...rest }) => {
               </Grid>
               <Grid size={4}>
                 <TimeField
-                  label={translateUi(
-                    'ui.sections.time_tracker.time_sheets.selecttime.duration_1370004d',
-                  )}
+                  label="Duration"
                   format="H:mm"
                   value={durationValue}
                   readOnly
@@ -123,10 +112,10 @@ const SelectTime = ({ fromTime, toTime, children, sx, ...rest }) => {
         </DialogContent>
         <DialogActions sx={{ p: 3, pt: 2 }}>
           <Button color="neutral" size="large" onClick={handleClose}>
-            {translateUi('ui.sections.time_tracker.time_sheets.selecttime.cancel_77dfd213')}
+            Cancel
           </Button>
           <Button variant="contained" color="primary" size="large" onClick={handleClose}>
-            {translateUi('ui.sections.time_tracker.time_sheets.selecttime.save_efc007a3')}
+            Save
           </Button>
         </DialogActions>
       </Dialog>

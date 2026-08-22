@@ -1,5 +1,4 @@
 import { useMemo, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Grow,
@@ -15,10 +14,8 @@ import {
 } from '@mui/material';
 import { orderListAdmin } from 'data/e-commerce/orders';
 import useNumberFormat from 'hooks/useNumberFormat';
-import paths from 'routes/paths';
 
 const OrderDetailsPopper = ({ params }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isHoveringPopper, setIsHoveringPopper] = useState(false);
@@ -64,7 +61,7 @@ const OrderDetailsPopper = ({ params }) => {
       <Link
         ref={linkRef}
         variant="subtitle2"
-        href={paths.adminOrder}
+        href="#!"
         sx={{ fontWeight: 400 }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -140,8 +137,7 @@ const OrderDetailsPopper = ({ params }) => {
                                 textAlign: 'right',
                               }}
                             >
-                              {item.quantity}
-                              {translateUi('ui.sections.ecommerce.admin.order_list.pcs_853268f8')}
+                              {item.quantity} pcs
                             </Typography>
                             <Typography
                               variant="caption"
@@ -164,9 +160,7 @@ const OrderDetailsPopper = ({ params }) => {
                       fontStyle: 'italic',
                     }}
                   >
-                    {translateUi(
-                      'ui.sections.ecommerce.admin.order_list.no_items_in_this_order_580b4ba9',
-                    )}
+                    No items in this order
                   </Typography>
                 )}
               </List>
@@ -179,7 +173,7 @@ const OrderDetailsPopper = ({ params }) => {
                 }}
               >
                 <Typography variant="caption" sx={{ fontWeight: 700 }}>
-                  {translateUi('ui.sections.ecommerce.admin.order_list.total_b25928c6')}
+                  Total
                 </Typography>
                 <Typography variant="caption" sx={{ fontWeight: 700 }}>
                   {currencyFormat(orderTotal)}

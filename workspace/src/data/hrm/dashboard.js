@@ -1,6 +1,4 @@
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
-import paths from 'routes/paths';
 
 export const profile = {
   user: users[0],
@@ -9,7 +7,7 @@ export const profile = {
     salary: 100000,
     recruiter: {
       name: 'Hugo Brook',
-      link: paths.memberProfile,
+      link: '#!',
     },
     application: 25,
     department: 'Human resources',
@@ -19,9 +17,7 @@ export const profile = {
   kpis: [
     {
       value: 1053,
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.total_headcount_481fe1a4');
-      },
+      subtitle: 'Total Headcount',
       change: {
         percentage: -0.73,
         since: 'last year',
@@ -29,9 +25,7 @@ export const profile = {
     },
     {
       value: 46,
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.open_positions_52957e47');
-      },
+      subtitle: 'Open Positions',
       change: {
         percentage: 0.0,
         since: 'last year',
@@ -39,9 +33,7 @@ export const profile = {
     },
     {
       value: '87%',
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.successful_hiring_dfa25926');
-      },
+      subtitle: 'Successful Hiring',
       change: {
         percentage: 2.54,
         since: 'last year',
@@ -49,9 +41,7 @@ export const profile = {
     },
     {
       value: 15,
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.due_for_payraise_7e0e4f22');
-      },
+      subtitle: 'Due for Payraise',
       change: {
         percentage: 4.6,
         since: 'last year',
@@ -60,33 +50,21 @@ export const profile = {
   ],
   leaves: [
     {
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.casual_1001e6a7');
-      },
+      title: 'Casual',
       days: 6,
       remainingDays: 5,
     },
     {
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.medical_a9a24cd1');
-      },
+      title: 'Medical',
       days: 5,
       remainingDays: 2,
     },
     {
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.in_lieu_e54a9846');
-      },
+      title: 'In Lieu',
       days: 4,
       remainingDays: 1,
     },
-    {
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.others_8d7bf5bf');
-      },
-      days: 7,
-      remainingDays: 3,
-    },
+    { title: 'Others', days: 7, remainingDays: 3 },
   ],
 };
 
@@ -234,114 +212,74 @@ export const notifications = {
   items: [
     {
       id: 1,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.albus_dumbledore_539f8a00');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.requested_a_meeting_6c25314f');
-      },
+      title: 'Albus Dumbledore',
+      subtitle: 'requested a meeting',
       type: 'request',
       timeframe: 'in 1 month',
     },
     {
       id: 2,
       title: 'w-8ben',
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.is_waiting_for_your_signature_a7491ce4');
-      },
+      subtitle: 'is waiting  for your signature',
       type: 'signature',
       status: 'Due',
     },
     {
       id: 3,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.credence_barebone_826fd324');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.applied_for_3_days_leave_oct_30_nov_1_9b7bcf5d');
-      },
+      title: 'Credence Barebone',
+      subtitle: 'applied for 3 days leave (Oct 30-Nov 1)',
       type: 'application',
-      applicationLink: paths.members,
+      applicationLink: '#!',
       timeframe: 'in 1 month',
     },
     {
       id: 4,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.performance_review_52bcf8ac');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.of_queenie_goldstein_is_ready_for_you_41b0c7be');
-      },
+      title: 'Performance review',
+      subtitle: 'of Queenie Goldstein is ready for you',
       type: 'review',
       status: 'Past Due',
     },
     {
       id: 5,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.gellert_grindelwald_3bb349bf');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.applied_for_sabbatical_9ef87f0f');
-      },
+      title: 'Gellert Grindelwald',
+      subtitle: 'applied for sabbatical',
       type: 'application',
-      applicationLink: paths.members,
+      applicationLink: '#!',
       timeframe: 'in 1 month',
     },
     {
       id: 6,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.albus_dumbledore_539f8a00');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.requested_a_meeting_6c25314f');
-      },
+      title: 'Albus Dumbledore',
+      subtitle: 'requested a meeting',
       type: 'request',
       status: 'Cancelled',
     },
     {
       id: 7,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.half_yearly_self_assessment_02e28857');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.is_ready_for_you_986fcd17');
-      },
+      title: 'Half Yearly Self Assessment',
+      subtitle: 'is ready for you',
       type: 'task',
       status: 'Past Due',
     },
     {
       id: 8,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.redrafted_benefit_form_e4452c51');
-      },
-      get subtitle() {
-        return i18n.t(
-          'ui.data.hrm.dashboard.of_jacob_kowalski_is_waiting_for_your_signature_a9f0cdc6',
-        );
-      },
+      title: 'Redrafted Benefit Form',
+      subtitle: 'of Jacob Kowalski is waiting  for your signature',
       type: 'signature',
       status: 'Due',
     },
     {
       id: 9,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.sirius_black_7bb8b737');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.applied_for_1_day_leave_nov_1_5255c891');
-      },
+      title: 'Sirius Black',
+      subtitle: 'applied for 1 day leave (Nov 1)',
       type: 'application',
-      applicationLink: paths.members,
+      applicationLink: '#!',
       timeframe: 'in 1 month',
     },
     {
       id: 10,
-      get title() {
-        return i18n.t('ui.data.hrm.dashboard.performance_review_52bcf8ac');
-      },
-      get subtitle() {
-        return i18n.t('ui.data.hrm.dashboard.of_arthur_weasley_in_is_ready_for_you_1e16fecc');
-      },
+      title: 'Performance review',
+      subtitle: 'of Arthur Weasley in is ready for you',
       type: 'review',
       status: 'Due',
     },
@@ -452,47 +390,17 @@ export const resignations = [
       name: 'Rubeus Hagrid',
       role: 'UX Designer',
       branch: 'Azkaban Branch',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Salary',
     jssResponse: {
       status: 'unsatisfied',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.neutral_e7fb41a6');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 30,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 25,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 10,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 15,
-        },
+        { id: 1, label: 'neutral', value: 20 },
+        { id: 2, label: 'satisfied', value: 30 },
+        { id: 3, label: 'unsatisfied', value: 25 },
+        { id: 4, label: 'upset', value: 10 },
+        { id: 5, label: 'unsatisfied', value: 15 },
       ],
     },
     lastSalary: 16300,
@@ -510,47 +418,17 @@ export const resignations = [
       name: 'Sirius Black',
       role: 'Project Manager',
       branch: 'Quillmark Tower',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Career Growth',
     jssResponse: {
       status: 'upset',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 10,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 10,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 10,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
+        { id: 1, label: 'upset', value: 20 },
+        { id: 2, label: 'unsatisfied', value: 10 },
+        { id: 3, label: 'upset', value: 10 },
+        { id: 4, label: 'unsatisfied', value: 10 },
+        { id: 5, label: 'upset', value: 20 },
       ],
     },
     lastSalary: 42000,
@@ -568,47 +446,17 @@ export const resignations = [
       name: 'Neville Longbottom',
       role: 'IT Support',
       branch: 'Shrieking Shack',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Career Growth',
     jssResponse: {
       status: 'satisfied',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 30,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 20,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 25,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 10,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 15,
-        },
+        { id: 1, label: 'satisfied', value: 30 },
+        { id: 2, label: 'unsatisfied', value: 20 },
+        { id: 3, label: 'satisfied', value: 25 },
+        { id: 4, label: 'upset', value: 10 },
+        { id: 5, label: 'unsatisfied', value: 15 },
       ],
     },
     lastSalary: 26000,
@@ -626,47 +474,17 @@ export const resignations = [
       name: 'Fred Weasley',
       role: 'System Architect',
       branch: 'Hogwarts Branch',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Better Benefits',
     jssResponse: {
       status: 'unsatisfied',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.neutral_e7fb41a6');
-          },
-          value: 10,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 15,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 10,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 20,
-        },
+        { id: 1, label: 'upset', value: 20 },
+        { id: 2, label: 'neutral', value: 10 },
+        { id: 3, label: 'unsatisfied', value: 15 },
+        { id: 4, label: 'upset', value: 10 },
+        { id: 5, label: 'unsatisfied', value: 20 },
       ],
     },
     lastSalary: 82000,
@@ -684,47 +502,17 @@ export const resignations = [
       name: 'Arthur Weasley',
       role: 'Backend Dev.',
       branch: 'Shrieking Shack',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Salary',
     jssResponse: {
       status: 'upset',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 15,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 10,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 15,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 10,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 15,
-        },
+        { id: 1, label: 'unsatisfied', value: 15 },
+        { id: 2, label: 'satisfied', value: 10 },
+        { id: 3, label: 'upset', value: 15 },
+        { id: 4, label: 'unsatisfied', value: 10 },
+        { id: 5, label: 'upset', value: 15 },
       ],
     },
     lastSalary: 42000,
@@ -742,47 +530,17 @@ export const resignations = [
       name: 'Draco Malfoy',
       role: 'Product Manager',
       branch: 'Malfoy Enterprises',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Work-Life Balance',
     jssResponse: {
       status: 'unsatisfied',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 25,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 20,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
+        { id: 1, label: 'satisfied', value: 20 },
+        { id: 2, label: 'unsatisfied', value: 25 },
+        { id: 3, label: 'upset', value: 20 },
+        { id: 4, label: 'unsatisfied', value: 20 },
+        { id: 5, label: 'upset', value: 20 },
       ],
     },
     lastSalary: 96000,
@@ -800,47 +558,17 @@ export const resignations = [
       name: 'Luna Lovegood',
       role: 'Graphic Designer',
       branch: 'The Quibbler',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Career Growth',
     jssResponse: {
       status: 'satisfied',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.neutral_e7fb41a6');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 30,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 10,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 20,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 20,
-        },
+        { id: 1, label: 'neutral', value: 20 },
+        { id: 2, label: 'satisfied', value: 30 },
+        { id: 3, label: 'upset', value: 10 },
+        { id: 4, label: 'satisfied', value: 20 },
+        { id: 5, label: 'unsatisfied', value: 20 },
       ],
     },
     lastSalary: 38500,
@@ -858,47 +586,17 @@ export const resignations = [
       name: 'Severus Snape',
       role: 'Chemist',
       branch: 'Potion Labs Inc.',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Better Benefits',
     jssResponse: {
       status: 'upset',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 10,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 15,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 15,
-        },
+        { id: 1, label: 'upset', value: 20 },
+        { id: 2, label: 'unsatisfied', value: 10 },
+        { id: 3, label: 'upset', value: 15 },
+        { id: 4, label: 'upset', value: 20 },
+        { id: 5, label: 'unsatisfied', value: 15 },
       ],
     },
     lastSalary: 78000,
@@ -916,47 +614,17 @@ export const resignations = [
       name: 'Ginny Weasley',
       role: 'Sports Journalist',
       branch: 'Daily Prophet',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Salary',
     jssResponse: {
       status: 'satisfied',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 25,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.neutral_e7fb41a6');
-          },
-          value: 10,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 20,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 10,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.satisfied_a34b2d93');
-          },
-          value: 15,
-        },
+        { id: 1, label: 'satisfied', value: 25 },
+        { id: 2, label: 'neutral', value: 10 },
+        { id: 3, label: 'satisfied', value: 20 },
+        { id: 4, label: 'unsatisfied', value: 10 },
+        { id: 5, label: 'satisfied', value: 15 },
       ],
     },
     lastSalary: 45200,
@@ -974,47 +642,17 @@ export const resignations = [
       name: 'Bellatrix Lestrange',
       role: 'Legal Consultant',
       branch: 'Dark Arts Firm',
-      link: paths.memberProfile,
+      link: '#!',
     },
     reason: 'Toxic Work Environment',
     jssResponse: {
       status: 'upset',
       response: [
-        {
-          id: 1,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 20,
-        },
-        {
-          id: 2,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 10,
-        },
-        {
-          id: 3,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 15,
-        },
-        {
-          id: 4,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.unsatisfied_77579aa6');
-          },
-          value: 15,
-        },
-        {
-          id: 5,
-          get label() {
-            return i18n.t('ui.data.hrm.dashboard.upset_589ceff3');
-          },
-          value: 15,
-        },
+        { id: 1, label: 'upset', value: 20 },
+        { id: 2, label: 'unsatisfied', value: 10 },
+        { id: 3, label: 'upset', value: 15 },
+        { id: 4, label: 'unsatisfied', value: 15 },
+        { id: 5, label: 'upset', value: 15 },
       ],
     },
     lastSalary: 120000,

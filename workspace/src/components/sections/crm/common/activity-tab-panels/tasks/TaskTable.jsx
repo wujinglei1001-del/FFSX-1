@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
@@ -18,7 +17,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CRMDropdownMenu from '../../CRMDropdownMenu';
 
 const TaskTable = ({ taskList, handleCheck }) => {
-  const { t: translateUi } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
 
   return (
@@ -31,7 +29,7 @@ const TaskTable = ({ taskList, handleCheck }) => {
             py: 1.5,
           },
         }}
-        aria-label={translateUi('ui.sections.crm.common.activity_tab_panels.simple_table_2786bbd9')}
+        aria-label="simple table"
         className="disable-edge-padding"
       >
         <TableBody>

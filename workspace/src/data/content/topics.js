@@ -1,5 +1,3 @@
-import i18n from 'locales/i18n';
-
 export const contentTopics = [
   {
     id: 95,
@@ -8,114 +6,82 @@ export const contentTopics = [
       {
         id: 1,
         key: 'abstract',
-        get label() {
-          return i18n.t('ui.data.content.topics.abstract_d79da395');
-        },
+        label: 'Abstract',
       },
       {
         id: 2,
         key: 'street-art',
-        get label() {
-          return i18n.t('ui.data.content.topics.street_art_a033b44e');
-        },
+        label: 'Street Art',
       },
       {
         id: 3,
         key: 'art-movements',
-        get label() {
-          return i18n.t('ui.data.content.topics.art_movements_15de9671');
-        },
+        label: 'Art Movements',
       },
       {
         id: 4,
         key: 'digital-painting',
-        get label() {
-          return i18n.t('ui.data.content.topics.digital_painting_ecbb90b8');
-        },
+        label: 'Digital Painting',
       },
       {
         id: 5,
         key: 'concept-art',
-        get label() {
-          return i18n.t('ui.data.content.topics.concept_art_3edaf62b');
-        },
+        label: 'Concept Art',
       },
       {
         id: 6,
         key: 'renaissance',
-        get label() {
-          return i18n.t('ui.data.content.topics.renaissance_05c0fc89');
-        },
+        label: 'Renaissance',
       },
       {
         id: 7,
         key: 'surrealism',
-        get label() {
-          return i18n.t('ui.data.content.topics.surrealism_50ceab05');
-        },
+        label: 'Surrealism',
       },
       {
         id: 8,
         key: 'sculpture',
-        get label() {
-          return i18n.t('ui.data.content.topics.sculpture_44514361');
-        },
+        label: 'Sculpture',
       },
       {
         id: 9,
         key: 'calligraphy',
-        get label() {
-          return i18n.t('ui.data.content.topics.calligraphy_5c1bd141');
-        },
+        label: 'Calligraphy',
       },
       {
         id: 10,
         key: 'modern-art',
-        get label() {
-          return i18n.t('ui.data.content.topics.modern_art_ed7e110a');
-        },
+        label: 'Modern Art',
       },
       {
         id: 11,
         key: 'contemporary-art',
-        get label() {
-          return i18n.t('ui.data.content.topics.contemporary_art_8cfc5129');
-        },
+        label: 'Contemporary Art',
       },
       {
         id: 12,
         key: 'art-history',
-        get label() {
-          return i18n.t('ui.data.content.topics.art_history_c43fab61');
-        },
+        label: 'Art History',
       },
       {
         id: 13,
         key: 'photography',
-        get label() {
-          return i18n.t('ui.data.content.topics.photography_b987e3f1');
-        },
+        label: 'Photography',
       },
       {
         id: 14,
         key: 'illustration',
-        get label() {
-          return i18n.t('ui.data.content.topics.illustration_df33417c');
-        },
+        label: 'Illustration',
       },
       {
         id: 15,
         key: 'digital-animation',
-        get label() {
-          return i18n.t('ui.data.content.topics.digital_animation_40ff645d');
-        },
+        label: 'Digital Animation',
       },
       {
         id: 16,
         key: 'architecture',
-        get label() {
-          return i18n.t('ui.data.content.topics.architecture_b040b417');
-        },
+        label: 'Architecture',
       },
     ],
   },
@@ -126,72 +92,52 @@ export const contentTopics = [
       {
         id: 17,
         key: 'startups-growth',
-        get label() {
-          return i18n.t('ui.data.content.topics.startups_growth_a53242da');
-        },
+        label: 'Startups Growth',
       },
       {
         id: 18,
         key: 'market',
-        get label() {
-          return i18n.t('ui.data.content.topics.market_569bbd75');
-        },
+        label: 'Market',
       },
       {
         id: 19,
         key: 'finance-tips',
-        get label() {
-          return i18n.t('ui.data.content.topics.finance_tips_5d284531');
-        },
+        label: 'Finance Tips',
       },
       {
         id: 20,
         key: 'leadership-skills',
-        get label() {
-          return i18n.t('ui.data.content.topics.leadership_skills_9abe4d87');
-        },
+        label: 'Leadership Skills',
       },
       {
         id: 21,
         key: 'e-commerce',
-        get label() {
-          return i18n.t('ui.data.content.topics.e_commerce_c991b729');
-        },
+        label: 'E-commerce',
       },
       {
         id: 22,
         key: 'productivity',
-        get label() {
-          return i18n.t('ui.data.content.topics.productivity_e140460c');
-        },
+        label: 'Productivity',
       },
       {
         id: 23,
         key: 'digital-marketing',
-        get label() {
-          return i18n.t('ui.data.content.topics.digital_marketing_135526e5');
-        },
+        label: 'Digital Marketing',
       },
       {
         id: 24,
         key: 'investment',
-        get label() {
-          return i18n.t('ui.data.content.topics.investment_0401729c');
-        },
+        label: 'Investment',
       },
       {
         id: 25,
         key: 'brand',
-        get label() {
-          return i18n.t('ui.data.content.topics.brand_62b4aa57');
-        },
+        label: 'Brand',
       },
       {
         id: 26,
         key: 'business-models',
-        get label() {
-          return i18n.t('ui.data.content.topics.business_models_f9e7df97');
-        },
+        label: 'Business Models',
       },
     ],
   },
@@ -202,114 +148,82 @@ export const contentTopics = [
       {
         id: 32,
         key: 'pop-culture',
-        get label() {
-          return i18n.t('ui.data.content.topics.pop_culture_6e2cf9b4');
-        },
+        label: 'Pop Culture',
       },
       {
         id: 33,
         key: 'fashion',
-        get label() {
-          return i18n.t('ui.data.content.topics.fashion_4706640a');
-        },
+        label: 'Fashion',
       },
       {
         id: 34,
         key: 'music',
-        get label() {
-          return i18n.t('ui.data.content.topics.music_131260cb');
-        },
+        label: 'Music',
       },
       {
         id: 35,
         key: 'language',
-        get label() {
-          return i18n.t('ui.data.content.topics.language_89b86ab0');
-        },
+        label: 'Language',
       },
       {
         id: 36,
         key: 'global-traditions',
-        get label() {
-          return i18n.t('ui.data.content.topics.global_traditions_df7162c7');
-        },
+        label: 'Global Traditions',
       },
       {
         id: 37,
         key: 'folklore',
-        get label() {
-          return i18n.t('ui.data.content.topics.folklore_52879d8e');
-        },
+        label: 'Folklore',
       },
       {
         id: 38,
         key: 'cinema',
-        get label() {
-          return i18n.t('ui.data.content.topics.cinema_f4ea571b');
-        },
+        label: 'Cinema',
       },
       {
         id: 39,
         key: 'dance',
-        get label() {
-          return i18n.t('ui.data.content.topics.dance_1b9f359c');
-        },
+        label: 'Dance',
       },
       {
         id: 40,
         key: 'urban-lifestyle',
-        get label() {
-          return i18n.t('ui.data.content.topics.urban_lifestyle_980f3799');
-        },
+        label: 'Urban Lifestyle',
       },
       {
         id: 41,
         key: 'festivals',
-        get label() {
-          return i18n.t('ui.data.content.topics.festivals_340b807c');
-        },
+        label: 'Festivals',
       },
       {
         id: 42,
         key: 'cultural-heritage',
-        get label() {
-          return i18n.t('ui.data.content.topics.cultural_heritage_19a8c134');
-        },
+        label: 'Cultural Heritage',
       },
       {
         id: 43,
         key: 'subcultures',
-        get label() {
-          return i18n.t('ui.data.content.topics.subcultures_2b768a70');
-        },
+        label: 'Subcultures',
       },
       {
         id: 44,
         key: 'mythology',
-        get label() {
-          return i18n.t('ui.data.content.topics.mythology_70bce474');
-        },
+        label: 'Mythology',
       },
       {
         id: 45,
         key: 'world-cuisine',
-        get label() {
-          return i18n.t('ui.data.content.topics.world_cuisine_22f84b58');
-        },
+        label: 'World Cuisine',
       },
       {
         id: 46,
         key: 'social-movements',
-        get label() {
-          return i18n.t('ui.data.content.topics.social_movements_6261d84d');
-        },
+        label: 'Social Movements',
       },
       {
         id: 47,
         key: 'philosophy',
-        get label() {
-          return i18n.t('ui.data.content.topics.philosophy_496e9438');
-        },
+        label: 'Philosophy',
       },
     ],
   },
@@ -320,23 +234,17 @@ export const contentTopics = [
       {
         id: 48,
         key: 'metaverse',
-        get label() {
-          return i18n.t('ui.data.content.topics.metaverse_7c995fd1');
-        },
+        label: 'Metaverse',
       },
       {
         id: 49,
         key: 'web3',
-        get label() {
-          return i18n.t('ui.data.content.topics.web3_1ff9aa63');
-        },
+        label: 'Web3',
       },
       {
         id: 50,
         key: 'cloud-computing',
-        get label() {
-          return i18n.t('ui.data.content.topics.cloud_computing_ff8847c8');
-        },
+        label: 'Cloud Computing',
       },
       {
         id: 51,
@@ -351,79 +259,57 @@ export const contentTopics = [
       {
         id: 53,
         key: 'social-media',
-        get label() {
-          return i18n.t('ui.data.content.topics.social_media_3d84a8bd');
-        },
+        label: 'Social Media',
       },
       {
         id: 54,
         key: 'ux/ui-design',
-        get label() {
-          return i18n.t('ui.data.content.topics.ux_ui_design_b624914a');
-        },
+        label: 'UX/UI Design',
       },
       {
         id: 55,
         key: 'cyber-security',
-        get label() {
-          return i18n.t('ui.data.content.topics.cyber_security_67324e9e');
-        },
+        label: 'Cyber Security',
       },
       {
         id: 56,
         key: 'blockchain',
-        get label() {
-          return i18n.t('ui.data.content.topics.blockchain_efe3fbaa');
-        },
+        label: 'Blockchain',
       },
       {
         id: 57,
         key: 'future-gadgets',
-        get label() {
-          return i18n.t('ui.data.content.topics.future_gadgets_9706a51d');
-        },
+        label: 'Future Gadgets',
       },
       {
         id: 58,
         key: 'data-science',
-        get label() {
-          return i18n.t('ui.data.content.topics.data_science_b72fdbd3');
-        },
+        label: 'Data Science',
       },
       {
         id: 59,
         key: 'machine-learning',
-        get label() {
-          return i18n.t('ui.data.content.topics.machine_learning_f97db969');
-        },
+        label: 'Machine Learning',
       },
       {
         id: 60,
         key: 'game-development',
-        get label() {
-          return i18n.t('ui.data.content.topics.game_development_75a7a5b6');
-        },
+        label: 'Game Development',
       },
       {
         id: 61,
         key: 'cryptocurrency',
-        get label() {
-          return i18n.t('ui.data.content.topics.cryptocurrency_3f9b3fd3');
-        },
+        label: 'Cryptocurrency',
       },
       {
         id: 62,
         key: 'quantum-computing',
-        get label() {
-          return i18n.t('ui.data.content.topics.quantum_computing_64da6ed5');
-        },
+        label: 'Quantum Computing',
       },
       {
         id: 63,
         key: 'internet-of-things-(iot)',
-        get label() {
-          return i18n.t('ui.data.content.topics.internet_of_things_iot_4164b25f');
-        },
+        label: 'Internet of Things (IoT)',
       },
     ],
   },
@@ -434,114 +320,82 @@ export const contentTopics = [
       {
         id: 64,
         key: 'green-energy',
-        get label() {
-          return i18n.t('ui.data.content.topics.green_energy_e1af2056');
-        },
+        label: 'Green Energy',
       },
       {
         id: 65,
         key: 'climate',
-        get label() {
-          return i18n.t('ui.data.content.topics.climate_48578601');
-        },
+        label: 'Climate',
       },
       {
         id: 66,
         key: 'wildlife',
-        get label() {
-          return i18n.t('ui.data.content.topics.wildlife_f00edc13');
-        },
+        label: 'Wildlife',
       },
       {
         id: 67,
         key: 'animal',
-        get label() {
-          return i18n.t('ui.data.content.topics.animal_7389b3b7');
-        },
+        label: 'Animal',
       },
       {
         id: 68,
         key: 'sustainable-living',
-        get label() {
-          return i18n.t('ui.data.content.topics.sustainable_living_e5beba97');
-        },
+        label: 'Sustainable Living',
       },
       {
         id: 69,
         key: 'eco-innovations',
-        get label() {
-          return i18n.t('ui.data.content.topics.eco_innovations_3c3b1cf4');
-        },
+        label: 'Eco Innovations',
       },
       {
         id: 70,
         key: 'urban-farming',
-        get label() {
-          return i18n.t('ui.data.content.topics.urban_farming_6056bb03');
-        },
+        label: 'Urban Farming',
       },
       {
         id: 71,
         key: 'zero-waste',
-        get label() {
-          return i18n.t('ui.data.content.topics.zero_waste_b95c115c');
-        },
+        label: 'Zero Waste',
       },
       {
         id: 72,
         key: 'carbon-footprint',
-        get label() {
-          return i18n.t('ui.data.content.topics.carbon_footprint_ca722f53');
-        },
+        label: 'Carbon Footprint',
       },
       {
         id: 73,
         key: 'renewable',
-        get label() {
-          return i18n.t('ui.data.content.topics.renewable_9374de5e');
-        },
+        label: 'Renewable',
       },
       {
         id: 74,
         key: 'circular-economy',
-        get label() {
-          return i18n.t('ui.data.content.topics.circular_economy_a3608b19');
-        },
+        label: 'Circular Economy',
       },
       {
         id: 75,
         key: 'biodiversity',
-        get label() {
-          return i18n.t('ui.data.content.topics.biodiversity_95c99be1');
-        },
+        label: 'Biodiversity',
       },
       {
         id: 76,
         key: 'pollution-control',
-        get label() {
-          return i18n.t('ui.data.content.topics.pollution_control_40009317');
-        },
+        label: 'Pollution Control',
       },
       {
         id: 77,
         key: 'renewable-energy',
-        get label() {
-          return i18n.t('ui.data.content.topics.renewable_energy_4a8bd2dd');
-        },
+        label: 'Renewable Energy',
       },
       {
         id: 78,
         key: 'environmental-policy',
-        get label() {
-          return i18n.t('ui.data.content.topics.environmental_policy_fbb03b66');
-        },
+        label: 'Environmental Policy',
       },
       {
         id: 79,
         key: 'sustainable-agriculture',
-        get label() {
-          return i18n.t('ui.data.content.topics.sustainable_agriculture_504a6d2a');
-        },
+        label: 'Sustainable Agriculture',
       },
     ],
   },
@@ -552,65 +406,47 @@ export const contentTopics = [
       {
         id: 80,
         key: 'street-food',
-        get label() {
-          return i18n.t('ui.data.content.topics.street_food_ae391411');
-        },
+        label: 'Street Food',
       },
       {
         id: 81,
         key: 'vegan',
-        get label() {
-          return i18n.t('ui.data.content.topics.vegan_f50322ad');
-        },
+        label: 'Vegan',
       },
       {
         id: 82,
         key: 'culinary',
-        get label() {
-          return i18n.t('ui.data.content.topics.culinary_3f9bd336');
-        },
+        label: 'Culinary',
       },
       {
         id: 83,
         key: 'home-cooking',
-        get label() {
-          return i18n.t('ui.data.content.topics.home_cooking_eeaadce0');
-        },
+        label: 'Home Cooking',
       },
       {
         id: 84,
         key: 'food-tech',
-        get label() {
-          return i18n.t('ui.data.content.topics.food_tech_547a79fd');
-        },
+        label: 'Food Tech',
       },
       {
         id: 85,
         key: 'gourmet',
-        get label() {
-          return i18n.t('ui.data.content.topics.gourmet_1bd1d645');
-        },
+        label: 'Gourmet',
       },
       {
         id: 86,
         key: 'fermented',
-        get label() {
-          return i18n.t('ui.data.content.topics.fermented_2dcd762b');
-        },
+        label: 'Fermented',
       },
       {
         id: 87,
         key: 'farm-to-table',
-        get label() {
-          return i18n.t('ui.data.content.topics.farm_to_table_d4d54cd6');
-        },
+        label: 'Farm-to-Table',
       },
       {
         id: 88,
         key: 'global-cuisines',
-        get label() {
-          return i18n.t('ui.data.content.topics.global_cuisines_81d6d9b9');
-        },
+        label: 'Global Cuisines',
       },
     ],
   },

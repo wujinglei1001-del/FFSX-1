@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useLocation, useSearchParams } from 'react-router';
 import { TabContext, TabPanel } from '@mui/lab';
 import {
@@ -18,7 +17,6 @@ import {
   tabsClasses,
 } from '@mui/material';
 import { creators, searchItems, topics } from 'data/content/search';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import StyledTextField from 'components/styled/StyledTextField';
 import BlogCard from './BlogCard';
@@ -27,26 +25,15 @@ import PodcastCard from './PodcastCard';
 import VideoCard from './VideoCard';
 
 const sortByOptions = [
-  {
-    value: 'recommended',
-    get label() {
-      return i18n.t('ui.sections.content.search.sort_by_recommended_123626ff');
-    },
-  },
-  {
-    value: 'lowToHight',
-    get label() {
-      return i18n.t('ui.sections.content.search.sort_by_popularity_4e6c37ae');
-    },
-  },
+  { value: 'recommended', label: 'Sort by - Recommended' },
+  { value: 'lowToHight', label: 'Sort by - Popularity' },
 ];
 
 const formatSearchKey = (str) =>
   str ? str.replace(/-/g, ' ').replace(/^./, (s) => s.toUpperCase()) : 'Animal';
 
 const SearchContainer = () => {
-  const { t: translateUi } = useTranslation();
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const [searchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState('recommended');
   const [value, setValue] = useState('blogs');
@@ -74,7 +61,7 @@ const SearchContainer = () => {
               key={id}
               component={Link}
               clickable
-              href={`${pathname}?key=${encodeURIComponent(label)}`}
+              href={`${pathname}${search}#!`}
               label={label}
               size="large"
               sx={{
@@ -135,7 +122,7 @@ const SearchContainer = () => {
       >
         <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h4">
-            {translateUi('ui.sections.content.search.searched_for_ad982376')}{' '}
+            Searched for{' '}
             <Box
               component="span"
               sx={{
@@ -166,8 +153,7 @@ const SearchContainer = () => {
               variant="body2"
               sx={{ whiteSpace: 'nowrap', display: { xs: 'none', md: 'block' } }}
             >
-              {searchItems.length}
-              {translateUi('ui.sections.content.search.results_cdf7e925')}
+              {searchItems.length} results
             </Typography>
 
             <FormControl sx={{ maxWidth: { xs: 300 }, width: 1 }}>

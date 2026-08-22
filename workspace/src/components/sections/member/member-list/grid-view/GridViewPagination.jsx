@@ -28,6 +28,7 @@ const GridViewPagination = ({
       onRowsPerPageChange={handleChangeRowsPerPage}
       ActionsComponent={(props) => (
         <CustomTablePaginationAction
+          showAllHref="#!"
           onShowAllClick={onShowAllClick}
           showFullPagination
           {...props}

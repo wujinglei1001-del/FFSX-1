@@ -1,9 +1,7 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Chip, Stack, Typography } from '@mui/material';
 import { DataGrid, gridClasses } from '@mui/x-data-grid';
 import useNumberFormat from 'hooks/useNumberFormat';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
@@ -54,7 +52,6 @@ const createRowSortComparator = (baseComparator) => {
 };
 
 const UserByCountryTable = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat, numberFormat } = useNumberFormat();
 
   const summaryData = useMemo(() => calculateSummaryData(data), []);
@@ -85,9 +82,7 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'country',
-        headerName: translateUi(
-          'ui.sections.dashboards.analytics.user_by_country.country_d523ebbd',
-        ),
+        headerName: 'Country',
         headerClassName: 'country-header',
         cellClassName: 'country-cell',
         minWidth: 160,
@@ -106,9 +101,7 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'totalUsers',
-        headerName: translateUi(
-          'ui.sections.dashboards.analytics.user_by_country.total_user_f04e376a',
-        ),
+        headerName: 'Total User',
         headerClassName: 'total-users-header',
         cellClassName: 'total-users-cell',
         width: 140,
@@ -123,9 +116,7 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'growthRate',
-        headerName: translateUi(
-          'ui.sections.dashboards.analytics.user_by_country.vs_last_week_129e3bff',
-        ),
+        headerName: 'vs. Last week',
         headerClassName: 'growth-rate-header',
         cellClassName: 'growth-rate-cell',
         minWidth: 136,
@@ -154,9 +145,7 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'newUsers',
-        headerName: translateUi(
-          'ui.sections.dashboards.analytics.user_by_country.new_user_b85e445f',
-        ),
+        headerName: 'New User',
         headerClassName: 'new-users-header',
         cellClassName: 'new-users-cell',
         minWidth: 120,
@@ -171,9 +160,7 @@ const UserByCountryTable = ({ data }) => {
       },
       {
         field: 'engagedSessions',
-        headerName: translateUi(
-          'ui.sections.dashboards.analytics.user_by_country.engaged_sessions_1a9a38c3',
-        ),
+        headerName: 'Engaged Sessions',
         headerClassName: 'engaged-sessions-header',
         cellClassName: 'engaged-sessions-cell',
         minWidth: 184,
@@ -219,7 +206,7 @@ const UserByCountryTable = ({ data }) => {
         }}
         pageSizeOptions={[8, combinedData.length]}
         slots={{
-          basePagination: (props) => <DataGridPagination showAllHref={paths.members} {...props} />,
+          basePagination: (props) => <DataGridPagination showAllHref="#!" {...props} />,
         }}
         sx={({ spacing }) => ({
           [`& .${gridClasses.columnHeaders}`]: {
@@ -237,7 +224,7 @@ const UserByCountryTable = ({ data }) => {
           },
           [`& .${gridClasses.row}`]: {
             [`& .${gridClasses.cell}`]: {
-              '&.ffax-data-grid-cell': {
+              '&.aurora-data-grid-cell': {
                 '&:not(.action-cell, .id-cell)': {
                   p: `0 ${spacing(1.25)}`,
                 },

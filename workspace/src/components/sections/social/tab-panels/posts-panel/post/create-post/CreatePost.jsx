@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -15,7 +14,6 @@ import AddMedia from './AddMedia';
 import TextInput from './TextInput';
 
 const CreatePost = ({ posts, setPosts }) => {
-  const { t: translateUi } = useTranslation();
   const methods = useForm();
   const {
     reset,
@@ -77,7 +75,7 @@ const CreatePost = ({ posts, setPosts }) => {
       <Stack direction="row" sx={{ gap: 2 }}>
         <Avatar
           src={profileData.avatar}
-          alt={translateUi('common.accessibility.comment_author_avatar')}
+          alt="comment-author-avatar"
           sx={{ width: 32, height: 32 }}
         />
         <Stack component="form" onSubmit={handleSubmit(onSubmit)} sx={{ gap: 2, width: 1 }}>
@@ -88,20 +86,14 @@ const CreatePost = ({ posts, setPosts }) => {
               <EmojiPicker
                 handleEmojiSelect={handleEmojiSelect}
                 actionButtonEle={
-                  <Tooltip
-                    title={translateUi('ui.sections.social.tab_panels.posts_panel.emoji_5090a9e7')}
-                  >
+                  <Tooltip title="Emoji">
                     <Button shape="square" color="neutral">
                       <IconifyIcon icon="material-symbols:mood-outline-rounded" fontSize={20} />
                     </Button>
                   </Tooltip>
                 }
               />
-              <Tooltip
-                title={translateUi(
-                  'ui.sections.social.tab_panels.posts_panel.record_video_dcda9f74',
-                )}
-              >
+              <Tooltip title="Record Video">
                 <Button shape="square" color="neutral">
                   <IconifyIcon icon="material-symbols:videocam-outline-rounded" fontSize={20} />
                 </Button>
@@ -114,7 +106,7 @@ const CreatePost = ({ posts, setPosts }) => {
               disabled={!textValue?.trim() && (!attachmentsValue || attachmentsValue.length === 0)}
               sx={{ maxWidth: 120 }}
             >
-              {translateUi('ui.sections.social.tab_panels.posts_panel.post_7858ac3f')}
+              Post
             </Button>
           </Stack>
         </Stack>

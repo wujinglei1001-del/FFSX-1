@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { FormHelperText, Grid, Paper } from '@mui/material';
 import clsx from 'clsx';
 import RecipientCard from './RecipientCard';
 import RecipientsFormDialogue from './RecipientsFormDialogue';
 
 const Recipients = () => {
-  const { t: translateUi } = useTranslation();
   const {
     watch,
     setValue,
@@ -54,60 +52,36 @@ const Recipients = () => {
       >
         <Grid container spacing={{ xs: 3, md: 5, lg: 10 }} sx={{ justifyContent: 'space-between' }}>
           <Grid size={{ xs: 12, md: 6 }}>
-            <RecipientCard
-              title={translateUi(
-                'ui.sections.invoice.create_invoice.invoice_details.invoice_from_4ea0feb2',
-              )}
-              data={invoiceForm}
-              setOpen={setInvoiceFromOpen}
-            />
+            <RecipientCard title="Invoice From" data={invoiceForm} setOpen={setInvoiceFromOpen} />
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
-            <RecipientCard
-              title={translateUi(
-                'ui.sections.invoice.create_invoice.invoice_details.invoice_to_6aab5f7e',
-              )}
-              data={invoiceTo}
-              setOpen={setInvoiceToOpen}
-            />
+            <RecipientCard title="Invoice To" data={invoiceTo} setOpen={setInvoiceToOpen} />
           </Grid>
         </Grid>
       </Paper>
       {hasInvoiceFromError && (
         <FormHelperText error sx={{ mx: '14px' }}>
-          {translateUi(
-            'ui.sections.invoice.create_invoice.invoice_details.invoice_sender_information_is_required_b806644a',
-          )}
+          Invoice sender information is required.
         </FormHelperText>
       )}
       {hasInvoiceToError && (
         <FormHelperText error sx={{ mx: '14px' }}>
-          {translateUi(
-            'ui.sections.invoice.create_invoice.invoice_details.invoice_recipient_information_is_required_89b4aacb',
-          )}
+          Invoice recipient information is required.
         </FormHelperText>
       )}
       <RecipientsFormDialogue
         open={invoiceFromOpen}
-        title={translateUi(
-          'ui.sections.invoice.create_invoice.invoice_details.select_admin_57504a4a',
-        )}
+        title="Select Admin"
         handleDialogClose={() => setInvoiceFromOpen(false)}
         onSubmit={invoiceFormSubmitHandler}
-        subtitle={translateUi(
-          'ui.sections.invoice.create_invoice.invoice_details.select_a_admin_to_continue_with_the_process_298119ed',
-        )}
+        subtitle="Select a admin to continue with the process."
         mode="admin"
       ></RecipientsFormDialogue>
       <RecipientsFormDialogue
         open={invoiceToOpen}
-        title={translateUi(
-          'ui.sections.invoice.create_invoice.invoice_details.select_customer_80b02e00',
-        )}
+        title="Select Customer"
         handleDialogClose={() => setInvoiceToOpen(false)}
-        subtitle={translateUi(
-          'ui.sections.invoice.create_invoice.invoice_details.select_a_customer_to_continue_with_the_process_8f12ae4b',
-        )}
+        subtitle="Select a customer to continue with the process."
         onSubmit={invoiceToSubmitHandler}
         mode="customer"
       ></RecipientsFormDialogue>

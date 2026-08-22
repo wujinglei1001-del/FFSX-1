@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -198,7 +197,6 @@ const CategoryList = ({ categories, anchorEl, level, openItem, setOpenItem }) =>
 };
 
 const CategoryPopover = ({ anchorEl, openItem, setOpenItem, handleClose }) => {
-  const { t: translateUi } = useTranslation();
   const ref = useRef(null);
   const { direction } = useTheme();
 
@@ -254,7 +252,7 @@ const CategoryPopover = ({ anchorEl, openItem, setOpenItem, handleClose }) => {
               fontWeight: 700,
             }}
           >
-            {translateUi('ui.layouts.ecommerce_layout.app_bar.primary.category_a3c686e7')}
+            Category
           </Typography>
 
           <Button

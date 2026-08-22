@@ -1,6 +1,5 @@
 import { initialConfig } from 'config';
-import i18n from 'locales/i18n';
-import paths, { publicAuthPaths } from 'routes/paths';
+import paths from 'routes/paths';
 
 const screenshot = (index) => `${initialConfig.assetsDir}/images/showcase/${index}.webp`;
 const video = (name) => `${initialConfig.assetsDir}/videos/showcase/${name}.webm`;
@@ -37,142 +36,62 @@ export const preloadAssets = [
 ];
 
 export const figmaPreviewLink =
-  'https://www.figma.com/design/YlOsUHOWLfRFfHurUbQIdo/FFA-X?node-id=39061-5596';
+  'https://www.figma.com/design/OsomtrWKKBgiWvASVVqnIh/Aurora_-Preview--v2.2.0-?node-id=201-89946&t=CsVyE0sFpqpGSqWW-1';
 
 export const navItems = [
-  {
-    get label() {
-      return i18n.t('ffax.public.navigation.about');
-    },
-    href: paths.landingAbout,
-  },
-  {
-    get label() {
-      return i18n.t('ffax.public.navigation.register');
-    },
-    href: publicAuthPaths.signup,
-  },
-  {
-    get label() {
-      return i18n.t('ffax.public.navigation.free_account');
-    },
-    href: publicAuthPaths.signup,
-  },
-  {
-    get label() {
-      return i18n.t('ffax.public.navigation.subscriptions');
-    },
-    href: paths.landingSubscriptions,
-  },
+  { label: 'Documentation', href: 'https://aurora.themewagon.com/documentation/getting-started' },
+  { label: 'Support', href: 'mailto:support@themewagon.com' },
+  { label: 'Hire us', href: 'https://themewagon.com/hire-us/' },
 ];
 
 export const footerNavItems = [
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.contact');
-    },
-    to: paths.landingContact,
+    label: 'Support',
+    to: 'mailto:support@themewagon.com',
   },
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.faq');
-    },
-    to: paths.landingFaq,
+    label: 'Documentations',
+    to: 'https://aurora.themewagon.com/documentation/getting-started',
   },
   {
-    get label() {
-      return i18n.t('ffax.public.navigation.about');
-    },
-    to: paths.landingAbout,
+    label: 'Changelog',
+    to: 'https://aurora.themewagon.com/documentation/changelog',
   },
 ];
 
 export const layoutConfigs = [
   {
     fieldname: 'sidenavShape',
-    get title() {
-      return i18n.t('ui.data.showcase.sidenav_shape_61ea250d');
-    },
+    title: 'Sidenav Shape',
     options: [
-      {
-        value: 'default',
-        get label() {
-          return i18n.t('ui.data.showcase.default_808d7dca');
-        },
-      },
-      {
-        value: 'slim',
-        get label() {
-          return i18n.t('ui.data.showcase.slim_5ee371a1');
-        },
-      },
-      {
-        value: 'stacked',
-        get label() {
-          return i18n.t('ui.data.showcase.stacked_9eafca46');
-        },
-      },
+      { value: 'default', label: 'Default' },
+      { value: 'slim', label: 'Slim' },
+      { value: 'stacked', label: 'Stacked' },
     ],
   },
   {
     fieldname: 'layout',
-    get title() {
-      return i18n.t('ui.data.showcase.layout_972ad8d8');
-    },
+    title: 'Layout',
     options: [
-      {
-        value: 'combo',
-        get label() {
-          return i18n.t('ui.data.showcase.combo_dcae5862');
-        },
-      },
-      {
-        value: 'sidenav',
-        get label() {
-          return i18n.t('ui.data.showcase.sidenav_0b22dd7d');
-        },
-      },
-      {
-        value: 'topnav',
-        get label() {
-          return i18n.t('ui.data.showcase.topnav_f1732fb1');
-        },
-      },
+      { value: 'combo', label: 'Combo' },
+      { value: 'sidenav', label: 'Sidenav' },
+      { value: 'topnav', label: 'Topnav' },
     ],
   },
   {
     fieldname: 'topnavShape',
-    get title() {
-      return i18n.t('ui.data.showcase.topnav_shape_5378944c');
-    },
+    title: 'Topnav Shape',
     options: [
-      {
-        value: 'default',
-        get label() {
-          return i18n.t('ui.data.showcase.default_808d7dca');
-        },
-      },
-      {
-        value: 'slim',
-        get label() {
-          return i18n.t('ui.data.showcase.slim_5ee371a1');
-        },
-      },
-      {
-        value: 'stacked',
-        get label() {
-          return i18n.t('ui.data.showcase.stacked_9eafca46');
-        },
-      },
+      { value: 'default', label: 'Default' },
+      { value: 'slim', label: 'Slim' },
+      { value: 'stacked', label: 'Stacked' },
     ],
   },
 ];
 
 export const prefixedLayouts = [
   {
-    get title() {
-      return i18n.t('ui.data.showcase.combo_default_54666e04');
-    },
+    title: 'Combo Default',
     link: `${paths.ecommerce}?navigationMenuType=combo&sidenavType=default&topnavType=default`,
   },
   {
@@ -180,54 +99,38 @@ export const prefixedLayouts = [
     link: `${paths.project}?textDirection=rtl`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.topnav_default_5d0a7d1b');
-    },
+    title: 'TopNav Default',
     link: `${paths.crm}?navigationMenuType=topnav&topnavType=default`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.sidenav_slim_9f3ea0b9');
-    },
+    title: 'SideNav Slim',
     link: `${paths.analytics}?navigationMenuType=sidenav&sidenavType=slim`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.topnav_stacked_0166f5cc');
-    },
+    title: 'TopNav Stacked',
     link: `${paths.hrm}?navigationMenuType=topnav&topnavType=stacked`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.vibrant_sidenav_d92d6cbf');
-    },
+    title: 'Vibrant SideNav',
     link: `${paths.timeTracker}?navigationMenuType=sidenav&navColor=vibrant`,
   },
 ];
 
 export const webApps = [
   {
-    get title() {
-      return i18n.t('ui.data.showcase.e_commerce_d19533b9');
-    },
+    title: 'E commerce',
     link: `${paths.ecommerceHomepage}?defaultConfigs=true`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.kanban_38955467');
-    },
+    title: 'Kanban',
     link: `${paths.kanban}?defaultConfigs=true`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.calendar_adab5090');
-    },
+    title: 'Calendar',
     link: `${paths.calendar}?defaultConfigs=true`,
   },
   {
-    get title() {
-      return i18n.t('ui.data.showcase.chat_2ced57f1');
-    },
+    title: 'Chat',
     link: `${paths.chat}?defaultConfigs=true`,
   },
   {

@@ -5,7 +5,6 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import dayjs from 'dayjs';
 import { cssVarRgba } from 'lib/utils';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CRMDropdownMenu from '../../CRMDropdownMenu';
 
@@ -64,13 +63,11 @@ const Activity = ({ activity }) => {
             }}
           >
             <Typography variant="subtitle2">
-              <strong>{activity.title}</strong>{' '}
-              <Link href={paths.dealDetails}>{activity.assignment}</Link>
+              <strong>{activity.title}</strong> <Link href="#!">{activity.assignment}</Link>
             </Typography>
 
             <Typography variant="body2">
-              {activity.type === 'mail' ? 'Sent by' : 'By'}{' '}
-              <Link href={paths.memberProfile}>{activity.user}</Link>
+              {activity.type === 'mail' ? 'Sent by' : 'By'} <Link href="#!">{activity.user}</Link>
             </Typography>
           </Stack>
           <Stack direction="row" sx={{ gap: 0.5, py: 0.75 }}>

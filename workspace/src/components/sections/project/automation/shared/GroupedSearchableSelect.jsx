@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Divider, ListSubheader, MenuItem, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StyledTextField from 'components/styled/StyledTextField';
@@ -16,7 +15,6 @@ const GroupedSearchableSelect = ({
   showSearchIcon = false,
   hideSearch = false,
 }) => {
-  const { t: translateUi } = useTranslation();
   const [search, setSearch] = useState('');
   const isFlatMode = flatOptions !== undefined;
 
@@ -53,7 +51,7 @@ const GroupedSearchableSelect = ({
   const searchField = (
     <StyledTextField
       size="small"
-      placeholder={translateUi('ui.sections.project.automation.shared.search_6d7a30a9')}
+      placeholder="Search..."
       fullWidth
       value={search}
       onChange={(changeEvent) => setSearch(changeEvent.target.value)}

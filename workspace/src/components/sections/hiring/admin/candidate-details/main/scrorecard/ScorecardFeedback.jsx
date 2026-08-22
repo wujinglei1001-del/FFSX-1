@@ -1,53 +1,37 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Stack, Typography } from '@mui/material';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 
 const feedbacks = [
   {
     id: 0,
     author: users[0],
-    get message() {
-      return i18n.t(
-        'ui.sections.hiring.admin.candidate_details.portfolio_is_impressive_clean_design_and_strong_atte_74395044',
-      );
-    },
+    message:
+      'Portfolio is impressive—clean design and strong attention to accessibility. Interview performance was solid. Candidate asked smart questions and showed enthusiasm for cross-functional collaboration. No red flags.',
     createdAt: 'Today at 12:10pm',
   },
   {
     id: 1,
     author: users[1],
-    get message() {
-      return i18n.t(
-        'ui.sections.hiring.admin.candidate_details.very_confident_communicator_with_good_alignment_to_o_1fcafb2b',
-      );
-    },
+    message:
+      'Very confident communicator with good alignment to our company culture. Shared thoughtful responses about motivation and long-term goals. Slight concern over expected compensation versus budget, but open to negotiation.',
     createdAt: 'Today at 12:10pm',
   },
   {
     id: 2,
     author: users[2],
-    get message() {
-      return i18n.t(
-        'ui.sections.hiring.admin.candidate_details.great_cv_but_senior_leadership_responses_were_weak_b_ab315c9b',
-      );
-    },
+    message: 'Great CV, but senior leadership responses were weak. Better for mid-level.',
     createdAt: 'Today at 12:10pm',
   },
   {
     id: 3,
     author: users[3],
-    get message() {
-      return i18n.t(
-        'ui.sections.hiring.admin.candidate_details.the_candidate_has_strong_fundamentals_in_data_struct_ed0d86cb',
-      );
-    },
+    message:
+      'The candidate has strong fundamentals in data structures and algorithms, and their past projects demonstrate real-world application of problem-solving skills. However, there were a few gaps in backend architecture knowledge. Could benefit from mentorship initially but shows high potential.',
     createdAt: 'Today at 12:10pm',
   },
 ];
 
 const ScorecardFeedback = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <div>
       <Typography
@@ -56,7 +40,7 @@ const ScorecardFeedback = () => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.hiring.admin.candidate_details.scorecard_feedback_5e682e75')}
+        Scorecard Feedback
       </Typography>
       {feedbacks.map((feedback) => {
         return (

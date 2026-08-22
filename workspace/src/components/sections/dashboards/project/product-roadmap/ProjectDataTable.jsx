@@ -13,7 +13,6 @@ import {
 } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF, gridClasses } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const getStateIcon = (state) => {
@@ -48,9 +47,7 @@ const columns = [
   },
   {
     field: 'name',
-    get headerName() {
-      return i18n.t('ui.sections.dashboards.project.product_roadmap.name_709a2322');
-    },
+    headerName: 'Name',
     headerClassName: 'name-header',
     cellClassName: 'name-cell',
     minWidth: 210,
@@ -88,9 +85,7 @@ const columns = [
   },
   {
     field: 'lead',
-    get headerName() {
-      return i18n.t('ui.sections.dashboards.project.product_roadmap.lead_c6f71d85');
-    },
+    headerName: 'Lead',
     headerClassName: 'lead-header',
     cellClassName: 'lead-cell',
     minWidth: 72,
@@ -107,9 +102,7 @@ const columns = [
   },
   {
     field: 'members',
-    get headerName() {
-      return i18n.t('ui.sections.dashboards.project.product_roadmap.members_1cb449c1');
-    },
+    headerName: 'Members',
     headerClassName: 'members-header',
     cellClassName: 'members-cell',
     minWidth: 140,
@@ -139,9 +132,7 @@ const columns = [
   },
   {
     field: 'progress',
-    get headerName() {
-      return i18n.t('ui.sections.dashboards.project.product_roadmap.progress_1b90271d');
-    },
+    headerName: 'Progress',
     headerClassName: 'progress-header',
     cellClassName: 'progress-cell',
     minWidth: 120,
@@ -163,9 +154,7 @@ const columns = [
   },
   {
     field: 'state',
-    get headerName() {
-      return i18n.t('ui.sections.dashboards.project.product_roadmap.state_a7250206');
-    },
+    headerName: 'State',
     headerClassName: 'state-header',
     cellClassName: 'state-cell',
     minWidth: 150,
@@ -265,7 +254,7 @@ const ProjectDataTable = ({ projectInfo }) => {
                 },
                 [`& .${gridClasses.row}`]: {
                   [`& .${gridClasses.cell}`]: {
-                    '&.ffax-data-grid-cell': {
+                    '&.aurora-data-grid-cell': {
                       '&:not(.state-cell)': {
                         p: `0 ${spacing(1.25)}`,
                       },

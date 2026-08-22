@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { ButtonBase, IconButton, Stack, Tooltip } from '@mui/material';
 import { useEmailContext } from 'providers/EmailProvider';
@@ -11,7 +10,6 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ListItemFloatingActions = ({ email }) => {
-  const { t: translateUi } = useTranslation();
   const { label, id } = useParams();
   const { emailDispatch, resizableWidth } = useEmailContext();
 
@@ -44,7 +42,7 @@ const ListItemFloatingActions = ({ email }) => {
           },
       ]}
     >
-      <Tooltip title={translateUi('ui.sections.email.email_list.email_list_item.delete_f6fdbe48')}>
+      <Tooltip title="Delete">
         <IconButton
           size="small"
           component={ButtonBase}
@@ -61,7 +59,7 @@ const ListItemFloatingActions = ({ email }) => {
           <IconifyIcon icon="material-symbols:delete-outline-rounded" />
         </IconButton>
       </Tooltip>
-      <Tooltip title={translateUi('ui.sections.email.email_list.email_list_item.archive_2621c6fd')}>
+      <Tooltip title="Archive">
         <IconButton
           size="small"
           component={ButtonBase}

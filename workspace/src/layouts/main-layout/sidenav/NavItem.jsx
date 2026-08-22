@@ -17,7 +17,6 @@ import { useNavContext } from '../NavProvider';
 import NavItemPopper from './NavItemPopper';
 
 const NavItem = ({ item, level }) => {
-  const { t: translateUi } = useTranslation();
   const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [openPopperMenu, setOpenPopperMenu] = useState(false);
@@ -229,10 +228,8 @@ const NavItem = ({ item, level }) => {
                   color="warning"
                   sx={{ [`& .${badgeClasses.badge}`]: { top: 6, right: -8 } }}
                 >
-                  {item.translate === false ? item.name : t(item.key || item.name)}
+                  {t(item.key || item.name)}
                 </Badge>
-              ) : item.translate === false ? (
-                item.name
               ) : (
                 t(item.key || item.name)
               )}
@@ -240,7 +237,7 @@ const NavItem = ({ item, level }) => {
               {item.new && (!sidenavCollapsed || level > 0 || isStackedSideNav) && (
                 <Chip
                   size="xsmall"
-                  label={translateUi('ffax.ui.new')}
+                  label="new"
                   color="warning"
                   sx={{ textTransform: 'capitalize', ml: 1 }}
                 />

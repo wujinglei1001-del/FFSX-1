@@ -1,12 +1,10 @@
 import { initialConfig } from 'config';
-import i18n from 'locales/i18n';
-import { paths } from 'routes/paths';
 import { users } from './users';
 
 export const files = [
   {
-    name: 'ffax_workspace.zip',
-    path: ':: files / New folder / ffax /',
+    name: 'aurora_test17.zip',
+    path: ':: files / New folder / aurora /',
     icon: 'material-symbols:folder-zip-outline-rounded',
   },
   {
@@ -15,11 +13,7 @@ export const files = [
     image: `${initialConfig.assetsDir}/images/ecommerce/products/96x96/3.webp`,
   },
   {
-    get name() {
-      return i18n.t(
-        'ui.data.search_result.how_to_not_click_on_perfectly_innocent_looking_links_ab207acf',
-      );
-    },
+    name: 'How_to_not_click_on_perfectly_innocent_looking_links_and_download_malware.pdf',
     path: ':: files / Download /',
     icon: 'material-symbols:picture-as-pdf-outline-rounded',
   },
@@ -63,58 +57,42 @@ export const tags = [
 export const breadcrumbs = [
   [
     {
-      get label() {
-        return i18n.t('ui.data.search_result.app_fc4a695f');
-      },
-      href: paths.workbench,
+      label: 'App',
+      href: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.data.search_result.e_commerce_c991b729');
-      },
-      href: paths.ecommerce,
+      label: 'E-commerce',
+      href: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.data.search_result.customers_035eae60');
-      },
-      href: paths.members,
+      label: 'Customers',
+      href: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.data.search_result.create_new_54770339');
-      },
-      href: paths.memberNewMember,
+      label: 'Create new',
+      href: '#!',
       active: true,
     },
   ],
   [
     {
-      get label() {
-        return i18n.t('ui.data.search_result.homepage_ac066591');
-      },
-      href: paths.workbench,
+      label: 'Homepage',
+      href: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.data.search_result.e_commerce_c991b729');
-      },
-      href: paths.ecommerce,
+      label: 'E-commerce',
+      href: '#!',
       active: true,
     },
   ],
   [
     {
-      get label() {
-        return i18n.t('ui.data.search_result.pages_600584c2');
-      },
-      href: paths.workbench,
+      label: 'Pages',
+      href: '#!',
     },
     {
-      get label() {
-        return i18n.t('ui.data.search_result.starter_438226dc');
-      },
-      href: paths.starter,
+      label: 'Starter',
+      href: '#!',
       active: true,
     },
   ],

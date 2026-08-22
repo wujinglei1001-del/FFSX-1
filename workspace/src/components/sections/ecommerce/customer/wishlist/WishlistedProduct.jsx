@@ -1,5 +1,4 @@
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Checkbox, Chip, Link, Rating, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { kebabCase } from 'lib/utils';
@@ -9,7 +8,6 @@ import paths from 'routes/paths';
 import Image from 'components/base/Image';
 
 const WishlistedProduct = ({ product, handleRemoveProduct }) => {
-  const { t: translateUi } = useTranslation();
   const { addItemToCart } = useEcommerce();
   const { register, control } = useFormContext();
   const { numberFormat, currencyFormat } = useNumberFormat();
@@ -68,9 +66,7 @@ const WishlistedProduct = ({ product, handleRemoveProduct }) => {
                 {product.sold > 2000 && (
                   <Chip
                     variant="filled"
-                    label={translateUi(
-                      'ui.sections.ecommerce.customer.wishlist.best_seller_271330d9',
-                    )}
+                    label="Best seller"
                     color="warning"
                     sx={{ position: 'absolute', left: 0, top: 0 }}
                   />
@@ -123,9 +119,7 @@ const WishlistedProduct = ({ product, handleRemoveProduct }) => {
                   {product.sold > 2000 && (
                     <Chip
                       variant="filled"
-                      label={translateUi(
-                        'ui.sections.ecommerce.customer.wishlist.best_seller_271330d9',
-                      )}
+                      label="Best seller"
                       color="warning"
                       sx={{ position: 'absolute', left: 0, top: 0 }}
                     />
@@ -151,8 +145,7 @@ const WishlistedProduct = ({ product, handleRemoveProduct }) => {
                     fontWeight: 500,
                   }}
                 >
-                  ({numberFormat(sold)}
-                  {translateUi('ui.sections.ecommerce.customer.wishlist.sold_01d2e75b')}
+                  ({numberFormat(sold)} sold)
                 </Typography>
                 <Typography
                   variant="caption"
@@ -162,9 +155,7 @@ const WishlistedProduct = ({ product, handleRemoveProduct }) => {
                     ml: 0.5,
                   }}
                 >
-                  {translateUi(
-                    'ui.sections.ecommerce.customer.wishlist.80_bought_in_past_month_cbc44b04',
-                  )}
+                  80+ bought in past month
                 </Typography>
               </Stack>
 
@@ -193,11 +184,7 @@ const WishlistedProduct = ({ product, handleRemoveProduct }) => {
                   >
                     {currencyFormat(price.regular)}
                   </Typography>
-                  <Chip
-                    variant="soft"
-                    color="success"
-                    label={translateUi('ui.sections.ecommerce.customer.wishlist.save_50_49024abb')}
-                  />
+                  <Chip variant="soft" color="success" label="Save 50%" />
                 </Stack>
               </Stack>
             </div>
@@ -235,9 +222,7 @@ const WishlistedProduct = ({ product, handleRemoveProduct }) => {
               }}
             >
               <Button variant="text" color="error" onClick={() => handleRemoveProduct(product.id)}>
-                {translateUi(
-                  'ui.sections.ecommerce.customer.wishlist.remove_from_wishlist_fe96c893',
-                )}
+                Remove from wishlist
               </Button>
             </Box>
           </Stack>

@@ -1,37 +1,33 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { List, ListItem, ListItemText, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { kebabCase } from 'lib/utils';
 
 const OrderTrackAside = ({ order }) => {
-  const { t: translateUi } = useTranslation();
   const orderInfo = useMemo(
     () => [
       {
-        label: translateUi('ui.sections.ecommerce.customer.order_track.order_number_1c14bf1e'),
+        label: 'Order number',
         value: order.number,
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.order_track.order_date_121398e9'),
+        label: 'Order date',
         value: dayjs(order.orderDate).format('MMMM DD, YYYY'),
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.order_track.ship_date_594273e6'),
+        label: 'Ship date',
         value: dayjs(order.shipDate).format('MMMM DD, YYYY'),
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.order_track.shipping_address_b3854a10'),
+        label: 'Shipping address',
         value: order.shippingAddress,
       },
       {
-        label: translateUi('ui.sections.ecommerce.customer.order_track.carrier_91b0ba24'),
+        label: 'Carrier',
         value: order.carrier,
       },
       {
-        label: translateUi(
-          'ui.sections.ecommerce.customer.order_track.carrier_tracking_number_3421680f',
-        ),
+        label: 'Carrier tracking number',
         value: order.carrierTrackingNumber,
       },
     ],
@@ -47,8 +43,7 @@ const OrderTrackAside = ({ order }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_track.order_1d75774c')}
-          {order.id}
+          Order {order.id}
         </Typography>
         <Typography
           variant="subtitle1"
@@ -57,9 +52,9 @@ const OrderTrackAside = ({ order }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_track.placed_on_0eee11a9')}
+          Placed on &nbsp;&nbsp;
           <strong>{dayjs(order.orderDate).format('MMMM DD, YYYY')}</strong>
-          &nbsp;&nbsp;{translateUi('common.at')}&nbsp;&nbsp;
+          &nbsp;&nbsp;at&nbsp;&nbsp;
           <strong>{dayjs(order.orderDate).format('hh:mm a')}</strong>
         </Typography>
       </div>

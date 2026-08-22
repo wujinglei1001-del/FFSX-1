@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button } from '@mui/material';
 import { taskDetailsData } from 'data/project/task-details';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -7,7 +6,6 @@ import Image from 'components/base/Image';
 import { VisuallyHiddenInput } from 'components/styled/VisuallyHiddenInput';
 
 const TaskBanner = () => {
-  const { t: translateUi } = useTranslation();
   const [bannerUrl, setBannerUrl] = useState(null);
   const previousUrlRef = useRef(null);
 
@@ -55,7 +53,7 @@ const TaskBanner = () => {
           height: 1,
           objectFit: 'cover',
         }}
-        alt={translateUi('ui.sections.project.task_details.taskbanner.task_banner_c65cbc78')}
+        alt="Task banner"
       />
 
       <Button
@@ -64,9 +62,7 @@ const TaskBanner = () => {
         color="neutral"
         shape="square"
         sx={{ position: 'absolute', top: 16, right: 16 }}
-        aria-label={translateUi(
-          'ui.sections.project.task_details.taskbanner.change_banner_image_fb84f9ee',
-        )}
+        aria-label="Change banner image"
       >
         <IconifyIcon icon="material-symbols:edit-outline-rounded" fontSize={20} />
         <VisuallyHiddenInput type="file" accept="image/*" onChange={handleFileChange} />

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, paperClasses } from '@mui/material';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,10 +9,9 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import Logo from 'components/common/Logo';
 import VibrantBackground from 'components/common/VibrantBackground';
 import AppbarActionItems from '../common/AppbarActionItems';
-import SearchBox, { SearchBoxButton } from '../common/search-box/WorkspaceSearchBox';
+import SearchBox, { SearchBoxButton } from '../common/search-box/SearchBox';
 
 const AppBar = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { drawerWidth, sidenavType, navColor },
     handleDrawerToggle,
@@ -68,7 +66,7 @@ const AppBar = () => {
             color="neutral"
             variant="soft"
             shape="circle"
-            aria-label={translateUi('ffax.ui.open_navigation')}
+            aria-label="open drawer"
             onClick={handleDrawerToggle}
           >
             <IconifyIcon icon="material-symbols:menu-rounded" sx={{ fontSize: 20 }} />

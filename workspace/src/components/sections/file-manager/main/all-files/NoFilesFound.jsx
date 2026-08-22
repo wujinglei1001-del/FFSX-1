@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import illustrationDark from 'assets/images/illustrations/12-dark.webp';
@@ -6,7 +5,6 @@ import illustration from 'assets/images/illustrations/12.webp';
 import Image from 'components/base/Image';
 
 const NoFilesFound = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack sx={{ height: 1, justifyContent: 'center' }}>
       <Stack
@@ -32,17 +30,14 @@ const NoFilesFound = () => {
           }}
         >
           <Typography variant="h4" sx={{ textAlign: 'center' }}>
-            {translateUi(
-              'ui.sections.file_manager.main.all_files.your_file_space_is_currently_empty_cb9a1a41',
-            )}
+            Your file space is currently empty!
           </Typography>
           <Typography
             variant="subtitle1"
             sx={{ color: 'text.secondary', letterSpacing: 0, maxWidth: 395, textAlign: 'center' }}
           >
-            {translateUi(
-              'ui.sections.file_manager.main.all_files.start_by_clicking_the_upload_button_to_begin_adding__17986857',
-            )}
+            Start by clicking the ‘Upload’ button to begin adding your files and managing your
+            space.
           </Typography>
         </Stack>
       </Stack>

@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Chip, Stack, Typography } from '@mui/material';
 import { blogDetailsTags } from 'data/content/blog';
 
 const BlogTags = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ mb: { xs: 3, md: 5 } }}>
       <Typography
@@ -14,7 +12,7 @@ const BlogTags = () => {
           color: 'text.secondary',
         }}
       >
-        {translateUi('ui.sections.content.details.blog.tags_848eed0f')}
+        Tags
       </Typography>
 
       <Stack direction="row" sx={{ gap: 1, flexWrap: 'wrap' }}>

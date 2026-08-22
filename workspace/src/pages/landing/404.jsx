@@ -1,12 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Stack, Typography } from '@mui/material';
 import illustrationDark from 'assets/images/illustrations/14-dark.webp';
 import illustration from 'assets/images/illustrations/14.webp';
-import { rootPaths } from 'routes/paths';
+import paths from 'routes/paths';
 import Image from 'components/base/Image';
 
 const Landing404 = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Stack
       sx={{
@@ -28,17 +26,15 @@ const Landing404 = () => {
 
       <div>
         <Typography variant="h4" sx={{ mb: 1 }}>
-          {translateUi('ui.pages.landing.404.page_not_found_f08f180b')}
+          Page not found!
         </Typography>
 
         <Typography variant="subtitle1" sx={{ mb: 3, color: 'text.secondary' }}>
-          {translateUi(
-            'ui.pages.landing.404.no_worries_let_s_take_you_back_while_our_bear_is_sea_b73c3ba1',
-          )}
+          No worries! Let's take you back while our bear is searching everywhere
         </Typography>
 
-        <Button variant="contained" href={rootPaths.root}>
-          {translateUi('ui.pages.landing.404.go_back_home_2de04546')}
+        <Button variant="contained" href={paths.landingHomepage}>
+          Go Back Home
         </Button>
       </div>
     </Stack>

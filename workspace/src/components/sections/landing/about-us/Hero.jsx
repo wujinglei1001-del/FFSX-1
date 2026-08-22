@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Chip, Container, Typography, keyframes } from '@mui/material';
 import { useThemeMode } from 'hooks/useThemeMode';
 import { cssVarRgba } from 'lib/utils';
@@ -10,7 +9,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import DashedLine from '../common/DashedLine';
 
 const Hero = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { assetsDir },
   } = useSettingsContext();
@@ -119,24 +117,27 @@ const Hero = () => {
               variant="h2"
               sx={{ typography: { xs: 'h3', sm: 'h2' }, maxWidth: 800, mx: 'auto', mb: 3 }}
             >
-              {translateUi('ffax.public.about.hero.prefix')}{' '}
+              Get to Know Us: Together, We Create{' '}
               <Box
                 component="span"
                 sx={{
                   color: 'primary.main',
                 }}
               >
-                {translateUi('ffax.public.about.hero.highlight')}
+                Magic!
               </Box>{' '}
+              🌟🤗
             </Typography>
             <Typography
               variant="body2"
               sx={{ maxWidth: 730, mx: 'auto', mb: 5, color: 'text.secondary' }}
             >
-              {translateUi('ffax.public.about.hero.description')}
+              Creating products with a strong identity. We provide brilliant ideas and adding the
+              world called success brand. We deliver customized marketing campaign to use your
+              audience to make a positive move.
             </Typography>
             <Button variant="contained" href={paths.landingContact}>
-              {translateUi('ffax.public.about.hero.contact')}
+              Let's talk now
             </Button>
           </Box>
         </Box>
@@ -172,7 +173,7 @@ const Hero = () => {
               content: '""',
               position: 'absolute',
               inset: 0,
-              backgroundImage: `url(${assetsDir}/images/showcase/16.webp)`,
+              backgroundImage: `url(${isDark ? `${assetsDir}/images/landing/hero/1-dark.webp` : `${assetsDir}/images/landing/hero/1.webp`})`,
               backgroundSize: 'cover',
               backgroundPosition: 'top',
               borderTopLeftRadius: 8,
@@ -187,7 +188,7 @@ const Hero = () => {
             <>
               <CursorElement
                 color="info"
-                label={translateUi('ffax.public.about.hero.open_integration')}
+                label="Easy Installation"
                 sx={{
                   top: '40%',
                 }}
@@ -195,7 +196,7 @@ const Hero = () => {
               <CursorElement
                 direction="left"
                 color="primary"
-                label={translateUi('ffax.public.about.hero.trusted_network')}
+                label="Modern Design"
                 sx={{
                   top: '10%',
                 }}

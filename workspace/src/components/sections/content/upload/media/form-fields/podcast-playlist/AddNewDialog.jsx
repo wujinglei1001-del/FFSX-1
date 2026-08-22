@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Button,
@@ -23,7 +22,6 @@ const ACCEPT_IMAGE_TYPES = { 'image/*': ['.jpg', '.jpeg', '.png', '.webp'] };
 const MAX_THUMBNAIL_SIZE_BYTES = 15 * 1024 * 1024; // 15MB
 
 const AddNewDialog = () => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
   const [thumbnailFile, setThumbnailFile] = useState(null);
   const [description, setDescription] = useState('');
@@ -50,7 +48,7 @@ const AddNewDialog = () => {
         startIcon={<IconifyIcon icon="material-symbols:add-2-rounded" />}
         onClick={() => handleDialog()}
       >
-        {translateUi('ui.sections.content.upload.media.add_new_07c4aaf0')}
+        Add New
       </Button>
 
       <Dialog
@@ -76,7 +74,7 @@ const AddNewDialog = () => {
             alignItems: 'center',
           }}
         >
-          {translateUi('ui.sections.content.upload.media.create_a_podcast_playlist_28f05d32')}
+          Create a Podcast/Playlist
           <IconButton onClick={() => handleDialog(false)}>
             <IconifyIcon
               icon="material-symbols:close"
@@ -90,21 +88,19 @@ const AddNewDialog = () => {
             variant="body2"
             sx={{ color: 'text.secondary', mb: 2, textWrap: 'pretty' }}
           >
-            {translateUi(
-              'ui.sections.content.upload.media.enter_your_playlist_title_thumbnail_and_descriptions_73411c9c',
-            )}
+            Enter your playlist Title, Thumbnail and Descriptions.
           </DialogContentText>
 
           <Box sx={{ mb: 3 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-              {translateUi('ui.sections.content.upload.media.title_768e0c1c')}
+              Title
             </Typography>
             <StyledTextField
               type="text"
               fullWidth
               variant="filled"
               size="large"
-              placeholder={translateUi('ui.sections.content.upload.media.title_768e0c1c')}
+              placeholder="Title"
               name="title"
               sx={{ mb: 0.5 }}
               slotProps={{
@@ -123,7 +119,7 @@ const AddNewDialog = () => {
 
           <Box sx={{ mb: 3 }}>
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-              {translateUi('ui.sections.content.upload.media.thumbnail_20f9b91f')}
+              Thumbnail
             </Typography>
 
             <FileDropZone
@@ -153,16 +149,15 @@ const AddNewDialog = () => {
                   fontWeight: 'medium',
                 }}
               >
-                {translateUi(
-                  'ui.sections.content.upload.media.images_should_be_in_jpeg_or_png_format_up_to_15mb_in_27c465d7',
-                )}
+                Images should be in JPEG or PNG format, up to 15MB in size. A 16:9 aspect ratio is
+                required, with 3000x3000 pixels recommended for high resolution.
               </Typography>
             </Stack>
           </Box>
 
           <Box>
             <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-              {translateUi('ui.sections.content.upload.media.description_55f8ebc8')}
+              Description
             </Typography>
             <Editor
               onChange={(value) => setDescription(value)}
@@ -195,7 +190,7 @@ const AddNewDialog = () => {
 
         <DialogActions sx={{ p: 3, justifyContent: 'flex-start' }}>
           <Button color="error" onClick={handleDialogClose}>
-            {translateUi('ui.sections.content.upload.media.remove_e963907d')}
+            Remove
           </Button>
           <Stack direction="row" sx={{ gap: 1, justifyContent: 'flex-end', width: 1 }}>
             <Button
@@ -204,10 +199,10 @@ const AddNewDialog = () => {
               onClick={handleDialogClose}
               sx={{ ml: 'auto !important' }}
             >
-              {translateUi('ui.sections.content.upload.media.discard_36fff63c')}
+              Discard
             </Button>
             <Button type="button" variant="contained" color="primary" onClick={handleDialogClose}>
-              {translateUi('ui.sections.content.upload.media.confirm_04a21221')}
+              Confirm
             </Button>
           </Stack>
         </DialogActions>

@@ -1,5 +1,4 @@
 import react from '@vitejs/plugin-react';
-import { copyFileSync, mkdirSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { defineConfig, loadEnv } from 'vite';
@@ -10,27 +9,6 @@ const rootHome = path.join(projectRoot, 'root-home');
 const rootHomeOutDir = path.join(projectRoot, 'dist-root');
 const publicRoot = path.join(projectRoot, 'public');
 
-const rootHomePublicAssets = [
-  'ffax.svg',
-  'assets/videos/showcase/beam.webm',
-  'assets/images/showcase/16.webp',
-  ...Array.from({ length: 7 }, (_, index) => `assets/images/logo/${index + 12}.svg`),
-  ...Array.from({ length: 9 }, (_, index) => `assets/images/landing/team/${index + 2}.webp`),
-  'images/landing/team/jinglei-wu.png',
-];
-
-const copyRootHomePublicAssets = () => ({
-  name: 'ffax-root-home-public-assets',
-  closeBundle() {
-    rootHomePublicAssets.forEach((relativePath) => {
-      const sourcePath = path.join(publicRoot, relativePath);
-      const targetPath = path.join(rootHomeOutDir, relativePath);
-      mkdirSync(path.dirname(targetPath), { recursive: true });
-      copyFileSync(sourcePath, targetPath);
-    });
-  },
-});
-
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, projectRoot, '');
   const port = Number(env.VITE_APP_PORT ?? 5002);
@@ -38,9 +16,9 @@ export default defineConfig(({ mode }) => {
   return {
     root: rootHome,
     envDir: projectRoot,
-    publicDir: mode === 'production' ? false : publicRoot,
+    publicDir: publicRoot,
     base: '/',
-    plugins: [react(), tsconfigPaths({ root: projectRoot }), copyRootHomePublicAssets()],
+    plugins: [react(), tsconfigPaths({ root: projectRoot })],
     server: {
       host: '0.0.0.0',
       port,
@@ -68,15 +46,15 @@ export default defineConfig(({ mode }) => {
         },
         {
           find: /^routes\/paths$/,
-          replacement: path.join(projectRoot, 'src/routes/production-paths.js'),
+          replacement: path.join(projectRoot, 'src/routes/paths.js'),
         },
         {
           find: /^locales\/langs\/en\.json$/,
-          replacement: path.join(projectRoot, 'src/locales/production/en.json'),
+          replacement: path.join(projectRoot, 'src/locales/langs/en.json'),
         },
         {
           find: /^locales\/langs\/zh\.json$/,
-          replacement: path.join(projectRoot, 'src/locales/production/zh.json'),
+          replacement: path.join(projectRoot, 'src/locales/langs/zh.json'),
         },
       ],
     },

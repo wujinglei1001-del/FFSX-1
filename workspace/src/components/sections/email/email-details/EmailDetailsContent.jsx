@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import { useEmailContext } from 'providers/EmailProvider';
 import Image from 'components/base/Image';
 
 const EmailDetailsContent = () => {
-  const { t: translateUi } = useTranslation();
   const {
     emailState: { email },
   } = useEmailContext();
@@ -25,13 +23,9 @@ const EmailDetailsContent = () => {
             {email?.user.email}
           </Typography>
           <Typography variant="caption" sx={{ mr: 0.5, color: 'text.disabled' }}>
-            {translateUi('ui.sections.email.email_details.emaildetailscontent.to_7e7fbc81')}{' '}
+            To:{' '}
           </Typography>
-          <Typography variant="caption">
-            {translateUi(
-              'ui.sections.email.email_details.emaildetailscontent.me_anotherperson_email_com_31f7b058',
-            )}
-          </Typography>
+          <Typography variant="caption">Me, anotherperson@email.com</Typography>
         </div>
         <Typography variant="body2" sx={{ ml: 'auto' }}>
           {dayjs(email?.time).fromNow()}

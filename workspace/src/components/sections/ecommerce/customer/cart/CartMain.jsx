@@ -1,7 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Container, Divider, Paper, Stack, Typography } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
-import i18n from 'locales/i18n';
 import { useEcommerce } from 'providers/EcommerceProvider';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -23,7 +21,7 @@ const ActionButtons = ({ sx }) => (
         <IconifyIcon icon="material-symbols:chevron-left-rounded" fontSize="20px !important" />
       }
     >
-      {i18n.t('ui.sections.ecommerce.customer.cart.continue_shopping_84a90820')}
+      Continue shopping
     </Button>
     <Button
       variant="soft"
@@ -32,13 +30,12 @@ const ActionButtons = ({ sx }) => (
         <IconifyIcon icon="material-symbols:favorite-outline-rounded" fontSize="20px !important" />
       }
     >
-      {i18n.t('ui.sections.ecommerce.customer.cart.move_all_items_into_wishlist_6d7698d2')}
+      Move all items into wishlist
     </Button>
   </Stack>
 );
 
 const CartMain = () => {
-  const { t: translateUi } = useTranslation();
   const { cartItems } = useEcommerce();
   const { currencyFormat } = useNumberFormat();
 
@@ -52,7 +49,7 @@ const CartMain = () => {
             mb: 5,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.cart.excellent_choices_961a4115')}
+          Excellent choices!
         </Typography>
 
         <ActionButtons sx={{ mb: 5 }} />
@@ -75,13 +72,12 @@ const CartMain = () => {
                 fontWeight: 700,
               }}
             >
-              {cartItems.reduce((sum, item) => sum + item.quantity, 0)}
-              {translateUi('ui.sections.ecommerce.customer.cart.items_7316c8b2')}
+              {cartItems.reduce((sum, item) => sum + item.quantity, 0)} items
             </Typography>
 
             <Stack direction="row" sx={{ gap: { xs: 3, md: 5 }, alignItems: 'center' }}>
               <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
-                {translateUi('ui.sections.ecommerce.customer.cart.total_5a537e20')}
+                total
               </Typography>
               <Typography variant="h5">
                 {currencyFormat(

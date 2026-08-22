@@ -2,7 +2,6 @@ import { useMemo } from 'react';
 import { Avatar, Box, Chip, Link, Stack, Typography } from '@mui/material';
 import { DataGrid, GRID_CHECKBOX_SELECTION_COL_DEF } from '@mui/x-data-grid';
 import dayjs from 'dayjs';
-import i18n from 'locales/i18n';
 import DashboardMenu from 'components/common/DashboardMenu';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 import { getStatusChipColor } from '..';
@@ -14,9 +13,7 @@ export const columnDefs = [
   },
   {
     field: 'member',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.member_6853c98a');
-    },
+    headerName: 'Member',
     headerClassName: 'member-header',
     cellClassName: 'member-cell',
     flex: 2.1,
@@ -38,9 +35,7 @@ export const columnDefs = [
   },
   {
     field: 'idNo',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.id_no_2cee330c');
-    },
+    headerName: 'ID No',
     headerClassName: 'id-no-header',
     cellClassName: 'id-no-cell',
     flex: 1,
@@ -48,9 +43,7 @@ export const columnDefs = [
   },
   {
     field: 'jobTitle',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.job_title_0e1d5b56');
-    },
+    headerName: 'Job title',
     headerClassName: 'job-title-header',
     cellClassName: 'job-title-cell',
     flex: 1.9,
@@ -63,9 +56,7 @@ export const columnDefs = [
   },
   {
     field: 'team',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.team_21888726');
-    },
+    headerName: 'Team',
     headerClassName: 'team-header',
     cellClassName: 'team-cell',
     flex: 1.8,
@@ -73,24 +64,20 @@ export const columnDefs = [
   },
   {
     field: 'email',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.email_84add5b2');
-    },
+    headerName: 'Email',
     headerClassName: 'email-header',
     cellClassName: 'email-cell',
     flex: 2,
     minWidth: 230,
     renderCell: (params) => (
-      <Link href={`mailto:${params.row.email}`} variant="body2">
+      <Link href="#!" variant="body2">
         {params.row.email}
       </Link>
     ),
   },
   {
     field: 'phoneNo',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.phone_no_8578b945');
-    },
+    headerName: 'Phone No',
     headerClassName: 'phone-no-header',
     cellClassName: 'phone-no-cell',
     flex: 1.8,
@@ -98,9 +85,7 @@ export const columnDefs = [
   },
   {
     field: 'city',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.city_4271627f');
-    },
+    headerName: 'City',
     headerClassName: 'city-header',
     cellClassName: 'city-cell',
     flex: 1.4,
@@ -108,9 +93,7 @@ export const columnDefs = [
   },
   {
     field: 'status',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.status_bae7d5be');
-    },
+    headerName: 'Status',
     headerClassName: 'status-header',
     cellClassName: 'status-cell',
     flex: 1.2,
@@ -125,9 +108,7 @@ export const columnDefs = [
   },
   {
     field: 'hiredDate',
-    get headerName() {
-      return i18n.t('ui.sections.member.member_list.list_view.city_4271627f');
-    },
+    headerName: 'City',
     headerClassName: 'hired-date-header',
     cellClassName: 'hired-Date-cell',
     flex: 1,
@@ -169,7 +150,9 @@ const MembersListView = ({ data }) => {
           }}
           pageSizeOptions={[7]}
           slots={{
-            basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
+            basePagination: (props) => (
+              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+            ),
           }}
         />
       </Box>

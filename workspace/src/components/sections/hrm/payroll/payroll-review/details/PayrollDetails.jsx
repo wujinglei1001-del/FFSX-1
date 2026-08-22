@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
@@ -7,17 +6,14 @@ import Typography from '@mui/material/Typography';
 import { DataGrid } from '@mui/x-data-grid/DataGrid';
 import { gridClasses } from '@mui/x-data-grid/constants';
 import { employeeSummaryData, taxSummaryData } from 'data/hrm/payroll/payroll-review';
-import useNumberFormat from 'hooks/useNumberFormat';
-import i18n from 'locales/i18n';
+import { currencyFormat } from 'lib/utils';
 import DataGridPagination from 'components/pagination/DataGridPagination';
 import DetailsTabs from './DetailsTabs';
 
-const createEmployeeColumns = (currencyFormat) => [
+const employeeColumns = [
   {
     field: 'employee',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.employees_8c5b6be2');
-    },
+    headerName: 'Employees',
     headerClassName: 'employee-header',
     cellClassName: 'employee-cell',
     flex: 1.85,
@@ -42,8 +38,7 @@ const createEmployeeColumns = (currencyFormat) => [
               {params.row.employee.name}
             </Typography>
             <Typography variant="caption" sx={{ fontWeight: 500, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.hrm.payroll.payroll_review.id_d789a1e9')}
-              {params.row.employee.empId}
+              ID: {params.row.employee.empId}
             </Typography>
           </Stack>
         </Stack>
@@ -52,9 +47,7 @@ const createEmployeeColumns = (currencyFormat) => [
   },
   {
     field: 'totalHours',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.total_hours_ad51f9a7');
-    },
+    headerName: 'Total Hours',
     headerClassName: 'total-hours-header',
     cellClassName: 'total-hours-cell',
     flex: 1,
@@ -62,17 +55,14 @@ const createEmployeeColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {params.row.totalHours}
-          {i18n.t('ui.sections.hrm.payroll.payroll_review.hrs_a23c4292')}
+          {params.row.totalHours}hrs
         </Typography>
       );
     },
   },
   {
     field: 'totalGross',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.total_gross_60f4c7a9');
-    },
+    headerName: 'Total Gross',
     headerClassName: 'total-gross-header',
     cellClassName: 'total-gross-cell',
     headerAlign: 'right',
@@ -82,16 +72,14 @@ const createEmployeeColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {currencyFormat(params.row.totalGross, { maximumFractionDigits: 0 })}
+          {currencyFormat(params.row.totalGross, 'en-US', { maximumFractionDigits: 0 })}
         </Typography>
       );
     },
   },
   {
     field: 'totalDeduction',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.total_deduction_89ad2516');
-    },
+    headerName: 'Total Deduction',
     headerClassName: 'total-deduction-header',
     cellClassName: 'total-deduction-cell',
     headerAlign: 'right',
@@ -101,16 +89,14 @@ const createEmployeeColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {currencyFormat(params.row.totalDeduction, { maximumFractionDigits: 0 })}
+          {currencyFormat(params.row.totalDeduction, 'en-US', { maximumFractionDigits: 0 })}
         </Typography>
       );
     },
   },
   {
     field: 'netPay',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.net_pay_a75db049');
-    },
+    headerName: 'Net Pay',
     headerAlign: 'right',
     headerClassName: 'net-pay-header',
     cellClassName: 'net-pay-cell',
@@ -120,7 +106,7 @@ const createEmployeeColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {currencyFormat(params.row.totalGross - params.row.totalDeduction, {
+          {currencyFormat(params.row.totalGross - params.row.totalDeduction, 'en-US', {
             maximumFractionDigits: 0,
           })}
         </Typography>
@@ -128,12 +114,10 @@ const createEmployeeColumns = (currencyFormat) => [
     },
   },
 ];
-const createTaxColumns = (currencyFormat) => [
+const taxColumns = [
   {
     field: 'employees',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.employees_8c5b6be2');
-    },
+    headerName: 'Employees',
     headerClassName: 'employees-header',
     cellClassName: 'employees-cell',
     flex: 1.5,
@@ -148,9 +132,7 @@ const createTaxColumns = (currencyFormat) => [
   },
   {
     field: 'employeeTaxes',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.employee_taxes_497d5f42');
-    },
+    headerName: 'Employee Taxes',
     headerClassName: 'employee-tax-header',
     cellClassName: 'employee-tax-cell',
     flex: 1,
@@ -158,16 +140,14 @@ const createTaxColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {currencyFormat(params.row.employeeTaxes, { maximumFractionDigits: 0 })}
+          {currencyFormat(params.row.employeeTaxes, 'en-US', { maximumFractionDigits: 0 })}
         </Typography>
       );
     },
   },
   {
     field: 'companyTaxes',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.company_taxes_c3a401d7');
-    },
+    headerName: 'Company Taxes',
     headerClassName: 'company-tax-header',
     cellClassName: 'company-tax-cell',
     flex: 1,
@@ -175,16 +155,14 @@ const createTaxColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {currencyFormat(params.row.companyTaxes, { maximumFractionDigits: 0 })}
+          {currencyFormat(params.row.companyTaxes, 'en-US', { maximumFractionDigits: 0 })}
         </Typography>
       );
     },
   },
   {
     field: 'total',
-    get headerName() {
-      return i18n.t('ui.sections.hrm.payroll.payroll_review.total_b25928c6');
-    },
+    headerName: 'Total',
     headerAlign: 'right',
     headerClassName: 'total-header',
     cellClassName: 'total-cell',
@@ -194,7 +172,7 @@ const createTaxColumns = (currencyFormat) => [
     renderCell: (params) => {
       return (
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          {currencyFormat(params.row.employeeTaxes - params.row.companyTaxes, {
+          {currencyFormat(params.row.employeeTaxes - params.row.companyTaxes, 'en-US', {
             maximumFractionDigits: 0,
           })}
         </Typography>
@@ -204,19 +182,13 @@ const createTaxColumns = (currencyFormat) => [
 ];
 
 const PayrollDetails = () => {
-  const { t: translateUi } = useTranslation();
-  const { currencyFormat } = useNumberFormat();
   const [tab, setTab] = useState('employee');
 
   const handleTabChange = (_, newValue) => {
     setTab(newValue);
   };
 
-  const activeColumns = useMemo(
-    () =>
-      tab === 'employee' ? createEmployeeColumns(currencyFormat) : createTaxColumns(currencyFormat),
-    [currencyFormat, tab],
-  );
+  const activeColumns = useMemo(() => (tab === 'employee' ? employeeColumns : taxColumns), [tab]);
 
   const activeRows = useMemo(
     () => (tab === 'employee' ? employeeSummaryData : taxSummaryData),
@@ -234,10 +206,10 @@ const PayrollDetails = () => {
         }}
       >
         <Typography variant="h5" sx={{ fontWeight: 500 }}>
-          {translateUi('ui.sections.hrm.payroll.payroll_review.payroll_details_718e06dc')}
+          Payroll Details
         </Typography>
         <Button variant="soft" color="neutral">
-          {translateUi('ui.sections.hrm.payroll.payroll_review.export_f3e4fadb')}
+          Export
         </Button>
       </Stack>
       <DetailsTabs value={tab} onChange={handleTabChange} sx={{ mb: 3 }} />
@@ -255,7 +227,9 @@ const PayrollDetails = () => {
           }}
           pageSizeOptions={[6, activeRows.length]}
           slots={{
-            basePagination: (props) => <DataGridPagination showFullPagination {...props} />,
+            basePagination: (props) => (
+              <DataGridPagination showAllHref="#!" showFullPagination {...props} />
+            ),
           }}
           sx={({ spacing }) => ({
             '& .MuiDataGrid-columnHeader[aria-colindex="1"]': {
@@ -277,7 +251,7 @@ const PayrollDetails = () => {
             },
             [`& .${gridClasses.row}`]: {
               [`& .${gridClasses.cell}`]: {
-                '&.ffax-data-grid-cell': {
+                '&.aurora-data-grid-cell': {
                   '&:not(.employee-cell, .employees-cell, .net-pay-cell, .total-cell)': {
                     p: `0 ${spacing(1.25)}`,
                   },

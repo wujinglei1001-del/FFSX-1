@@ -1,7 +1,6 @@
 import { Link, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import calendar from 'dayjs/plugin/calendar';
-import paths from 'routes/paths';
 
 dayjs.extend(calendar);
 
@@ -10,7 +9,7 @@ const AuthorInfo = ({ author, createdAt }) => {
     <div>
       <Typography
         component={Link}
-        href={paths.memberProfile}
+        href="#!"
         variant="subtitle2"
         sx={{
           display: 'block',

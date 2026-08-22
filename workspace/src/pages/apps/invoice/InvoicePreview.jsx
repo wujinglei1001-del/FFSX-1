@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { Button, Paper, Stack } from '@mui/material';
 import { invoiceData } from 'data/invoice';
@@ -8,7 +7,6 @@ import PageHeader from 'components/sections/ecommerce/admin/common/PageHeader';
 import InvoicePreviewContainer from 'components/sections/invoice/invoice-preview/InvoicePreviewContainer';
 
 const InvoicePreview = () => {
-  const { t: translateUi } = useTranslation();
   const { id } = useParams();
 
   return (
@@ -17,20 +15,14 @@ const InvoicePreview = () => {
         <PageHeader
           title={`Invoice #${id || invoiceData.invoiceDetails.invoiceNumber}`}
           breadcrumb={[
-            { label: translateUi('ui.pages.apps.invoice.invoicepreview.home_70f8bb9a'), url: '/' },
-            {
-              label: translateUi('ui.pages.apps.invoice.invoicepreview.invoice_f9f38818'),
-              url: paths.createInvoice,
-            },
-            {
-              label: translateUi('ui.pages.apps.invoice.invoicepreview.invoice_preview_e6cf1d96'),
-              active: true,
-            },
+            { label: 'Home', url: '/' },
+            { label: 'Invoice', url: paths.createInvoice },
+            { label: 'Invoice preview', active: true },
           ]}
           actionComponent={
             <Stack direction="row" sx={{ flexWrap: 'wrap', gap: { xs: 0.5, sm: 1 } }}>
               <Button variant="contained" color="primary">
-                {translateUi('ui.pages.apps.invoice.invoicepreview.send_invoice_0c9fed25')}
+                Send invoice
               </Button>
               <Button variant="soft" shape="square" color="neutral">
                 <IconifyIcon icon="mdi:edit-outline" sx={{ fontSize: 20 }} />

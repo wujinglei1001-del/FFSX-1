@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Stack, TextField } from '@mui/material';
-import i18n from 'locales/i18n';
 import { useSnackbar } from 'notistack';
 import { useAccounts } from 'providers/AccountsProvider';
 import * as yup from 'yup';
@@ -13,16 +11,11 @@ import InfoCard from '../common/InfoCard';
 import InfoCardAttribute from '../common/InfoCardAttribute';
 
 const nameSchema = yup.object().shape({
-  firstName: yup
-    .string()
-    .required(i18n.t('ui.sections.account.personal_info.names.first_name_is_required_df38d55f')),
-  lastName: yup
-    .string()
-    .required(i18n.t('ui.sections.account.personal_info.names.last_name_is_required_b1d9a735')),
+  firstName: yup.string().required('First name is required'),
+  lastName: yup.string().required('Last name is required'),
 });
 
 const Names = () => {
-  const { t: translateUi } = useTranslation();
   const { personalInfo } = useAccounts();
   const [open, setOpen] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
@@ -61,14 +54,8 @@ const Names = () => {
     <FormProvider {...methods}>
       <InfoCard setOpen={setOpen}>
         <Stack sx={{ gap: { xs: 2, sm: 1 } }}>
-          <InfoCardAttribute
-            label={translateUi('ui.sections.account.personal_info.names.first_name_b6ea992a')}
-            value={currentName.firstName}
-          />
-          <InfoCardAttribute
-            label={translateUi('ui.sections.account.personal_info.names.last_name_863cb39f')}
-            value={currentName.lastName}
-          />
+          <InfoCardAttribute label="First Name" value={currentName.firstName} />
+          <InfoCardAttribute label="Last Name" value={currentName.lastName} />
         </Stack>
         <IconifyIcon
           icon="material-symbols-light:edit-outline"
@@ -76,10 +63,8 @@ const Names = () => {
         />
       </InfoCard>
       <AccountFormDialog
-        title={translateUi('ui.sections.account.personal_info.names.name_709a2322')}
-        subtitle={translateUi(
-          'ui.sections.account.personal_info.names.enter_your_updated_first_and_last_name_below_your_na_a7f4197c',
-        )}
+        title="Name"
+        subtitle="Enter your updated first and last name below. Your name will be reflected across all your account settings."
         open={open}
         onSubmit={onSubmit}
         handleDialogClose={() => setOpen(false)}
@@ -88,16 +73,16 @@ const Names = () => {
       >
         <Stack sx={{ gap: 1, p: 0.125 }}>
           <TextField
-            placeholder={translateUi('ui.sections.account.personal_info.names.first_name_b6ea992a')}
-            label={translateUi('ui.sections.account.personal_info.names.first_name_b6ea992a')}
+            placeholder="First Name"
+            label="First Name"
             error={!!errors.firstName}
             helperText={errors.firstName?.message}
             fullWidth
             {...register('firstName')}
           />
           <TextField
-            placeholder={translateUi('ui.sections.account.personal_info.names.last_name_863cb39f')}
-            label={translateUi('ui.sections.account.personal_info.names.last_name_863cb39f')}
+            placeholder="Last Name"
+            label="Last Name"
             error={!!errors.lastName}
             helperText={errors.lastName?.message}
             fullWidth

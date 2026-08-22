@@ -1,5 +1,4 @@
 import { useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -25,7 +24,6 @@ const VideoResponses = () => {
 export default VideoResponses;
 
 const StrengthsAndWeaknesses = () => {
-  const { t: translateUi } = useTranslation();
   const {
     setValue,
     watch,
@@ -65,9 +63,7 @@ const StrengthsAndWeaknesses = () => {
           mb: 1,
         }}
       >
-        {translateUi(
-          'ui.sections.hiring.candidate.job_application.1_what_are_your_strengths_and_weaknesses_49b31427',
-        )}
+        1. What are your strengths and weaknesses?
       </Typography>
       <Stack
         sx={{
@@ -105,9 +101,8 @@ const StrengthsAndWeaknesses = () => {
               fontWeight: 500,
             }}
           >
-            {translateUi(
-              'ui.sections.hiring.candidate.job_application.upload_a_video_mp4_mov_or_avi_format_up_to_100mb_in__b358c4c1',
-            )}
+            Upload a video (MP4, MOV, or AVI format, up to 100MB in size). Recommended length: 1
+            min.
           </Typography>
         </Stack>
       </Stack>
@@ -116,7 +111,6 @@ const StrengthsAndWeaknesses = () => {
 };
 
 const ApplyingReason = () => {
-  const { t: translateUi } = useTranslation();
   const {
     setValue,
     watch,
@@ -153,9 +147,7 @@ const ApplyingReason = () => {
           mb: 1,
         }}
       >
-        {translateUi(
-          'ui.sections.hiring.candidate.job_application.2_why_did_you_choose_to_apply_to_this_company_518f39d6',
-        )}
+        2. Why did you choose to apply to this company?
       </Typography>
       <Stack
         sx={{
@@ -193,9 +185,8 @@ const ApplyingReason = () => {
               fontWeight: 500,
             }}
           >
-            {translateUi(
-              'ui.sections.hiring.candidate.job_application.upload_a_video_mp4_mov_or_avi_format_up_to_100mb_in__b358c4c1',
-            )}
+            Upload a video (MP4, MOV, or AVI format, up to 100MB in size). Recommended length: 1
+            min.
           </Typography>
         </Stack>
       </Stack>

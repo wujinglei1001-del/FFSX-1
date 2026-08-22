@@ -1,19 +1,16 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import PageBreadcrumb from 'components/sections/common/PageBreadcrumb';
 import StyledTextField from 'components/styled/StyledTextField';
 import ActiveSearchFilter from './ActiveSearchFilter';
 
 const Header = ({ toggleDrawer }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const [search, setSearch] = useState('');
 
@@ -40,19 +37,11 @@ const Header = ({ toggleDrawer }) => {
         >
           <PageBreadcrumb
             items={[
-              {
-                label: translateUi('ui.sections.hiring.candidate.job_list.home_70f8bb9a'),
-                url: paths.workbench,
-              },
-              {
-                label: translateUi('ui.sections.hiring.candidate.job_list.job_list_e9d5f772'),
-                active: true,
-              },
+              { label: 'Home', url: '#!' },
+              { label: 'Job List', active: true },
             ]}
           />
-          <Typography variant="h4">
-            {translateUi('ui.sections.hiring.candidate.job_list.job_list_e9d5f772')}
-          </Typography>
+          <Typography variant="h4">Job List</Typography>
         </Stack>
         <Stack
           direction="row"
@@ -63,7 +52,7 @@ const Header = ({ toggleDrawer }) => {
           }}
         >
           <StyledTextField
-            placeholder={translateUi('ui.sections.hiring.candidate.job_list.search_bce06414')}
+            placeholder="Search"
             value={search}
             fullWidth
             onChange={(e) => setSearch(e.target.value)}
@@ -87,11 +76,7 @@ const Header = ({ toggleDrawer }) => {
             onClick={toggleDrawer(true)}
           >
             <IconifyIcon icon="material-symbols:filter-alt-outline" fontSize={20} />
-            {upLg && (
-              <Box component="span">
-                {translateUi('ui.sections.hiring.candidate.job_list.filter_d7decf1a')}
-              </Box>
-            )}
+            {upLg && <Box component="span">Filter</Box>}
           </Button>
         </Stack>
       </Stack>

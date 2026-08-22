@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Chip, Rating, Stack, Typography, ratingClasses } from '@mui/material';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { useEcommerce } from 'providers/EcommerceProvider';
@@ -7,7 +6,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import PageBreadcrumb from '../../../common/PageBreadcrumb';
 
 const GeneralInfo = ({ sx }) => {
-  const { t: translateUi } = useTranslation();
   const { product } = useEcommerce();
   const { numberFormat } = useNumberFormat();
 
@@ -15,20 +13,9 @@ const GeneralInfo = ({ sx }) => {
     <Box sx={{ ...sx }}>
       <PageBreadcrumb
         items={[
-          {
-            label: translateUi('ui.sections.ecommerce.customer.product_details.home_70f8bb9a'),
-            url: paths.ecommerceHomepage,
-          },
-          {
-            label: translateUi(
-              'ui.sections.ecommerce.customer.product_details.living_room_25ff70b3',
-            ),
-            url: paths.products,
-          },
-          {
-            label: translateUi('ui.sections.ecommerce.customer.product_details.armchair_d5727b18'),
-            active: true,
-          },
+          { label: 'Home', url: paths.ecommerceHomepage },
+          { label: 'Living room', url: '#!' },
+          { label: 'Armchair', active: true },
         ]}
         sx={{ mb: { xl: 5, xs: 3 } }}
       />
@@ -53,9 +40,7 @@ const GeneralInfo = ({ sx }) => {
           <Chip
             variant="soft"
             color="warning"
-            label={translateUi(
-              'ui.sections.ecommerce.customer.product_details.top_seller_44324ec9',
-            )}
+            label="Top Seller"
             icon={<IconifyIcon icon="material-symbols:stars-rounded" fontSize={16} />}
           />
           <Stack
@@ -84,8 +69,7 @@ const GeneralInfo = ({ sx }) => {
                 color: 'text.secondary',
               }}
             >
-              ({numberFormat(product?.reviews || 0)}
-              {translateUi('ui.sections.ecommerce.customer.product_details.reviews_93420d0c')}
+              ({numberFormat(product?.reviews || 0)} reviews)
             </Typography>
           </Stack>
         </Stack>

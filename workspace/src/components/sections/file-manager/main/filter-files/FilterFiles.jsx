@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -17,41 +16,30 @@ import {
   dialogClasses,
 } from '@mui/material';
 import { users } from 'data/users';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const filterConfigs = [
   {
     id: 'type',
-    get label() {
-      return i18n.t('ui.sections.file_manager.main.filter_files.type_3deb7456');
-    },
+    label: 'Type',
     options: [
       {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.documents_687c8286');
-        },
+        label: 'Documents',
         value: 'documents',
       },
       {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.images_09e871c9');
-        },
+        label: 'Images',
         value: 'images',
       },
       {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.videos_56b71e89');
-        },
+        label: 'Videos',
         value: 'videos',
       },
     ],
   },
   {
     id: 'people',
-    get label() {
-      return i18n.t('ui.sections.file_manager.main.filter_files.people_b37554f6');
-    },
+    label: 'People',
     options: users.map(({ name, avatar }) => ({
       label: (
         <Stack
@@ -70,52 +58,27 @@ const filterConfigs = [
   },
   {
     id: 'modified',
-    get label() {
-      return i18n.t('ui.sections.file_manager.main.filter_files.modified_19a532c8');
-    },
+    label: 'Modified',
     options: [
-      {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.last_7_days_df833fe8');
-        },
-        value: '7days',
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.last_30_days_6b329852');
-        },
-        value: '30days',
-      },
-      {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.last_year_3cf4d8d7');
-        },
-        value: '1year',
-      },
+      { label: 'Last 7 days', value: '7days' },
+      { label: 'Last 30 days', value: '30days' },
+      { label: 'Last year', value: '1year' },
     ],
   },
   {
     id: 'location',
-    get label() {
-      return i18n.t('ui.sections.file_manager.main.filter_files.location_d219c681');
-    },
+    label: 'Location',
     options: [
       {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.shared_with_me_f40ca84f');
-        },
+        label: 'Shared with me',
         value: 'shared',
       },
       {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.my_drive_7ab39214');
-        },
+        label: 'My drive',
         value: 'drive',
       },
       {
-        get label() {
-          return i18n.t('ui.sections.file_manager.main.filter_files.starred_e61561a8');
-        },
+        label: 'Starred',
         value: 'starred',
       },
     ],
@@ -123,7 +86,6 @@ const filterConfigs = [
 ];
 
 const FilterFiles = () => {
-  const { t: translateUi } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [filterValues, setFilterValues] = useState({});
 
@@ -167,7 +129,7 @@ const FilterFiles = () => {
             alignItems: 'center',
           }}
         >
-          {translateUi('ui.sections.file_manager.main.filter_files.filter_d7decf1a')}
+          Filter
           <IconButton onClick={handleDialogClose}>
             <IconifyIcon
               icon="material-symbols:close-rounded"
@@ -177,9 +139,7 @@ const FilterFiles = () => {
         </DialogTitle>
         <DialogContent sx={{ pb: 3 }}>
           <DialogContentText sx={{ mb: 2 }}>
-            {translateUi(
-              'ui.sections.file_manager.main.filter_files.filter_files_by_type_people_modified_or_location_2eb76906',
-            )}
+            Filter files by type, people, modified, or location.
           </DialogContentText>
 
           <Stack
@@ -215,10 +175,10 @@ const FilterFiles = () => {
 
         <DialogActions sx={{ p: 3, pt: 0 }}>
           <Button variant="soft" color="neutral" sx={{ px: 3 }} onClick={handleReset}>
-            {translateUi('ui.sections.file_manager.main.filter_files.reset_44c57abd')}
+            Reset
           </Button>
           <Button variant="contained" color="primary" sx={{ px: 3 }} onClick={handleDialogClose}>
-            {translateUi('ui.sections.file_manager.main.filter_files.apply_cfea419c')}
+            Apply
           </Button>
         </DialogActions>
       </Dialog>

@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useGSAP } from '@gsap/react';
 import { Box, Container, Stack } from '@mui/material';
 import { figmaPreviewLink, showcaseAssets } from 'data/showcase';
@@ -15,7 +14,6 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const FigmaCTA = () => {
-  const { t: translateUi } = useTranslation();
   const sectionRef = useRef(null);
   const figmaBoxRef = useRef(null);
 
@@ -51,21 +49,21 @@ const FigmaCTA = () => {
       >
         <RevealText>
           <GradientText variant="h3" sx={{ textAlign: 'center' }}>
-            {translateUi('ui.sections.showcase.cta.figma.toolkit_designed_for_325c4dd0')}{' '}
+            Toolkit designed for{' '}
             <Box
               component="span"
               sx={{
                 whiteSpace: 'nowrap',
               }}
             >
-              {translateUi('ui.sections.showcase.cta.figma.innovative_designers_a2e4fa8d')}
+              innovative designers
             </Box>
           </GradientText>
         </RevealText>
 
         <RevealOnScroll delay={0.4}>
           <GradientButton href={figmaPreviewLink} target="_blank" rel="noopener noreferrer">
-            {translateUi('ui.sections.showcase.cta.figma.preview_in_figma_43925aac')}
+            Preview in Figma
           </GradientButton>
         </RevealOnScroll>
       </Stack>

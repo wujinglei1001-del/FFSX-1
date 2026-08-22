@@ -1,11 +1,9 @@
 import { useDeferredValue, useMemo } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Button, Chip, Container, Paper, Stack, Typography, chipClasses } from '@mui/material';
 import { formatActionChipLabel, formatConditionChipLabel } from './common/formatters';
 
 const AutomationReviewBar = () => {
-  const { t: translateUi } = useTranslation();
   const {
     control,
     formState: { isSubmitting },
@@ -58,7 +56,7 @@ const AutomationReviewBar = () => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('common.and')}
+            and
           </Typography>,
         );
       }
@@ -110,7 +108,7 @@ const AutomationReviewBar = () => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi('ui.sections.project.automation.automationreviewbar.when_769bb19e')}
+              When
             </Typography>
             {renderChipsWithAnd(conditionChipLabels)}
             <Typography
@@ -119,7 +117,7 @@ const AutomationReviewBar = () => {
                 color: 'text.secondary',
               }}
             >
-              {translateUi('common.then')}
+              then
             </Typography>
             {renderChipsWithAnd(actionChipLabels)}
           </Stack>
@@ -142,9 +140,7 @@ const AutomationReviewBar = () => {
                 flex: { xs: 1, sm: '0 0 auto' },
               }}
             >
-              {translateUi(
-                'ui.sections.project.automation.automationreviewbar.save_draft_4f25637a',
-              )}
+              Save draft
             </Button>
             <Button
               variant="text"
@@ -153,14 +149,10 @@ const AutomationReviewBar = () => {
                 flex: { xs: 1, sm: '0 0 auto' },
               }}
             >
-              {translateUi(
-                'ui.sections.project.automation.automationreviewbar.discard_changes_fa8fc043',
-              )}
+              Discard changes
             </Button>
             <Button variant="contained" type="submit" fullWidth disabled={isSubmitting}>
-              {translateUi(
-                'ui.sections.project.automation.automationreviewbar.create_automation_0eae11eb',
-              )}
+              Create automation
             </Button>
           </Stack>
         </Stack>

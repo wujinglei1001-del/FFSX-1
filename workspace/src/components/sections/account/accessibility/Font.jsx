@@ -1,25 +1,21 @@
 import { Controller, useFormContext } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
 import { Slider, Stack, TextField, Typography, inputBaseClasses } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const Font = () => {
-  const { t: translateUi } = useTranslation();
   const { control, watch } = useFormContext();
   const textSize = watch('textSize');
 
   return (
     <Stack sx={{ gap: 2 }}>
       <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-        {translateUi('ui.sections.account.accessibility.font.text_size_3cc6e124')}
+        Text size
       </Typography>
       <TextField
         multiline
         rows={3.5}
         size="medium"
-        placeholder={translateUi(
-          'ui.sections.account.accessibility.font.lorem_ipsum_dolor_sit_amet_consectetur_0a15b7b7',
-        )}
+        placeholder="Lorem ipsum dolor sit amet consectetur."
         sx={{
           [`& .${inputBaseClasses.input}`]: {
             fontSize: `${Number(textSize)}px`,
@@ -33,7 +29,7 @@ const Font = () => {
           name="textSize"
           render={({ field }) => (
             <Slider
-              aria-label={translateUi('common.accessibility.font_size')}
+              aria-label="font-size"
               getAriaValueText={(val) => `${val}px`}
               valueLabelFormat={(val) => `${Number(val)}px`}
               valueLabelDisplay="auto"

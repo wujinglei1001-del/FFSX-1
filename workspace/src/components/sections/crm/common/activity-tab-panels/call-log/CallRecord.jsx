@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Chip from '@mui/material/Chip';
 import Collapse, { collapseClasses } from '@mui/material/Collapse';
 import Stack from '@mui/material/Stack';
@@ -10,7 +9,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import CallDetails from './CallDetails';
 
 const CallRecord = ({ call }) => {
-  const { t: translateUi } = useTranslation();
   const [open, setOpen] = useState(false);
 
   return (
@@ -92,8 +90,7 @@ const CallRecord = ({ call }) => {
               variant="caption"
               sx={{ color: 'text.secondary', minWidth: 100, textAlign: 'right' }}
             >
-              {translateUi('ui.sections.crm.common.activity_tab_panels.today_50b2515d')}
-              {dayjs(call.time).format('h:mm a')}
+              Today, {dayjs(call.time).format('h:mm a')}
             </Typography>
           </Stack>
         </Stack>

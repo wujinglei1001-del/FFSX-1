@@ -1,10 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const PlaylistInfo = ({ togglePlaylist, isPlaylistShown }) => {
-  const { t: translateUi } = useTranslation();
   const { up } = useBreakpoints();
   const upMd = up('md');
 
@@ -43,11 +41,9 @@ const PlaylistInfo = ({ togglePlaylist, isPlaylistShown }) => {
               mr: 1,
             }}
           >
-            {translateUi('ui.sections.content.details.video.playing_from_cbbeebe8')}
+            Playing from
           </Box>
-          {translateUi(
-            'ui.sections.content.details.video.modern_architecture_unveiled_innovations_shaping_the_10e7294d',
-          )}
+          “Modern Architecture Unveiled: Innovations Shaping the Future”
         </Typography>
 
         <Button
@@ -57,8 +53,7 @@ const PlaylistInfo = ({ togglePlaylist, isPlaylistShown }) => {
           sx={{ whiteSpace: 'nowrap', flexShrink: 0, gap: 0.5 }}
         >
           <IconifyIcon icon="material-symbols:playlist-play-rounded" sx={{ fontSize: 18 }} />
-          {upMd && isPlaylistShown ? 'Hide' : 'Show'}
-          {translateUi('ui.sections.content.details.video.playlist_c554c6d3')}
+          {upMd && isPlaylistShown ? 'Hide' : 'Show'} playlist
         </Button>
       </Stack>
     </Box>

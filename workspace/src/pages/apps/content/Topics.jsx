@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Container, Stack, Typography, inputBaseClasses } from '@mui/material';
 import SearchTextField from 'components/common/SearchTextField';
 import TopicsContainer from 'components/sections/content/topics';
 
 const ContentTopics = () => {
-  const { t: translateUi } = useTranslation();
   const [query, setQuery] = useState('');
 
   return (
@@ -24,14 +22,12 @@ const ContentTopics = () => {
           mb: { xs: 3, sm: 5 },
         }}
       >
-        <Typography variant="h4">
-          {translateUi('ui.pages.apps.content.topics.topic_7e13bd17')}
-        </Typography>
+        <Typography variant="h4">Topic</Typography>
 
         <SearchTextField
           fullWidth
           size="large"
-          placeholder={translateUi('ui.pages.apps.content.topics.search_bce06414')}
+          placeholder="Search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           iconSx={{ fontSize: 16 }}

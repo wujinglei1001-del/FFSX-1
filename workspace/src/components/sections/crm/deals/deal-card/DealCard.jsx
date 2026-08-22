@@ -19,31 +19,34 @@ import {
 } from '@mui/material';
 import dayjs from 'dayjs';
 import useNumberFormat from 'hooks/useNumberFormat';
-import i18n from 'locales/i18n';
 import { useDealsContext } from 'providers/DealsProvider';
 import { TOGGLE_DEAL_EXPAND } from 'reducers/DealsReducer';
 import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
-const getContactLinks = (client) =>
-  [
-    client.phone && {
-      id: 'phone',
-      icon: 'material-symbols:call-outline',
-      href: `tel:${client.phone}`,
-    },
-    client.email && {
-      id: 'email',
-      icon: 'material-symbols:mail-outline-rounded',
-      href: `mailto:${client.email}`,
-    },
-    client.videoChat && {
-      id: 'video',
-      icon: 'material-symbols:video-call-outline-rounded',
-      href: client.videoChat,
-    },
-  ].filter(Boolean);
+const contactLinks = [
+  {
+    id: 1,
+    icon: 'material-symbols:call-outline',
+    href: '#!',
+  },
+  {
+    id: 2,
+    icon: 'material-symbols:mail-outline-rounded',
+    href: '#!',
+  },
+  {
+    id: 3,
+    icon: 'material-symbols:video-call-outline-rounded',
+    href: '#!',
+  },
+  {
+    id: 4,
+    icon: 'material-symbols:contact-mail-outline-rounded',
+    href: '#!',
+  },
+];
 
 const DealCard = memo(({ deal }) => {
   const { dealsDispatch } = useDealsContext();
@@ -100,7 +103,7 @@ const DealCard = memo(({ deal }) => {
       {!deal.expanded && (
         <CardContent sx={{ p: 3, pt: 0 }}>
           <Typography variant="body2" sx={{ mb: 2 }}>
-            {i18n.t('ui.sections.crm.deals.deal_card.budget_102a5880')}{' '}
+            Budget:{' '}
             <Typography variant="body2" component="strong" sx={{ fontWeight: 600 }}>
               {currencyFormat(deal.amount, { minimumFractionDigits: 0 })}
             </Typography>
@@ -149,7 +152,7 @@ const DealCard = memo(({ deal }) => {
         <CardContent sx={{ p: 3, pt: 0 }}>
           <Box sx={{ mb: 2 }}>
             <Typography variant="body2" sx={{ mb: 1, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.crm.deals.deal_card.budget_102a5880')}
+              Budget:
             </Typography>
             <Typography variant="body2" sx={{ fontWeight: 600 }}>
               {currencyFormat(deal.amount, { minimumFractionDigits: 0 })}
@@ -158,7 +161,7 @@ const DealCard = memo(({ deal }) => {
 
           <Box sx={{ mb: 2 }}>
             <Typography variant="body2" sx={{ mb: 1, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.crm.deals.deal_card.last_update_44c39bfe')}
+              Last update:
             </Typography>
             <Typography variant="body2" sx={{ fontWeight: 600 }}>
               {dayjs(deal.lastUpdate).format('DD MMM, YYYY')}
@@ -167,7 +170,7 @@ const DealCard = memo(({ deal }) => {
 
           <Box sx={{ mb: 2 }}>
             <Typography variant="body2" sx={{ mb: 1, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.crm.deals.deal_card.stage_41fbe295')}
+              Stage:
             </Typography>
             <Stack direction="row">
               <Chip label={deal.stage} color="warning" />
@@ -176,22 +179,20 @@ const DealCard = memo(({ deal }) => {
 
           <Box sx={{ mb: 2 }}>
             <Typography variant="body2" sx={{ mb: 1, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.crm.deals.deal_card.contact_fb2f2ecf')}
+              Contact:
             </Typography>
             <Stack direction="row" sx={{ gap: 0.5, alignItems: 'center' }}>
               <Typography
                 component={Link}
-                href={paths.memberProfile}
                 variant="body2"
                 sx={{ alignItems: 'center', fontWeight: 600, mr: 1.5 }}
               >
                 {deal.client.name}
               </Typography>
 
-              {getContactLinks(deal.client).map((item) => (
+              {contactLinks.map((item) => (
                 <Button
                   key={item.id}
-                  href={item.href}
                   variant="soft"
                   shape="square"
                   color="neutral"
@@ -206,7 +207,7 @@ const DealCard = memo(({ deal }) => {
 
           <Box sx={{ mb: 2 }}>
             <Typography variant="body2" sx={{ mb: 1, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.crm.deals.deal_card.agents_a56ef92c')}
+              Agents:
             </Typography>
 
             {deal.collaborators?.map((user) => (
@@ -238,7 +239,7 @@ const DealCard = memo(({ deal }) => {
 
           <Box sx={{ mb: 2 }}>
             <Typography variant="body2" sx={{ mb: 1, color: 'text.secondary' }}>
-              {i18n.t('ui.sections.crm.deals.deal_card.closing_4b52ea70')}
+              Closing:
             </Typography>
             <Typography variant="body2" sx={{ fontWeight: 600 }}>
               {dayjs(deal.closeDate).format('DD MMM, YYYY')}

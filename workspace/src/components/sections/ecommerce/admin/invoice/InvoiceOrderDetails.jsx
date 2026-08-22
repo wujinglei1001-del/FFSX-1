@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 
 const InvoiceOrderDetails = ({ invoice }) => {
-  const { t: translateUi } = useTranslation();
   const { order } = invoice;
 
   return (
@@ -14,7 +12,7 @@ const InvoiceOrderDetails = ({ invoice }) => {
           mb: 3,
         }}
       >
-        {translateUi('ui.sections.ecommerce.admin.invoice.order_details_1a897948')}
+        Order details
       </Typography>
       <Stack
         sx={{
@@ -23,66 +21,42 @@ const InvoiceOrderDetails = ({ invoice }) => {
       >
         <Grid container spacing={1}>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.order_id_81415342')}
-              value={order.id}
-            />
+            <OrderDetailItem label="Order ID" value={order.id} />
           </Grid>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.invoice_id_ffa6d731')}
-              value="#52132463423234"
-            />
+            <OrderDetailItem label="Invoice ID" value="#52132463423234" />
           </Grid>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.deliver_to_c229c05a')}
-              value="Captain Haddock"
-            />
+            <OrderDetailItem label="Deliver to" value="Captain Haddock" />
           </Grid>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.phone_77064d52')}
-              value="+12324354356"
-            />
+            <OrderDetailItem label="Phone" value="+12324354356" />
           </Grid>
         </Grid>
         <Grid container spacing={1}>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.order_date_121398e9')}
-              value="8:30 pm, 19 March 2024"
-            />
+            <OrderDetailItem label="Order date" value="8:30 pm, 19 March 2024" />
           </Grid>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.payment_status_9dfea404')}
-              value="Paid"
-            />
+            <OrderDetailItem label="Payment status" value="Paid" />
           </Grid>
         </Grid>
         <Grid container spacing={1}>
           <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.paid_by_70c115d7')}
-              value="Captain Haddock"
-            />
+            <OrderDetailItem label="Paid by" value="Captain Haddock" />
+          </Grid>
+          <Grid size={6}>
+            <OrderDetailItem label="Bill to" value="Captain Haddock" />
           </Grid>
           <Grid size={6}>
             <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.bill_to_523ccce2')}
-              value="Captain Haddock"
-            />
-          </Grid>
-          <Grid size={6}>
-            <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.delivery_address_beacd3ba')}
+              label="Delivery address"
               value="Apt: 6/B, 192 Edsel Road, Van Nuys, California, USA 96580"
             />
           </Grid>
           <Grid size={6}>
             <OrderDetailItem
-              label={translateUi('ui.sections.ecommerce.admin.invoice.billing_address_7f3f6883')}
+              label="Billing address"
               value="Apt: 6/B, 192 Edsel Road, Van Nuys, California, USA 96580"
             />
           </Grid>

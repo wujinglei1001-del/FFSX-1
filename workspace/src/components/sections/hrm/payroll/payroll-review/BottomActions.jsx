@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Dialog, { dialogClasses } from '@mui/material/Dialog';
@@ -13,7 +12,6 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const BottomActions = () => {
-  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const [open, setOpen] = useState(false);
 
@@ -42,7 +40,7 @@ const BottomActions = () => {
           color="neutral"
           sx={{ textWrap: 'nowrap', flexShrink: { sm: 0 } }}
         >
-          {translateUi('ui.sections.hrm.payroll.payroll_review.cancel_77dfd213')}
+          Cancel
         </Button>
         <Button
           fullWidth={downSm}
@@ -50,7 +48,7 @@ const BottomActions = () => {
           color="neutral"
           sx={{ textWrap: 'nowrap', flexShrink: { sm: 0 } }}
         >
-          {translateUi('ui.sections.hrm.payroll.payroll_review.edit_payroll_aa3f9fd2')}
+          Edit Payroll
         </Button>
       </Stack>
       <Button
@@ -59,7 +57,7 @@ const BottomActions = () => {
         onClick={handleOpen}
         sx={{ textWrap: 'nowrap', flexShrink: { sm: 0 } }}
       >
-        {translateUi('ui.sections.hrm.payroll.payroll_review.approve_payroll_32b028bb')}
+        Approve Payroll
       </Button>
       <ApprovePayrollDialog open={open} onClose={handleClose} />
     </Stack>
@@ -69,7 +67,6 @@ const BottomActions = () => {
 export default BottomActions;
 
 const ApprovePayrollDialog = ({ sx, open, onClose, ...rest }) => {
-  const { t: translateUi } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
 
   const onApprove = () => {
@@ -94,9 +91,7 @@ const ApprovePayrollDialog = ({ sx, open, onClose, ...rest }) => {
       <DialogTitle
         sx={{ p: 0, mb: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
       >
-        <Box component="span">
-          {translateUi('ui.sections.hrm.payroll.payroll_review.approve_payroll_32b028bb')}
-        </Box>
+        <Box component="span">Approve Payroll</Box>
         <Button shape="circle" color="neutral" size="small" onClick={onClose}>
           <IconifyIcon icon="material-symbols:close-rounded" sx={{ fontSize: 20 }} />
         </Button>
@@ -104,18 +99,17 @@ const ApprovePayrollDialog = ({ sx, open, onClose, ...rest }) => {
 
       <DialogContent sx={{ mb: 2, p: { xs: 0 } }}>
         <DialogContentText sx={{ typography: 'body2' }}>
-          {translateUi(
-            'ui.sections.hrm.payroll.payroll_review.approve_payroll_for_oct_1_oct_31_2025_once_confirmed_81eecde6',
-          )}
+          Approve payroll for Oct 1 - Oct 31, 2025? Once confirmed, payment can be made on Oct 3,
+          2025.
         </DialogContentText>
       </DialogContent>
 
       <DialogActions sx={{ p: { xs: 0 } }}>
         <Button variant="soft" color="neutral" onClick={onClose}>
-          {translateUi('ui.sections.hrm.payroll.payroll_review.cancel_77dfd213')}
+          Cancel
         </Button>
         <Button variant="contained" onClick={onApprove}>
-          {translateUi('ui.sections.hrm.payroll.payroll_review.confirm_04a21221')}
+          Confirm
         </Button>
       </DialogActions>
     </Dialog>

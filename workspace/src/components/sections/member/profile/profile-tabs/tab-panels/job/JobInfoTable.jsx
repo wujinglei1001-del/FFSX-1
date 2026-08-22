@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Box,
   Table,
@@ -15,12 +14,11 @@ import useNumberFormat from 'hooks/useNumberFormat';
 import DashboardMenu from 'components/common/DashboardMenu';
 
 const JobInfoTable = ({ data }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   return (
     <div>
       <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 2 }}>
-        {translateUi('ui.sections.member.profile.profile_tabs.job_information_3e131dd2')}
+        Job Information
       </Typography>
 
       <TableContainer component={Box} sx={{ borderRadius: 0, overflowX: 'auto' }}>
@@ -40,24 +38,12 @@ const JobInfoTable = ({ data }) => {
             }}
           >
             <TableRow>
-              <TableCell sx={{ whiteSpace: 'nowrap', width: '1%' }}>
-                {translateUi('ui.sections.member.profile.profile_tabs.date_eb9a4bc1')}
-              </TableCell>
-              <TableCell>
-                {translateUi('ui.sections.member.profile.profile_tabs.designation_b2797c75')}
-              </TableCell>
-              <TableCell>
-                {translateUi('ui.sections.member.profile.profile_tabs.team_21888726')}
-              </TableCell>
-              <TableCell>
-                {translateUi('ui.sections.member.profile.profile_tabs.department_db40106a')}
-              </TableCell>
-              <TableCell>
-                {translateUi('ui.sections.member.profile.profile_tabs.salary_595a803c')}
-              </TableCell>
-              <TableCell>
-                {translateUi('ui.sections.member.profile.profile_tabs.supervisor_2cd4fa19')}
-              </TableCell>
+              <TableCell sx={{ whiteSpace: 'nowrap', width: '1%' }}>Date</TableCell>
+              <TableCell>Designation</TableCell>
+              <TableCell>Team</TableCell>
+              <TableCell>Department</TableCell>
+              <TableCell>Salary</TableCell>
+              <TableCell>Supervisor</TableCell>
               <TableCell align="right">
                 <DashboardMenu />
               </TableCell>
@@ -90,8 +76,7 @@ const JobInfoTable = ({ data }) => {
                 <TableCell id="job-team">{item.team}</TableCell>
                 <TableCell id="job-department">{item.department}</TableCell>
                 <TableCell id="job-salary">
-                  {currencyFormat(item.salary, { maximumFractionDigits: 0 })}
-                  {translateUi('ui.sections.member.profile.profile_tabs.mo_e9e0ceb5')}
+                  {currencyFormat(item.salary, { maximumFractionDigits: 0 })}/mo
                 </TableCell>
                 <TableCell id="job-supervisor">{item.supervisor}</TableCell>
                 <TableCell id="job-action" align="right">

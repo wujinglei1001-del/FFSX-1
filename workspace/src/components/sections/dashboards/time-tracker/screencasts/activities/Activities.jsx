@@ -1,14 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Button, Grid, Stack, Typography } from '@mui/material';
 import useLightbox from 'hooks/useLightbox';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
-import paths from 'routes/paths';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Lightbox from 'components/base/Lightbox';
 import Screenshot from './Screenshot';
 
 const Activities = ({ screencast, isLast }) => {
-  const { t: translateUi } = useTranslation();
   const { currentBreakpoint } = useBreakpoints();
   const { openLightbox, ...lightboxProps } = useLightbox();
   const { name, avatar, screenshots } = screencast;
@@ -38,7 +35,7 @@ const Activities = ({ screencast, isLast }) => {
 
         <Button
           size="small"
-          href={paths.timeTrackerScreenshots}
+          href="#!"
           sx={{ ml: 'auto' }}
           endIcon={
             <IconifyIcon
@@ -47,7 +44,7 @@ const Activities = ({ screencast, isLast }) => {
             />
           }
         >
-          {translateUi('ui.sections.dashboards.time_tracker.screencasts.view_all_931e1a4b')}
+          View all
         </Button>
       </Stack>
 

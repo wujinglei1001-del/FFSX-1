@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import i18n from 'locales/i18n';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const viewToggleGroupSx = {
@@ -29,24 +28,14 @@ const ProjectListViewToggle = ({ viewType, onViewTypeChange }) => (
     }}
     sx={viewToggleGroupSx}
   >
-    <ToggleButton
-      value="list"
-      aria-label={i18n.t(
-        'ui.sections.project.project_list.projectlistviewtoggle.list_view_694bbd75',
-      )}
-    >
+    <ToggleButton value="list" aria-label="List view">
       <IconifyIcon
         icon="material-symbols:view-list-outline-rounded"
         color={viewType === 'list' ? 'primary.dark' : 'text.secondary'}
         fontSize={20}
       />
     </ToggleButton>
-    <ToggleButton
-      value="grid"
-      aria-label={i18n.t(
-        'ui.sections.project.project_list.projectlistviewtoggle.grid_view_d44ec861',
-      )}
-    >
+    <ToggleButton value="grid" aria-label="Grid view">
       <IconifyIcon
         icon="material-symbols:grid-view-outline-rounded"
         color={viewType === 'grid' ? 'primary.dark' : 'text.secondary'}

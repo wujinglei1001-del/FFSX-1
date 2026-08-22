@@ -1,12 +1,10 @@
 import { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Avatar, Box, Chip, Divider, Stack, Typography } from '@mui/material';
 import dayjs from 'dayjs';
 import useNumberFormat from 'hooks/useNumberFormat';
 import { statusColorMap } from '../order-list/OrderedItem';
 
 const OrderDetailsAside = ({ order }) => {
-  const { t: translateUi } = useTranslation();
   const { currencyFormat } = useNumberFormat();
   const itemStatusList = useMemo(() => {
     return order.items.reduce((acc, item) => {
@@ -29,8 +27,7 @@ const OrderDetailsAside = ({ order }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_details.order_1d75774c')}
-          {order.id}
+          Order {order.id}
         </Typography>
         <Typography
           variant="subtitle1"
@@ -39,9 +36,9 @@ const OrderDetailsAside = ({ order }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_details.placed_on_0eee11a9')}
+          Placed on &nbsp;&nbsp;
           <strong>{dayjs(order.createdAt).format('MMMM DD, YYYY')}</strong>
-          &nbsp;&nbsp;{translateUi('common.at')}&nbsp;&nbsp;
+          &nbsp;&nbsp;at&nbsp;&nbsp;
           <strong>{dayjs(order.createdAt).format('hh:mm a')}</strong>
         </Typography>
         <Typography
@@ -51,11 +48,7 @@ const OrderDetailsAside = ({ order }) => {
             mb: 3,
           }}
         >
-          <strong>
-            {order.items.length}
-            {translateUi('ui.sections.ecommerce.customer.order_details.items_7316c8b2')}
-          </strong>
-          {translateUi('ui.sections.ecommerce.customer.order_details.in_total_0a431bac')}
+          <strong>{order.items.length} items</strong>&nbsp;&nbsp;in total
         </Typography>
 
         <Stack
@@ -83,7 +76,7 @@ const OrderDetailsAside = ({ order }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_details.customer_s_name_1651082f')}
+          Customer’s name
         </Typography>
         <Stack
           direction="row"
@@ -94,9 +87,7 @@ const OrderDetailsAside = ({ order }) => {
         >
           <Avatar
             src={order.customer?.avatar}
-            alt={translateUi(
-              'ui.sections.ecommerce.customer.order_details.captain_haddock_b801c768',
-            )}
+            alt="Captain Haddock"
             sx={{ width: 27, height: 27 }}
           />
           <Typography
@@ -117,7 +108,7 @@ const OrderDetailsAside = ({ order }) => {
             mb: 1,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_details.payment_status_9dfea404')}
+          Payment status
         </Typography>
         <Stack
           direction="row"
@@ -132,7 +123,7 @@ const OrderDetailsAside = ({ order }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.standard_ddp_c1f2b1d2')}
+            Standard DDP
           </Typography>
           <Chip
             variant="soft"
@@ -151,7 +142,7 @@ const OrderDetailsAside = ({ order }) => {
             fontWeight: 700,
           }}
         >
-          {translateUi('ui.sections.ecommerce.customer.order_details.summary_12b71c3e')}
+          Summary
         </Typography>
 
         <Stack
@@ -168,7 +159,7 @@ const OrderDetailsAside = ({ order }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.subtotal_97f7359e')}
+            Subtotal
           </Typography>
           <Typography
             variant="subtitle1"
@@ -194,7 +185,7 @@ const OrderDetailsAside = ({ order }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.shipping_cost_3ff0465a')}
+            Shipping cost
           </Typography>
           <Typography
             variant="subtitle1"
@@ -220,7 +211,7 @@ const OrderDetailsAside = ({ order }) => {
               color: 'text.secondary',
             }}
           >
-            {translateUi('ui.sections.ecommerce.customer.order_details.discount_b524936d')}
+            Discount
           </Typography>
           <Typography
             variant="subtitle1"
@@ -247,7 +238,7 @@ const OrderDetailsAside = ({ order }) => {
                 fontWeight: 700,
               }}
             >
-              {translateUi('ui.sections.ecommerce.customer.order_details.total_b25928c6')}
+              Total
             </Typography>
             <Typography variant="h4">{currencyFormat(order.payment.total)}</Typography>
           </Stack>
@@ -255,9 +246,7 @@ const OrderDetailsAside = ({ order }) => {
           <Chip
             color="success"
             variant="filled"
-            label={translateUi(
-              'ui.sections.ecommerce.customer.order_details.saved_46_in_total_e0e10f7e',
-            )}
+            label="saved 46% in total"
             sx={{ textAlign: 'right' }}
           />
         </Box>

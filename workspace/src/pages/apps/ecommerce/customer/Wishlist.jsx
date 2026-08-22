@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Button, Container, Paper, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import illustrationDark from 'assets/images/illustrations/1-dark.webp';
@@ -12,7 +11,6 @@ import Productlist from 'components/sections/ecommerce/customer/wishlist/Product
 import WishlistActions from 'components/sections/ecommerce/customer/wishlist/WishlistActions';
 
 const Wishlist = () => {
-  const { t: translateUi } = useTranslation();
   const [products, setProducts] = useState(wishlistedProducts);
 
   const handleRemoveProduct = useCallback((productId) => {
@@ -23,17 +21,11 @@ const Wishlist = () => {
     <Grid container>
       <Grid size={12}>
         <PageHeader
-          title={translateUi('ui.pages.apps.ecommerce.customer.wishlist_6ff33102')}
+          title="Wishlist"
           userLoggedIn
           breadcrumb={[
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.home_70f8bb9a'),
-              url: paths.ecommerceHomepage,
-            },
-            {
-              label: translateUi('ui.pages.apps.ecommerce.customer.wishlist_6ff33102'),
-              active: true,
-            },
+            { label: 'Home', url: paths.ecommerceHomepage },
+            { label: 'Wishlist', active: true },
           ]}
         />
       </Grid>
@@ -63,7 +55,7 @@ const Wishlist = () => {
                     light: illustration,
                     dark: illustrationDark,
                   }}
-                  alt={translateUi('ui.pages.apps.ecommerce.customer.products_fallback_408585b2')}
+                  alt="Products Fallback"
                   height={340}
                   width={340}
                 />
@@ -74,9 +66,7 @@ const Wishlist = () => {
                       mb: 1,
                     }}
                   >
-                    {translateUi(
-                      'ui.pages.apps.ecommerce.customer.your_wishlist_is_empty_3237bb57',
-                    )}
+                    Your wishlist is empty
                   </Typography>
                   <Typography
                     variant="body2"
@@ -85,12 +75,10 @@ const Wishlist = () => {
                       mb: 3,
                     }}
                   >
-                    {translateUi(
-                      'ui.pages.apps.ecommerce.customer.browse_our_products_and_add_your_favorite_items_to_y_d9664e5f',
-                    )}
+                    Browse our products and add your favorite items to your wishlist.
                   </Typography>
                   <Button variant="contained" color="primary" href={paths.products}>
-                    {translateUi('ui.pages.apps.ecommerce.customer.browse_products_9a6a2235')}
+                    Browse Products
                   </Button>
                 </div>
               </Stack>

@@ -1,11 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import { Button, Chip, Paper, Stack } from '@mui/material';
 import { kebabToSentenceCase } from 'lib/utils';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useProducts } from 'components/sections/ecommerce/customer/products/providers/ProductsProvider';
 
 const ActiveFilters = () => {
-  const { t: translateUi } = useTranslation();
   const { filterItems, handleDeleteFilterItem, handleResetFilters } = useProducts();
 
   return (
@@ -37,7 +35,7 @@ const ActiveFilters = () => {
           }
           onClick={handleResetFilters}
         >
-          {translateUi('ui.sections.ecommerce.customer.products.reset_44c57abd')}
+          Reset
         </Button>
       </Stack>
     </Paper>

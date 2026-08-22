@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { Box, Slider, Typography } from '@mui/material';
 import { useSettingsContext } from 'providers/SettingsProvider';
 
 const FontSizePanel = () => {
-  const { t: translateUi } = useTranslation();
   const {
     config: { fontSize },
     setConfig,
@@ -24,10 +22,10 @@ const FontSizePanel = () => {
           mb: 1,
         }}
       >
-        {translateUi('ui.components.settings_panel.font_settings.font_size_b456f452')}
+        Font Size
       </Typography>
       <Slider
-        aria-label={translateUi('ui.components.settings_panel.font_settings.font_size_b456f452')}
+        aria-label="Font Size"
         value={fontSize}
         onChange={handleChange}
         getAriaValueText={(value) => `${value}px`}

@@ -1,12 +1,10 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 const AttendanceCounter = () => {
-  const { t: translateUi } = useTranslation();
   const [seconds, setSeconds] = useState(0);
   const [state, setState] = useState('stopped');
   const intervalRef = useRef(null);
@@ -72,8 +70,7 @@ const AttendanceCounter = () => {
           variant={state === 'stopped' ? 'contained' : 'soft'}
           onClick={handleCheckIn}
         >
-          {translateUi('ui.sections.dashboards.employee.daily_attendance.check_4b5e84be')}
-          {state === 'stopped' ? 'In' : 'Out'}
+          Check {state === 'stopped' ? 'In' : 'Out'}
         </Button>
         <Button
           fullWidth

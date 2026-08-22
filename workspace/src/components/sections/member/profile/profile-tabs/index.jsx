@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { TabContext, TabList } from '@mui/lab';
 import { Box, Paper, Stack, Tab, tabScrollButtonClasses, tabsClasses } from '@mui/material';
 import {
@@ -11,7 +10,6 @@ import {
   timeOffData,
 } from 'data/member/profile';
 import { useNavContext } from 'layouts/main-layout/NavProvider';
-import i18n from 'locales/i18n';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 import { HashLinkBehavior } from 'theme/components/Link';
 import ScrollSpy, { useScrollSpyContext } from 'components/scroll-spy';
@@ -27,51 +25,18 @@ import {
 } from './tab-panels';
 
 const tabData = [
-  {
-    value: 'personal',
-    get label() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.personal_40f07323');
-    },
-    panel: <PersonalTabPanel data={personalData} />,
-  },
-  {
-    value: 'job',
-    get label() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.job_30c8cb83');
-    },
-    panel: <JobTabPanel data={jobData} />,
-  },
+  { value: 'personal', label: 'Personal', panel: <PersonalTabPanel data={personalData} /> },
+  { value: 'job', label: 'Job', panel: <JobTabPanel data={jobData} /> },
   {
     value: 'team-overview',
-    get label() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.team_overview_b1da46af');
-    },
+    label: 'Team Overview',
     panel: <TeamOverviewTabPanel data={teamOverviewData} />,
   },
-  {
-    value: 'time-off',
-    get label() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.time_off_2c257456');
-    },
-    panel: <TimeOffTabPanel data={timeOffData} />,
-  },
-  {
-    value: 'pay-info',
-    get label() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.pay_info_1aad5245');
-    },
-    panel: <PayInfoTabPanel data={payInfoData} />,
-  },
-  {
-    value: 'documents',
-    get label() {
-      return i18n.t('ui.sections.member.profile.profile_tabs.documents_687c8286');
-    },
-    panel: <DocumentsTabPanel data={documentsData} />,
-  },
+  { value: 'time-off', label: 'Time Off', panel: <TimeOffTabPanel data={timeOffData} /> },
+  { value: 'pay-info', label: 'Pay Info', panel: <PayInfoTabPanel data={payInfoData} /> },
+  { value: 'documents', label: 'Documents', panel: <DocumentsTabPanel data={documentsData} /> },
 ];
 const ProfileTabsInner = () => {
-  const { t: translateUi } = useTranslation();
   const { down } = useBreakpoints();
   const isDownSm = down('sm');
   const tabsRef = useRef(null);
@@ -109,9 +74,7 @@ const ProfileTabsInner = () => {
               scrollButtons
               allowScrollButtonsMobile
               onChange={handleTabChange}
-              aria-label={translateUi(
-                'ui.sections.member.profile.profile_tabs.profile_tabs_a52e4b3f',
-              )}
+              aria-label="profile tabs"
               centered={isDownSm ? false : true}
               sx={{
                 py: 1,

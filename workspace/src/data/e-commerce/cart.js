@@ -1,14 +1,9 @@
 import { initialConfig } from 'config';
-import i18n from 'locales/i18n';
 
 export const cart = [
   {
     id: 1,
-    get name() {
-      return i18n.t(
-        'ui.data.e_commerce.cart.vingli_56_modern_sofa_small_corduroy_couch_deep_seat_ce3c5079',
-      );
-    },
+    name: 'VINGLI 56" Modern Sofa, Small Corduroy Couch Deep Seat for Living Room, Bedroom, Apartment,Office, Dorm, Small Space',
     image: `${initialConfig.assetsDir}/images/ecommerce/products/96x96/1.webp`,
     stock: 5,
     price: {
@@ -18,11 +13,7 @@ export const cart = [
   },
   {
     id: 2,
-    get name() {
-      return i18n.t(
-        'ui.data.e_commerce.cart.vingli_56_modern_sofa_small_corduroy_couch_deep_seat_ce3c5079',
-      );
-    },
+    name: 'VINGLI 56" Modern Sofa, Small Corduroy Couch Deep Seat for Living Room, Bedroom, Apartment,Office, Dorm, Small Space',
     image: `${initialConfig.assetsDir}/images/ecommerce/products/96x96/1.webp`,
     stock: 4,
     price: {
@@ -32,11 +23,7 @@ export const cart = [
   },
   {
     id: 3,
-    get name() {
-      return i18n.t(
-        'ui.data.e_commerce.cart.vingli_56_modern_sofa_small_corduroy_couch_deep_seat_ce3c5079',
-      );
-    },
+    name: 'VINGLI 56" Modern Sofa, Small Corduroy Couch Deep Seat for Living Room, Bedroom, Apartment,Office, Dorm, Small Space',
     image: `${initialConfig.assetsDir}/images/ecommerce/products/96x96/1.webp`,
     stock: 10,
     price: {

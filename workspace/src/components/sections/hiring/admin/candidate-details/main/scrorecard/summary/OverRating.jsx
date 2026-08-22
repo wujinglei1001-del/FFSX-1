@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   AvatarGroup,
@@ -40,7 +39,6 @@ const getRatingText = (stars) => {
 };
 
 const OverRating = () => {
-  const { t: translateUi } = useTranslation();
   return (
     <Box sx={{ flex: 1 }}>
       <Typography
@@ -50,7 +48,7 @@ const OverRating = () => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.hiring.admin.candidate_details.over_rating_e90a8e7f')}
+        Over Rating
       </Typography>
       <Stack
         sx={{

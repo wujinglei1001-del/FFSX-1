@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -13,10 +12,8 @@ import {
 } from '@mui/material';
 import { users } from 'data/users';
 import useNumberFormat from 'hooks/useNumberFormat';
-import paths from 'routes/paths';
 
 const ChannelInfo = () => {
-  const { t: translateUi } = useTranslation();
   const { numberFormat } = useNumberFormat();
   const [following, setFollowing] = useState(false);
 
@@ -24,18 +21,14 @@ const ChannelInfo = () => {
     <List disablePadding sx={{ mb: 3, width: 'fit-content' }}>
       <ListItem sx={{ alignItems: 'center', gap: 1, p: 0 }}>
         <ListItemAvatar sx={{ minWidth: 48 }}>
-          <Avatar
-            src={users[0].avatar}
-            alt={translateUi('ui.sections.content.details.video.avatar_9c3bb49f')}
-            sx={{ width: 48, height: 48 }}
-          />
+          <Avatar src={users[0].avatar} alt="avatar" sx={{ width: 48, height: 48 }} />
         </ListItemAvatar>
 
         <ListItemText
           disableTypography
           primary={
             <Link
-              href={paths.memberProfile}
+              href="#!"
               variant="subtitle1"
               sx={{ fontWeight: 'bold', mb: 0.5, width: 'fit-content', color: 'inherit' }}
             >
@@ -53,14 +46,14 @@ const ChannelInfo = () => {
                   notation: 'compact',
                   compactDisplay: 'short',
                 })}{' '}
-                {translateUi('ui.sections.content.details.video.stories_67b5fefd')}
+                Stories
               </Typography>
               <Typography
                 variant="caption"
                 component="p"
                 sx={{ fontWeight: 'medium', color: 'text.secondary', whiteSpace: 'nowrap' }}
               >
-                {translateUi('ui.sections.content.details.video.100_followers_9daf27de')}
+                100 Followers
               </Typography>
             </Stack>
           }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import {
@@ -18,7 +17,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import SortableDnd from 'components/base/SortableDnd';
 
 const SortableSubtaskRow = ({ subtask, onToggle, isLast }) => {
-  const { t: translateUi } = useTranslation();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: subtask.id,
   });
@@ -27,13 +25,7 @@ const SortableSubtaskRow = ({ subtask, onToggle, isLast }) => {
 
   const renderSubtaskMetaActions = () => (
     <Stack direction="row" sx={{ alignItems: 'center', flexShrink: 0, gap: 0.5 }}>
-      <IconButton
-        size="small"
-        aria-label={translateUi(
-          'ui.sections.project.task_details.taskdetailssection.due_date_4c1aeebc',
-        )}
-        sx={{ color: 'text.secondary' }}
-      >
+      <IconButton size="small" aria-label="Due date" sx={{ color: 'text.secondary' }}>
         <IconifyIcon icon="material-symbols:calendar-today-outline-rounded" sx={{ fontSize: 20 }} />
       </IconButton>
 
@@ -73,22 +65,10 @@ const SortableSubtaskRow = ({ subtask, onToggle, isLast }) => {
 
   const renderSubtaskMenuActions = () => (
     <Stack direction="row" sx={{ alignItems: 'center', flexShrink: 0 }}>
-      <IconButton
-        size="small"
-        sx={{ color: 'text.secondary' }}
-        aria-label={translateUi(
-          'ui.sections.project.task_details.taskdetailssection.more_options_86c0a35e',
-        )}
-      >
+      <IconButton size="small" sx={{ color: 'text.secondary' }} aria-label="More options">
         <IconifyIcon icon="material-symbols:more-horiz" sx={{ fontSize: 18 }} />
       </IconButton>
-      <IconButton
-        size="small"
-        sx={{ color: 'text.secondary' }}
-        aria-label={translateUi(
-          'ui.sections.project.task_details.taskdetailssection.view_details_badd3851',
-        )}
-      >
+      <IconButton size="small" sx={{ color: 'text.secondary' }} aria-label="View details">
         <IconifyIcon flipOnRTL icon="material-symbols:double-arrow" sx={{ fontSize: 18 }} />
       </IconButton>
     </Stack>
@@ -202,7 +182,6 @@ const SortableSubtaskRow = ({ subtask, onToggle, isLast }) => {
 };
 
 const Subtasks = () => {
-  const { t: translateUi } = useTranslation();
   const [subtasks, setSubtasks] = useState(() => taskDetailsData.subtasks);
 
   const handleToggle = (id) => {
@@ -236,7 +215,7 @@ const Subtasks = () => {
           mb: 2,
         }}
       >
-        {translateUi('ui.sections.project.task_details.taskdetailssection.subtasks_173312c6')}
+        Subtasks
       </Typography>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, minWidth: 0, width: 1 }}>
         <SortableDnd

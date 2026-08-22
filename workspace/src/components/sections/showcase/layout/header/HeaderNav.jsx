@@ -29,6 +29,7 @@ const HeaderNav = ({ registerNavItemRef }) => {
 
       <GradientButton
         ref={registerNavItemRef}
+        component="a"
         href={publicAuthPaths.login}
         color="neutral"
         sx={{ width: { xs: 160 }, height: { xs: 52 } }}

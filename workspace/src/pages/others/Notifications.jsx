@@ -4,13 +4,14 @@ import TabList from '@mui/lab/TabList';
 import { Breadcrumbs, Button, Link, Stack, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab, { tabClasses } from '@mui/material/Tab';
-import { notifications } from 'data/notifications';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import { useNotifications } from 'services/swr/api-hooks/useNotificationApi';
 import IconifyIcon from 'components/base/IconifyIcon';
 import NotificationTabPanel from 'components/sections/notification/NotificationTabPanel';
 
 const Notifications = () => {
   const [currentTab, setCurrentTab] = useState('all');
+  const { notifications, markAllRead } = useNotifications();
 
   const { up } = useBreakpoints();
 
@@ -76,6 +77,8 @@ const Notifications = () => {
             variant="soft"
             color="neutral"
             startIcon={<IconifyIcon icon="material-symbols:check-rounded" />}
+            onClick={markAllRead}
+            disabled={!notifications.some((notification) => !notification.readAt)}
           >
             Mark all as read
           </Button>

@@ -1,5 +1,4 @@
 import { createContext, use, useCallback, useEffect, useState } from 'react';
-import { users } from 'data/users';
 import { removeItemFromStore } from 'lib/utils';
 import { firebaseAuth } from 'services/firebase/firebase';
 import { useGetCurrentUser } from 'services/swr/api-hooks/useAuthApi';
@@ -44,13 +43,5 @@ const AuthJwtProvider = ({ children }) => {
 };
 
 export const useAuth = () => use(AuthJwtContext);
-
-export const demoUser = {
-  id: 0,
-  email: 'guest@mail.com',
-  name: 'Guest',
-  avatar: users[13].avatar,
-  designation: 'Merchant Captian ',
-};
 
 export default AuthJwtProvider;

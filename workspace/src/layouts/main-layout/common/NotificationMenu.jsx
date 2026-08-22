@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Box, Button, Link, Popover, Stack, badgeClasses, paperClasses } from '@mui/material';
-import { notifications as notificationsData } from 'data/notifications';
 import dayjs from 'dayjs';
 import { useSettingsContext } from 'providers/SettingsProvider';
 import paths from 'routes/paths';
+import { useNotifications } from 'services/swr/api-hooks/useNotificationApi';
 import IconifyIcon from 'components/base/IconifyIcon';
 import SimpleBar from 'components/base/SimpleBar';
 import NotificationList from 'components/sections/notification/NotificationList';
 import OutlinedBadge from 'components/styled/OutlinedBadge';
 
 const NotificationMenu = ({ type = 'default' }) => {
+  const { notifications: notificationsData } = useNotifications();
   const [notifications, setNotifications] = useState({
     today: [],
     older: [],
@@ -60,6 +61,7 @@ const NotificationMenu = ({ type = 'default' }) => {
         <OutlinedBadge
           variant="dot"
           color="error"
+          invisible={!notificationsData.some((notification) => !notification.readAt)}
           sx={{
             [`& .${badgeClasses.badge}`]: {
               height: 10,

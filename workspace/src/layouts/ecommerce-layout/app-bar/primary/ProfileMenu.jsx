@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -11,7 +11,6 @@ import {
   paperClasses,
 } from '@mui/material';
 import { useAuth } from 'providers/AuthProvider';
-import { demoUser } from 'providers/auth-provider/AuthJwtProvider';
 import IconifyIcon from 'components/base/IconifyIcon';
 import StatusAvatar from 'components/base/StatusAvatar';
 
@@ -20,8 +19,7 @@ const ProfileMenu = () => {
 
   const { sessionUser, signout } = useAuth();
 
-  // Demo user data used for development purposes
-  const user = useMemo(() => sessionUser || demoUser, [sessionUser]);
+  const user = sessionUser || {};
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -49,7 +47,7 @@ const ProfileMenu = () => {
         }}
       >
         <StatusAvatar
-          alt="Captain Haddock"
+          alt={user.name}
           status="online"
           src={user.avatar || undefined}
           sx={{ width: 36, height: 36 }}

@@ -1,7 +1,7 @@
 param(
   [Parameter(Mandatory = $true)]
-  [ValidatePattern('^[0-9]{8}-[0-9]{6}$')]
-  [string]$Stamp
+  [ValidatePattern('^v[0-9]+\.[0-9]+\.[0-9]+-ffax\.[0-9]+$')]
+  [string]$ReleaseVersion
 )
 
 $ErrorActionPreference = 'Stop'
@@ -52,9 +52,13 @@ function Assert-FrontendBundle {
 Assert-FrontendBundle -BundleRoot (Join-Path $workspaceRoot 'dist') -PublicPrefix '/workbench/' -MinimumAssetCount 20
 Assert-FrontendBundle -BundleRoot (Join-Path $workspaceRoot 'dist-root') -PublicPrefix '/' -MinimumAssetCount 20
 
-$archivePath = "E:\FAA\ffax-release-${Stamp}.tar.gz"
+$archivePath = "E:\FAA\ffax-release-${ReleaseVersion}.tar.gz"
+$tarPath = "E:\FAA\ffax-release-${ReleaseVersion}.tar"
 if (Test-Path -LiteralPath $archivePath) {
   Remove-Item -LiteralPath $archivePath -Force
+}
+if (Test-Path -LiteralPath $tarPath) {
+  Remove-Item -LiteralPath $tarPath -Force
 }
 
 $excludePatterns = @(
@@ -83,6 +87,7 @@ $excludePatterns = @(
   '--exclude=*.bak',
   '--exclude=*.old',
   '--exclude=*.orig',
+  '--exclude=./src/layouts/main-layout/ComboLayout.jsx',
   '--exclude=.env',
   '--exclude=*.env.local',
   '--exclude=*.env.production',
@@ -91,9 +96,52 @@ $excludePatterns = @(
   '--exclude=infra/zitadel/generated'
 )
 
-& tar @excludePatterns -czf $archivePath -C $workspaceRoot .
+& tar @excludePatterns -cf $tarPath -C $workspaceRoot .
 if ($LASTEXITCODE -ne 0) {
   throw 'tar failed while creating the production archive'
+}
+
+# Windows bsdtar can misidentify this Aurora layout file as the output archive.
+# Copy it to a scoped staging path so it receives a fresh file identity, then append it.
+$appendRoot = [IO.Path]::GetFullPath("E:\FAA\.ffax-release-staging-${ReleaseVersion}")
+if (-not $appendRoot.StartsWith('E:\FAA\.ffax-release-staging-', [StringComparison]::OrdinalIgnoreCase)) {
+  throw "Unexpected release staging path: $appendRoot"
+}
+if (Test-Path -LiteralPath $appendRoot) {
+  Remove-Item -LiteralPath $appendRoot -Recurse -Force
+}
+$appendDirectory = Join-Path $appendRoot 'src\layouts\main-layout'
+New-Item -ItemType Directory -Path $appendDirectory -Force | Out-Null
+Copy-Item -LiteralPath (Join-Path $workspaceRoot 'src\layouts\main-layout\ComboLayout.jsx') -Destination $appendDirectory
+try {
+  & tar -rf $tarPath -C $appendRoot 'src/layouts/main-layout/ComboLayout.jsx'
+  if ($LASTEXITCODE -ne 0) {
+    throw 'Unable to append the Aurora ComboLayout source to the production archive'
+  }
+} finally {
+  Remove-Item -LiteralPath $appendRoot -Recurse -Force
+}
+
+$source = [IO.File]::OpenRead($tarPath)
+try {
+  $destination = [IO.File]::Create($archivePath)
+  try {
+    $gzip = [IO.Compression.GZipStream]::new(
+      $destination,
+      [IO.Compression.CompressionLevel]::Optimal,
+      $true
+    )
+    try {
+      $source.CopyTo($gzip)
+    } finally {
+      $gzip.Dispose()
+    }
+  } finally {
+    $destination.Dispose()
+  }
+} finally {
+  $source.Dispose()
+  Remove-Item -LiteralPath $tarPath -Force
 }
 
 $entries = @(& tar -tzf $archivePath)
@@ -105,6 +153,12 @@ $distAssetCount = @($entries | Where-Object { $_ -like './dist/assets/*' -and -n
 $rootAssetCount = @($entries | Where-Object { $_ -like './dist-root/assets/*' -and -not $_.EndsWith('/') }).Count
 if ($distAssetCount -lt 20 -or $rootAssetCount -lt 20) {
   throw "Archive verification failed: workbench=$distAssetCount, root=$rootAssetCount"
+}
+if (
+  $entries -notcontains './src/layouts/main-layout/ComboLayout.jsx' -and
+  $entries -notcontains 'src/layouts/main-layout/ComboLayout.jsx'
+) {
+  throw 'Archive verification failed: Aurora ComboLayout source is missing'
 }
 $forbiddenEntries = $entries | Where-Object {
   if ($_ -match '\.env(?:\.[^/]+)*\.(example|template)$') {

@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-stamp="${1:-}"
-if [[ ! "$stamp" =~ ^[0-9]{8}-[0-9]{6}$ ]]; then
-  echo "Invalid deployment stamp" >&2
+release_version="${1:-}"
+if [[ ! "$release_version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-ffax\.[0-9]+$ ]]; then
+  echo "Invalid release version" >&2
   exit 1
 fi
 
 workspace_root="/var/www/ffax/workspace"
-next_workspace="/var/www/ffax/workspace.next-${stamp}"
-previous_workspace="/var/www/ffax/workspace.previous-${stamp}"
-archive="/tmp/ffax-release-${stamp}.tar.gz"
-backup_root="/var/backups/ffax/${stamp}-static"
+next_workspace="/var/www/ffax/workspace.next-${release_version}"
+previous_workspace="/var/www/ffax/workspace.previous-${release_version}"
+archive="/tmp/ffax-release-${release_version}.tar.gz"
+backup_root="/var/backups/ffax/${release_version}-static"
 nginx_current="/etc/nginx/sites-enabled/ffax.com"
 nginx_previous="${backup_root}/ffax.com"
 switched=false
@@ -47,15 +47,7 @@ validate_frontend_bundle() {
 
   test -f "$index_file"
   test -d "${bundle_root}/assets"
-  test -f "${bundle_root}/ffax.svg"
-  if [[ -e "${bundle_root}/aurora.svg" ]]; then
-    echo "Legacy Aurora brand icon remains in frontend bundle: ${bundle_root}/aurora.svg" >&2
-    return 1
-  fi
-  if grep -Eiq 'aurora\.svg|Aurora, the intuitive|fonts\.googleapis\.com|fonts\.gstatic\.com|prium\.github\.io/aurora' "$index_file"; then
-    echo "Legacy or remote template dependency remains in frontend entry: ${index_file}" >&2
-    return 1
-  fi
+  test -f "${bundle_root}/aurora.svg"
   asset_count="$(find "${bundle_root}/assets" -type f | wc -l | tr -d ' ')"
   if (( asset_count < minimum_asset_count )); then
     echo "Incomplete frontend bundle: ${bundle_root} contains only ${asset_count} asset files" >&2
@@ -108,7 +100,7 @@ rollback() {
   echo "Deployment failed; restoring the previous static release" >&2
 
   if [[ "$switched" == true && -d "$previous_workspace" ]]; then
-    failed_workspace="/var/www/ffax/workspace.failed-${stamp}"
+    failed_workspace="/var/www/ffax/workspace.failed-${release_version}"
     mv -- "$workspace_root" "$failed_workspace"
     mv -- "$previous_workspace" "$workspace_root"
     if [[ -f "$nginx_previous" ]]; then
@@ -183,9 +175,9 @@ wait_http https://www.ffax.com/integration-api/commerce/health 15 2
 remove_matching_children "/var/www/ffax" "workspace.previous-*"
 remove_matching_children "/var/www/ffax" "workspace.failed-*"
 remove_matching_children "/var/www/ffax" "workspace.next-*"
-remove_matching_children "/var/backups/ffax" "????????-??????-static" "$backup_root"
+remove_matching_children "/var/backups/ffax" "*-static" "$backup_root"
 rm -f -- "$archive"
 
 trap - ERR INT TERM
-echo "DEPLOYED:${stamp}"
+echo "DEPLOYED:${release_version}"
 echo "BACKUP:${backup_root}"

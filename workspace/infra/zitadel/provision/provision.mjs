@@ -165,6 +165,19 @@ const ensureShortLoginPolicy = async () => {
   );
 };
 
+const ensureLoginV2Feature = async () => {
+  await request(
+    '/v2/features/instance',
+    {
+      loginV2: {
+        required: true,
+        baseUri: `${config.frontendUrl}/authentication/zitadel`,
+      },
+    },
+    { method: 'PUT' },
+  );
+};
+
 const ensureInitialAdminRole = async (projectId) => {
   const users = await search('/management/v1/users/_search');
   const matchesUsername = (user, username) => {
@@ -365,6 +378,7 @@ const writeOutputs = async ({ projectId, webClientId, apiClientId, apiClientSecr
 
 const projectId = await ensureProject();
 await ensureShortLoginPolicy();
+await ensureLoginV2Feature();
 await ensureRoles(projectId);
 await ensureInitialAdminRole(projectId);
 const apps = await search(`/management/v1/projects/${projectId}/apps/_search`);

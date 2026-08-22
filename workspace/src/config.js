@@ -7,8 +7,8 @@ const optionalExternalUrl = (value) => value?.trim() || '';
 export const externalLinks = {
   contact: {
     website: optionalExternalUrl(import.meta.env.VITE_FFAX_WEBSITE_URL),
-    email: optionalExternalUrl(import.meta.env.VITE_FFAX_CONTACT_EMAIL),
-    phone: optionalExternalUrl(import.meta.env.VITE_FFAX_CONTACT_PHONE),
+    email: optionalExternalUrl(import.meta.env.VITE_FFAX_CONTACT_EMAIL) || 'contact@ffax.com',
+    phone: optionalExternalUrl(import.meta.env.VITE_FFAX_CONTACT_PHONE) || '6262833323',
     location: optionalExternalUrl(import.meta.env.VITE_FFAX_CONTACT_LOCATION),
   },
   legal: {
